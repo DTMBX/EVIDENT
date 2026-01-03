@@ -783,7 +783,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .principles-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 
@@ -809,7 +809,7 @@ h1, h2, h3, h4, h5, h6 {
   right: 1.5rem;
   font-family: 'Bebas Neue', sans-serif;
   font-size: 3rem;
-  color: rgba(0, 0, 0, 0.04);
+  color: rgba(196, 30, 58, 0.15);
   line-height: 1;
 }
 
@@ -1268,6 +1268,10 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
   }
   
+  .principles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
   .status-content {
     grid-template-columns: 1fr;
   }
@@ -1311,6 +1315,10 @@ h1, h2, h3, h4, h5, h6 {
   
   .hero-title {
     font-size: clamp(2.5rem, 10vw, 4rem);
+  }
+  
+  .principles-grid {
+    grid-template-columns: 1fr;
   }
   
   .footer-grid {
@@ -1374,7 +1382,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   .card-number {
-    color: rgba(255, 255, 255, 0.03);
+    color: rgba(196, 30, 58, 0.2);
   }
   
   .divider::before,
