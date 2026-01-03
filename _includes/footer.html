@@ -2,15 +2,25 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <span class="brand-icon">✂</span>
-        <span class="brand-text">BARBER CAM</span>
+        <div class="footer-logo">
+          <span class="brand-icon">✂</span>
+          <span class="brand-text">BARBER CAM</span>
+        </div>
         <p class="footer-tagline">Precision. Patience. Virtue. Honor.</p>
+        <p class="footer-description">Citizen accountability through record, dignity, and due process.</p>
+        <div class="footer-contact">
+          <a href="mailto:BarberCamX@ProtonMail.com" class="contact-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <span>BarberCamX@ProtonMail.com</span>
+          </a>
+        </div>
       </div>
       <div class="footer-links">
         <h4>Navigate</h4>
         <a href="#preview">Preview</a>
         <a href="#principles">Principles</a>
         <a href="#status">Status</a>
+        <a href="#connect">Connect</a>
         <a href="faq.html">FAQ</a>
       </div>
       <div class="footer-links">
@@ -18,19 +28,34 @@
         <a href="docs/vision.html">Vision</a>
         <a href="docs/governance-ethics.html">Governance & Ethics</a>
         <a href="docs/status.html">Development Status</a>
+        <a href="LICENSE">License</a>
       </div>
       <div class="footer-notice">
         <h4>Public Notice</h4>
         <p>Under active development. No operational software, internal systems, or proprietary methods are published on this site.</p>
+        <div class="footer-compliance">
+          <span>Privacy-First</span>
+          <span>•</span>
+          <span>No Tracking</span>
+          <span>•</span>
+          <span>No Data Sales</span>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; <span id="year"></span> Barber Cam. All rights reserved.</p>
-      <p class="footer-legal">Built with precision in New York.</p>
+      <div class="footer-copyright">
+        <p>&copy; <span id="footer-year"></span> Barber Cam. All rights reserved.</p>
+        <p class="footer-legal">Built with precision in New York.</p>
+      </div>
+      <div class="footer-legal-links">
+        <a href="LICENSE">License</a>
+        <span>•</span>
+        <a href="mailto:BarberCamX@ProtonMail.com">Contact</a>
+      </div>
     </div>
   </div>
 </footer>
 
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
 </script>
