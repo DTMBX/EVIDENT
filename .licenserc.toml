@@ -1,0 +1,58 @@
+# HawkEye license header checker config
+
+[header]
+# Minimal header — short, consistent, enforceable.
+# (This is NOT the full license; full terms live in LICENSE.)
+text = """\
+Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+PROPRIETARY — See LICENSE.\
+"""
+
+[files]
+# File globs to check
+include = [
+  "**/*.py",
+  "**/*.js",
+  "**/*.ts",
+  "**/*.tsx",
+  "**/*.jsx",
+  "**/*.go",
+  "**/*.rs",
+  "**/*.java",
+  "**/*.kt",
+  "**/*.c",
+  "**/*.h",
+  "**/*.cpp",
+  "**/*.hpp",
+  "**/*.sh",
+  "**/*.yaml",
+  "**/*.yml"
+]
+
+exclude = [
+  "**/node_modules/**",
+  "**/.venv/**",
+  "**/venv/**",
+  "**/dist/**",
+  "**/build/**",
+  "**/.git/**"
+]
+
+[comment]
+# Comment styles by extension
+py = "#"
+js = "//"
+ts = "//"
+tsx = "//"
+jsx = "//"
+go = "//"
+rs = "//"
+java = "//"
+kt = "//"
+c = "/*"
+h = "/*"
+cpp = "/*"
+hpp = "/*"
+sh = "#"
+yaml = "#"
+yml = "#"
