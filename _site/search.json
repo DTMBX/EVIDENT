@@ -1,0 +1,1254 @@
+[
+  
+    
+    {
+      "title": "404 - Page Not Found | BarberX",
+      "url": "/404.html",
+      "content": "    404    Page Not Found        Looks like this page took a wrong turn at the barber shop. The page you're looking for doesn't exist or may have been moved.                🏠 Go Home              💰 View Pricing              Popular Pages                        💈        Homepage                          📚        Installation                          💰        Pricing                          ⚖️        Cases                          🔐        Login                          📝        Sign Up       ...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Brand Tokens",
+      "url": "/docs/BRAND_TOKENS/",
+      "content": "FaithFrontier Brand TokensVirtues: Integrity | Faith | PerseveranceUX feel: steadfast, calm, luminous, disciplined, protectivePreset: rockPalette  Ink: #0B1220  Navy: #0E1B2A  Emerald: #0F5D4D  Gold: #B08D2F  Parchment: #F5F0E6  Stone: #E6E2DASemantic tokens  accent: #B08D2F  bg: #F5F0E6  border: rgba(11,18,32,.18)  brand: #0F5D4D  danger: #8A1F2E  focus: #B08D2F  info: #1B4F72  muted: #0E1B2A  success: #1E6B4E  surface: #E6E2DA  text: #0B1220Motion  Style: gentle-purposeful  Speed: medium  E...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Admin Login | BarberX Legal Tech",
+      "url": "/admin/",
+      "content": "            🔐 Admin Panel      BarberX Legal Tech Platform Administration              ⚠️ Local Development Only      The admin panel requires the Flask backend running locally.      Start with: python app.py              Admin Panel URL:                    Default Admin Email:                    Open Admin Panel →                      Admin Features:        ✅ User Management (CRUD)        ✅ Settings Configuration (29 defaults)        ✅ System Monitoring        ✅ Audit Logs        ✅ Analysis ...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Clinician Collaboration Appendix",
+      "url": "/docs/health/holistic/appendix-clinicians/",
+      "content": "Clinician Collaboration AppendixA medically cautious, patient-responsibility frameworkThis appendix exists to support collaboration with licensed clinicians. It does not replace clinical judgment.Principles  Medication can be lifesaving. The objective is not “anti-medicine.”  The objective is risk reduction, informed consent, and functional improvement.  Holistic interventions here are designed to be low-risk, food-first, and scalable.What this project is  A structured, zone-aware repository ...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": null,
+      "url": "/cases.json",
+      "content": "[{\"path\":\"_cases/a-000313-25.md\",\"collection\":\"cases\",\"previous\":null,\"relative_path\":\"_cases/a-000313-25.md\",\"next\":{\"path\":\"_cases/atl-dc-007956-25.md\",\"collection\":\"cases\",\"previous\":{\"path\":\"_cases/a-000313-25.md\",\"collection\":\"cases\",\"previous\":null,\"relative_path\":\"_cases/a-000313-25.md\",\"next\":{\"path\":\"_cases/atl-dc-007956-25.md\",\"collection\":\"cases\",\"relative_path\":\"_cases/atl-dc-007956-25.md\",\"id\":\"/cases/atl-dc-007956-25\",\"url\":\"/cases/atl-dc-007956-25/\",\"draft\":false,\"categories\":[...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Gardening as Healing: The Stewardship Rubric",
+      "url": "/health/holistic/gardening-healing-rubric/",
+      "content": "      Stewardship • Healing • Natural occurrence    Gardening as Healing: The Stewardship Rubric          A framework showing how home and community gardening addresses root causes of chronic disease—      demonstrating the natural healing power of soil, nutrition, movement, and neighbor-care.              \"The LORD God took the man and put him in the Garden of Eden to work it and take care of it.\" —Genesis 2:15      Gardening is not metaphor. It is the foundational stewardship practice.     ...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Governance & Ethics",
+      "url": "/docs/governance-ethics/",
+      "content": "      Governance &amp; Ethics (in Active Development)    Barber Cam is being built with a stewardship-first approach. The project’s legitimacy depends on restraint, transparency, and due process.    ## Core Commitments- **Truthful record:** discourage selective editing and misleading presentation.- **Non-escalation:** recording must never be used to provoke conflict.- **Dignity:** avoid humiliation, harassment, or public shaming.- **Minimum necessary:** collect and retain as little as possibl...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "BarberX Legal Tech | AI-Powered eDiscovery Platform",
+      "url": "/",
+      "content": "                                        Local AI Processing • Court-Defensible Evidence Management                          Citizen Accountability        Through Record Access                          Professional-grade eDiscovery platform powered by open-source AI tools.         Process body-worn camera footage, police reports, CAD records, and legal documents         with 100% local processing—no cloud, no subscriptions, zero recurring costs.                                                 ...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Essays & Reflections",
+      "url": "/essays/",
+      "content": "      Essays &amp; Reflections          Reflections on faith, covenant, sovereignty, and the tension between personal identity and       global systems. These essays weave memoir with spiritual and civic manifesto — honest,       reflective, grounded, and searching.                  ",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Case Records & Legal Archive",
+      "url": "/cases/",
+      "content": "      Case Records &amp; Legal Archive          Every filing. Every order. Every motion. Faith Frontier's complete legal record demonstrates procedural competence,       constitutional literacy, and transparent accountability—the foundation of trust for government partnerships and community stewardship.                                                            10        Total Cases                    7        Active Litigation                    1        Pending Decisions                    ...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Holistic Independence Guide",
+      "url": "/health/holistic/",
+      "content": "      Stewardship • Food-first • Accountability    Holistic Independence Guide          Filter plants by USDA growing zone and common health goals. This is educational and collaborative, not medical advice.              Capacity note: This is not a directive to stop medication. Any medication changes must be made with a licensed clinician.                          USDA Zone                  Choose zone…                    3                    4                    5                    6       ...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Case Records & Legal Archive",
+      "url": "/cases/",
+      "content": "      Case Records & Legal Archive          Every filing. Every order. Every motion. Faith Frontier's complete legal record demonstrates procedural competence,       constitutional literacy, and transparent accountability—the foundation of trust for government partnerships and community stewardship.                                                        10        Total Cases                    7        Active Litigation                    1        Pending Decisions                    100%    ...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "U.S. Medication Statistics by State",
+      "url": "/health/holistic/medication-states/",
+      "content": "      Data • Stewardship • Informed choice    U.S. Medication Usage by State          Documented medication use rates and overmedication trends by state,      correlated with USDA growing zones to show accessible plant-based alternatives.              Purpose: This is not anti-medicine. It's pro-stewardship—showing where prescription rates are highest      and what affordable plant-food alternatives can support physician-guided reduction when appropriate.            Key Findings          Nati...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": null,
+      "url": "/cases/atl-l-002794-25/notes/notes/",
+      "content": "Status: Active — Motion to Dismiss PendingOperative PleadingOn November 25, 2025, Plaintiff filed a Second Amended Complaint (SAC).The SAC was accepted and docketed by the Court without rejection or deficiency notice and is the current operative pleading, unless and until the Court orders otherwise.The SAC clarifies factual allegations, narrows conviction-dependent theories, and separates independent claims from any claims that may intersect with post-conviction proceedings.Pending Motion to ...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Pain + Nerve Support",
+      "url": "/docs/health/holistic/conditions/pain-nerve/",
+      "content": "Pain + Nerve Support (Food-first)This subguide supports nerve irritation and musculoskeletal pain through low-risk, daily practices.Start here  Tea rotation: ginger + turmeric (morning), tulsi (afternoon), chamomile/lavender (evening)  Gentle movement: frequent short walks; avoid long sitting  Topical support: rosemary/ginger infused oil massage (hips/glutes/back)Plants commonly used (zone-dependent)Use the filter: /health/holistic/Select condition: Pain + Nerve Support and your USDA zone.Cau...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": null,
+      "url": "/search.json",
+      "content": "[  {% for page in site.pages %}    {% unless page.exclude_from_search %}    {      \"title\": {{ page.title | jsonify }},      \"url\": {{ page.url | jsonify }},      \"content\": {{ page.content | strip_html | strip_newlines | truncate: 500 | jsonify }},      \"type\": \"page\"      {% if page.tags %}, \"tags\": {{ page.tags | jsonify }}{% endif %}    }{% unless forloop.last %},{% endunless %}    {% endunless %}  {% endfor %}  {% for case in site.cases %}  ,{    \"title\": {{ case.title | jsonify }},    \"...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Development Status",
+      "url": "/docs/status/",
+      "content": "      Barber Cam - Project Status    Barber Cam is a citizen-led accountability initiative focused on ethical documentation, due process, and dignity.    ## Current Phase: Validation and Framework Development---## OverviewThis project combines precision tools with principled governance to preserve accurate records and reduce harm through responsible recording practices.---## Features in Development### Core Documentation Features- **Secure Recording** — End-to-end encrypted capture with tamper...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Vision",
+      "url": "/docs/vision/",
+      "content": "      Documentation Philosophy    This site exists to document truth, expose patterns of bad behavior, and help good people avoid similar problems.    ## My MissionI'm sharing my documented experiences to help others recognize bad actors and systemic dysfunction. Not to build a platform. Not to corner a market. Just to shine light on problems honestly and productively.## Core PhilosophyDocumentation should expose truth, not obscure it. Every case shared must serve honesty, clarity, and helpin...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": null,
+      "url": "/assets/css/style.css",
+      "content": "@import \"jekyll-theme-primer\";",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "⚡ COPYRIGHT COMPLIANCE - ACTION CHECKLIST",
+      "url": "/ACTION-CHECKLIST/",
+      "content": "# ⚡ COPYRIGHT COMPLIANCE - ACTION CHECKLIST**Print this page and check off as you complete each step**---## 📋 TODAY - CRITICAL BLOCKERS (2-4 hours)### ☐ Step 1: Create Database Tables (5 minutes)```bashcd c:\\web-dev\\github-repos\\BarberX.infopython models_data_rights.py```**Expected Output:**```✅ Data rights compliance tables created```**Verify in database:**- [ ] `data_sources` table exists- [ ] `citation_metadata` table exists- [ ] `public_case_data` table exists- [ ] `proprietary_source_dat...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Admin API Quick Reference",
+      "url": "/ADMIN-API-REFERENCE/",
+      "content": "# Admin API Quick ReferenceComplete reference for all admin backend management endpoints.---## AuthenticationAll admin endpoints require:1. Valid session (logged in)2. User role = `admin`Returns `403 Forbidden` if not admin.---## User Management### List All Users```httpGET /admin/users```**Response:**```json{  \"users\": [    {      \"id\": 1,      \"email\": \"user@example.com\",      \"full_name\": \"John Doe\",      \"organization\": \"Acme Legal\",      \"subscription_tier\": \"professional\",      \"role\": \"...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Admin Backend Management - Complete Guide",
+      "url": "/ADMIN-BACKEND-GUIDE/",
+      "content": "# Admin Backend Management - Complete Guide## OverviewThe BarberX admin panel now provides complete CRUD (Create, Read, Update, Delete) operations for managing users, analyses, and monitoring system health via an online admin portal.**Access:** `https://app.barberx.info/admin` (requires admin role)---## ✅ What's New### 1. **Enhanced Admin Panel UI** (`templates/admin-enhanced.html`)- Modern tabbed interface with 5 sections- Modal-based inline editing- Real-time search and filtering- Toast not...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Admin Backend Enhancement - Complete ✅",
+      "url": "/ADMIN-COMPLETE/",
+      "content": "# Admin Backend Enhancement - Complete ✅## What Was Requested**User Request:** \"make my admin backend easier to manage and edit things via online backend admin portal access\"## What Was DeliveredA **complete admin management system** with full CRUD operations, inline editing, system monitoring, and comprehensive audit trails.---## ✅ Completed Deliverables### 1. **Enhanced Admin Panel UI** ✅**File:** `templates/admin-enhanced.html` (589 lines)**Features:**- ✅ Modern tabbed interface (5 tabs)- ...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Admin Panel - Quick Start Guide",
+      "url": "/ADMIN-QUICK-START/",
+      "content": "# Admin Panel - Quick Start Guide**🚀 Your admin backend is now fully functional with online editing!**---## 🔑 Admin Credentials**Email:** `admin@barberx.info`  **Password:** `BxAdm!n#2026$Secur3*P@ssw0rd%33^` (33 chars with special characters)**Security Notes:**- ✅ Only ONE admin account exists- ✅ Password is 33 characters with special characters  - ✅ Store credentials in secure password manager- ✅ Change password after first login via admin panel---## ⚡ Instant Access**URL:** `https://app.ba...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Animation System Integration - Complete ✅",
+      "url": "/ANIMATION-INTEGRATION-COMPLETE/",
+      "content": "# Animation System Integration - Complete ✅**Date:** January 22, 2026  **Status:** ✅ FULLY INTEGRATED AND RUNNING## Executive SummarySuccessfully integrated modern ES6+ JavaScript and GPU-accelerated animations site-wide. All animation effects are now live and functional on http://localhost:5000.## ✅ What Was Completed### 1. Modern JavaScript Files Created- ✅ **enhanced-animations.js** (11.9 KB) - Core animation engine with Intersection Observer- ✅ **main-upgraded.js** (11.6 KB) - Modern ES6+...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "🎉 JavaScript &amp; Animation Upgrade Complete",
+      "url": "/ANIMATION-UPGRADE-COMPLETE/",
+      "content": "# 🎉 JavaScript & Animation Upgrade Complete## SummarySuccessfully upgraded all repository JavaScript to modern ES6+ and implemented a comprehensive animation system with GPU-acceleration and accessibility features.## ✅ Files Created### Core JavaScript (Modern ES6+)1. **`assets/js/enhanced-animations.js`** (12.4 KB)   - AnimationEngine class with Intersection Observer   - ScrollProgress class   - FloatingAnimation utility   - TextReveal utility   - 10+ scroll reveal effects   - Parallax scroll...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "ATTRIBUTION AND ACKNOWLEDGMENTS",
+      "url": "/ATTRIBUTION/",
+      "content": "# ATTRIBUTION AND ACKNOWLEDGMENTS**BarberX Legal Technologies**We stand on the shoulders of giants. This platform is made possible by the incredible work of open-source communities and technology providers.---## 🙏 ACKNOWLEDGMENTS### Artificial Intelligence & Machine Learning**OpenAI Whisper**  The backbone of our transcription engine. Whisper's state-of-the-art speech recognition enables accurate BWC footage transcription even in challenging audio conditions.- **License:** MIT License- **Copy...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "BWC Forensic Analysis System - Complete Guide",
+      "url": "/BWC-ANALYSIS-GUIDE/",
+      "content": "# BWC Forensic Analysis System - Complete Guide## Court-Defensible Body-Worn Camera Evidence ProcessingThis system provides comprehensive, court-admissible analysis of police body-worn camera footage for civil rights litigation under Federal Rules of Evidence 901(b)(9).---## Features### 🔒 Chain of Custody- SHA-256 cryptographic hash verification- Complete file metadata tracking- Acquisition documentation- Tamper-evident evidence handling### 🎙️ Audio Analysis- **Whisper AI Transcription**  - W...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Default owners for everything",
+      "url": "/CODEOWNERS/",
+      "content": "# Default owners for everything- @DTB396",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "BarberX Legal Tech - Commercial Software License",
+      "url": "/COMMERCIAL-LICENSE/",
+      "content": "# BarberX Legal Tech - Commercial Software License**Effective Date:** January 22, 2026  **Version:** 1.0---## PROPRIETARY SOFTWARE LICENSE AGREEMENT**IMPORTANT – READ CAREFULLY:**This Commercial Software License Agreement (\"Agreement\") is a legal agreement between you (either an individual or a legal entity) (\"Licensee\") and **Faith Frontier Ecclesiastical Trust** (doing business as \"BarberX Legal Technologies\") (\"Licensor\") for the BarberX Legal Tech platform software, including all associat...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "BarberX Legal Technologies",
+      "url": "/COMPANY-OVERVIEW/",
+      "content": "# BarberX Legal Technologies# Professional BWC Forensic Analysis Platform## 🏢 Company Overview**BarberX Legal Technologies** is a professional-grade software platform specializing in court-defensible forensic analysis of body-worn camera (BWC) footage for civil rights litigation, law enforcement accountability, and legal research.---## 🚀 Platform Features### Enterprise-Grade Infrastructure#### Multi-User Authentication & Authorization- User registration and login system- Role-based access con...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "✅ COMPLETE ATTRIBUTION &amp; LICENSE COMPLIANCE",
+      "url": "/COMPLETE-ATTRIBUTION-SUMMARY/",
+      "content": "# ✅ COMPLETE ATTRIBUTION & LICENSE COMPLIANCE**BarberX Legal Technologies - Full Third-Party Acknowledgment**---## 🎯 EXECUTIVE SUMMARY**Status:** ✅ **FULL COMPLIANCE ACHIEVED**### What We Track:1. ✅ **Westlaw/LexisNexis** - Proprietary databases (NEVER export)2. ✅ **CourtListener/Justia** - Public domain sources (full export allowed)3. ✅ **OpenAI Whisper** - AI transcription (MIT License - attribution required)4. ✅ **All open-source tools** - 8+ libraries with proper attribution5. ✅ **OPRA pu...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Component Optimization Summary",
+      "url": "/COMPONENT-OPTIMIZATION-COMPLETE/",
+      "content": "# Component Optimization Summary## 🎯 OverviewAll professional components have been comprehensively optimized with enhanced features, performance improvements, and better user experience.---## ✅ Components Optimized### 1. **analytics.html** - Analytics & Performance Tracking**Enhancements:**- ✅ Privacy-first consent integration with cookie banner- ✅ Web Vitals tracking (LCP, FID, CLS) using Performance Observer API- ✅ Outbound link tracking- ✅ Download tracking (PDF, DOC, ZIP, etc.)- ✅ Enhance...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "COPYRIGHT COMPLIANCE IMPLEMENTATION SUMMARY",
+      "url": "/COPYRIGHT-IMPLEMENTATION-SUMMARY/",
+      "content": "# COPYRIGHT COMPLIANCE IMPLEMENTATION SUMMARY**BarberX Legal Technologies - Pattern 1-3 Framework**---## ✅ WHAT WAS IMPLEMENTED### 📄 Documentation (3 files)1. **DATA-RIGHTS-COMPLIANCE.md** (350+ lines)   - Complete compliance framework   - Pattern 1: Pointer, don't republish (citation-only storage)   - Pattern 2: Keep proprietary layers separate (database segregation)   - Pattern 3: Rights-aware exports (attribution manifests)   - Fair use guidelines (200-word limit)   - Source classification...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "COPYRIGHT COMPLIANCE QUICK START",
+      "url": "/COPYRIGHT-QUICK-START/",
+      "content": "# COPYRIGHT COMPLIANCE QUICK START**Protect Your Law Firm from Copyright Lawsuits**## 🚨 CRITICAL: THREE RULES TO AVOID LAWSUITS### ⚖️ RULE 1: POINTER, DON'T REPUBLISH**NEVER copy full copyrighted content from Westlaw, LexisNexis, Bloomberg Law, or police reports.**✅ **ALLOWED:**```python# Store citation metadata onlycase = {    \"citation\": \"Smith v. Jones, 123 F.3d 456 (3d Cir. 2024)\",    \"westlaw_cite\": \"2024 WL 123456\",  # Citation only    \"fair_use_excerpt\": \"The court held that...[max 200...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Dashboard Optimization - Before &amp; After Comparison",
+      "url": "/DASHBOARD-BEFORE-AFTER/",
+      "content": "# Dashboard Optimization - Before & After Comparison## 📊 What Changed---## 1. LOGIN PAGE### BEFORE (`templates/login.html`):```❌ Basic centered card (450px)❌ Simple email/password inputs❌ Alert() for errors (blocking)❌ No loading states❌ No real-time validation❌ Forgot password (non-functional link)❌ No social login options❌ Basic inline CSS only```### AFTER (`templates/login-new.html`):```✅ Gradient background with glass-morphism✅ Professional form validation✅ Non-blocking alerts (success/er...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "✅ Dashboard &amp; Backend Management Optimization - COMPLETE",
+      "url": "/DASHBOARD-COMPLETE/",
+      "content": "# ✅ Dashboard & Backend Management Optimization - COMPLETE## 🎉 Project Status: SUCCESSFULLY COMPLETEDAll dashboard, login, and backend management tools have been optimized and expanded to enterprise-grade standards.---## 📦 Deliverables### 1. **Enhanced Login System****File:** `templates/login-new.html`- ✅ Modern gradient UI with animations- ✅ Real-time form validation (email regex, password checks)- ✅ Loading states with spinner- ✅ Non-blocking success/error alerts- ✅ Social login placeholder...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Dashboard &amp; Backend Management Optimization Complete",
+      "url": "/DASHBOARD-OPTIMIZATION/",
+      "content": "# Dashboard & Backend Management Optimization Complete## 🎯 OverviewThe BarberX dashboard, login system, and backend management tools have been completely upgraded to enterprise-grade standards with professional UI/UX, comprehensive analytics, and full administrative controls.---## ✅ What's Been Implemented### 1. **Enhanced Login System** (`templates/login-new.html`)#### Features:- ✅ **Modern UI/UX**  - Gradient background with glass-morphism card design  - Smooth animations and transitions  -...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "BarberX Dashboard &amp; Backend Management - Quick Reference",
+      "url": "/DASHBOARD-QUICK-REF/",
+      "content": "# BarberX Dashboard & Backend Management - Quick Reference## 🚀 What Was Optimized### 1. **Login System** (`templates/login-new.html`)- ✅ Modern gradient UI with animations- ✅ Real-time form validation- ✅ Loading states and error handling- ✅ Social login placeholders (Google, Microsoft)- ✅ Remember me + forgot password- ✅ Mobile-responsive design### 2. **Dashboard** (`templates/dashboard-new.html`)- ✅ Professional fixed sidebar (280px)- ✅ 4 stat cards with progress bars- ✅ Chart.js analytics (...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "COPYRIGHT AND DATA RIGHTS COMPLIANCE FRAMEWORK",
+      "url": "/DATA-RIGHTS-COMPLIANCE/",
+      "content": "# COPYRIGHT AND DATA RIGHTS COMPLIANCE FRAMEWORK**BarberX Legal Tech Platform**  **Effective:** January 22, 2026---## CRITICAL COMPLIANCE PATTERNSThis document outlines mandatory compliance patterns to protect BarberX Legal Technologies from copyright infringement, licensing violations, and data misuse claims.---## PATTERN 1: POINTER, DON'T REPUBLISH### Principle**NEVER republish full copyrighted content.** Store citations, fair-use excerpts, and pointers to authoritative sources only.### Imp...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Quick Fix: Essential AI Tools Installation (Minimal Disk Space)",
+      "url": "/DISK-SPACE-FIX/",
+      "content": "# Quick Fix: Essential AI Tools Installation (Minimal Disk Space)## ProblemYour C: drive is full, causing installation failures for Real-ESRGAN, basicsr, and ultralytics (YOLOv8).## Solution: Install Only Essential ToolsThis minimal installation gives you **core eDiscovery capabilities** with ~2GB instead of 10GB:### What Gets Installed (Essential Only)1. ✅ **openai-whisper** - Audio transcription (ESSENTIAL)2. ✅ **pyannote.audio** - Speaker diarization (ESSENTIAL)3. ✅ **tesseract** - OCR for...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Docket Intake Optimization - Implementation Summary",
+      "url": "/DOCKET-INTAKE-OPTIMIZATION/",
+      "content": "# Docket Intake Optimization - Implementation Summary**Date:** December 21, 2025  **Status:** ✅ Complete---## 🎯 Optimization Goals Achieved1. ✅ **Simplified batch PDF upload workflow**2. ✅ **Enhanced logging and visibility in intake process**3. ✅ **Added validation layer before processing**4. ✅ **Created comprehensive quick-start guide**",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "✅ COPYRIGHT COMPLIANCE - READY FOR PRODUCTION",
+      "url": "/EXECUTIVE-SUMMARY/",
+      "content": "# ✅ COPYRIGHT COMPLIANCE - READY FOR PRODUCTION## 🎯 EXECUTIVE SUMMARY**Status:** ✅ CODE COMPLETE | ⚠️ INTEGRATION PENDING  **Protection Level:** Enterprise-grade copyright compliance  **Risk Reduction:** $150,000+ lawsuit prevention per export  **Time to Deploy:** 1-2 days (database + app integration)---## 📦 WHAT YOU GOT### 7 Documents Created:1. ✅ **DATA-RIGHTS-COMPLIANCE.md** (350+ lines) - Complete legal framework2. ✅ **COPYRIGHT-QUICK-START.md** (200+ lines) - Attorney quick reference3. ✅...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "✅ BarberX Legal Tech - Frontend Complete",
+      "url": "/FRONTEND-COMPLETE/",
+      "content": "# ✅ BarberX Legal Tech - Frontend Complete## 🎉 Implementation SummaryAll navigation links are now **100% functional** with professional, production-ready pages.## 📊 What Was Built### Navigation System- ✅ **Fixed header** with blur backdrop and scroll effects- ✅ **Desktop dropdowns** for Tools, Resources, Company menus- ✅ **Mobile hamburger menu** with slide-in animation- ✅ **Touch-optimized** for mobile devices- ✅ **Active section tracking** on scroll- ✅ **Smooth scrolling** to anchor links##...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Frontend Modernization Summary",
+      "url": "/FRONTEND-MODERNIZATION/",
+      "content": "# Frontend Modernization Summary## OverviewComplete redesign of BarberX.info homepage with professional legal tech branding, modern CSS/JS, and clear value proposition for the AI-powered eDiscovery platform.---## Files Created/Modified### 1. **assets/css/legal-tech-platform.css** (700+ lines)**Purpose:** Modern design system for professional legal tech platform**Key Features:**- **CSS Custom Properties (Variables)**  - Professional color palette (navy, blue, cyan, green, amber, red)  - Neutra...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "LAUNCH READINESS CHECKLIST",
+      "url": "/LAUNCH-CHECKLIST/",
+      "content": "# LAUNCH READINESS CHECKLIST**BarberX Legal Technologies - Production Deployment**---## ✅ LEGAL COMPLIANCE (CRITICAL - MUST COMPLETE)### Copyright & Data Rights Protection- [x] **COPYRIGHT-QUICK-START.md** created - 3 critical rules documented- [x] **DATA-RIGHTS-COMPLIANCE.md** created - Complete compliance framework (Pattern 1-3)- [x] **data_rights.py** implemented - Export validation module- [x] **models_data_rights.py** implemented - Database segregation architecture- [ ] **Database tables...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Layout Optimization Summary",
+      "url": "/LAYOUT-OPTIMIZATION-SUMMARY/",
+      "content": "# Layout Optimization Summary## 🎯 OverviewAll 14 layouts have been comprehensively optimized with modern features, professional components, and enhanced user experience.---## ✅ Optimizations Applied to All Layouts### 🚀 Performance & Loading- **Animations**: Added `animate-fade-in-up` classes for smooth page loads- **Reading Time**: Automatic calculation based on word count (200 words/min)- **Responsive Design**: Improved mobile-first responsive behavior- **CSS Optimization**: Inline critical ...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Layout Quick Reference Card",
+      "url": "/LAYOUT-QUICK-REFERENCE/",
+      "content": "# Layout Quick Reference Card## 📋 Choose Your Layout### Content Types```yamllayout: article      # Biographies, narratives, long-form storieslayout: essay        # Thought pieces, opinion, philosophylayout: post         # Blog posts, news, updateslayout: case         # Legal cases with docket integrationlayout: case-enhanced # Advanced legal cases with timelinelayout: page         # Standard informational pageslayout: doc          # Technical documentationlayout: listing      # Index/archive ...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": null,
+      "url": "/NOTICE/",
+      "content": "NOTICE — PROPRIETARY MATERIALSThis repository is a PUBLIC PREVIEW and is made viewable for evaluation and discussion only.All rights are reserved by Faith Frontier Ecclesiastical Trust.NO PERMISSION is granted to clone, fork, download, copy, reproduce, modify, distribute, deploy,or use any portion of this repository, including code, documentation, and design assets.See LICENSE for full terms. Contact: BarberCamX@ProtonMail.com",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Privacy Policy - BarberX Legal Tech Platform",
+      "url": "/PRIVACY-POLICY/",
+      "content": "# Privacy Policy - BarberX Legal Tech Platform**Effective Date:** January 22, 2026  **Last Updated:** January 22, 2026## Our Commitment to PrivacyBarberX Legal Tech is designed with **privacy-first** principles. Unlike traditional eDiscovery platforms that upload your evidence to the cloud, **all AI processing happens 100% locally on your computer**. Your case files, BWC videos, and documents **never leave your machine**.This Privacy Policy explains what limited data we do collect (account in...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Professional Components Configuration Guide",
+      "url": "/PROFESSIONAL-COMPONENTS-GUIDE/",
+      "content": "# Professional Components Configuration GuideThis guide explains how to configure and use all the new professional components added to your site.## 🎯 Quick SetupAdd these configuration options to your `_config.yml` file:```yaml# ========================================# PROFESSIONAL FEATURES CONFIGURATION# ========================================# Analytics & Performanceanalytics_provider: 'google'  # Options: 'google', 'ga4', 'plausible', 'custom'analytics_id: 'G-XXXXXXXXXX'  # Your Google A...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "BarberX Legal Technologies®",
+      "url": "/README-NEW/",
+      "content": "# BarberX Legal Technologies®## Professional AI-Powered BWC Forensic Analysis Platform**Elite evidence processing for civil rights litigation, police accountability, and legal discovery.**[![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)[![Version: 2.0](https://img.shields.io/badge/Version-2.0-blue.svg)]()[![Status: Production Ready](https://img.shields.io/badge/Status-Production%20Ready-green.svg)]()---## 🚨 COMMERCIAL SOFTWARE - LICENSE REQUIRED FOR...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "🎬 Barber Cam Hero Components - START HERE",
+      "url": "/README_START_HERE/",
+      "content": "# 🎬 Barber Cam Hero Components - START HEREWelcome! This is your complete guide to all animated hero components for the Barber Cam marketing website.## 🚀 Quick Start (Choose Your Path)### 👥 I'm using a **Static Website** (GitHub Pages, etc.)**Status:** ✅ Ready to go — no changes needed!- The v2.0 refined barber pole animation is already in your `index.html` and `assets/css/style.css`- It includes improved timing (5.5s animation) and refined styling- No additional files to copy**Next step:** R...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "BarberX Legal Tech - Complete Route Map",
+      "url": "/ROUTE-MAP/",
+      "content": "# BarberX Legal Tech - Complete Route Map**Last Updated:** January 22, 2026## OverviewAll navigation links are now fully functional with professional pages created.## Authentication & Core Routes### Public Routes- **/** - Modern landing page (index-standalone.html)- **/register** - User registration- **/login** - User authentication- **/logout** - Session logout (requires auth)### Dashboard & Tools (Authentication Required)- **/dashboard** - User control panel with analytics- **/analyzer** - ...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Security Policy",
+      "url": "/SECURITY/",
+      "content": "# Security Policy## Reporting a VulnerabilityPlease report security issues by email:**BarberCamX@ProtonMail.com**Include:- a clear description of the issue- affected file(s) / component(s)- steps to reproduce (or proof-of-concept details if safe)- impact assessment (what could happen)- any suggested remediation## Coordinated DisclosurePlease do not publicly disclose the issue until we respond and have had a reasonable opportunity to address it.## Supported VersionsThis repository is a **previ...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "🚀 DASHBOARD OPTIMIZATION - WHAT TO DO NEXT",
+      "url": "/START-HERE/",
+      "content": "# 🚀 DASHBOARD OPTIMIZATION - WHAT TO DO NEXT## ✅ Status: COMPLETE - Ready for Deployment---## 📋 Quick Activation Guide (3 Steps)### STEP 1: Activate New Templates (30 seconds)Open PowerShell and run:```powershellcd c:\\web-dev\\github-repos\\BarberX.info# Backup old templatesMove-Item templates/login.html templates/login-old.html -ForceMove-Item templates/dashboard.html templates/dashboard-old.html -Force# Activate new templatesMove-Item templates/login-new.html templates/login.html -ForceMove-I...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Stylesheet &amp; Layout Fixes - Complete ✅",
+      "url": "/STYLESHEET-LAYOUT-FIXES/",
+      "content": "# Stylesheet & Layout Fixes - Complete ✅**Date:** January 22, 2026  **Status:** ✅ ALL ISSUES FIXED## Summary of Fixes Applied### 1. ✅ Hero Title Contrast Fixed**Issue:** \"AI-Powered BWC Analysis for Civil Rights Litigation\" had poor contrast  **Solution:**- Added explicit `color: #ffffff` to hero h1- Added `text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3)` for enhanced readability- Increased to `text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4)` on mobile for better visibility**Result:** Hero title now has ...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Terms of Service - BarberX Legal Tech Platform",
+      "url": "/TERMS-OF-SERVICE/",
+      "content": "# Terms of Service - BarberX Legal Tech Platform**Effective Date:** January 22, 2026  **Last Updated:** January 22, 2026## 1. Acceptance of TermsBy accessing or using the BarberX Legal Tech platform (\"Platform\"), you agree to be bound by these Terms of Service (\"Terms\"). If you do not agree, you may not use the Platform.These Terms constitute a legally binding agreement between you and **Faith Frontier Ecclesiastical Trust** (doing business as \"BarberX Legal Technologies\") (\"Company\", \"we\", \"...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "THIRD-PARTY LICENSES AND ATTRIBUTIONS",
+      "url": "/THIRD-PARTY-LICENSES/",
+      "content": "# THIRD-PARTY LICENSES AND ATTRIBUTIONS**BarberX Legal Technologies**This document lists all third-party software, APIs, and open-source tools used in the BarberX platform, along with their licenses and required attributions.---## 🤖 AI/ML LIBRARIES### OpenAI Whisper**Purpose:** Audio transcription (BWC footage → text)  **License:** MIT License  **Copyright:** © 2022 OpenAI  **Repository:** https://github.com/openai/whisper  **Attribution Required:** YES**License Text:**```MIT LicenseCopyright...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Trademarks and Brand Use",
+      "url": "/TRADEMARKS/",
+      "content": "# Trademarks and Brand Use“Barber Cam” and any related names, marks, logos, taglines, and trade dress are proprietary to**Faith Frontier Ecclesiastical Trust**.## No Permission GrantedNo rights are granted to use Barber Cam branding in:- software products- websites or apps- marketing or fundraising- derivatives, forks, or ports- domains, social handles, or app store listings## Allowed ReferencesYou may:- reference the project by name in plain text (e.g., “Barber Cam (Preview)”) when linking t...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "BWC Forensic Analyzer - Web App Guide",
+      "url": "/WEB-APP-GUIDE/",
+      "content": "# BWC Forensic Analyzer - Web App Guide## 🎯 Easy Drag-and-Drop InterfaceYour BWC analyzer now has a **user-friendly web interface** - no command line needed!---## 🚀 Quick Start (3 Steps)### Step 1: Start the Web Server```powershell# Activate virtual environmentcd c:\\web-dev\\github-repos\\BarberX.info.\\.venv\\Scripts\\Activate.ps1# Install Flask (if not already installed)pip install flask flask-cors# Start the web apppython bwc_web_app.py```You'll see:```╔═════════════════════════════════════════...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "BarberX 404 Fix &amp; Missing Pages — Final Report",
+      "url": "/docs/404-FINAL-REPORT/",
+      "content": "# BarberX 404 Fix & Missing Pages — Final Report## 🎯 Executive Summary**Objective:** Fix all 404 errors by scanning site for broken links and creating proper pages with BarberX branding.**Status:** ✅ **Phase 1-3 Complete** (Ready for Flask integration)**Duration:** 2 hours**Results:**- 4 critical pages created- Custom 404 error page- 3 comprehensive documentation reports- Full Flask integration guide- Zero broken links for core features---## 📊 Work Completed### Pages Created (All with BarberX...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "BarberX 404 Error Fix — Complete Report",
+      "url": "/docs/404-FIX-REPORT/",
+      "content": "# BarberX 404 Error Fix — Complete Report## Executive SummaryScanned entire site for broken links and missing pages. Created comprehensive page structure with proper Jekyll layouts and branding.---## Missing Pages Found & Fixed### ✅ Created Pages#### 1. `/pricing/` — **CREATED****File:** `_pages/pricing.md`**Layout:** default**Features:**- Beautiful 4-tier pricing grid- Hover animations on cards- Featured \"Most Popular\" badge- Complete feature lists- FAQ section- BarberX branding#### 2. `/doc...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "404 Fix Implementation - Complete Summary",
+      "url": "/docs/404-IMPLEMENTATION-SUMMARY/",
+      "content": "# 404 Fix Implementation - Complete Summary## ✅ Pages Created & Fixed### Priority Pages (Completed)#### 1. `/pricing/` ✅- **File:** `_pages/pricing.md`- **Size:** 13.5 KB- **Features:** 4-tier pricing grid, hover animations, FAQ section- **Status:** Complete and tested#### 2. `/docs/installation/` ✅- **File:** `_pages/installation.md`- **Size:** 8.7 KB- **Features:** Windows/macOS/Linux guides, GPU setup, troubleshooting- **Status:** Complete and tested#### 3. `/docs/` ✅- **File:** `_pages/do...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Animation Quick Reference Card",
+      "url": "/docs/ANIMATION-QUICK-REFERENCE/",
+      "content": "# Animation Quick Reference Card## 🎯 Quick Start (3 Steps)### 1. Add CSS & JS```html    ```### 2. Add Classes```htmlI slide from bottom!```### 3. Done! 🎉---## 📋 Animation Classes Cheat Sheet### Scroll Reveals| Class | Effect ||-------|--------|| `.fade-in` | Simple fade in || `.slide-up` | Slide from bottom || `.slide-down` | Slide from top || `.slide-left` | Slide from right || `.slide-right` | Slide from left || `.zoom-in` | Scale up from 80% || `.zoom-out` | Scale down from 120% || `.rotat...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Authentication UI Optimization — Complete ✅",
+      "url": "/docs/AUTH-UI-OPTIMIZATION/",
+      "content": "# Authentication UI Optimization — Complete ✅## What Was OptimizedSuccessfully upgraded the login and signup pages with modern, polished UI/UX featuring smooth animations and professional branding.---## ✨ **Login Page Enhancements**### Visual Improvements- ✅ **Animated background** — Subtle diagonal stripe pattern that slides- ✅ **Enhanced container** — Larger padding, softer shadows, backdrop blur- ✅ **Slide-in animation** — Page fades in smoothly on load- ✅ **Input icons** — Email and lock ...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "BarberX Brand Guide",
+      "url": "/docs/BRAND-GUIDE/",
+      "content": "# BarberX Brand Guide## Like a Fresh NYC Fade — Clean, Rounded, Crisp**EST. 2024 | A CUT ABOVE**---## Brand Identity### Tagline**\"A Cut Above\"** — Precision, patience, virtue, and honor in every detail.### Core Values- **Precision**: Every line matters, every detail counts- **Patience**: Quality takes time, rushing leads to mistakes- **Virtue**: Built on integrity and ethical principles- **Honor**: Respecting dignity and due process---## Visual Identity### The Barber PoleThe classic 1920s spi...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "BarberX Brand Quick Reference",
+      "url": "/docs/BRAND-QUICK-REFERENCE/",
+      "content": "# BarberX Brand Quick Reference**EST. 2024 | A CUT ABOVE**  *Like a fresh NYC fade — clean, rounded, crisp*---## 🎨 Colors```css/* The Barber Trio */--barber-red: #c41e3a--barber-white: #ffffff--barber-blue: #1e40af/* Brass Accents */--brass-gold: #FFD700--brass-mid: #d4a574```---## 📐 Spacing (4px Grid)```css--space-2: 0.5rem   /* 8px */--space-4: 1rem     /* 16px */--space-6: 1.5rem   /* 24px */--space-8: 2rem     /* 32px */--space-12: 3rem    /* 48px */```---## 🔘 Border Radius```css--radius-...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "BarberX Branding Implementation Summary",
+      "url": "/docs/BRANDING-IMPLEMENTATION-SUMMARY/",
+      "content": "# BarberX Branding Implementation Summary## What Was DoneSuccessfully unified the classic 1920s barber pole branding across the entire BarberX.info site with a clean NYC fade aesthetic — rounded, smooth, and crisp.## Files Created### CSS Files1. **`assets/css/brand-tokens.css`** (6.7 KB)   - Global design system with all brand colors, spacing, transitions   - Smooth easing functions and duration variables   - Dark mode support   - Reduced motion accessibility2. **`assets/css/components/barber...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "BarberX Complete Platform Status — Session Summary",
+      "url": "/docs/COMPLETE-PLATFORM-STATUS/",
+      "content": "# BarberX Complete Platform Status — Session Summary## 🎯 Session Overview**Duration:** ~3 hours total (6 hours cumulative)  **Focus:** Complete branding, authentication, 404 fixes, and UX optimization  **Status:** ✅ Production-ready platform with polished UX---## ✅ Phase 1: Branding Unification (COMPLETE)### Files Created:- `assets/css/brand-tokens.css` — Design system- `assets/css/components/barber-branding.css` — Header/footer integration- `assets/css/components/barber-pole-spinner.css` — E...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Docket Intake &amp; Integrity Architecture v2.0",
+      "url": "/docs/DOCKET-ARCHITECTURE-V2/",
+      "content": "# Docket Intake & Integrity Architecture v2.0**Date:** January 19, 2026  **Status:** 🔴 Action Required  **Author:** Design & Architecture Agent---## Executive SummaryCritical integrity issues identified in current docket system:- **Duplicate data directories** (`_data/docket/` and `_data/docket_index/`)- **Inconsistent path references** between directories- **Missing unified validation layer**- **No automated integrity verification**---## 1. Current State Analysis### 1.1 Directory Structure (...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Docket Intake &amp; Integrity System - Architecture Analysis Report",
+      "url": "/docs/DOCKET-INTAKE-ARCHITECTURE-ANALYSIS/",
+      "content": "# Docket Intake & Integrity System - Architecture Analysis Report**Date:** January 19, 2026  **Prepared by:** Design & Architecture Agent  **Platform:** BarberX.info - Citizen-Led Legal Documentation Platform---## Executive SummaryThis report provides a comprehensive analysis of the BarberX.info docket intake system, identifying critical integrity issues, architectural inconsistencies, and providing prioritized recommendations for improvement. The system currently supports 10+ active legal ca...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Court-Defensible eDiscovery Platform - Complete Documentation",
+      "url": "/docs/EDISCOVERY-PLATFORM/",
+      "content": "# Court-Defensible eDiscovery Platform - Complete Documentation## 📋 OverviewThe BarberX eDiscovery Platform is a **complete court-defensible evidence management system** designed specifically for civil rights litigation against law enforcement agencies.**Built to withstand Daubert challenges and meet Federal Rule of Civil Procedure 26(a)(1) compliance.**---## 🎯 Core Capabilities### 1. Defensible Collection & Chain of Custody**Evidence Vault** (`evidence_vault_service.py`)- ✅ SHA-256 hashing a...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Flask Integration Guide — Authentication Enhancement",
+      "url": "/docs/FLASK-INTEGRATION-GUIDE/",
+      "content": "# Flask Integration Guide — Authentication Enhancement## Current State Analysis### Existing `app.py` Has:- ✅ Flask app initialized- ✅ SQLAlchemy database setup- ✅ Flask-Login configured- ✅ User model with basic authentication- ✅ Login/register routes (`/login`, `/register`)- ✅ Dashboard route (`/dashboard`)- ✅ Tier system (free, professional, enterprise)- ✅ Usage limits per tier### New `auth_routes.py` & `models_auth.py` Provide:- ✅ Enhanced User model with more fields- ✅ UsageTracking model ...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Flask Integration — Complete Success! ✅",
+      "url": "/docs/FLASK-INTEGRATION-SUCCESS/",
+      "content": "# Flask Integration — Complete Success! ✅## 🎉 Achievement SummarySuccessfully integrated enhanced authentication system with Flask! Server is running and ready for testing.---## 🚀 Server Status**URL:** http://localhost:5000  **Status:** ✅ Running  **Database:** SQLite (instance/barberx_auth.db)  **Auth System:** Enhanced (models_auth.py + auth_routes.py)  ---## 🔐 Test Accounts### Admin Account:```Email: dTb33@pm.mePassword: LoveAll33!Tier: Admin ($9999/mo)Access: Full backend + admin dashboar...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Infinite Backend AI System - Complete Documentation",
+      "url": "/docs/INFINITE-AI-SYSTEM/",
+      "content": "# Infinite Backend AI System - Complete Documentation## 🎯 OverviewThe BarberX Legal Case Management Pro Suite now includes a **comprehensive automated legal research and AI analysis system** with infinite scalability.---## 🤖 Enhanced AI Capabilities### 1. **Infinite Context Analysis** (`enhanced_ai_service.py`)- **Conversation Memory**: Persistent memory across unlimited conversations- **Document Summarization**: Automatic summarization to maintain context- **Cross-Reference**: Links evidence...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "JavaScript &amp; Animation Upgrade Summary",
+      "url": "/docs/JAVASCRIPT-ANIMATION-UPGRADE/",
+      "content": "# JavaScript & Animation Upgrade Summary## 🚀 Comprehensive Repository Modernization### What Was Upgraded#### 1. **Core JavaScript Files - Modern ES6+ Rewrite**- ✅ `assets/js/main-upgraded.js` - Complete rewrite with classes, async/await- ✅ `assets/js/theme-toggle-upgraded.js` - Advanced theme system- ✅ `assets/js/enhanced-animations.js` - GPU-accelerated animation engine- ✅ `assets/css/enhanced-animations.css` - Modern CSS animations#### 2. **Modern JavaScript Features Implemented****ES6+ Syn...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Local AI Tools Guide - Open-Source Evidence Processing",
+      "url": "/docs/LOCAL-AI-GUIDE/",
+      "content": "# Local AI Tools Guide - Open-Source Evidence Processing## 🎯 OverviewProcess all evidence **locally on your machine** using 100% open-source AI tools. No cloud APIs, no subscriptions, completely free and court-defensible.**Benefits:**- ✅ **No costs** - All tools are free and open-source- ✅ **Privacy** - Data never leaves your system- ✅ **Court-defensible** - Fully auditable open-source algorithms- ✅ **Offline** - Works without internet connection- ✅ **Control** - You own the models and proces...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Media Enhancement Guide - Non-Destructive Audio/Video/Image Processing",
+      "url": "/docs/MEDIA-ENHANCEMENT-GUIDE/",
+      "content": "# Media Enhancement Guide - Non-Destructive Audio/Video/Image Processing## 🎯 OverviewThe Media Enhancement Service provides **court-defensible audio, video, and image enhancement** while **ALWAYS preserving original evidence** in the immutable vault.**Key Principle: ORIGINALS ARE NEVER MODIFIED**Every enhancement creates a new derivative file with complete processing documentation, SHA-256 hashes, and quality metrics.---## 🔒 Non-Destructive Workflow### How It Works1. **Original Evidence**: In...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "BarberX Tier Access System - Implementation Complete ✅",
+      "url": "/docs/TIER-SYSTEM-COMPLETE/",
+      "content": "# BarberX Tier Access System - Implementation Complete ✅## What Was ImplementedSuccessfully created a professional tier-based authentication and authorization system for BarberX with your admin account and 4 subscription tiers.---## ✅ **Admin Account Created****Your Credentials:**- **Email:** `dTb33@pm.me`- **Password:** `LoveAll33!`- **Tier:** Admin ($9999/mo symbolic price)- **Access:** Full backend access + unlimited everything**Admin Privileges:**- ✅ Unlimited BWC processing- ✅ Unlimited ...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "BarberX Legal Tools - User Guide",
+      "url": "/docs/TOOLS-USER-GUIDE/",
+      "content": "# BarberX Legal Tools - User GuideWelcome to the BarberX Legal Case Management Pro Suite tools! This guide will help you use all the available tools effectively.## 🔧 Available Tools### 1. Docket Search**URL:** `/tools/docket-search/`Search and track court dockets, case filings, and party information across all BarberX cases.**Features:**- Real-time search across all docket entries- Advanced filtering by:  - Court (Atlantic, Mercer, Camden, Essex, Hudson)  - Case type (Law Division, Special Ci...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "UX Enhancement Implementation Guide",
+      "url": "/docs/UX-ENHANCEMENTS/",
+      "content": "# UX Enhancement Implementation Guide## OverviewComplete user experience improvements for BarberX platform including sticky navigation, toast notifications, enhanced forms, and accessibility features.---## 🎨 New Components Created### 1. Sticky Header on Scroll**File:** `assets/css/components/ux-enhancements.css` (lines 1-18)**Features:**- Header sticks to top when scrolling- Adds subtle shadow and backdrop blur when scrolled- Smooth transition animations- Dark mode support**CSS Classes:**- `....",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": null,
+      "url": "/docs/health/holistic/conditions/inflammation-metabolic/",
+      "content": "",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": null,
+      "url": "/docs/health/holistic/conditions/mood-support/",
+      "content": "",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": null,
+      "url": "/docs/health/holistic/conditions/sleep/",
+      "content": "",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": null,
+      "url": "/docs/health/holistic/conditions/stress-anxiety/",
+      "content": "",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": null,
+      "url": "/docs/health/holistic/guide/",
+      "content": "",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Barber Cam — FAQ",
+      "url": "/faq/",
+      "content": "# Barber Cam — FAQ## What is Barber Cam?Barber Cam is a citizen-led accountability initiative focused on ethical documentation, due process, and dignity. The goal is to preserve accurate records and reduce harm through responsible recording practices.## Is Barber Cam law enforcement?No. Barber Cam is not a government agency, not law enforcement, and not affiliated with any department.## Is this “surveillance”?No. Barber Cam is not designed for mass monitoring or covert tracking. It is intende...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Faith Frontier Logo Assets",
+      "url": "/assets/img/",
+      "content": "# Faith Frontier Logo Assets## SVG crest wordmarks- `logo-faithfrontier-dark-bg.svg` - default for the navy header/footer. FAITH is locked to pure white (#FFFFFF) for contrast and FRONTIER sits in royal brass.- `logo-faithfrontier-light-bg.svg` - use on white or parchment backgrounds. FAITH is emerald (#059669) and FRONTIER stays deep ink (#041322).- `faithfrontier-logo.svg` - maintained as an alias of the dark crest for legacy references in `_config.yml` or partner embeds.- `faithfrontier-ma...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "A-000308-25",
+      "url": "/cases/a-000308-25/",
+      "content": "# A-000308-25- **Docket:** A-000308-25- **County:** Statewide (Appellate Division)- **Type:** civil- **Filings:** [View folder](./filings/)- **Last Updated:** 2025-12-24T20:13:49.651Z## SummaryThis case folder has been normalized for intake automation. Filings listed below reflect the latest uploads.## Filings Index- [20251029-notice-of-deficiencies-and-required-corrections.pdf](/cases/a-000308-25/filings/20251029-notice-of-deficiencies-and-required-corrections.pdf)- [20251029-order-denying-l...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "A-000313-25 Street Crossing Appeal",
+      "url": "/cases/a-000313-25/",
+      "content": "# A-000313-25 Street Crossing Appeal- **Docket:** A-000313-25- **County:** Atlantic County (originating matter)- **Type:** civil- **Filings:** [View folder](./filings/)- **Last Updated:** 2025-12-24T20:13:49.667Z## SummaryAppellate Division matter arising from a street-crossing conviction originating in Atlantic County. This page serves as a clean, verifiable public record for docket A-000313-25, linking to operative orders and filings while preserving a chronological procedural history consi...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "ATL-22-002292",
+      "url": "/cases/atl-22-002292/",
+      "content": "# ATL-22-002292- **Docket:** ATL-22-002292- **County:** Atlantic County- **Type:** criminal- **Filings:** [View folder](./filings/)- **Last Updated:** 2025-12-24T20:13:49.676Z## SummaryThis case folder has been normalized for intake automation. Filings listed below reflect the latest uploads.## Filings Index- [20251026-njsc-atl-22-002292-barber-petition-for-postconvictionrelief-with-certification-and-memorandum.pdf](/cases/atl-22-002292/filings/20251026-njsc-atl-22-002292-barber-petition-for-...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "ATL-22-002313",
+      "url": "/cases/atl-22-002313/",
+      "content": "# ATL-22-002313- **Docket:** ATL-22-002313- **County:** Atlantic County- **Type:** criminal- **Filings:** [View folder](./filings/)- **Last Updated:** 2025-12-24T20:13:49.683Z## SummaryThis case folder has been normalized for intake automation. Filings listed below reflect the latest uploads.## Filings Index- [20251026-njsc-atl-22-002292-barber-petition-for-postconvictionrelief-with-certification-and-memorandum.pdf](/cases/atl-22-002313/filings/20251026-njsc-atl-22-002292-barber-petition-for-...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "ATL-DC-007956-25 Toll Enforcement",
+      "url": "/cases/atl-dc-007956-25/",
+      "content": "# ATL-DC-007956-25 Toll Enforcement- **Docket:** ATL-DC-007956-25- **County:** Atlantic County- **Type:** special civil- **Filings:** [View folder](./filings/)- **Last Updated:** 2025-12-24T20:13:49.690Z## SummaryContesting toll-enforcement claims while prosecuting counterclaims regarding accessibility and record integrity. Case remains active with ADA correspondence, discovery demands, and responses to the Authority's pleadings.## Filings Index- [20250819-complaint-and-summons-by-njta.pdf](/...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "ATL-L-002794-25 Law Division",
+      "url": "/cases/atl-l-002794-25/",
+      "content": "# ATL-L-002794-25 Law Division- **Docket:** ATL-L-002794-25- **County:** Atlantic County- **Type:** civil- **Filings:** [View folder](./filings/)- **Last Updated:** 2025-12-24T20:13:49.712Z## SummaryTrack-change litigation pressing the Law Division to treat Barber's civil claims as complex equitable matters instead of a fast-track landlord docket. Verified pleadings, supplemental memoranda, and the granted order are all uploaded for review.## Filings Index- [20251003-affidavit-of-indigency-wi...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "ATL-L-002869-25 Declaratory Relief",
+      "url": "/cases/atl-l-002869-25/",
+      "content": "# ATL-L-002869-25 Declaratory Relief- **Docket:** ATL-L-002869-25- **County:** Atlantic County- **Type:** civil- **Filings:** [View folder](./filings/)- **Last Updated:** 2025-12-24T20:13:49.718Z## SummaryDeclaratory-judgment action establishing ownership and indemnity rights tied to vehicle registration disputes. Track assignment and amended pleadings are active as of October 2025.## Filings Index- [20251006-verified-complaint.pdf](/cases/atl-l-002869-25/filings/20251006-verified-complaint.p...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "ATL-L-003252-25 Equitable Relief",
+      "url": "/cases/atl-l-003252-25/",
+      "content": "# ATL-L-003252-25 Equitable Relief- **Docket:** ATL-L-003252-25- **County:** Atlantic County- **Type:** civil- **Filings:** [View folder](./filings/)- **Last Updated:** 2025-12-24T20:13:49.728Z## SummaryCivil action seeking equitable relief and declaratory judgment. Verified complaint filed December 2025 with exhibits documenting prosecutorial misconduct and seeking emergency relief.## Filings Index- [20251207-dtb-certification-of-facts.pdf](/cases/atl-l-003252-25/filings/20251207-dtb-certifi...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Barber PCR (2022)",
+      "url": "/cases/barber-nj-pcr-2022/",
+      "content": "# Barber PCR (2022)- **Docket:** ATL-22-002292- **County:** Atlantic County- **Type:** criminal- **Filings:** [View folder](./filings/)- **Last Updated:** 2025-12-24T20:13:49.734Z## SummaryPost-conviction relief petition challenging the 2022 conviction, focusing on due process violations, public safety concerns, and fidelity to the record. Filed October 2025 with supporting certification and supplemental record requests for appellate transmittal.## Filings Index- [20220710-messages-with-oak-t...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "MER-L-002371-25",
+      "url": "/cases/mer-l-002371-25/",
+      "content": "# MER-L-002371-25- **Docket:** MER-L-002371-25- **County:** Mercer County- **Type:** civil- **Filings:** [View folder](./filings/)- **Last Updated:** 2025-12-24T20:13:49.739Z## SummaryThis case folder has been normalized for intake automation. Filings listed below reflect the latest uploads.## Filings Index- [11-15-proof-of-service-by-dtb.pdf](/cases/mer-l-002371-25/filings/11-15-proof-of-service-by-dtb.pdf)- [20251029-affidavit-of-indigency.pdf](/cases/mer-l-002371-25/filings/20251029-affida...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "BarberX Documentation Index",
+      "url": "/docs/",
+      "content": "# BarberX Documentation Index## 📚 Documentation Files### 404 Error Fix Project- **[404-FINAL-REPORT.md](/docs/404-FINAL-REPORT/)** — Complete summary (13 KB)    *Start here for full overview of all work completed*- **[404-FIX-REPORT.md](/docs/404-FIX-REPORT/)** — Original report (9 KB)    *Initial analysis and missing pages list*- **[404-IMPLEMENTATION-SUMMARY.md](/docs/404-IMPLEMENTATION-SUMMARY/)** — Implementation details (10 KB)    *Technical details of pages created*- **[FLASK-INTEGRATIO...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": "Docket Upload Worker Setup",
+      "url": "/worker/",
+      "content": "# Docket Upload Worker SetupThis Cloudflare Worker enables PR-based docket uploads from the `/docket/submit/` form.## Prerequisites1. A Cloudflare account with Workers enabled2. A GitHub Personal Access Token (PAT) with `repo` scope## Setup Steps### 1. Create GitHub Personal Access Token1. Go to GitHub Settings > Developer settings > Personal access tokens > Tokens (classic)2. Click \"Generate new token (classic)\"3. Give it a descriptive name: \"FaithFrontier Docket Worker\"4. Select scopes:   -...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": null,
+      "url": "/sitemap.xml",
+      "content": "{% if page.xsl %}{% endif %}{% assign collections = site.collections | where_exp:'collection','collection.output != false' %}{% for collection in collections %}{% assign docs = collection.docs | where_exp:'doc','doc.sitemap != false' %}{% for doc in docs %}{{ doc.url | replace:'/index.html','/' | absolute_url | xml_escape }}{% if doc.last_modified_at or doc.date %}{{ doc.last_modified_at | default: doc.date | date_to_xmlschema }}{% endif %}{% endfor %}{% endfor %}{% assign pages = site.html_p...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": null,
+      "url": "/robots.txt",
+      "content": "Sitemap: {{ \"sitemap.xml\" | absolute_url }}",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
+      "title": null,
+      "url": "/feed.xml",
+      "content": "{% if page.xsl %}{% endif %}Jekyll{{ site.time | date_to_xmlschema }}{{ page.url | absolute_url | xml_escape }}{% assign title = site.title | default: site.name %}{% if page.collection != \"posts\" %}{% assign collection = page.collection | capitalize %}{% assign title = title | append: \" | \" | append: collection %}{% endif %}{% if page.category %}{% assign category = page.category | capitalize %}{% assign title = title | append: \" | \" | append: category %}{% endif %}{% if title %}{{ title | sm...",
+      "type": "page"
+      
+    }
+    
+  
+  
+  ,{
+    "title": "A-000313-25 – Street Crossing Appeal",
+    "url": "/cases/a-000313-25/",
+    "content": "Case OverviewThis case record maintains a factual, chronological archive for A-000313-25, an Appellate Division matter arising from an encounter in Atlantic County involving an alleged jaywalking violation and subsequent law enforcement actions.According to the appellant’s account, the incident began when the appellant was stopped as a pedestrian by Officer Boyd of the Township of Hamilton Police Department, who allegedly assumed the appellant had crossed directly from a neighborhood across t...",
+    "type": "case"
+    , "tags": ["appellate","street-crossing","due-process"]
+  }
+  
+  ,{
+    "title": "ATL-DC-007956-25 – Toll Enforcement",
+    "url": "/cases/atl-dc-007956-25/",
+    "content": "Case OverviewThis Special Civil Part matter involves toll-enforcement collection claims brought against the Defendant. Notably, the New Jersey Turnpike Authority (NJTA) has raised its claimed damages to over $8,000 for an alleged $365 in unpaid tolls, asserting authority to collect under New Jersey law and citing the appellate case Long v. NJTA. However, this case is not applicable to the Defendant’s situation, as the Defendant is not Long, but Devon, who is enrolled in EA and government assi...",
+    "type": "case"
+    , "tags": ["toll-enforcement","discovery","accessibility","due-process"]
+  }
+  
+  ,{
+    "title": "ATL-L-002794-25 – Barber v. Tumelty",
+    "url": "/cases/atl-l-002794-25/",
+    "content": "ATL-L-002794-25 – Barber v. TumeltyCase OverviewThis Law Division action was closed on January 9, 2026, by Hon. Sarah B. Johnson, J.S.C., who advised Plaintiff Devon Tyler Barber that, once Plaintiff’s post-conviction relief (PCR) is adjudicated, Plaintiff may refile the complaint against John W. Tumelty, Esq. and The Law Offices of John W. Tumelty. The case originally arose from Defendants’ alleged failure to perform agreed legal services after accepting a retainer in connection with Plainti...",
+    "type": "case"
+    , "tags": ["civil","law-division","track-3","attorney-malpractice","fiduciary-duty","consumer-fraud","dispositive-motions"]
+  }
+  
+  ,{
+    "title": "ATL-L-002869-25 – Barber v. CarMax",
+    "url": "/cases/atl-l-002869-25/",
+    "content": "Case OverviewThis Law Division action is brought by Plaintiff Devon Tyler Barber against CarMax and related entities. The action seeks declaratory and equitable relief to resolve disputes concerning vehicle ownership, title status, and indemnity obligations arising from the sale, registration, and subsequent use of vehicle records for enforcement and administrative purposes.Plaintiff alleges that inaccurate, inconsistent, or improperly maintained vehicle records resulted in enforcement action...",
+    "type": "case"
+    , "tags": ["civil","declaratory-relief","equitable-relief","vehicle-title","indemnity"]
+  }
+  
+  ,{
+    "title": "ATL-L-003252-25 – Equitable Relief",
+    "url": "/cases/atl-l-003252-25/",
+    "content": "ATL-L-003252-25 – Equitable ReliefCase OverviewDocket No.: ATL-L-003252-25Court: Superior Court of New Jersey, Law Division, Civil Part – Atlantic CountyPlaintiff: Devon Tyler Barber (pro se)Defendants: Township of Hamilton; Officer Edward Ruiz; Officer Bryan Merritt; Officer Cristian Martin; Officer Kyle McKnight; Officer Rachel Hare; Sergeant Dennis Bakker; Sergeant Gary Clune; Officer Nijon IsomCase Type: Civil Action – Verified Complaint &amp; Order to Show Cause (Emergency Injunctive Rel...",
+    "type": "case"
+    , "tags": ["civil","equitable-relief","declaratory-relief","dismissed-without-prejudice"]
+  }
+  
+  ,{
+    "title": "Barber PCR (2022) – State v. Barber (Hardemon matters)",
+    "url": "/cases/barber-nj-pcr-2022/",
+    "content": "Case OverviewThis matter consists of consolidated Post-Conviction Relief (PCR) proceedings brought by Devon Tyler Barber under Rule 3:22, challenging a 2022 conviction adjudicated in Atlantic County. The origins of this case trace back to a wage dispute between Barber and his former employers. The PCR petitions relate to matters commonly referenced as the Hardemon cases and are consolidated here to ensure a unified record and consistent judicial review.Petitioner alleges that the conviction a...",
+    "type": "case"
+    , "tags": ["post-conviction-relief","pcr","criminal","due-process","ineffective-assistance"]
+  }
+  
+  ,{
+    "title": "MER-L-002371-25 – Emergency Injunction (Mercer)",
+    "url": "/cases/mer-l-002371-25/",
+    "content": "MER-L-002371-25 – Emergency Injunction (Mercer)Case OverviewDocket No.: MER-L-002371-25Court: Superior Court of New Jersey, Law Division, Civil Part – Mercer CountyPlaintiff: Devon Tyler Barber (pro se)Defendants: City of Trenton; Officer John Doe 1; Officer John Doe 2Case Type: Civil Action – Verified Complaint &amp; Order to Show Cause (Emergency Injunctive Relief)Primary Relief Sought: Immediate return of unlawfully impounded vehicle; declaratory and equitable reliefNature of the ActionThi...",
+    "type": "case"
+    , "tags": ["civil","equitable-relief","declaratory-relief"]
+  }
+  
+  ,{
+    "title": "Hard Rock Cafe International (N.J.) Inc. and Boardwalk 1000, LLC as single/joint employers",
+    "url": "/cases/nlrb-04-ca-361301/",
+    "content": "Hard Rock Cafe International (N.J.) Inc. and Boardwalk 1000, LLC as single/joint employersThis NLRB case (04-CA-361301) is currently open and concerns multiple allegations of unfair labor practices in Atlantic City, NJ. For more details, see the official NLRB case page.",
+    "type": "case"
+    , "tags": []
+  }
+  
+  ,{
+    "title": "USDJ-1-22-cv-06206 – Federal Civil Rights",
+    "url": "/cases/usdj-1-22-cv-06206/",
+    "content": "USDJ-1-22-cv-06206 – Federal Civil RightsCase OverviewDocket No.: 1:22-cv-06206Court: United States District Court, District of New Jersey (Camden Vicinage)Plaintiff: Devon Tyler Barber (pro se)Defendants: State of New Jersey; City of Atlantic City; Atlantic City Police Department; Officer John Doe 1; Officer John Doe 2Case Type: Federal Civil Rights (42 U.S.C. § 1983)Status: Closed (dismissed without prejudice)Nature of the ActionThis was a federal civil rights action brought under 42 U.S.C....",
+    "type": "case"
+    , "tags": ["federal","civil-rights","section-1983","pro-se"]
+  }
+  
+  ,{
+    "title": "USDJ-1-25-cv-15641 – Federal Civil Rights (2025)",
+    "url": "/cases/usdj-1-25-cv-15641/",
+    "content": "USDJ-1-25-cv-15641 – Federal Civil Rights (2025)Case OverviewDocket No.: 1:25-cv-15641Court: United States District Court, District of New Jersey (Camden Vicinage)Plaintiff: Devon Tyler Barber (pro se)Defendants: State of New Jersey; City of Atlantic City; Atlantic City Police Department; Officer John Doe 1; Officer John Doe 2Case Type: Federal Civil Rights (42 U.S.C. § 1983)Status: Active (pending)Nature of the ActionThis is a federal civil rights action brought under 42 U.S.C. § 1983, alleg...",
+    "type": "case"
+    , "tags": ["federal","civil-rights","section-1983","pro-se"]
+  }
+  
+  
+  
+  ,{
+    "title": "Atlantic County Justice Facility — Vendors, Contracts, Oversight & Performance (OPRA)",
+    "url": "/opra/atlantic-county-acjf-vendors-2025/",
+    "content": "Record purposeThis administrative record preserves Open Public Records Act (OPRA) requests and responses concerning vendor contracting, procurement, oversight, and systems relevant to the Atlantic County Justice Facility (ACJF).This page is a documentation index. It does not assert findings, legal conclusions, or accusations. Where interpretation is needed, it is kept in a separate notes file.OPRAmachine Public RecordThis request is publicly tracked on OPRAmachine:  View this request: Atlanti...",
+    "type": "opra"
+    , "tags": []
+  }
+  
+  ,{
+    "title": "Notes (Non-Findings) — ACJF Vendor & Oversight OPRA Record",
+    "url": "/opra/notes/",
+    "content": "Scope of notes (non-findings)This file is used to track:  what was requested,  what was produced,  what was withheld/redacted (and the stated reason),  follow-up actions needed (clarifications or narrower subsequent requests).These notes do not assert factual findings. They are an organizational aid to ensure records remain explainable and auditable.Working checklistAfter filing  Save each NJ OPRA Machine confirmation email/receipt as PDF.  Store receipts in /requests/ and log the date in tim...",
+    "type": "opra"
+    , "tags": []
+  }
+  
+  ,{
+    "title": "Galloway Township — Law Enforcement Officer Bond & Insurance Records",
+    "url": "/opra/galloway-leo-bond-insurance-2025/",
+    "content": "Record purposeThis administrative record documents an OPRA request and subsequent internal review request concerning law enforcement officer bond and insurance records maintained by Galloway Township.This page preserves filings, responses, and correspondence. It does not assert findings or legal conclusions.OPRAmachine Public RecordThis request is publicly tracked on OPRAmachine:  View this request: Galloway Township OPRA Requests  View all requests by filer: X (Devon Tyler of the Barber-Mate...",
+    "type": "opra"
+    , "tags": []
+  }
+  
+  ,{
+    "title": "Notes (Non-Findings) — Galloway Township Bond & Insurance OPRA",
+    "url": "/opra/notes/",
+    "content": "Track clarification of redactions, delivery scope, and internal review outcome.",
+    "type": "opra"
+    , "tags": []
+  }
+  
+  ,{
+    "title": "Office of the Governor — Executive Clemency & Public Safety Records",
+    "url": "/opra/governor-clemency-public-safety-2025/",
+    "content": "Record purposeThis administrative record preserves OPRA requests concerning executive clemency decisions and related public-safety impact records.Public request thread (OPRAmachine)  OPRAmachine body page: Office of the Governor  Requests by filer: User profile  Note: Add the direct request URL here once available on OPRAmachine.  Current status  Opened: December 18, 2025  Status: Refused  Last updated: 2025-12-18TimelineDocuments and productionsThis repository separates working files from pu...",
+    "type": "opra"
+    , "tags": []
+  }
+  
+  ,{
+    "title": "Office of the Governor — Toll Enforcement Policy & Vendor Oversight",
+    "url": "/opra/governor-toll-policy-vendor-oversight-2025/",
+    "content": "Record purposeThis administrative record preserves OPRA requests concerning statewide toll-enforcement policy, vendor oversight, and related governance records maintained by the Office of the Governor. This page is maintained as a verifiable index: it prioritizes dated events, source links, and restrained summaries over commentary.Public request thread (OPRAmachine)  OPRAmachine body page: Office of the Governor  Requests by filer: User profile  Note: The direct request URL is linked once it ...",
+    "type": "opra"
+    , "tags": []
+  }
+  
+  ,{
+    "title": "Hamilton Township — Body Camera Footage & Oaths of Office (May 7, 2024)",
+    "url": "/opra/hamilton-bodycam-oaths-2024/",
+    "content": "Record purposeThis administrative record documents an internal review request concerning body camera footage and oaths of office related to an incident on May 7, 2024, in Mays Landing, New Jersey.OPRAmachine Public RecordThis request is publicly tracked on OPRAmachine:  View this request: Hamilton Township OPRA Requests  View all requests by filer: X (Devon Tyler of the Barber-Materio Family)Current status  Internal review request submitted May 28, 2024  Awaiting responseTimelineDocumentsRequ...",
+    "type": "opra"
+    , "tags": []
+  }
+  
+  ,{
+    "title": "Hamilton Township Police Department — Bond & Insurance Records",
+    "url": "/opra/hamilton-police-bond-insurance-2025/",
+    "content": "Record purposeThis record documents an OPRA request for law enforcement bond and insurance records submitted to the Hamilton Township Police Department, including issues related to delivery failure.OPRAmachine Public RecordThis request is publicly tracked on OPRAmachine:  View this request: Hamilton Township OPRA Requests  View all requests by filer: X (Devon Tyler of the Barber-Materio Family)Current status  OPRA response dated December 18, 2025  Delivery error occurred on December 19, 2025 ...",
+    "type": "opra"
+    , "tags": []
+  }
+  
+  ,{
+    "title": "OPRA Administrative Records",
+    "url": "/opra/",
+    "content": "  📋 OPRA Administrative Records      Open Public Records Act requests documenting vendor relationships, policy frameworks,    and operational oversight across New Jersey government agencies.                      16      Total Records              1      Active              4      Awaiting Response              1      Under Review                🔍    ✕        This page serves as a centralized index of Open Public Records Act (OPRA) administrative records maintained for transparency, documentat...",
+    "type": "opra"
+    , "tags": []
+  }
+  
+  ,{
+    "title": "NJDOT — Toll-Related Infrastructure and Camera Systems (OPRA)",
+    "url": "/opra/njdot-toll-infrastructure-camera-systems-2025/",
+    "content": "Record purposeThis administrative record preserves OPRA requests and responses concerning NJDOT records related to toll-related infrastructure and camera systems, including associated planning, procurement, deployment, and vendor/ownership records maintained by NJDOT.This page is a documentation index. It does not assert findings, legal conclusions, or accusations.OPRAmachine Public RecordThis request is publicly tracked on OPRAmachine:  View this request: NJDOT OPRA Requests  Filed by: Mr. B...",
+    "type": "opra"
+    , "tags": []
+  }
+  
+  ,{
+    "title": "Notes (Non-Findings) — NJDOT Toll Infrastructure / Camera Systems OPRA Record",
+    "url": "/opra/notes/",
+    "content": "Scope of notes (non-findings)Track what was requested, what was produced, what was withheld/redacted (and the stated reason), and any follow-up actions needed.To-do (once response arrives)  Save the response package into /responses/  Log the response date in timeline.yml  If any redactions occur, save any redaction index or explanation  If the agency refers you to NJTA / Turnpike / E-ZPass entities, create a parallel OPRA record for that custodian",
+    "type": "opra"
+    , "tags": []
+  }
+  
+  ,{
+    "title": "NJ Turnpike Authority — Toll Enforcement Operations & Data Security",
+    "url": "/opra/njta-toll-enforcement-data-security-2025/",
+    "content": "Record purposeThis administrative record documents OPRA requests to the New Jersey Turnpike Authority concerning toll enforcement operations, vendor relationships, and data-security practices.OPRAmachine Public RecordThis request is publicly tracked on OPRAmachine:  View this request: NJ Turnpike Authority OPRA Requests  View all requests by filer: X (Devon Tyler of the Barber-Materio Family)Current status  Request submitted December 18, 2025  Awaiting responseTimelineDocumentsRequests filed ...",
+    "type": "opra"
+    , "tags": []
+  }
+  
+  ,{
+    "title": "NJTPA — Toll Infrastructure Planning Records (OPRA)",
+    "url": "/opra/njtpa-toll-infrastructure-planning-2025/",
+    "content": "Record purposeThis administrative record preserves OPRA requests and responses concerning toll infrastructure planning records, including gantry deployment planning and related ownership or vendor disclosures, as maintained by the North Jersey Transportation Planning Authority (NJTPA).This page is a documentation index. It does not assert findings, legal conclusions, or accusations.OPRAmachine Public RecordThis request is publicly tracked on OPRAmachine:  View this request: NJTPA OPRA Request...",
+    "type": "opra"
+    , "tags": []
+  }
+  
+  ,{
+    "title": "Notes (Non-Findings) — NJTPA Toll Infrastructure OPRA Record",
+    "url": "/opra/notes/",
+    "content": "Scope of notes (non-findings)Track what was requested, what was produced, what was withheld/redacted (and the stated reason), and any follow-up actions needed.To-do (once response arrives)  Save the response package into /responses/  Log the response date in timeline.yml  If any redactions occur, save any redaction index or explanation  If the agency claims “not maintained,” identify the referred custodian and open a parallel OPRA record",
+    "type": "opra"
+    , "tags": []
+  }
+  
+  ,{
+    "title": "AGENCY — Request Title (OPRA)",
+    "url": "/opra/opra-template/",
+    "content": "Record purposeThis administrative record preserves an OPRA request and related responses for transparency, documentation, and record navigation.This page is a documentation index. It does not assert findings, legal conclusions, or accusations.Public record thread (OPRAMachine)  View all requests by filer: X (Devon Tyler of the Barber-Materio Family) ↗Current status  Status: Awaiting Response  Opened: 2025-01-01          Last updated: 2025-01-01      TimelineDocumentsRequests filed  Outgoing r...",
+    "type": "opra"
+    , "tags": []
+  }
+  
+  ,{
+    "title": "Notes — OPRA Administrative Record",
+    "url": "/opra/opra-template/notes/",
+    "content": "Notes (non-findings)This file is reserved for observational notes and workflow reminders.  Do not state legal conclusions.  Do not allege misconduct as fact.  Keep notes descriptive: dates, who said what, what was received, what is missing.Separation ruleThis notes page is not a pleading, not argument, and not a substitute for filed materials.It exists to keep administrative handling organized while preserving a clean public index.Working notes  [Add neutral notes here]  [Example: “12/19/2025...",
+    "type": "opra"
+    , "tags": []
+  }
+  
+]
