@@ -332,6 +332,16 @@
   
     
     {
+      "title": "🤖 BarberX Custom Copilot Agents",
+      "url": "/COPILOT-AGENTS-GUIDE/",
+      "content": "# 🤖 BarberX Custom Copilot Agents## OverviewThis repository includes **7 specialized AI agents** built with GitHub Copilot SDK to accelerate development of the BarberX legal tech platform for BWC (Body Worn Camera) forensic analysis.## 🚀 Quick Start### Setup```bashnpm installnpm run setup:agents```### Using Agents in GitHub Copilot ChatIn your IDE with GitHub Copilot, invoke agents with `@agent-name`:```@legal-compliance Review this export function for copyright violations@bwc-forensics Analy...",
+      "type": "page"
+      
+    },
+    
+  
+    
+    {
       "title": "COPYRIGHT COMPLIANCE IMPLEMENTATION SUMMARY",
       "url": "/COPYRIGHT-IMPLEMENTATION-SUMMARY/",
       "content": "# COPYRIGHT COMPLIANCE IMPLEMENTATION SUMMARY**BarberX Legal Technologies - Pattern 1-3 Framework**---## ✅ WHAT WAS IMPLEMENTED### 📄 Documentation (3 files)1. **DATA-RIGHTS-COMPLIANCE.md** (350+ lines)   - Complete compliance framework   - Pattern 1: Pointer, don't republish (citation-only storage)   - Pattern 2: Keep proprietary layers separate (database segregation)   - Pattern 3: Rights-aware exports (attribution manifests)   - Fair use guidelines (200-word limit)   - Source classification...",
