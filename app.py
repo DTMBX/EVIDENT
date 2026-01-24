@@ -48,20 +48,37 @@ except ImportError:
 
 # Initialize Flask app
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'barberx-legal-tech-2026-secure-key')
+
+# Load environment variables
+from dotenv import load_dotenv
+load_dotenv()
+
+# Production-ready configuration
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'barberx-legal-tech-2026-secure-key-change-in-production')
 
 # Use absolute path for database
 basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv(
-    'DATABASE_URL',
-    f'sqlite:///{os.path.join(basedir, "instance", "barberx_auth.db")}'
-)
+
+# Database configuration - PostgreSQL for production, SQLite for development
+database_url = os.getenv('DATABASE_URL')
+if database_url:
+    # Fix for Heroku/Render postgres URL
+    if database_url.startswith('postgres://'):
+        database_url = database_url.replace('postgres://', 'postgresql://', 1)
+    app.config['SQLALCHEMY_DATABASE_URI'] = database_url
+else:
+    # Local development with SQLite
+    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{os.path.join(basedir, "instance", "barberx_auth.db")}'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024 * 1024  # 5GB
+app.config['MAX_CONTENT_LENGTH'] = int(os.getenv('MAX_CONTENT_LENGTH', 5 * 1024 * 1024 * 1024))  # 5GB default
 app.config['UPLOAD_FOLDER'] = Path('./uploads/bwc_videos')
 app.config['ANALYSIS_FOLDER'] = Path('./bwc_analysis')
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=7)
+
+# CORS configuration for production
+cors_origins = os.getenv('CORS_ORIGINS', 'https://barberx.info,https://www.barberx.info,http://localhost:5000')
+CORS_ORIGINS_LIST = [origin.strip() for origin in cors_origins.split(',')]
 
 # Create directories
 app.config['UPLOAD_FOLDER'].mkdir(parents=True, exist_ok=True)
@@ -69,7 +86,7 @@ app.config['ANALYSIS_FOLDER'].mkdir(parents=True, exist_ok=True)
 
 # Initialize extensions
 db = SQLAlchemy(app)
-CORS(app)
+CORS(app, origins=CORS_ORIGINS_LIST, supports_credentials=True)
 login_manager = LoginManager(app)
 login_manager.login_view = 'auth.login'  # Updated to use auth blueprint
 
@@ -2677,10 +2694,29 @@ def admin_initialize_settings():
 
 
 # ========================================
+# HEALTH CHECK ENDPOINT
+# ========================================
+
+@app.route('/health')
+def health_check():
+    """Health check endpoint for monitoring"""
+    return jsonify({
+        'status': 'healthy',
+        'timestamp': datetime.utcnow().isoformat(),
+        'version': '1.0.0',
+        'database': 'connected' if db.engine else 'disconnected'
+    })
+
+
+# ========================================
 # RUN APPLICATION
 # ========================================
 
 if __name__ == '__main__':
+    # Get port from environment variable (for cloud deployments)
+    port = int(os.getenv('PORT', 5000))
+    debug = os.getenv('FLASK_ENV') != 'production'
+    
     print("""
     ╔════════════════════════════════════════════════════════════════╗
     ║                                                                ║
@@ -2689,9 +2725,28 @@ if __name__ == '__main__':
     ║                                                                ║
     ╚════════════════════════════════════════════════════════════════╝
     
-    🌐 Web Application: http://localhost:5000
-    🔐 Admin Login: admin@barberx.info / admin123
-    📊 Database: SQLite (barberx_legal.db)
+    🌐 Web Application: http://localhost:{port}
+    🔐 Admin Login: admin@barberx.info
+    📊 Database: {db_type}
+    📁 Logs: ./logs/barberx.log
+    
+    Features:
+    ✅ Multi-user authentication
+    ✅ Role-based access control
+    ✅ Subscription tiers (Free, Professional, Enterprise)
+    ✅ API key management
+    ✅ Audit logging
+    ✅ Database persistence
+    ✅ Professional dashboard
+
+    Ready for production deployment!
+    Press Ctrl+C to stop the server.
+    """.format(
+        port=port,
+        db_type='PostgreSQL' if 'postgresql' in app.config['SQLALCHEMY_DATABASE_URI'] else 'SQLite'
+    ))
+    
+    app.run(host='0.0.0.0', port=port, debug=debug)
     📁 Logs: ./logs/barberx.log
     
     Features:
