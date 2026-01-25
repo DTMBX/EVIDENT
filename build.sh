@@ -1,13 +1,14 @@
-#!/bin/bash
-# Netlify build script - runs before Jekyll build
+#!/usr/bin/env bash
+# Render.com Build Script for BarberX.info Flask App
 
-echo "🔧 BarberX.info Build Started"
-echo "📦 Ruby version: $(ruby -v)"
-echo "💎 Bundler version: $(bundle -v)"
-echo "🌿 Jekyll version: $(bundle exec jekyll -v)"
+set -o errexit
 
-# Ensure all dependencies are installed
-echo "📥 Installing dependencies..."
-bundle install --quiet
+echo "🔧 BarberX.info - Render Build"
+echo "Python version: $(python --version)"
 
-echo "✅ Build environment ready"
+echo "📦 Installing Python dependencies..."
+pip install --upgrade pip
+pip install -r requirements.txt
+
+echo "✅ Build complete!"
+
