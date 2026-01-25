@@ -97,6 +97,14 @@ if ENHANCED_AUTH_AVAILABLE:
     app.register_blueprint(auth_bp, url_prefix='/auth')
     print("[OK] Enhanced auth routes registered at /auth/*")
 
+# Register batch upload handler
+try:
+    from batch_upload_handler import batch_upload_bp
+    app.register_blueprint(batch_upload_bp)
+    print("[OK] Unified batch upload registered at /api/upload/batch")
+except ImportError as e:
+    print(f"⚠️  Batch upload handler not available: {e}")
+
 # Register UX helper filters and context processors
 if UX_HELPERS_AVAILABLE:
     register_ux_filters(app)
@@ -646,6 +654,13 @@ def batch_processor():
 def api_console():
     """API console tool"""
     return send_file('templates/tools/api-console.html')
+
+
+@app.route('/batch-upload')
+@login_required
+def batch_upload_page():
+    """Unified batch upload page for PDFs, BWC videos, and images"""
+    return send_file('templates/batch-upload-unified.html')
 
 
 # ========================================
