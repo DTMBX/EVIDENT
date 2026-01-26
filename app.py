@@ -204,6 +204,15 @@ try:
 except ImportError as e:
     print(f"⚠️  Batch upload handler not available: {e}")
 
+# Register Stripe payments blueprint
+try:
+    from stripe_payments import payments_bp
+
+    app.register_blueprint(payments_bp)
+    print("[OK] Stripe payments registered at /payments/*")
+except ImportError as e:
+    print(f"⚠️  Stripe payments not available: {e}")
+
 # Register UX helper filters and context processors
 if UX_HELPERS_AVAILABLE:
     register_ux_filters(app)
