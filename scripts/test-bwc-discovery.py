@@ -4,11 +4,11 @@ BarberX BWC Analysis - Discovery Files Test
 Tests real BWC footage analysis with Devon T. Barber case files
 """
 
-import sys
-import os
-from pathlib import Path
-from datetime import datetime
 import json
+import os
+import sys
+from datetime import datetime
+from pathlib import Path
 
 # Add project root to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -22,6 +22,7 @@ DISCOVERY_PATH = Path("assets/discovery/25-41706 Barber, Devon")
 # Check if BWC analyzer is available
 try:
     from bwc_forensic_analyzer import BWCForensicAnalyzer
+
     print("? BWC Forensic Analyzer module loaded")
     ANALYZER_AVAILABLE = True
 except ImportError as e:
@@ -48,14 +49,14 @@ for i, file in enumerate(bwc_files, 1):
     size_mb = file.stat().st_size / (1024 * 1024)
     total_size += size_mb
     duration = "Unknown"
-    
+
     # Parse filename for officer and timestamp
     filename = file.stem
-    parts = filename.split('_')
+    parts = filename.split("_")
     officer = parts[0] if parts else "Unknown"
     timestamp = parts[1] if len(parts) > 1 else "Unknown"
     device = parts[2] if len(parts) > 2 else "Unknown"
-    
+
     print(f"{i:2d}. {file.name}")
     print(f"    Officer: {officer}")
     print(f"    Timestamp: {timestamp}")
@@ -69,7 +70,7 @@ print(f"?? Total files: {len(bwc_files)}")
 # Group by officer
 officers = {}
 for file in bwc_files:
-    parts = file.stem.split('_')
+    parts = file.stem.split("_")
     officer = parts[0] if parts else "Unknown"
     if officer not in officers:
         officers[officer] = []
@@ -86,35 +87,34 @@ if ANALYZER_AVAILABLE and bwc_files:
     print("\n" + "=" * 60)
     print("?? TESTING BWC ANALYSIS")
     print("=" * 60)
-    
+
     # Use smallest file for quick test
     smallest_file = min(bwc_files, key=lambda f: f.stat().st_size)
     size_mb = smallest_file.stat().st_size / (1024 * 1024)
-    
+
     print(f"\n?? Analyzing: {smallest_file.name}")
     print(f"   Size: {size_mb:.1f} MB")
     print(f"   This may take 2-5 minutes...\n")
-    
+
     try:
         # Initialize analyzer
         print("?? Initializing BWC Analyzer...")
         analyzer = BWCForensicAnalyzer(
-            whisper_model_size='tiny',  # Use tiny for speed
-            hf_token=os.getenv('HUGGINGFACE_TOKEN')
+            whisper_model_size="tiny", hf_token=os.getenv("HUGGINGFACE_TOKEN")  # Use tiny for speed
         )
-        
+
         # Establish chain of custody
         print("?? Establishing chain of custody...")
         custody = analyzer.establish_chain_of_custody(
             file_path=str(smallest_file),
             acquired_by="Devon T. Barber",
-            source="Discovery production - Case 25-41706"
+            source="Discovery production - Case 25-41706",
         )
-        
+
         print(f"   ? SHA-256 Hash: {custody.sha256_hash}")
         print(f"   ? File size: {custody.file_size:,} bytes")
         print(f"   ? Acquired: {custody.acquired_at}")
-        
+
         # Analyze video
         print("\n?? Analyzing video (audio + transcription)...")
         report = analyzer.analyze_video(
@@ -122,60 +122,61 @@ if ANALYZER_AVAILABLE and bwc_files:
             case_number="25-41706",
             evidence_number=smallest_file.stem,
             acquired_by="Devon T. Barber",
-            source="Discovery production"
+            source="Discovery production",
         )
-        
+
         # Display results
         print("\n" + "=" * 60)
         print("?? ANALYSIS RESULTS")
         print("=" * 60)
-        
+
         print(f"\n?? File: {report.file_name}")
         print(f"?? Hash: {report.file_hash}")
         print(f"??  Duration: {report.duration:.1f} seconds")
         print(f"?? Analyzed: {report.analysis_date}")
-        
+
         summary = report.generate_summary()
-        
+
         print(f"\n?? Audio Transcription:")
         print(f"   Total speakers: {summary['total_speakers']}")
         print(f"   Total segments: {summary['total_segments']}")
         print(f"   Total words: {summary['total_words']}")
-        
+
         if report.transcript:
             print(f"\n?? First 5 transcript segments:")
             for i, segment in enumerate(report.transcript[:5], 1):
                 speaker = segment.speaker_label or segment.speaker or "Unknown"
                 print(f"   {i}. [{segment.start_time:.1f}s] {speaker}: {segment.text[:80]}...")
-        
+
         if report.speakers:
             print(f"\n?? Identified speakers:")
             for speaker_id, label in report.speakers.items():
                 print(f"   - {speaker_id}: {label}")
-        
+
         if report.entities:
             print(f"\n?? Entities found:")
             for entity_type, values in report.entities.items():
                 print(f"   - {entity_type}: {len(values)} found")
                 if values:
                     print(f"     Examples: {', '.join(values[:3])}")
-        
+
         # Save report
         output_file = Path("bwc_analysis") / f"{smallest_file.stem}_analysis.json"
         output_file.parent.mkdir(exist_ok=True)
-        
-        with open(output_file, 'w') as f:
+
+        with open(output_file, "w") as f:
             json.dump(report.to_dict(), f, indent=2)
-        
+
         print(f"\n?? Full report saved to: {output_file}")
-        
+
         print("\n" + "=" * 60)
         print("? ANALYSIS COMPLETE!")
         print("=" * 60)
-        
+
     except Exception as e:
         print(f"\n? Analysis failed: {e}")
         import traceback
+
         traceback.print_exc()
 
 else:

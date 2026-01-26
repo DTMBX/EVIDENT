@@ -711,37 +711,92 @@ def register():
     if request.method == "GET":
         return send_file("templates/register.html")
 
-    data = request.get_json()
+    from utils.security import InputValidator
+    from utils.responses import error_response, validation_error, success_response
+    from utils.logging_config import get_logger
+    
+    logger = get_logger('auth')
 
-    # Validate input
-    if not all([data.get("email"), data.get("password"), data.get("full_name")]):
-        return jsonify({"error": "Missing required fields"}), 400
+    try:
+        data = request.get_json()
 
-    # Check if user exists
-    if User.query.filter_by(email=data["email"]).first():
-        return jsonify({"error": "Email already registered"}), 400
+        # Validate required fields
+        validation_errors = {}
+        
+        email = data.get("email", "").strip()
+        password = data.get("password", "")
+        full_name = data.get("full_name", "").strip()
+        
+        # Email validation
+        if not email:
+            validation_errors["email"] = ["Email is required"]
+        else:
+            is_valid, error_msg = InputValidator.validate_email(email)
+            if not is_valid:
+                validation_errors["email"] = [error_msg]
+        
+        # Password validation
+        if not password:
+            validation_errors["password"] = ["Password is required"]
+        else:
+            is_valid, error_msg = InputValidator.validate_password(password)
+            if not is_valid:
+                validation_errors["password"] = [error_msg]
+        
+        # Name validation
+        if not full_name:
+            validation_errors["full_name"] = ["Full name is required"]
+        elif len(full_name) > 100:
+            validation_errors["full_name"] = ["Name too long (max 100 characters)"]
+        
+        # Return validation errors if any
+        if validation_errors:
+            return validation_error(validation_errors)
 
-    # Create user
-    user = User(
-        email=data["email"],
-        full_name=data["full_name"],
-        organization=data.get("organization", ""),
-        subscription_tier="free",
-    )
-    user.set_password(data["password"])
+        # Check if user exists
+        if User.query.filter_by(email=email).first():
+            return error_response(
+                "This email is already registered",
+                error_code='ALREADY_EXISTS',
+                status_code=400
+            )
 
-    db.session.add(user)
-    db.session.commit()
+        # Create user
+        user = User(
+            email=email,
+            full_name=InputValidator.sanitize_text(full_name, 100),
+            organization=InputValidator.sanitize_text(data.get("organization", ""), 100),
+            subscription_tier="free",
+        )
+        user.set_password(password)
 
-    # Log audit
-    AuditLog.log("user_registered", "user", str(user.id))
+        db.session.add(user)
+        db.session.commit()
 
-    # Auto-login
-    login_user(user)
+        # Log audit
+        AuditLog.log("user_registered", "user", str(user.id))
 
-    app.logger.info(f"New user registered: {user.email}")
+        # Auto-login
+        login_user(user)
 
-    return jsonify({"message": "Registration successful", "user": user.to_dict()})
+        logger.info(f"New user registered: {user.email}")
+
+        return success_response(
+            data={"user": user.to_dict()},
+            message="Registration successful",
+            status_code=201
+        )
+    
+    except Exception as e:
+        logger.error(f"Registration failed: {type(e).__name__}: {e}", exc_info=True)
+        from utils.security import ErrorSanitizer
+        error_ticket = ErrorSanitizer.create_error_ticket()
+        return error_response(
+            "Registration failed. Please try again.",
+            error_code='OPERATION_FAILED',
+            status_code=500,
+            error_ticket=error_ticket
+        )
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -891,22 +946,47 @@ def change_password():
         return jsonify({"error": "Feature not available"}), 503
 
     from models_auth import User, db
+    from utils.security import InputValidator, ErrorSanitizer
+    from utils.responses import error_response, validation_error, success_response
+    from utils.logging_config import get_logger
+    
+    logger = get_logger('auth')
 
     try:
         data = request.get_json()
-        current_password = data.get("current_password")
-        new_password = data.get("new_password")
+        current_password = data.get("current_password", "")
+        new_password = data.get("new_password", "")
 
+        # Validate new password
+        is_valid, error_msg = InputValidator.validate_password(new_password)
+        if not is_valid:
+            return validation_error({"new_password": [error_msg]})
+
+        # Check current password
         if not current_user.check_password(current_password):
-            return jsonify({"error": "Current password incorrect"}), 401
+            return error_response(
+                "Current password is incorrect",
+                error_code='INVALID_CREDENTIALS',
+                status_code=401
+            )
 
+        # Update password
         current_user.set_password(new_password)
         db.session.commit()
 
-        return jsonify({"message": "Password changed successfully"})
+        logger.info(f"Password changed for user: {current_user.email}")
+
+        return success_response(message="Password changed successfully")
+        
     except Exception as e:
-        app.logger.error(f"Password change error: {e}")
-        return jsonify({"error": "Failed to change password"}), 400
+        logger.error(f"Password change failed: {type(e).__name__}: {e}", exc_info=True)
+        error_ticket = ErrorSanitizer.create_error_ticket()
+        return error_response(
+            "Failed to change password",
+            error_code='OPERATION_FAILED',
+            status_code=500,
+            error_ticket=error_ticket
+        )
 
 
 @app.route("/api/user/export-data", methods=["POST"])
@@ -1432,7 +1512,15 @@ def scan_violations():
 
     except Exception as e:
         app.logger.error(f"Violation scan error: {str(e)}")
-        return jsonify({"error": str(e)}), 500
+        # Log error server-side
+        logger.error(f"{request.path} failed: {type(e).__name__}: {e}", exc_info=True)
+        error_ticket = ErrorSanitizer.create_error_ticket()
+        return error_response(
+            ErrorSanitizer.sanitize_error(e, 'default'),
+            error_code='OPERATION_FAILED',
+            status_code=500,
+            error_ticket=error_ticket
+        )
 
 
 @app.route("/api/legal/check-compliance", methods=["POST"])
@@ -1456,7 +1544,15 @@ def check_compliance():
 
     except Exception as e:
         app.logger.error(f"Compliance check error: {str(e)}")
-        return jsonify({"error": str(e)}), 500
+        # Log error server-side
+        logger.error(f"{request.path} failed: {type(e).__name__}: {e}", exc_info=True)
+        error_ticket = ErrorSanitizer.create_error_ticket()
+        return error_response(
+            ErrorSanitizer.sanitize_error(e, 'default'),
+            error_code='OPERATION_FAILED',
+            status_code=500,
+            error_ticket=error_ticket
+        )
 
 
 @app.route("/api/legal/combined-analysis", methods=["POST"])
@@ -1497,7 +1593,15 @@ def combined_legal_analysis():
 
     except Exception as e:
         app.logger.error(f"Combined analysis error: {str(e)}")
-        return jsonify({"error": str(e)}), 500
+        # Log error server-side
+        logger.error(f"{request.path} failed: {type(e).__name__}: {e}", exc_info=True)
+        error_ticket = ErrorSanitizer.create_error_ticket()
+        return error_response(
+            ErrorSanitizer.sanitize_error(e, 'default'),
+            error_code='OPERATION_FAILED',
+            status_code=500,
+            error_ticket=error_ticket
+        )
 
 
 # ========================================
@@ -1548,7 +1652,15 @@ def transcribe_audio():
 
     except Exception as e:
         app.logger.error(f"Transcription error: {str(e)}")
-        return jsonify({"error": str(e)}), 500
+        # Log error server-side
+        logger.error(f"{request.path} failed: {type(e).__name__}: {e}", exc_info=True)
+        error_ticket = ErrorSanitizer.create_error_ticket()
+        return error_response(
+            ErrorSanitizer.sanitize_error(e, 'default'),
+            error_code='OPERATION_FAILED',
+            status_code=500,
+            error_ticket=error_ticket
+        )
 
 
 @app.route("/api/evidence/ocr", methods=["POST"])
@@ -1592,7 +1704,15 @@ def extract_text_ocr():
 
     except Exception as e:
         app.logger.error(f"OCR error: {str(e)}")
-        return jsonify({"error": str(e)}), 500
+        # Log error server-side
+        logger.error(f"{request.path} failed: {type(e).__name__}: {e}", exc_info=True)
+        error_ticket = ErrorSanitizer.create_error_ticket()
+        return error_response(
+            ErrorSanitizer.sanitize_error(e, 'default'),
+            error_code='OPERATION_FAILED',
+            status_code=500,
+            error_ticket=error_ticket
+        )
 
 
 @app.route("/account/2fa")
@@ -1633,7 +1753,15 @@ def setup_two_factor():
 
     except Exception as e:
         app.logger.error(f"2FA setup error: {str(e)}")
-        return jsonify({"error": str(e)}), 500
+        # Log error server-side
+        logger.error(f"{request.path} failed: {type(e).__name__}: {e}", exc_info=True)
+        error_ticket = ErrorSanitizer.create_error_ticket()
+        return error_response(
+            ErrorSanitizer.sanitize_error(e, 'default'),
+            error_code='OPERATION_FAILED',
+            status_code=500,
+            error_ticket=error_ticket
+        )
 
 
 @app.route("/api/account/2fa/verify", methods=["POST"])
@@ -1662,7 +1790,15 @@ def verify_two_factor():
 
     except Exception as e:
         app.logger.error(f"2FA verification error: {str(e)}")
-        return jsonify({"error": str(e)}), 500
+        # Log error server-side
+        logger.error(f"{request.path} failed: {type(e).__name__}: {e}", exc_info=True)
+        error_ticket = ErrorSanitizer.create_error_ticket()
+        return error_response(
+            ErrorSanitizer.sanitize_error(e, 'default'),
+            error_code='OPERATION_FAILED',
+            status_code=500,
+            error_ticket=error_ticket
+        )
 
 
 @app.route("/pricing")
@@ -1740,7 +1876,15 @@ def create_checkout_session():
 
     except Exception as e:
         app.logger.error(f"Checkout creation error: {str(e)}")
-        return jsonify({"error": str(e)}), 500
+        # Log error server-side
+        logger.error(f"{request.path} failed: {type(e).__name__}: {e}", exc_info=True)
+        error_ticket = ErrorSanitizer.create_error_ticket()
+        return error_response(
+            ErrorSanitizer.sanitize_error(e, 'default'),
+            error_code='OPERATION_FAILED',
+            status_code=500,
+            error_ticket=error_ticket
+        )
 
 
 @app.route("/api/billing/webhook", methods=["POST"])
@@ -1773,7 +1917,15 @@ def stripe_webhook():
 
     except Exception as e:
         app.logger.error(f"Webhook error: {str(e)}")
-        return jsonify({"error": str(e)}), 400
+        # Log error server-side
+        logger.error(f"{request.path} failed: {type(e).__name__}: {e}", exc_info=True)
+        error_ticket = ErrorSanitizer.create_error_ticket()
+        return error_response(
+            ErrorSanitizer.sanitize_error(e, 'validation'),
+            error_code='OPERATION_FAILED',
+            status_code=400,
+            error_ticket=error_ticket
+        )
 
 
 @app.route("/billing/success")
@@ -1840,7 +1992,15 @@ def deploy_agent():
         return jsonify({"agent_id": agent_id, "message": "Agent deployed successfully"})
     except Exception as e:
         app.logger.error(f"Agent deployment error: {e}")
-        return jsonify({"error": str(e)}), 400
+        # Log error server-side
+        logger.error(f"{request.path} failed: {type(e).__name__}: {e}", exc_info=True)
+        error_ticket = ErrorSanitizer.create_error_ticket()
+        return error_response(
+            ErrorSanitizer.sanitize_error(e, 'validation'),
+            error_code='OPERATION_FAILED',
+            status_code=400,
+            error_ticket=error_ticket
+        )
 
 
 @app.route("/api/agents/list", methods=["GET"])
@@ -1854,7 +2014,15 @@ def list_agents():
         return jsonify(agents)
     except Exception as e:
         app.logger.error(f"Agent list error: {e}")
-        return jsonify({"error": str(e)}), 400
+        # Log error server-side
+        logger.error(f"{request.path} failed: {type(e).__name__}: {e}", exc_info=True)
+        error_ticket = ErrorSanitizer.create_error_ticket()
+        return error_response(
+            ErrorSanitizer.sanitize_error(e, 'validation'),
+            error_code='OPERATION_FAILED',
+            status_code=400,
+            error_ticket=error_ticket
+        )
 
 
 @app.route("/api/agents/execute/<agent_id>", methods=["POST"])
@@ -1871,7 +2039,15 @@ def execute_agent(agent_id):
         return jsonify(result)
     except Exception as e:
         app.logger.error(f"Agent execution error: {e}")
-        return jsonify({"error": str(e)}), 400
+        # Log error server-side
+        logger.error(f"{request.path} failed: {type(e).__name__}: {e}", exc_info=True)
+        error_ticket = ErrorSanitizer.create_error_ticket()
+        return error_response(
+            ErrorSanitizer.sanitize_error(e, 'validation'),
+            error_code='OPERATION_FAILED',
+            status_code=400,
+            error_ticket=error_ticket
+        )
 
 
 @app.route("/api/evidence/analyze-pdf", methods=["POST"])
@@ -1907,7 +2083,15 @@ def analyze_pdf_discovery():
 
     except Exception as e:
         app.logger.error(f"PDF analysis error: {e}")
-        return jsonify({"error": str(e)}), 500
+        # Log error server-side
+        logger.error(f"{request.path} failed: {type(e).__name__}: {e}", exc_info=True)
+        error_ticket = ErrorSanitizer.create_error_ticket()
+        return error_response(
+            ErrorSanitizer.sanitize_error(e, 'default'),
+            error_code='OPERATION_FAILED',
+            status_code=500,
+            error_ticket=error_ticket
+        )
 
 
 @app.route("/api/agents/status/<agent_id>", methods=["GET"])
@@ -1921,7 +2105,15 @@ def get_agent_status(agent_id):
         return jsonify(status)
     except Exception as e:
         app.logger.error(f"Agent status error: {e}")
-        return jsonify({"error": str(e)}), 404
+        # Log error server-side
+        logger.error(f"{request.path} failed: {type(e).__name__}: {e}", exc_info=True)
+        error_ticket = ErrorSanitizer.create_error_ticket()
+        return error_response(
+            ErrorSanitizer.sanitize_error(e, 'database'),
+            error_code='OPERATION_FAILED',
+            status_code=404,
+            error_ticket=error_ticket
+        )
 
 
 @app.route("/api/agents/<agent_id>", methods=["DELETE"])
@@ -1935,7 +2127,15 @@ def delete_agent(agent_id):
         return jsonify({"message": "Agent deleted"})
     except Exception as e:
         app.logger.error(f"Agent deletion error: {e}")
-        return jsonify({"error": str(e)}), 400
+        # Log error server-side
+        logger.error(f"{request.path} failed: {type(e).__name__}: {e}", exc_info=True)
+        error_ticket = ErrorSanitizer.create_error_ticket()
+        return error_response(
+            ErrorSanitizer.sanitize_error(e, 'validation'),
+            error_code='OPERATION_FAILED',
+            status_code=400,
+            error_ticket=error_ticket
+        )
 
 
 # ============================================================================
@@ -1959,7 +2159,15 @@ def process_evidence_workflow():
         return jsonify(result)
     except Exception as e:
         app.logger.error(f"Evidence workflow error: {e}")
-        return jsonify({"error": str(e)}), 400
+        # Log error server-side
+        logger.error(f"{request.path} failed: {type(e).__name__}: {e}", exc_info=True)
+        error_ticket = ErrorSanitizer.create_error_ticket()
+        return error_response(
+            ErrorSanitizer.sanitize_error(e, 'validation'),
+            error_code='OPERATION_FAILED',
+            status_code=400,
+            error_ticket=error_ticket
+        )
 
 
 @app.route("/api/workflow/chat", methods=["POST"])
@@ -1979,7 +2187,15 @@ def workflow_chat():
         return jsonify(result)
     except Exception as e:
         app.logger.error(f"Workflow chat error: {e}")
-        return jsonify({"error": str(e)}), 400
+        # Log error server-side
+        logger.error(f"{request.path} failed: {type(e).__name__}: {e}", exc_info=True)
+        error_ticket = ErrorSanitizer.create_error_ticket()
+        return error_response(
+            ErrorSanitizer.sanitize_error(e, 'validation'),
+            error_code='OPERATION_FAILED',
+            status_code=400,
+            error_ticket=error_ticket
+        )
 
 
 @app.route("/api/workflow/generate-document", methods=["POST"])
@@ -2002,7 +2218,15 @@ def workflow_generate_document():
         return jsonify(result)
     except Exception as e:
         app.logger.error(f"Document generation error: {e}")
-        return jsonify({"error": str(e)}), 400
+        # Log error server-side
+        logger.error(f"{request.path} failed: {type(e).__name__}: {e}", exc_info=True)
+        error_ticket = ErrorSanitizer.create_error_ticket()
+        return error_response(
+            ErrorSanitizer.sanitize_error(e, 'validation'),
+            error_code='OPERATION_FAILED',
+            status_code=400,
+            error_ticket=error_ticket
+        )
 
 
 @app.route("/api/workflow/scan-document", methods=["POST"])
@@ -2033,7 +2257,15 @@ def workflow_scan_document():
         return jsonify(result)
     except Exception as e:
         app.logger.error(f"Document scan error: {e}")
-        return jsonify({"error": str(e)}), 400
+        # Log error server-side
+        logger.error(f"{request.path} failed: {type(e).__name__}: {e}", exc_info=True)
+        error_ticket = ErrorSanitizer.create_error_ticket()
+        return error_response(
+            ErrorSanitizer.sanitize_error(e, 'validation'),
+            error_code='OPERATION_FAILED',
+            status_code=400,
+            error_ticket=error_ticket
+        )
 
 
 @app.route("/tools/transcript")

@@ -51,7 +51,7 @@ import argparse
 import os
 import re
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple, Set
+from typing import Dict, List, Optional, Set, Tuple
 
 try:
     import yaml  # PyYAML
@@ -242,7 +242,7 @@ def gather_opra_text_blob(opra_record_dir: Path) -> str:
 def merge_unique_list(existing: Optional[List], add: List[str]) -> List[str]:
     out: List[str] = []
     seen = set()
-    for x in (existing or []):
+    for x in existing or []:
         sx = str(x).strip().lower()
         if sx and sx not in seen:
             out.append(sx)
@@ -275,7 +275,9 @@ def update_opra_related_cases(opra_record_dir: Path, related_slugs: List[str]) -
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--write-map-template", action="store_true", help="Create _data/opra_case_map.yml template")
+    ap.add_argument(
+        "--write-map-template", action="store_true", help="Create _data/opra_case_map.yml template"
+    )
     args = ap.parse_args()
 
     if args.write_map_template:

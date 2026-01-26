@@ -18,6 +18,7 @@ Usage:
 """
 
 from __future__ import annotations
+
 import argparse
 import os
 import re
@@ -26,12 +27,12 @@ import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-WHITE_VALUES = {
-    "white", "#fff", "#ffffff", "rgb(255,255,255)", "rgb(255, 255, 255)"
-}
+WHITE_VALUES = {"white", "#fff", "#ffffff", "rgb(255,255,255)", "rgb(255, 255, 255)"}
+
 
 def norm(s: str) -> str:
     return re.sub(r"\s+", "", s.strip().lower())
+
 
 def parse_style(style: str) -> dict[str, str]:
     out: dict[str, str] = {}
@@ -41,11 +42,14 @@ def parse_style(style: str) -> dict[str, str]:
             out[k.strip().lower()] = v.strip()
     return out
 
+
 def is_white_color(v: str) -> bool:
     return norm(v) in {norm(x) for x in WHITE_VALUES}
 
+
 def get_attr(el: ET.Element, name: str) -> str | None:
     return el.attrib.get(name)
+
 
 def strip_root_white_background(svg: ET.Element) -> bool:
     """Remove root style background declarations if white."""
@@ -70,6 +74,7 @@ def strip_root_white_background(svg: ET.Element) -> bool:
             del svg.attrib["style"]
     return changed
 
+
 def parse_viewbox(svg: ET.Element) -> tuple[float, float, float, float] | None:
     vb = svg.attrib.get("viewBox") or svg.attrib.get("viewbox")
     if not vb:
@@ -81,6 +86,7 @@ def parse_viewbox(svg: ET.Element) -> tuple[float, float, float, float] | None:
         return tuple(float(p) for p in parts)  # minx, miny, w, h
     except ValueError:
         return None
+
 
 def to_float(v: str | None) -> float | None:
     if v is None:
@@ -94,6 +100,7 @@ def to_float(v: str | None) -> float | None:
         return float(v)
     except ValueError:
         return None
+
 
 def looks_like_full_canvas_rect(rect: ET.Element, svg: ET.Element) -> bool:
     """
@@ -146,6 +153,7 @@ def looks_like_full_canvas_rect(rect: ET.Element, svg: ET.Element) -> bool:
 
     return False
 
+
 def rect_is_white(rect: ET.Element) -> bool:
     fill = rect.attrib.get("fill")
     if fill and is_white_color(fill):
@@ -162,6 +170,7 @@ def rect_is_white(rect: ET.Element) -> bool:
         return True
 
     return False
+
 
 def remove_white_bg_rects(tree: ET.ElementTree) -> int:
     """
@@ -182,6 +191,7 @@ def remove_white_bg_rects(tree: ET.ElementTree) -> int:
                 parent.remove(child)
                 removed += 1
     return removed
+
 
 def process_svg(path: Path, dry_run: bool = False) -> tuple[bool, str]:
     try:
@@ -217,6 +227,7 @@ def process_svg(path: Path, dry_run: bool = False) -> tuple[bool, str]:
     tree.write(path, encoding="utf-8", xml_declaration=True)
     return True, "; ".join(notes)
 
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("root", help="Folder to scan recursively for .svg")
@@ -244,6 +255,7 @@ def main() -> int:
     if not args.dry_run:
         print("Backups: *.svg.bak (only created once per file)")
     return 0
+
 
 if __name__ == "__main__":
     raise SystemExit(main())

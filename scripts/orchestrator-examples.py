@@ -105,56 +105,50 @@ AGENT_SPECIALTIES = {
         "Export validation",
         "Attribution requirements",
         "Fair use doctrine (200-word limits)",
-        "Attorney certification"
+        "Attorney certification",
     ],
-    
     "@database-architect": [
         "Schema design",
         "Migration scripts",
         "Index optimization",
         "Query performance",
-        "SQLite/PostgreSQL planning"
+        "SQLite/PostgreSQL planning",
     ],
-    
     "@bwc-forensics": [
         "Video analysis (Whisper, pyannote)",
         "SHA-256 integrity checks",
         "Chain of custody logging",
         "Evidence timeline reconstruction",
-        "Forensic report generation"
+        "Forensic report generation",
     ],
-    
     "@flask-backend": [
         "REST API development",
         "Authentication & authorization",
         "Rate limiting",
         "Business logic",
-        "Database integration"
+        "Database integration",
     ],
-    
     "@frontend-dev": [
         "Responsive UI components",
         "Accessibility (WCAG 2.1)",
         "Performance optimization",
         "Animation (60fps)",
-        "Mobile-first design"
+        "Mobile-first design",
     ],
-    
     "@security-devops": [
         "SSL/TLS configuration",
         "CI/CD pipelines",
         "Secrets management",
         "DDoS protection",
-        "Security auditing"
+        "Security auditing",
     ],
-    
     "@documentation": [
         "User guides",
         "API documentation",
         "Deployment guides",
         "Attorney-friendly tutorials",
-        "Technical specifications"
-    ]
+        "Technical specifications",
+    ],
 }
 
 if __name__ == "__main__":
@@ -165,10 +159,11 @@ if __name__ == "__main__":
         print(f"\n{agent}:")
         for capability in capabilities:
             print(f"  • {capability}")
-    
+
     print("\n" + "=" * 60)
     print("\nExample Invocation:")
-    print("""
+    print(
+        """
 @orchestrator: Add secure document export with copyright compliance
 
 This will automatically:
@@ -178,4 +173,5 @@ This will automatically:
 4. Build frontend interface
 5. Add security controls
 6. Generate documentation
-""")
+"""
+    )

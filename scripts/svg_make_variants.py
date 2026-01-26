@@ -19,15 +19,15 @@ This is intentionally conservative:
 """
 
 from __future__ import annotations
+
 import argparse
 import csv
 import os
 import re
+import xml.etree.ElementTree as ET
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional, Tuple, Dict, Any
-import xml.etree.ElementTree as ET
-
+from typing import Any, Dict, Optional, Tuple
 
 HEX_RE = re.compile(r"^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$")
 RGB_RE = re.compile(r"^rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$")
@@ -64,6 +64,7 @@ DARK = ThemeTokens(
     accent_blue="#3b82f6",
     accent_gold="#d4a574",
 )
+
 
 # Candidate palette used for "fix low contrast" substitutions
 def palette_for(theme: ThemeTokens) -> Tuple[str, ...]:
@@ -214,7 +215,9 @@ def update_style_attr(style: str, key: str, new_value: str) -> str:
     return "; ".join(f"{k}: {v}" for k, v in kv.items())
 
 
-def process_svg(svg_path: Path, out_dir: Path, theme: ThemeTokens, min_ratio: float) -> Dict[str, Any]:
+def process_svg(
+    svg_path: Path, out_dir: Path, theme: ThemeTokens, min_ratio: float
+) -> Dict[str, Any]:
     ns = {"svg": "http://www.w3.org/2000/svg"}
     ET.register_namespace("", ns["svg"])
 
@@ -335,9 +338,15 @@ def iter_svgs(in_dir: Path):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--in-dir", default="assets/img/logo", help="Directory to scan for source SVGs")
-    ap.add_argument("--out-dir", default="", help="Output directory (default: same as source file directory)")
-    ap.add_argument("--min-contrast", type=float, default=4.5, help="Minimum contrast ratio to target")
-    ap.add_argument("--report", default="scripts/svg_variants_report.csv", help="CSV report output path")
+    ap.add_argument(
+        "--out-dir", default="", help="Output directory (default: same as source file directory)"
+    )
+    ap.add_argument(
+        "--min-contrast", type=float, default=4.5, help="Minimum contrast ratio to target"
+    )
+    ap.add_argument(
+        "--report", default="scripts/svg_variants_report.csv", help="CSV report output path"
+    )
     ap.add_argument("--dry-run", action="store_true", help="Analyze only, do not write files")
     args = ap.parse_args()
 
@@ -360,12 +369,16 @@ def main():
                 row = process_svg(svg, out_dir, theme, args.min_contrast)
                 row["out"] = "(dry-run)"
                 rows.append(row)
-                print(f"[DRY] {svg} -> {theme.name} | min {row['contrast_min']} avg {row['contrast_avg']} max {row['contrast_max']}")
+                print(
+                    f"[DRY] {svg} -> {theme.name} | min {row['contrast_min']} avg {row['contrast_avg']} max {row['contrast_max']}"
+                )
         else:
             for theme in (LIGHT, DARK):
                 row = process_svg(svg, out_dir, theme, args.min_contrast)
                 rows.append(row)
-                print(f"[OK] {svg.name} -> {Path(row['out']).name} | changed {row['changed_props']} | min {row['contrast_min']}")
+                print(
+                    f"[OK] {svg.name} -> {Path(row['out']).name} | changed {row['changed_props']} | min {row['contrast_min']}"
+                )
 
     # Write report
     if rows:
