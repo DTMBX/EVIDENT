@@ -211,24 +211,20 @@ class DatabaseOptimizer:
     def create_indexes(self):
         """Create optimized indexes"""
         indexes = [
-            # User indexes
-            "CREATE INDEX IF NOT EXISTS idx_users_email ON users(email)",
-            "CREATE INDEX IF NOT EXISTS idx_users_username ON users(username)",
+            # User indexes - email already has index from model definition
             "CREATE INDEX IF NOT EXISTS idx_users_tier ON users(tier)",
+            "CREATE INDEX IF NOT EXISTS idx_users_created_at ON users(created_at)",
+            "CREATE INDEX IF NOT EXISTS idx_users_last_login ON users(last_login)",
             
             # Analysis indexes
             "CREATE INDEX IF NOT EXISTS idx_analyses_user_id ON analyses(user_id)",
             "CREATE INDEX IF NOT EXISTS idx_analyses_created_at ON analyses(created_at)",
             "CREATE INDEX IF NOT EXISTS idx_analyses_status ON analyses(status)",
-            "CREATE INDEX IF NOT EXISTS idx_analyses_case_number ON analyses(case_number)",
-            
-            # API key indexes
-            "CREATE INDEX IF NOT EXISTS idx_api_keys_user_id ON api_keys(user_id)",
-            "CREATE INDEX IF NOT EXISTS idx_api_keys_key ON api_keys(key)",
             
             # Usage tracking indexes
             "CREATE INDEX IF NOT EXISTS idx_usage_user_id ON usage_tracking(user_id)",
-            "CREATE INDEX IF NOT EXISTS idx_usage_date ON usage_tracking(date)",
+            "CREATE INDEX IF NOT EXISTS idx_usage_year_month ON usage_tracking(year, month)",
+            "CREATE INDEX IF NOT EXISTS idx_usage_updated_at ON usage_tracking(updated_at)",
         ]
         
         for index_sql in indexes:
