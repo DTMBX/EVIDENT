@@ -6,6 +6,16 @@
     <title>
       BarberX Legal Tech | AI-Powered BWC Analysis & eDiscovery Platform
     </title>
+    <!-- Constitutional Header Witness Component -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        fetch('/components/header-witness')
+          .then(response => response.text())
+          .then(html => {
+            document.body.insertAdjacentHTML('afterbegin', html);
+          });
+      });
+    </script>
     <meta
       name="description"
       content="Professional-grade body-worn camera analysis and eDiscovery platform. 100% local AI processing with Whisper transcription, speaker identification, and discrepancy detection. No cloud costs, no subscriptions."
@@ -785,7 +795,7 @@
 
       <div class="footer-bottom">
         <p>
-          &copy; 2026 BarberX Legal Technologies. Open-source AI tools for civil
+          &copy; 2025 BarberX Legal Technologies. Open-source AI tools for civil
           rights litigation.
         </p>
       </div>

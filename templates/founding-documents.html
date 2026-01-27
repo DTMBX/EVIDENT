@@ -6,6 +6,16 @@
     <title>Founding Documents Archive - BarberX Legal Technologies</title>
     <meta name="description" content="Complete archive of United States founding documents including the Constitution, Bill of Rights, all amendments, state constitutions, and foundational legal texts. Official government sources and full text for legal reference.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Constitutional Header Witness Component -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        fetch('/components/header-witness')
+          .then(response => response.text())
+          .then(html => {
+            document.body.insertAdjacentHTML('afterbegin', html);
+          });
+      });
+    </script>
     <style>
         :root {
             --parchment: #F4E8D0;
@@ -699,6 +709,172 @@
             </div>
         </div>
 
+        <!-- Legal Research Tools for Law Firms -->
+        <h2 class="section-title">⚖️ Professional Legal Research Tools</h2>
+        
+        <div class="document-card" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%); border-color: #3b82f6;">
+            <h3 class="doc-title" style="color: #3b82f6;">
+                🏛️ Constitutional Law Research Suite
+            </h3>
+            <p class="doc-description">
+                <strong>For Legal Professionals:</strong> Direct access to authoritative constitutional law resources, 
+                case law databases, and federal legal research tools. Essential for BWC analysis, civil rights litigation, 
+                and constitutional defense.
+            </p>
+            <div class="doc-links">
+                <a href="https://supreme.justia.com/cases/federal/us/" target="_blank" class="doc-link" style="border-color: #3b82f6; color: #3b82f6;">
+                    📚 Supreme Court Cases (Justia)
+                </a>
+                <a href="https://www.courtlistener.com/" target="_blank" class="doc-link" style="border-color: #3b82f6; color: #3b82f6;">
+                    🔍 CourtListener - Free Case Law
+                </a>
+                <a href="https://www.law.cornell.edu/supct/search/" target="_blank" class="doc-link" style="border-color: #3b82f6; color: #3b82f6;">
+                    ⚖️ Cornell LII Supreme Court
+                </a>
+                <a href="https://constitution.congress.gov/" target="_blank" class="doc-link" style="border-color: #3b82f6; color: #3b82f6;">
+                    📖 Constitution Annotated
+                </a>
+            </div>
+        </div>
+
+        <!-- BWC Case Law Integration -->
+        <h2 class="section-title">🎥 Body-Worn Camera Constitutional Law</h2>
+        
+        <div class="document-card" style="background: linear-gradient(135deg, rgba(139, 0, 0, 0.1) 0%, rgba(178, 34, 52, 0.1) 100%); border-color: #B22234;">
+            <h3 class="doc-title" style="color: #B22234;">
+                4th Amendment - Search & Seizure (BWC Critical)
+            </h3>
+            <p class="doc-date">Ratified: December 15, 1791</p>
+            <p class="doc-description">
+                <strong>The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated...</strong><br><br>
+                <strong>Why This Matters for BWC Analysis:</strong> Every body-worn camera recording is a Fourth Amendment event. 
+                Police-civilian encounters must be analyzed for constitutional compliance. Was there probable cause? 
+                Was the search reasonable? Did officers violate rights? BarberX analyzes BWC footage specifically for 
+                Fourth Amendment violations using AI-powered transcript analysis and legal research.
+            </p>
+            <div class="doc-links">
+                <a href="https://www.law.cornell.edu/wex/fourth_amendment" target="_blank" class="doc-link primary" style="background: #B22234; border-color: #B22234;">
+                    📖 4th Amendment Overview (Cornell)
+                </a>
+                <a href="https://www.courtlistener.com/?q=fourth+amendment+police+body+camera&type=o&order_by=score+desc" target="_blank" class="doc-link" style="border-color: #B22234; color: #B22234;">
+                    📚 BWC Case Law Search
+                </a>
+                <a href="/documents/bill-of-rights#amendment-4" class="doc-link" style="border-color: #B22234; color: #B22234;">
+                    Read Full Text
+                </a>
+            </div>
+        </div>
+
+        <div class="document-card" style="background: linear-gradient(135deg, rgba(0, 51, 102, 0.1) 0%, rgba(197, 179, 88, 0.1) 100%); border-color: #003366;">
+            <h3 class="doc-title" style="color: #003366;">
+                5th Amendment - Due Process & Self-Incrimination
+            </h3>
+            <p class="doc-date">Ratified: December 15, 1791</p>
+            <p class="doc-description">
+                <strong>No person shall... be deprived of life, liberty, or property, without due process of law...</strong><br><br>
+                <strong>Why This Matters for BWC Analysis:</strong> Were Miranda rights given? Did police coerce statements? 
+                Did the defendant invoke their right to remain silent? BWC footage often contains the most critical evidence 
+                of Fifth Amendment violations. BarberX's AI transcription identifies Miranda warnings, identifies coercion 
+                patterns, and flags self-incrimination issues.
+            </p>
+            <div class="doc-links">
+                <a href="https://www.law.cornell.edu/wex/fifth_amendment" target="_blank" class="doc-link primary" style="background: #003366; border-color: #003366;">
+                    📖 5th Amendment Overview (Cornell)
+                </a>
+                <a href="https://supreme.justia.com/cases/federal/us/384/436/" target="_blank" class="doc-link" style="border-color: #003366; color: #003366;">
+                    ⚖️ Miranda v. Arizona (1966)
+                </a>
+                <a href="https://www.courtlistener.com/?q=fifth+amendment+miranda+police+interrogation&type=o&order_by=score+desc" target="_blank" class="doc-link" style="border-color: #003366; color: #003366;">
+                    📚 Miranda Case Law Search
+                </a>
+                <a href="/documents/bill-of-rights#amendment-5" class="doc-link" style="border-color: #003366; color: #003366;">
+                    Read Full Text
+                </a>
+            </div>
+        </div>
+
+        <div class="document-card" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%); border-color: #10b981;">
+            <h3 class="doc-title" style="color: #10b981;">
+                14th Amendment - Equal Protection & Due Process
+            </h3>
+            <p class="doc-date">Ratified: July 9, 1868</p>
+            <p class="doc-description">
+                <strong>No State shall... deny to any person within its jurisdiction the equal protection of the laws.</strong><br><br>
+                <strong>Why This Matters for BWC Analysis:</strong> The 14th Amendment incorporated most of the Bill of Rights 
+                to apply against state and local police. It also prohibits discriminatory policing. BWC analysis can reveal 
+                patterns of unequal treatment based on race, ethnicity, or other protected characteristics. BarberX's pattern 
+                analysis tools help identify systemic constitutional violations.
+            </p>
+            <div class="doc-links">
+                <a href="https://www.law.cornell.edu/wex/fourteenth_amendment" target="_blank" class="doc-link primary" style="background: #10b981; border-color: #10b981;">
+                    📖 14th Amendment Overview (Cornell)
+                </a>
+                <a href="https://www.courtlistener.com/?q=fourteenth+amendment+equal+protection+police&type=o&order_by=score+desc" target="_blank" class="doc-link" style="border-color: #10b981; color: #10b981;">
+                    📚 Equal Protection Case Law
+                </a>
+                <a href="/documents/amendments#amendment-14" class="doc-link" style="border-color: #10b981; color: #10b981;">
+                    Read Full Text
+                </a>
+            </div>
+        </div>
+
+        <!-- Key Supreme Court Cases for BWC Analysis -->
+        <h2 class="section-title">⚖️ Landmark Cases for BWC Defense</h2>
+        
+        <div class="document-card">
+            <h3 class="doc-title">Terry v. Ohio (1968) - Stop and Frisk</h3>
+            <p class="doc-date">392 U.S. 1 (1968)</p>
+            <p class="doc-description">
+                Established "reasonable suspicion" standard for stops and pat-downs. <strong>Critical for BWC:</strong> 
+                Did officers have reasonable, articulable suspicion before the stop? BarberX analyzes officer statements 
+                in BWC footage to determine if Terry requirements were met.
+            </p>
+            <div class="doc-links">
+                <a href="https://supreme.justia.com/cases/federal/us/392/1/" target="_blank" class="doc-link primary">
+                    Full Opinion
+                </a>
+                <a href="https://www.courtlistener.com/opinion/107583/terry-v-ohio/" target="_blank" class="doc-link">
+                    CourtListener Analysis
+                </a>
+            </div>
+        </div>
+
+        <div class="document-card">
+            <h3 class="doc-title">Miranda v. Arizona (1966) - Custodial Interrogation</h3>
+            <p class="doc-date">384 U.S. 436 (1966)</p>
+            <p class="doc-description">
+                Requires police to inform suspects of rights before custodial interrogation. <strong>Critical for BWC:</strong> 
+                Was Miranda warning given? Was defendant in custody? BarberX's AI automatically detects Miranda warnings 
+                and flags interrogations without proper advisement.
+            </p>
+            <div class="doc-links">
+                <a href="https://supreme.justia.com/cases/federal/us/384/436/" target="_blank" class="doc-link primary">
+                    Full Opinion
+                </a>
+                <a href="https://www.courtlistener.com/opinion/107252/miranda-v-arizona/" target="_blank" class="doc-link">
+                    CourtListener Analysis
+                </a>
+            </div>
+        </div>
+
+        <div class="document-card">
+            <h3 class="doc-title">Graham v. Connor (1989) - Use of Force</h3>
+            <p class="doc-date">490 U.S. 386 (1989)</p>
+            <p class="doc-description">
+                Established "objective reasonableness" standard for police use of force under the 4th Amendment. 
+                <strong>Critical for BWC:</strong> Was force objectively reasonable from officer's perspective? 
+                BarberX analyzes force incidents frame-by-frame with constitutional standards.
+            </p>
+            <div class="doc-links">
+                <a href="https://supreme.justia.com/cases/federal/us/490/386/" target="_blank" class="doc-link primary">
+                    Full Opinion
+                </a>
+                <a href="https://www.courtlistener.com/opinion/112257/graham-v-connor/" target="_blank" class="doc-link">
+                    CourtListener Analysis
+                </a>
+            </div>
+        </div>
+
         <!-- Additional Foundational Documents -->
         <h2 class="section-title">📖 Additional Foundational Documents</h2>
         
@@ -746,10 +922,16 @@
 
         <!-- Return to Site -->
         <div style="text-align: center; margin-top: 4rem; padding: 2rem;">
-            <a href="/" style="display: inline-block; background: var(--gold-seal); color: #000; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+            <a href="/honor" style="display: inline-block; background: #B22234; color: #fff; padding: 1rem 2.5rem; border-radius: 8px; text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-right: 1rem; margin-bottom: 1rem;">
+                🇺🇸 Honor Those Who Defended It
+            </a>
+            <a href="/" style="display: inline-block; background: var(--gold-seal); color: #000; padding: 1rem 2.5rem; border-radius: 8px; text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;">
                 Return to BarberX Platform
             </a>
-            <p style="margin-top: 1rem; color: #64748b; font-size: 0.9rem;">
+            <p style="margin-top: 1.5rem; color: #cbd5e1; font-size: 1rem;">
+                <strong>1.3 million Americans died defending this Constitution.</strong>
+            </p>
+            <p style="margin-top: 0.5rem; color: #64748b; font-size: 0.9rem;">
                 Defending the Constitution • Honoring the Founders • Upholding Truth
             </p>
         </div>

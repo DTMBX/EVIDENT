@@ -4,6 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard | BarberX Legal Tech</title>
+    <!-- Constitutional Header Witness Component -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        fetch('/components/header-witness')
+          .then(response => response.text())
+          .then(html => {
+            document.body.insertAdjacentHTML('afterbegin', html);
+          });
+      });
+    </script>
     <link rel="stylesheet" href="/assets/css/legal-tech-platform.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>

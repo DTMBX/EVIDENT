@@ -2598,6 +2598,23 @@ def founding_documents():
     return render_template("founding-documents.html")
 
 
+@app.route("/components/header-witness")
+def header_witness_component():
+    """
+    Constitutional Header Witness Component
+    
+    'Let a Header Be Set as Witness.'
+    
+    Establishes a unified mark at the summit of the site, constituted as a quiet 
+    standard and not an ornament. The US Flag stands first by order, proportion, 
+    and Title 4 USC authority. All subordinate standards revealed by consent or inquiry.
+    
+    Set the Standard first. Reveal the rest by order. Alter nothing. Animate nothing.
+    Bind by hierarchy and truth. Let the header stand as witness.
+    """
+    return render_template("components/header-witness.html")
+
+
 @app.route("/press")
 def press():
     """Press/media page"""
