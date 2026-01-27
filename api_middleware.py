@@ -15,11 +15,10 @@ Features:
 import logging
 import time
 import functools
-from datetime import datetime, timedelta
-from typing import Dict, Optional, Callable, List
+from datetime import datetime
+from typing import Dict, Optional
 from collections import defaultdict
 import hashlib
-import json
 
 from flask import request, jsonify, g
 from werkzeug.exceptions import HTTPException
@@ -169,7 +168,7 @@ class APIKeyAuth:
             key_hash = hashlib.sha256(api_key.encode()).hexdigest()
 
             # Query database (pseudo-code - adapt to your model)
-            from models_auth import APIKey, User
+            from models_auth import APIKey
 
             api_key_obj = APIKey.query.filter_by(key_hash=key_hash, is_active=True).first()
 
@@ -395,7 +394,7 @@ def handle_errors():
 
             except Exception as e:
                 logger = logging.getLogger(__name__)
-                logger.exception(f"Unhandled error in {f.__name__}")
+                logger.exception("Unhandled error in %s: %s", f.__name__, str(e))
 
                 return jsonify(error_response("Internal server error", error_code="INTERNAL_ERROR")), 500
 

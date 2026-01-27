@@ -10,8 +10,6 @@ from pathlib import Path
 from datetime import datetime
 import os
 import hashlib
-import threading
-import queue
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # Create blueprint

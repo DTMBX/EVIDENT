@@ -14,7 +14,7 @@ Features:
 import os
 import logging
 from pathlib import Path
-from typing import Dict, Any, Optional, List
+from typing import Dict, Optional, List
 from datetime import datetime, timedelta
 from dataclasses import dataclass
 import json

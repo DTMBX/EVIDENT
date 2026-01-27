@@ -3,15 +3,18 @@ BarberX Authentication Routes
 Login, logout, signup, and user management
 """
 
+import logging
 from functools import wraps
 from urllib.parse import urlparse, urljoin
 from flask import Blueprint, render_template, redirect, url_for, flash, request, session, jsonify
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from models_auth import db, User, UsageTracking, TierLevel
-from datetime import datetime
 
 auth_bp = Blueprint("auth", __name__, url_prefix="/auth")
 login_manager = LoginManager()
+
+# Initialize logger
+logger = logging.getLogger(__name__)
 
 
 def is_safe_url(target):
@@ -82,7 +85,7 @@ def feature_required(feature_name):
         @login_required
         def decorated_function(*args, **kwargs):
             if not current_user.can_access_feature(feature_name):
-                flash(f"This feature is not available in your current tier. Please upgrade.", "warning")
+                flash("This feature is not available in your current tier. Please upgrade.", "warning")
                 return redirect(url_for("pricing"))
             return f(*args, **kwargs)
 
@@ -107,7 +110,7 @@ def check_usage_limit(field):
 
             # Check limit
             if not usage.check_limit(field, current_user):
-                flash(f"You have reached your monthly limit for this feature. Please upgrade your tier.", "warning")
+                flash("You have reached your monthly limit for this feature. Please upgrade your tier.", "warning")
                 return redirect(url_for("pricing"))
 
             return f(*args, **kwargs)
@@ -231,13 +234,13 @@ def signup():
                 session["checkout_tier"] = tier_param
                 return redirect(url_for("pricing"))
             else:
-                flash(f"Account created successfully! Welcome to BarberX.", "success")
+                flash("Account created successfully! Welcome to BarberX.", "success")
                 return redirect(url_for("dashboard"))
 
         except Exception as e:
             db.session.rollback()
-            flash(f"An error occurred during signup. Please try again.", "danger")
-            print(f"Signup error: {e}")
+            flash("An error occurred during signup. Please try again.", "danger")
+            logger.error(f"Signup error: {e}", exc_info=True)
 
     return render_template(
         "auth/signup.html", requested_tier=requested_tier_name, tier_param=tier_param, trial_period=trial_period

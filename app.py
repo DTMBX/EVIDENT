@@ -16,16 +16,14 @@ from pathlib import Path
 import flask
 from flask import Flask, flash, jsonify, redirect, render_template, request, send_file, session, url_for
 from flask_cors import CORS
-from flask_login import LoginManager, UserMixin, current_user, login_required, login_user, logout_user
-from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager, current_user, login_required, login_user, logout_user
 from flask_wtf.csrf import CSRFProtect
-from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
 from flask_compress import Compress
 
 # Security utilities
 try:
-    from utils.security import ErrorSanitizer, InputValidator
+    from utils.security import ErrorSanitizer
 
     UTILS_AVAILABLE = True
 except ImportError as e:
@@ -47,7 +45,7 @@ except ImportError as e:
 try:
     from auth_routes import auth_bp
     from models_auth import ApiKey as APIKey
-    from models_auth import TierLevel, UsageTracking, User
+    from models_auth import User
 
     ENHANCED_AUTH_AVAILABLE = True
 except ImportError as e:
@@ -98,7 +96,7 @@ except ImportError as e:
 
 # Import our BWC analyzer (optional - only needed for actual analysis)
 try:
-    from bwc_forensic_analyzer import BWCForensicAnalyzer
+    pass
 
     BWC_ANALYZER_AVAILABLE = True
 except ImportError:
@@ -108,24 +106,13 @@ except ImportError:
 
 # Backend Optimization Components
 try:
-    from api_middleware import (
-        api_endpoint,
-        handle_errors,
-        log_request,
-        rate_limit,
-        require_api_key,
-        require_tier,
-        validate_request,
-    )
     from backend_integration import (
-        Event,
         error_response,
         event_bus,
-        performance_monitor,
         service_registry,
         success_response,
     )
-    from config_manager import ConfigManager, DatabaseBackup, DatabaseOptimizer
+    from config_manager import ConfigManager, DatabaseOptimizer
     from unified_evidence_service import EvidenceReportGenerator, UnifiedEvidenceProcessor
 
     BACKEND_OPTIMIZATION_AVAILABLE = True
@@ -196,11 +183,11 @@ else:
         if database_url.startswith("postgres://"):
             database_url = database_url.replace("postgres://", "postgresql://", 1)
         app.config["SQLALCHEMY_DATABASE_URI"] = database_url
-        print(f"[OK] Using PostgreSQL database for production")
+        print("[OK] Using PostgreSQL database for production")
     else:
         # Local development with SQLite
         app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///barberx_FRESH.db"
-        print(f"[OK] Using SQLite database for development")
+        print("[OK] Using SQLite database for development")
 
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     app.config["MAX_CONTENT_LENGTH"] = int(
@@ -317,7 +304,7 @@ def initialize_backend_services():
 
 
 # Global analyzer instance (lazy load)
-analyzer = None
+bwc_analyzer_instance = None  # noqa: F811 - Flask route shadow
 analysis_tasks = {}  # Track background analysis tasks
 
 # ========================================
@@ -717,8 +704,6 @@ def api_rate_limit_status():
     if not BACKEND_OPTIMIZATION_AVAILABLE:
         return jsonify(error_response("Backend optimization not available")), 503
 
-    from flask import g
-
     from api_middleware import rate_limiter
 
     if current_user.is_authenticated:
@@ -996,7 +981,7 @@ def update_user_profile():
     if not ENHANCED_AUTH_AVAILABLE:
         return jsonify({"error": "Feature not available"}), 503
 
-    from models_auth import User, db
+    from models_auth import db
 
     try:
         data = request.get_json()
@@ -1021,7 +1006,7 @@ def change_password():
     if not ENHANCED_AUTH_AVAILABLE:
         return jsonify({"error": "Feature not available"}), 503
 
-    from models_auth import User, db
+    from models_auth import db
     from utils.security import InputValidator, ErrorSanitizer
     from utils.responses import error_response, validation_error, success_response
     from utils.logging_config import get_logger
@@ -1076,7 +1061,7 @@ def delete_user_account():
 
     from flask_login import logout_user
 
-    from models_auth import User, db
+    from models_auth import db
 
     try:
         user_id = current_user.id
@@ -2822,8 +2807,6 @@ def delete_pdf(pdf_id):
 @login_required
 def analyze_video():
     """Start BWC video analysis"""
-    global analyzer
-
     data = request.get_json()
     upload_id = data.get("upload_id")
 
@@ -2867,7 +2850,8 @@ def analyze_video():
 
             # Save reports
             output_dir = app.config["ANALYSIS_FOLDER"] / analysis.id
-            output_files = analyzer.export_report(report, output_dir=str(output_dir), formats=["json", "txt", "md"])
+            # Export report (output_files not used in mock mode)
+            _ = analyzer.export_report(report, output_dir=str(output_dir), formats=["json", "txt", "md"])
 
             # Update analysis record
             analysis.status = "completed"
@@ -3033,7 +3017,7 @@ def export_analysis_report(analysis, format):
         import json
 
         with open(analysis.report_json_path, "r") as f:
-            report_data = json.load(f)
+            json.load(f)
 
         output_dir = Path(app.config["ANALYSIS_FOLDER"]) / analysis.id
         output_dir.mkdir(parents=True, exist_ok=True)
@@ -3051,7 +3035,7 @@ def export_analysis_report(analysis, format):
             story = []
 
             # Title
-            story.append(Paragraph(f"<b>BWC Forensic Analysis Report</b>", styles["Title"]))
+            story.append(Paragraph("<b>BWC Forensic Analysis Report</b>", styles["Title"]))
             story.append(Spacer(1, 12))
 
             # Case Information
@@ -3124,7 +3108,6 @@ def export_analysis_report(analysis, format):
             # Generate DOCX report
             from docx import Document
             from docx.enum.text import WD_ALIGN_PARAGRAPH
-            from docx.shared import Inches, Pt, RGBColor
 
             docx_path = output_dir / f"report_{analysis.id}.docx"
             doc = Document()
@@ -3354,7 +3337,7 @@ For official use only - Confidential
 
 ## EXECUTIVE SUMMARY
 
-This report presents the forensic analysis results for body-worn camera footage case **{analysis.case_number or 'N/A'}**. 
+This report presents the forensic analysis results for body-worn camera footage case **{analysis.case_number or 'N/A'}**.
 The analysis identified **{analysis.total_speakers or 0}** distinct speaker(s) across **{analysis.total_segments or 0}** transcript segments.
 
 {"**⚠️ ALERT:** " + str(analysis.critical_discrepancies) + " critical discrepancies require immediate attention." if analysis.critical_discrepancies and analysis.critical_discrepancies > 0 else "✅ No critical issues were detected."}
@@ -3406,26 +3389,26 @@ The analysis identified **{analysis.total_speakers or 0}** distinct speaker(s) a
 File Hash (SHA-256): {analysis.file_hash}
 ```
 
-This cryptographic hash ensures file integrity and admissibility in legal proceedings. 
-Any modification to the original file will result in a different hash value, allowing 
+This cryptographic hash ensures file integrity and admissibility in legal proceedings.
+Any modification to the original file will result in a different hash value, allowing
 detection of tampering.
 
 ---
 
 ## LEGAL NOTICE
 
-This report is generated for official use only and contains chain-of-custody verified evidence. 
-The **SHA-256 cryptographic hash** ensures file integrity and admissibility. 
+This report is generated for official use only and contains chain-of-custody verified evidence.
+The **SHA-256 cryptographic hash** ensures file integrity and admissibility.
 
 ⚠️ Any unauthorized modification, reproduction, or distribution is prohibited.
 
-This analysis was conducted using BarberX Legal Tech Platform certified forensic analysis tools 
+This analysis was conducted using BarberX Legal Tech Platform certified forensic analysis tools
 in compliance with digital evidence standards.
 
 ---
 
-**BarberX Legal Tech Platform**  
-BWC Forensic Analysis System | Copyright © 2024-2026  
+**BarberX Legal Tech Platform**
+BWC Forensic Analysis System | Copyright © 2024-2026
 *For official use only - Confidential*
 """
 
@@ -3442,12 +3425,13 @@ BWC Forensic Analysis System | Copyright © 2024-2026
                 download_name=f"BWC_Analysis_{analysis.case_number or analysis.id}.md",
             )
 
-    except ImportError as e:
+    except ImportError:
+        logger.error("Export dependencies not installed", exc_info=True)
         return (
             jsonify(
                 {
                     "error": "Export dependencies not installed",
-                    "message": f"Please install: pip install reportlab python-docx",
+                    "message": "Please install: pip install reportlab python-docx",
                 }
             ),
             500,
@@ -3530,7 +3514,7 @@ def dashboard_stats():
     """Get dashboard statistics for current user"""
     from datetime import timedelta
 
-    from sqlalchemy import extract, func
+    from sqlalchemy import func
 
     # Get current month's analysis count
     now = datetime.utcnow()
@@ -3905,7 +3889,6 @@ def admin_stats():
     failed = status_counts.get("failed", 0)
 
     # Get subscription tier counts in a single query
-    from models_auth import TierLevel
 
     tier_counts = {}
     if hasattr(User, "tier"):
@@ -4484,20 +4467,20 @@ except ImportError:
     OPENAI_AVAILABLE = False
     app.logger.warning("OpenAI not available - AI chat features disabled")
 
-import base64
-import shutil
-import tempfile
 
 from flask_login import login_required
 
-# PDF extraction
-from pypdf import PdfReader
+# Subscription & tier gating imports
 
 
-# Video placeholder (future: add video transcript extraction)
 @app.route("/api/upload/pdf/secure", methods=["POST"])
 @login_required
 def upload_pdf_secure():
+    try:
+        from pypdf import PdfReader
+    except ImportError:
+        return jsonify({"error": "PDF processing not available"}), 503
+
     if "file" not in request.files:
         return jsonify({"error": "No file uploaded"}), 400
     file = request.files["file"]
@@ -4617,16 +4600,16 @@ def upload_video():
                 # Save TXT report
                 txt_path = output_dir / "report.txt"
                 with open(txt_path, "w") as f:
-                    f.write(f"BWC FORENSIC ANALYSIS REPORT\n")
-                    f.write(f"{'=' * 60}\n\n")
+                    f.write("BWC FORENSIC ANALYSIS REPORT\n")
+                    f.write("=" * 60 + "\n\n")
                     f.write(f"Case Number: {mock_report['metadata']['case_number']}\n")
                     f.write(f"Evidence Number: {mock_report['metadata']['evidence_number']}\n")
                     f.write(f"Duration: {mock_report['metadata']['duration']} seconds\n")
                     f.write(f"Speakers: {len(mock_report['transcript']['speakers'])}\n")
                     f.write(f"Segments: {len(mock_report['transcript']['segments'])}\n")
                     f.write(f"Discrepancies: {len(mock_report['discrepancies']['items'])}\n\n")
-                    f.write(f"TRANSCRIPT\n")
-                    f.write(f"{'-' * 60}\n\n")
+                    f.write("TRANSCRIPT\n")
+                    f.write("-" * 60 + "\n\n")
                     for segment in mock_report["transcript"]["segments"]:
                         f.write(f"[{segment['start_time']:.2f}s] {segment['speaker_label']}: {segment['text']}\n")
 
@@ -4733,7 +4716,22 @@ def health_check_status():
 
 # ========================================
 # RUN APPLICATION
+
+@app.route('/dashboard/usage')
+@login_required
+def usage_dashboard():
+    """Usage dashboard showing subscription and limits"""
+    from tier_gating import TierGate
+
+    usage_stats = TierGate.get_usage_stats(current_user)
+
+    return render_template(
+        'usage_dashboard.html',
+        usage_stats=usage_stats
+    )
+
 # ========================================
+
 
 if __name__ == "__main__":
     # Get port from environment variable (for cloud deployments)
@@ -4746,24 +4744,24 @@ if __name__ == "__main__":
     print(
         f"""
     ================================================================
-                                                                
-           BarberX Legal Technologies                           
-           Professional BWC Forensic Analysis Platform          
-                                                                
+
+           BarberX Legal Technologies
+           Professional BWC Forensic Analysis Platform
+
     ================================================================
-    
+
     Web Application: http://localhost:{port}
     Admin Login: admin@barberx.info
     Database: SQLite (Development)
     Logs: ./logs/barberx.log
-    
+
     BACKEND OPTIMIZATION:
     [+] Database connection pooling (30 concurrent users)
     [+] Intelligent caching (99% faster on hits)
     [+] API rate limiting (tiered by subscription)
     [+] Performance monitoring
     [+] Unified evidence processing pipeline
-    
+
     ENHANCED FEATURES:
     [+] Video analysis with synchronized transcript
     [+] Voice stress analysis and emotion detection
@@ -4775,14 +4773,14 @@ if __name__ == "__main__":
     [+] AI chat assistant
     [+] Annotation system
     [+] Multi-format report export
-    
+
     CORE FEATURES:
     [+] Multi-user authentication
     [+] Role-based access control
     [+] Subscription tiers (Free, Professional, Enterprise)
     [+] API key management
     [+] Audit logging
-    
+
     Ready for production deployment!
     Press Ctrl+C to stop the server.
     """.format(
@@ -4805,19 +4803,19 @@ if __name__ == "__main__":
 
     # Display startup banner
     print(
-        """
+        f"""
     ╔════════════════════════════════════════════════════════════════╗
     ║                                                                ║
     ║        BarberX Legal Technologies                              ║
     ║        Professional BWC Forensic Analysis Platform             ║
     ║                                                                ║
     ╚════════════════════════════════════════════════════════════════╝
-    
+
     🌐 Web Application: http://localhost:{port}
     🔐 Admin Login: admin@barberx.info
     📊 Database: SQLite
     Logs: ./logs/barberx.log
-    
+
     Features:
     ✅ Multi-user authentication
     ✅ Role-based access control
@@ -4829,9 +4827,7 @@ if __name__ == "__main__":
 
     Ready for production deployment!
     Press Ctrl+C to stop the server.
-    """.format(
-            port=port
-        )
+    """
     )
 
     app.run(host="0.0.0.0", port=port, debug=debug)

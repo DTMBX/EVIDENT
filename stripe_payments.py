@@ -5,7 +5,6 @@ Handles subscriptions, checkouts, and customer management
 
 import os
 import stripe
-from datetime import datetime
 from flask import Blueprint, request, jsonify, render_template, redirect, url_for
 from flask_login import login_required, current_user
 
@@ -86,7 +85,7 @@ def create_checkout_session():
 
             db.session.commit()
         else:
-            customer_id = current_user.stripe_customer_id
+            current_user.stripe_customer_id
 
         # Create checkout session
         checkout_session = stripe.checkout.Session.create(
@@ -99,8 +98,8 @@ def create_checkout_session():
                 }
             ],
             mode="subscription",
-            success_url=request.host_url + "payments/success?session_id={CHECKOUT_SESSION_ID}",
-            cancel_url=request.host_url + "pricing",
+            success_url=f"{request.host_url}payments/success?session_id={{CHECKOUT_SESSION_ID}}",
+            cancel_url=f"{request.host_url}pricing",
             metadata={"user_id": str(current_user.id), "plan": plan},
         )
 
@@ -169,7 +168,7 @@ def customer_portal():
         # Create portal session
         portal_session = stripe.billing_portal.Session.create(
             customer=current_user.stripe_customer_id,
-            return_url=request.host_url + "dashboard",
+            return_url=f"{request.host_url}dashboard",
         )
 
         return jsonify({"portal_url": portal_session.url})
@@ -263,7 +262,7 @@ def handle_subscription_cancelled(subscription):
 
 def handle_payment_succeeded(invoice):
     """Handle successful payment"""
-    from app import db, User
+    from app import User
 
     customer_id = invoice["customer"]
     user = User.query.filter_by(stripe_customer_id=customer_id).first()
