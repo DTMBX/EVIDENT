@@ -1,7 +1,7 @@
 {
-  "name": "BarberX Legal Case Management",
-  "short_name": "BarberX Legal",
-  "description": "Professional legal case management and OPRA records tracking platform",
+  "name": "BarberX Matter Docket (DTMB)",
+  "short_name": "DTMB",
+  "description": "Professional matter docket management and legal case tracking platform",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0f0f0f",
