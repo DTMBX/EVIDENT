@@ -134,7 +134,7 @@ class LegalLibraryService:
     """Main service for legal library operations"""
     
     def __init__(self):
-        self.courtlistener_api = "https://www.courtlistener.com/api/rest/v3/"
+        self.courtlistener_api = "https://www.courtlistener.com/api/rest/v4/"
         self.justia_api = "https://api.justia.com/"
     
     def search_library(
