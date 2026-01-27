@@ -2577,10 +2577,25 @@ def military_honor_installation():
     
     Dedicated to all who served, are serving, and made the ultimate sacrifice.
     Displays official US military flags in proper protocol and order per Title 4 USC.
+    Honors religious martyrs who died for freedom of conscience.
     
     'By the Grace of Almighty God, we honor their service and defend the Constitution they protected.'
     """
     return render_template("honor.html")
+
+
+@app.route("/founding-documents")
+def founding_documents():
+    """
+    Complete archive of US founding documents
+    
+    The Constitution for the United States of America, Bill of Rights, all amendments,
+    Declaration of Independence, state constitutions, and foundational legal texts.
+    Official government sources with full text for legal reference.
+    
+    'Truth is the only subject' - The supreme law of the real land of North America.
+    """
+    return render_template("founding-documents.html")
 
 
 @app.route("/press")
