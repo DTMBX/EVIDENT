@@ -1,4 +1,5 @@
 # Barber Cam / BWC Platform Integration Roadmap
+
 **BarberX Legal Technologies → Barber Cam Evidence Platform**
 
 **Date:** January 28, 2026  
@@ -11,6 +12,7 @@
 ### ✅ Already Implemented (Strong Foundation)
 
 **Evidence Processing Core:**
+
 - ✓ `bwc_forensic_analyzer.py` - Full BWC video analysis with chain of custody
 - ✓ SHA-256 hashing and integrity verification
 - ✓ Audio transcription (Whisper integration)
@@ -21,6 +23,7 @@
 - ✓ Court-ready JSON/TXT/Markdown export
 
 **Infrastructure:**
+
 - ✓ Flask web framework (established, well-tested)
 - ✓ PostgreSQL database support
 - ✓ User authentication & authorization
@@ -30,6 +33,7 @@
 - ✓ CORS configuration for cross-platform
 
 **Branding Elements:**
+
 - ✓ "Barber Cam" trademark established (LICENSE, FAQ)
 - ✓ Faith Frontier Trust governance framework
 - ✓ Privacy-first messaging
@@ -38,6 +42,7 @@
 ### ⚠️ Gaps vs. BWC Project Specification
 
 **Architecture Alignment:**
+
 - ❌ Uses Flask instead of FastAPI (but Flask is proven, works well)
 - ❌ No Celery/Redis background workers (analysis runs synchronously)
 - ❌ No S3-compatible object storage (uses local disk)
@@ -45,12 +50,14 @@
 - ❌ No append-only audit log for access tracking
 
 **Evidence Integrity:**
+
 - ⚠️ Hashing exists but not enforced as immutable reference
 - ⚠️ No derivative-to-original hash linking
 - ⚠️ Admin access not logged (silent viewing possible)
 - ⚠️ Export reproducibility not guaranteed
 
 **User-Facing Features:**
+
 - ❌ No drag-drop folder ingest
 - ❌ No timeline viewer with markers/bookmarks
 - ❌ No multi-camera alignment
@@ -60,12 +67,14 @@
 - ❌ No redaction tools (blur/mute)
 
 **NJ Legal Compliance:**
+
 - ⚠️ No "when to record" education pages
 - ⚠️ No persistent "do not interfere" reminders
 - ⚠️ No consent prompts for audio recording
 - ⚠️ No user attestations against illegal recordings
 
 **Mobile/Desktop:**
+
 - ❌ No mobile app (capture side)
 - ❌ No desktop app
 - ❌ No offline-safe capture mode
@@ -80,6 +89,7 @@
 **Goal:** Make BarberX backend truly evidence-grade
 
 #### 1.1 Immutable Storage Layer
+
 ```python
 # New: evidence_storage.py
 class ImmutableEvidenceStore:
@@ -93,18 +103,19 @@ class ImmutableEvidenceStore:
         # Store as: evidence/originals/{sha256[:2]}/{sha256}.ext
         # Create OriginalEvidence record in DB
         # Log ChainOfCustodyEvent
-        
+
     def create_derivative(self, original_sha256, transform, output_bytes):
         derivative_sha256 = hashlib.sha256(output_bytes).hexdigest()
         # Store as: evidence/derivatives/{derivative_sha256}.ext
         # Create DerivativeEvidence record linking to original
         # Log transformation parameters
-        
+
     def audit_access(self, sha256, user_id, action):
         # Append-only log: who accessed what, when, for what purpose
 ```
 
 **Database Schema Updates:**
+
 ```sql
 CREATE TABLE original_evidence (
     id SERIAL PRIMARY KEY,
@@ -139,6 +150,7 @@ CREATE TABLE evidence_access_log (
 ```
 
 #### 1.2 Celery Background Workers
+
 ```bash
 # Install
 pip install celery redis
@@ -155,11 +167,13 @@ def analyze_bwc_video(evidence_id):
 ```
 
 **Run worker:**
+
 ```bash
 celery -A worker.tasks worker --loglevel=info
 ```
 
 #### 1.3 Export Reproducibility
+
 ```python
 # New: evidence_exporter.py
 class EvidenceExportPackage:
@@ -186,6 +200,7 @@ class EvidenceExportPackage:
 **Tech Stack:** React Native or Flutter
 
 #### 2.1 Core Features
+
 - One-tap record (video + optional audio)
 - Persistent "Keep distance / Do not interfere" banner
 - Offline capture with queue sync
@@ -194,6 +209,7 @@ class EvidenceExportPackage:
 - Evidence mode: auto-hash, auto-timestamp, auto-upload to BarberX backend
 
 #### 2.2 NJ Legal Compliance UI
+
 ```javascript
 // Before first recording
 <ConsentScreen>
@@ -218,6 +234,7 @@ class EvidenceExportPackage:
 ```
 
 #### 2.3 Backend API Endpoints
+
 ```python
 # app.py additions
 @app.route("/api/v1/evidence/upload", methods=["POST"])
@@ -229,7 +246,7 @@ def upload_evidence():
     """
     encrypted_file = request.files['evidence']
     metadata = json.loads(request.form['metadata'])
-    
+
     # Decrypt (client sends key separately)
     # Verify SHA-256 matches client-computed hash
     # Store immutably
@@ -255,6 +272,7 @@ def get_case_timeline(case_id):
 **Frontend:** React or Vue.js
 
 #### 3.1 Timeline Component
+
 ```javascript
 <CaseTimeline>
   <TimelineHeader>
@@ -262,9 +280,9 @@ def get_case_timeline(case_id):
     <AddBookmarkButton />
     <ExportButton />
   </TimelineHeader>
-  
+
   <TimelineTrack>
-    {evidence.map(item => (
+    {evidence.map((item) => (
       <EvidenceCard
         thumbnail={item.thumbnail}
         duration={item.duration}
@@ -273,7 +291,7 @@ def get_case_timeline(case_id):
       />
     ))}
   </TimelineTrack>
-  
+
   <VideoPlayer>
     <BookmarksList />
     <TranscriptPanel />
@@ -282,6 +300,7 @@ def get_case_timeline(case_id):
 ```
 
 #### 3.2 Database Schema
+
 ```sql
 CREATE TABLE case_bookmarks (
     id SERIAL PRIMARY KEY,
@@ -307,6 +326,7 @@ CREATE TABLE case_notes (
 ### Phase 4: Attorney Sharing & Collaboration (1 week)
 
 #### 4.1 Secure Share Links
+
 ```python
 # New: share_links.py
 class ShareLink:
@@ -318,7 +338,7 @@ class ShareLink:
         token = secrets.token_urlsafe(32)
         # Store: share_links table with case_id, token, expires_at
         # Return: https://barberx.info/share/{token}
-        
+
     def verify(self, token):
         # Check expiration
         # Log access
@@ -326,6 +346,7 @@ class ShareLink:
 ```
 
 **Database:**
+
 ```sql
 CREATE TABLE share_links (
     id SERIAL PRIMARY KEY,
@@ -348,6 +369,7 @@ CREATE TABLE share_link_access (
 ```
 
 #### 4.2 Attorney Role
+
 ```python
 # Update: models_auth.py
 class UserRole(enum.Enum):
@@ -383,17 +405,17 @@ class EvidenceReportGenerator:
     """
     def generate(self, case_id):
         pdf = canvas.Canvas(f"evidence_report_{case_id}.pdf", pagesize=letter)
-        
+
         # Title page
         pdf.setFont("Helvetica-Bold", 16)
         pdf.drawString(100, 750, f"Evidence Report - Case #{case_id}")
-        
+
         # Chain of custody table
         # Evidence manifest with SHA-256 hashes
         # Timeline with bookmarks
         # Audit log summary
         # Certification statement
-        
+
         pdf.save()
 ```
 
@@ -402,6 +424,7 @@ class EvidenceReportGenerator:
 ## File Structure Alignment
 
 **Recommended Directory Layout:**
+
 ```
 BarberX.info/
 ├── backend/
@@ -451,18 +474,22 @@ BarberX.info/
 ## Quick Wins (Next 48 Hours)
 
 ### 1. Add Evidence Integrity Page
+
 **File:** `templates/evidence-integrity.html`
 
 Show users:
+
 - How SHA-256 hashing works (plain language)
 - What "immutable storage" means
 - Why audit logs matter
 - How to verify file integrity
 
 ### 2. Create NJ Legal Guide
+
 **File:** `docs/nj-recording-laws.md`
 
 Content:
+
 - One-party consent explanation
 - When you can record police (public, official duties)
 - When you CANNOT record (private property, conversations you're not in)
@@ -470,20 +497,26 @@ Content:
 - Case law citations
 
 ### 3. Update Homepage Mission
+
 **File:** `templates/index.html`
 
 Replace "BarberX Legal Technologies" messaging with:
+
 > **"Record clean. Store safe. Share fair."**
-> 
+>
 > Barber Cam helps New Jersey residents lawfully document events,
 > preserve evidence with verifiable integrity, and share it credibly
 > with counsel—without confrontation.
 
 ### 4. Add Safety Banner to BWC Upload
+
 **File:** `templates/bwc_upload.html`
 
 ```html
-<div class="safety-banner" style="background: #fff3cd; padding: 1rem; margin-bottom: 1rem;">
+<div
+  class="safety-banner"
+  style="background: #fff3cd; padding: 1rem; margin-bottom: 1rem;"
+>
   <h4>⚠️ Before You Upload</h4>
   <ul>
     <li>Only upload recordings you made lawfully</li>
@@ -502,12 +535,14 @@ Replace "BarberX Legal Technologies" messaging with:
 **Recommendation: Keep Flask**
 
 **Why:**
+
 - ✅ Flask is working, tested, deployed
 - ✅ Team knows it well
 - ✅ Async can be added with `async def` routes (Flask 2.0+)
 - ✅ Migration risk is high for little gain
 
 **If you must switch to FastAPI:**
+
 1. Run both in parallel (Flask on :5000, FastAPI on :8000)
 2. Migrate routes incrementally
 3. Use shared database/models
@@ -520,26 +555,31 @@ Replace "BarberX Legal Technologies" messaging with:
 ## Success Metrics
 
 **Phase 1 (Evidence Integrity):**
+
 - ✓ 100% of uploads tracked with SHA-256
 - ✓ Zero original file overwrites
 - ✓ All admin access logged
 
 **Phase 2 (Mobile App):**
+
 - ✓ One-tap recording works offline
 - ✓ 95%+ of users complete consent flow
 - ✓ Average upload time < 30 seconds
 
 **Phase 3 (Timeline):**
+
 - ✓ Users can bookmark 3+ moments per case
 - ✓ Timeline loads < 2 seconds
 - ✓ Export package generates < 10 seconds
 
 **Phase 4 (Attorney Sharing):**
+
 - ✓ Share links expire automatically
 - ✓ 100% of attorney access logged
 - ✓ Zero unauthorized case views
 
 **Phase 5 (Reports):**
+
 - ✓ PDF generates < 5 seconds
 - ✓ Includes all required chain-of-custody elements
 - ✓ Attorney feedback: "court-ready"
@@ -549,6 +589,7 @@ Replace "BarberX Legal Technologies" messaging with:
 ## Next Steps (Action Plan)
 
 ### This Week:
+
 1. ✅ Create this roadmap document
 2. ⏳ Add safety banner to BWC upload page
 3. ⏳ Write NJ legal guide (docs/nj-recording-laws.md)
@@ -556,24 +597,28 @@ Replace "BarberX Legal Technologies" messaging with:
 5. ⏳ Add evidence integrity explainer page
 
 ### Next Week:
+
 1. Implement immutable storage layer
 2. Set up Celery + Redis
 3. Add evidence_access_log table
 4. Test export reproducibility
 
 ### Month 1:
+
 1. Complete Phase 1 (Evidence Integrity)
 2. Start mobile app prototype
 3. Design timeline viewer UI
 4. Write attorney sharing spec
 
 ### Month 2:
+
 1. Beta test mobile app (10 users)
 2. Launch timeline viewer
 3. Implement attorney roles
 4. Generate first Evidence Report PDF
 
 ### Month 3:
+
 1. Public beta (100 users)
 2. Monitor for bugs/feedback
 3. Launch FaithFrontier.org/barbercam landing page

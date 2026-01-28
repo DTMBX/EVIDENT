@@ -56,243 +56,139 @@
             line-height: 1.8;
         }
 
-        /* Flag Installation - US Flag Code Compliant */
+        /* Flag Installation - 4 U.S.C. Chapter 1 Compliant */
         .flag-installation {
             padding: 4rem 2rem;
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        .flag-row {
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            margin-bottom: 3rem;
+        /* Flag Cards Grid - Responsive, Accessible */
+        .flags-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            flex-wrap: wrap;
+            max-width: 1400px;
+            margin: 0 auto 3rem;
+            padding: 0 1rem;
         }
 
-        /* Primary Flag - US Flag (Title 4 USC) */
-        .flag-primary {
-            position: relative;
+        @media (min-width: 768px) {
+            .flags-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .flags-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .flag-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid var(--military-gold);
+            border-radius: 12px;
+            padding: 1.5rem;
             text-align: center;
+            transition: all 0.3s ease;
         }
 
-        .flag-pole-primary {
-            width: 12px;
-            height: 400px;
-            background: linear-gradient(to bottom, #C5B358 0%, #8B7355 100%);
-            margin: 0 auto;
-            border-radius: 6px;
-            box-shadow: 0 4px 15px rgba(197, 179, 88, 0.3);
+        .flag-card:hover, .flag-card:focus-within {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #FFD700;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(197, 179, 88, 0.3);
         }
 
-        .flag-pole-primary::before {
-            content: '';
-            position: absolute;
-            top: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 30px;
-            background: radial-gradient(circle, #FFD700, #C5B358);
-            border-radius: 50%;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+        .flag-card img {
+            width: 100%;
+            height: auto;
+            max-width: 320px;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1rem;
         }
 
-        .flag-image-primary {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 280px;
-            height: 186px;
-            background: linear-gradient(135deg, #B22234 0%, #3C3B6E 100%);
-            border: 2px solid #C5B358;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            animation: wave 6s ease-in-out infinite;
-        }
-
-        /* Secondary Flags - POW/MIA and Historical */
-        .flag-secondary {
-            position: relative;
-            text-align: center;
-        }
-
-        .flag-pole-secondary {
-            width: 10px;
-            height: 350px;
-            background: linear-gradient(to bottom, #888 0%, #555 100%);
-            margin: 0 auto;
-            border-radius: 5px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-        }
-
-        .flag-pole-secondary::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 24px;
-            height: 24px;
-            background: #888;
-            border-radius: 50%;
-        }
-
-        .flag-image-secondary {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 210px;
-            height: 140px;
-            border: 2px solid #666;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            animation: wave 6s ease-in-out infinite;
-            animation-delay: 0.5s;
-        }
-
-        /* Tertiary Flags - Historical Significance */
-        .flag-tertiary {
-            position: relative;
-            text-align: center;
-        }
-
-        .flag-pole-tertiary {
-            width: 8px;
-            height: 300px;
-            background: linear-gradient(to bottom, #666 0%, #444 100%);
-            margin: 0 auto;
-            border-radius: 4px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .flag-pole-tertiary::before {
-            content: '';
-            position: absolute;
-            top: -18px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 20px;
-            background: #666;
-            border-radius: 50%;
-        }
-
-        .flag-image-tertiary {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 180px;
-            height: 120px;
-            border: 2px solid #555;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            animation: wave 6s ease-in-out infinite;
-            animation-delay: 1s;
-        }
-
-        .flag-label {
-            margin-top: 2rem;
-            font-size: 0.95rem;
+        .flag-card figcaption {
             color: var(--military-gold);
-            font-weight: 600;
+            font-weight: 700;
+            font-size: 1.1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+            margin-bottom: 0.75rem;
         }
 
-        .flag-description {
-            font-size: 0.85rem;
-            color: #94a3b8;
-            margin-top: 0.5rem;
-            max-width: 250px;
-            line-height: 1.5;
+        .flag-card .flag-description {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            line-height: 1.6;
         }
 
-        @keyframes wave {
-            0%, 100% { transform: translateX(-50%) rotate(0deg); }
-            25% { transform: translateX(-50%) rotate(2deg); }
-            75% { transform: translateX(-50%) rotate(-2deg); }
+        .flag-card .flag-description strong {
+            color: var(--military-gold);
         }
 
-        /* Flag Backgrounds */
-        .flag-us {
-            background: linear-gradient(to bottom, 
-                #B22234 0%, #B22234 7.69%,
-                #FFFFFF 7.69%, #FFFFFF 15.38%,
-                #B22234 15.38%, #B22234 23.07%,
-                #FFFFFF 23.07%, #FFFFFF 30.76%,
-                #B22234 30.76%, #B22234 38.45%,
-                #FFFFFF 38.45%, #FFFFFF 46.14%,
-                #B22234 46.14%, #B22234 53.83%,
-                #FFFFFF 53.83%, #FFFFFF 61.52%,
-                #B22234 61.52%, #B22234 69.21%,
-                #FFFFFF 69.21%, #FFFFFF 76.9%,
-                #B22234 76.9%, #B22234 84.59%,
-                #FFFFFF 84.59%, #FFFFFF 92.28%,
-                #B22234 92.28%, #B22234 100%);
-            position: relative;
+        .flag-card a {
+            color: #60a5fa;
+            text-decoration: none;
         }
 
-        .flag-us::before {
-            content: '⭐';
-            position: absolute;
-            top: 5%;
-            left: 5%;
-            width: 40%;
-            height: 46%;
-            background: #3C3B6E;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            font-size: 0.8rem;
-            gap: 2px;
-            padding: 4px;
+        .flag-card a:hover, .flag-card a:focus {
+            color: #93c5fd;
+            text-decoration: underline;
         }
 
-        .flag-pow {
-            background: #000;
-            color: #FFF;
-            font-weight: bold;
+        /* Primary Flag - US Flag (Title 4 U.S.C.) */
+        .flag-card.primary {
+            grid-column: 1 / -1;
+            background: rgba(178, 34, 52, 0.1);
+            border: 3px solid var(--honor-red);
         }
 
-        .flag-gadsden {
-            background: #FFFF00;
-            color: #000;
-            font-weight: bold;
+        @media (min-width: 1024px) {
+            .flag-card.primary {
+                grid-column: span 3;
+            }
         }
 
-        .flag-appeal {
-            background: #FFF;
-            color: #228B22;
-            font-weight: bold;
+        /* Sources & References Section */
+        .flag-sources {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid var(--military-gold);
+            border-radius: 8px;
         }
 
-        .flag-gonzales {
-            background: #FFF;
-            color: #000;
-            font-weight: bold;
+        .flag-sources h3 {
+            color: var(--military-gold);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
         }
 
-        .flag-betsy {
-            background: linear-gradient(to bottom, 
-                #B22234 0%, #B22234 7.69%,
-                #FFFFFF 7.69%, #FFFFFF 15.38%,
-                #B22234 15.38%, #B22234 23.07%);
+        .flag-sources ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .flag-sources li {
+            margin-bottom: 0.75rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        .flag-sources a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+
+        .flag-sources a:hover, .flag-sources a:focus {
+            color: #93c5fd;
+            text-decoration: underline;
+        }
         }
 
         /* Memorial Section */
@@ -405,99 +301,120 @@
         </p>
     </div>
 
-    <!-- Flag Installation - Title 4 USC Compliant -->
+    <!-- Flag Installation - 4 U.S.C. Chapter 1 Compliant -->
     <div class="flag-installation">
-        
-        <!-- PRIMARY ROW: US Flag (Center of Honor - Title 4 USC) -->
-        <div class="flag-row">
-            <div class="flag-primary">
-                <div class="flag-pole-primary">
-                    <div class="flag-image-primary flag-us">
-                        🇺🇸
-                    </div>
-                </div>
-                <div class="flag-label">UNITED STATES OF AMERICA</div>
+        <div class="flags-grid">
+            
+            <!-- PRIMARY: United States Flag (4 U.S.C. §§ 1–10) -->
+            <figure class="flag-card primary">
+                <img src="/assets/img/flags/us-flag-50.png" 
+                     alt="Flag of the United States of America - 50 stars and 13 stripes" 
+                     loading="eager" 
+                     decoding="async">
+                <figcaption>United States of America</figcaption>
                 <div class="flag-description">
-                    Title 4 USC § 1-10<br>
+                    <strong>4 U.S.C. §§ 1–10</strong><br>
                     The Flag of the United States<br>
-                    "Old Glory" - Stars and Stripes<br>
-                    <strong>Center of Honor - Supreme Position</strong>
+                    "Old Glory" — Stars and Stripes<br>
+                    <em>Supreme Position of Honor</em>
                 </div>
-            </div>
-        </div>
+            </figure>
 
-        <!-- SECONDARY ROW: POW/MIA (Required by Law) and Don't Tread on Me -->
-        <div class="flag-row">
-            <div class="flag-secondary">
-                <div class="flag-pole-secondary">
-                    <div class="flag-image-secondary flag-pow">
-                        POW<br>★<br>MIA
-                    </div>
-                </div>
-                <div class="flag-label">POW/MIA</div>
+            <!-- POW/MIA Flag (36 U.S.C. § 902) -->
+            <figure class="flag-card">
+                <img src="/assets/img/flags/pow-mia.png" 
+                     alt="POW/MIA Flag - You Are Not Forgotten" 
+                     loading="lazy" 
+                     decoding="async">
+                <figcaption>POW/MIA</figcaption>
                 <div class="flag-description">
-                    Required by 36 USC § 902<br>
+                    Required by <strong>36 U.S.C. § 902</strong><br>
+                    (Public Law 116-67, 2019 Amendment)<br>
                     "You Are Not Forgotten"<br>
                     82,000+ Americans Missing
                 </div>
-            </div>
+            </figure>
 
-            <div class="flag-secondary">
-                <div class="flag-pole-secondary">
-                    <div class="flag-image-secondary flag-gadsden">
-                        🐍<br>DON'T TREAD<br>ON ME
-                    </div>
-                </div>
-                <div class="flag-label">GADSDEN FLAG</div>
+            <!-- Gadsden Flag -->
+            <figure class="flag-card">
+                <img src="/assets/img/flags/gadsden.png" 
+                     alt="Gadsden Flag - Don't Tread on Me with coiled rattlesnake" 
+                     loading="lazy" 
+                     decoding="async">
+                <figcaption>Gadsden Flag</figcaption>
                 <div class="flag-description">
-                    Revolutionary War Era<br>
+                    Revolutionary War Era (1775)<br>
+                    Christopher Gadsden Design<br>
                     Symbol of American Independence<br>
-                    Liberty and Vigilance
+                    <em>Liberty and Vigilance</em>
                 </div>
-            </div>
+            </figure>
+
+            <!-- Appeal to Heaven (Pine Tree Flag) -->
+            <figure class="flag-card">
+                <img src="/assets/img/flags/appeal-to-heaven.png" 
+                     alt="Appeal to Heaven Pine Tree Flag - Washington's Cruisers" 
+                     loading="lazy" 
+                     decoding="async">
+                <figcaption>Appeal to Heaven</figcaption>
+                <div class="flag-description">
+                    Pine Tree Flag — 1775<br>
+                    "An Appeal to Heaven"<br>
+                    Washington's Cruisers<br>
+                    <em>Continental Navy</em>
+                </div>
+            </figure>
+
+            <!-- Gonzales Flag -->
+            <figure class="flag-card">
+                <img src="/assets/img/flags/gonzales-come-and-take-it.png" 
+                     alt="Gonzales Come and Take It Flag - Texas Revolution cannon symbol" 
+                     loading="lazy" 
+                     decoding="async">
+                <figcaption>Gonzales Flag</figcaption>
+                <div class="flag-description">
+                    Texas Revolution — 1835<br>
+                    Battle of Gonzales, Oct 2, 1835<br>
+                    "Come and Take It"<br>
+                    <em>Defiance and Liberty</em>
+                </div>
+            </figure>
+
+            <!-- Betsy Ross Flag -->
+            <figure class="flag-card">
+                <img src="/assets/img/flags/betsy-ross-13-star.png" 
+                     alt="Betsy Ross Flag - 13 stars in circle representing original colonies" 
+                     loading="lazy" 
+                     decoding="async">
+                <figcaption>Betsy Ross Flag</figcaption>
+                <div class="flag-description">
+                    1777 — 13 Original Colonies<br>
+                    Circle of 13 Stars<br>
+                    First Official Flag Design<br>
+                    <em>Birth of a Nation</em>
+                </div>
+            </figure>
+
         </div>
 
-        <!-- TERTIARY ROW: Historical Flags of Significance -->
-        <div class="flag-row">
-            <div class="flag-tertiary">
-                <div class="flag-pole-tertiary">
-                    <div class="flag-image-tertiary flag-appeal">
-                        🌲<br>APPEAL TO<br>HEAVEN
-                    </div>
-                </div>
-                <div class="flag-label">APPEAL TO HEAVEN</div>
-                <div class="flag-description">
-                    Pine Tree Flag - 1775<br>
-                    "An Appeal to Heaven"<br>
-                    Washington's Cruisers
-                </div>
-            </div>
-
-            <div class="flag-tertiary">
-                <div class="flag-pole-tertiary">
-                    <div class="flag-image-tertiary flag-gonzales">
-                        ⭐<br>COME AND<br>TAKE IT
-                    </div>
-                </div>
-                <div class="flag-label">GONZALES FLAG</div>
-                <div class="flag-description">
-                    Texas Revolution - 1835<br>
-                    Battle of Gonzales<br>
-                    Defiance and Liberty
-                </div>
-            </div>
-
-            <div class="flag-tertiary">
-                <div class="flag-pole-tertiary">
-                    <div class="flag-image-tertiary flag-betsy">
-                        ⭐⭐⭐<br>⭐⭐⭐<br>⭐⭐⭐
-                    </div>
-                </div>
-                <div class="flag-label">BETSY ROSS FLAG</div>
-                <div class="flag-description">
-                    1777 - 13 Original Colonies<br>
-                    Circle of 13 Stars<br>
-                    Birth of a Nation
+        <!-- Sources & Statutory References -->
+        <div class="flag-sources">
+            <h3>📚 Sources & Statutory References</h3>
+            <ul>
+                <li><strong>U.S. Flag:</strong> <a href="https://www.govinfo.gov/content/pkg/USCODE-2011-title4/html/USCODE-2011-title4-chap1.htm" target="_blank" rel="noopener">4 U.S.C. Chapter 1 — The Flag</a></li>
+                <li><strong>POW/MIA Flag:</strong> <a href="https://www.govinfo.gov/content/pkg/USCODE-2011-title36/html/USCODE-2011-title36-subtitleI-partA-chap9-sec902.htm" target="_blank" rel="noopener">36 U.S.C. § 902</a> (Public Law 116-67, Nov 22, 2019)</li>
+                <li><strong>POW/MIA Official Imagery:</strong> <a href="https://www.dpaa.mil/" target="_blank" rel="noopener">Defense POW/MIA Accounting Agency (DPAA)</a></li>
+                <li><strong>Gadsden Flag History:</strong> <a href="https://www.charlestonmuseum.org/" target="_blank" rel="noopener">Charleston Museum</a> — Christopher Gadsden Design (1775)</li>
+                <li><strong>Pine Tree Flag:</strong> <a href="https://www.history.navy.mil/browse-by-topic/heritage/flags.html" target="_blank" rel="noopener">Naval History & Heritage Command</a> — Washington's Cruisers</li>
+                <li><strong>Gonzales Flag:</strong> <a href="https://www.tsl.texas.gov/" target="_blank" rel="noopener">Texas State Library and Archives</a> — Battle of Gonzales, October 2, 1835</li>
+                <li><strong>Betsy Ross Flag:</strong> <a href="https://www.archives.gov/" target="_blank" rel="noopener">National Archives</a> — First Stars and Stripes (13-star circle design)</li>
+            </ul>
+            <p style="margin-top: 1rem; font-size: 0.85rem; opacity: 0.8;">
+                All flag images displayed are from verified public domain sources or official U.S. Government documentation.
+                Historical flags shown for educational and commemorative purposes in accordance with First Amendment protected historical expression.
+            </p>
+        </div>
+    </div>
                 </div>
             </div>
         </div>

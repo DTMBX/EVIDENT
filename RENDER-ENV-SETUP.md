@@ -10,6 +10,7 @@ After the recent security fixes, the following environment variables **must be s
 ## 🔐 Required Environment Variables
 
 ### 1. Navigate to Render Dashboard
+
 1. Go to https://dashboard.render.com
 2. Select your **BarberX.info** web service
 3. Click **Environment** tab in the left sidebar
@@ -19,6 +20,7 @@ After the recent security fixes, the following environment variables **must be s
 Click **Add Environment Variable** for each:
 
 #### **Core Security** (REQUIRED)
+
 ```bash
 SECRET_KEY=<generate-64-char-random-string>
 ADMIN_EMAIL=admin@barberx.info
@@ -26,17 +28,21 @@ ADMIN_PASSWORD=<your-secure-admin-password>
 ```
 
 **Generate SECRET_KEY:**
+
 ```bash
 python -c "import secrets; print(secrets.token_urlsafe(48))"
 ```
 
 #### **Database** (Auto-set if PostgreSQL attached)
+
 ```bash
 DATABASE_URL=<auto-populated-by-render>
 ```
+
 ✅ This should already be set if you created a PostgreSQL database
 
 #### **Stripe Payment Processing** (REQUIRED for pricing page)
+
 ```bash
 STRIPE_PRICING_TABLE_ID=prctbl_YOUR_ACTUAL_PRICING_TABLE_ID
 STRIPE_PUBLISHABLE_KEY=pk_live_YOUR_ACTUAL_PUBLISHABLE_KEY
@@ -47,6 +53,7 @@ STRIPE_WEBHOOK_SECRET=whsec_YOUR_ACTUAL_WEBHOOK_SECRET
 **⚠️ SECURITY CRITICAL:** The example keys shown above in previous versions were LIVE production credentials and have been removed. You MUST use your own Stripe credentials from your Stripe Dashboard.
 
 **Where to find these:**
+
 1. Go to https://dashboard.stripe.com
 2. **STRIPE_PRICING_TABLE_ID**: Products → Pricing Tables → Create/Select Table → Copy Table ID (starts with `prctbl_`)
 3. **STRIPE_PUBLISHABLE_KEY**: Developers → API keys → Publishable key (starts with `pk_live_`)
@@ -54,6 +61,7 @@ STRIPE_WEBHOOK_SECRET=whsec_YOUR_ACTUAL_WEBHOOK_SECRET
 5. **STRIPE_WEBHOOK_SECRET**: Developers → Webhooks → Add endpoint → Copy signing secret (starts with `whsec_`)
 
 #### **Optional Services**
+
 ```bash
 # OpenAI (for AI features)
 OPENAI_API_KEY=sk-proj-<your-key>
@@ -73,6 +81,7 @@ AWS_REGION=us-east-1
 ```
 
 ### 3. Save and Deploy
+
 1. Click **Save Changes** at the bottom
 2. Render will automatically redeploy your app
 3. Wait 2-3 minutes for deployment to complete
@@ -81,6 +90,7 @@ AWS_REGION=us-east-1
 ## 🔍 Verification Steps
 
 ### Test Environment Variables
+
 ```bash
 # In Render Shell (Dashboard → Shell tab)
 echo $SECRET_KEY        # Should show your secret key
@@ -89,6 +99,7 @@ echo $STRIPE_PUBLISHABLE_KEY  # Should show pk_live_...
 ```
 
 ### Test App Functionality
+
 1. **Visit your app**: https://barberx-info.onrender.com
 2. **Check pricing page**: https://barberx-info.onrender.com/pricing
    - Should show Stripe pricing table
@@ -125,16 +136,20 @@ After setup, your Environment tab should show:
 ## 🐛 Troubleshooting
 
 ### Error: "SECRET_KEY environment variable is required"
+
 **Fix:** Add SECRET_KEY in Render Environment tab
 
 ### Error: "Stripe publishable key not found"
+
 **Fix:** Add STRIPE_PUBLISHABLE_KEY and STRIPE_PRICING_TABLE_ID
 
 ### Error: "Database connection failed"
+
 **Fix:** Verify DATABASE_URL is set (should be auto-populated)
 
 ### Pricing table doesn't load
-**Fix:** Check browser console for errors. Verify STRIPE_PUBLISHABLE_KEY starts with `pk_live_` (not `pk_test_`)
+
+**Fix:** Check browser console for errors. Verify STRIPE*PUBLISHABLE_KEY starts with `pk_live*`(not`pk*test*`)
 
 ## 📞 Support
 
@@ -144,7 +159,8 @@ After setup, your Environment tab should show:
 
 ---
 
-**Status:** 
+**Status:**
+
 - ✅ Code updated to use environment variables
 - ⏳ **PENDING**: Render.com environment variables must be set manually
 - ⏳ **PENDING**: Test deployment after setting variables
