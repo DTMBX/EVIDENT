@@ -54,16 +54,16 @@ except ImportError as e:
             return "An error occurred. Please contact support."
 
 
-# Enhanced authentication imports
+# Enhanced authentication imports (CRITICAL: TierLevel used in decorators at module level)
 try:
     from auth_routes import auth_bp
-    from models_auth import ApiKey as APIKey
-    from models_auth import User, TierLevel
-
     ENHANCED_AUTH_AVAILABLE = True
 except ImportError as e:
     ENHANCED_AUTH_AVAILABLE = False
     print(f"[!] Enhanced auth not available: {e}")
+
+# Import TierLevel and User at module level (required for decorators)
+from models_auth import ApiKey as APIKey, User, TierLevel
 
 # Tier gating system
 try:
