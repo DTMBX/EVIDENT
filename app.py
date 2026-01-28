@@ -236,6 +236,39 @@ CORS_ORIGINS_LIST = [origin.strip() for origin in cors_origins.split(",")]
 app.config["UPLOAD_FOLDER"].mkdir(parents=True, exist_ok=True)
 app.config["ANALYSIS_FOLDER"].mkdir(parents=True, exist_ok=True)
 
+# File Upload Security Configuration
+ALLOWED_VIDEO_EXTENSIONS = {'.mp4', '.avi', '.mov', '.mkv', '.webm', '.flv', '.wmv', '.m4v'}
+ALLOWED_AUDIO_EXTENSIONS = {'.mp3', '.wav', '.m4a', '.aac', '.ogg', '.wma', '.flac'}
+ALLOWED_DOCUMENT_EXTENSIONS = {'.pdf', '.doc', '.docx', '.txt', '.rtf'}
+ALLOWED_IMAGE_EXTENSIONS = {'.jpg', '.jpeg', '.png', '.gif', '.bmp', '.tiff', '.svg'}
+
+ALL_ALLOWED_EXTENSIONS = (
+    ALLOWED_VIDEO_EXTENSIONS | 
+    ALLOWED_AUDIO_EXTENSIONS | 
+    ALLOWED_DOCUMENT_EXTENSIONS | 
+    ALLOWED_IMAGE_EXTENSIONS
+)
+
+ALLOWED_MIME_TYPES = {
+    # Video
+    'video/mp4', 'video/quicktime', 'video/x-msvideo', 'video/x-matroska',
+    'video/webm', 'video/x-flv', 'video/x-ms-wmv',
+    # Audio
+    'audio/mpeg', 'audio/wav', 'audio/mp4', 'audio/aac', 'audio/ogg',
+    'audio/x-ms-wma', 'audio/flac',
+    # Documents
+    'application/pdf', 'application/msword',
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    'text/plain', 'application/rtf',
+    # Images
+    'image/jpeg', 'image/png', 'image/gif', 'image/bmp', 'image/tiff', 'image/svg+xml'
+}
+
+# File size limits (can be overridden per tier)
+MAX_FILE_SIZE_FREE = 500 * 1024 * 1024  # 500MB for free tier
+MAX_FILE_SIZE_PRO = 2 * 1024 * 1024 * 1024  # 2GB for pro tier
+MAX_FILE_SIZE_PREMIUM = 5 * 1024 * 1024 * 1024  # 5GB for premium tier
+
 
 # Initialize extensions (defer db binding)
 from models_auth import db
@@ -269,6 +302,63 @@ login_manager.login_view = "auth.login"  # Updated to use auth blueprint
 # Configure request timeout
 app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 31536000  # 1 year for static files
 app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(days=7)
+
+# Security Headers Middleware (CSP, HSTS, etc.)
+@app.after_request
+def add_security_headers(response):
+    """Add comprehensive security headers to all responses"""
+    
+    # Content Security Policy - Strict but allows necessary resources
+    csp_policy = (
+        "default-src 'self'; "
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://cdn.amplitude.com; "
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+        "font-src 'self' https://fonts.gstatic.com data:; "
+        "img-src 'self' data: https: blob:; "
+        "media-src 'self' blob:; "
+        "connect-src 'self' https://api.stripe.com https://api.amplitude.com https://api.openai.com; "
+        "frame-src 'self' https://js.stripe.com https://hooks.stripe.com; "
+        "frame-ancestors 'none'; "
+        "base-uri 'self'; "
+        "form-action 'self'; "
+        "upgrade-insecure-requests"
+    )
+    response.headers['Content-Security-Policy'] = csp_policy
+    
+    # HTTP Strict Transport Security - Force HTTPS for 1 year
+    if request.is_secure or os.getenv('FORCE_HTTPS') == 'true':
+        response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains; preload'
+    
+    # Prevent clickjacking attacks
+    response.headers['X-Frame-Options'] = 'DENY'
+    
+    # Prevent MIME type sniffing
+    response.headers['X-Content-Type-Options'] = 'nosniff'
+    
+    # Enable XSS protection in older browsers
+    response.headers['X-XSS-Protection'] = '1; mode=block'
+    
+    # Referrer policy - don't leak information to external sites
+    response.headers['Referrer-Policy'] = 'strict-origin-when-cross-origin'
+    
+    # Permissions policy - restrict browser features
+    response.headers['Permissions-Policy'] = (
+        'geolocation=(), '
+        'microphone=(), '
+        'camera=(self), '
+        'payment=(self "https://js.stripe.com"), '
+        'usb=(), '
+        'magnetometer=(), '
+        'gyroscope=(), '
+        'speaker=(self)'
+    )
+    
+    # Cross-Origin policies
+    response.headers['Cross-Origin-Embedder-Policy'] = 'require-corp'
+    response.headers['Cross-Origin-Opener-Policy'] = 'same-origin'
+    response.headers['Cross-Origin-Resource-Policy'] = 'same-origin'
+    
+    return response
 
 # Register enhanced authentication blueprint
 if ENHANCED_AUTH_AVAILABLE:
@@ -688,6 +778,66 @@ def api_key_required(f):
 
 
 # ========================================
+# HELPER FUNCTIONS
+# ========================================
+
+def validate_upload_file(file, allowed_extensions=None, max_size=None):
+    """
+    Validate uploaded file for security
+    
+    Args:
+        file: FileStorage object from request.files
+        allowed_extensions: Set of allowed extensions (None = all allowed types)
+        max_size: Maximum file size in bytes (None = use tier-based limit)
+    
+    Returns:
+        tuple: (is_valid: bool, error_message: str or None)
+    """
+    if not file or file.filename == "":
+        return False, "No file selected"
+    
+    # Validate extension
+    file_ext = Path(file.filename).suffix.lower()
+    allowed = allowed_extensions or ALL_ALLOWED_EXTENSIONS
+    
+    if file_ext not in allowed:
+        allowed_list = ', '.join(sorted(allowed))
+        return False, f"File type '{file_ext}' not allowed. Allowed types: {allowed_list}"
+    
+    # Validate MIME type if provided
+    if file.content_type and file.content_type not in ALLOWED_MIME_TYPES:
+        return False, f"Invalid file MIME type: {file.content_type}"
+    
+    # Determine max size based on user tier if not specified
+    if max_size is None:
+        if current_user.is_authenticated:
+            tier = current_user.tier
+            if tier == TierLevel.PREMIUM:
+                max_size = MAX_FILE_SIZE_PREMIUM
+            elif tier in [TierLevel.PRO, TierLevel.PROFESSIONAL]:
+                max_size = MAX_FILE_SIZE_PRO
+            else:
+                max_size = MAX_FILE_SIZE_FREE
+        else:
+            max_size = MAX_FILE_SIZE_FREE
+    
+    # Validate file size
+    file.seek(0, os.SEEK_END)
+    file_size = file.tell()
+    file.seek(0)  # Reset file pointer to start
+    
+    if file_size > max_size:
+        max_size_mb = max_size / (1024 * 1024)
+        actual_size_mb = file_size / (1024 * 1024)
+        return False, f"File too large ({actual_size_mb:.1f}MB). Maximum allowed: {max_size_mb:.0f}MB"
+    
+    if file_size == 0:
+        return False, "File is empty (0 bytes)"
+    
+    return True, None
+
+
+# ========================================
 # WEB ROUTES
 # ========================================
 
@@ -966,10 +1116,10 @@ def logout():
     return redirect(url_for("index"))
 
 
-@require_tier(TierLevel.STARTER)
-@check_usage_limit("pdf_documents_per_month", increment=1)
 @app.route("/batch-pdf-upload.html")
 @login_required
+@require_tier(TierLevel.STARTER)
+@check_usage_limit("pdf_documents_per_month", increment=1)
 def batch_pdf_upload():
     """Batch PDF upload page"""
     return render_template("batch-pdf-upload.html")
@@ -2742,10 +2892,10 @@ def founding_member_signup():
 # ========================================
 
 
-@require_tier(TierLevel.STARTER)
-@check_usage_limit("bwc_videos_per_month", increment=1)
 @app.route("/api/upload", methods=["POST"])
 @login_required
+@require_tier(TierLevel.STARTER)
+@check_usage_limit("bwc_videos_per_month", increment=1)
 def upload_file():
     """Handle BWC video file upload"""
 
@@ -2758,8 +2908,10 @@ def upload_file():
 
     file = request.files["file"]
 
-    if file.filename == "":
-        return jsonify({"error": "No file selected"}), 400
+    # Validate file using security helper
+    is_valid, error_msg = validate_upload_file(file, ALLOWED_VIDEO_EXTENSIONS)
+    if not is_valid:
+        return jsonify({"error": error_msg}), 400
 
     # Secure filename
     filename = secure_filename(file.filename)
@@ -2813,10 +2965,10 @@ def upload_file():
     )
 
 
-@require_tier(TierLevel.STARTER)
-@check_usage_limit("pdf_documents_per_month", increment=1)
 @app.route("/api/upload/pdf", methods=["POST"])
 @login_required
+@require_tier(TierLevel.STARTER)
+@check_usage_limit("pdf_documents_per_month", increment=1)
 def upload_pdf():
     """Handle single PDF file upload"""
     if "file" not in request.files:
@@ -2898,9 +3050,10 @@ def upload_pdf():
     )
 
 
+@app.route("/api/upload/pdf/batch", methods=["POST"])
+@login_required
 @require_tier(TierLevel.STARTER)
 @check_usage_limit("pdf_documents_per_month", increment=1)
-@app.route("/api/upload/pdf/batch", methods=["POST"])
 def batch_upload_pdf():
     """Handle batch PDF file upload"""
     if "files" not in request.files:
@@ -3001,6 +3154,7 @@ def batch_upload_pdf():
 
 
 @app.route("/api/pdfs", methods=["GET"])
+@login_required
 def list_pdfs():
     """List uploaded PDFs"""
     page = request.args.get("page", 1, type=int)
@@ -3033,6 +3187,7 @@ def list_pdfs():
 
 
 @app.route("/api/pdf/<int:pdf_id>", methods=["GET"])
+@login_required
 def get_pdf_info(pdf_id):
     """Get PDF information"""
     pdf = PDFUpload.query.get(pdf_id)
@@ -3051,6 +3206,7 @@ def get_pdf_info(pdf_id):
 
 
 @app.route("/api/pdf/<int:pdf_id>/download", methods=["GET"])
+@login_required
 def download_pdf(pdf_id):
     """Download PDF file"""
     pdf = PDFUpload.query.get(pdf_id)
@@ -4816,10 +4972,10 @@ from flask_login import login_required
 # Subscription & tier gating imports
 
 
-@require_tier(TierLevel.STARTER)
-@check_usage_limit("pdf_documents_per_month", increment=1)
 @app.route("/api/upload/pdf/secure", methods=["POST"])
 @login_required
+@require_tier(TierLevel.STARTER)
+@check_usage_limit("pdf_documents_per_month", increment=1)
 def upload_pdf_secure():
     try:
         from pypdf import PdfReader
@@ -4842,10 +4998,10 @@ def upload_pdf_secure():
     )
 
 
-@require_tier(TierLevel.STARTER)
-@check_usage_limit("bwc_videos_per_month", increment=1)
 @app.route("/api/upload/video", methods=["POST"])
 @login_required
+@require_tier(TierLevel.STARTER)
+@check_usage_limit("bwc_videos_per_month", increment=1)
 def upload_video():
     """Upload video and generate mock transcription"""
     if "file" not in request.files:

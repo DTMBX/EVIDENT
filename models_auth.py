@@ -3,11 +3,12 @@ BarberX Authentication & Tier System
 Database models for users, tiers, and usage tracking
 """
 
-from flask_sqlalchemy import SQLAlchemy
-from flask_login import UserMixin
-from flask_bcrypt import Bcrypt
 from datetime import datetime
 from enum import Enum
+
+from flask_bcrypt import Bcrypt
+from flask_login import UserMixin
+from flask_sqlalchemy import SQLAlchemy
 
 bcrypt = Bcrypt()
 db = SQLAlchemy()
@@ -15,12 +16,13 @@ bcrypt = Bcrypt()
 
 
 class TierLevel(Enum):
-    """Subscription tier levels with soft caps and overage billing"""
+    """Subscription tier levels with fair scaling"""
 
     FREE = 0
-    PROFESSIONAL = 49  # $49/mo with 3-day trial
-    PREMIUM = 249  # $249/mo with soft caps
-    ENTERPRISE = 999  # $999/mo with soft caps and lower overage rates
+    STARTER = 29  # Entry tier for price-sensitive users
+    PROFESSIONAL = 79  # Main tier for solo/small firms
+    PREMIUM = 199  # Power users with soft caps
+    ENTERPRISE = 599  # Organizations with soft caps
     ADMIN = 9999
 
 
@@ -45,10 +47,18 @@ class User(UserMixin, db.Model):
     # Stripe subscription tracking
     stripe_customer_id = db.Column(db.String(100), unique=True, nullable=True, index=True)
     stripe_subscription_id = db.Column(db.String(100), unique=True, nullable=True)
-    stripe_subscription_status = db.Column(db.String(50), nullable=True)  # active, canceled, past_due, etc.
+    stripe_subscription_status = db.Column(
+        db.String(50), nullable=True
+    )  # active, canceled, past_due, etc.
     stripe_current_period_end = db.Column(db.DateTime, nullable=True)
     trial_end = db.Column(db.DateTime, nullable=True)  # For 3-day trial tracking
     is_on_trial = db.Column(db.Boolean, default=False)
+
+    # FREE tier one-time upload tracking
+    one_time_upload_used = db.Column(
+        db.Boolean, default=False
+    )  # Track if FREE user used their one upload
+    one_time_upload_date = db.Column(db.DateTime, nullable=True)  # When they used it
 
     # Storage tracking
     storage_used_mb = db.Column(db.Float, default=0.0)
@@ -63,7 +73,9 @@ class User(UserMixin, db.Model):
     last_login = db.Column(db.DateTime)
 
     # Relationships
-    usage = db.relationship("UsageTracking", backref="user", lazy=True, cascade="all, delete-orphan")
+    usage = db.relationship(
+        "UsageTracking", backref="user", lazy=True, cascade="all, delete-orphan"
+    )
 
     def set_password(self, password):
         """Hash and set password"""
@@ -101,84 +113,110 @@ class User(UserMixin, db.Model):
         """Get usage limits for current tier"""
         limits = {
             TierLevel.FREE: {
-                "bwc_videos_per_month": 2,
-                "max_file_size_mb": 100,
-                "document_pages_per_month": 50,
-                "transcription_minutes_per_month": 30,
+                # Zero-cost tier: Demo + One-time upload only
+                "bwc_videos_per_month": 0,  # No recurring uploads
+                "pdf_documents_per_month": 0,  # No recurring uploads
+                "one_time_file_upload": 1,  # ONE file ever (PDF or video)
+                "one_time_upload_used": False,  # Track if used
+                "max_video_duration_minutes": 5,  # 5 min max for video
+                "max_pdf_pages": 10,  # 10 pages max for PDF
+                "max_file_size_mb": 50,  # Reduced from 100
+                "demo_cases_count": 3,  # Pre-loaded demo cases
+                "transcription_minutes_per_month": 0,
                 "search_queries_per_month": 100,
-                "storage_gb": 0.5,
+                "storage_gb": 0.1,  # Minimal storage for demo data
                 "export_watermark": True,
+                "data_retention_days": 7,  # Auto-delete after 7 days
+                "case_limit": 1,  # 1 personal case (from one-time upload)
+                "ai_assistant_access": "none",
+                "court_ready_reports": False,
+                "educational_access": True,  # Access to guides & templates
+                "template_downloads": True,  # Can download templates
+                "overage_allowed": False,
+            },
+            TierLevel.STARTER: {  # NEW - Entry tier
+                "bwc_videos_per_month": 10,
+                "bwc_video_hours_per_month": 1,
+                "max_file_size_mb": 512,
+                "pdf_documents_per_month": 5,
+                "transcription_minutes_per_month": 60,
+                "ai_assistant_access": "basic",
+                "search_queries_per_month": 500,
+                "storage_gb": 10,
+                "export_watermark": False,
+                "case_limit": 5,
+                "court_ready_reports": "basic",
+                "api_access": False,
+                "overage_allowed": False,  # Hard cap
             },
             TierLevel.PROFESSIONAL: {
-                "bwc_videos_per_month": 20,  # 20 videos (hard cap for PRO)
-                "bwc_video_hours_per_month": 2,  # 2 hours of video per month
-                "max_file_size_mb": 1024,  # 1 GB per file
-                "pdf_documents_per_month": 10,  # 10 PDFs per month (hard cap)
-                "transcription_minutes_per_month": 120,  # 2 hours = 120 minutes
-                "ai_assistant_access": "basic",  # Basic AI assistant
-                "search_queries_per_month": 1000,  # 1,000 queries
-                "storage_gb": 25,
+                "bwc_videos_per_month": 25,
+                "bwc_video_hours_per_month": 3,
+                "max_file_size_mb": 1024,
+                "pdf_documents_per_month": 15,
+                "transcription_minutes_per_month": 180,
+                "ai_assistant_access": "basic",
+                "search_queries_per_month": 1500,
+                "storage_gb": 50,
                 "export_watermark": False,
-                "case_limit": 10,  # Max 10 active cases
-                "court_ready_reports": "basic",  # Basic templates
-                "trial_days": 3,  # 3-day free trial
+                "case_limit": 15,
+                "court_ready_reports": "basic",
+                "trial_days": 3,
                 "api_access": False,
-                "overage_allowed": False,  # Hard caps - must upgrade
+                "overage_allowed": False,  # Hard cap
             },
             TierLevel.PREMIUM: {
-                "bwc_videos_per_month": 100,  # 100 videos (soft cap)
-                "bwc_video_hours_per_month": 10,  # 10 hours (soft cap)
-                "max_file_size_mb": 5120,  # 5 GB per file
-                "pdf_documents_per_month": 100,  # 100 PDFs (soft cap)
-                "transcription_minutes_per_month": 600,  # 10 hours (soft cap)
-                "ai_assistant_access": "full",  # Full context AI chat
-                "search_queries_per_month": 10000,  # 10k queries (soft cap)
-                "storage_gb": 500,
+                "bwc_videos_per_month": 75,  # Soft cap
+                "bwc_video_hours_per_month": 10,  # Soft cap
+                "max_file_size_mb": 5120,
+                "pdf_documents_per_month": 50,  # Soft cap
+                "transcription_minutes_per_month": 600,
+                "ai_assistant_access": "full",
+                "search_queries_per_month": 10000,
+                "storage_gb": 250,
                 "export_watermark": False,
-                "case_limit": 50,  # 50 active cases (soft cap)
-                "court_ready_reports": "advanced",  # Advanced templates
+                "case_limit": 40,  # Soft cap
+                "court_ready_reports": "advanced",
                 "timeline_builder": True,
                 "api_access": True,
                 "forensic_analysis": True,
                 "priority_support": True,
-                # Overage fees for PREMIUM (soft caps)
+                # Soft caps with overage billing
                 "overage_allowed": True,
-                "overage_fee_per_video": 2.00,  # $2 per video over 100
-                "overage_fee_per_video_hour": 5.00,  # $5 per hour over 10
-                "overage_fee_per_pdf": 1.00,  # $1 per PDF over 100
-                "overage_fee_per_case": 5.00,  # $5 per case over 50
+                "overage_fee_per_video": 2.00,
+                "overage_fee_per_video_hour": 5.00,
+                "overage_fee_per_pdf": 1.00,
+                "overage_fee_per_case": 5.00,
             },
             TierLevel.ENTERPRISE: {
-                "bwc_videos_per_month": 500,  # 500 videos (soft cap)
-                "bwc_video_hours_per_month": 50,  # 50 hours (soft cap)
-                "max_file_size_mb": 20480,  # 20 GB for 4K videos
-                "pdf_documents_per_month": 500,  # 500 PDFs (soft cap)
-                "transcription_minutes_per_month": 3000,  # 50 hours (soft cap)
-                "ai_assistant_access": "private_instance",  # Private AI instance
-                "search_queries_per_month": 50000,  # 50k queries (soft cap)
-                "storage_gb": 2000,  # 2TB storage (soft cap)
+                "bwc_videos_per_month": 300,  # Soft cap
+                "bwc_video_hours_per_month": 40,  # Soft cap
+                "max_file_size_mb": 20480,
+                "pdf_documents_per_month": 200,  # Soft cap
+                "transcription_minutes_per_month": 2400,
+                "ai_assistant_access": "private_instance",
+                "search_queries_per_month": 50000,
+                "storage_gb": 1024,
                 "export_watermark": False,
-                "case_limit": 200,  # 200 active cases (soft cap)
-                "court_ready_reports": "firm_branded",  # Firm-branded output
+                "case_limit": 150,  # Soft cap
+                "court_ready_reports": "firm_branded",
                 "timeline_builder": True,
-                "multi_bwc_sync": 20,  # 20 concurrent videos
+                "multi_bwc_sync": 20,
                 "api_access": True,
                 "forensic_analysis": True,
                 "white_label": True,
                 "priority_support": True,
                 "sla_guaranteed": True,
-                "dedicated_pm": True,  # Dedicated project manager
-                "self_hosted": True,  # Docker deployment option
-                "on_premises_data": True,  # Data residency control
-                "concurrent_users": 50,  # 50 team members (soft cap)
-                # Overage fees for ENTERPRISE (lower rates due to volume)
+                "dedicated_pm": True,
+                "on_premises_data": True,
+                "concurrent_users": 25,  # Soft cap
+                # Soft caps with lower overage fees
                 "overage_allowed": True,
-                "overage_fee_per_video": 1.00,  # $1 per video over 500
-                "overage_fee_per_video_hour": 3.00,  # $3 per hour over 50
-                "overage_fee_per_pdf": 0.50,  # $0.50 per PDF over 500
-                "overage_fee_per_case": 2.00,  # $2 per case over 200
-                "overage_fee_per_gb_storage": 0.50,  # $0.50 per GB over 2TB
-                "overage_fee_per_user": 20.00,  # $20 per user over 50
+                "overage_fee_per_video": 1.00,
+                "overage_fee_per_video_hour": 3.00,
+                "overage_fee_per_pdf": 0.50,
+                "overage_fee_per_case": 2.00,
+                "overage_fee_per_user": 15.00,
             },
             TierLevel.ADMIN: {
                 "bwc_videos_per_month": -1,
@@ -263,7 +301,9 @@ class UsageTracking(db.Model):
     def get_or_create_current(user_id):
         """Get or create usage tracking for current month"""
         now = datetime.utcnow()
-        usage = UsageTracking.query.filter_by(user_id=user_id, year=now.year, month=now.month).first()
+        usage = UsageTracking.query.filter_by(
+            user_id=user_id, year=now.year, month=now.month
+        ).first()
 
         if not usage:
             usage = UsageTracking(user_id=user_id, year=now.year, month=now.month)
