@@ -4,9 +4,11 @@ Handles subscriptions, checkouts, and customer management
 """
 
 import os
+
 import stripe
-from flask import Blueprint, request, jsonify, render_template, redirect, url_for
-from flask_login import login_required, current_user
+from flask import (Blueprint, jsonify, redirect, render_template, request,
+                   url_for)
+from flask_login import current_user, login_required
 
 # Initialize Stripe
 stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
@@ -20,7 +22,12 @@ SUBSCRIPTION_PLANS = {
         "name": "Free",
         "price": 0,
         "price_id": None,
-        "features": ["5 evidence uploads/month", "Basic AI analysis", "2 document generations/month", "Email support"],
+        "features": [
+            "5 evidence uploads/month",
+            "Basic AI analysis",
+            "2 document generations/month",
+            "Email support",
+        ],
     },
     "pro": {
         "name": "Pro",
@@ -133,11 +140,16 @@ def payment_success():
 
         # Track analytics
         try:
-            from utils.analytics import track_subscription_change, track_revenue
+            from utils.analytics import (track_revenue,
+                                         track_subscription_change)
 
-            track_subscription_change(str(current_user.id), "free", plan, SUBSCRIPTION_PLANS[plan]["price"])
+            track_subscription_change(
+                str(current_user.id), "free", plan, SUBSCRIPTION_PLANS[plan]["price"]
+            )
             track_revenue(
-                str(current_user.id), SUBSCRIPTION_PLANS[plan]["price"], {"plan": plan, "type": "subscription"}
+                str(current_user.id),
+                SUBSCRIPTION_PLANS[plan]["price"],
+                {"plan": plan, "type": "subscription"},
             )
         except Exception as e:
             # Log analytics failure but don't block success page
@@ -221,7 +233,7 @@ def webhook():
 
 def handle_checkout_complete(session):
     """Handle completed checkout"""
-    from app import db, User
+    from app import User, db
 
     user_id = session["metadata"].get("user_id")
     plan = session["metadata"].get("plan")
@@ -237,7 +249,7 @@ def handle_checkout_complete(session):
 
 def handle_subscription_updated(subscription):
     """Handle subscription updates"""
-    from app import db, User
+    from app import User, db
 
     customer_id = subscription["customer"]
     user = User.query.filter_by(stripe_customer_id=customer_id).first()
@@ -249,7 +261,7 @@ def handle_subscription_updated(subscription):
 
 def handle_subscription_cancelled(subscription):
     """Handle subscription cancellations"""
-    from app import db, User
+    from app import User, db
 
     customer_id = subscription["customer"]
     user = User.query.filter_by(stripe_customer_id=customer_id).first()
@@ -284,7 +296,7 @@ def handle_payment_succeeded(invoice):
 
 def handle_payment_failed(invoice):
     """Handle failed payment"""
-    from app import db, User
+    from app import User, db
 
     customer_id = invoice["customer"]
     user = User.query.filter_by(stripe_customer_id=customer_id).first()
@@ -301,8 +313,18 @@ def get_user_plan_limits(tier):
     """Get usage limits for a tier"""
     limits = {
         "free": {"max_uploads": 5, "max_documents": 2, "max_storage_gb": 1, "max_api_calls": 100},
-        "pro": {"max_uploads": -1, "max_documents": -1, "max_storage_gb": 100, "max_api_calls": 10000},  # Unlimited
-        "premium": {"max_uploads": -1, "max_documents": -1, "max_storage_gb": 1000, "max_api_calls": 100000},
+        "pro": {
+            "max_uploads": -1,
+            "max_documents": -1,
+            "max_storage_gb": 100,
+            "max_api_calls": 10000,
+        },  # Unlimited
+        "premium": {
+            "max_uploads": -1,
+            "max_documents": -1,
+            "max_storage_gb": 1000,
+            "max_api_calls": 100000,
+        },
     }
     return limits.get(tier, limits["free"])
 

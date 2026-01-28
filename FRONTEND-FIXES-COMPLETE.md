@@ -52,7 +52,7 @@
 ? 4 Pricing tiers:
 - **FREE:** $0/month - 2 BWC videos, 50 PDF pages
 - **PROFESSIONAL:** $49/month - 25 BWC videos, 1000 PDF pages
-- **PREMIUM:** $149/month - 100 BWC videos, 10k PDF pages
+- **PREMIUM:** $199/month - 100 BWC videos, 10k PDF pages
 - **ENTERPRISE:** $499/month - Unlimited everything
 
 ? Feature comparison table  

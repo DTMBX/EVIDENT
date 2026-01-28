@@ -3,14 +3,15 @@ Unified Batch Upload Handler
 Accepts mixed PDFs and BWC videos, separates them, and processes in parallel
 """
 
-from flask import Blueprint, request, jsonify
-from flask_login import login_required, current_user
-from werkzeug.utils import secure_filename
-from pathlib import Path
-from datetime import datetime
-import os
 import hashlib
+import os
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from datetime import datetime
+from pathlib import Path
+
+from flask import Blueprint, jsonify, request
+from flask_login import current_user, login_required
+from werkzeug.utils import secure_filename
 
 # Create blueprint
 batch_upload_bp = Blueprint("batch_upload", __name__)
@@ -21,7 +22,11 @@ ALLOWED_PDF_EXTENSIONS = {".pdf"}
 ALLOWED_IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".gif", ".bmp"}
 
 # File type categories
-FILE_CATEGORIES = {"video": ALLOWED_VIDEO_EXTENSIONS, "pdf": ALLOWED_PDF_EXTENSIONS, "image": ALLOWED_IMAGE_EXTENSIONS}
+FILE_CATEGORIES = {
+    "video": ALLOWED_VIDEO_EXTENSIONS,
+    "pdf": ALLOWED_PDF_EXTENSIONS,
+    "image": ALLOWED_IMAGE_EXTENSIONS,
+}
 
 
 def categorize_file(filename):
@@ -48,7 +53,7 @@ def process_video_file(file, user_id=None):
     """Process BWC video file"""
     try:
         # Import here to avoid circular imports
-        from app import db, Analysis
+        from app import Analysis, db
 
         original_filename = file.filename
         filename = secure_filename(file.filename)
@@ -99,7 +104,7 @@ def process_pdf_file(file, user_id=None):
     """Process PDF document file"""
     try:
         # Import here to avoid circular imports
-        from app import db, PDFUpload
+        from app import PDFUpload, db
 
         original_filename = file.filename
         filename = secure_filename(file.filename)
@@ -252,11 +257,15 @@ def unified_batch_upload():
                 else:
                     results["failed"].append(result)
             except Exception as e:
-                results["failed"].append({"filename": "unknown", "error": str(e), "type": "unknown"})
+                results["failed"].append(
+                    {"filename": "unknown", "error": str(e), "type": "unknown"}
+                )
 
     # Handle unknown file types
     for file in categorized_files["unknown"]:
-        results["failed"].append({"filename": file.filename, "error": "Unsupported file type", "type": "unknown"})
+        results["failed"].append(
+            {"filename": file.filename, "error": "Unsupported file type", "type": "unknown"}
+        )
 
     # Update user storage usage
     total_size = 0

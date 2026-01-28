@@ -52,8 +52,10 @@ def add_header(path: Path) -> bool:
     if has_header(content):
         return False
 
-    header = "".join(prefix + line if line.strip() else prefix.rstrip() + "\n"
-                     for line in HEADER_LINE.splitlines(True))
+    header = "".join(
+        prefix + line if line.strip() else prefix.rstrip() + "\n"
+        for line in HEADER_LINE.splitlines(True)
+    )
     new_content = header + "\n" + content
     path.write_text(new_content, encoding="utf-8")
     return True

@@ -3,22 +3,25 @@ Minimal BarberX App for Deployment Diagnosis
 This is a stripped-down version to identify what's breaking
 """
 
-from flask import Flask, jsonify, render_template_string
-from flask_cors import CORS
 import os
 from datetime import datetime
 
+from flask import Flask, jsonify, render_template_string
+from flask_cors import CORS
+
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'dev-key-change-in-production')
+app.config["SECRET_KEY"] = os.getenv("SECRET_KEY", "dev-key-change-in-production")
 
 # Enable CORS
 CORS(app)
 
+
 # Simple routes to test deployment
-@app.route('/')
+@app.route("/")
 def index():
     """Minimal homepage"""
-    return render_template_string('''
+    return render_template_string(
+        """
     <!DOCTYPE html>
     <html>
     <head>
@@ -71,59 +74,74 @@ def index():
         </div>
     </body>
     </html>
-    ''', now=datetime.utcnow().isoformat())
+    """,
+        now=datetime.utcnow().isoformat(),
+    )
 
-@app.route('/health')
+
+@app.route("/health")
 def health():
     """Health check endpoint"""
-    return jsonify({
-        'status': 'healthy',
-        'timestamp': datetime.utcnow().isoformat(),
-        'app': 'BarberX Legal Technologies',
-        'version': '2.0-minimal'
-    })
+    return jsonify(
+        {
+            "status": "healthy",
+            "timestamp": datetime.utcnow().isoformat(),
+            "app": "BarberX Legal Technologies",
+            "version": "2.0-minimal",
+        }
+    )
 
-@app.route('/api/test')
+
+@app.route("/api/test")
 def api_test():
     """Test API endpoint"""
-    return jsonify({
-        'success': True,
-        'message': 'API is working!',
-        'timestamp': datetime.utcnow().isoformat()
-    })
+    return jsonify(
+        {"success": True, "message": "API is working!", "timestamp": datetime.utcnow().isoformat()}
+    )
 
-@app.route('/env')
+
+@app.route("/env")
 def env_info():
     """Show environment info (safe subset)"""
-    return jsonify({
-        'python_version': os.sys.version,
-        'flask_env': os.getenv('FLASK_ENV', 'not set'),
-        'port': os.getenv('PORT', 'not set'),
-        'has_database_url': 'Yes' if os.getenv('DATABASE_URL') else 'No',
-        'has_secret_key': 'Yes' if os.getenv('SECRET_KEY') else 'No (using default)'
-    })
+    return jsonify(
+        {
+            "python_version": os.sys.version,
+            "flask_env": os.getenv("FLASK_ENV", "not set"),
+            "port": os.getenv("PORT", "not set"),
+            "has_database_url": "Yes" if os.getenv("DATABASE_URL") else "No",
+            "has_secret_key": "Yes" if os.getenv("SECRET_KEY") else "No (using default)",
+        }
+    )
+
 
 @app.errorhandler(404)
 def not_found(e):
-    return jsonify({
-        'error': 'Not Found',
-        'message': 'The requested URL was not found',
-        'available_routes': [
-            '/',
-            '/health',
-            '/api/test',
-            '/env'
-        ]
-    }), 404
+    return (
+        jsonify(
+            {
+                "error": "Not Found",
+                "message": "The requested URL was not found",
+                "available_routes": ["/", "/health", "/api/test", "/env"],
+            }
+        ),
+        404,
+    )
+
 
 @app.errorhandler(500)
 def internal_error(e):
-    return jsonify({
-        'error': 'Internal Server Error',
-        'message': str(e),
-        'timestamp': datetime.utcnow().isoformat()
-    }), 500
+    return (
+        jsonify(
+            {
+                "error": "Internal Server Error",
+                "message": str(e),
+                "timestamp": datetime.utcnow().isoformat(),
+            }
+        ),
+        500,
+    )
 
-if __name__ == '__main__':
-    port = int(os.getenv('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=False)
+
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)

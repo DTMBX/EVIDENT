@@ -50,6 +50,19 @@
    SCROLL REVEAL ANIMATIONS
    ========================================================================= */
 
+/* Scroll Reveal System */
+.reveal-hidden {
+  opacity: 0;
+  transform: translate3d(0, 40px, 0);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
 /* Base hidden state for all reveal animations */
 .fade-in,
 .slide-up,
@@ -209,7 +222,7 @@
    ========================================================================= */
 
 .stagger-container > * {
-  animation: fadeInUp var(--anim-duration-slow) var(--ease-smooth) both;
+  animation: fade-in-up var(--anim-duration-slow) var(--ease-smooth) both;
 }
 
 .stagger-container > *:nth-child(1) {

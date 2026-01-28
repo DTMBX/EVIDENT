@@ -1,0 +1,144 @@
+# BarberX Enterprise - Docker Compose Setup
+# Quick deployment for self-hosted installations
+
+version: '3.8'
+
+services:
+  # Main BarberX application
+  barberx-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.enterprise
+    image: barberx/enterprise:latest
+    container_name: barberx-app
+    restart: unless-stopped
+    
+    ports:
+      - "5000:5000"
+    
+    environment:
+      # License Configuration (REQUIRED)
+      - BARBERX_LICENSE_KEY=${BARBERX_LICENSE_KEY}
+      - BARBERX_LICENSE_SERVER=https://license.barberx.info/api/v1/license/validate
+      
+      # Flask Configuration
+      - FLASK_ENV=production
+      - SECRET_KEY=${SECRET_KEY}
+      
+      # Database
+      - DATABASE_URL=postgresql://barberx:${DB_PASSWORD}@postgres:5432/barberx
+      
+      # Storage
+      - UPLOAD_FOLDER=/app/data/uploads
+      - ANALYSIS_FOLDER=/app/data/analysis
+      
+      # AI Configuration (Optional - use customer's keys)
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      
+      # Features
+      - MAX_CONTENT_LENGTH=21474836480  # 20GB for enterprise
+    
+    volumes:
+      - barberx-data:/app/data
+      - barberx-logs:/app/logs
+      - barberx-db:/app/instance
+    
+    depends_on:
+      - postgres
+      - redis
+    
+    networks:
+      - barberx-network
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: barberx-postgres
+    restart: unless-stopped
+    
+    environment:
+      - POSTGRES_DB=barberx
+      - POSTGRES_USER=barberx
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    
+    networks:
+      - barberx-network
+    
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U barberx"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis (for caching and job queue)
+  redis:
+    image: redis:7-alpine
+    container_name: barberx-redis
+    restart: unless-stopped
+    
+    command: redis-server --appendonly yes
+    
+    volumes:
+      - redis-data:/data
+    
+    networks:
+      - barberx-network
+    
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  # Nginx Reverse Proxy (SSL termination)
+  nginx:
+    image: nginx:alpine
+    container_name: barberx-nginx
+    restart: unless-stopped
+    
+    ports:
+      - "80:80"
+      - "443:443"
+    
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    
+    depends_on:
+      - barberx-app
+    
+    networks:
+      - barberx-network
+    
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  barberx-data:
+    driver: local
+  barberx-logs:
+    driver: local
+  barberx-db:
+    driver: local
+  postgres-data:
+    driver: local
+  redis-data:
+    driver: local
+
+networks:
+  barberx-network:
+    driver: bridge

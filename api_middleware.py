@@ -12,18 +12,18 @@ Features:
 - Request logging
 """
 
+import functools
+import hashlib
 import logging
 import time
-import functools
+from collections import defaultdict
 from datetime import datetime
 from typing import Dict, Optional
-from collections import defaultdict
-import hashlib
 
-from flask import request, jsonify, g
+from flask import g, jsonify, request
 from werkzeug.exceptions import HTTPException
 
-from backend_integration import success_response, error_response
+from backend_integration import error_response, success_response
 
 
 class RateLimiter:
@@ -120,7 +120,9 @@ def rate_limit(tier_override: Optional[str] = None):
             allowed, retry_after = rate_limiter.check_limit(identifier, tier)
 
             if not allowed:
-                response = jsonify(error_response("Rate limit exceeded", error_code="RATE_LIMIT_EXCEEDED"))
+                response = jsonify(
+                    error_response("Rate limit exceeded", error_code="RATE_LIMIT_EXCEEDED")
+                )
                 response.status_code = 429
                 response.headers["Retry-After"] = str(retry_after)
                 return response
@@ -213,7 +215,10 @@ def require_api_key(db):
             api_key = request.headers.get("X-API-Key")
 
             if not api_key:
-                return jsonify(error_response("API key required", error_code="API_KEY_REQUIRED")), 401
+                return (
+                    jsonify(error_response("API key required", error_code="API_KEY_REQUIRED")),
+                    401,
+                )
 
             # Validate key
             user = api_auth.validate_api_key(api_key)
@@ -247,7 +252,10 @@ def require_tier(min_tier: str):
         @functools.wraps(f)
         def wrapped(*args, **kwargs):
             if not hasattr(g, "user"):
-                return jsonify(error_response("Authentication required", error_code="AUTH_REQUIRED")), 401
+                return (
+                    jsonify(error_response("Authentication required", error_code="AUTH_REQUIRED")),
+                    401,
+                )
 
             user_tier_level = tier_hierarchy.get(g.user.tier, 0)
             required_tier_level = tier_hierarchy.get(min_tier, 0)
@@ -256,7 +264,8 @@ def require_tier(min_tier: str):
                 return (
                     jsonify(
                         error_response(
-                            f"This feature requires {min_tier} tier or higher", error_code="INSUFFICIENT_TIER"
+                            f"This feature requires {min_tier} tier or higher",
+                            error_code="INSUFFICIENT_TIER",
                         )
                     ),
                     403,
@@ -353,7 +362,11 @@ def log_request():
             start_time = time.time()
             user_id = g.user.id if hasattr(g, "user") else None
 
-            logger.info(f"{request.method} {request.path} | " f"User: {user_id} | " f"IP: {request.remote_addr}")
+            logger.info(
+                f"{request.method} {request.path} | "
+                f"User: {user_id} | "
+                f"IP: {request.remote_addr}"
+            )
 
             # Execute request
             try:
@@ -361,14 +374,26 @@ def log_request():
                 duration = time.time() - start_time
 
                 # Log response
-                status = getattr(response, "status_code", 200) if hasattr(response, "status_code") else 200
-                logger.info(f"{request.method} {request.path} | " f"Status: {status} | " f"Duration: {duration:.3f}s")
+                status = (
+                    getattr(response, "status_code", 200)
+                    if hasattr(response, "status_code")
+                    else 200
+                )
+                logger.info(
+                    f"{request.method} {request.path} | "
+                    f"Status: {status} | "
+                    f"Duration: {duration:.3f}s"
+                )
 
                 return response
 
             except Exception as e:
                 duration = time.time() - start_time
-                logger.error(f"{request.method} {request.path} | " f"Error: {str(e)} | " f"Duration: {duration:.3f}s")
+                logger.error(
+                    f"{request.method} {request.path} | "
+                    f"Error: {str(e)} | "
+                    f"Duration: {duration:.3f}s"
+                )
                 raise
 
         return wrapped
@@ -390,13 +415,21 @@ def handle_errors():
                 return f(*args, **kwargs)
 
             except HTTPException as e:
-                return jsonify(error_response(e.description, error_code=e.name.upper().replace(" ", "_"))), e.code
+                return (
+                    jsonify(
+                        error_response(e.description, error_code=e.name.upper().replace(" ", "_"))
+                    ),
+                    e.code,
+                )
 
             except Exception as e:
                 logger = logging.getLogger(__name__)
                 logger.exception("Unhandled error in %s: %s", f.__name__, str(e))
 
-                return jsonify(error_response("Internal server error", error_code="INTERNAL_ERROR")), 500
+                return (
+                    jsonify(error_response("Internal server error", error_code="INTERNAL_ERROR")),
+                    500,
+                )
 
         return wrapped
 
@@ -407,7 +440,10 @@ def handle_errors():
 
 
 def api_endpoint(
-    db, require_auth: bool = True, min_tier: Optional[str] = None, validation_schema: Optional[Dict] = None
+    db,
+    require_auth: bool = True,
+    min_tier: Optional[str] = None,
+    validation_schema: Optional[Dict] = None,
 ):
     """
     Combined decorator for API endpoints

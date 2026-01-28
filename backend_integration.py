@@ -15,20 +15,21 @@ import functools
 import hashlib
 import json
 import logging
-import time
-from datetime import datetime, timedelta
-from typing import Any, Callable, Dict, List, Optional
-from dataclasses import dataclass, field
-from enum import Enum
 import threading
-
+import time
+from dataclasses import dataclass, field
+from datetime import datetime, timedelta
+from enum import Enum
+from typing import Any, Callable, Dict, List, Optional
 
 # ========================================
 # SERVICE REGISTRY
 # ========================================
 
+
 class ServiceStatus(Enum):
     """Service availability status"""
+
     AVAILABLE = "available"
     UNAVAILABLE = "unavailable"
     DEGRADED = "degraded"
@@ -38,6 +39,7 @@ class ServiceStatus(Enum):
 @dataclass
 class ServiceInfo:
     """Information about a registered service"""
+
     name: str
     instance: Any
     status: ServiceStatus = ServiceStatus.AVAILABLE
@@ -56,15 +58,13 @@ class ServiceRegistry:
         self._logger = logging.getLogger(__name__)
         self._lock = threading.Lock()
 
-    def register(self, name: str, service: Any, version: str = "1.0.0",
-                 dependencies: List[str] = None) -> None:
+    def register(
+        self, name: str, service: Any, version: str = "1.0.0", dependencies: List[str] = None
+    ) -> None:
         """Register a service"""
         with self._lock:
             self._services[name] = ServiceInfo(
-                name=name,
-                instance=service,
-                version=version,
-                dependencies=dependencies or []
+                name=name, instance=service, version=version, dependencies=dependencies or []
             )
             self._logger.info(f"Service registered: {name} v{version}")
 
@@ -106,7 +106,7 @@ class ServiceRegistry:
                 "version": info.version,
                 "initialized_at": info.initialized_at.isoformat(),
                 "error_count": info.error_count,
-                "last_error": info.last_error
+                "last_error": info.last_error,
             }
             for name, info in self._services.items()
         }
@@ -120,8 +120,10 @@ service_registry = ServiceRegistry()
 # CACHING LAYER
 # ========================================
 
+
 class CacheBackend(Enum):
     """Available cache backends"""
+
     MEMORY = "memory"
     REDIS = "redis"
     FILE = "file"
@@ -182,7 +184,7 @@ class Cache:
                 "size": len(self._cache),
                 "hits": self._hits,
                 "misses": self._misses,
-                "hit_rate": f"{hit_rate:.2f}%"
+                "hit_rate": f"{hit_rate:.2f}%",
             }
 
 
@@ -192,6 +194,7 @@ cache = Cache(default_ttl=3600)
 
 def cached(ttl: int = 3600, key_prefix: str = ""):
     """Decorator for caching function results"""
+
     def decorator(func: Callable) -> Callable:
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
@@ -215,12 +218,14 @@ def cached(ttl: int = 3600, key_prefix: str = ""):
             return result
 
         return wrapper
+
     return decorator
 
 
 # ========================================
 # PERFORMANCE MONITORING
 # ========================================
+
 
 class PerformanceMonitor:
     """Monitor service performance"""
@@ -253,15 +258,16 @@ class PerformanceMonitor:
                 "min": min(durations),
                 "max": max(durations),
                 "avg": sum(durations) / len(durations),
-                "p95": sorted(durations)[int(len(durations) * 0.95)] if len(durations) > 20 else max(durations)
+                "p95": (
+                    sorted(durations)[int(len(durations) * 0.95)]
+                    if len(durations) > 20
+                    else max(durations)
+                ),
             }
 
     def get_all_stats(self) -> Dict[str, Dict]:
         """Get all performance statistics"""
-        return {
-            operation: self.get_stats(operation)
-            for operation in self._metrics.keys()
-        }
+        return {operation: self.get_stats(operation) for operation in self._metrics.keys()}
 
 
 # Global performance monitor
@@ -271,6 +277,7 @@ performance_monitor = perf_monitor  # Alias for consistency
 
 def monitored(operation_name: Optional[str] = None):
     """Decorator for monitoring function performance"""
+
     def decorator(func: Callable) -> Callable:
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
@@ -285,12 +292,14 @@ def monitored(operation_name: Optional[str] = None):
                 perf_monitor.record(op_name, duration)
 
         return wrapper
+
     return decorator
 
 
 # ========================================
 # ERROR HANDLING
 # ========================================
+
 
 class ServiceError(Exception):
     """Base exception for service errors"""
@@ -310,6 +319,7 @@ class ValidationError(ServiceError):
 
 def handle_service_errors(service_name: str):
     """Decorator for unified error handling"""
+
     def decorator(func: Callable) -> Callable:
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
@@ -325,12 +335,14 @@ def handle_service_errors(service_name: str):
                 raise ServiceError(f"{service_name} error: {str(e)}")
 
         return wrapper
+
     return decorator
 
 
 # ========================================
 # EVENT SYSTEM
 # ========================================
+
 
 class Event:
     """Event for inter-service communication"""
@@ -378,6 +390,7 @@ event_bus = EventBus()
 # UNIFIED API RESPONSE
 # ========================================
 
+
 def success_response(data: Any, message: str = "Success", meta: Dict = None) -> Dict:
     """Create standardized success response"""
     return {
@@ -385,7 +398,7 @@ def success_response(data: Any, message: str = "Success", meta: Dict = None) -> 
         "message": message,
         "data": data,
         "meta": meta or {},
-        "timestamp": datetime.utcnow().isoformat()
+        "timestamp": datetime.utcnow().isoformat(),
     }
 
 
@@ -396,13 +409,14 @@ def error_response(error: str, code: str = "ERROR", details: Dict = None) -> Dic
         "error": error,
         "code": code,
         "details": details or {},
-        "timestamp": datetime.utcnow().isoformat()
+        "timestamp": datetime.utcnow().isoformat(),
     }
 
 
 # ========================================
 # VALIDATION HELPERS
 # ========================================
+
 
 def validate_required_fields(data: Dict, required: List[str]) -> None:
     """Validate required fields in data"""
@@ -413,10 +427,10 @@ def validate_required_fields(data: Dict, required: List[str]) -> None:
 
 def validate_file_type(filename: str, allowed_extensions: List[str]) -> bool:
     """Validate file extension"""
-    if '.' not in filename:
+    if "." not in filename:
         return False
 
-    ext = filename.rsplit('.', 1)[1].lower()
+    ext = filename.rsplit(".", 1)[1].lower()
     return ext in allowed_extensions
 
 
@@ -425,12 +439,13 @@ def validate_file_type(filename: str, allowed_extensions: List[str]) -> bool:
 # ========================================
 
 import uuid
-from queue import Queue, Empty
+from queue import Empty, Queue
 from threading import Thread
 
 
 class TaskStatus(Enum):
     """Task execution status"""
+
     PENDING = "pending"
     RUNNING = "running"
     COMPLETED = "completed"
@@ -440,6 +455,7 @@ class TaskStatus(Enum):
 @dataclass
 class Task:
     """Async task"""
+
     task_id: str
     func: Callable
     args: tuple
@@ -500,12 +516,7 @@ class TaskQueue:
     def submit(self, func: Callable, *args, **kwargs) -> str:
         """Submit task for async execution"""
         task_id = str(uuid.uuid4())
-        task = Task(
-            task_id=task_id,
-            func=func,
-            args=args,
-            kwargs=kwargs
-        )
+        task = Task(task_id=task_id, func=func, args=args, kwargs=kwargs)
 
         with self._lock:
             self._tasks[task_id] = task
@@ -527,7 +538,7 @@ class TaskQueue:
                 "started_at": task.started_at.isoformat() if task.started_at else None,
                 "completed_at": task.completed_at.isoformat() if task.completed_at else None,
                 "result": task.result if task.status == TaskStatus.COMPLETED else None,
-                "error": task.error if task.status == TaskStatus.FAILED else None
+                "error": task.error if task.status == TaskStatus.FAILED else None,
             }
 
     def shutdown(self):
@@ -545,13 +556,14 @@ task_queue = TaskQueue(num_workers=4)
 # UTILITY FUNCTIONS
 # ========================================
 
+
 def get_system_status() -> Dict:
     """Get overall system status"""
     return {
         "services": service_registry.get_status(),
         "cache": cache.get_stats(),
         "performance": perf_monitor.get_all_stats(),
-        "timestamp": datetime.utcnow().isoformat()
+        "timestamp": datetime.utcnow().isoformat(),
     }
 
 

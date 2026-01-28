@@ -5,10 +5,14 @@ Login, logout, signup, and user management
 
 import logging
 from functools import wraps
-from urllib.parse import urlparse, urljoin
-from flask import Blueprint, render_template, redirect, url_for, flash, request, session, jsonify
-from flask_login import LoginManager, login_user, logout_user, login_required, current_user
-from models_auth import db, User, UsageTracking, TierLevel
+from urllib.parse import urljoin, urlparse
+
+from flask import (Blueprint, flash, jsonify, redirect, render_template,
+                   request, session, url_for)
+from flask_login import (LoginManager, current_user, login_required,
+                         login_user, logout_user)
+
+from models_auth import TierLevel, UsageTracking, User, db
 
 auth_bp = Blueprint("auth", __name__, url_prefix="/auth")
 login_manager = LoginManager()
@@ -54,7 +58,10 @@ def tier_required(min_tier):
         @login_required
         def decorated_function(*args, **kwargs):
             if current_user.tier.value < min_tier.value:
-                flash(f"This feature requires {min_tier.name} tier or higher. Please upgrade your account.", "warning")
+                flash(
+                    f"This feature requires {min_tier.name} tier or higher. Please upgrade your account.",
+                    "warning",
+                )
                 return redirect(url_for("pricing"))
             return f(*args, **kwargs)
 
@@ -85,7 +92,9 @@ def feature_required(feature_name):
         @login_required
         def decorated_function(*args, **kwargs):
             if not current_user.can_access_feature(feature_name):
-                flash("This feature is not available in your current tier. Please upgrade.", "warning")
+                flash(
+                    "This feature is not available in your current tier. Please upgrade.", "warning"
+                )
                 return redirect(url_for("pricing"))
             return f(*args, **kwargs)
 
@@ -110,7 +119,10 @@ def check_usage_limit(field):
 
             # Check limit
             if not usage.check_limit(field, current_user):
-                flash("You have reached your monthly limit for this feature. Please upgrade your tier.", "warning")
+                flash(
+                    "You have reached your monthly limit for this feature. Please upgrade your tier.",
+                    "warning",
+                )
                 return redirect(url_for("pricing"))
 
             return f(*args, **kwargs)
@@ -229,7 +241,10 @@ def signup():
 
             # If user requested a paid tier, redirect to checkout
             if tier_param in ["professional", "premium"]:
-                flash(f"Account created! Complete checkout to activate your {requested_tier_name} plan.", "success")
+                flash(
+                    f"Account created! Complete checkout to activate your {requested_tier_name} plan.",
+                    "success",
+                )
                 # Store intended tier in session for checkout
                 session["checkout_tier"] = tier_param
                 return redirect(url_for("pricing"))
@@ -243,7 +258,10 @@ def signup():
             logger.error(f"Signup error: {e}", exc_info=True)
 
     return render_template(
-        "auth/signup.html", requested_tier=requested_tier_name, tier_param=tier_param, trial_period=trial_period
+        "auth/signup.html",
+        requested_tier=requested_tier_name,
+        tier_param=tier_param,
+        trial_period=trial_period,
     )
 
 
@@ -265,18 +283,23 @@ def logout():
 @login_required
 def dashboard():
     """User dashboard showing usage and limits"""
-    from models_auth import UsageTracking
     from app import Analysis
+    from models_auth import UsageTracking
 
     usage = UsageTracking.get_or_create_current(current_user.id)
     limits = current_user.get_tier_limits()
 
     # Get recent analyses
     recent_analyses = (
-        Analysis.query.filter_by(user_id=current_user.id).order_by(Analysis.created_at.desc()).limit(10).all()
+        Analysis.query.filter_by(user_id=current_user.id)
+        .order_by(Analysis.created_at.desc())
+        .limit(10)
+        .all()
     )
 
-    return render_template("auth/dashboard.html", usage=usage, limits=limits, recent_analyses=recent_analyses)
+    return render_template(
+        "auth/dashboard.html", usage=usage, limits=limits, recent_analyses=recent_analyses
+    )
 
 
 @auth_bp.route("/usage/api")

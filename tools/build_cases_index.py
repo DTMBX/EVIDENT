@@ -4,7 +4,7 @@ import json
 import re
 import sys
 from pathlib import Path
-from urllib.request import urlopen, Request
+from urllib.request import Request, urlopen
 
 # pip install pypdf
 from pypdf import PdfReader
@@ -28,19 +28,22 @@ CHUNK_SIZE = 8192
 # Timeout for PDF downloads in seconds
 PDF_DOWNLOAD_TIMEOUT = 60
 
+
 def clean_text(s: str) -> str:
     s = s.replace("\x00", " ")
     s = re.sub(r"\s+", " ", s).strip()
     return s
 
+
 def sha1(s: str) -> str:
     return hashlib.sha1(s.encode("utf-8")).hexdigest()
+
 
 def fetch_pdf(url: str) -> bytes:
     # Validate URL scheme for security
     if not url.startswith(("http://", "https://")):
         raise ValueError(f"Invalid URL scheme. Only http:// and https:// are allowed: {url}")
-    
+
     req = Request(url, headers={"User-Agent": "BarberCamPreviewIndexer/1.0"})
     with urlopen(req, timeout=PDF_DOWNLOAD_TIMEOUT) as r:
         # Check content length to prevent downloading files that are too large
@@ -51,10 +54,10 @@ def fetch_pdf(url: str) -> bytes:
             except ValueError:
                 # If content length is invalid, proceed but enforce size limit during read
                 size = None
-            
+
             if size is not None and size > MAX_PDF_SIZE:
                 raise ValueError(f"PDF file too large: {size} bytes (max: {MAX_PDF_SIZE})")
-        
+
         # Read data in chunks with size limit
         chunks = []
         total_size = 0
@@ -66,8 +69,9 @@ def fetch_pdf(url: str) -> bytes:
             total_size += len(chunk)
             if total_size > MAX_PDF_SIZE:
                 raise ValueError(f"PDF file exceeds maximum size of {MAX_PDF_SIZE} bytes")
-        
+
         return b"".join(chunks)
+
 
 def extract_text_from_pdf(pdf_bytes: bytes) -> tuple[str, int]:
     reader = PdfReader(io.BytesIO(pdf_bytes))
@@ -81,9 +85,11 @@ def extract_text_from_pdf(pdf_bytes: bytes) -> tuple[str, int]:
             parts.append(t)
     return ("\n".join(parts), pages_with_text)
 
+
 def snippet(text: str, max_len: int = MAX_SNIPPET_LENGTH) -> str:
     t = clean_text(text)
     return t[:max_len] + ("…" if len(t) > max_len else "")
+
 
 if __name__ == "__main__":
     if not MANIFEST.exists():
@@ -102,44 +108,50 @@ if __name__ == "__main__":
         try:
             pdf = fetch_pdf(url)
         except Exception as e:
-            index.append({
-                "caseId": case_id,
-                "title": title,
-                "url": url,
-                "tags": tags,
-                "ok": False,
-                "error": f"download_failed: {e}",
-            })
+            index.append(
+                {
+                    "caseId": case_id,
+                    "title": title,
+                    "url": url,
+                    "tags": tags,
+                    "ok": False,
+                    "error": f"download_failed: {e}",
+                }
+            )
             continue
 
         # Extract text layer
         try:
             text, pages_with_text = extract_text_from_pdf(pdf)
         except Exception as e:
-            index.append({
-                "caseId": case_id,
-                "title": title,
-                "url": url,
-                "tags": tags,
-                "ok": False,
-                "error": f"parse_failed: {e}",
-            })
+            index.append(
+                {
+                    "caseId": case_id,
+                    "title": title,
+                    "url": url,
+                    "tags": tags,
+                    "ok": False,
+                    "error": f"parse_failed: {e}",
+                }
+            )
             continue
 
         # If no text layer, mark OCR needed (we’ll add OCR pipeline next)
         ocr_needed = pages_with_text == 0
 
-        index.append({
-            "caseId": case_id,
-            "title": title,
-            "url": url,
-            "tags": tags,
-            "ok": True,
-            "ocrNeeded": ocr_needed,
-            "textHash": sha1(text) if text else None,
-            "snippet": snippet(text) if text else "",
-            # Full text is intentionally omitted from the index to keep JSON size manageable.
-        })
+        index.append(
+            {
+                "caseId": case_id,
+                "title": title,
+                "url": url,
+                "tags": tags,
+                "ok": True,
+                "ocrNeeded": ocr_needed,
+                "textHash": sha1(text) if text else None,
+                "snippet": snippet(text) if text else "",
+                # Full text is intentionally omitted from the index to keep JSON size manageable.
+            }
+        )
 
     INDEX_OUT.write_text(json.dumps(index, ensure_ascii=False), encoding="utf-8")
     print(f"Wrote {INDEX_OUT} ({len(index)} records)")
