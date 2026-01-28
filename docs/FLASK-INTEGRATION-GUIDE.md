@@ -194,7 +194,7 @@ python init_auth.py
 
 This creates:
 
-- Admin account: dTb33@pm.me / LoveAll33!
+- Admin account: admin@barberx.info / (set via ADMIN_PASSWORD env var)
 - 3 test users (free, pro, premium tiers)
 
 ---
@@ -268,7 +268,7 @@ http://localhost:5000/dashboard
 
 ### 3. Test Admin Account
 
-1. Login as admin (dTb33@pm.me / LoveAll33!)
+1. Login as admin (admin@barberx.info / (set via ADMIN_PASSWORD env var))
 2. Verify admin tier shows in dashboard
 3. Check unlimited usage limits
 4. Test backend tools access

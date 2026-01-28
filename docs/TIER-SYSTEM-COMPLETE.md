@@ -10,8 +10,8 @@ Successfully created a professional tier-based authentication and authorization 
 
 **Your Credentials:**
 
-- **Email:** `dTb33@pm.me`
-- **Password:** `LoveAll33!`
+- **Email:** Set via `ADMIN_EMAIL` environment variable
+- **Password:** Set via `ADMIN_PASSWORD` environment variable
 - **Tier:** Admin ($9999/mo symbolic price)
 - **Access:** Full backend access + unlimited everything
 
@@ -108,7 +108,7 @@ Successfully created a professional tier-based authentication and authorization 
 
 3. **`instance/barberx_auth.db`**
    - SQLite database with:
-     - Your admin account (dTb33@pm.me)
+     - Your admin account (set via environment variables)
      - 3 sample test users
      - Usage tracking tables
      - API keys table
@@ -241,8 +241,8 @@ def process_bwc():
 ### 4. Login to Your Admin Account
 
 1. Navigate to: `http://localhost:5000/auth/login`
-2. Email: `dTb33@pm.me`
-3. Password: `LoveAll33!`
+2. Email: `admin@barberx.info`
+3. Password: `(set via ADMIN_PASSWORD env var)`
 4. Click "Login"
 5. You now have full admin access!
 
@@ -278,7 +278,7 @@ For testing different tier experiences:
 | free@example.com    | test123    | Free         |
 | pro@example.com     | test123    | Professional |
 | premium@example.com | test123    | Premium      |
-| dTb33@pm.me         | LoveAll33! | **Admin**    |
+| admin@barberx.info  | (env var)  | **Admin**    |
 
 ---
 
@@ -339,7 +339,7 @@ python init_auth.py
 python
 >>> from init_auth import app, User
 >>> with app.app_context():
-...     admin = User.query.filter_by(email='dTb33@pm.me').first()
+...     admin = User.query.filter_by(email='admin@barberx.info').first()
 ...     print(admin.tier_name)
 ...     print(admin.get_tier_limits())
 
@@ -359,6 +359,6 @@ Your admin account is active with unlimited access to all features and backend t
 ---
 
 **Created:** 2026-01-23  
-**Admin:** dTb33@pm.me  
+**Admin:** admin@barberx.info  
 **Tier System:** 4 tiers + Admin  
 **Security:** Production-ready

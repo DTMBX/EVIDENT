@@ -43,7 +43,7 @@
 ### Achievements:
 
 - ✅ 4 paid tiers + Admin tier
-- ✅ Admin account: dTb33@pm.me / LoveAll33!
+- ✅ Admin account: Set via ADMIN_EMAIL/ADMIN_PASSWORD environment variables
 - ✅ Usage tracking with monthly reset
 - ✅ Authorization decorators (@admin_required, @tier_required)
 - ✅ API key management
@@ -333,8 +333,8 @@ button.classList.remove("is-loading");
 ### Admin Login:
 
 ```
-Email: dTb33@pm.me
-Password: LoveAll33!
+Email: admin@barberx.info
+Password: (set via ADMIN_PASSWORD env var)
 ```
 
 ---
@@ -383,7 +383,7 @@ Password: LoveAll33!
 ## 📞 Support & Contact
 
 **Email:** BarberCamX@ProtonMail.com  
-**Admin Access:** dTb33@pm.me / LoveAll33!  
+**Admin Access:** admin@barberx.info / (set via ADMIN_PASSWORD env var)  
 **Documentation:** `/docs/`  
 **GitHub:** Repository link
 

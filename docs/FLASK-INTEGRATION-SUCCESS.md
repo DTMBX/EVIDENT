@@ -20,8 +20,8 @@ Successfully integrated enhanced authentication system with Flask! Server is run
 ### Admin Account:
 
 ```
-Email: dTb33@pm.me
-Password: LoveAll33!
+Email: admin@barberx.info
+Password: (set via ADMIN_PASSWORD env var)
 Tier: Admin ($9999/mo)
 Access: Full backend + admin dashboard
 ```
@@ -146,7 +146,7 @@ Premium:
 ```
 ID | Email              | Tier          | Created
 ---|--------------------|---------------|--------------------
-1  | dTb33@pm.me       | Admin         | 2026-01-23 03:58
+1  | admin@barberx.info       | Admin         | 2026-01-23 03:58
 2  | free@example.com  | Free          | 2026-01-23 03:58
 3  | pro@example.com   | Professional  | 2026-01-23 03:58
 4  | premium@example.com| Premium      | 2026-01-23 03:58

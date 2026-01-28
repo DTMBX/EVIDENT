@@ -84,12 +84,11 @@ bwc_analysis/
 # Lighthouse reports
 lighthouse-*.html
 
-# Environment files
-.env.render
-.env.local
+# Environment files - NEVER COMMIT THESE!
 .env
-.env.example
-.env.*.template
+.env.*
+!.env.template
+!.env.example.template
 
 # Archive and temporary documentation
 archive/

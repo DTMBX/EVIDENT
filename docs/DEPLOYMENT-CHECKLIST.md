@@ -99,8 +99,8 @@
   ```
 
 - [ ] **Admin account created**
-  - Email: dTb33@pm.me
-  - Password: LoveAll33!
+  - Email: Set via ADMIN_EMAIL environment variable
+  - Password: Set via ADMIN_PASSWORD environment variable
   - Tier: ADMIN
 
 - [ ] **Test data removed** (if any)
@@ -504,7 +504,7 @@
   - Key works in API call
 
 - [ ] **Admin features**
-  - Login as admin (dTb33@pm.me)
+  - Login as admin (admin@barberx.info)
   - Navigate to /admin
   - View all users
   - View usage statistics
