@@ -225,6 +225,12 @@ else:
 app.config["ANALYSIS_FOLDER"] = Path("./bwc_analysis")
 app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(days=7)
 
+# Stripe Configuration (from environment)
+app.config["STRIPE_PRICING_TABLE_ID"] = os.getenv("STRIPE_PRICING_TABLE_ID")
+app.config["STRIPE_PUBLISHABLE_KEY"] = os.getenv("STRIPE_PUBLISHABLE_KEY")
+app.config["STRIPE_SECRET_KEY"] = os.getenv("STRIPE_SECRET_KEY")
+app.config["STRIPE_WEBHOOK_SECRET"] = os.getenv("STRIPE_WEBHOOK_SECRET")
+
 # CORS configuration for production (includes mobile/desktop clients)
 cors_origins = os.getenv(
     "CORS_ORIGINS",

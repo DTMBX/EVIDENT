@@ -97,10 +97,11 @@ def update_env_file():
 
     stripe_vars = """
 # Stripe Pricing Table Configuration
-STRIPE_PRICING_TABLE_ID=prctbl_1Su2jmHGgvJKMFG1wn1Lum5i
-STRIPE_PUBLISHABLE_KEY=pk_live_51RjUMaHGgvJKMFG1baiSBss1LH5qGHAhx02GvqfAWxVszseRfxklan3x6O4Sz1FJtv8hIFz18lbZ0dqCIdwFfJuz005aZZ9LBh
-# STRIPE_SECRET_KEY=sk_live_... (Add your secret key here - DO NOT COMMIT)
-# STRIPE_WEBHOOK_SECRET=whsec_... (Add your webhook secret here)
+# Get these values from your Stripe Dashboard: https://dashboard.stripe.com
+STRIPE_PRICING_TABLE_ID=prctbl_YOUR_PRICING_TABLE_ID_HERE
+STRIPE_PUBLISHABLE_KEY=pk_test_YOUR_PUBLISHABLE_KEY_HERE
+STRIPE_SECRET_KEY=sk_test_YOUR_SECRET_KEY_HERE
+STRIPE_WEBHOOK_SECRET=whsec_YOUR_WEBHOOK_SECRET_HERE
 """
 
     if not os.path.exists(env_path):

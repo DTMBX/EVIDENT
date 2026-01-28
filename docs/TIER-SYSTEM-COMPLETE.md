@@ -197,10 +197,11 @@ python init_auth.py  # Shows your account details
 from flask import Flask
 from models_auth import db, bcrypt
 from auth_routes import init_auth
+import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your-secret-key'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///instance/barberx_auth.db'
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')  # Set via environment variable
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///instance/barberx_auth.db')
 
 # Initialize extensions
 db.init_app(app)
