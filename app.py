@@ -228,10 +228,37 @@ else:
     app.config["MAX_CONTENT_LENGTH"] = int(
         os.getenv("MAX_CONTENT_LENGTH", 20 * 1024 * 1024 * 1024)
     )  # 20GB max to support Enterprise tier
+
+    # [SECURITY FIX] Cookie security flags to prevent session hijacking and CSRF
+    # See: https://owasp.org/www-community/controls/SecureCookieAttribute
+    is_production = os.getenv("FLASK_ENV") == "production" or os.getenv("FORCE_HTTPS") == "true"
+    app.config["SESSION_COOKIE_SECURE"] = is_production  # Only send over HTTPS in production
+    app.config["SESSION_COOKIE_HTTPONLY"] = True  # Prevent JavaScript access (already set)
+    app.config["SESSION_COOKIE_SAMESITE"] = "Lax"  # Prevent CSRF attacks while allowing normal nav
     app.config["UPLOAD_FOLDER"] = Path("./uploads/bwc_videos")
 
 app.config["ANALYSIS_FOLDER"] = Path("./bwc_analysis")
 app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(days=7)
+
+# Initialize AI Pipeline Orchestrator with configuration
+try:
+    from src.ai.pipeline import get_orchestrator
+    
+    pipeline_config = {
+        "storage_root": "./uploads/pdfs/originals",
+        "manifest_root": "./manifest",
+        "db_path": "instance/barberx_legal.db",
+        "ocr_threshold": 50,
+        "enable_citation_tracking": True,
+        "max_passage_length": 1500,
+        "retrieval_top_k": 10
+    }
+    
+    # Initialize the singleton orchestrator
+    orchestrator = get_orchestrator(pipeline_config)
+    print("[OK] AI Pipeline orchestrator initialized with citation tracking")
+except ImportError as e:
+    print(f"[WARN] AI Pipeline not available: {e}")
 
 # Stripe Configuration (from environment)
 app.config["STRIPE_PRICING_TABLE_ID"] = os.getenv("STRIPE_PRICING_TABLE_ID")
@@ -311,7 +338,7 @@ csrf.init_app(app)
 # Exempt Stripe webhook from CSRF (it uses signature verification instead)
 csrf.exempt("stripe_payments.webhook")
 
-# Exempt REST API endpoints from CSRF (they use JWT authentication)
+# Exempt REST API endpoints from CSRF (they use JWT/session authentication)
 csrf.exempt("auth_api")
 csrf.exempt("upload_api")
 csrf.exempt("analysis_api")
@@ -444,6 +471,17 @@ try:
     print("[OK] Legal Library registered at /api/legal-library/*")
 except ImportError as e:
     print(f"[WARN] Legal Library not available: {e}")
+
+# Register Enhanced Chat Assistant blueprint
+try:
+    from api.enhanced_chat import chat_bp
+
+    app.register_blueprint(chat_bp)
+    # Exempt after registration
+    csrf.exempt(chat_bp)
+    print("[OK] Enhanced Chat registered at /api/chat/*")
+except ImportError as e:
+    print(f"[WARN] Enhanced Chat not available: {e}")
 
 # Register REST API blueprints for cross-platform clients
 try:
@@ -677,6 +715,77 @@ class AppSettings(db.Model):
 
         db.session.commit()
         return setting
+
+
+def get_site_settings():
+    """Return site-wide UI controls with defaults."""
+    defaults = {
+        "ui.theme": "system",
+        "ui.brand_color": "#c41e3a",
+        "ui.accent_color": "#1e40af",
+        "site.maintenance_mode": False,
+        "site.maintenance_message": "We are performing maintenance. Please check back shortly.",
+        "site.banner_enabled": False,
+        "site.banner_message": "",
+        "site.allow_signup": True,
+        "site.footer_notice": "",
+        "site.chat_enabled": True,
+    }
+
+    settings = {}
+    for key, default in defaults.items():
+        settings[key] = AppSettings.get(key, default)
+    return settings
+
+
+@app.context_processor
+def inject_site_settings():
+    """Expose site settings to all Jinja templates."""
+    return {"site_settings": get_site_settings()}
+
+
+# Template Filters
+@app.template_filter("format_number")
+def format_number_filter(value):
+    """Format numbers with thousands separator"""
+    try:
+        return f"{int(value):,}"
+    except (ValueError, TypeError):
+        return value
+
+
+@app.before_request
+def enforce_site_controls():
+    """Enforce maintenance mode and feature flags across the site."""
+    settings = get_site_settings()
+    path = request.path or ""
+
+    allow_paths = (
+        "/static",
+        "/assets",
+        "/favicon.ico",
+        "/auth/login",
+        "/auth/logout",
+        "/admin",
+    )
+
+    if settings.get("site.maintenance_mode"):
+        is_admin = current_user.is_authenticated and getattr(current_user, "role", "") == "admin"
+        if not path.startswith(allow_paths) and not is_admin:
+            return render_template("maintenance.html"), 503
+
+    if not settings.get("site.allow_signup") and (
+        path.startswith("/auth/signup") or path.startswith("/register") or path.startswith("/signup")
+    ):
+        flash("Signups are temporarily disabled.", "warning")
+        return redirect("/auth/login")
+
+    if not settings.get("site.chat_enabled"):
+        if path.startswith("/chat"):
+            flash("Chat is temporarily disabled.", "warning")
+            return redirect(url_for("dashboard"))
+        if path.startswith("/api/chat"):
+            return jsonify({"error": "Chat is temporarily disabled."}), 503
 
 
 class PDFUpload(db.Model):
@@ -920,6 +1029,13 @@ def preview_demo():
     return render_template("preview-demo.html")
 
 
+@app.route("/chat")
+@login_required
+def chat_interface():
+    """Enhanced chat interface with memory and citations"""
+    return render_template("chat/interface.html", user=current_user)
+
+
 # ========================================
 # BACKEND OPTIMIZATION API ENDPOINTS
 # ========================================
@@ -1006,7 +1122,7 @@ def api_rate_limit_status():
 @login_required
 def bwc_dashboard():
     """BWC Analysis Dashboard - Frontend Interface"""
-    return send_file("bwc-dashboard.html")
+    return render_template("bwc-dashboard.html", user=current_user)
 
 
 @app.route("/test-separation")
@@ -1114,36 +1230,8 @@ def register():
         )
 
 
-@app.route("/login", methods=["GET", "POST"])
-def login():
-    """User login - redirect to enhanced auth"""
-    if ENHANCED_AUTH_AVAILABLE:
-        return redirect(url_for("auth.login"))
-
-    # Fallback to old login logic
-    if request.method == "GET":
-        return send_file("templates/login.html")
-
-    data = request.get_json()
-
-    user = User.query.filter_by(email=data.get("email")).first()
-
-    if not user or not user.check_password(data.get("password")):
-        return jsonify({"error": "Invalid email or password"}), 401
-
-    if not user.is_active:
-        return jsonify({"error": "Account is disabled"}), 403
-
-    login_user(user, remember=data.get("remember", False))
-
-    # Update last login
-    user.last_login = datetime.utcnow()
-    db.session.commit()
-
-    # Log audit
-    AuditLog.log("user_login", "user", str(user.id))
-
-    return jsonify({"message": "Login successful", "user": user.to_dict()})
+# [SECURITY FIX] Old /login route removed - enhanced /auth/login has proper redirect protection
+# Enhanced auth route at /auth/login includes is_safe_url() validation to prevent open redirects
 
 
 @app.route("/logout")
@@ -1157,11 +1245,9 @@ def logout():
 
 @app.route("/batch-pdf-upload.html")
 @login_required
-@require_tier(TierLevel.STARTER)
-@check_usage_limit("pdf_documents_per_month", increment=1)
 def batch_pdf_upload():
     """Batch PDF upload page"""
-    return render_template("batch-pdf-upload.html")
+    return render_template("batch-pdf-upload.html", user=current_user)
 
 
 @app.route("/welcome")
@@ -1194,31 +1280,40 @@ def skip_onboarding():
 @login_required
 def dashboard():
     """Enhanced user dashboard with usage tracking and tier-specific features"""
-    if ENHANCED_AUTH_AVAILABLE:
-        try:
-            from models_auth import UsageTracking
+    try:
+        from models_auth import UsageTracking
 
-            usage = UsageTracking.get_or_create_current(current_user.id)
-            limits = current_user.get_tier_limits()
+        usage = UsageTracking.get_or_create_current(current_user.id)
+        limits = current_user.get_tier_limits()
 
-            # Add Jinja2 custom filter for number formatting
-            @app.template_filter("format_number")
-            def format_number(value):
-                """Format numbers with thousands separator"""
-                try:
-                    return f"{int(value):,}"
-                except (ValueError, TypeError):
-                    return value
+        return render_template(
+            "auth/dashboard.html", user=current_user, usage=usage, limits=limits
+        )
+    except Exception as e:
+        app.logger.error(f"Dashboard error: {e}", exc_info=True)
+        # Create minimal usage/limits on error
+        usage = type('obj', (object,), {
+            'bwc_videos_processed': 0,
+            'document_pages_processed': 0,
+            'transcription_minutes_used': 0,
+            'storage_used_mb': 0
+        })()
+        limits = {
+            'bwc_videos_per_month': 1,
+            'document_pages_per_month': 5,
+            'transcription_minutes_per_month': 10,
+            'storage_gb': 1
+        }
+        return render_template(
+            "auth/dashboard.html", user=current_user, usage=usage, limits=limits
+        )
 
-            return render_template(
-                "auth/dashboard.html", user=current_user, usage=usage, limits=limits
-            )
-        except Exception as e:
-            app.logger.error(f"Dashboard error: {e}")
-            # Fallback to basic dashboard
-            return send_file("templates/dashboard.html")
-    else:
-        return send_file("templates/dashboard.html")
+
+@app.route("/account-settings")
+@login_required
+def account_settings_alias():
+    """Alias for account settings page"""
+    return redirect(url_for("account_settings"))
 
 
 @app.route("/admin")
@@ -1869,14 +1964,14 @@ def ai_suggest():
 @login_required
 def agents_page():
     """AI agents deployment and management page"""
-    return send_file("templates/agents.html")
+    return render_template("agents.html", user=current_user)
 
 
 @app.route("/command-center")
 @login_required
 def command_center():
     """AI Command Center - Main hub for evidence analysis and workflow"""
-    return send_file("templates/command-center.html")
+    return render_template("command-center.html", user=current_user)
 
 
 # ========================================
@@ -1898,7 +1993,7 @@ except ImportError:
 @login_required
 def legal_analysis_dashboard():
     """Legal analysis dashboard with violation scanner and compliance checker"""
-    return render_template("legal-analysis.html")
+    return render_template("legal-analysis.html", user=current_user)
 
 
 @app.route("/api/legal/scan-violations", methods=["POST"])
@@ -2382,7 +2477,7 @@ def service_worker():
 @login_required
 def integrated_analysis_page():
     """Unified evidence analysis with chat and document generation"""
-    return send_file("templates/integrated-analysis.html")
+    return render_template("integrated-analysis.html", user=current_user)
 
 
 @app.route("/api/agents/deploy", methods=["POST"])
@@ -2680,46 +2775,53 @@ def workflow_scan_document():
         )
 
 
+@app.route("/tools")
+@login_required
+def tools_index():
+    """Tools hub"""
+    return render_template("tools/index.html")
+
+
 @app.route("/tools/transcript")
 @login_required
 def transcript_search():
     """Transcript search tool"""
-    return send_file("templates/tools/transcript.html")
+    return render_template("tools/transcript.html")
 
 
 @app.route("/tools/entity-extract")
 @login_required
 def entity_extract():
     """Entity extraction tool"""
-    return send_file("templates/tools/entity-extract.html")
+    return render_template("tools/entity-extract.html")
 
 
 @app.route("/tools/timeline")
 @login_required
 def timeline_builder():
     """Timeline builder tool"""
-    return send_file("templates/tools/timeline.html")
+    return render_template("tools/timeline.html")
 
 
 @app.route("/tools/discrepancy")
 @login_required
 def discrepancy_finder():
     """Discrepancy finder tool"""
-    return send_file("templates/tools/discrepancy.html")
+    return render_template("tools/discrepancy.html")
 
 
 @app.route("/tools/batch")
 @login_required
 def batch_processor():
     """Batch processor tool"""
-    return send_file("templates/tools/batch.html")
+    return render_template("tools/batch.html")
 
 
 @app.route("/tools/api")
 @login_required
 def api_console():
     """API console tool"""
-    return send_file("templates/tools/api-console.html")
+    return render_template("tools/api-console.html")
 
 
 @app.route("/batch-upload")
@@ -4146,8 +4248,9 @@ def dashboard_stats():
             "analyzing_count": analyzing_count,
             "failed_count": failed_count,
             "daily_activity": daily_counts,
-            "subscription_tier": current_user.subscription_tier,
-            "role": current_user.role,
+            "subscription_tier": current_user.tier.name.lower(),
+            "tier_name": current_user.tier_name,
+            "is_admin": current_user.is_admin,
         }
     )
 
@@ -4495,6 +4598,7 @@ def admin_stats():
 
     free_users = tier_counts.get("FREE", 0)
     pro_users = tier_counts.get("PROFESSIONAL", 0)
+    premium_users = tier_counts.get("PREMIUM", 0)
     enterprise_users = tier_counts.get("ENTERPRISE", 0)
 
     # Storage stats
@@ -4523,11 +4627,16 @@ def admin_stats():
         if 0 <= days_diff < 7:
             daily_counts[6 - days_diff] = activity.count
 
+    # Estimated revenue (based on tier pricing)
+    tier_pricing = {"FREE": 0, "PROFESSIONAL": 49, "PREMIUM": 99, "ENTERPRISE": 249}
+    estimated_revenue = sum(tier_pricing.get(tier, 0) * count for tier, count in tier_counts.items())
+
     return jsonify(
         {
             "total_users": total_users,
             "active_users": active_users,
             "total_analyses": total_analyses,
+            "total_evidence": total_analyses,  # Alias for evidence count
             "completed_analyses": completed_analyses,
             "analyzing_count": analyzing,
             "failed_count": failed,
@@ -4537,12 +4646,303 @@ def admin_stats():
             "subscription_breakdown": {
                 "free": free_users,
                 "professional": pro_users,
+                "premium": premium_users,
                 "enterprise": enterprise_users,
             },
+            "tier_distribution": {
+                "FREE": free_users,
+                "PROFESSIONAL": pro_users,
+                "PREMIUM": premium_users,
+                "ENTERPRISE": enterprise_users,
+            },
+            "revenue": estimated_revenue,
             "total_storage_gb": round(total_storage / 1024, 2),
             "daily_activity": daily_counts,
+            "total_agents": 0,  # Placeholder for agent stats
+            "active_agents": 0,
+            "completed_jobs_today": completed_analyses,
         }
     )
+
+
+@app.route("/admin/operations-summary", methods=["GET"])
+@login_required
+def admin_operations_summary():
+    """Admin: Operational costs, risk flags, and feature toggles"""
+    if current_user.role != "admin":
+        return jsonify({"error": "Admin access required"}), 403
+
+    import psutil
+    from datetime import timedelta
+    from sqlalchemy import func
+
+    def ensure_setting(key, default, value_type="string", category="operations", description=""):
+        setting = AppSettings.query.filter_by(key=key).first()
+        if not setting:
+            setting = AppSettings(
+                key=key,
+                value=str(default),
+                value_type=value_type,
+                category=category,
+                description=description,
+                updated_by=current_user.id,
+            )
+            db.session.add(setting)
+            db.session.commit()
+        return AppSettings.get(key, default)
+
+    # Cost settings
+    cost_per_gb = ensure_setting(
+        "ops.cost_per_gb",
+        0.023,
+        "float",
+        description="Estimated monthly storage cost per GB",
+    )
+    cost_per_analysis = ensure_setting(
+        "ops.cost_per_analysis",
+        0.05,
+        "float",
+        description="Estimated processing cost per analysis",
+    )
+    cost_per_active_user = ensure_setting(
+        "ops.cost_per_active_user",
+        0.10,
+        "float",
+        description="Estimated monthly cost per active user",
+    )
+    monthly_budget = ensure_setting(
+        "ops.monthly_budget",
+        250,
+        "float",
+        description="Monthly operations budget",
+    )
+
+    # Thresholds
+    disk_warn = ensure_setting("ops.disk_warn_pct", 85, "int")
+    disk_crit = ensure_setting("ops.disk_crit_pct", 95, "int")
+    memory_warn = ensure_setting("ops.memory_warn_pct", 85, "int")
+    memory_crit = ensure_setting("ops.memory_crit_pct", 95, "int")
+    cpu_warn = ensure_setting("ops.cpu_warn_pct", 85, "int")
+    cpu_crit = ensure_setting("ops.cpu_crit_pct", 95, "int")
+    failed_warn = ensure_setting("ops.failed_warn_count", 5, "int")
+    failed_crit = ensure_setting("ops.failed_crit_count", 20, "int")
+    backlog_warn = ensure_setting("ops.backlog_warn_count", 10, "int")
+    backlog_crit = ensure_setting("ops.backlog_crit_count", 30, "int")
+    storage_warn_gb = ensure_setting("ops.storage_warn_gb", 50, "int")
+    storage_crit_gb = ensure_setting("ops.storage_crit_gb", 200, "int")
+    budget_warn = ensure_setting("ops.budget_warn_pct", 80, "int")
+    budget_crit = ensure_setting("ops.budget_crit_pct", 100, "int")
+
+    # Usage data
+    thirty_days_ago = datetime.utcnow() - timedelta(days=30)
+    seven_days_ago = datetime.utcnow() - timedelta(days=7)
+
+    analyses_last_30 = Analysis.query.filter(Analysis.created_at >= thirty_days_ago).count()
+    failed_last_7 = Analysis.query.filter(
+        Analysis.created_at >= seven_days_ago, Analysis.status == "failed"
+    ).count()
+    analyzing_now = Analysis.query.filter(Analysis.status == "analyzing").count()
+
+    active_users = User.query.filter(User.last_login >= thirty_days_ago).count()
+
+    # Storage sizes
+    instance_path = app.instance_path
+    db_paths = [
+        os.path.join(instance_path, "barberx_FRESH.db"),
+        os.path.join(instance_path, "barberx_legal.db"),
+    ]
+
+    db_size_mb = sum(
+        os.path.getsize(path) / (1024 * 1024) for path in db_paths if os.path.exists(path)
+    )
+
+    upload_folder = app.config.get("UPLOAD_FOLDER", "")
+    upload_size_mb = 0
+    if upload_folder and os.path.exists(upload_folder):
+        for root, dirs, files in os.walk(upload_folder):
+            upload_size_mb += sum(os.path.getsize(os.path.join(root, f)) for f in files)
+        upload_size_mb = upload_size_mb / (1024 * 1024)
+
+    total_storage_gb = (db_size_mb + upload_size_mb) / 1024
+
+    # System metrics
+    cpu_percent = psutil.cpu_percent(interval=0.4)
+    memory = psutil.virtual_memory()
+    disk = psutil.disk_usage("/")
+
+    # Cost calculations
+    storage_cost = total_storage_gb * cost_per_gb
+    processing_cost = analyses_last_30 * cost_per_analysis
+    active_users_cost = active_users * cost_per_active_user
+    total_monthly = storage_cost + processing_cost + active_users_cost
+    budget_utilization = (total_monthly / monthly_budget * 100) if monthly_budget else 0
+
+    # Risk flags
+    risk_flags = []
+
+    def add_flag(level, label, message):
+        risk_flags.append({"level": level, "label": label, "message": message})
+
+    if disk.percent >= disk_crit:
+        add_flag("critical", "Disk Usage", f"Disk at {disk.percent:.1f}% (critical)")
+    elif disk.percent >= disk_warn:
+        add_flag("warning", "Disk Usage", f"Disk at {disk.percent:.1f}% (warning)")
+
+    if memory.percent >= memory_crit:
+        add_flag("critical", "Memory Usage", f"Memory at {memory.percent:.1f}% (critical)")
+    elif memory.percent >= memory_warn:
+        add_flag("warning", "Memory Usage", f"Memory at {memory.percent:.1f}% (warning)")
+
+    if cpu_percent >= cpu_crit:
+        add_flag("critical", "CPU Load", f"CPU at {cpu_percent:.1f}% (critical)")
+    elif cpu_percent >= cpu_warn:
+        add_flag("warning", "CPU Load", f"CPU at {cpu_percent:.1f}% (warning)")
+
+    if failed_last_7 >= failed_crit:
+        add_flag("critical", "Failed Analyses", f"{failed_last_7} failures in 7 days")
+    elif failed_last_7 >= failed_warn:
+        add_flag("warning", "Failed Analyses", f"{failed_last_7} failures in 7 days")
+
+    if analyzing_now >= backlog_crit:
+        add_flag("critical", "Processing Backlog", f"{analyzing_now} analyses in queue")
+    elif analyzing_now >= backlog_warn:
+        add_flag("warning", "Processing Backlog", f"{analyzing_now} analyses in queue")
+
+    if total_storage_gb >= storage_crit_gb:
+        add_flag("critical", "Storage Growth", f"{total_storage_gb:.1f} GB used")
+    elif total_storage_gb >= storage_warn_gb:
+        add_flag("warning", "Storage Growth", f"{total_storage_gb:.1f} GB used")
+
+    if budget_utilization >= budget_crit:
+        add_flag("critical", "Budget Risk", f"{budget_utilization:.1f}% of monthly budget used")
+    elif budget_utilization >= budget_warn:
+        add_flag("warning", "Budget Risk", f"{budget_utilization:.1f}% of monthly budget used")
+
+    # Feature toggles
+    toggle_defs = [
+        ("ops.toggle.ai_chat", True, "AI Chat Assistant"),
+        ("ops.toggle.video_processing", True, "Video Processing"),
+        ("ops.toggle.document_ocr", True, "Document OCR"),
+        ("ops.toggle.batch_uploads", True, "Batch Uploads"),
+        ("ops.toggle.email_notifications", True, "Email Notifications"),
+    ]
+    toggles = []
+    for key, default, label in toggle_defs:
+        value = ensure_setting(key, default, "bool", description=label)
+        toggles.append({"key": key, "label": label, "value": bool(value)})
+
+    return jsonify(
+        {
+            "costs": {
+                "total_monthly": round(total_monthly, 2),
+                "storage_monthly": round(storage_cost, 2),
+                "processing_monthly": round(processing_cost, 2),
+                "active_users_monthly": round(active_users_cost, 2),
+                "monthly_budget": round(monthly_budget, 2),
+                "budget_utilization_pct": round(budget_utilization, 2),
+            },
+            "usage": {
+                "storage_gb": round(total_storage_gb, 2),
+                "analyses_last_30_days": analyses_last_30,
+                "failed_last_7_days": failed_last_7,
+                "analyzing_now": analyzing_now,
+                "active_users": active_users,
+                "cpu_percent": round(cpu_percent, 2),
+                "memory_percent": round(memory.percent, 2),
+                "disk_percent": round(disk.percent, 2),
+            },
+            "risk_flags": risk_flags,
+            "toggles": toggles,
+        }
+    )
+
+
+@app.route("/admin/operations-toggles", methods=["POST"])
+@login_required
+def admin_operations_toggles():
+    """Admin: Update operational feature toggles"""
+    if current_user.role != "admin":
+        return jsonify({"error": "Admin access required"}), 403
+
+    data = request.get_json() or {}
+    key = data.get("key")
+    value = data.get("value")
+
+    if not key or not key.startswith("ops.toggle."):
+        return jsonify({"error": "Invalid toggle key"}), 400
+
+    AppSettings.set(
+        key,
+        bool(value),
+        value_type="bool",
+        category="operations",
+        description="Operations toggle",
+    )
+
+    AuditLog.log("operations_toggle", "AppSettings", key, {"value": bool(value)})
+
+    return jsonify({"message": "Toggle updated", "key": key, "value": bool(value)})
+
+
+@app.route("/admin/site-controls", methods=["GET", "POST"])
+@login_required
+def admin_site_controls():
+    """Admin: Manage site-wide UI and maintenance controls"""
+    if current_user.role != "admin":
+        return jsonify({"error": "Admin access required"}), 403
+
+    allowed_keys = {
+        "ui.theme": ("system", "string", "Site theme: system, light, dark"),
+        "ui.brand_color": ("#c41e3a", "string", "Primary brand color"),
+        "ui.accent_color": ("#1e40af", "string", "Accent color"),
+        "site.maintenance_mode": (False, "bool", "Enable maintenance mode"),
+        "site.maintenance_message": (
+            "We are performing maintenance. Please check back shortly.",
+            "string",
+            "Maintenance banner message",
+        ),
+        "site.banner_enabled": (False, "bool", "Enable announcement banner"),
+        "site.banner_message": ("", "string", "Announcement banner message"),
+        "site.allow_signup": (True, "bool", "Allow new user signups"),
+        "site.footer_notice": ("", "string", "Footer notice text"),
+        "site.chat_enabled": (True, "bool", "Enable chat interface"),
+    }
+
+    def ensure_setting(key, default, value_type, description):
+        setting = AppSettings.query.filter_by(key=key).first()
+        if not setting:
+            setting = AppSettings(
+                key=key,
+                value=str(default),
+                value_type=value_type,
+                category="ui",
+                description=description,
+                updated_by=current_user.id,
+            )
+            db.session.add(setting)
+            db.session.commit()
+        return AppSettings.get(key, default)
+
+    if request.method == "GET":
+        values = {
+            key: ensure_setting(key, default, value_type, description)
+            for key, (default, value_type, description) in allowed_keys.items()
+        }
+        return jsonify({"settings": values})
+
+    data = request.get_json() or {}
+    updated = {}
+    for key, value in data.items():
+        if key not in allowed_keys:
+            continue
+        default, value_type, description = allowed_keys[key]
+        AppSettings.set(key, value, value_type=value_type, category="ui", description=description)
+        updated[key] = value
+
+    if updated:
+        AuditLog.log("site_controls_update", "AppSettings", "site_controls", updated)
+
+    return jsonify({"message": "Settings updated", "updated": updated})
 
 
 @app.route("/admin/audit-logs", methods=["GET"])

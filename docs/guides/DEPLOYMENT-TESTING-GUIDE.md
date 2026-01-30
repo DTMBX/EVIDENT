@@ -303,7 +303,7 @@ After deployment:
 **If deployment fails:**
 1. Check Render logs (dashboard ? Events)
 2. Copy last 30 lines of error
-3. Send to: BarberCamX@ProtonMail.com
+3. Send to: security@barberx.info
 4. Or open GitHub issue
 
 **If testing finds bugs:**

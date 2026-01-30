@@ -7,5 +7,5 @@ labels: security
 
 ⚠️ Please DO NOT post vulnerabilities here.
 
-Report privately to: BarberCamX@ProtonMail.com
+Report privately to: security@barberx.info
 Include steps to reproduce and affected components.

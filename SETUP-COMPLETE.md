@@ -231,15 +231,15 @@ Before deploying to production:
 ## ?? SUPPORT:
 
 - **GitHub Issues:** https://github.com/DTB396/BarberX.info/issues
-- **Email:** BarberCamX@ProtonMail.com
+- **Email:** support@barberx.info
 - **Documentation:** Check the docs/ folder
 
 ---
 
 ## ?? LICENSE:
 
-BarberX Legal Technologies® Proprietary License
-Copyright © 2024-2026 Faith Frontier Ecclesiastical Trust
+BarberX Legal Technologiesï¿½ Proprietary License
+Copyright ï¿½ 2024-2026 Faith Frontier Ecclesiastical Trust
 All Rights Reserved
 
 ---

@@ -214,7 +214,7 @@ description: "Complete documentation for BarberX — guides, tutorials, and API 
     </p>
     <ul style="color: #374151;">
       <li>Check the <a href="/faq/" style="color: #c41e3a; font-weight: 600;">FAQ page</a></li>
-      <li>Email us at <a href="mailto:BarberCamX@ProtonMail.com" style="color: #c41e3a; font-weight: 600;">BarberCamX@ProtonMail.com</a></li>
+      <li>Email us at <a href="mailto:support@barberx.info" style="color: #c41e3a; font-weight: 600;">support@barberx.info</a></li>
       <li>File an issue on <a href="https://github.com/yourusername/BarberX.info/issues" style="color: #c41e3a; font-weight: 600;">GitHub</a></li>
     </ul>
   </div>

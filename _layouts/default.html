@@ -1,10 +1,12 @@
 <!doctype html>
-<html lang="{{ page.lang | default: site.lang | default: 'en' }}"{% if page.dir %} dir="{{ page.dir }}"{% endif %}>
+<!-- htmlhint-disable -->
+<html lang="en"{% if page.dir %} dir="{{ page.dir }}"{% endif %}>
   <head>
     {%- comment -%} Meta tags and SEO - Load First {%- endcomment -%}
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#c41e3a" />
+    <title>{{ page.title | default: site.title | default: 'BarberX Legal Technologies' }}</title>
     
     {%- comment -%} SEO & Social Meta Tags {%- endcomment -%}
     {% include components/seo-meta.html %}
@@ -131,7 +133,7 @@
     {% endunless %}
 
     {%- comment -%} Main content area with layout-specific classes {%- endcomment -%}
-    <main id="main" tabindex="-1"{% if page.main_class %} class="{{ page.main_class }}"{% elsif page.layout == 'case' or page.layout == 'case-enhanced' %} class="case-main"{% elsif page.layout == 'page' %} class="page-main"{% elsif page.layout == 'essay' %} class="essay-main"{% endif %}{% if page.main_role %} role="{{ page.main_role }}"{% endif %}>
+    <main id="main" tabindex="-1"{% if page.main_class %} class="{{ page.main_class }}"{% elsif page.layout == 'case' or page.layout == 'case-enhanced' %} class="case-main"{% elsif page.layout == 'page' %} class="page-main"{% elsif page.layout == 'essay' %} class="essay-main"{% endif %}>
       {{ content }}
     </main>
 

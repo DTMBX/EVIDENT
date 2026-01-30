@@ -38,6 +38,17 @@ def init_auth(app):
     login_manager.login_message_category = "info"
     app.register_blueprint(auth_bp)
 
+    @login_manager.unauthorized_handler
+    def unauthorized_callback():
+        """Handle unauthorized access - return JSON for API routes, redirect for pages"""
+        if request.path.startswith('/api/'):
+            return jsonify({
+                'error': 'Authentication required',
+                'message': 'Please log in to access this resource',
+                'login_url': '/auth/login'
+            }), 401
+        return redirect(url_for('auth.login'))
+
 
 @login_manager.user_loader
 def load_user(user_id):

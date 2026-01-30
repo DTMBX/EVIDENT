@@ -428,7 +428,7 @@ Sections regarding IP, liability, indemnification, and dispute resolution surviv
 **Faith Frontier Ecclesiastical Trust**  
 Doing Business As: BarberX Legal Technologies
 
-**Email:** BarberCamX@ProtonMail.com  
+**Email:** legal@barberx.info  
 **Support:** support@barberx.info  
 **Legal:** legal@barberx.info
 

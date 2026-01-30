@@ -511,7 +511,7 @@ Check for:
 **Legal/Compliance:**
 
 - legal@barberx.info
-- BarberCamX@ProtonMail.com
+- support@barberx.info
 
 ---
 

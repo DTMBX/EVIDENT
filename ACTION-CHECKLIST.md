@@ -439,7 +439,7 @@ support@barberx.info (24-hour support)
 
 **Legal Questions:**  
 legal@barberx.info  
-BarberCamX@ProtonMail.com
+support@barberx.info
 
 ---
 

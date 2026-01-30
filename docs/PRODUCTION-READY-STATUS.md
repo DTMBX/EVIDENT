@@ -586,4 +586,4 @@ The BarberX platform has been successfully optimized for production with enterpr
 **Status:** ✅ Production Ready  
 **Next Action:** Generate PWA icons → Git commit → Deploy
 
-**Questions? Email:** BarberCamX@ProtonMail.com
+**Questions? Email:** support@barberx.info

@@ -381,14 +381,14 @@
       <!-- Upload Section -->
       <div class="upload-section" id="uploadSection">
         <div class="upload-icon">📹</div>
-        <h2 style="margin-bottom: 0.5rem">Drop BWC Video Here</h2>
+        <h2 style="margin-bottom: 0.5rem">Drop BWC Video(s) Here</h2>
         <p style="color: var(--text-secondary); margin-bottom: 1.5rem">
-          or click to browse files
+          or click to browse files (multiple videos supported)
         </p>
         <p style="font-size: 0.875rem; color: var(--text-secondary)">
-          Supported formats: MP4, AVI, MOV, MKV, WMV, FLV, WebM • Max 5GB
+          Supported formats: MP4, AVI, MOV, MKV, WMV, FLV, WebM, M4V • Max 5GB per file
         </p>
-        <input type="file" id="fileInput" class="file-input" accept="video/*" />
+        <input type="file" id="fileInput" class="file-input" accept=".mp4,.avi,.mov,.mkv,.wmv,.flv,.webm,.m4v,video/*" multiple />
       </div>
 
       <!-- Metadata Form -->
@@ -948,23 +948,25 @@
       function resetUploadSection() {
         uploadSection.innerHTML = `
                 <div class="upload-icon">📹</div>
-                <h2 style="margin-bottom: 0.5rem;">Drop BWC Video Here</h2>
+                <h2 style="margin-bottom: 0.5rem;">Drop BWC Video(s) Here</h2>
                 <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
-                    or click to browse files
+                    or click to browse files (multiple videos supported)
                 </p>
                 <p style="font-size: 0.875rem; color: var(--text-secondary);">
-                    Supported formats: MP4, AVI, MOV, MKV, WMV, FLV, WebM • Max 5GB
+                    Supported formats: MP4, AVI, MOV, MKV, WMV, FLV, WebM, M4V • Max 5GB per file
                 </p>
-                <input type="file" id="fileInput" class="file-input" accept="video/*">
+                <input type="file" id="fileInput" class="file-input" accept=".mp4,.avi,.mov,.mkv,.wmv,.flv,.webm,.m4v,video/*" multiple>
             `;
 
         // Re-attach file input listener
         document
           .getElementById("fileInput")
           .addEventListener("change", async (e) => {
-            const file = e.target.files[0];
-            if (file) {
-              await handleFileUpload(file);
+            const files = Array.from(e.target.files);
+            if (files.length > 0) {
+              for (const file of files) {
+                await handleFileUpload(file);
+              }
             }
           });
       }

@@ -405,7 +405,7 @@ opensource@barberx.info
 compliance@barberx.info
 
 **General Contact:**  
-BarberCamX@ProtonMail.com
+legal@barberx.info
 
 ---
 

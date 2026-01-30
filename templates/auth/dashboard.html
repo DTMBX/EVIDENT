@@ -56,6 +56,11 @@
         box-sizing: border-box;
       }
 
+      :root {
+        --brand-color: {{ site_settings['ui.brand_color'] | default('#c41e3a') }};
+        --accent-color: {{ site_settings['ui.accent_color'] | default('#1e40af') }};
+      }
+
       body {
         font-family:
           Inter,
@@ -65,6 +70,11 @@
           sans-serif;
         background: #fafafa;
         min-height: 100vh;
+      }
+
+      body[data-theme="dark"] {
+        background: #0b0f1a;
+        color: #e5e7eb;
       }
 
       .dashboard-header {
@@ -78,6 +88,19 @@
       }
 
       .header-left {
+
+          <a href="/tools" style="text-decoration: none;">
+            <div style="background: white; border: 2px solid #e0e0e8; border-radius: 12px; padding: 1.5rem; transition: all 0.2s; cursor: pointer;" onmouseover="this.style.borderColor='#c41e3a'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#e0e0e8'; this.style.transform='translateY(0)'">
+              <div style="background: rgba(14, 116, 144, 0.1); color: #0e7490; width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="3" />
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V22a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H2a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0A1.65 1.65 0 0 0 9 3.09V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H22a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                </svg>
+              </div>
+              <h3 style="font-size: 1.125rem; font-weight: 600; color: #1e293b; margin-bottom: 0.5rem;">Tools Hub</h3>
+              <p style="color: #64748b; font-size: 0.875rem;">Access all analysis utilities</p>
+            </div>
+          </a>
         display: flex;
         align-items: center;
         gap: 1rem;
@@ -99,7 +122,7 @@
         align-items: center;
         gap: 0.5rem;
         padding: 0.5rem 1rem;
-        background: linear-gradient(135deg, #c41e3a 0%, #1e40af 100%);
+        background: linear-gradient(135deg, var(--brand-color) 0%, var(--accent-color) 100%);
         color: white;
         border-radius: 9999px;
         font-size: 0.875rem;
@@ -201,7 +224,7 @@
 
       .progress-fill {
         height: 100%;
-        background: linear-gradient(90deg, #c41e3a 0%, #1e40af 100%);
+        background: linear-gradient(90deg, var(--brand-color) 0%, var(--accent-color) 100%);
         border-radius: 3px;
         transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       }
@@ -222,12 +245,28 @@
       }
 
       .upgrade-banner {
-        background: linear-gradient(135deg, #c41e3a 0%, #1e40af 100%);
+        background: linear-gradient(135deg, var(--brand-color) 0%, var(--accent-color) 100%);
         color: white;
         padding: 2rem;
         border-radius: 16px;
         text-align: center;
         margin-bottom: 2rem;
+      }
+
+      .site-banner {
+        background: var(--brand-color);
+        color: #fff;
+        padding: 0.75rem 2rem;
+        text-align: center;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+      }
+
+      .footer-notice {
+        text-align: center;
+        color: #6b7280;
+        font-size: 0.85rem;
+        margin: 2rem 0 1rem;
       }
 
       .upgrade-banner h2 {
@@ -271,9 +310,13 @@
       }
     </style>
   </head>
-  <body>
-    {%- comment -%} Onboarding Tour for First-Time Users {%- endcomment -%} {%
-    include 'components/onboarding-tour.html' %}
+  <body data-theme="{{ site_settings['ui.theme'] | default('system') }}">
+    {# Onboarding Tour for First-Time Users #} {% include
+    'components/onboarding-tour.html' %} {% if
+    site_settings['site.banner_enabled'] and
+    site_settings['site.banner_message'] %}
+    <div class="site-banner">{{ site_settings['site.banner_message'] }}</div>
+    {% endif %}
 
     <div class="dashboard-header">
       <div class="header-left">
@@ -297,30 +340,386 @@
         </div>
         <div class="header-title">
           <h1>
-            Welcome back{% if current_user.full_name %}, {{
-            current_user.full_name }}{% endif %}!
+            {{ current_user.tier_greeting }}{% if current_user.full_name %}, {{ current_user.full_name }}{% endif %}
           </h1>
-          <p class="header-subtitle">{{ current_user.email }}</p>
+          <p class="header-subtitle">{{ current_user.email }} · {{ current_user.tier_name }} Member</p>
         </div>
       </div>
       <div>
-        <span class="tier-badge">
+        <span class="tier-badge" style="{% if current_user.tier.name in ['ENTERPRISE', 'ADMIN'] %}background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #1e293b;{% endif %}">
           <svg class="tier-badge-icon" viewBox="0 0 24 24" fill="currentColor">
             <path
               d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
             />
           </svg>
-          {{ current_user.tier_name }}
+          {{ current_user.tier_name }}{% if current_user.tier.name in ['ENTERPRISE', 'ADMIN'] %} ⚡{% endif %}
         </span>
+        {% if current_user.is_admin %}
+        <a href="/admin" style="
+          background: linear-gradient(135deg, #1e40af, #3b82f6);
+          color: white;
+          padding: 0.5rem 1rem;
+          border-radius: 8px;
+          text-decoration: none;
+          font-size: 0.875rem;
+          font-weight: 600;
+          margin-left: 0.5rem;
+        ">🔧 Admin Panel</a>
+        {% endif %}
         <a href="/auth/logout" class="logout-btn">Logout</a>
       </div>
     </div>
 
     <div class="dashboard-container">
-      {%- comment -%} Tier Upgrade Card - Shows personalized upgrade path {%-
-      endcomment -%} {% if current_user.tier.name in ['FREE', 'PROFESSIONAL',
-      'PREMIUM'] %} {% include 'components/tier-upgrade-card.html' %} {% endif
-      %}
+      {# Show Enterprise/Admin Status Banner #}
+      {% if current_user.tier.name in ['ENTERPRISE', 'ADMIN'] %}
+      <div style="
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        color: white;
+        padding: 1.5rem 2rem;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      ">
+        <div>
+          <h3 style="margin: 0 0 0.5rem 0; font-size: 1.25rem;">
+            ⚡ {{ current_user.tier_name }} Access Active
+          </h3>
+          <p style="margin: 0; opacity: 0.8; font-size: 0.9rem;">
+            Unlimited access to all features • Priority support • API access enabled
+          </p>
+        </div>
+        <div style="text-align: right;">
+          <span style="
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+          ">✓ All Features Unlocked</span>
+        </div>
+      </div>
+      {% endif %}
+      
+      {# Tier Upgrade Card - Shows personalized upgrade path (only for lower tiers) #}
+      {% if current_user.tier.name in ['FREE', 'STARTER'] %} {%
+      include 'components/tier-upgrade-card.html' %} {% endif %}
+
+      <!-- Quick Access Navigation -->
+      <div style="margin-bottom: 2rem">
+        <h2
+          style="
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+          "
+        >
+          Quick Access
+        </h2>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+          "
+        >
+          <a href="/bwc-dashboard" style="text-decoration: none">
+            <div
+              style="
+                background: white;
+                border: 2px solid #e0e0e8;
+                border-radius: 12px;
+                padding: 1.5rem;
+                transition: all 0.2s;
+                cursor: pointer;
+              "
+              onmouseover="
+                this.style.borderColor = '#c41e3a';
+                this.style.transform = 'translateY(-2px)';
+              "
+              onmouseout="
+                this.style.borderColor = '#e0e0e8';
+                this.style.transform = 'translateY(0)';
+              "
+            >
+              <div
+                style="
+                  background: rgba(196, 30, 58, 0.1);
+                  color: #c41e3a;
+                  width: 48px;
+                  height: 48px;
+                  border-radius: 12px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin-bottom: 1rem;
+                "
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polygon points="23 7 16 12 23 17 23 7" />
+                  <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+                </svg>
+              </div>
+              <h3
+                style="
+                  font-size: 1.125rem;
+                  font-weight: 600;
+                  color: #1e293b;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                BWC Analysis
+              </h3>
+              <p style="color: #64748b; font-size: 0.875rem">
+                Upload and analyze body camera footage
+              </p>
+            </div>
+          </a>
+
+          <a href="/chat" style="text-decoration: none">
+            <div
+              style="
+                background: white;
+                border: 2px solid #e0e0e8;
+                border-radius: 12px;
+                padding: 1.5rem;
+                transition: all 0.2s;
+                cursor: pointer;
+              "
+              onmouseover="
+                this.style.borderColor = '#c41e3a';
+                this.style.transform = 'translateY(-2px)';
+              "
+              onmouseout="
+                this.style.borderColor = '#e0e0e8';
+                this.style.transform = 'translateY(0)';
+              "
+            >
+              <div
+                style="
+                  background: rgba(30, 64, 175, 0.1);
+                  color: #1e40af;
+                  width: 48px;
+                  height: 48px;
+                  border-radius: 12px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin-bottom: 1rem;
+                "
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                  />
+                </svg>
+              </div>
+              <h3
+                style="
+                  font-size: 1.125rem;
+                  font-weight: 600;
+                  color: #1e293b;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                AI Legal Assistant
+              </h3>
+              <p style="color: #64748b; font-size: 0.875rem">
+                Chat with AI for legal research and analysis
+              </p>
+            </div>
+          </a>
+
+          <a href="/batch-pdf-upload.html" style="text-decoration: none">
+            <div
+              style="
+                background: white;
+                border: 2px solid #e0e0e8;
+                border-radius: 12px;
+                padding: 1.5rem;
+                transition: all 0.2s;
+                cursor: pointer;
+              "
+              onmouseover="
+                this.style.borderColor = '#c41e3a';
+                this.style.transform = 'translateY(-2px)';
+              "
+              onmouseout="
+                this.style.borderColor = '#e0e0e8';
+                this.style.transform = 'translateY(0)';
+              "
+            >
+              <div
+                style="
+                  background: rgba(212, 165, 116, 0.1);
+                  color: #d4a574;
+                  width: 48px;
+                  height: 48px;
+                  border-radius: 12px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin-bottom: 1rem;
+                "
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  />
+                  <polyline points="14 2 14 8 20 8" />
+                </svg>
+              </div>
+              <h3
+                style="
+                  font-size: 1.125rem;
+                  font-weight: 600;
+                  color: #1e293b;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Document Upload
+              </h3>
+              <p style="color: #64748b; font-size: 0.875rem">
+                Batch upload legal documents and PDFs
+              </p>
+            </div>
+          </a>
+
+          <a href="/account" style="text-decoration: none">
+            <div
+              style="
+                background: white;
+                border: 2px solid #e0e0e8;
+                border-radius: 12px;
+                padding: 1.5rem;
+                transition: all 0.2s;
+                cursor: pointer;
+              "
+              onmouseover="
+                this.style.borderColor = '#c41e3a';
+                this.style.transform = 'translateY(-2px)';
+              "
+              onmouseout="
+                this.style.borderColor = '#e0e0e8';
+                this.style.transform = 'translateY(0)';
+              "
+            >
+              <div
+                style="
+                  background: rgba(16, 185, 129, 0.1);
+                  color: #10b981;
+                  width: 48px;
+                  height: 48px;
+                  border-radius: 12px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin-bottom: 1rem;
+                "
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+              </div>
+              <h3
+                style="
+                  font-size: 1.125rem;
+                  font-weight: 600;
+                  color: #1e293b;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Account Settings
+              </h3>
+              <p style="color: #64748b; font-size: 0.875rem">
+                Manage your profile and preferences
+              </p>
+            </div>
+          </a>
+          
+          {% if current_user.is_admin %}
+          <a href="/admin" style="text-decoration: none">
+            <div
+              style="
+                background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+                border: 2px solid #1e40af;
+                border-radius: 12px;
+                padding: 1.5rem;
+                transition: all 0.2s;
+                cursor: pointer;
+              "
+              onmouseover="this.style.transform = 'translateY(-2px)';"
+              onmouseout="this.style.transform = 'translateY(0)';"
+            >
+              <div
+                style="
+                  background: rgba(255, 255, 255, 0.2);
+                  color: white;
+                  width: 48px;
+                  height: 48px;
+                  border-radius: 12px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin-bottom: 1rem;
+                "
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="3"/>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                </svg>
+              </div>
+              <h3
+                style="
+                  font-size: 1.125rem;
+                  font-weight: 600;
+                  color: white;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                🔧 Admin Panel
+              </h3>
+              <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.875rem">
+                System administration and analytics
+              </p>
+            </div>
+          </a>
+          {% endif %}
+        </div>
+      </div>
 
       <div class="stats-grid">
         <div class="stat-card">
@@ -528,5 +927,9 @@
         ></div>
       </div>
     </div>
+
+    {% if site_settings['site.footer_notice'] %}
+    <div class="footer-notice">{{ site_settings['site.footer_notice'] }}</div>
+    {% endif %}
   </body>
 </html>

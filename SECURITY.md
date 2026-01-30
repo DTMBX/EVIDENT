@@ -4,7 +4,7 @@
 
 Please report security issues by email:
 
-**BarberCamX@ProtonMail.com**
+**security@barberx.info**
 
 Include:
 

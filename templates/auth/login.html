@@ -56,6 +56,11 @@
         box-sizing: border-box;
       }
 
+      :root {
+        --brand-color: {{ site_settings['ui.brand_color'] | default('#c41e3a') }};
+        --accent-color: {{ site_settings['ui.accent_color'] | default('#1e40af') }};
+      }
+
       body {
         font-family:
           Inter,
@@ -63,7 +68,7 @@
           BlinkMacSystemFont,
           "Segoe UI",
           sans-serif;
-        background: linear-gradient(135deg, #1e40af 0%, #c41e3a 100%);
+        background: linear-gradient(135deg, var(--accent-color) 0%, var(--brand-color) 100%);
         min-height: 100vh;
         display: flex;
         align-items: center;
@@ -71,6 +76,28 @@
         padding: 1rem;
         position: relative;
         overflow: hidden;
+      }
+
+      body.has-banner {
+        padding-top: 4.5rem;
+      }
+
+      body[data-theme="dark"] {
+        background: linear-gradient(135deg, #0b0f1a 0%, #111827 100%);
+      }
+
+      .site-banner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+        background: var(--brand-color);
+        color: #fff;
+        padding: 0.75rem 1.5rem;
+        text-align: center;
+        font-weight: 600;
+        box-shadow: 0 6px 18px rgba(15, 23, 42, 0.2);
       }
 
       /* Animated background pattern */
@@ -185,6 +212,12 @@
         font-size: 1rem;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         background: #fafafa;
+      }
+
+      /* Extra padding for password field with reveal button */
+      input[type="password"]#password,
+      input[type="text"]#password {
+        padding-right: 5.5rem;
       }
 
       input:focus {
@@ -371,7 +404,14 @@
       }
     </style>
   </head>
-  <body>
+  <body
+    data-theme="{{ site_settings['ui.theme'] | default('system') }}"
+    class="{% if site_settings['site.banner_enabled'] and site_settings['site.banner_message'] %}has-banner{% endif %}"
+  >
+    {% if site_settings['site.banner_enabled'] and
+    site_settings['site.banner_message'] %}
+    <div class="site-banner">{{ site_settings['site.banner_message'] }}</div>
+    {% endif %}
     <div class="login-container">
       <div class="logo-container">
         <!-- Nav Pole -->
@@ -405,6 +445,7 @@
       {% endfor %} {% endif %} {% endwith %}
 
       <form method="POST" id="loginForm">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
         <div class="form-group">
           <label for="email">Email Address</label>
           <div class="input-group">
@@ -436,7 +477,7 @@
 
         <div class="form-group">
           <label for="password">Password</label>
-          <div class="input-group">
+          <div class="input-group" style="position: relative">
             <input
               type="password"
               id="password"
@@ -457,6 +498,52 @@
               <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
               <path d="M7 11V7a5 5 0 0 1 10 0v4" />
             </svg>
+            <button
+              type="button"
+              id="togglePassword"
+              style="
+                position: absolute;
+                right: 3rem;
+                top: 50%;
+                transform: translateY(-50%);
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 0.5rem;
+                color: #6b7280;
+                transition: color 0.2s;
+              "
+              onmouseover="this.style.color = '#c41e3a'"
+              onmouseout="this.style.color = '#6b7280'"
+            >
+              <svg
+                id="eyeIcon"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              <svg
+                id="eyeOffIcon"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                style="display: none"
+              >
+                <path
+                  d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"
+                />
+                <line x1="1" y1="1" x2="23" y2="23" />
+              </svg>
+            </button>
           </div>
         </div>
 
@@ -494,75 +581,158 @@
     <script src="/static/js/loading-states.js"></script>
     <script src="/static/js/form-validation.js"></script>
     <script>
-      const loginForm = document.getElementById("loginForm");
-      const submitBtn = loginForm.querySelector('button[type="submit"]');
+      // Wait for all scripts to load
+      document.addEventListener("DOMContentLoaded", function () {
+        const loginForm = document.getElementById("loginForm");
+        const submitBtn = loginForm.querySelector('button[type="submit"]');
+        const passwordInput = document.getElementById("password");
+        const togglePasswordBtn = document.getElementById("togglePassword");
+        const eyeIcon = document.getElementById("eyeIcon");
+        const eyeOffIcon = document.getElementById("eyeOffIcon");
 
-      // Add enhanced form handling
-      loginForm.addEventListener("submit", function (e) {
-        e.preventDefault();
+        // Password visibility toggle
+        if (togglePasswordBtn) {
+          togglePasswordBtn.addEventListener("click", function () {
+            const type =
+              passwordInput.getAttribute("type") === "password"
+                ? "text"
+                : "password";
+            passwordInput.setAttribute("type", type);
 
-        const email = document.getElementById("email").value.trim();
-        const password = document.getElementById("password").value;
-
-        // Basic client-side validation
-        if (!email || !password) {
-          toast.error("Please fill in all required fields");
-          return;
-        }
-
-        if (!email.includes("@")) {
-          toast.error("Please enter a valid email address");
-          document.getElementById("email").focus();
-          return;
-        }
-
-        // Show loading state
-        LoadingState.showButtonLoading(submitBtn, "Signing in...");
-
-        // Submit form
-        const formData = new FormData(loginForm);
-
-        fetch(loginForm.action || window.location.href, {
-          method: "POST",
-          body: formData,
-        })
-          .then((response) => {
-            if (response.redirected) {
-              toast.success("Login successful! Redirecting...");
-              setTimeout(() => {
-                window.location.href = response.url;
-              }, 500);
+            // Toggle icons
+            if (type === "text") {
+              eyeIcon.style.display = "none";
+              eyeOffIcon.style.display = "block";
             } else {
-              return response.text().then((html) => {
-                // Check if there's an error message in the response
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(html, "text/html");
-                const errorAlert = doc.querySelector(".alert-danger");
-
-                LoadingState.hideButtonLoading(submitBtn);
-
-                if (errorAlert) {
-                  toast.error(errorAlert.textContent.trim());
-                } else {
-                  // Re-submit using traditional form if AJAX fails
-                  loginForm.submit();
-                }
-              });
+              eyeIcon.style.display = "block";
+              eyeOffIcon.style.display = "none";
             }
-          })
-          .catch((error) => {
-            console.error("Login error:", error);
-            LoadingState.hideButtonLoading(submitBtn);
-            toast.error(
-              "Unable to connect to the server. Please check your connection and try again.",
-            );
           });
-      });
+        }
 
-      // Initialize form validator
-      const validator = new FormValidator(loginForm, {
-        validateOnBlur: true,
-        showSuccessIcons: false,
+        // Verify required globals are loaded
+        if (typeof toast === "undefined") {
+          console.error("Toast notifications not loaded");
+        }
+        if (typeof LoadingState === "undefined") {
+          console.error("LoadingState not loaded");
+        }
+        if (typeof FormValidator === "undefined") {
+          console.error("FormValidator not loaded");
+        }
+
+        // Add enhanced form handling
+        loginForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const email = document.getElementById("email").value.trim();
+          const password = document.getElementById("password").value;
+
+          // Basic client-side validation
+          if (!email || !password) {
+            if (typeof toast !== "undefined") {
+              toast.error("Please fill in all required fields");
+            } else {
+              alert("Please fill in all required fields");
+            }
+            return;
+          }
+
+          if (!email.includes("@")) {
+            if (typeof toast !== "undefined") {
+              toast.error("Please enter a valid email address");
+            } else {
+              alert("Please enter a valid email address");
+            }
+            document.getElementById("email").focus();
+            return;
+          }
+
+          // Show loading state
+          if (typeof LoadingState !== "undefined") {
+            LoadingState.showButtonLoading(submitBtn, "Signing in...");
+          } else {
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Signing in...";
+          }
+
+          // Submit form
+          const formData = new FormData(loginForm);
+          const csrfToken = loginForm.querySelector(
+            'input[name="csrf_token"]',
+          )?.value;
+
+          fetch(loginForm.action || window.location.href, {
+            method: "POST",
+            body: formData,
+            credentials: "same-origin",
+            headers: csrfToken
+              ? {
+                  "X-CSRFToken": csrfToken,
+                }
+              : {},
+          })
+            .then((response) => {
+              if (response.redirected) {
+                if (typeof toast !== "undefined") {
+                  toast.success("Login successful! Redirecting...");
+                }
+                setTimeout(() => {
+                  window.location.href = response.url;
+                }, 500);
+              } else {
+                return response.text().then((html) => {
+                  // Check if there's an error message in the response
+                  const parser = new DOMParser();
+                  const doc = parser.parseFromString(html, "text/html");
+                  const errorAlert = doc.querySelector(".alert-danger");
+
+                  if (typeof LoadingState !== "undefined") {
+                    LoadingState.hideButtonLoading(submitBtn);
+                  } else {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = "Login";
+                  }
+
+                  if (errorAlert) {
+                    const errorMsg = errorAlert.textContent.trim();
+                    if (typeof toast !== "undefined") {
+                      toast.error(errorMsg);
+                    } else {
+                      alert(errorMsg);
+                    }
+                  } else {
+                    // Re-submit using traditional form if AJAX fails
+                    loginForm.submit();
+                  }
+                });
+              }
+            })
+            .catch((error) => {
+              console.error("Login error:", error);
+              if (typeof LoadingState !== "undefined") {
+                LoadingState.hideButtonLoading(submitBtn);
+              } else {
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Login";
+              }
+              const errorMsg =
+                "Unable to connect to the server. Please check your connection and try again.";
+              if (typeof toast !== "undefined") {
+                toast.error(errorMsg);
+              } else {
+                alert(errorMsg);
+              }
+            });
+        });
+
+        // Initialize form validator if available
+        if (typeof FormValidator !== "undefined") {
+          const validator = new FormValidator(loginForm, {
+            validateOnBlur: true,
+            showSuccessIcons: false,
+          });
+        }
       });
     </script>
   </body>

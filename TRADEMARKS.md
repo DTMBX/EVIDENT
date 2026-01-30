@@ -20,4 +20,4 @@ You may:
 - reference the project by name in plain text (e.g., “Barber Cam (Preview)”) when linking to the official repository
 - discuss high-level concepts without reproducing protected assets
 
-For any branding use, contact: **BarberCamX@ProtonMail.com**
+For any branding use, contact: **legal@barberx.info**

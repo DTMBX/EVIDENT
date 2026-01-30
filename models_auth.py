@@ -101,34 +101,66 @@ class User(UserMixin, db.Model):
 
     @property
     def tier_name(self):
-        """Get friendly tier name"""
-        return self.tier.name.title()
+        """Get professional tier display name"""
+        tier_display_names = {
+            TierLevel.FREE: "Explorer",
+            TierLevel.STARTER: "Practitioner", 
+            TierLevel.PROFESSIONAL: "Counselor",
+            TierLevel.PREMIUM: "Advocate",
+            TierLevel.ENTERPRISE: "Enterprise",
+            TierLevel.ADMIN: "Administrator",
+        }
+        return tier_display_names.get(self.tier, self.tier.name.title())
+
+    @property
+    def tier_greeting(self):
+        """Get professional greeting for tier"""
+        greetings = {
+            TierLevel.FREE: "Welcome",
+            TierLevel.STARTER: "Welcome back",
+            TierLevel.PROFESSIONAL: "Good to see you",
+            TierLevel.PREMIUM: "Welcome back",
+            TierLevel.ENTERPRISE: "Welcome",
+            TierLevel.ADMIN: "Welcome back",
+        }
+        return greetings.get(self.tier, "Welcome")
 
     @property
     def tier_price(self):
         """Get tier monthly price"""
         return self.tier.value
 
+    @property
+    def is_admin_user(self):
+        """Check if user is an admin (via tier or role flag)"""
+        return self.tier == TierLevel.ADMIN or self.is_admin
+
+    @property
+    def is_enterprise(self):
+        """Check if user has enterprise or admin tier"""
+        return self.tier in [TierLevel.ENTERPRISE, TierLevel.ADMIN]
+
     def get_tier_limits(self):
         """Get usage limits for current tier"""
         limits = {
             TierLevel.FREE: {
                 # Zero-cost tier: Demo + One-time upload only
-                "bwc_videos_per_month": 0,  # No recurring uploads
-                "pdf_documents_per_month": 0,  # No recurring uploads
+                "bwc_videos_per_month": 1,  # Limited demo
+                "pdf_documents_per_month": 1,  # Limited demo
+                "document_pages_per_month": 5,  # 5 pages max
                 "one_time_file_upload": 1,  # ONE file ever (PDF or video)
                 "one_time_upload_used": False,  # Track if used
                 "max_video_duration_minutes": 5,  # 5 min max for video
                 "max_pdf_pages": 10,  # 10 pages max for PDF
                 "max_file_size_mb": 50,  # Reduced from 100
                 "demo_cases_count": 3,  # Pre-loaded demo cases
-                "transcription_minutes_per_month": 0,
+                "transcription_minutes_per_month": 10,
                 "search_queries_per_month": 100,
-                "storage_gb": 0.1,  # Minimal storage for demo data
+                "storage_gb": 1,  # Minimal storage for demo data
                 "export_watermark": True,
                 "data_retention_days": 7,  # Auto-delete after 7 days
                 "case_limit": 1,  # 1 personal case (from one-time upload)
-                "ai_assistant_access": "none",
+                "ai_assistant_access": "basic",
                 "court_ready_reports": False,
                 "educational_access": True,  # Access to guides & templates
                 "template_downloads": True,  # Can download templates
@@ -139,6 +171,7 @@ class User(UserMixin, db.Model):
                 "bwc_video_hours_per_month": 1,
                 "max_file_size_mb": 512,
                 "pdf_documents_per_month": 5,
+                "document_pages_per_month": 50,
                 "transcription_minutes_per_month": 60,
                 "ai_assistant_access": "basic",
                 "search_queries_per_month": 500,
@@ -154,6 +187,7 @@ class User(UserMixin, db.Model):
                 "bwc_video_hours_per_month": 3,
                 "max_file_size_mb": 1024,
                 "pdf_documents_per_month": 15,
+                "document_pages_per_month": 150,
                 "transcription_minutes_per_month": 180,
                 "ai_assistant_access": "basic",
                 "search_queries_per_month": 1500,
@@ -170,6 +204,7 @@ class User(UserMixin, db.Model):
                 "bwc_video_hours_per_month": 10,  # Soft cap
                 "max_file_size_mb": 5120,
                 "pdf_documents_per_month": 50,  # Soft cap
+                "document_pages_per_month": 500,
                 "transcription_minutes_per_month": 600,
                 "ai_assistant_access": "full",
                 "search_queries_per_month": 10000,
@@ -189,16 +224,17 @@ class User(UserMixin, db.Model):
                 "overage_fee_per_case": 5.00,
             },
             TierLevel.ENTERPRISE: {
-                "bwc_videos_per_month": 300,  # Soft cap
-                "bwc_video_hours_per_month": 40,  # Soft cap
+                "bwc_videos_per_month": -1,  # Unlimited for Enterprise
+                "bwc_video_hours_per_month": -1,  # Unlimited
                 "max_file_size_mb": 20480,
-                "pdf_documents_per_month": 200,  # Soft cap
-                "transcription_minutes_per_month": 2400,
+                "pdf_documents_per_month": -1,  # Unlimited
+                "document_pages_per_month": -1,  # Unlimited (alias)
+                "transcription_minutes_per_month": -1,  # Unlimited
                 "ai_assistant_access": "private_instance",
-                "search_queries_per_month": 50000,
-                "storage_gb": 1024,
+                "search_queries_per_month": -1,  # Unlimited
+                "storage_gb": -1,  # Unlimited
                 "export_watermark": False,
-                "case_limit": 150,  # Soft cap
+                "case_limit": -1,  # Unlimited
                 "court_ready_reports": "firm_branded",
                 "timeline_builder": True,
                 "multi_bwc_sync": 20,
@@ -209,19 +245,15 @@ class User(UserMixin, db.Model):
                 "sla_guaranteed": True,
                 "dedicated_pm": True,
                 "on_premises_data": True,
-                "concurrent_users": 25,  # Soft cap
-                # Soft caps with lower overage fees
-                "overage_allowed": True,
-                "overage_fee_per_video": 1.00,
-                "overage_fee_per_video_hour": 3.00,
-                "overage_fee_per_pdf": 0.50,
-                "overage_fee_per_case": 2.00,
-                "overage_fee_per_user": 15.00,
+                "concurrent_users": -1,  # Unlimited
+                "overage_allowed": False,  # No limits to exceed
+                "is_unlimited": True,
             },
             TierLevel.ADMIN: {
                 "bwc_videos_per_month": -1,
                 "max_file_size_mb": -1,
                 "document_pages_per_month": -1,
+                "pdf_documents_per_month": -1,
                 "transcription_minutes_per_month": -1,
                 "search_queries_per_month": -1,
                 "storage_gb": -1,
@@ -233,6 +265,7 @@ class User(UserMixin, db.Model):
                 "priority_support": True,
                 "backend_access": True,
                 "admin_dashboard": True,
+                "is_unlimited": True,
             },
         }
         return limits.get(self.tier, limits[TierLevel.FREE])
@@ -252,17 +285,9 @@ class User(UserMixin, db.Model):
             return True
 
         # Check current month usage
-        from datetime import datetime
+        usage = UsageTracking.get_or_create_current(self.id)
 
-        current_month = datetime.utcnow().replace(day=1, hour=0, minute=0, second=0, microsecond=0)
-        usage_this_month = UsageTracking.query.filter(
-            UsageTracking.user_id == self.id, UsageTracking.month >= current_month
-        ).first()
-
-        if not usage_this_month:
-            return True
-
-        return usage_this_month.bwc_videos_analyzed < bwc_limit
+        return usage.bwc_videos_processed < bwc_limit
 
     def __repr__(self):
         return f"<User {self.email} ({self.tier_name})>"

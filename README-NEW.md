@@ -18,7 +18,7 @@
 
 - ✅ **Evaluation:** View source for assessment purposes only
 - ❌ **No Use:** Cannot deploy, fork, clone, or use without license
-- 💼 **Commercial Licenses Available:** Contact BarberCamX@ProtonMail.com
+- 💼 **Commercial Licenses Available:** Contact sales@barberx.info
 
 **See [LICENSE](LICENSE) for complete terms.**
 
@@ -129,7 +129,7 @@ Professional-grade AI forensic analysis platform for civil rights attorneys, leg
 
 ### Get a License
 
-📧 **BarberCamX@ProtonMail.com**  
+📧 **sales@barberx.info**  
 Include: use case, # users, organization
 
 ---
@@ -164,7 +164,7 @@ Include: use case, # users, organization
 ## 📞 Contact
 
 **SaaS Sales:** sales@barberx.info (Free & Professional tiers)  
-**Enterprise Sales:** BarberCamX@ProtonMail.com (Self-hosted licensing)  
+**Enterprise Sales:** enterprise@barberx.info (Self-hosted licensing)  
 **Support:** support@barberx.info  
 **Legal:** legal@barberx.info  
 **Security:** security@barberx.info

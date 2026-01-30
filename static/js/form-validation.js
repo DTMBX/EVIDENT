@@ -233,8 +233,8 @@ class FormValidator {
 }
 
 // Add CSS for validation feedback
-const style = document.createElement('style');
-style.textContent = `
+const formValidationStyle = document.createElement('style');
+formValidationStyle.textContent = `
   .form-group {
     position: relative;
     margin-bottom: 1.25rem;
@@ -304,7 +304,7 @@ style.textContent = `
     margin-left: 0.25rem;
   }
 `;
-document.head.appendChild(style);
+document.head.appendChild(formValidationStyle);
 
 // Global custom validators
 window.customValidators = {

@@ -318,7 +318,7 @@ With custom agents, you should achieve:
 **Technical Support:**
 
 - support@barberx.info
-- BarberCamX@ProtonMail.com
+- support@barberx.info
 
 ---
 

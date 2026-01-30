@@ -14,7 +14,7 @@ This Privacy Policy explains what limited data we do collect (account informatio
 ## 1. Who We Are
 
 **Faith Frontier Ecclesiastical Trust** (doing business as "BarberX Legal Technologies")  
-**Email:** BarberCamX@ProtonMail.com  
+**Email:** privacy@barberx.info  
 **Website:** https://barberx.info
 
 We provide AI-powered evidence analysis tools for legal professionals, running entirely on your local computer.

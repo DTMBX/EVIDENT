@@ -4,100 +4,252 @@ layout: default
 permalink: /docs/
 ---
 
-# BarberX Legal Technologies Documentation
+<style>
+.docs-hero {
+  background: linear-gradient(135deg, #c41e3a 0%, #0f172a 100%);
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
 
-Welcome to the official documentation for BarberX Legal Technologies, the professional-grade AI-powered eDiscovery and forensic analysis platform.
+.docs-hero h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2.5rem;
+}
 
----
+.docs-hero p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 1.125rem;
+}
 
-## For All Users
+.docs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
 
-**Access BarberX via the main website:**
-- Go to [https://barberx.info](https://barberx.info)
-- No installation or download required for standard users.
-- All features are available securely through the web app.
+.docs-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-left: 4px solid #3b82f6;
+}
 
----
+.docs-card h3 {
+  margin: 0 0 0.75rem 0;
+  color: #0f172a;
+}
 
-## For Enterprise Customers Only
+.docs-card p {
+  margin: 0 0 1rem 0;
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
 
-**Enterprise customers may download and run the local library:**
-- Contact support@barberx.info for access to the enterprise package and installation instructions.
-- Local install instructions and source code are provided only to verified enterprise clients.
-- All proprietary code and advanced AI modules are protected and not distributed publicly.
+.docs-card a {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 600;
+}
 
----
+.docs-card a:hover {
+  text-decoration: underline;
+}
 
-## Table of Contents
+.docs-card.enterprise {
+  border-left-color: #c41e3a;
+}
 
-- [Overview](#overview)
-- [User Guide](#user-guide)
-- [API Reference](#api-reference)
-- [FAQ](#faq)
-- [Troubleshooting](#troubleshooting)
-- [Support & Community](#support--community)
+.docs-toc {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
 
----
+.docs-toc h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+}
 
-## Overview
+.docs-toc ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
 
-BarberX is a local-first, privacy-focused legal tech platform for processing body-worn camera (BWC) footage, police reports, and legal documents. It features:
+.docs-toc li {
+  margin-bottom: 0.5rem;
+}
 
-- 100% local AI (no cloud required)
-- Multi-user authentication & role-based access
-- Chain of custody, audit logging, and evidence management
-- Advanced document and media analysis
+.docs-toc a {
+  color: #0f172a;
+  text-decoration: none;
+}
 
----
+.docs-toc a:hover {
+  color: #3b82f6;
+}
 
-## User Guide
+.docs-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
 
-### Logging In
+.docs-section h2 {
+  margin: 0 0 1.5rem 0;
+  color: #c41e3a;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 0.75rem;
+}
 
-- Use the password you set or reset via the admin panel.
+.docs-section h3 {
+  margin: 1.5rem 0 0.75rem 0;
+  color: #0f172a;
+}
 
-### Uploading Evidence
+.docs-section p, .docs-section li {
+  color: #475569;
+  line-height: 1.7;
+}
 
-- Go to the dashboard and use the upload form for BWC videos, PDFs, or images.
-- Supported formats: MP4, MOV, PDF, JPG, PNG, CSV, JSON, DOCX, etc.
+.docs-section ul {
+  padding-left: 1.5rem;
+}
 
-### AI-Powered Analysis
+.docs-section a {
+  color: #3b82f6;
+}
 
-- Transcribe audio, extract text, and run entity recognition on uploaded files.
-- All processing is local—no data leaves your machine.
+code {
+  background: #f1f5f9;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+</style>
 
-### Search & Export
+<div class="docs-hero">
+  <h1>📚 BarberX Documentation</h1>
+  <p>AI-powered eDiscovery and forensic analysis for legal professionals</p>
+</div>
 
-- Use semantic search to find relevant evidence.
-- Export court-ready exhibits as PDF, DOCX, or JSON.
+<div class="docs-grid">
+  <div class="docs-card">
+    <h3>🌐 For All Users</h3>
+    <p>Access BarberX via the web at <a href="https://barberx.info">barberx.info</a>. No installation required for standard users — all features available securely through the web app.</p>
+    <a href="/register">Get Started Free →</a>
+  </div>
+  
+  <div class="docs-card enterprise">
+    <h3>🏢 For Enterprise</h3>
+    <p>Enterprise customers can download and run the local library for air-gapped deployments. Contact support for access to the enterprise package.</p>
+    <a href="mailto:support@barberx.info">Contact Sales →</a>
+  </div>
+</div>
 
----
+<div class="docs-toc">
+  <h2>Quick Navigation</h2>
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#getting-started">Getting Started</a></li>
+    <li><a href="#user-guide">User Guide</a></li>
+    <li><a href="#api-reference">API Reference</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#troubleshooting">Troubleshooting</a></li>
+    <li><a href="#support">Support & Community</a></li>
+  </ul>
+</div>
 
-## API Reference
+<div id="overview" class="docs-section">
+  <h2>Overview</h2>
+  <p>BarberX is a local-first, privacy-focused legal tech platform for processing body-worn camera (BWC) footage, police reports, and legal documents. Features include:</p>
+  <ul>
+    <li><strong>100% Local AI</strong> — No cloud required, data never leaves your machine</li>
+    <li><strong>Multi-user Authentication</strong> — Role-based access control for teams</li>
+    <li><strong>Chain of Custody</strong> — SHA-256 hashing and audit logging</li>
+    <li><strong>Advanced Analysis</strong> — Transcription, entity extraction, discrepancy detection</li>
+    <li><strong>Court-Ready Exports</strong> — PDF, DOCX, JSON formats with custody reports</li>
+  </ul>
+</div>
 
-- RESTful endpoints for evidence upload, user management, and analysis.
-- See [API documentation](../api-reference.html) for full details.
+<div id="getting-started" class="docs-section">
+  <h2>Getting Started</h2>
+  
+  <h3>🚀 Quick Start (15 minutes)</h3>
+  <ol>
+    <li><strong>Create Account:</strong> <a href="/register">Sign up for free</a> (no credit card required)</li>
+    <li><strong>Install AI Tools:</strong> Follow our <a href="/docs/installation/">Installation Guide</a></li>
+    <li><strong>Upload Evidence:</strong> Drag & drop your first BWC video to the <a href="/analyzer">Analyzer</a></li>
+    <li><strong>Review Results:</strong> Get transcripts, entities, and discrepancy reports in minutes</li>
+  </ol>
+  
+  <h3>💻 System Requirements</h3>
+  <ul>
+    <li>Windows 10/11, macOS 10.15+, or Linux</li>
+    <li>Python 3.8 or higher</li>
+    <li>8GB RAM minimum (16GB recommended)</li>
+    <li>10GB free disk space</li>
+    <li>GPU optional (CUDA-enabled for faster processing)</li>
+  </ul>
+  
+  <p><a href="/docs/installation/">View Complete Installation Guide →</a></p>
+</div>
 
----
+<div id="user-guide" class="docs-section">
+  <h2>User Guide</h2>
 
-## FAQ
+  <h3>Logging In</h3>
+  <p>Use the password you set during registration or reset via the admin panel.</p>
 
-- [FAQ page](../faq/)
+  <h3>Uploading Evidence</h3>
+  <p>Go to the dashboard and use the upload form for BWC videos, PDFs, or images. Supported formats: MP4, MOV, PDF, JPG, PNG, CSV, JSON, DOCX, and more.</p>
 
----
+  <h3>AI-Powered Analysis</h3>
+  <p>Transcribe audio, extract text, and run entity recognition on uploaded files. All processing is local—no data leaves your machine.</p>
 
-## Troubleshooting
+  <h3>Search & Export</h3>
+  <p>Use semantic search to find relevant evidence. Export court-ready exhibits as PDF, DOCX, or JSON.</p>
+</div>
 
-- **Missing dependencies:** Run `pip install -r requirements.txt`.
-- **Database errors:** Ensure your database URI is correct and migrations are applied.
-- **AI features unavailable:** Install required AI dependencies (see `requirements.txt` and documentation).
-- **Port in use:** Change the `PORT` environment variable or stop the conflicting process.
+<div id="api-reference" class="docs-section">
+  <h2>API Reference</h2>
+  <p>RESTful endpoints for evidence upload, user management, and analysis. Available on Professional, Premium, and Enterprise tiers.</p>
+  <p><a href="/api">View Full API Documentation →</a></p>
+</div>
 
----
+<div id="faq" class="docs-section">
+  <h2>FAQ</h2>
+  <p>Common questions about BarberX features, pricing, security, and technical requirements.</p>
+  <p><a href="/faq/">View FAQ →</a></p>
+</div>
 
-## Support & Community
+<div id="troubleshooting" class="docs-section">
+  <h2>Troubleshooting</h2>
+  <ul>
+    <li><strong>Missing dependencies:</strong> Run <code>pip install -r requirements.txt</code></li>
+    <li><strong>Database errors:</strong> Ensure your database URI is correct and migrations are applied</li>
+    <li><strong>AI features unavailable:</strong> Install required AI dependencies (see requirements.txt)</li>
+    <li><strong>Port in use:</strong> Change the PORT environment variable or stop the conflicting process</li>
+  </ul>
+</div>
 
-- [GitHub Issues](https://github.com/DTB396/BarberX.info/issues)
+<div id="support" class="docs-section">
+  <h2>Support & Community</h2>
+  <ul>
+    <li><strong>Email:</strong> <a href="mailto:support@barberx.info">support@barberx.info</a></li>
+    <li><strong>GitHub:</strong> <a href="https://github.com/DTB396/BarberX.info/issues">Report Issues</a></li>
+    <li><strong>Documentation:</strong> <a href="/docs/">Full Docs</a></li>
+  </ul>
+</div>
 - [Contact](mailto:support@barberx.info)
 - [Changelog](../CHANGELOG.md)
 

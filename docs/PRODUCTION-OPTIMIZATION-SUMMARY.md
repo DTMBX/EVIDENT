@@ -69,7 +69,7 @@
      "@type": "Organization",
      "name": "BarberX",
      "logo": "{{ url_for('static', filename='images/logo.png') }}",
-     "email": "BarberCamX@ProtonMail.com",
+     "email": "contact@barberx.info",
      "foundingDate": "2025",
      "sameAs": [
        "https://twitter.com/barberx",

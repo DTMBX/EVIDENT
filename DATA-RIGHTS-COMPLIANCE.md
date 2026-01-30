@@ -346,7 +346,7 @@ class RightsAwareExport:
 ## COMPLIANCE CONTACTS
 
 **Legal Questions:**  
-BarberCamX@ProtonMail.com
+privacy@barberx.info
 
 **Copyright Concerns:**  
 Report immediately to: legal@barberx.info

@@ -25,9 +25,16 @@ instance/
 logs/
 *.log
 
+# Encrypted outputs
+secure/
+
 # Environment
 .env
 .env.local
+.env-temp
+.env-*
+*.key
+*.pem
 
 # IDE
 .vscode/
@@ -96,6 +103,12 @@ lighthouse-*.html
 .env.*
 !.env.template
 !.env.example.template
+
+# Local encryption keys
+.secrets/
+
+# Embedded repositories (submodules)
+barber-cam/
 
 # Archive and temporary documentation
 archive/

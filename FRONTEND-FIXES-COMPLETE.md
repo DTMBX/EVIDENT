@@ -67,7 +67,7 @@
 
 ? Contact options:
 - **Sales:** sales@barberx.info
-- **Support:** BarberCamX@ProtonMail.com
+- **Support:** support@barberx.info
 - **General:** info@barberx.info
 
 ? Contact form (ready for Formspree)  
@@ -336,7 +336,7 @@ Dashboard (/auth/dashboard) ?
 ## ?? **Support:**
 
 **Questions about frontend?**
-- Email: BarberCamX@ProtonMail.com
+- Email: support@barberx.info
 - GitHub Issues: https://github.com/DTB396/BarberX.info/issues
 - Tag: `frontend` or `documentation`
 

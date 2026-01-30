@@ -13,7 +13,7 @@
 
 - Generic camera/surveillance theme
 - No distinctive identity
-- Email: BarberCamX@ProtonMail.com
+- Email: contact@barberx.info
 
 ### To: BarberX Legal Technologies
 

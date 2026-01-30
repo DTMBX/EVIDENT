@@ -214,8 +214,8 @@ class LoadingState {
 }
 
 // Add CSS for loading states
-const style = document.createElement('style');
-style.textContent = `
+const loadingStatesStyle = document.createElement('style');
+loadingStatesStyle.textContent = `
   /* Button Loading States */
   button.loading {
     position: relative;
@@ -436,7 +436,7 @@ style.textContent = `
     }
   }
 `;
-document.head.appendChild(style);
+document.head.appendChild(loadingStatesStyle);
 
 // Export
 if (typeof module !== 'undefined' && module.exports) {

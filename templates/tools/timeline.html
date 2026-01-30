@@ -6,10 +6,43 @@
     <title>Timeline Builder | BarberX Legal Tech</title>
     <link rel="stylesheet" href="/assets/css/legal-tech-platform.css" />
     <style>
+      :root {
+        --brand-color: {{ site_settings['ui.brand_color'] | default('#c41e3a') }};
+        --accent-color: {{ site_settings['ui.accent_color'] | default('#1e40af') }};
+      }
+
       body {
         background: var(--bg-color);
         margin: 0;
         padding: 2rem;
+      }
+
+      body[data-theme="dark"] {
+        background: #0b0f1a;
+        color: #e5e7eb;
+      }
+
+      .site-banner {
+        background: var(--brand-color);
+        color: #fff;
+        padding: 0.75rem 1.5rem;
+        border-radius: 12px;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+        text-align: center;
+      }
+
+      .tool-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .tool-nav a {
+        text-decoration: none;
+        color: var(--accent-blue);
+        font-weight: 600;
       }
 
       .tool-container {
@@ -183,8 +216,16 @@
       }
     </style>
   </head>
-  <body>
+  <body data-theme="{{ site_settings['ui.theme'] | default('system') }}">
+    {% if site_settings['site.banner_enabled'] and site_settings['site.banner_message'] %}
+      <div class="site-banner">{{ site_settings['site.banner_message'] }}</div>
+    {% endif %}
+
     <div class="tool-container">
+      <div class="tool-nav">
+        <a href="/tools">← Tools Hub</a>
+        <a href="/dashboard">Dashboard</a>
+      </div>
       <div class="tool-header">
         <div
           style="

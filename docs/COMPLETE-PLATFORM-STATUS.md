@@ -382,7 +382,7 @@ Password: (set via ADMIN_PASSWORD env var)
 
 ## 📞 Support & Contact
 
-**Email:** BarberCamX@ProtonMail.com  
+**Email:** support@barberx.info  
 **Admin Access:** admin@barberx.info / (set via ADMIN_PASSWORD env var)  
 **Documentation:** `/docs/`  
 **GitHub:** Repository link

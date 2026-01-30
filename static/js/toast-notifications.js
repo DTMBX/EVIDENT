@@ -93,8 +93,8 @@ class ToastNotification {
 const toast = new ToastNotification();
 
 // Add CSS dynamically
-const style = document.createElement('style');
-style.textContent = `
+const toastNotificationStyle = document.createElement('style');
+toastNotificationStyle.textContent = `
   #toast-container {
     position: fixed;
     top: 20px;
@@ -259,7 +259,7 @@ style.textContent = `
     }
   }
 `;
-document.head.appendChild(style);
+document.head.appendChild(toastNotificationStyle);
 
 // Export for use in other scripts
 if (typeof module !== 'undefined' && module.exports) {

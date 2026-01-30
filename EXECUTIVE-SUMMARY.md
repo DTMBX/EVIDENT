@@ -224,7 +224,7 @@ def export_pdf(analysis_id):
 ## 📧 GET HELP
 
 **Legal Compliance Questions:**  
-legal@barberx.info | BarberCamX@ProtonMail.com
+legal@barberx.info | contact@barberx.info
 
 **Technical Integration Support:**  
 support@barberx.info

@@ -186,7 +186,7 @@ python models_data_rights.py
 
 **Legal Compliance Questions:**  
 legal@barberx.info  
-BarberCamX@ProtonMail.com
+legal@barberx.info
 
 **Copyright Concerns:**  
 Report immediately: compliance@barberx.info

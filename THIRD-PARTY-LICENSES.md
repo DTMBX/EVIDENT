@@ -471,7 +471,7 @@ All trademarks are property of their respective owners.
 
 **License Compliance Questions:**  
 legal@barberx.info  
-BarberCamX@ProtonMail.com
+legal@barberx.info
 
 **Open Source Contributions:**  
 opensource@barberx.info

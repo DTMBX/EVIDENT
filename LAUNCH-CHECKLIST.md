@@ -321,7 +321,7 @@
 
 **Legal Compliance Questions:**  
 legal@barberx.info  
-BarberCamX@ProtonMail.com
+support@barberx.info
 
 **Technical Support:**  
 support@barberx.info

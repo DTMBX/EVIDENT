@@ -363,7 +363,7 @@ python integration_example.py
 
 **Legal Compliance:**  
 legal@barberx.info  
-BarberCamX@ProtonMail.com
+legal@barberx.info
 
 **Technical Integration Help:**  
 support@barberx.info

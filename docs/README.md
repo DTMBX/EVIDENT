@@ -597,7 +597,7 @@ SENDGRID_API_KEY=...                # For transactional emails
 ### Internal
 
 - **Documentation:** `c:\web-dev\github-repos\BarberX.info\docs\`
-- **Email:** BarberCamX@ProtonMail.com
+- **Email:** support@barberx.info
 - **Admin:** Set via ADMIN_EMAIL and ADMIN_PASSWORD environment variables
 
 ### External

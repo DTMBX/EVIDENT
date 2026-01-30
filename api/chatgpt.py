@@ -8,6 +8,7 @@ from datetime import datetime
 from functools import wraps
 
 from flask import Blueprint, Response, jsonify, request, stream_with_context
+from flask_login import login_required
 from sqlalchemy import desc
 
 from chatgpt_service import ChatGPTService
@@ -470,6 +471,7 @@ def get_messages(conversation_id):
 
 
 @chatgpt_bp.route("/openai/validate-key", methods=["POST"])
+@login_required
 def validate_api_key():
     """Validate OpenAI API key"""
     data = request.get_json()
@@ -485,6 +487,7 @@ def validate_api_key():
 
 
 @chatgpt_bp.route("/user/api-keys", methods=["POST"])
+@login_required
 def store_api_key():
     """Store encrypted API key"""
     from flask_login import current_user
@@ -495,6 +498,20 @@ def store_api_key():
 
     if not api_key:
         return jsonify({"error": "api_key required"}), 400
+
+    # Ensure encryption key is configured safely
+    import os
+
+    encryption_key = os.getenv("API_KEY_ENCRYPTION_KEY", "default-key-change-this")
+    if encryption_key == "default-key-change-this":
+        return (
+            jsonify(
+                {
+                    "error": "API key encryption is not configured. Please set API_KEY_ENCRYPTION_KEY.",
+                }
+            ),
+            500,
+        )
 
     # Validate key first
     chatgpt = ChatGPTService()
@@ -534,6 +551,7 @@ def store_api_key():
 
 
 @chatgpt_bp.route("/user/api-keys", methods=["GET"])
+@login_required
 def get_api_keys():
     """Get user's stored API keys (masked)"""
     from flask_login import current_user

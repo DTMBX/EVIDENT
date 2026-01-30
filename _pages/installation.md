@@ -289,7 +289,7 @@ python app.py</code></pre>
     <pre><code>python app.py --port 8080</code></pre>
     
     <div class="warning">
-      <strong>Still having issues?</strong> Contact support at <a href="mailto:BarberCamX@ProtonMail.com">BarberCamX@ProtonMail.com</a>
+      <strong>Still having issues?</strong> Contact support at <a href="mailto:support@barberx.info">support@barberx.info</a>
     </div>
   </div>
   

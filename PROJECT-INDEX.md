@@ -298,11 +298,10 @@ _opra/                          - OPRA requests
 **Legal/Compliance:**
 
 - legal@barberx.info
-- BarberCamX@ProtonMail.com
 
 **Sales/Licensing:**
 
-- BarberCamX@ProtonMail.com
+- sales@barberx.info
 
 ---
 

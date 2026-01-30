@@ -3,89 +3,106 @@ ChatGPT Integration with Legal Reference Library
 
 Enables ChatGPT assistant to:
 - Search user's legal library when answering questions
-- Cite cases from the library in responses
+- Cite cases from the library in responses with provenance
 - Suggest relevant cases based on conversation context
 - Link to full case text in the library
 """
 
 import json
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 
-from legal_library import CitationParser, LegalLibraryService
+from retrieval_service import RetrievalService, Passage
+try:
+    from legal_library import CitationParser, LegalLibraryService
+    LEGACY_LIBRARY_AVAILABLE = True
+except ImportError:
+    LEGACY_LIBRARY_AVAILABLE = False
+    CitationParser = None
 
 
 class ChatGPTLegalLibraryIntegration:
     """Integrates legal library search into ChatGPT conversations"""
 
     def __init__(self):
-        self.library = LegalLibraryService()
-        self.citation_parser = CitationParser()
+        self.retrieval = RetrievalService()
+        self.citation_parser = CitationParser() if LEGACY_LIBRARY_AVAILABLE else None
 
-    def search_library_for_context(self, user_message: str, user_id: int = None) -> List[Dict]:
+    def search_library_for_context(
+        self, 
+        user_message: str, 
+        user_id: int = None
+    ) -> Tuple[List[Passage], Dict[str, Any]]:
         """
-        Search legal library based on user's question
+        Search legal library based on user's question using unified retrieval
 
         Args:
             user_message: User's chat message
             user_id: Optional user ID for private documents
 
         Returns:
-            List of relevant cases to include in ChatGPT context
+            (passages, citations_metadata) - passages with full provenance
         """
 
         # Extract legal keywords
         legal_keywords = self._extract_legal_keywords(user_message)
 
         if not legal_keywords:
-            return []
+            return [], {}
 
-        # Search library
-        results = self.library.search_library(
-            query=" ".join(legal_keywords), limit=5  # Top 5 most relevant cases
+        # Use unified retrieval service
+        query = " ".join(legal_keywords)
+        passages = self.retrieval.retrieve(
+            query=query,
+            filters={'source_system': 'legal_library'},  # Can expand to include muni_code
+            top_k=5
         )
 
-        # Format for ChatGPT context
-        context_cases = []
-        for doc in results:
-            context_cases.append(
-                {
-                    "citation": doc.citation,
-                    "title": doc.title,
-                    "summary": doc.summary[:500] if doc.summary else "",
-                    "topics": json.loads(doc.topics) if doc.topics else [],
-                    "url": f"/api/legal-library/document/{doc.id}",
-                }
-            )
+        # Build citations metadata
+        citations_metadata = {
+            'query': query,
+            'passages': [p.to_dict() for p in passages],
+            'count': len(passages)
+        }
 
-        return context_cases
+        return passages, citations_metadata
 
-    def enhance_system_prompt(self, base_prompt: str, relevant_cases: List[Dict]) -> str:
+    def enhance_system_prompt(
+        self, 
+        base_prompt: str, 
+        passages: List[Passage]
+    ) -> str:
         """
-        Add relevant cases to ChatGPT system prompt
+        Add retrieved passages to ChatGPT system prompt with strict citation requirements
 
         Args:
             base_prompt: Original system prompt
-            relevant_cases: Cases from search_library_for_context()
+            passages: Retrieved passages from search_library_for_context()
 
         Returns:
-            Enhanced prompt with case law context
+            Enhanced prompt with SOURCES block
         """
 
-        if not relevant_cases:
+        if not passages:
             return base_prompt
 
-        cases_context = "\n\nRELEVANT CASE LAW FROM USER'S LIBRARY:\n"
+        # Build SOURCES block with numbered citations
+        sources_block = "\n\n=== SOURCES (Retrieved Legal Documents) ===\n"
+        sources_block += "You MUST ground your analysis in these sources. "
+        sources_block += "Cite sources using [Source N] format.\n\n"
 
-        for case in relevant_cases:
-            cases_context += f"\n{case['citation']} - {case['title']}\n"
-            if case["summary"]:
-                cases_context += f"Summary: {case['summary']}\n"
-            if case["topics"]:
-                cases_context += f"Topics: {', '.join(case['topics'])}\n"
+        for idx, passage in enumerate(passages, 1):
+            sources_block += f"[Source {idx}]\n"
+            sources_block += f"Document: {passage.filename}\n"
+            sources_block += f"Page: {passage.page_number}\n"
+            sources_block += f"Excerpt: {passage.snippet}\n"
+            sources_block += f"(doc_id: {passage.document_id}, offsets: {passage.text_start}-{passage.text_end})\n"
+            sources_block += "\n"
 
-        cases_context += "\nWhen relevant, cite these cases in your response. Users can click citations to view full text.\n"
+        sources_block += "=== END SOURCES ===\n\n"
+        sources_block += "CRITICAL: Every factual claim must cite a source from above. "
+        sources_block += "Do not invent citations. If information isn't in the sources, say so.\n"
 
-        return base_prompt + cases_context
+        return base_prompt + sources_block
 
     def format_citation_links(self, response_text: str) -> str:
         """

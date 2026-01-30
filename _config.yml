@@ -5,6 +5,11 @@ description: Professional AI-powered eDiscovery platform for civil rights litiga
 url: "https://dtb396.github.io"
 baseurl: "/BarberX.info"
 
+# Contact Information
+email: contact@barberx.info
+support_email: support@barberx.info
+sales_email: sales@barberx.info
+
 # Build settings
 markdown: kramdown
 theme: minima

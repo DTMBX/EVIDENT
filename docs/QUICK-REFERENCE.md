@@ -170,4 +170,4 @@ curl -I http://localhost:5000
 
 **Status:** Production Ready 🚀  
 **Blocked By:** PWA icon generation (30 min task)  
-**Contact:** BarberCamX@ProtonMail.com
+**Contact:** support@barberx.info

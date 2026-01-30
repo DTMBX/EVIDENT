@@ -388,6 +388,7 @@
     </style>
   </head>
   <body>
+    {% include 'header.html' %}
     <div class="upload-container">
       <div class="page-header">
         <h1>📄 Batch PDF Upload</h1>
@@ -480,6 +481,25 @@
     </div>
 
     <script>
+      // Check authentication on page load
+      async function checkAuth() {
+        try {
+          const response = await fetch('/api/user/profile', { 
+            method: 'GET',
+            credentials: 'include'
+          });
+          if (response.status === 401) {
+            alert('Please log in to upload files.');
+            window.location.href = '/auth/login?next=/batch-pdf-upload.html';
+            return false;
+          }
+          return true;
+        } catch (e) {
+          console.warn('Auth check failed:', e);
+          return true; // Allow to proceed, server will handle auth
+        }
+      }
+      
       // Configuration
       const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50MB
       const MAX_FILES = 100;
@@ -500,7 +520,8 @@
       const uploadBtn = document.getElementById("uploadBtn");
 
       // Initialize
-      function init() {
+      async function init() {
+        await checkAuth();
         setupEventListeners();
       }
 
@@ -738,15 +759,25 @@
           const response = await fetch("/api/upload/pdf", {
             method: "POST",
             body: formData,
-            // Track progress
           });
 
-          if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(errorData.error || "Upload failed");
+          // Check if response is JSON (handle HTML error pages)
+          const contentType = response.headers.get("content-type");
+          if (!contentType || !contentType.includes("application/json")) {
+            // Server returned HTML (likely login page) instead of JSON
+            if (response.status === 401 || response.status === 302) {
+              throw new Error("Authentication required. Please log in and try again.");
+            }
+            throw new Error(`Server error (${response.status}). Please try again.`);
           }
 
           const data = await response.json();
+          
+          if (!response.ok) {
+            throw new Error(data.error || "Upload failed");
+          }
+
+          return { success: true, data };
           return { success: true, data };
         } catch (error) {
           return { success: false, error: error.message };

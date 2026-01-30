@@ -1,0 +1,30 @@
+name: Security Encryption Check
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  enforce-encryption:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify encryption tooling
+        run: |
+          test -f security/encryption_config.json
+          test -f scripts/security/encrypt_files.py
+          test -f scripts/security/decrypt_files.py
+          test -f .githooks/pre-commit
+          test -f .githooks/pre-push
+
+      - name: Enforce no sensitive plaintext tracked
+        run: |
+          if git ls-files -m | grep -E "^(instance/|uploads/|logs/|\.env)"; then
+            echo "Sensitive files are tracked. Remove from git and rely on encrypted artifacts."
+            exit 1
+          fi
