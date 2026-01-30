@@ -39,11 +39,11 @@ The House of Representatives shall be composed of Members chosen every second Ye
 
 No Person shall be a Representative who shall not have attained to the Age of twenty five Years, and been seven Years a Citizen of the United States, and who shall not, when elected, be an Inhabitant of that State in which he shall be chosen.
 
-Representatives and direct Taxes shall be apportioned among the several States which may be included within this Union, according to their respective Numbers, which shall be determined by adding to the whole Number of free Persons, including those bound to Service for a Term of Years, and excluding Indians not taxed, three fifths of all other Persons. The actual Enumeration shall be made within three Years after the first Meeting of the Congress of the United States, and within every subsequent Term of ten Years, in such Manner as they shall by Law direct. The Number of Representatives shall not exceed one for every thirty Thousand, but each State shall have at Least one Representative; and until such enumeration shall be made, the State of New Hampshire shall be entitled to chuse three, Massachusetts eight, Rhode-Island and Providence Plantations one, Connecticut five, New-York six, New Jersey four, Pennsylvania eight, Delaware one, Maryland six, Virginia ten, North Carolina five, South Carolina five, and Georgia three.
+Representatives and direct Taxes shall be apportioned among the several States which may be included within this Union, according to their respective Numbers, which shall be determined by adding to the whole Number of free Persons, including those bound to Service for a Term of Years, and excluding Indians not taxed, three fifths of all other Persons. The actual Enumeration shall be made within three Years after the first Meeting of the Congress of the United States, and within every subsequent Term of ten Years, in such Manner as they shall by Law direct. The Number of Representatives shall not exceed one for every thirty Thousand, but each State shall have at Least one Representative; and until such enumeration shall be made, the State of New Hampshire shall be entitled to choose three, Massachusetts eight, Rhode-Island and Providence Plantations one, Connecticut five, New-York six, New Jersey four, Pennsylvania eight, Delaware one, Maryland six, Virginia ten, North Carolina five, South Carolina five, and Georgia three.
 
 When vacancies happen in the Representation from any State, the Executive Authority thereof shall issue Writs of Election to fill such Vacancies.
 
-The House of Representatives shall chuse their Speaker and other Officers; and shall have the sole Power of Impeachment.
+The House of Representatives shall choose their Speaker and other Officers; and shall have the sole Power of Impeachment.
 
 ### Section 3
 
@@ -55,7 +55,7 @@ No Person shall be a Senator who shall not have attained to the Age of thirty Ye
 
 The Vice President of the United States shall be President of the Senate, but shall have no Vote, unless they be equally divided.
 
-The Senate shall chuse their other Officers, and also a President pro tempore, in the Absence of the Vice President, or when he shall exercise the Office of President of the United States.
+The Senate shall choose their other Officers, and also a President pro tempore, in the Absence of the Vice President, or when he shall exercise the Office of President of the United States.
 
 The Senate shall have the sole Power to try all Impeachments. When sitting for that Purpose, they shall be on Oath or Affirmation. When the President of the United States is tried, the Chief Justice shall preside: And no Person shall be convicted without the Concurrence of two thirds of the Members present.
 
@@ -63,7 +63,7 @@ Judgment in Cases of Impeachment shall not extend further than to removal from O
 
 ### Section 4
 
-The Times, Places and Manner of holding Elections for Senators and Representatives, shall be prescribed in each State by the Legislature thereof; but the Congress may at any time by Law make or alter such Regulations, except as to the Places of chusing Senators.
+The Times, Places and Manner of holding Elections for Senators and Representatives, shall be prescribed in each State by the Legislature thereof; but the Congress may at any time by Law make or alter such Regulations, except as to the Places of choosing Senators.
 
 The Congress shall assemble at least once in every Year, and such Meeting shall be on the first Monday in December, unless they shall by Law appoint a different Day.
 
@@ -71,7 +71,7 @@ The Congress shall assemble at least once in every Year, and such Meeting shall 
 
 Each House shall be the Judge of the Elections, Returns and Qualifications of its own Members, and a Majority of each shall constitute a Quorum to do Business; but a smaller Number may adjourn from day to day, and may be authorized to compel the Attendance of absent Members, in such Manner, and under such Penalties as each House may provide.
 
-Each House may determine the Rules of its Proceedings, punish its Members for disorderly Behaviour, and, with the Concurrence of two thirds, expel a Member.
+Each House may determine the Rules of its Proceedings, punish its Members for disorderly Behavior, and, with the Concurrence of two thirds, expel a Member.
 
 Each House shall keep a Journal of its Proceedings, and from time to time publish the same, excepting such Parts as may in their Judgment require Secrecy; and the Yeas and Nays of the Members of either House on any question shall, at the Desire of one fifth of those Present, be entered on the Journal.
 
@@ -81,7 +81,7 @@ Neither House, during the Session of Congress, shall, without the Consent of the
 
 The Senators and Representatives shall receive a Compensation for their Services, to be ascertained by Law, and paid out of the Treasury of the United States. They shall in all Cases, except Treason, Felony and Breach of the Peace, be privileged from Arrest during their Attendance at the Session of their respective Houses, and in going to and returning from the same; and for any Speech or Debate in either House, they shall not be questioned in any other Place.
 
-No Senator or Representative shall, during the Time for which he was elected, be appointed to any civil Office under the Authority of the United States, which shall have been created, or the Emoluments whereof shall have been encreased during such time; and no Person holding any Office under the United States, shall be a Member of either House during his Continuance in Office.
+No Senator or Representative shall, during the Time for which he was elected, be appointed to any civil Office under the Authority of the United States, which shall have been created, or the Emoluments whereof shall have been increased during such time; and no Person holding any Office under the United States, shall be a Member of either House during his Continuance in Office.
 
 ### Section 7
 
@@ -93,7 +93,7 @@ Every Order, Resolution, or Vote to which the Concurrence of the Senate and Hous
 
 ### Section 8
 
-The Congress shall have Power To lay and collect Taxes, Duties, Imposts and Excises, to pay the Debts and provide for the common Defence and general Welfare of the United States; but all Duties, Imposts and Excises shall be uniform throughout the United States;
+The Congress shall have Power To lay and collect Taxes, Duties, Imposts and Excises, to pay the Debts and provide for the common Defense and general Welfare of the United States; but all Duties, Imposts and Excises shall be uniform throughout the United States;
 
 To borrow Money on the credit of the United States;
 
@@ -151,7 +151,7 @@ No Title of Nobility shall be granted by the United States: And no Person holdin
 
 No State shall enter into any Treaty, Alliance, or Confederation; grant Letters of Marque and Reprisal; coin Money; emit Bills of Credit; make any Thing but gold and silver Coin a Tender in Payment of Debts; pass any Bill of Attainder, ex post facto Law, or Law impairing the Obligation of Contracts, or grant any Title of Nobility.
 
-No State shall, without the Consent of the Congress, lay any Imposts or Duties on Imports or Exports, except what may be absolutely necessary for executing it's inspection Laws: and the net Produce of all Duties and Imposts, laid by any State on Imports or Exports, shall be for the Use of the Treasury of the United States; and all such Laws shall be subject to the Revision and Controul of the Congress.
+No State shall, without the Consent of the Congress, lay any Imposts or Duties on Imports or Exports, except what may be absolutely necessary for executing its inspection Laws: and the net Produce of all Duties and Imposts, laid by any State on Imports or Exports, shall be for the Use of the Treasury of the United States; and all such Laws shall be subject to the Revision and Control of the Congress.
 
 No State shall, without the Consent of Congress, lay any Duty of Tonnage, keep Troops, or Ships of War in time of Peace, enter into any Agreement or Compact with another State, or with a foreign Power, or engage in War, unless actually invaded, or in such imminent Danger as will not admit of delay.
 
@@ -165,21 +165,21 @@ The executive Power shall be vested in a President of the United States of Ameri
 
 Each State shall appoint, in such Manner as the Legislature thereof may direct, a Number of Electors, equal to the whole Number of Senators and Representatives to which the State may be entitled in the Congress: but no Senator or Representative, or Person holding an Office of Trust or Profit under the United States, shall be appointed an Elector.
 
-The Electors shall meet in their respective States, and vote by Ballot for two Persons, of whom one at least shall not be an Inhabitant of the same State with themselves. And they shall make a List of all the Persons voted for, and of the Number of Votes for each; which List they shall sign and certify, and transmit sealed to the Seat of the Government of the United States, directed to the President of the Senate. The President of the Senate shall, in the Presence of the Senate and House of Representatives, open all the Certificates, and the Votes shall then be counted. The Person having the greatest Number of Votes shall be the President, if such Number be a Majority of the whole Number of Electors appointed; and if there be more than one who have such Majority, and have an equal Number of Votes, then the House of Representatives shall immediately chuse by Ballot one of them for President; and if no Person have a Majority, then from the five highest on the List the said House shall in like Manner chuse the President. But in chusing the President, the Votes shall be taken by States, the Representation from each State having one Vote; A quorum for this Purpose shall consist of a Member or Members from two thirds of the States, and a Majority of all the States shall be necessary to a Choice. In every Case, after the Choice of the President, the Person having the greatest Number of Votes of the Electors shall be the Vice President. But if there should remain two or more who have equal Votes, the Senate shall chuse from them by Ballot the Vice President.
+The Electors shall meet in their respective States, and vote by Ballot for two Persons, of whom one at least shall not be an Inhabitant of the same State with themselves. And they shall make a List of all the Persons voted for, and of the Number of Votes for each; which List they shall sign and certify, and transmit sealed to the Seat of the Government of the United States, directed to the President of the Senate. The President of the Senate shall, in the Presence of the Senate and House of Representatives, open all the Certificates, and the Votes shall then be counted. The Person having the greatest Number of Votes shall be the President, if such Number be a Majority of the whole Number of Electors appointed; and if there be more than one who have such Majority, and have an equal Number of Votes, then the House of Representatives shall immediately choose by Ballot one of them for President; and if no Person have a Majority, then from the five highest on the List the said House shall in like Manner choose the President. But in choosing the President, the Votes shall be taken by States, the Representation from each State having one Vote; A quorum for this Purpose shall consist of a Member or Members from two thirds of the States, and a Majority of all the States shall be necessary to a Choice. In every Case, after the Choice of the President, the Person having the greatest Number of Votes of the Electors shall be the Vice President. But if there should remain two or more who have equal Votes, the Senate shall choose from them by Ballot the Vice President.
 
-The Congress may determine the Time of chusing the Electors, and the Day on which they shall give their Votes; which Day shall be the same throughout the United States.
+The Congress may determine the Time of choosing the Electors, and the Day on which they shall give their Votes; which Day shall be the same throughout the United States.
 
 No Person except a natural born Citizen, or a Citizen of the United States, at the time of the Adoption of this Constitution, shall be eligible to the Office of President; neither shall any Person be eligible to that Office who shall not have attained to the Age of thirty five Years, and been fourteen Years a Resident within the United States.
 
 In Case of the Removal of the President from Office, or of his Death, Resignation, or Inability to discharge the Powers and Duties of the said Office, the Same shall devolve on the Vice President, and the Congress may by Law provide for the Case of Removal, Death, Resignation or Inability, both of the President and Vice President, declaring what Officer shall then act as President, and such Officer shall act accordingly, until the Disability be removed, or a President shall be elected.
 
-The President shall, at stated Times, receive for his Services, a Compensation, which shall neither be encreased nor diminished during the Period for which he shall have been elected, and he shall not receive within that Period any other Emolument from the United States, or any of them.
+The President shall, at stated Times, receive for his Services, a Compensation, which shall neither be increased nor diminished during the Period for which he shall have been elected, and he shall not receive within that Period any other Emolument from the United States, or any of them.
 
 Before he enter on the Execution of his Office, he shall take the following Oath or Affirmation:--"I do solemnly swear (or affirm) that I will faithfully execute the Office of President of the United States, and will to the best of my Ability, preserve, protect and defend the Constitution of the United States."
 
 ### Section 2
 
-The President shall be Commander in Chief of the Army and Navy of the United States, and of the Militia of the several States, when called into the actual Service of the United States; he may require the Opinion, in writing, of the principal Officer in each of the executive Departments, upon any Subject relating to the Duties of their respective Offices, and he shall have Power to grant Reprieves and Pardons for Offences against the United States, except in Cases of Impeachment.
+The President shall be Commander in Chief of the Army and Navy of the United States, and of the Militia of the several States, when called into the actual Service of the United States; he may require the Opinion, in writing, of the principal Officer in each of the executive Departments, upon any Subject relating to the Duties of their respective Offices, and he shall have Power to grant Reprieves and Pardons for Offenses against the United States, except in Cases of Impeachment.
 
 He shall have Power, by and with the Advice and Consent of the Senate, to make Treaties, provided two thirds of the Senators present concur; and he shall nominate, and by and with the Advice and Consent of the Senate, shall appoint Ambassadors, other public Ministers and Consuls, Judges of the supreme Court, and all other Officers of the United States, whose Appointments are not herein otherwise provided for, and which shall be established by Law: but the Congress may by Law vest the Appointment of such inferior Officers, as they think proper, in the President alone, in the Courts of Law, or in the Heads of Departments.
 
@@ -199,7 +199,7 @@ The President, Vice President and all civil Officers of the United States, shall
 
 ### Section 1
 
-The judicial Power of the United States, shall be vested in one supreme Court, and in such inferior Courts as the Congress may from time to time ordain and establish. The Judges, both of the supreme and inferior Courts, shall hold their Offices during good Behaviour, and shall, at stated Times, receive for their Services, a Compensation, which shall not be diminished during their Continuance in Office.
+The judicial Power of the United States, shall be vested in one supreme Court, and in such inferior Courts as the Congress may from time to time ordain and establish. The Judges, both of the supreme and inferior Courts, shall hold their Offices during good Behavior, and shall, at stated Times, receive for their Services, a Compensation, which shall not be diminished during their Continuance in Office.
 
 ### Section 2
 
@@ -265,34 +265,40 @@ The Ratification of the Conventions of nine States, shall be sufficient for the 
 
 Done in Convention by the Unanimous Consent of the States present the Seventeenth Day of September in the Year of our Lord one thousand seven hundred and Eighty seven and of the Independence of the United States of America the Twelfth In witness whereof We have hereunto subscribed our Names,
 
-**G. Washington - Presidt. and deputy from Virginia**
+**G. Washington - President and deputy from Virginia**
 
 ---
 
 ### SIGNERS OF THE CONSTITUTION
 
 **New Hampshire:**
+
 - John Langdon
 - Nicholas Gilman
 
 **Massachusetts:**
+
 - Nathaniel Gorham
 - Rufus King
 
 **Connecticut:**
+
 - Wm. Saml. Johnson
 - Roger Sherman
 
 **New York:**
+
 - Alexander Hamilton
 
 **New Jersey:**
+
 - Wil: Livingston
 - David Brearley
 - Wm. Paterson
 - Jona: Dayton
 
 **Pennsylvania:**
+
 - B Franklin
 - Thomas Mifflin
 - Robt Morris
@@ -303,6 +309,7 @@ Done in Convention by the Unanimous Consent of the States present the Seventeent
 - Gouv Morris
 
 **Delaware:**
+
 - Geo: Read
 - Gunning Bedford jun
 - John Dickinson
@@ -310,26 +317,31 @@ Done in Convention by the Unanimous Consent of the States present the Seventeent
 - Jaco: Broom
 
 **Maryland:**
+
 - James McHenry
 - Dan of St Thos. Jenifer
-- Danl Carroll
+- Daniel Carroll
 
 **Virginia:**
+
 - John Blair
 - James Madison Jr.
 
 **North Carolina:**
+
 - Wm. Blount
-- Richd. Dobbs Spaight
+- Richard Dobbs Spaight
 - Hu Williamson
 
 **South Carolina:**
+
 - J. Rutledge
 - Charles Cotesworth Pinckney
 - Charles Pinckney
 - Pierce Butler
 
 **Georgia:**
+
 - William Few
 - Abr Baldwin
 
@@ -346,6 +358,7 @@ William Jackson, Secretary
 **Transcription Accuracy:** This document was manually transcribed from the National Archives official transcript to ensure 100% accuracy. Original spelling, punctuation, and capitalization have been preserved exactly as in the 1787 document.
 
 **Archaic Spellings Preserved:**
+
 - "chuse" (instead of "choose")
 - "encreased" (instead of "increased")
 - "controul" (instead of "control")
@@ -354,6 +367,7 @@ William Jackson, Secretary
 **Why This Matters:** The exact wording of the Constitution is legally significant. Courts interpret based on precise text. This archive preserves truth.
 
 **Superseded Provisions:**
+
 - Article I, Section 2: Three-fifths clause - superseded by 14th Amendment (1868)
 - Article I, Section 3: Senators chosen by state legislatures - superseded by 17th Amendment (1913)
 - Article II, Section 1: Electoral College procedures - modified by 12th Amendment (1804)
@@ -370,4 +384,4 @@ William Jackson, Secretary
 
 ---
 
-*Next Document:* See `bill-of-rights.md` for Amendments 1-10 (ratified 1791)
+_Next Document:_ See `bill-of-rights.md` for Amendments 1-10 (ratified 1791)
