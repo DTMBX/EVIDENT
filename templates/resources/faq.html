@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FAQ | BarberX Legal Tech</title>
     <link rel="stylesheet" href="/assets/css/legal-tech-platform.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <style>
       :root {
         --primary-navy: #0f172a;
@@ -22,13 +25,21 @@
       body {
         background: var(--bg-color);
         margin: 0;
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
         color: var(--text-primary);
       }
 
       /* Unified Header */
       .faq-header {
-        background: linear-gradient(135deg, var(--accent-red) 0%, var(--primary-navy) 100%);
+        background: linear-gradient(
+          135deg,
+          var(--accent-red) 0%,
+          var(--primary-navy) 100%
+        );
         color: white;
         padding: 3rem 2rem;
         position: relative;
@@ -36,7 +47,7 @@
       }
 
       .faq-header::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: 0;
@@ -126,7 +137,9 @@
         padding: 0 1.5rem;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.3s ease, padding 0.3s ease;
+        transition:
+          max-height 0.3s ease,
+          padding 0.3s ease;
         color: var(--text-secondary);
         line-height: 1.7;
       }
@@ -195,7 +208,11 @@
       }
 
       .btn-primary {
-        background: linear-gradient(135deg, var(--accent-red), var(--primary-navy));
+        background: linear-gradient(
+          135deg,
+          var(--accent-red),
+          var(--primary-navy)
+        );
         color: white;
       }
 
@@ -224,18 +241,25 @@
     </div>
 
     <div class="faq-container">
-
       <!-- General Section -->
       <div class="faq-section">
-        <h2 class="faq-section-title"><i class="fas fa-info-circle"></i> General</h2>
-        
+        <h2 class="faq-section-title">
+          <i class="fas fa-info-circle"></i> General
+        </h2>
+
         <div class="faq-item" onclick="toggleFaq(this)">
           <div class="faq-question">
             What is BarberX Legal Tech?
             <i class="fas fa-chevron-down faq-toggle"></i>
           </div>
           <div class="faq-answer">
-            <p>BarberX is an AI-powered eDiscovery and forensic analysis platform for legal professionals. It specializes in processing body-worn camera (BWC) footage, police reports, and legal documents with 99%+ transcription accuracy, automated entity extraction, and discrepancy detection.</p>
+            <p>
+              BarberX is an AI-powered eDiscovery and forensic analysis platform
+              for legal professionals. It specializes in processing body-worn
+              camera (BWC) footage, police reports, and legal documents with
+              99%+ transcription accuracy, automated entity extraction, and
+              discrepancy detection.
+            </p>
           </div>
         </div>
 
@@ -245,7 +269,12 @@
             <i class="fas fa-chevron-down faq-toggle"></i>
           </div>
           <div class="faq-answer">
-            <p><strong>No.</strong> All AI processing happens 100% locally on your machine. Your BWC videos, transcripts, and case data never leave your computer. Enterprise customers can deploy fully air-gapped installations.</p>
+            <p>
+              <strong>No.</strong> All AI processing happens 100% locally on
+              your machine. Your BWC videos, transcripts, and case data never
+              leave your computer. Enterprise customers can deploy fully
+              air-gapped installations.
+            </p>
           </div>
         </div>
 
@@ -257,11 +286,25 @@
           <div class="faq-answer">
             <p>BarberX is built for:</p>
             <ul>
-              <li><strong>Defense Attorneys</strong> – Analyze evidence and find discrepancies</li>
-              <li><strong>Law Firms</strong> – Streamline eDiscovery workflows</li>
-              <li><strong>Public Defenders</strong> – Process large case volumes efficiently</li>
-              <li><strong>Investigators</strong> – Extract entities and build timelines</li>
-              <li><strong>Compliance Teams</strong> – Maintain chain of custody documentation</li>
+              <li>
+                <strong>Defense Attorneys</strong> – Analyze evidence and find
+                discrepancies
+              </li>
+              <li>
+                <strong>Law Firms</strong> – Streamline eDiscovery workflows
+              </li>
+              <li>
+                <strong>Public Defenders</strong> – Process large case volumes
+                efficiently
+              </li>
+              <li>
+                <strong>Investigators</strong> – Extract entities and build
+                timelines
+              </li>
+              <li>
+                <strong>Compliance Teams</strong> – Maintain chain of custody
+                documentation
+              </li>
             </ul>
           </div>
         </div>
@@ -269,18 +312,32 @@
 
       <!-- Pricing Section -->
       <div class="faq-section">
-        <h2 class="faq-section-title"><i class="fas fa-tag"></i> Pricing & Plans</h2>
-        
+        <h2 class="faq-section-title">
+          <i class="fas fa-tag"></i> Pricing & Plans
+        </h2>
+
         <div class="faq-item" onclick="toggleFaq(this)">
           <div class="faq-question">
             What are the subscription costs?
             <i class="fas fa-chevron-down faq-toggle"></i>
           </div>
           <div class="faq-answer">
-            <p><strong>Free Tier:</strong> 5 analyses per month, 500MB max file size, basic features</p>
-            <p><strong>Professional ($49/month):</strong> 100 analyses/month, 2GB files, API access, batch processing</p>
-            <p><strong>Premium ($99/month):</strong> Unlimited analyses, priority processing, advanced AI models</p>
-            <p><strong>Enterprise (custom):</strong> White-label, dedicated support, on-premise deployment</p>
+            <p>
+              <strong>Free Tier:</strong> 5 analyses per month, 500MB max file
+              size, basic features
+            </p>
+            <p>
+              <strong>Professional ($49/month):</strong> 100 analyses/month, 2GB
+              files, API access, batch processing
+            </p>
+            <p>
+              <strong>Premium ($99/month):</strong> Unlimited analyses, priority
+              processing, advanced AI models
+            </p>
+            <p>
+              <strong>Enterprise (custom):</strong> White-label, dedicated
+              support, on-premise deployment
+            </p>
             <p><a href="/pricing">View full pricing details →</a></p>
           </div>
         </div>
@@ -291,7 +348,11 @@
             <i class="fas fa-chevron-down faq-toggle"></i>
           </div>
           <div class="faq-answer">
-            <p><strong>Yes.</strong> Monthly subscriptions can be canceled at any time with no penalty. You'll retain access until the end of your billing period.</p>
+            <p>
+              <strong>Yes.</strong> Monthly subscriptions can be canceled at any
+              time with no penalty. You'll retain access until the end of your
+              billing period.
+            </p>
           </div>
         </div>
       </div>
@@ -299,20 +360,27 @@
       <!-- Features Section -->
       <div class="faq-section">
         <h2 class="faq-section-title"><i class="fas fa-star"></i> Features</h2>
-        
+
         <div class="faq-item" onclick="toggleFaq(this)">
           <div class="faq-question">
             How accurate is the transcription?
             <i class="fas fa-chevron-down faq-toggle"></i>
           </div>
           <div class="faq-answer">
-            <p>We use OpenAI's Whisper model which achieves <strong>99%+ accuracy</strong> on clear audio. Accuracy depends on:</p>
+            <p>
+              We use OpenAI's Whisper model which achieves
+              <strong>99%+ accuracy</strong> on clear audio. Accuracy depends
+              on:
+            </p>
             <ul>
               <li>Audio quality (better microphones = better results)</li>
               <li>Background noise levels</li>
               <li>Speaker accents and clarity</li>
             </ul>
-            <p>BWC footage typically achieves 95-98% accuracy. All transcripts include confidence scores.</p>
+            <p>
+              BWC footage typically achieves 95-98% accuracy. All transcripts
+              include confidence scores.
+            </p>
           </div>
         </div>
 
@@ -338,7 +406,9 @@
             <i class="fas fa-chevron-down faq-toggle"></i>
           </div>
           <div class="faq-answer">
-            <p><strong>Yes.</strong> All analysis reports can be exported to:</p>
+            <p>
+              <strong>Yes.</strong> All analysis reports can be exported to:
+            </p>
             <ul>
               <li><strong>PDF</strong> – Professional court exhibits</li>
               <li><strong>DOCX</strong> – Microsoft Word</li>
@@ -367,22 +437,30 @@
 
       <!-- Legal Section -->
       <div class="faq-section">
-        <h2 class="faq-section-title"><i class="fas fa-gavel"></i> Legal & Security</h2>
-        
+        <h2 class="faq-section-title">
+          <i class="fas fa-gavel"></i> Legal & Security
+        </h2>
+
         <div class="faq-item" onclick="toggleFaq(this)">
           <div class="faq-question">
             Is this admissible in court?
             <i class="fas fa-chevron-down faq-toggle"></i>
           </div>
           <div class="faq-answer">
-            <p>Our platform generates court-defensible evidence packages with:</p>
+            <p>
+              Our platform generates court-defensible evidence packages with:
+            </p>
             <ul>
               <li>SHA-256 chain of custody verification</li>
               <li>Audit logs of all processing steps</li>
               <li>Original file preservation</li>
               <li>Timestamped metadata</li>
             </ul>
-            <p><strong>Note:</strong> Always consult with your legal team. We provide tools for evidence analysis, but attorneys determine admissibility.</p>
+            <p>
+              <strong>Note:</strong> Always consult with your legal team. We
+              provide tools for evidence analysis, but attorneys determine
+              admissibility.
+            </p>
           </div>
         </div>
 
@@ -392,7 +470,13 @@
             <i class="fas fa-chevron-down faq-toggle"></i>
           </div>
           <div class="faq-answer">
-            <p>Every file uploaded is immediately hashed with <strong>SHA-256</strong>. This cryptographic fingerprint proves the file hasn't been altered. All processing steps are logged with timestamps, creating a verifiable audit trail exportable for court.</p>
+            <p>
+              Every file uploaded is immediately hashed with
+              <strong>SHA-256</strong>. This cryptographic fingerprint proves
+              the file hasn't been altered. All processing steps are logged with
+              timestamps, creating a verifiable audit trail exportable for
+              court.
+            </p>
           </div>
         </div>
 
@@ -404,9 +488,15 @@
           <div class="faq-answer">
             <p>Yes. BarberX employs:</p>
             <ul>
-              <li><strong>AES-256 encryption</strong> at rest and in transit</li>
-              <li><strong>SOC 2 Type II</strong> compliance (Enterprise tier)</li>
-              <li><strong>Role-based access control</strong> for team accounts</li>
+              <li>
+                <strong>AES-256 encryption</strong> at rest and in transit
+              </li>
+              <li>
+                <strong>SOC 2 Type II</strong> compliance (Enterprise tier)
+              </li>
+              <li>
+                <strong>Role-based access control</strong> for team accounts
+              </li>
               <li><strong>Audit logging</strong> of all user actions</li>
             </ul>
           </div>
@@ -416,14 +506,18 @@
       <!-- Technical Section -->
       <div class="faq-section">
         <h2 class="faq-section-title"><i class="fas fa-cog"></i> Technical</h2>
-        
+
         <div class="faq-item" onclick="toggleFaq(this)">
           <div class="faq-question">
             Do I need a GPU?
             <i class="fas fa-chevron-down faq-toggle"></i>
           </div>
           <div class="faq-answer">
-            <p><strong>No, but it helps.</strong> All AI models work on CPU-only systems. A GPU (NVIDIA with CUDA) will speed up processing by 2-5x, especially for long videos.</p>
+            <p>
+              <strong>No, but it helps.</strong> All AI models work on CPU-only
+              systems. A GPU (NVIDIA with CUDA) will speed up processing by
+              2-5x, especially for long videos.
+            </p>
           </div>
         </div>
 
@@ -440,8 +534,13 @@
               <li>8GB RAM</li>
               <li>50GB free disk space</li>
             </ul>
-            <p><strong>Recommended:</strong> 16GB+ RAM, NVIDIA GPU with CUDA, SSD storage</p>
-            <p><a href="/docs/installation/">View full installation guide →</a></p>
+            <p>
+              <strong>Recommended:</strong> 16GB+ RAM, NVIDIA GPU with CUDA, SSD
+              storage
+            </p>
+            <p>
+              <a href="/docs/installation/">View full installation guide →</a>
+            </p>
           </div>
         </div>
 
@@ -451,7 +550,11 @@
             <i class="fas fa-chevron-down faq-toggle"></i>
           </div>
           <div class="faq-answer">
-            <p><strong>Yes!</strong> Professional, Premium, and Enterprise tiers include REST API access for integrating BarberX into your existing workflows.</p>
+            <p>
+              <strong>Yes!</strong> Professional, Premium, and Enterprise tiers
+              include REST API access for integrating BarberX into your existing
+              workflows.
+            </p>
             <p><a href="/api">View API Reference →</a></p>
           </div>
         </div>
@@ -472,10 +575,10 @@
     <script>
       function toggleFaq(element) {
         // Close other open items
-        document.querySelectorAll('.faq-item.active').forEach(item => {
-          if (item !== element) item.classList.remove('active');
+        document.querySelectorAll(".faq-item.active").forEach((item) => {
+          if (item !== element) item.classList.remove("active");
         });
-        element.classList.toggle('active');
+        element.classList.toggle("active");
       }
     </script>
   </body>

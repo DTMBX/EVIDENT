@@ -217,8 +217,9 @@
     </style>
   </head>
   <body data-theme="{{ site_settings['ui.theme'] | default('system') }}">
-    {% if site_settings['site.banner_enabled'] and site_settings['site.banner_message'] %}
-      <div class="site-banner">{{ site_settings['site.banner_message'] }}</div>
+    {% if site_settings['site.banner_enabled'] and
+    site_settings['site.banner_message'] %}
+    <div class="site-banner">{{ site_settings['site.banner_message'] }}</div>
     {% endif %}
 
     <div class="tool-container">

@@ -484,22 +484,22 @@
       // Check authentication on page load
       async function checkAuth() {
         try {
-          const response = await fetch('/api/user/profile', { 
-            method: 'GET',
-            credentials: 'include'
+          const response = await fetch("/api/user/profile", {
+            method: "GET",
+            credentials: "include",
           });
           if (response.status === 401) {
-            alert('Please log in to upload files.');
-            window.location.href = '/auth/login?next=/batch-pdf-upload.html';
+            alert("Please log in to upload files.");
+            window.location.href = "/auth/login?next=/batch-pdf-upload.html";
             return false;
           }
           return true;
         } catch (e) {
-          console.warn('Auth check failed:', e);
+          console.warn("Auth check failed:", e);
           return true; // Allow to proceed, server will handle auth
         }
       }
-      
+
       // Configuration
       const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50MB
       const MAX_FILES = 100;
@@ -766,13 +766,17 @@
           if (!contentType || !contentType.includes("application/json")) {
             // Server returned HTML (likely login page) instead of JSON
             if (response.status === 401 || response.status === 302) {
-              throw new Error("Authentication required. Please log in and try again.");
+              throw new Error(
+                "Authentication required. Please log in and try again.",
+              );
             }
-            throw new Error(`Server error (${response.status}). Please try again.`);
+            throw new Error(
+              `Server error (${response.status}). Please try again.`,
+            );
           }
 
           const data = await response.json();
-          
+
           if (!response.ok) {
             throw new Error(data.error || "Upload failed");
           }

@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Documentation | BarberX Legal Tech</title>
     <link rel="stylesheet" href="/assets/css/legal-tech-platform.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <style>
       :root {
         --primary-navy: #0f172a;
@@ -24,13 +27,21 @@
         background: var(--bg-color);
         margin: 0;
         padding: 0;
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
         color: var(--text-primary);
       }
 
       /* Unified Docs Header */
       .docs-header {
-        background: linear-gradient(135deg, var(--accent-red) 0%, var(--primary-navy) 100%);
+        background: linear-gradient(
+          135deg,
+          var(--accent-red) 0%,
+          var(--primary-navy) 100%
+        );
         color: white;
         padding: 3rem 2rem;
         position: relative;
@@ -38,7 +49,7 @@
       }
 
       .docs-header::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: 0;
@@ -179,7 +190,11 @@
       }
 
       .docs-nav-link.active {
-        background: linear-gradient(135deg, var(--accent-red), var(--accent-blue));
+        background: linear-gradient(
+          135deg,
+          var(--accent-red),
+          var(--accent-blue)
+        );
         color: white;
       }
 
@@ -221,7 +236,8 @@
         margin: 0 0 1rem 0;
       }
 
-      .doc-card ul, .doc-card ol {
+      .doc-card ul,
+      .doc-card ol {
         color: var(--text-secondary);
         line-height: 1.8;
         padding-left: 1.5rem;
@@ -436,7 +452,10 @@
             <li><strong>Python:</strong> 3.8 or higher</li>
             <li><strong>RAM:</strong> 8GB minimum (16GB recommended)</li>
             <li><strong>Storage:</strong> 10GB free disk space</li>
-            <li><strong>GPU:</strong> Optional (CUDA-enabled for faster processing)</li>
+            <li>
+              <strong>GPU:</strong> Optional (CUDA-enabled for faster
+              processing)
+            </li>
           </ul>
 
           <h3>Install Python Dependencies</h3>
@@ -447,7 +466,8 @@ python -m spacy download en_core_web_sm</code></pre>
 
           <p>
             <a href="/docs/installation/" class="btn-secondary">
-              <i class="fas fa-arrow-right"></i> View Complete Installation Guide
+              <i class="fas fa-arrow-right"></i> View Complete Installation
+              Guide
             </a>
           </p>
         </div>
@@ -480,14 +500,27 @@ python -m spacy download en_core_web_sm</code></pre>
 
         <div id="transcription" class="doc-card">
           <h2><i class="fas fa-microphone"></i> Transcription</h2>
-          <p>BarberX uses OpenAI Whisper for state-of-the-art audio transcription:</p>
+          <p>
+            BarberX uses OpenAI Whisper for state-of-the-art audio
+            transcription:
+          </p>
           <ul>
-            <li><strong>99%+ Accuracy:</strong> Industry-leading speech recognition</li>
-            <li><strong>Word-Level Timestamps:</strong> Precise timing for every word</li>
+            <li>
+              <strong>99%+ Accuracy:</strong> Industry-leading speech
+              recognition
+            </li>
+            <li>
+              <strong>Word-Level Timestamps:</strong> Precise timing for every
+              word
+            </li>
             <li><strong>Multi-Language:</strong> Supports 100+ languages</li>
-            <li><strong>Noise Robust:</strong> Performs well with background noise</li>
+            <li>
+              <strong>Noise Robust:</strong> Performs well with background noise
+            </li>
           </ul>
-          <p>All transcripts include confidence scores and are fully editable.</p>
+          <p>
+            All transcripts include confidence scores and are fully editable.
+          </p>
         </div>
 
         <div id="entity-extraction" class="doc-card">
@@ -495,24 +528,43 @@ python -m spacy download en_core_web_sm</code></pre>
           <p>Automatically extract key information from your evidence:</p>
           <ul>
             <li><strong>People:</strong> Names, roles, and relationships</li>
-            <li><strong>Organizations:</strong> Companies, agencies, departments</li>
-            <li><strong>Locations:</strong> Addresses, landmarks, jurisdictions</li>
-            <li><strong>Dates & Times:</strong> Timestamps, deadlines, schedules</li>
-            <li><strong>Legal Terms:</strong> Case numbers, statutes, citations</li>
-            <li><strong>Evidence IDs:</strong> Badge numbers, serial numbers, plates</li>
+            <li>
+              <strong>Organizations:</strong> Companies, agencies, departments
+            </li>
+            <li>
+              <strong>Locations:</strong> Addresses, landmarks, jurisdictions
+            </li>
+            <li>
+              <strong>Dates & Times:</strong> Timestamps, deadlines, schedules
+            </li>
+            <li>
+              <strong>Legal Terms:</strong> Case numbers, statutes, citations
+            </li>
+            <li>
+              <strong>Evidence IDs:</strong> Badge numbers, serial numbers,
+              plates
+            </li>
           </ul>
         </div>
 
         <div id="discrepancies" class="doc-card">
-          <h2><i class="fas fa-exclamation-triangle"></i> Discrepancy Finding</h2>
-          <p>Compare multiple evidence sources and automatically flag inconsistencies:</p>
+          <h2>
+            <i class="fas fa-exclamation-triangle"></i> Discrepancy Finding
+          </h2>
+          <p>
+            Compare multiple evidence sources and automatically flag
+            inconsistencies:
+          </p>
           <ul>
             <li>Timeline discrepancies between reports and footage</li>
             <li>Quoted statement variations</li>
             <li>Missing or altered details</li>
             <li>Contradictory descriptions of events</li>
           </ul>
-          <p>Results are highlighted with severity levels and exportable for court.</p>
+          <p>
+            Results are highlighted with severity levels and exportable for
+            court.
+          </p>
         </div>
 
         <div id="bwc-analysis" class="doc-card">
@@ -549,7 +601,9 @@ python -m spacy download en_core_web_sm</code></pre>
             <li>Parallel processing for faster results</li>
             <li>Consolidated reports across all files</li>
           </ul>
-          <p><em>Available on Professional, Premium, and Enterprise tiers.</em></p>
+          <p>
+            <em>Available on Professional, Premium, and Enterprise tiers.</em>
+          </p>
         </div>
 
         <div id="api-integration" class="doc-card">
@@ -576,16 +630,24 @@ print(response.json())</code></pre>
           <h2><i class="fas fa-link"></i> Chain of Custody</h2>
           <p>Maintain court-admissible evidence integrity:</p>
           <ul>
-            <li><strong>SHA-256 Hashing:</strong> Cryptographic verification of all files</li>
-            <li><strong>Audit Logging:</strong> Every action is timestamped and attributed</li>
-            <li><strong>Export Reports:</strong> Court-ready custody documentation</li>
+            <li>
+              <strong>SHA-256 Hashing:</strong> Cryptographic verification of
+              all files
+            </li>
+            <li>
+              <strong>Audit Logging:</strong> Every action is timestamped and
+              attributed
+            </li>
+            <li>
+              <strong>Export Reports:</strong> Court-ready custody documentation
+            </li>
             <li><strong>Version Control:</strong> Track all modifications</li>
           </ul>
         </div>
 
         <div class="docs-footer">
           <p>Need help? Our team is here to assist.</p>
-          <a href="/contact" class="btn-secondary" style="margin-right: 0.5rem;">
+          <a href="/contact" class="btn-secondary" style="margin-right: 0.5rem">
             <i class="fas fa-envelope"></i> Contact Support
           </a>
           <a href="/faq" class="btn-secondary">
