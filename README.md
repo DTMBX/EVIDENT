@@ -1,33 +1,76 @@
-﻿# BarberX Legal Technologies
+# BarberX Legal Technologies (BXLT)
 
-Professional-grade AI-powered eDiscovery platform for civil rights litigation.
+**BarberX Legal Technologies** is a local-first legal-tech platform for processing, analyzing, and organizing digital evidence in civil-rights and constitutional litigation.
 
-## Features
+The system is designed to help litigants, advocates, and legal teams work with **body-worn camera footage, discovery documents, and public-records data** in a way that preserves **evidentiary integrity, transparency, and chain of custody**—without reliance on cloud processing.
 
-- ?? BWC Video Analysis (Whisper AI transcription)
-- ?? PDF Document Processing (OCR, entity extraction)
-- ?? Constitutional Violation Detection
-- ?? Court-Ready Reporting
-- ?? Chain of Custody Tracking
-- ?? Timeline Synchronization
+> Evidence is processed locally. Originals are preserved. Analysis is reproducible.
 
-## Quick Start
+---
 
-\\\ash
-# Install dependencies
+## Purpose & Design Principles
+
+BarberX is built around several non-negotiable principles:
+
+- **Local-first processing**  
+  Evidence remains on the user’s system unless explicitly shared.
+
+- **Integrity over automation**  
+  The platform assists analysis; it does not replace legal judgment.
+
+- **Chain of custody awareness**  
+  Originals are immutable. Derivatives are traceable.
+
+- **Civil-rights focused workflows**  
+  Optimized for constitutional, public-accountability, and discovery review contexts.
+
+- **Transparency and auditability**  
+  Processing steps are inspectable and reproducible.
+
+---
+
+## Core Capabilities
+
+### Evidence Processing
+- Body-worn camera (BWC) and dash-cam video ingestion
+- Audio transcription using local speech-to-text models
+- Document OCR for PDFs and scanned records
+- Metadata extraction and normalization
+
+### Analysis & Organization
+- Searchable transcripts and documents
+- Timeline construction across multiple evidence sources
+- Cross-referencing between video, reports, and records
+- Structured notes and annotations
+
+### Integrity & Reporting
+- Hash-based file verification
+- Immutable original evidence handling
+- Audit-friendly processing records
+- Court-ready exports (transcripts, reports, exhibits)
+
+---
+
+## Intended Use
+
+BarberX is intended for:
+- Civil-rights and constitutional litigation
+- Public-records analysis (e.g., OPRA / FOIA)
+- Discovery review and evidence organization
+- Pro se litigants, advocates, and legal professionals
+
+It is **not** designed to provide legal advice or automated legal conclusions.
+
+---
+
+## Quick Start (Local Development)
+
+### Requirements
+- Python 3.9+
+- FFmpeg (for media handling)
+- Tesseract OCR (for document processing)
+
+### Setup
+```bash
 pip install -r requirements.txt
-
-# Run locally
 python app.py
-
-# Access at http://localhost:5000
-\\\
-
-## Documentation
-
-See \docs/\ folder for complete documentation.
-
-## License
-
-MIT License - See LICENSE file
-# BarberX
