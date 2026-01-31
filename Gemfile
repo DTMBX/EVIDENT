@@ -3,6 +3,11 @@ source "https://rubygems.org"
 # Jekyll for Netlify deployment
 gem "jekyll", "~> 4.3.2"
 
+# Required for Ruby 3.4+
+gem "csv"
+gem "base64"
+gem "bigdecimal"
+
 # Required plugins
 gem "jekyll-feed", "~> 0.17"
 gem "jekyll-sitemap", "~> 1.4"

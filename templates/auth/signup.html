@@ -65,12 +65,14 @@
           sans-serif;
         background: linear-gradient(135deg, #c41e3a 0%, #1e40af 100%);
         min-height: 100vh;
+        min-height: 100dvh; /* Dynamic viewport height for mobile */
         display: flex;
         align-items: center;
         justify-content: center;
         padding: 2rem 1rem;
         position: relative;
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: auto; /* Allow vertical scrolling on mobile */
       }
 
       /* Animated background */
@@ -202,7 +204,34 @@
       input[type="text"]#password,
       input[type="password"]#confirm_password,
       input[type="text"]#confirm_password {
-        padding-right: 5.5rem;
+        padding-right: 3.5rem;
+      }
+
+      /* Password toggle button */
+      .password-toggle-btn {
+        position: absolute;
+        right: 0.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        color: #6b7280;
+        transition: color 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+      }
+
+      .password-toggle-btn:hover {
+        color: #c41e3a;
+      }
+
+      .password-toggle-btn:focus {
+        outline: none;
+        color: #c41e3a;
       }
 
       input:focus {
@@ -457,13 +486,20 @@
       }
 
       @media (max-width: 640px) {
+        body {
+          padding: 1.5rem 0.75rem;
+          align-items: flex-start;
+        }
+
         .signup-container {
-          padding: 2rem;
+          padding: 1.75rem;
           border-radius: 24px;
+          margin: 0 auto;
         }
 
         .form-grid {
           grid-template-columns: 1fr;
+          gap: 1rem;
         }
 
         h1 {
@@ -476,6 +512,33 @@
 
         body::before {
           display: none;
+        }
+
+        .input-group input {
+          font-size: 16px; /* Prevents iOS zoom on focus */
+        }
+
+        .btn {
+          padding: 0.875rem 1.25rem;
+        }
+
+        .form-group {
+          margin-bottom: 1.25rem;
+        }
+      }
+
+      /* Extra small devices */
+      @media (max-width: 375px) {
+        .signup-container {
+          padding: 1.25rem;
+        }
+
+        .logo-container {
+          margin-bottom: 1.5rem;
+        }
+
+        .tier-label {
+          padding: 0.75rem 0.5rem;
         }
       }
     </style>
@@ -635,22 +698,9 @@
             </svg>
             <button
               type="button"
-              class="togglePasswordBtn"
+              class="togglePasswordBtn password-toggle-btn"
               data-target="password"
-              style="
-                position: absolute;
-                right: 3rem;
-                top: 50%;
-                transform: translateY(-50%);
-                background: none;
-                border: none;
-                cursor: pointer;
-                padding: 0.5rem;
-                color: #6b7280;
-                transition: color 0.2s;
-              "
-              onmouseover="this.style.color='#c41e3a'"
-              onmouseout="this.style.color='#6b7280'"
+              aria-label="Toggle password visibility"
             >
               <svg class="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
@@ -694,22 +744,9 @@
             </svg>
             <button
               type="button"
-              class="togglePasswordBtn"
+              class="togglePasswordBtn password-toggle-btn"
               data-target="confirm_password"
-              style="
-                position: absolute;
-                right: 3rem;
-                top: 50%;
-                transform: translateY(-50%);
-                background: none;
-                border: none;
-                cursor: pointer;
-                padding: 0.5rem;
-                color: #6b7280;
-                transition: color 0.2s;
-              "
-              onmouseover="this.style.color='#c41e3a'"
-              onmouseout="this.style.color='#6b7280'"
+              aria-label="Toggle password visibility"
             >
               <svg class="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>

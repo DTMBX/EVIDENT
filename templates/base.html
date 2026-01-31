@@ -13,6 +13,7 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/assets/css/brand-tokens.css">
     <link rel="stylesheet" href="/assets/css/legal-tech-platform.css">
+    <link rel="stylesheet" href="/assets/css/ux-enhancements.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -301,10 +302,73 @@
         </nav>
     </header>
     
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+    
     <!-- Main Content -->
-    <main>
+    <main id="main-content" class="page-enter">
         {% block content %}{% endblock %}
     </main>
+    
+    <!-- Global UX Enhancement Scripts -->
+    <script src="/assets/js/ux-components.js"></script>
+    <script>
+    // Legacy toast support (delegates to new ToastManager)
+    if (!window.toast || !window.toast.show) {
+        window.toast = {
+            show: function(message, type = 'info', duration = 5000) {
+                const container = document.getElementById('toast-container') || document.querySelector('.toast-container');
+                const toast = document.createElement('div');
+                toast.className = `toast toast-${type}`;
+                toast.innerHTML = `
+                    <div class="toast-icon">${this.getIconChar(type)}</div>
+                    <div class="toast-content">
+                        <div class="toast-message">${message}</div>
+                    </div>
+                    <button class="toast-close" onclick="this.parentElement.style.animation='toast-out 0.3s forwards';setTimeout(()=>this.parentElement.remove(),300)">✕</button>
+                `;
+                container.appendChild(toast);
+                
+                if (duration > 0) {
+                    setTimeout(() => {
+                        toast.style.animation = 'toast-out 0.3s forwards';
+                        setTimeout(() => toast.remove(), 300);
+                    }, duration);
+                }
+                return toast;
+            },
+            
+            getIconChar: function(type) {
+                return { success: '✓', error: '✕', warning: '⚠', info: 'ℹ' }[type] || 'ℹ';
+            },
+            
+            success: function(msg, duration) { return this.show(msg, 'success', duration); },
+            error: function(msg, duration) { return this.show(msg, 'error', duration || 8000); },
+            warning: function(msg, duration) { return this.show(msg, 'warning', duration); },
+            info: function(msg, duration) { return this.show(msg, 'info', duration); }
+        };
+    }
+    
+    // Auto-dismiss flash messages
+    document.querySelectorAll('.flash-message').forEach(el => {
+        const type = el.dataset.type || 'info';
+        window.toast.show(el.textContent, type);
+        el.remove();
+    });
+    
+    // Keyboard shortcuts hint
+    document.addEventListener('keydown', (e) => {
+        // Ctrl/Cmd + K for search
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+            e.preventDefault();
+            const searchInput = document.querySelector('[data-search-input]');
+            if (searchInput) searchInput.focus();
+        }
+    });
+    </script>
     
     {% block extra_js %}{% endblock %}
 </body>

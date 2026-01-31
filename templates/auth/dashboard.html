@@ -43,6 +43,7 @@
     />
 
     <link rel="stylesheet" href="/assets/css/brand-tokens.css" />
+    <link rel="stylesheet" href="/assets/css/ux-enhancements.css" />
     <link
       rel="stylesheet"
       href="/assets/css/components/barber-pole-spinner.css"
@@ -88,19 +89,6 @@
       }
 
       .header-left {
-
-          <a href="/tools" style="text-decoration: none;">
-            <div style="background: white; border: 2px solid #e0e0e8; border-radius: 12px; padding: 1.5rem; transition: all 0.2s; cursor: pointer;" onmouseover="this.style.borderColor='#c41e3a'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#e0e0e8'; this.style.transform='translateY(0)'">
-              <div style="background: rgba(14, 116, 144, 0.1); color: #0e7490; width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="3" />
-                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V22a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H2a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0A1.65 1.65 0 0 0 9 3.09V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H22a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
-                </svg>
-              </div>
-              <h3 style="font-size: 1.125rem; font-weight: 600; color: #1e293b; margin-bottom: 0.5rem;">Tools Hub</h3>
-              <p style="color: #64748b; font-size: 0.875rem;">Access all analysis utilities</p>
-            </div>
-          </a>
         display: flex;
         align-items: center;
         gap: 1rem;
@@ -340,73 +328,88 @@
         </div>
         <div class="header-title">
           <h1>
-            {{ current_user.tier_greeting }}{% if current_user.full_name %}, {{ current_user.full_name }}{% endif %}
+            {{ current_user.tier_greeting }}{% if current_user.full_name %}, {{
+            current_user.full_name }}{% endif %}
           </h1>
-          <p class="header-subtitle">{{ current_user.email }} · {{ current_user.tier_name }} Member</p>
+          <p class="header-subtitle">
+            {{ current_user.email }} · {{ current_user.tier_name }} Member
+          </p>
         </div>
       </div>
       <div>
-        <span class="tier-badge" style="{% if current_user.tier.name in ['ENTERPRISE', 'ADMIN'] %}background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #1e293b;{% endif %}">
+        <span
+          class="tier-badge"
+          style="{% if current_user.tier.name in ['ENTERPRISE', 'ADMIN'] %}background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #1e293b;{% endif %}"
+        >
           <svg class="tier-badge-icon" viewBox="0 0 24 24" fill="currentColor">
             <path
               d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
             />
           </svg>
-          {{ current_user.tier_name }}{% if current_user.tier.name in ['ENTERPRISE', 'ADMIN'] %} ⚡{% endif %}
+          {{ current_user.tier_name }}{% if current_user.tier.name in
+          ['ENTERPRISE', 'ADMIN'] %} ⚡{% endif %}
         </span>
         {% if current_user.is_admin %}
-        <a href="/admin" style="
-          background: linear-gradient(135deg, #1e40af, #3b82f6);
-          color: white;
-          padding: 0.5rem 1rem;
-          border-radius: 8px;
-          text-decoration: none;
-          font-size: 0.875rem;
-          font-weight: 600;
-          margin-left: 0.5rem;
-        ">🔧 Admin Panel</a>
+        <a
+          href="/admin"
+          style="
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+          "
+          >🔧 Admin Panel</a
+        >
         {% endif %}
         <a href="/auth/logout" class="logout-btn">Logout</a>
       </div>
     </div>
 
     <div class="dashboard-container">
-      {# Show Enterprise/Admin Status Banner #}
-      {% if current_user.tier.name in ['ENTERPRISE', 'ADMIN'] %}
-      <div style="
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-        color: white;
-        padding: 1.5rem 2rem;
-        border-radius: 12px;
-        margin-bottom: 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      ">
+      {# Show Enterprise/Admin Status Banner #} {% if current_user.tier.name in
+      ['ENTERPRISE', 'ADMIN'] %}
+      <div
+        style="
+          background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+          color: white;
+          padding: 1.5rem 2rem;
+          border-radius: 12px;
+          margin-bottom: 2rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        "
+      >
         <div>
-          <h3 style="margin: 0 0 0.5rem 0; font-size: 1.25rem;">
+          <h3 style="margin: 0 0 0.5rem 0; font-size: 1.25rem">
             ⚡ {{ current_user.tier_name }} Access Active
           </h3>
-          <p style="margin: 0; opacity: 0.8; font-size: 0.9rem;">
-            Unlimited access to all features • Priority support • API access enabled
+          <p style="margin: 0; opacity: 0.8; font-size: 0.9rem">
+            Unlimited access to all features • Priority support • API access
+            enabled
           </p>
         </div>
-        <div style="text-align: right;">
-          <span style="
-            background: rgba(16, 185, 129, 0.2);
-            color: #10b981;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-          ">✓ All Features Unlocked</span>
+        <div style="text-align: right">
+          <span
+            style="
+              background: rgba(16, 185, 129, 0.2);
+              color: #10b981;
+              padding: 0.5rem 1rem;
+              border-radius: 20px;
+              font-size: 0.85rem;
+              font-weight: 600;
+            "
+            >✓ All Features Unlocked</span
+          >
         </div>
       </div>
-      {% endif %}
-      
-      {# Tier Upgrade Card - Shows personalized upgrade path (only for lower tiers) #}
-      {% if current_user.tier.name in ['FREE', 'STARTER'] %} {%
-      include 'components/tier-upgrade-card.html' %} {% endif %}
+      {% endif %} {# Tier Upgrade Card - Shows personalized upgrade path (only
+      for lower tiers) #} {% if current_user.tier.name in ['FREE', 'STARTER'] %}
+      {% include 'components/tier-upgrade-card.html' %} {% endif %}
 
       <!-- Quick Access Navigation -->
       <div style="margin-bottom: 2rem">
@@ -487,7 +490,7 @@
             </div>
           </a>
 
-          <a href="/chat" style="text-decoration: none">
+          <a href="/tools" style="text-decoration: none">
             <div
               style="
                 background: white;
@@ -508,7 +511,7 @@
             >
               <div
                 style="
-                  background: rgba(30, 64, 175, 0.1);
+                  background: rgba(59, 130, 246, 0.1);
                   color: #1e40af;
                   width: 48px;
                   height: 48px;
@@ -540,15 +543,15 @@
                   margin-bottom: 0.5rem;
                 "
               >
-                AI Legal Assistant
+                AI Analysis Tools
               </h3>
               <p style="color: #64748b; font-size: 0.875rem">
-                Chat with AI for legal research and analysis
+                Access all AI pipelines and analysis tools
               </p>
             </div>
           </a>
 
-          <a href="/batch-pdf-upload.html" style="text-decoration: none">
+          <a href="/batch-upload" style="text-decoration: none">
             <div
               style="
                 background: white;
@@ -606,6 +609,68 @@
               </h3>
               <p style="color: #64748b; font-size: 0.875rem">
                 Batch upload legal documents and PDFs
+              </p>
+            </div>
+          </a>
+
+          <a href="/tools" style="text-decoration: none">
+            <div
+              style="
+                background: white;
+                border: 2px solid #e0e0e8;
+                border-radius: 12px;
+                padding: 1.5rem;
+                transition: all 0.2s;
+                cursor: pointer;
+              "
+              onmouseover="
+                this.style.borderColor = '#c41e3a';
+                this.style.transform = 'translateY(-2px)';
+              "
+              onmouseout="
+                this.style.borderColor = '#e0e0e8';
+                this.style.transform = 'translateY(0)';
+              "
+            >
+              <div
+                style="
+                  background: rgba(14, 116, 144, 0.1);
+                  color: #0e7490;
+                  width: 48px;
+                  height: 48px;
+                  border-radius: 12px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin-bottom: 1rem;
+                "
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="3" />
+                  <path
+                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
+                  />
+                </svg>
+              </div>
+              <h3
+                style="
+                  font-size: 1.125rem;
+                  font-weight: 600;
+                  color: #1e293b;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Tools Hub
+              </h3>
+              <p style="color: #64748b; font-size: 0.875rem">
+                Transcript search, timeline builder & more
               </p>
             </div>
           </a>
@@ -669,7 +734,7 @@
               </p>
             </div>
           </a>
-          
+
           {% if current_user.is_admin %}
           <a href="/admin" style="text-decoration: none">
             <div
@@ -681,8 +746,8 @@
                 transition: all 0.2s;
                 cursor: pointer;
               "
-              onmouseover="this.style.transform = 'translateY(-2px)';"
-              onmouseout="this.style.transform = 'translateY(0)';"
+              onmouseover="this.style.transform = 'translateY(-2px)'"
+              onmouseout="this.style.transform = 'translateY(0)'"
             >
               <div
                 style="
@@ -697,9 +762,18 @@
                   margin-bottom: 1rem;
                 "
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="3"/>
-                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="3" />
+                  <path
+                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
+                  />
                 </svg>
               </div>
               <h3
@@ -931,5 +1005,58 @@
     {% if site_settings['site.footer_notice'] %}
     <div class="footer-notice">{{ site_settings['site.footer_notice'] }}</div>
     {% endif %}
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <!-- Global Toast Script -->
+    <script>
+      window.toast = {
+        show: function (message, type = "info", duration = 5000) {
+          const container = document.getElementById("toast-container");
+          const toast = document.createElement("div");
+          toast.className = `toast toast-${type}`;
+          toast.innerHTML = `
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                    ${this.getIcon(type)}
+                </svg>
+                <div style="flex: 1; color: #374151;"><span>${message}</span></div>
+                <button onclick="this.parentElement.classList.add('toast-exit'); setTimeout(() => this.parentElement.remove(), 200)" 
+                        style="background: none; border: none; color: #9ca3af; cursor: pointer; padding: 0;">✕</button>
+            `;
+          container.appendChild(toast);
+          if (duration > 0)
+            setTimeout(() => {
+              toast.classList.add("toast-exit");
+              setTimeout(() => toast.remove(), 200);
+            }, duration);
+          return toast;
+        },
+        getIcon: function (type) {
+          const icons = {
+            success:
+              '<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>',
+            error:
+              '<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"/>',
+            warning:
+              '<path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"/>',
+            info: '<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"/>',
+          };
+          return icons[type] || icons.info;
+        },
+        success: function (msg, d) {
+          return this.show(msg, "success", d);
+        },
+        error: function (msg, d) {
+          return this.show(msg, "error", d);
+        },
+        warning: function (msg, d) {
+          return this.show(msg, "warning", d);
+        },
+        info: function (msg, d) {
+          return this.show(msg, "info", d);
+        },
+      };
+    </script>
   </body>
 </html>

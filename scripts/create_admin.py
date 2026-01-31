@@ -10,8 +10,8 @@ from datetime import datetime
 from werkzeug.security import generate_password_hash
 
 # SECURE ADMIN CREDENTIALS - LOADED FROM ENVIRONMENT
-ADMIN_EMAIL = os.environ.get('BARBERX_ADMIN_EMAIL', 'admin@barberx.info')
-ADMIN_PASSWORD = os.environ.get('BARBERX_ADMIN_PASSWORD')  # MUST be set in environment
+ADMIN_EMAIL = os.environ.get("BARBERX_ADMIN_EMAIL", "admin@barberx.info")
+ADMIN_PASSWORD = os.environ.get("BARBERX_ADMIN_PASSWORD")  # MUST be set in environment
 ADMIN_NAME = "BarberX System Administrator"
 
 if not ADMIN_PASSWORD:

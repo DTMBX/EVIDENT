@@ -373,10 +373,6 @@
 }
 
 /* ===== Accessibility ===== */
-.hero-visual svg {
-  aria-hidden: true;
-}
-
 .hero-content a:focus-visible,
 .hero-cta:focus-visible {
   outline: 2px solid var(--hero-accent);

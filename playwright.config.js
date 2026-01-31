@@ -6,7 +6,7 @@ const { defineConfig, devices } = require("@playwright/test");
  * Tests all features and tier-based access levels
  */
 module.exports = defineConfig({
-  testDir: "./tests",
+  testDir: "./tests/e2e",
 
   /* Run tests in files in parallel */
   fullyParallel: false, // Sequential for auth tests

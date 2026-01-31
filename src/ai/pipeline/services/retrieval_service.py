@@ -21,25 +21,21 @@ logger = logging.getLogger(__name__)
 
 class RetrievalService:
     """Handles passage retrieval with citation metadata"""
-    
+
     def __init__(self, config: Optional[dict] = None):
         self.config = config or {}
-        
+
         # Passage extraction settings
         self.snippet_context_chars = self.config.get("snippet_context_chars", 200)
-        
+
         logger.info("RetrievalService initialized")
-    
+
     def retrieve(
-        self,
-        query: str,
-        filters: Optional[Dict] = None,
-        top_k: int = 10,
-        method: str = "keyword"
+        self, query: str, filters: Optional[Dict] = None, top_k: int = 10, method: str = "keyword"
     ) -> RetrieveResult:
         """
         Retrieve relevant passages (NOT whole documents)
-        
+
         Steps:
         1. Parse query
         2. Search FTS5 index (keyword) or ChromaDB (semantic)
@@ -50,33 +46,28 @@ class RetrievalService:
            - Extract passage with context
            - Create Passage object with offsets
         5. Return RetrieveResult
-        
+
         Args:
             query: Search query
             filters: Optional filters (source_system, date_range, etc.)
             top_k: Max passages to return
             method: Retrieval method (keyword, semantic, hybrid)
-        
+
         Returns:
             RetrieveResult with citation-ready passages
         """
         logger.info(f"Retrieving passages: query='{query}', method={method}, top_k={top_k}")
-        
+
         # Return empty result if no documents indexed yet
         # This allows the chat to work with smart tools fallback
         logger.info("No documents indexed - returning empty result for smart tools fallback")
-        
-        return RetrieveResult(
-            passages=[],
-            total_matches=0,
-            query=query,
-            retrieval_method=method
-        )
-    
+
+        return RetrieveResult(passages=[], total_matches=0, query=query, retrieval_method=method)
+
     def _search_fts5(self, query: str, filters: Dict, top_k: int) -> List[Dict]:
         """
         Search FTS5 keyword index
-        
+
         Returns:
             List of {document_id, page_number, score, rank}
         """
@@ -87,23 +78,19 @@ class RetrievalService:
         # ORDER BY rank
         # LIMIT ?
         pass
-    
+
     def _extract_passage(
-        self,
-        document_id: int,
-        page_number: int,
-        match_position: int,
-        page_text: str
+        self, document_id: int, page_number: int, match_position: int, page_text: str
     ) -> Passage:
         """
         Extract passage with context around match
-        
+
         Args:
             document_id: Document ID
             page_number: Page number (1-indexed)
             match_position: Character offset of match in page
             page_text: Full page text
-        
+
         Returns:
             Passage with offsets and snippet
         """

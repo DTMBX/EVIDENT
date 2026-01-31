@@ -270,7 +270,7 @@
 @media (hover: none) and (pointer: coarse) {
   /* Fix Android tap highlight */
   * {
-    -webkit-tap-highlight-color: rgba(196, 30, 58, 0.1);
+    -webkit-tap-highlight-color: rgb(196 30 58 / 10%);
   }
 
   /* Fix Android select styling */
@@ -320,7 +320,7 @@
     padding: 0.5rem 0;
     padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
     z-index: 1000;
-    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 -2px 8px rgb(0 0 0 / 5%);
   }
 
   .bottom-nav-item {
@@ -356,7 +356,7 @@
     background: #c41e3a;
     color: #ffffff;
     border: none;
-    box-shadow: 0 4px 12px rgba(196, 30, 58, 0.3);
+    box-shadow: 0 4px 12px rgb(196 30 58 / 30%);
     display: flex;
     align-items: center;
     justify-content: center;

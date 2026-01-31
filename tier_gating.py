@@ -355,3 +355,143 @@ def register_tier_gate_helpers(app):
             "get_remaining_usage": TierGate.get_remaining_usage,
             "get_usage_stats": TierGate.get_usage_stats,
         }
+
+
+# ============================================
+# Helper functions for API modules
+# ============================================
+
+
+def check_tier_access(feature_name):
+    """
+    Decorator to check if user has access to a feature
+
+    Args:
+        feature_name: Name of the feature to check (e.g., 'ai_analysis')
+
+    Usage:
+        @check_tier_access("ai_analysis")
+        def my_route():
+            pass
+    """
+
+    def decorator(f):
+        @wraps(f)
+        def decorated_function(*args, **kwargs):
+            from flask_login import current_user
+
+            # Check if user is logged in
+            if not current_user.is_authenticated:
+                return jsonify({"error": "Authentication required"}), 401
+
+            # Get user's tier limits
+            limits = current_user.get_tier_limits()
+
+            # Check if feature exists and is enabled
+            feature_value = limits.get(feature_name)
+
+            if feature_value is None:
+                # Feature not defined, allow access
+                return f(*args, **kwargs)
+
+            # Check boolean features
+            if isinstance(feature_value, bool) and not feature_value:
+                return (
+                    jsonify(
+                        {
+                            "error": f"Feature '{feature_name}' not available in your tier",
+                            "upgrade_required": True,
+                            "current_tier": current_user.tier.name,
+                            "upgrade_url": "/pricing",
+                        }
+                    ),
+                    403,
+                )
+
+            # Check numeric features (0 = disabled)
+            if isinstance(feature_value, (int, float)) and feature_value == 0:
+                return (
+                    jsonify(
+                        {
+                            "error": f"Feature '{feature_name}' not available in your tier",
+                            "upgrade_required": True,
+                            "current_tier": current_user.tier.name,
+                            "upgrade_url": "/pricing",
+                        }
+                    ),
+                    403,
+                )
+
+            # Check string features ("none" = disabled)
+            if isinstance(feature_value, str) and feature_value.lower() == "none":
+                return (
+                    jsonify(
+                        {
+                            "error": f"Feature '{feature_name}' not available in your tier",
+                            "upgrade_required": True,
+                            "current_tier": current_user.tier.name,
+                            "upgrade_url": "/pricing",
+                        }
+                    ),
+                    403,
+                )
+
+            return f(*args, **kwargs)
+
+        return decorated_function
+
+    return decorator
+
+
+def get_tier_limits(user=None):
+    """
+    Get tier limits for a user
+
+    Args:
+        user: User object (optional, uses current_user if not provided)
+
+    Returns:
+        dict: Tier limits dictionary
+    """
+    if user is None:
+        from flask_login import current_user
+
+        if current_user.is_authenticated:
+            user = current_user
+
+    if not user or not hasattr(user, "get_tier_limits"):
+        # Return basic free tier limits
+        return {
+            "bwc_videos_per_month": 1,
+            "bwc_video_hours_per_month": 1,
+            "document_pages_per_month": 5,
+            "transcription_minutes_per_month": 10,
+            "storage_gb": 1,
+            "search_queries_per_month": 50,
+            "ai_requests_per_month": 10,
+            "case_limit": 2,
+        }
+
+    return user.get_tier_limits()
+
+
+def get_user_tier(user=None):
+    """
+    Get user's tier level
+
+    Args:
+        user: User object (optional, uses current_user if not provided)
+
+    Returns:
+        TierLevel enum value
+    """
+    if user is None:
+        from flask_login import current_user
+
+        if current_user.is_authenticated:
+            user = current_user
+
+    if not user or not hasattr(user, "tier"):
+        return TierLevel.FREE
+
+    return user.tier

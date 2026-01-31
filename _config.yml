@@ -12,7 +12,7 @@ sales_email: sales@barberx.info
 
 # Build settings
 markdown: kramdown
-theme: minima
+# theme: minima  # Using custom layouts in _layouts/
 
 # Exclude from processing
 exclude:
@@ -20,12 +20,13 @@ exclude:
   - Gemfile.lock
   - node_modules
   - vendor
+  - barber-cam
   - .sass-cache
   - .jekyll-cache
   - venv
   - .venv
   - __pycache__
-  - *.py
+  - "*.py"
   - requirements.txt
   - app.py
   - instance

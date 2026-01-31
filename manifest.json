@@ -1,13 +1,16 @@
 {
   "name": "BarberX Legal Technologies",
   "short_name": "BarberX",
-  "description": "Professional legal video analysis and forensic tools",
-  "start_url": "/",
+  "description": "Professional legal video analysis, forensic tools, and AI-powered document intelligence",
+  "start_url": "/?source=pwa",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#0a2540",
   "theme_color": "#c41e3a",
-  "orientation": "portrait-primary",
+  "orientation": "any",
   "scope": "/",
+  "id": "barberx-legal-tech",
+  "lang": "en-US",
+  "dir": "ltr",
   "icons": [
     {
       "src": "/assets/images/icon-72.png",
@@ -58,7 +61,7 @@
       "purpose": "maskable any"
     }
   ],
-  "categories": ["business", "productivity", "utilities"],
+  "categories": ["business", "productivity", "utilities", "legal"],
   "screenshots": [
     {
       "src": "/assets/screenshots/home.png",
@@ -68,36 +71,98 @@
       "label": "Home Dashboard"
     },
     {
+      "src": "/assets/screenshots/workspace.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Document Review Workspace"
+    },
+    {
       "src": "/assets/screenshots/cases.png",
       "sizes": "750x1334",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Case Management"
+    },
+    {
+      "src": "/assets/screenshots/mobile-chat.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "AI Legal Assistant"
     }
   ],
   "shortcuts": [
     {
+      "name": "Document Review",
+      "short_name": "Workspace",
+      "description": "Open document review workspace",
+      "url": "/workspace?source=shortcut",
+      "icons": [{ "src": "/assets/icons/workspace-icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Upload Document",
+      "short_name": "Upload",
+      "description": "Upload a new document for analysis",
+      "url": "/workspace?action=upload&source=shortcut",
+      "icons": [{ "src": "/assets/icons/upload-icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "AI Assistant",
+      "short_name": "Chat",
+      "description": "Chat with AI legal assistant",
+      "url": "/chat?source=shortcut",
+      "icons": [{ "src": "/assets/icons/chat-icon.png", "sizes": "96x96" }]
+    },
+    {
       "name": "View Cases",
       "short_name": "Cases",
       "description": "Browse all legal cases",
-      "url": "/cases/",
+      "url": "/cases/?source=shortcut",
       "icons": [{ "src": "/assets/icons/cases-icon.png", "sizes": "96x96" }]
-    },
-    {
-      "name": "OPRA Records",
-      "short_name": "OPRA",
-      "description": "View OPRA administrative records",
-      "url": "/opra/",
-      "icons": [{ "src": "/assets/icons/opra-icon.png", "sizes": "96x96" }]
-    },
-    {
-      "name": "Essays",
-      "short_name": "Essays",
-      "description": "Read legal essays and analysis",
-      "url": "/essays/",
-      "icons": [{ "src": "/assets/icons/essays-icon.png", "sizes": "96x96" }]
     }
   ],
+  "share_target": {
+    "action": "/api/share-target",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [
+        {
+          "name": "documents",
+          "accept": ["application/pdf", "text/plain", ".doc", ".docx", "application/msword"]
+        }
+      ]
+    }
+  },
+  "file_handlers": [
+    {
+      "action": "/open-document",
+      "accept": {
+        "application/pdf": [".pdf"],
+        "text/plain": [".txt"],
+        "application/msword": [".doc"],
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": [".docx"]
+      }
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+barberx",
+      "url": "/protocol-handler?url=%s"
+    }
+  ],
+  "launch_handler": {
+    "client_mode": ["navigate-existing", "auto"]
+  },
+  "handle_links": "preferred",
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "display_override": ["window-controls-overlay", "standalone", "browser"],
   "related_applications": [],
   "prefer_related_applications": false
 }

@@ -31,6 +31,8 @@
         --primary-navy-dark: #051229;
         --accent-blue: #3b82f6;
         --accent-gold: #f59e0b;
+        --inmate-orange: #ff6b35;
+        --inmate-orange-dark: #e55a2b;
         --surface-color: #ffffff;
         --bg-color: #f8fafc;
         --text-primary: #0f172a;
@@ -116,9 +118,41 @@
         .logo-link img {
           height: 40px;
         }
+
+        /* Mobile-First Hero Compression */
+        .hero {
+          padding: 3rem 1.5rem 2.5rem; /* Further reduced for mobile */
+        }
+
+        .hero h1 {
+          font-size: 2rem; /* Scaled for mobile readability */
+          margin-bottom: 0.875rem;
+          line-height: 1.2;
+        }
+
+        .hero .tagline {
+          font-size: 1.125rem;
+          margin-bottom: 0.625rem;
+        }
+
+        .hero .sub-tagline {
+          font-size: 0.938rem; /* ~15px */
+          margin-bottom: 1.5rem;
+          line-height: 1.6;
+        }
+
+        .hero-cta {
+          flex-direction: column; /* Stack buttons on mobile */
+          gap: 1rem;
+        }
+
+        .btn {
+          padding: 0.875rem 2rem; /* Slightly smaller for mobile */
+          font-size: 1rem;
+        }
       }
 
-      /* Hero Section */
+      /* Hero Section - Court-Grade Authority */
       .hero {
         background: linear-gradient(
           135deg,
@@ -126,31 +160,39 @@
           var(--primary-navy)
         );
         color: white;
-        padding: 8rem 2rem 6rem;
+        padding: 4rem 2rem 3rem; /* Reduced from 8rem/6rem for mobile efficiency */
         text-align: center;
       }
 
       .hero h1 {
-        font-size: 3.5rem;
-        font-weight: 800;
-        margin-bottom: 1.5rem;
-        line-height: 1.1;
-      }
-
-      .hero .tagline {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-        opacity: 0.95;
-        font-weight: 500;
-      }
-
-      .hero .sub-tagline {
-        font-size: 1.125rem;
-        margin-bottom: 3rem;
-        opacity: 0.8;
+        font-size: 2.75rem; /* Reduced from 3.5rem for mobile */
+        font-weight: 700; /* Reduced from 800 for less aggression */
+        margin-bottom: 1rem; /* Tighter spacing */
+        line-height: 1.15; /* Slightly looser for readability */
+        letter-spacing: -0.01em; /* Subtle optical tightening */
         max-width: 800px;
         margin-left: auto;
         margin-right: auto;
+      }
+
+      /* Tagline - Primary Supporting Statement */
+      .hero .tagline {
+        font-size: 1.25rem; /* Reduced from 1.5rem */
+        margin-bottom: 0.75rem; /* Tighter hierarchy */
+        opacity: 0.92; /* Slightly subordinate */
+        font-weight: 400; /* Lighter for supporting role */
+        letter-spacing: 0.01em; /* Subtle spacing for clarity */
+      }
+
+      /* Sub-tagline - Credibility Statement */
+      .hero .sub-tagline {
+        font-size: 1rem; /* Reduced from 1.125rem */
+        margin-bottom: 2rem; /* Reduced from 3rem */
+        opacity: 0.75; /* More subordinate, judicial aside tone */
+        max-width: 700px; /* Narrower for better line length */
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.5; /* Improved readability */
       }
 
       .hero-cta {
@@ -163,47 +205,64 @@
 
       .btn {
         padding: 1rem 2.5rem;
-        border-radius: 8px;
+        border-radius: 6px; /* Slightly reduced for restraint */
         text-decoration: none;
         font-weight: 600;
         font-size: 1.125rem;
-        transition: all 0.3s;
+        transition: all 0.2s ease-out; /* Faster, more professional */
         border: none;
         cursor: pointer;
+        display: inline-block; /* Prevent transform issues */
       }
 
       .btn-primary {
         background: var(--accent-gold);
         color: var(--primary-navy-dark);
+        border: 1px solid rgba(10, 31, 68, 0.1); /* Subtle authority border */
       }
 
       .btn-primary:hover {
         background: #d97706;
-        transform: translateY(-2px);
+        transform: translateY(-1px); /* Reduced from -2px */
+        box-shadow: 0 4px 12px rgba(217, 119, 6, 0.2); /* Subtle depth */
       }
 
       .btn-secondary {
-        background: rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.1); /* More restrained */
         color: white;
-        border: 2px solid rgba(255, 255, 255, 0.3);
+        border: 1.5px solid rgba(255, 255, 255, 0.4); /* Stronger border */
       }
 
       .btn-secondary:hover {
-        background: rgba(255, 255, 255, 0.25);
+        background: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.6);
       }
 
-      /* Founding Member Banner */
+      /* Founding Member Banner - Restrained Legal Notice */
       .founding-member-banner {
-        background: var(--accent-gold);
-        color: var(--primary-navy-dark);
-        padding: 0.75rem 2rem;
+        background: #e67e50; /* Reduced saturation from inmate-orange */
+        color: #ffffff;
+        padding: 0.5rem 1.5rem; /* Reduced height by 33% */
         text-align: center;
-        font-weight: 600;
-        font-size: 1rem;
+        font-weight: 500; /* Lighter weight for judicial tone */
+        font-size: 0.813rem; /* Smaller, more restrained */
+        font-variant: small-caps; /* Legal document style */
+        letter-spacing: 0.03em; /* Subtle spacing for authority */
+        text-shadow: none; /* Remove promotional shadow */
       }
 
       .founding-member-banner strong {
-        font-weight: 800;
+        font-weight: 600; /* Reduced from 800 */
+        color: #ffffff;
+        font-variant: normal; /* Override small-caps for emphasis */
+      }
+
+      /* Remove emoji visual weight on mobile */
+      @media (max-width: 640px) {
+        .founding-member-banner {
+          font-size: 0.75rem;
+          padding: 0.4rem 1rem;
+        }
       }
 
       /* Problem-Solution Section */
@@ -304,8 +363,12 @@
 
       /* Founding Member Section */
       .founding-member-section {
-        background: linear-gradient(135deg, var(--accent-gold), #d97706);
-        color: var(--primary-navy-dark);
+        background: linear-gradient(
+          135deg,
+          var(--inmate-orange),
+          var(--inmate-orange-dark)
+        );
+        color: #ffffff;
         padding: 5rem 2rem;
       }
 
@@ -319,22 +382,26 @@
         font-size: 3rem;
         margin-bottom: 1.5rem;
         font-weight: 800;
+        color: #ffffff;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
       }
 
       .founding-member-section .price {
         font-size: 4rem;
         font-weight: 800;
         margin-bottom: 1rem;
+        color: #ffffff;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
       }
 
       .founding-member-section .price-subtitle {
         font-size: 1.25rem;
         margin-bottom: 2rem;
-        opacity: 0.9;
+        color: rgba(255, 255, 255, 0.95);
       }
 
       .founding-member-benefits {
-        background: rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.2);
         backdrop-filter: blur(10px);
         border-radius: 12px;
         padding: 2rem;
@@ -346,6 +413,7 @@
         margin-bottom: 1.5rem;
         font-size: 1.5rem;
         text-align: center;
+        color: #ffffff;
       }
 
       .founding-member-benefits ul {
@@ -358,6 +426,7 @@
         padding-left: 2rem;
         position: relative;
         font-size: 1.125rem;
+        color: #ffffff;
       }
 
       .founding-member-benefits li:before {
@@ -372,8 +441,9 @@
         font-weight: 700;
         margin: 2rem 0;
         padding: 1.5rem;
-        background: rgba(5, 18, 41, 0.3);
+        background: rgba(0, 0, 0, 0.25);
         border-radius: 8px;
+        color: #ffffff;
       }
 
       /* Email Capture Form */
@@ -653,11 +723,10 @@
       </div>
     </header>
 
-    <!-- Founding Member Banner -->
+    <!-- Founding Member Notice -->
     <div class="founding-member-banner">
-      ⭐ <strong>FOUNDING MEMBERS:</strong> First 100 get lifetime access at
-      $19/month — Lock in now before price increases! Only
-      <span id="spots-remaining">87</span> spots left.
+      <strong>Founding Members:</strong> First 100 users receive lifetime access
+      at $19/month — <span id="spots-remaining">87</span> memberships available.
     </div>
 
     <!-- Hero Section -->
@@ -878,11 +947,12 @@
         <div class="price">
           $19<span style="font-size: 2rem; font-weight: 400">/month</span>
           <span style="font-size: 1.25rem; opacity: 0.8"
-            >— Lifetime Access Rate</span
+            >— Lifetime Locked Rate</span
           >
         </div>
         <p class="price-subtitle">
-          First 100 members only. Platform access locked at $19/month forever.
+          First 100 members only. All-inclusive pricing locked at $19/month
+          forever.
         </p>
 
         <div
@@ -895,15 +965,16 @@
           "
         >
           <p style="margin: 0; font-size: 1rem; line-height: 1.6">
-            <strong>Clear Pricing:</strong> The $19/month covers
-            <strong>platform access and core features</strong>. Uploads and AI
-            processing are billed separately, at cost-based rates, so heavy
-            users don't subsidize light users—and vice versa.
+            <strong>All-Inclusive Founding Member Deal:</strong> $19/month
+            includes
+            <strong>platform access + generous soft caps on usage</strong>. Go
+            beyond limits? No problem—minimal overage fees keep you working
+            without breaking stride.
           </p>
         </div>
 
         <div class="founding-member-benefits">
-          <h3>What the $19/Month Covers (Access Fee):</h3>
+          <h3>What's Included in Your $19/Month:</h3>
           <ul>
             <li><strong>Full BarberX web platform access</strong></li>
             <li><strong>Case management and evidence organization</strong></li>
@@ -911,12 +982,12 @@
               <strong>Constitutional issue flagging</strong> (4th, 5th, 14th
               Amendments — attorney review required)
             </li>
-            <li><strong>Miranda warning keyword and phrase search</strong></li>
+            <li><strong>Miranda warning detection and cataloging</strong></li>
             <li>
-              <strong>Use-of-force incident cataloging</strong> (for
-              <em>Graham v. Connor</em> analysis)
+              <strong>Use-of-force incident analysis</strong> (for
+              <em>Graham v. Connor</em> review)
             </li>
-            <li><strong>Officer / report contradiction detection</strong></li>
+            <li><strong>Officer/report contradiction detection</strong></li>
             <li><strong>Professional, court-formatted PDF exports</strong></li>
             <li><strong>Supreme Court case law library</strong></li>
             <li>
@@ -926,13 +997,8 @@
             <li><strong>Early access to new features</strong></li>
             <li><strong>Direct input into product roadmap</strong></li>
           </ul>
-          <p style="font-size: 0.875rem; margin-top: 1rem; opacity: 0.8">
-            <strong>Your access price never increases.</strong>
-          </p>
 
-          <h3 style="margin-top: 2rem">
-            Usage-Based Costs (Billed Separately, Transparently):
-          </h3>
+          <h3 style="margin-top: 2rem">Monthly Usage Limits (Soft Caps):</h3>
           <div
             style="
               background: rgba(255, 255, 255, 0.1);
@@ -941,38 +1007,52 @@
               margin-top: 1rem;
             "
           >
-            <h4 style="font-size: 1.125rem; margin-bottom: 1rem">
-              Evidence Uploads
+            <h4
+              style="font-size: 1.125rem; margin-bottom: 1rem; color: #10b981"
+            >
+              ✓ Included Monthly Quota
             </h4>
             <ul style="margin-bottom: 1.5rem">
-              <li>BWC video uploads billed per hour of footage</li>
-              <li>5-hour maximum per individual video file</li>
-              <li>Clear per-hour upload rate published in advance</li>
+              <li>
+                <strong>10 BWC videos</strong> per month (up to 1 hour each)
+              </li>
+              <li><strong>5 PDF documents</strong> (up to 50 pages each)</li>
+              <li><strong>10GB file storage</strong></li>
+              <li><strong>5 active cases</strong></li>
+              <li><strong>60 minutes AI transcription</strong></li>
+              <li><strong>Unlimited searches</strong> across your cases</li>
             </ul>
 
-            <h4 style="font-size: 1.125rem; margin-bottom: 1rem">
-              AI Processing
+            <h4
+              style="font-size: 1.125rem; margin-bottom: 1rem; color: #fbbf24"
+            >
+              💰 Beyond Quota (Minimal Overage Fees)
             </h4>
             <ul>
-              <li>Transcription (Whisper ASR, self-hosted — no cloud APIs)</li>
-              <li>Analysis jobs billed per processed hour</li>
-              <li>Re-processing only billed if you request it</li>
+              <li>Additional videos: <strong>$2.00/video</strong></li>
+              <li>Additional PDFs: <strong>$1.00/document</strong></li>
+              <li>Extra storage: <strong>$0.50/GB</strong></li>
+              <li>Extra cases: <strong>$5.00/case</strong></li>
             </ul>
 
             <p style="font-size: 0.875rem; margin-top: 1rem; opacity: 0.9">
               <strong
-                >You pay only for what you use. No bundles. No hidden
-                cross-subsidies.</strong
+                >No hard stops. No surprise shutdowns. Work when you need to,
+                pay only for extras.</strong
               >
             </p>
           </div>
 
-          <h3 style="margin-top: 2rem">Founding Member Rate Protections:</h3>
+          <h3 style="margin-top: 2rem">Founding Member Guarantees:</h3>
           <ul>
-            <li>Locked $19/month access rate for life</li>
-            <li>Founding-tier pricing on uploads and processing</li>
-            <li>Advance notice of any usage-rate changes</li>
-            <li>Public, auditable pricing tables</li>
+            <li><strong>$19/month locked forever</strong> (never increases)</li>
+            <li>
+              <strong>Founding-tier soft caps locked</strong> (quotas won't
+              shrink)
+            </li>
+            <li><strong>Overage fees capped at founding rates</strong></li>
+            <li><strong>All future platform features included</strong></li>
+            <li><strong>Lifetime priority support</strong></li>
           </ul>
 
           <p
@@ -986,13 +1066,13 @@
             "
           >
             <strong>⚖️ Founding Member Promise:</strong> We commit to (1)
-            <strong>never raising your $19/month access fee</strong>, (2)
-            <strong>including all AI features as they are released</strong>
-            (access included), (3)
-            <strong>prioritizing your support requests</strong>, and (4)
-            <strong>listening to and incorporating your product feedback</strong
-            >. This is a binding commitment of principle and practice. We price
-            clearly, bill fairly, and keep our word.
+            <strong>never raising your $19/month base rate</strong>, (2)
+            <strong>never reducing your soft cap quotas</strong>, (3)
+            <strong>never increasing your overage rates</strong>, (4)
+            <strong>including all new platform features at no extra cost</strong
+            >, and (5)
+            <strong>prioritizing your support and feature requests</strong>.
+            This is a binding commitment. Your rates are locked for life.
           </p>
 
           <p
@@ -1003,9 +1083,9 @@
               font-style: italic;
             "
           >
-            Usage rates are designed to reflect actual compute and storage
-            costs. Detailed pricing is published and versioned. No evidence is
-            processed without explicit user action.
+            Soft caps ensure you never hit a wall mid-case. Overages are
+            optional and only charged for actual usage beyond included quota. No
+            surprises.
           </p>
         </div>
 
@@ -1149,17 +1229,17 @@
               style="
                 background: linear-gradient(
                   135deg,
-                  rgba(245, 158, 11, 0.15),
-                  rgba(217, 119, 6, 0.1)
+                  rgba(255, 107, 53, 0.2),
+                  rgba(229, 90, 43, 0.15)
                 );
                 padding: 1rem;
                 border-radius: 8px;
                 text-align: left;
-                border: 2px solid rgba(245, 158, 11, 0.5);
+                border: 2px solid rgba(255, 107, 53, 0.6);
               "
             >
               <div
-                style="font-weight: 600; color: #f59e0b; margin-bottom: 0.25rem"
+                style="font-weight: 600; color: #ff6b35; margin-bottom: 0.25rem"
               >
                 ⭐ Starter - Founding Member
               </div>
@@ -1167,19 +1247,20 @@
                 style="
                   font-size: 1.125rem;
                   font-weight: 700;
-                  color: #f59e0b;
+                  color: #ff6b35;
                   margin-bottom: 0.25rem;
                 "
               >
                 $19/mo
                 <span style="font-size: 0.75rem; font-weight: 400; opacity: 0.8"
-                  >(First 100 only)</span
+                  >(First 100 only - LOCKED FOR LIFE)</span
                 >
               </div>
               <div
                 style="font-size: 0.875rem; opacity: 0.9; margin-bottom: 0.5rem"
               >
-                Platform access only • AI usage billed separately
+                All-inclusive • 10 videos, 5 PDFs/month • Soft caps with minimal
+                overages
               </div>
               <div
                 style="
@@ -1190,7 +1271,8 @@
                   margin-top: 0.5rem;
                 "
               >
-                <strong>Then:</strong> $29/mo after first 100 members
+                <strong>Regular Price:</strong> $29/mo (after 100 founding
+                members)
               </div>
             </div>
 
@@ -1255,8 +1337,8 @@
           <!-- Usage Pricing Clarity -->
           <div
             style="
-              background: rgba(245, 158, 11, 0.1);
-              border-left: 4px solid #f59e0b;
+              background: rgba(255, 107, 53, 0.15);
+              border-left: 4px solid #ff6b35;
               padding: 1.25rem;
               border-radius: 8px;
               margin-top: 2rem;
@@ -1267,11 +1349,13 @@
             "
           >
             <p style="margin: 0; font-size: 0.95rem; line-height: 1.6">
-              <strong>⭐ Founding Member Pricing Model:</strong> $19/mo covers
-              <strong>platform access only</strong>. AI transcription and
-              analysis are billed transparently based on actual usage (per hour
-              of video processed). No hidden fees. No cross-subsidies. You pay
-              only for what you use.
+              <strong style="color: #ff6b35"
+                >⭐ Founding Member Pricing Model:</strong
+              >
+              $19/mo all-inclusive with <strong>soft caps on usage</strong>. Get
+              10 videos, 5 PDFs, 10GB storage monthly. Need more? Minimal
+              overage fees kick in seamlessly—no hard stops, no case
+              disruptions. Work uninterrupted.
             </p>
           </div>
         </div>

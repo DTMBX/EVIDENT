@@ -33,7 +33,7 @@
 
 /* Skeleton Shimmer Effect */
 .skeleton::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
@@ -42,9 +42,9 @@
   transform: translateX(-100%);
   background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0) 0,
-    rgba(255, 255, 255, 0.3) 50%,
-    rgba(255, 255, 255, 0) 100%
+    rgb(255 255 255 / 0%) 0,
+    rgb(255 255 255 / 30%) 50%,
+    rgb(255 255 255 / 0%) 100%
   );
   animation: skeleton-shimmer 2s infinite;
 }
@@ -236,7 +236,7 @@ body.dark-mode .skeleton {
 
 body.dark-mode .skeleton-feature-card {
   background: var(--gray-800);
-  border-color: rgba(255, 255, 255, 0.1);
+  border-color: rgb(255 255 255 / 10%);
 }
 
 /* =============================================================================
@@ -265,7 +265,8 @@ body.dark-mode .skeleton-feature-card {
 }
 
 @keyframes skeleton-pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {

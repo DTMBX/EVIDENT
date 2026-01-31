@@ -2,11 +2,12 @@
 Municipal Code Service
 Manages municipal ordinances (Code 360 and similar systems)
 """
+
 import hashlib
 import sqlite3
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Iterable, Optional, List, Dict, Any, Union
+from typing import Any, Dict, Iterable, List, Optional, Union
 
 DB_PATH = Path(__file__).parent / "instance" / "barberx_legal.db"
 
@@ -35,26 +36,26 @@ class MuniSource:
 
 class MunicipalCodeService:
     """Adapter to ingest legal documents into retrieval system"""
-    
+
     def __init__(self, db_path: Union[str, Path] = DB_PATH):
         self.db_path = Path(db_path)
-    
+
     def _conn(self) -> sqlite3.Connection:
         conn = sqlite3.connect(self.db_path)
         conn.row_factory = sqlite3.Row
         return conn
-    
+
     @staticmethod
     def _sha256_text(text: str) -> str:
         normalized = " ".join(text.split())
         return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
-    
+
     def ensure_source(
-        self, 
-        county: str, 
-        municipality: str, 
-        provider: Optional[str] = "eCode360", 
-        base_url: Optional[str] = None
+        self,
+        county: str,
+        municipality: str,
+        provider: Optional[str] = "eCode360",
+        base_url: Optional[str] = None,
     ) -> MuniSource:
         """Ensure municipal source exists, create if not"""
         with self._conn() as conn:
@@ -80,7 +81,7 @@ class MunicipalCodeService:
                 provider=row["provider"],
                 base_url=row["base_url"],
             )
-    
+
     def upsert_section(
         self,
         source_id: int,
@@ -112,7 +113,17 @@ class MunicipalCodeService:
                   sha256=excluded.sha256,
                   retrieved_at=datetime('now')
                 """,
-                (source_id, section_citation, section_path, title, text, effective_date, last_updated, source_url, sha),
+                (
+                    source_id,
+                    section_citation,
+                    section_path,
+                    title,
+                    text,
+                    effective_date,
+                    last_updated,
+                    source_url,
+                    sha,
+                ),
             )
 
             sec_row = conn.execute(
@@ -135,10 +146,9 @@ class MunicipalCodeService:
                 pass
 
             return int(sec_row["id"])
-    
+
     def seed_core_counties(
-        self, 
-        municipalities_by_county: Optional[Dict[str, Iterable[str]]] = None
+        self, municipalities_by_county: Optional[Dict[str, Iterable[str]]] = None
     ) -> None:
         """
         Seeds muni_sources rows for core NJ counties.
@@ -162,13 +172,13 @@ class MunicipalCodeService:
                         """,
                         (county, muni),
                     )
-    
+
     def search(
-        self, 
-        query: str, 
-        county: Optional[str] = None, 
-        municipality: Optional[str] = None, 
-        limit: int = 10
+        self,
+        query: str,
+        county: Optional[str] = None,
+        municipality: Optional[str] = None,
+        limit: int = 10,
     ) -> list[dict]:
         """Search municipal codes using FTS or fallback to LIKE"""
         with self._conn() as conn:
@@ -211,4 +221,3 @@ class MunicipalCodeService:
                 args.append(limit)
                 rows = conn.execute(sql, args).fetchall()
                 return [dict(r) for r in rows]
-

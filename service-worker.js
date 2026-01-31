@@ -1,24 +1,30 @@
 // Service Worker for BarberX Progressive Web App (PWA)
 // Enables offline mode, caching, and push notifications
 
-const CACHE_NAME = 'barberx-v1.0.0';
+const CACHE_VERSION = '2.0.0';
+const CACHE_NAME = `barberx-v${CACHE_VERSION}`;
 const RUNTIME_CACHE = 'barberx-runtime';
+const DOCUMENT_CACHE = 'barberx-documents';
+const AI_CACHE = 'barberx-ai-responses';
 
 // Files to cache immediately on install
 const PRECACHE_URLS = [
   '/',
   '/command-center',
+  '/workspace',
   '/evidence/dashboard',
   '/integrated-analysis',
+  '/offline.html',
   '/assets/css/main.css',
-  '/assets/css/dashboard.css',
+  '/assets/css/responsive-system.css',
+  '/assets/css/legal-tech-platform.css',
   '/assets/js/main.js',
-  '/offline.html'
+  '/manifest.json'
 ];
 
 // Install event - cache essential files
 self.addEventListener('install', event => {
-  console.log('[ServiceWorker] Installing...');
+  console.log('[ServiceWorker] Installing v' + CACHE_VERSION);
   
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -32,15 +38,15 @@ self.addEventListener('install', event => {
 
 // Activate event - clean up old caches
 self.addEventListener('activate', event => {
-  console.log('[ServiceWorker] Activating...');
+  console.log('[ServiceWorker] Activating v' + CACHE_VERSION);
+  
+  const currentCaches = [CACHE_NAME, RUNTIME_CACHE, DOCUMENT_CACHE, AI_CACHE];
   
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
         cacheNames
-          .filter(cacheName => {
-            return cacheName !== CACHE_NAME && cacheName !== RUNTIME_CACHE;
-          })
+          .filter(cacheName => !currentCaches.includes(cacheName))
           .map(cacheName => {
             console.log('[ServiceWorker] Deleting old cache:', cacheName);
             return caches.delete(cacheName);
@@ -60,9 +66,33 @@ self.addEventListener('fetch', event => {
     return;
   }
   
+  // Handle share target
+  if (url.pathname === '/api/share-target' && request.method === 'POST') {
+    event.respondWith(handleShareTarget(request));
+    return;
+  }
+  
+  // Handle file opener
+  if (url.pathname === '/open-document') {
+    event.respondWith(handleFileOpen(request));
+    return;
+  }
+  
+  // AI chatbot responses - cache with stale-while-revalidate
+  if (url.pathname.startsWith('/api/v1/chatbot/')) {
+    event.respondWith(staleWhileRevalidate(request, AI_CACHE));
+    return;
+  }
+  
   // API requests - network first, cache as fallback
   if (url.pathname.startsWith('/api/')) {
     event.respondWith(networkFirst(request));
+    return;
+  }
+  
+  // Document files - cache for offline viewing
+  if (url.pathname.startsWith('/documents/') || url.pathname.match(/\.(pdf|doc|docx|txt)$/)) {
+    event.respondWith(documentCache(request));
     return;
   }
   
@@ -142,6 +172,164 @@ async function networkFirst(request) {
       headers: { 'Content-Type': 'application/json' }
     });
   }
+}
+
+// Stale-while-revalidate (for AI responses)
+async function staleWhileRevalidate(request, cacheName = AI_CACHE) {
+  const cache = await caches.open(cacheName);
+  const cached = await cache.match(request);
+  
+  // Fetch in background regardless
+  const fetchPromise = fetch(request).then(response => {
+    if (response.status === 200) {
+      cache.put(request, response.clone());
+    }
+    return response;
+  }).catch(err => {
+    console.log('[ServiceWorker] Background fetch failed:', err);
+    return null;
+  });
+  
+  // Return cached immediately if available, otherwise wait for network
+  if (cached) {
+    return cached;
+  }
+  
+  const networkResponse = await fetchPromise;
+  if (networkResponse) {
+    return networkResponse;
+  }
+  
+  // Return offline response
+  return new Response(JSON.stringify({
+    error: 'Offline',
+    message: 'AI assistant is unavailable offline. Please try again when connected.'
+  }), {
+    status: 503,
+    headers: { 'Content-Type': 'application/json' }
+  });
+}
+
+// Document cache strategy (cache for offline viewing)
+async function documentCache(request) {
+  const cache = await caches.open(DOCUMENT_CACHE);
+  const cached = await cache.match(request);
+  
+  if (cached) {
+    console.log('[ServiceWorker] Serving document from cache:', request.url);
+    return cached;
+  }
+  
+  try {
+    const response = await fetch(request);
+    
+    // Cache documents for offline viewing
+    if (response.status === 200) {
+      const contentType = response.headers.get('content-type') || '';
+      const isDocument = contentType.includes('pdf') || 
+                        contentType.includes('word') || 
+                        contentType.includes('text');
+      
+      if (isDocument) {
+        const responseClone = response.clone();
+        cache.put(request, responseClone);
+        console.log('[ServiceWorker] Cached document for offline:', request.url);
+      }
+    }
+    
+    return response;
+  } catch (error) {
+    console.error('[ServiceWorker] Document fetch failed:', error);
+    
+    return new Response('Document unavailable offline', {
+      status: 503,
+      headers: { 'Content-Type': 'text/plain' }
+    });
+  }
+}
+
+// Handle share target (receive shared documents)
+async function handleShareTarget(request) {
+  try {
+    const formData = await request.formData();
+    const title = formData.get('title') || 'Shared Document';
+    const text = formData.get('text') || '';
+    const url = formData.get('url') || '';
+    const files = formData.getAll('documents');
+    
+    // Store shared data for the app to process
+    const shareData = {
+      title,
+      text,
+      url,
+      fileCount: files.length,
+      timestamp: Date.now()
+    };
+    
+    // Store in IndexedDB for the app to retrieve
+    await storeSharedData(shareData, files);
+    
+    // Redirect to workspace with share flag
+    return Response.redirect('/workspace?shared=true', 303);
+  } catch (error) {
+    console.error('[ServiceWorker] Share target error:', error);
+    return Response.redirect('/workspace?share_error=true', 303);
+  }
+}
+
+// Handle file open (PWA file handler)
+async function handleFileOpen(request) {
+  try {
+    const url = new URL(request.url);
+    const fileUrl = url.searchParams.get('file');
+    
+    if (fileUrl) {
+      // Redirect to workspace with file parameter
+      return Response.redirect(`/workspace?open=${encodeURIComponent(fileUrl)}`, 303);
+    }
+    
+    return Response.redirect('/workspace', 303);
+  } catch (error) {
+    console.error('[ServiceWorker] File open error:', error);
+    return Response.redirect('/workspace', 303);
+  }
+}
+
+// Store shared data in IndexedDB
+async function storeSharedData(metadata, files) {
+  return new Promise((resolve, reject) => {
+    const request = indexedDB.open('barberx-shared', 1);
+    
+    request.onupgradeneeded = (event) => {
+      const db = event.target.result;
+      if (!db.objectStoreNames.contains('shares')) {
+        db.createObjectStore('shares', { keyPath: 'timestamp' });
+      }
+    };
+    
+    request.onsuccess = async (event) => {
+      const db = event.target.result;
+      const tx = db.transaction('shares', 'readwrite');
+      const store = tx.objectStore('shares');
+      
+      // Store file contents as ArrayBuffers
+      const fileData = await Promise.all(
+        files.map(async (file) => ({
+          name: file.name,
+          type: file.type,
+          size: file.size,
+          data: await file.arrayBuffer()
+        }))
+      );
+      
+      store.put({ ...metadata, files: fileData });
+      
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => reject(tx.error);
+    };
+    
+    request.onerror = () => reject(request.error);
+  });
 }
 
 // Push notification handler
