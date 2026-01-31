@@ -21,12 +21,12 @@ class DarkMode {
   }
 
   createToggleButton() {
-    const toggle = document.createElement('button');
-    toggle.className = 'theme-toggle';
-    toggle.setAttribute('aria-label', 'Toggle dark mode');
-    toggle.innerHTML = this.darkMode ? '☀️' : '🌙';
-    
-    toggle.addEventListener('click', () => {
+    const toggle = document.createElement("button");
+    toggle.className = "theme-toggle";
+    toggle.setAttribute("aria-label", "Toggle dark mode");
+    toggle.innerHTML = this.darkMode ? "☀️" : "🌙";
+
+    toggle.addEventListener("click", () => {
       this.toggle();
     });
 
@@ -42,20 +42,22 @@ class DarkMode {
 
   apply(isDark) {
     if (isDark) {
-      document.body.classList.add('dark-mode');
-      this.updateToggleIcon('☀️');
+      document.body.classList.add("dark-mode");
+      this.updateToggleIcon("☀️");
     } else {
-      document.body.classList.remove('dark-mode');
-      this.updateToggleIcon('🌙');
+      document.body.classList.remove("dark-mode");
+      this.updateToggleIcon("🌙");
     }
 
     // Update meta theme-color
     this.updateThemeColor(isDark);
 
     // Trigger custom event
-    document.dispatchEvent(new CustomEvent('darkmodechange', { 
-      detail: { darkMode: isDark } 
-    }));
+    document.dispatchEvent(
+      new CustomEvent("darkmodechange", {
+        detail: { darkMode: isDark },
+      }),
+    );
   }
 
   updateToggleIcon(icon) {
@@ -66,36 +68,38 @@ class DarkMode {
 
   updateThemeColor(isDark) {
     let metaTheme = document.querySelector('meta[name="theme-color"]');
-    
+
     if (!metaTheme) {
-      metaTheme = document.createElement('meta');
-      metaTheme.setAttribute('name', 'theme-color');
+      metaTheme = document.createElement("meta");
+      metaTheme.setAttribute("name", "theme-color");
       document.head.appendChild(metaTheme);
     }
 
-    metaTheme.setAttribute('content', isDark ? '#0f1419' : '#ffffff');
+    metaTheme.setAttribute("content", isDark ? "#0f1419" : "#ffffff");
   }
 
   save(isDark) {
     try {
-      localStorage.setItem('barberx-dark-mode', isDark ? 'true' : 'false');
+      localStorage.setItem("barberx-dark-mode", isDark ? "true" : "false");
     } catch (e) {
-      console.warn('Could not save dark mode preference:', e);
+      console.warn("Could not save dark mode preference:", e);
     }
   }
 
   getSavedMode() {
     try {
-      const saved = localStorage.getItem('barberx-dark-mode');
-      
+      const saved = localStorage.getItem("barberx-dark-mode");
+
       // If user has a saved preference, use it
       if (saved !== null) {
-        return saved === 'true';
+        return saved === "true";
       }
 
       // Otherwise, check system preference
-      return window.matchMedia && 
-             window.matchMedia('(prefers-color-scheme: dark)').matches;
+      return (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      );
     } catch (e) {
       return false;
     }
@@ -104,12 +108,13 @@ class DarkMode {
   watchSystemPreference() {
     if (!window.matchMedia) return;
 
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    
-    mediaQuery.addEventListener('change', (e) => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+    mediaQuery.addEventListener("change", (e) => {
       // Only auto-switch if user hasn't manually set a preference
-      const hasManualPreference = localStorage.getItem('barberx-dark-mode') !== null;
-      
+      const hasManualPreference =
+        localStorage.getItem("barberx-dark-mode") !== null;
+
       if (!hasManualPreference) {
         this.darkMode = e.matches;
         this.apply(this.darkMode);
@@ -119,8 +124,8 @@ class DarkMode {
 }
 
 // Initialize on DOMContentLoaded
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => new DarkMode());
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => new DarkMode());
 } else {
   new DarkMode();
 }

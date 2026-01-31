@@ -13,7 +13,7 @@ from flask_login import current_user, login_user, logout_user
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from api import auth_api
-from models_auth import User, db
+from models_auth import TierLevel, User, db
 
 
 def generate_jwt_token(user_id, expires_in=86400):
@@ -112,7 +112,7 @@ def api_login():
     # Find user
     user = User.query.filter_by(email=email).first()
 
-    if not user or not check_password_hash(user.password_hash, password):
+    if not user or not user.check_password(password):
         return jsonify({"error": "Invalid email or password"}), 401
 
     # Check if account is active
@@ -134,9 +134,9 @@ def api_login():
                 "user": {
                     "id": user.id,
                     "email": user.email,
-                    "name": user.name,
-                    "tier": user.tier,
-                    "role": user.role,
+                    "name": user.full_name or user.email,
+                    "tier": user.tier.name,
+                    "tier_display": user.tier_name,
                     "created_at": user.created_at.isoformat() if user.created_at else None,
                 },
             }
@@ -175,13 +175,12 @@ def api_register():
     # Create new user
     user = User(
         email=email,
-        name=name,
-        password_hash=generate_password_hash(password),
-        tier="FREE",  # Default tier
-        role="user",
+        full_name=name,
+        tier=TierLevel.FREE,
         is_active=True,
-        created_at=datetime.utcnow(),
+        is_verified=False,
     )
+    user.set_password(password)
 
     db.session.add(user)
     db.session.commit()
@@ -197,9 +196,9 @@ def api_register():
                 "user": {
                     "id": user.id,
                     "email": user.email,
-                    "name": user.name,
-                    "tier": user.tier,
-                    "role": user.role,
+                    "name": user.full_name or user.email,
+                    "tier": user.tier.name,
+                    "tier_display": user.tier_name,
                     "created_at": user.created_at.isoformat(),
                 },
             }
@@ -252,9 +251,9 @@ def api_get_current_user():
                 "user": {
                     "id": user.id,
                     "email": user.email,
-                    "name": user.name,
-                    "tier": user.tier,
-                    "role": user.role,
+                    "name": user.full_name or user.email,
+                    "tier": user.tier.name,
+                    "tier_display": user.tier_name,
                     "is_active": user.is_active,
                     "created_at": user.created_at.isoformat() if user.created_at else None,
                     "last_login": user.last_login.isoformat() if user.last_login else None,

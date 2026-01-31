@@ -3,7 +3,7 @@ BarberX Authentication & Tier System
 Database models for users, tiers, and usage tracking
 """
 
-from datetime import datetime
+from datetime import datetime, timedelta
 from enum import Enum
 
 from flask_bcrypt import Bcrypt
@@ -104,7 +104,7 @@ class User(UserMixin, db.Model):
         """Get professional tier display name"""
         tier_display_names = {
             TierLevel.FREE: "Explorer",
-            TierLevel.STARTER: "Practitioner", 
+            TierLevel.STARTER: "Practitioner",
             TierLevel.PROFESSIONAL: "Counselor",
             TierLevel.PREMIUM: "Advocate",
             TierLevel.ENTERPRISE: "Enterprise",
@@ -166,21 +166,25 @@ class User(UserMixin, db.Model):
                 "template_downloads": True,  # Can download templates
                 "overage_allowed": False,
             },
-            TierLevel.STARTER: {  # NEW - Entry tier
-                "bwc_videos_per_month": 10,
-                "bwc_video_hours_per_month": 1,
+            TierLevel.STARTER: {  # FOUNDING MEMBER TIER ($19/mo lifetime locked)
+                "bwc_videos_per_month": 10,  # Soft cap
+                "bwc_video_hours_per_month": 10,  # 10 hours total (1hr per video avg)
                 "max_file_size_mb": 512,
-                "pdf_documents_per_month": 5,
-                "document_pages_per_month": 50,
+                "pdf_documents_per_month": 5,  # Soft cap
+                "document_pages_per_month": 250,  # 50 pages per PDF avg
                 "transcription_minutes_per_month": 60,
                 "ai_assistant_access": "basic",
-                "search_queries_per_month": 500,
+                "search_queries_per_month": -1,  # Unlimited
                 "storage_gb": 10,
                 "export_watermark": False,
-                "case_limit": 5,
+                "case_limit": 5,  # Soft cap
                 "court_ready_reports": "basic",
                 "api_access": False,
-                "overage_allowed": False,  # Hard cap
+                "overage_allowed": True,  # SOFT CAP with overage fees
+                "overage_fee_per_video": 2.00,
+                "overage_fee_per_pdf": 1.00,
+                "overage_fee_per_case": 5.00,
+                "overage_fee_per_gb": 0.50,
             },
             TierLevel.PROFESSIONAL: {
                 "bwc_videos_per_month": 25,
@@ -398,3 +402,105 @@ class ApiKey(db.Model):
 
     def __repr__(self):
         return f"<ApiKey {self.name} ({self.key[:16]}...)>"
+
+
+class PasswordResetToken(db.Model):
+    """Persistent password reset tokens (replaces in-memory storage)"""
+
+    __tablename__ = "password_reset_tokens"
+
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    token = db.Column(db.String(64), unique=True, nullable=False, index=True)
+    expires_at = db.Column(db.DateTime, nullable=False)
+    used = db.Column(db.Boolean, default=False)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+
+    user = db.relationship("User", backref="password_reset_tokens")
+
+    @staticmethod
+    def generate(user_id, expires_hours=1):
+        """Generate a new password reset token for a user"""
+        import secrets
+
+        # Invalidate any existing unused tokens for this user
+        PasswordResetToken.query.filter_by(user_id=user_id, used=False).update({"used": True})
+
+        token = secrets.token_urlsafe(32)
+        reset_token = PasswordResetToken(
+            user_id=user_id,
+            token=token,
+            expires_at=datetime.utcnow() + timedelta(hours=expires_hours),
+        )
+        db.session.add(reset_token)
+        db.session.commit()
+        return token
+
+    @staticmethod
+    def validate(token):
+        """Validate token and return associated user, or None if invalid"""
+        reset_token = PasswordResetToken.query.filter_by(token=token, used=False).first()
+        if not reset_token:
+            return None
+        if datetime.utcnow() > reset_token.expires_at:
+            return None
+        return reset_token.user
+
+    def mark_used(self):
+        """Mark token as used after successful password reset"""
+        self.used = True
+        db.session.commit()
+
+    def __repr__(self):
+        return f"<PasswordResetToken user:{self.user_id} expires:{self.expires_at}>"
+
+
+class EmailVerificationToken(db.Model):
+    """Email verification tokens for new user signups"""
+
+    __tablename__ = "email_verification_tokens"
+
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    token = db.Column(db.String(64), unique=True, nullable=False, index=True)
+    expires_at = db.Column(db.DateTime, nullable=False)
+    used = db.Column(db.Boolean, default=False)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+
+    user = db.relationship("User", backref="email_verification_tokens")
+
+    @staticmethod
+    def generate(user_id, expires_hours=24):
+        """Generate a new verification token for a user"""
+        import secrets
+
+        # Invalidate previous tokens
+        EmailVerificationToken.query.filter_by(user_id=user_id, used=False).update({"used": True})
+
+        token = secrets.token_urlsafe(32)
+        verify_token = EmailVerificationToken(
+            user_id=user_id,
+            token=token,
+            expires_at=datetime.utcnow() + timedelta(hours=expires_hours),
+        )
+        db.session.add(verify_token)
+        db.session.commit()
+        return token
+
+    @staticmethod
+    def validate(token):
+        """Validate token and return associated user, or None if invalid"""
+        verify_token = EmailVerificationToken.query.filter_by(token=token, used=False).first()
+        if not verify_token:
+            return None
+        if datetime.utcnow() > verify_token.expires_at:
+            return None
+        return verify_token.user
+
+    def mark_used(self):
+        """Mark token as used after verification"""
+        self.used = True
+        db.session.commit()
+
+    def __repr__(self):
+        return f"<EmailVerificationToken user:{self.user_id}>"

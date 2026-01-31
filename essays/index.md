@@ -17,6 +17,7 @@ description: "Reflections on faith, covenant, sovereignty, and the tension betwe
   </header>
 
   <div class="essays-list" style="max-width: 60rem; margin: 0 auto;">
+    {% if site.essays %}
     {% assign sorted_essays = site.essays | sort: "date" | reverse %}
     {% for essay in sorted_essays %}
       <article class="essay-card">
@@ -33,5 +34,8 @@ description: "Reflections on faith, covenant, sovereignty, and the tension betwe
         {% endif %}
       </article>
     {% endfor %}
+    {% else %}
+    <p style="text-align: center; color: var(--text-secondary);">Essays coming soon.</p>
+    {% endif %}
   </div>
 </section>

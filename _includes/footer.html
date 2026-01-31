@@ -1,102 +1,47 @@
-<!doctype html>
 <footer class="site-footer" role="contentinfo">
   <div class="container">
-    <div class="footer-grid">
+    
+    <div class="footer-main">
+      <!-- Brand -->
       <div class="footer-brand">
-        <div class="footer-logo barberx-footer-logo">
-          <div class="barberx-logo" style="margin-bottom: var(--space-4)">
-            <span
-              style="
-                font-family: &quot;Playfair Display&quot;, Georgia, serif;
-                font-weight: 700;
-                font-size: 2rem;
-                color: #d4af37;
-                letter-spacing: 0.1em;
-                display: block;
-              "
-              >BARBER<span style="color: #8b0000">X</span></span
-            >
-            <span
-              style="
-                font-family: &quot;Montserrat&quot;, sans-serif;
-                font-size: 0.75rem;
-                letter-spacing: 0.15em;
-                color: #888;
-                display: block;
-                margin-top: 4px;
-              "
-              >LEGAL TECHNOLOGIES</span
-            >
-          </div>
-        </div>
-
-        <p
-          class="footer-tagline"
-          style="
-            font-family: &quot;Playfair Display&quot;, Georgia, serif;
-            font-style: italic;
-            color: #d4af37;
-          "
-        >
-          Precision. Excellence. Honor. Justice.
-        </p>
-        <p class="footer-description">
-          AI-Powered Civil Rights eDiscovery in the Tradition of America's
-          Golden Age. Professional-grade tools built with the craftsmanship and
-          integrity of the 1920s.
-        </p>
-
-        <div class="footer-contact">
-          <a
-            href="mailto:{{ site.email | default: 'contact@barberx.info' }}"
-            class="contact-link"
-          >
-            <span>{{ site.email | default: 'contact@barberx.info' }}</span>
-          </a>
-        </div>
+        <a href="{{ '/' | relative_url }}" class="footer-logo-link">
+          <span class="footer-brand-name">Barber<span class="footer-brand-x">X</span></span>
+        </a>
+        <p class="footer-tagline">Privacy-first legal AI</p>
       </div>
 
-      {% include footer-links.html %}
-
-      <div class="footer-notice">
-        <h4>Public Notice</h4>
-        <p>
-          Under active development. No operational software, internal systems,
-          or proprietary methods are published on this site.
-        </p>
-        <div class="footer-compliance">
-          <span>Privacy-First</span><span>•</span><span>No Tracking</span
-          ><span>•</span><span>No Data Sales</span>
+      <!-- Nav Columns -->
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <div class="footer-nav-col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="{{ '/pricing/' | relative_url }}">Pricing</a></li>
+            <li><a href="{{ '/cases/' | relative_url }}">Cases</a></li>
+            <li><a href="{{ '/docs/' | relative_url }}">Documentation</a></li>
+          </ul>
         </div>
-      </div>
+        <div class="footer-nav-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="{{ '/faq/' | relative_url }}">FAQ</a></li>
+            <li><a href="{{ '/docs/status/' | relative_url }}">Status</a></li>
+            <li><a href="https://github.com/DTB396/BXLT" target="_blank" rel="noopener">GitHub</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="{{ '/PRIVACY-POLICY/' | relative_url }}">Privacy</a></li>
+            <li><a href="{{ '/LICENSE/' | relative_url }}">License</a></li>
+            <li><a href="mailto:{{ site.email | default: 'contact@barberx.info' }}">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
     </div>
 
     <div class="footer-bottom">
-      <div class="footer-copyright">
-        <p>
-          &copy; <span id="year">{{ site.time | date: '%Y' }}</span> BarberX
-          Legal Technologies. All rights reserved.
-        </p>
-        <p
-          class="footer-legal"
-          style="
-            font-family: &quot;Playfair Display&quot;, Georgia, serif;
-            font-style: italic;
-          "
-        >
-          Crafted with Precision & Honor | Est. 2024
-        </p>
-      </div>
-
-      <div class="footer-legal-links">
-        <a href="{{ '/LICENSE' | relative_url }}">License</a>
-        <span>•</span>
-        <a href="mailto:{{ site.email | default: 'contact@barberx.info' }}"
-          >Contact</a
-        >
-        <span>•</span>
-        <a href="{{ '/PRIVACY-POLICY.html' | relative_url }}">Privacy</a>
-      </div>
+      <p class="footer-copyright">&copy; {{ site.time | date: '%Y' }} BarberX Legal Technologies</p>
     </div>
+
   </div>
 </footer>

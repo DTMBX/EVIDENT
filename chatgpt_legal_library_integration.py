@@ -11,9 +11,11 @@ Enables ChatGPT assistant to:
 import json
 from typing import Dict, List, Optional, Tuple
 
-from retrieval_service import RetrievalService, Passage
+from retrieval_service import Passage, RetrievalService
+
 try:
     from legal_library import CitationParser, LegalLibraryService
+
     LEGACY_LIBRARY_AVAILABLE = True
 except ImportError:
     LEGACY_LIBRARY_AVAILABLE = False
@@ -28,9 +30,7 @@ class ChatGPTLegalLibraryIntegration:
         self.citation_parser = CitationParser() if LEGACY_LIBRARY_AVAILABLE else None
 
     def search_library_for_context(
-        self, 
-        user_message: str, 
-        user_id: int = None
+        self, user_message: str, user_id: int = None
     ) -> Tuple[List[Passage], Dict[str, Any]]:
         """
         Search legal library based on user's question using unified retrieval
@@ -53,24 +53,20 @@ class ChatGPTLegalLibraryIntegration:
         query = " ".join(legal_keywords)
         passages = self.retrieval.retrieve(
             query=query,
-            filters={'source_system': 'legal_library'},  # Can expand to include muni_code
-            top_k=5
+            filters={"source_system": "legal_library"},  # Can expand to include muni_code
+            top_k=5,
         )
 
         # Build citations metadata
         citations_metadata = {
-            'query': query,
-            'passages': [p.to_dict() for p in passages],
-            'count': len(passages)
+            "query": query,
+            "passages": [p.to_dict() for p in passages],
+            "count": len(passages),
         }
 
         return passages, citations_metadata
 
-    def enhance_system_prompt(
-        self, 
-        base_prompt: str, 
-        passages: List[Passage]
-    ) -> str:
+    def enhance_system_prompt(self, base_prompt: str, passages: List[Passage]) -> str:
         """
         Add retrieved passages to ChatGPT system prompt with strict citation requirements
 

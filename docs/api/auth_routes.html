@@ -233,6 +233,53 @@ def dashboard():
 </details>
 <div class="desc"><p>Decorator to check if user has access to specific feature</p></div>
 </dd>
+<dt id="auth_routes.forgot_password"><code class="name flex">
+<span>def <span class="ident">forgot_password</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@auth_bp.route(&#34;/forgot-password&#34;, methods=[&#34;GET&#34;, &#34;POST&#34;])
+def forgot_password():
+    &#34;&#34;&#34;Request password reset&#34;&#34;&#34;
+    if current_user.is_authenticated:
+        return redirect(url_for(&#34;dashboard&#34;))
+
+    if request.method == &#34;POST&#34;:
+        # Explicitly validate CSRF token
+        try:
+            validate_csrf(request.form.get(&#34;csrf_token&#34;))
+        except ValidationError:
+            flash(&#34;Security validation failed. Please try again.&#34;, &#34;danger&#34;)
+            return render_template(&#34;auth/forgot_password.html&#34;), 400
+
+        email = request.form.get(&#34;email&#34;, &#34;&#34;).strip().lower()
+        user = User.query.filter_by(email=email).first()
+
+        # Always show success message to prevent email enumeration
+        flash(
+            &#34;If an account exists with that email, you will receive a password reset link.&#34;, &#34;info&#34;
+        )
+
+        if user:
+            # Generate secure token (stored in database)
+            token = PasswordResetToken.generate(user.id)
+
+            # Send reset email
+            try:
+                _send_password_reset_email(user.email, token)
+                logger.info(f&#34;Password reset requested for {email}&#34;)
+            except Exception as e:
+                logger.error(f&#34;Failed to send reset email: {e}&#34;)
+
+        return redirect(url_for(&#34;auth.login&#34;))
+
+    return render_template(&#34;auth/forgot_password.html&#34;)</code></pre>
+</details>
+<div class="desc"><p>Request password reset</p></div>
+</dd>
 <dt id="auth_routes.init_auth"><code class="name flex">
 <span>def <span class="ident">init_auth</span></span>(<span>app)</span>
 </code></dt>
@@ -247,7 +294,23 @@ def dashboard():
     login_manager.login_view = &#34;auth.login&#34;
     login_manager.login_message = &#34;Please log in to access this page.&#34;
     login_manager.login_message_category = &#34;info&#34;
-    app.register_blueprint(auth_bp)</code></pre>
+    app.register_blueprint(auth_bp)
+
+    @login_manager.unauthorized_handler
+    def unauthorized_callback():
+        &#34;&#34;&#34;Handle unauthorized access - return JSON for API routes, redirect for pages&#34;&#34;&#34;
+        if request.path.startswith(&#34;/api/&#34;):
+            return (
+                jsonify(
+                    {
+                        &#34;error&#34;: &#34;Authentication required&#34;,
+                        &#34;message&#34;: &#34;Please log in to access this resource&#34;,
+                        &#34;login_url&#34;: &#34;/auth/login&#34;,
+                    }
+                ),
+                401,
+            )
+        return redirect(url_for(&#34;auth.login&#34;))</code></pre>
 </details>
 <div class="desc"><p>Initialize authentication system with Flask app</p></div>
 </dd>
@@ -294,7 +357,7 @@ def load_user(user_id):
 </summary>
 <pre><code class="python">@auth_bp.route(&#34;/login&#34;, methods=[&#34;GET&#34;, &#34;POST&#34;])
 def login():
-    &#34;&#34;&#34;User login&#34;&#34;&#34;
+    &#34;&#34;&#34;User login with AI-powered security&#34;&#34;&#34;
     if current_user.is_authenticated:
         return redirect(url_for(&#34;dashboard&#34;))
 
@@ -303,17 +366,51 @@ def login():
         password = request.form.get(&#34;password&#34;, &#34;&#34;)
         remember = request.form.get(&#34;remember&#34;, False)
 
+        # AI Security Check BEFORE authentication
+        security_check = check_login_security(email=email)
+        risk_score = security_check.get(&#34;risk_score&#34;, 0)
+        is_suspicious = security_check.get(&#34;is_suspicious&#34;, False)
+        recommendation = security_check.get(&#34;recommendation&#34;, &#34;allow&#34;)
+
+        # Block highly suspicious attempts
+        if recommendation == &#34;block&#34;:
+            logger.warning(f&#34;Blocked suspicious login attempt for {email}: risk_score={risk_score}&#34;)
+            flash(
+                &#34;Suspicious activity detected. Please try again later or contact support.&#34;, &#34;danger&#34;
+            )
+            track_login(None, success=False, method=&#34;password&#34;, risk_score=risk_score)
+            return redirect(url_for(&#34;auth.login&#34;))
+
         user = User.query.filter_by(email=email).first()
 
         if user and user.check_password(password):
             if not user.is_active:
                 flash(&#34;Your account has been deactivated. Please contact support.&#34;, &#34;danger&#34;)
+                track_login(user, success=False, method=&#34;password&#34;, risk_score=risk_score)
                 return redirect(url_for(&#34;auth.login&#34;))
+
+            # Challenge suspicious logins (require email verification)
+            if recommendation == &#34;challenge&#34; and not session.get(f&#34;verified_{user.id}&#34;):
+                session[&#34;pending_login_user_id&#34;] = user.id
+                session[&#34;pending_login_remember&#34;] = remember
+                flash(
+                    f&#34;Unusual login detected (risk: {risk_score}/100). Please verify your email.&#34;,
+                    &#34;warning&#34;,
+                )
+                # TODO: Send verification email
+                logger.info(f&#34;Login challenge issued for {email}: risk_score={risk_score}&#34;)
+                return redirect(url_for(&#34;auth.verify_login&#34;))
 
             login_user(user, remember=remember)
             user.update_last_login()
 
-            flash(f&#34;Welcome back, {user.full_name or user.email}!&#34;, &#34;success&#34;)
+            # Track successful login with risk score
+            track_login(user, success=True, method=&#34;password&#34;, risk_score=risk_score)
+
+            if is_suspicious:
+                flash(f&#34;Welcome back! (Security check: {risk_score}/100 risk)&#34;, &#34;info&#34;)
+            else:
+                flash(f&#34;Welcome back, {user.full_name or user.email}!&#34;, &#34;success&#34;)
 
             # Redirect to next page or dashboard (with open redirect protection)
             next_page = request.args.get(&#34;next&#34;)
@@ -322,10 +419,11 @@ def login():
             return redirect(url_for(&#34;dashboard&#34;))
         else:
             flash(&#34;Invalid email or password.&#34;, &#34;danger&#34;)
+            track_login(None, success=False, method=&#34;password&#34;, risk_score=risk_score)
 
     return render_template(&#34;auth/login.html&#34;)</code></pre>
 </details>
-<div class="desc"><p>User login</p></div>
+<div class="desc"><p>User login with AI-powered security</p></div>
 </dd>
 <dt id="auth_routes.logout"><code class="name flex">
 <span>def <span class="ident">logout</span></span>(<span>)</span>
@@ -344,6 +442,97 @@ def logout():
     return redirect(url_for(&#34;index&#34;))</code></pre>
 </details>
 <div class="desc"><p>User logout</p></div>
+</dd>
+<dt id="auth_routes.resend_verification"><code class="name flex">
+<span>def <span class="ident">resend_verification</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@auth_bp.route(&#34;/resend-verification&#34;, methods=[&#34;POST&#34;])
+def resend_verification():
+    &#34;&#34;&#34;Resend email verification link&#34;&#34;&#34;
+    email = request.form.get(&#34;email&#34;, &#34;&#34;).strip().lower()
+
+    if not email:
+        flash(&#34;Please provide your email address.&#34;, &#34;danger&#34;)
+        return redirect(url_for(&#34;auth.login&#34;))
+
+    user = User.query.filter_by(email=email).first()
+
+    # Always show success to prevent email enumeration
+    flash(&#34;If an account exists with that email, a verification link has been sent.&#34;, &#34;info&#34;)
+
+    if user and not user.is_verified:
+        try:
+            token = EmailVerificationToken.generate(user.id)
+            _send_verification_email(user.email, token)
+            logger.info(f&#34;Verification email resent to {email}&#34;)
+        except Exception as e:
+            logger.error(f&#34;Failed to send verification email: {e}&#34;)
+
+    return redirect(url_for(&#34;auth.login&#34;))</code></pre>
+</details>
+<div class="desc"><p>Resend email verification link</p></div>
+</dd>
+<dt id="auth_routes.reset_password"><code class="name flex">
+<span>def <span class="ident">reset_password</span></span>(<span>token)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@auth_bp.route(&#34;/reset-password/&lt;token&gt;&#34;, methods=[&#34;GET&#34;, &#34;POST&#34;])
+def reset_password(token):
+    &#34;&#34;&#34;Reset password with token&#34;&#34;&#34;
+    if current_user.is_authenticated:
+        return redirect(url_for(&#34;dashboard&#34;))
+
+    # Validate token from database
+    user = PasswordResetToken.validate(token)
+    if not user:
+        flash(&#34;This password reset link is invalid or has expired.&#34;, &#34;danger&#34;)
+        return redirect(url_for(&#34;auth.forgot_password&#34;))
+
+    if request.method == &#34;POST&#34;:
+        # Explicitly validate CSRF token
+        try:
+            validate_csrf(request.form.get(&#34;csrf_token&#34;))
+        except ValidationError:
+            flash(&#34;Security validation failed. Please try again.&#34;, &#34;danger&#34;)
+            return render_template(&#34;auth/reset_password.html&#34;, token=token), 400
+
+        password = request.form.get(&#34;password&#34;, &#34;&#34;)
+        confirm_password = request.form.get(&#34;confirm_password&#34;, &#34;&#34;)
+
+        if len(password) &lt; 8:
+            flash(&#34;Password must be at least 8 characters.&#34;, &#34;danger&#34;)
+            return render_template(&#34;auth/reset_password.html&#34;, token=token)
+
+        if password != confirm_password:
+            flash(&#34;Passwords do not match.&#34;, &#34;danger&#34;)
+            return render_template(&#34;auth/reset_password.html&#34;, token=token)
+
+        # Update password
+        user.set_password(password)
+
+        # Invalidate token
+        reset_token = PasswordResetToken.query.filter_by(token=token, used=False).first()
+        if reset_token:
+            reset_token.mark_used()
+
+        db.session.commit()
+
+        flash(&#34;Your password has been reset successfully. Please log in.&#34;, &#34;success&#34;)
+        logger.info(f&#34;Password reset completed for {user.email}&#34;)
+        return redirect(url_for(&#34;auth.login&#34;))
+
+    return render_template(&#34;auth/reset_password.html&#34;, token=token)</code></pre>
+</details>
+<div class="desc"><p>Reset password with token</p></div>
 </dd>
 <dt id="auth_routes.signup"><code class="name flex">
 <span>def <span class="ident">signup</span></span>(<span>)</span>
@@ -418,20 +607,33 @@ def signup():
             # Create initial usage tracking
             UsageTracking.get_or_create_current(new_user.id)
 
-            # Auto-login for development (remove in production after email verification)
+            # Track signup in analytics
+            track_signup(new_user, tier=TierLevel.FREE.name)
+
+            # Send verification email
+            try:
+                token = EmailVerificationToken.generate(new_user.id)
+                _send_verification_email(new_user.email, token)
+            except Exception as e:
+                logger.error(f&#34;Failed to send verification email: {e}&#34;)
+
+            # Auto-login for development (email verification recommended for production)
             login_user(new_user)
 
             # If user requested a paid tier, redirect to checkout
             if tier_param in [&#34;professional&#34;, &#34;premium&#34;]:
                 flash(
-                    f&#34;Account created! Complete checkout to activate your {requested_tier_name} plan.&#34;,
+                    f&#34;Account created! Please verify your email. Complete checkout to activate your {requested_tier_name} plan.&#34;,
                     &#34;success&#34;,
                 )
                 # Store intended tier in session for checkout
                 session[&#34;checkout_tier&#34;] = tier_param
                 return redirect(url_for(&#34;pricing&#34;))
             else:
-                flash(&#34;Account created successfully! Welcome to BarberX.&#34;, &#34;success&#34;)
+                flash(
+                    &#34;Account created successfully! Please check your email to verify your account.&#34;,
+                    &#34;success&#34;,
+                )
                 return redirect(url_for(&#34;dashboard&#34;))
 
         except Exception as e:
@@ -510,6 +712,109 @@ def usage_api():
 </details>
 <div class="desc"><p>API endpoint for current usage stats</p></div>
 </dd>
+<dt id="auth_routes.verify_email"><code class="name flex">
+<span>def <span class="ident">verify_email</span></span>(<span>token)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@auth_bp.route(&#34;/verify-email/&lt;token&gt;&#34;)
+def verify_email(token):
+    &#34;&#34;&#34;Verify user email address&#34;&#34;&#34;
+    user = EmailVerificationToken.validate(token)
+
+    if not user:
+        flash(&#34;This verification link is invalid or has expired.&#34;, &#34;danger&#34;)
+        return redirect(url_for(&#34;auth.login&#34;))
+
+    # Mark user as verified
+    user.is_verified = True
+
+    # Mark token as used
+    verify_token = EmailVerificationToken.query.filter_by(token=token, used=False).first()
+    if verify_token:
+        verify_token.mark_used()
+
+    db.session.commit()
+
+    flash(&#34;Your email has been verified! You can now log in.&#34;, &#34;success&#34;)
+    logger.info(f&#34;Email verified for {user.email}&#34;)
+    return redirect(url_for(&#34;auth.login&#34;))</code></pre>
+</details>
+<div class="desc"><p>Verify user email address</p></div>
+</dd>
+<dt id="auth_routes.verify_login"><code class="name flex">
+<span>def <span class="ident">verify_login</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@auth_bp.route(&#34;/verify-login&#34;, methods=[&#34;GET&#34;, &#34;POST&#34;])
+def verify_login():
+    &#34;&#34;&#34;Email verification for suspicious logins (challenge flow)&#34;&#34;&#34;
+    email = session.get(&#34;pending_verification_email&#34;)
+
+    if not email:
+        flash(&#34;Verification session expired. Please login again.&#34;, &#34;danger&#34;)
+        return redirect(url_for(&#34;auth.login&#34;))
+
+    user = User.query.filter_by(email=email).first()
+
+    if not user:
+        session.pop(&#34;pending_verification_email&#34;, None)
+        flash(&#34;User not found. Please login again.&#34;, &#34;danger&#34;)
+        return redirect(url_for(&#34;auth.login&#34;))
+
+    if request.method == &#34;POST&#34;:
+        # For now, just verify they have access to the account
+        # In production, send a verification email with a token
+        verification_code = request.form.get(&#34;verification_code&#34;, &#34;&#34;).strip()
+
+        # Check if verification code matches
+        # For now, accept any code and complete login (temporary implementation)
+        # TODO: Implement proper email verification with secure tokens
+
+        # Complete the login
+        login_user(user)
+        session.pop(&#34;pending_verification_email&#34;, None)
+
+        # Track successful verification
+        track_login(user, success=True, login_method=&#34;email_verification&#34;, risk_score=65)
+
+        flash(
+            &#34;Login verified successfully! Your account security is important to us.&#34;,
+            &#34;success&#34;,
+        )
+        return redirect(url_for(&#34;dashboard&#34;))
+
+    # GET request - show verification form
+    # Send verification email (if email service is configured)
+    try:
+        # Generate verification token
+        token = EmailVerificationToken.generate(user.id)
+
+        # Send email with verification code
+        _send_login_verification_email(user.email, token)
+
+        flash(
+            &#34;We&#39;ve sent a verification code to your email. Please check your inbox.&#34;,
+            &#34;info&#34;,
+        )
+    except Exception as e:
+        logger.warning(f&#34;Could not send verification email: {e}&#34;)
+        flash(
+            &#34;Please enter the verification code we sent to your email, or contact support.&#34;,
+            &#34;warning&#34;,
+        )
+
+    return render_template(&#34;auth/verify_login.html&#34;, email=email)</code></pre>
+</details>
+<div class="desc"><p>Email verification for suspicious logins (challenge flow)</p></div>
+</dd>
 </dl>
 </section>
 <section>
@@ -529,14 +834,19 @@ def usage_api():
 <li><code><a title="auth_routes.check_usage_limit" href="#auth_routes.check_usage_limit">check_usage_limit</a></code></li>
 <li><code><a title="auth_routes.dashboard" href="#auth_routes.dashboard">dashboard</a></code></li>
 <li><code><a title="auth_routes.feature_required" href="#auth_routes.feature_required">feature_required</a></code></li>
+<li><code><a title="auth_routes.forgot_password" href="#auth_routes.forgot_password">forgot_password</a></code></li>
 <li><code><a title="auth_routes.init_auth" href="#auth_routes.init_auth">init_auth</a></code></li>
 <li><code><a title="auth_routes.is_safe_url" href="#auth_routes.is_safe_url">is_safe_url</a></code></li>
 <li><code><a title="auth_routes.load_user" href="#auth_routes.load_user">load_user</a></code></li>
 <li><code><a title="auth_routes.login" href="#auth_routes.login">login</a></code></li>
 <li><code><a title="auth_routes.logout" href="#auth_routes.logout">logout</a></code></li>
+<li><code><a title="auth_routes.resend_verification" href="#auth_routes.resend_verification">resend_verification</a></code></li>
+<li><code><a title="auth_routes.reset_password" href="#auth_routes.reset_password">reset_password</a></code></li>
 <li><code><a title="auth_routes.signup" href="#auth_routes.signup">signup</a></code></li>
 <li><code><a title="auth_routes.tier_required" href="#auth_routes.tier_required">tier_required</a></code></li>
 <li><code><a title="auth_routes.usage_api" href="#auth_routes.usage_api">usage_api</a></code></li>
+<li><code><a title="auth_routes.verify_email" href="#auth_routes.verify_email">verify_email</a></code></li>
+<li><code><a title="auth_routes.verify_login" href="#auth_routes.verify_login">verify_login</a></code></li>
 </ul>
 </li>
 </ul>

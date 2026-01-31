@@ -60,11 +60,16 @@
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Http" Version="10.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\BarberX.Shared\BarberX.Shared.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="appsettings.json" />
 	</ItemGroup>
 
 </Project>

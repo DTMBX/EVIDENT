@@ -1,3 +1,59 @@
+/* MICROINTERACTIONS & TRANSITIONS */
+.premium-nav__link,
+.premium-nav__dropdown-link,
+.premium-nav__sublink {
+  transition:
+    color 0.18s,
+    background 0.18s,
+    box-shadow 0.18s,
+    transform 0.18s;
+}
+
+.premium-nav__link:hover,
+.premium-nav__dropdown-link:hover,
+.premium-nav__sublink:hover {
+  color: #d4a574;
+  background: rgb(212 175 55 / 10%);
+  box-shadow: 0 2px 12px rgb(212 175 55 / 10%);
+  transform: translateY(-1px) scale(1.03);
+}
+
+.premium-nav__link:active,
+.premium-nav__dropdown-link:active,
+.premium-nav__sublink:active {
+  color: #b88a44;
+  background: rgb(212 175 55 / 18%);
+  transform: scale(0.98);
+}
+
+.premium-nav__dropdown {
+  box-shadow:
+    0 8px 32px rgb(212 175 55 / 10%),
+    0 1.5px 8px rgb(0 0 0 / 8%);
+  border-radius: 14px;
+  background: linear-gradient(135deg, #fff 80%, #f8f5ef 100%);
+  animation: fadeInUp 0.3s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.premium-nav__dropdown-link {
+  padding: 0.75rem 1.25rem;
+  border-radius: 10px;
+}
+
+.premium-nav__dropdown-link:focus-visible {
+  outline: 2px solid #d4a574;
+  outline-offset: 2px;
+}
+
+.premium-nav__chevron {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.premium-nav__item--has-dropdown:hover .premium-nav__chevron,
+.premium-nav__submenu-toggle[aria-expanded="true"] .premium-nav__chevron {
+  transform: rotate(180deg);
+}
+
 /**
  * PREMIUM UI ENHANCEMENTS — BarberX Legal
  * Polished components, transitions, and micro-interactions
@@ -41,7 +97,7 @@
 }
 
 .premium-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -177,7 +233,7 @@
 }
 
 .progress-bar__fill::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -190,8 +246,13 @@
 }
 
 @keyframes progress-shine {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(100%); }
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
 }
 
 /* ============================================
@@ -279,7 +340,7 @@
 }
 
 .tooltip::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 100%;
   left: 50%;
@@ -339,7 +400,7 @@
 
 .divider--text::before,
 .divider--text::after {
-  content: '';
+  content: "";
   flex: 1;
   height: 1px;
   background: linear-gradient(
@@ -364,7 +425,9 @@
 }
 
 @keyframes spinner-rotate {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .spinner--small {
@@ -395,8 +458,13 @@
 }
 
 @keyframes skeleton-loading {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 .skeleton--text {
@@ -526,7 +594,7 @@ html {
   html {
     scroll-behavior: auto;
   }
-  
+
   * {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;

@@ -2,34 +2,32 @@
 layout: default
 permalink: /
 title: "BarberX Legal Technologies"
-description: "Professional-grade AI-powered eDiscovery platform built with the precision and integrity of the 1920s. Process body-worn camera footage, police reports, and legal documents with 100% local AI—no cloud, no subscriptions, crafted with excellence."
+description: "AI-powered legal eDiscovery platform. Process body-worn camera footage, police reports, and legal documents with 100% local AI—complete privacy, zero cloud costs."
 image: /assets/img/og-image.png
-badge: "Est. 2024 • Precision & Honor • 100% American Craftsmanship"
-cta_primary: "Start Processing Evidence"
-cta_primary_url: "#get-started"
-cta_secondary: "View Documentation"
-cta_secondary_url: "/docs"
+badge: "Est. 2024 • Privacy-First Legal AI"
+cta_primary: "Try Free Demo"
+cta_primary_url: "/register"
+cta_secondary: "See How It Works"
+cta_secondary_url: "#how-it-works"
 hero_features:
-  <!DOCTYPE html>
-    description: "AI super-resolution, stabilization, audio forensics with Whisper transcription"
-  - icon: "📊"
-    title: "Document Processing"
-    description: "OCR extraction, entity recognition, semantic search across thousands of pages"
+  - icon: "🎥"
+    title: "BWC Video Analysis"
+    description: "AI transcription, speaker identification, and frame-by-frame forensic analysis"
+  - icon: "📄"
+    title: "Document Intelligence"
+    description: "OCR, entity extraction, and semantic search across thousands of pages"
   - icon: "🔒"
     title: "Chain of Custody"
-    description: "SHA-256 verification, audit logs, court-defensible evidence management"
-  - icon: "💰"
-    title: "Zero Cloud Costs"
-    description: "100% local processing saves $36 per 100 hours vs cloud transcription APIs"
+    description: "SHA-256 verification and court-defensible audit trails"
+  - icon: "💻"
+    title: "100% Local Processing"
+    description: "Your data never leaves your machine—complete attorney-client privilege"
 ---
 
 <!-- Legal Tech Platform Styles & Scripts -->
 <link rel="stylesheet" href="{{ '/assets/css/legal-tech-platform.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/components/barber-pole.css' | relative_url }}">
 <script src="{{ '/assets/js/platform.js' | relative_url }}" defer></script>
-
-<!-- 1920's Barber Pole -->
-{% include components/barber-pole.html %}
 
 <!-- Unified Hero Section -->
 {% include components/heroes/unified-hero.html %}
@@ -43,64 +41,62 @@ hero_features:
   <section id="how-it-works" class="section">
     <div class="container-narrow">
       
-      <div style="text-align: center; margin-bottom: var(--space-12);" class="slide-up">
-        <h2>From Evidence to Analysis in Four Steps</h2>
-        <p style="color: var(--text-secondary); font-size: 1.125rem;">
-          Our streamlined workflow takes you from raw evidence files to 
-          court-ready exhibits with minimal manual intervention.
+      <div style="text-align: center; margin-bottom: var(--space-12);" data-aos="fade-up">
+        <h2>From Upload to Court-Ready in Minutes</h2>
+        <p style="color: var(--text-secondary); font-size: 1.125rem; max-width: 600px; margin: 0 auto;">
+          Our streamlined workflow transforms raw evidence into organized, searchable, court-ready exhibits.
         </p>
       </div>
 
       <div style="display: grid; gap: var(--space-8);">
         
         <!-- Step 1 -->
-        <div style="display: grid; grid-template-columns: auto 1fr; gap: var(--space-6); align-items: start;" class="slide-left" data-delay="0">
+        <div style="display: grid; grid-template-columns: auto 1fr; gap: var(--space-6); align-items: start;" data-aos="fade-right" data-aos-delay="0">
           <div style="width: 48px; height: 48px; background: var(--accent-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; flex-shrink: 0;">1</div>
           <div>
-            <h3 style="margin-bottom: var(--space-2);">Upload Evidence</h3>
+            <h3 style="margin-bottom: var(--space-2);">Upload Your Evidence</h3>
             <p style="color: var(--text-secondary);">
-              Drag and drop BWC videos, police reports, CAD logs, photos, or any discovery documents. 
-              SHA-256 checksums are generated immediately to preserve chain of custody. 
-              Supports MP4, MOV, PDF, JPG, PNG, CSV, JSON, DOCX, and more.
+              Drag and drop BWC videos, police reports, CAD logs, photos, or discovery documents. 
+              SHA-256 checksums are generated instantly to preserve chain of custody. 
+              Supports MP4, MOV, PDF, JPG, PNG, DOCX, and 20+ formats.
             </p>
           </div>
         </div>
 
         <!-- Step 2 -->
-        <div style="display: grid; grid-template-columns: auto 1fr; gap: var(--space-6); align-items: start;" class="slide-left" data-delay="100">
+        <div style="display: grid; grid-template-columns: auto 1fr; gap: var(--space-6); align-items: start;" data-aos="fade-right" data-aos-delay="100">
           <div style="width: 48px; height: 48px; background: var(--accent-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; flex-shrink: 0;">2</div>
           <div>
-            <h3 style="margin-bottom: var(--space-2);">AI Processing</h3>
+            <h3 style="margin-bottom: var(--space-2);">AI Processes Automatically</h3>
             <p style="color: var(--text-secondary);">
-              Our local AI tools run automatically: Whisper transcribes audio, pyannote identifies speakers, 
-              Tesseract extracts text from documents, spaCy finds names and dates, YOLOv8 detects objects. 
-              All processing happens on your machine—nothing sent to cloud servers.
+              Whisper transcribes audio with 99% accuracy. Speaker diarization identifies who said what. 
+              OCR extracts text from scanned documents. Entity recognition finds names, dates, and locations.
+              Everything runs locally—your data never touches external servers.
             </p>
           </div>
         </div>
 
         <!-- Step 3 -->
-        <div style="display: grid; grid-template-columns: auto 1fr; gap: var(--space-6); align-items: start;" class="slide-left" data-delay="200">
+        <div style="display: grid; grid-template-columns: auto 1fr; gap: var(--space-6); align-items: start;" data-aos="fade-right" data-aos-delay="200">
           <div style="width: 48px; height: 48px; background: var(--accent-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; flex-shrink: 0;">3</div>
           <div>
-            <h3 style="margin-bottom: var(--space-2);">Search & Analyze</h3>
+            <h3 style="margin-bottom: var(--space-2);">Search & Cross-Reference</h3>
             <p style="color: var(--text-secondary);">
-              Use semantic search to find relevant passages across thousands of pages. 
-              Query by natural language ("when did Officer Smith arrive?") instead of exact keywords. 
-              Build timelines, cross-reference evidence, identify contradictions automatically.
+              Use natural language queries like "when did the officer arrive?" instead of exact keyword matches. 
+              Build interactive timelines, identify contradictions between statements, and cross-reference across all evidence sources.
             </p>
           </div>
         </div>
 
         <!-- Step 4 -->
-        <div style="display: grid; grid-template-columns: auto 1fr; gap: var(--space-6); align-items: start;" class="slide-left" data-delay="300">
+        <div style="display: grid; grid-template-columns: auto 1fr; gap: var(--space-6); align-items: start;" data-aos="fade-right" data-aos-delay="300">
           <div style="width: 48px; height: 48px; background: var(--accent-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; flex-shrink: 0;">4</div>
           <div>
-            <h3 style="margin-bottom: var(--space-2);">Export Court-Ready Exhibits</h3>
+            <h3 style="margin-bottom: var(--space-2);">Export Court-Ready Packages</h3>
             <p style="color: var(--text-secondary);">
-              Generate professional evidence packages with transcripts, enhanced media, 
-              annotated timelines, and chain of custody documentation. Export to PDF, 
-              Word, or structured JSON. All exports include verification checksums.
+              Generate professional exhibits with timestamped transcripts, enhanced media, 
+              annotated timelines, and complete chain of custody documentation. 
+              Export to PDF, Word, or structured JSON with verification checksums.
             </p>
           </div>
         </div>
@@ -110,162 +106,123 @@ hero_features:
     </div>
   </section>
 
-  <!-- Real Cases -->
-  <section id="cases" class="section" style="background-color: var(--bg-secondary);">
+  <!-- Use Cases / Who It's For -->
+  <section id="use-cases" class="section" style="background-color: var(--bg-secondary);">
     <div class="container">
       
-      <div style="text-align: center; margin-bottom: var(--space-12);">
-        <h2>Real Cases, Real Impact</h2>
+      <div style="text-align: center; margin-bottom: var(--space-12);" data-aos="fade-up">
+        <h2>Built for Legal Professionals</h2>
         <p style="color: var(--text-secondary); font-size: 1.125rem;">
-          See how our platform is being used in actual civil rights litigation.
+          Whether you're a solo practitioner or a large firm, BarberX scales to your needs.
         </p>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-6);">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6);">
         
-        <!-- Case 1 -->
-        <div class="card">
-          <div style="margin-bottom: var(--space-4);">
-            <span class="badge badge-info">Active Litigation</span>
-          </div>
-          <h3 style="font-size: 1.125rem; margin-bottom: var(--space-2);">
-            <a href="/cases/atl-l-002794-25.html" style="color: var(--text-primary);">
-              ATL-L-002794-25
-            </a>
-          </h3>
-          <p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: var(--space-4);">
-            Atlantic County Superior Court • Civil Rights Violation
+        <!-- Defense Attorneys -->
+        <div class="card" data-aos="zoom-in" data-aos-delay="0">
+          <div style="font-size: 2rem; margin-bottom: var(--space-3);">⚖️</div>
+          <h3 style="font-size: 1.125rem; margin-bottom: var(--space-2);">Defense Attorneys</h3>
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">
+            Analyze BWC footage for inconsistencies, identify Brady material in discovery, 
+            and build compelling timelines that tell your client's story.
           </p>
-          <p style="color: var(--text-secondary); font-size: 0.875rem;">
-            Used Whisper AI to transcribe 8 hours of BWC footage, identified 
-            contradictions between officer statements and video evidence using 
-            semantic search across police reports.
-          </p>
-          <div style="margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid var(--border-light);">
-            <a href="/cases/atl-l-002794-25.html" style="font-size: 0.875rem; font-weight: 600;">
-              View Case Details →
-            </a>
-          </div>
         </div>
 
-        <!-- Case 2 -->
-        <div class="card">
-          <div style="margin-bottom: var(--space-4);">
-            <span class="badge badge-success">Evidence Published</span>
-          </div>
-          <h3 style="font-size: 1.125rem; margin-bottom: var(--space-2);">
-            <a href="/cases/usdj-1-25-cv-15641.html" style="color: var(--text-primary);">
-              USDJ 1:25-cv-15641
-            </a>
-          </h3>
-          <p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: var(--space-4);">
-            U.S. District Court, District of New Jersey • Federal Civil Rights
+        <!-- Civil Rights Litigators -->
+        <div class="card" data-aos="zoom-in" data-aos-delay="100">
+          <div style="font-size: 2rem; margin-bottom: var(--space-3);">🏛️</div>
+          <h3 style="font-size: 1.125rem; margin-bottom: var(--space-2);">Civil Rights Litigators</h3>
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">
+            Process thousands of pages of police records, identify patterns of misconduct, 
+            and build evidence packages for Section 1983 claims.
           </p>
-          <p style="color: var(--text-secondary); font-size: 0.875rem;">
-            Processed 2,400 pages of discovery documents with Tesseract OCR, 
-            extracted 340 officer names and 150 incident dates automatically 
-            using spaCy entity recognition.
-          </p>
-          <div style="margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid var(--border-light);">
-            <a href="/cases/usdj-1-25-cv-15641.html" style="font-size: 0.875rem; font-weight: 600;">
-              View Case Details →
-            </a>
-          </div>
         </div>
 
-        <!-- Case 3 -->
-        <div class="card">
-          <div style="margin-bottom: var(--space-4);">
-            <span class="badge badge-warning">OPRA Appeal</span>
-          </div>
-          <h3 style="font-size: 1.125rem; margin-bottom: var(--space-2);">
-            <a href="/cases/barber-nj-pcr-2022.html" style="color: var(--text-primary);">
-              Barber NJ PCR 2022
-            </a>
-          </h3>
-          <p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: var(--space-4);">
-            New Jersey Post-Conviction Relief • Public Records Request
+        <!-- Public Defenders -->
+        <div class="card" data-aos="zoom-in" data-aos-delay="200">
+          <div style="font-size: 2rem; margin-bottom: var(--space-3);">🛡️</div>
+          <h3 style="font-size: 1.125rem; margin-bottom: var(--space-2);">Public Defenders</h3>
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">
+            Handle high caseloads efficiently with automated transcription and analysis. 
+            Free tier available for budget-constrained offices.
           </p>
-          <p style="color: var(--text-secondary); font-size: 0.875rem;">
-            Built comprehensive timeline from CAD logs, arrest records, and 
-            court transcripts. Cross-referenced 45 evidence sources to identify 
-            12 Brady violations automatically.
-          </p>
-          <div style="margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid var(--border-light);">
-            <a href="/cases/barber-nj-pcr-2022.html" style="font-size: 0.875rem; font-weight: 600;">
-              View Case Details →
-            </a>
-          </div>
         </div>
 
-      </div>
+        <!-- Investigators -->
+        <div class="card" data-aos="zoom-in" data-aos-delay="300">
+          <div style="font-size: 2rem; margin-bottom: var(--space-3);">🔍</div>
+          <h3 style="font-size: 1.125rem; margin-bottom: var(--space-2);">Legal Investigators</h3>
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">
+            Extract entities, build relationship maps, and create comprehensive 
+            investigation reports with full audit trails.
+          </p>
+        </div>
 
-      <div style="text-align: center; margin-top: var(--space-8);">
-        <a href="/cases" class="btn btn-secondary">View All Cases</a>
       </div>
 
     </div>
   </section>
 
   <!-- Platform Features -->
-  <section id="platform" class="section" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+  <section id="platform" class="section" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
     <div class="container">
-      <div style="text-align: center; margin-bottom: var(--space-12);">
-        <h2 style="color: white;">Comprehensive Legal Tech Platform</h2>
+      <div style="text-align: center; margin-bottom: var(--space-12);" data-aos="fade-up">
+        <h2 style="color: white;">Enterprise-Grade Platform</h2>
         <p style="color: rgba(255, 255, 255, 0.8); font-size: 1.125rem; max-width: 700px; margin: 0 auto;">
-          Professional-grade tools for evidence processing, case management, and legal research.
+          Professional tools built for the demands of modern legal practice.
         </p>
       </div>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-6);">
         
         <!-- AI Processing -->
-        <div class="card" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);">
+        <div class="card" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);" data-aos="flip-left" data-aos-delay="0">
           <div style="padding: var(--space-6);">
             <div style="font-size: 2.5rem; margin-bottom: var(--space-4);">🤖</div>
-            <h3 style="color: white; margin-bottom: var(--space-3);">AI-Powered Analysis</h3>
+            <h3 style="color: white; margin-bottom: var(--space-3);">22+ AI Models</h3>
             <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: var(--space-4);">
-              Local AI tools for video transcription, speaker identification, entity extraction, and timeline generation.
+              State-of-the-art models for transcription, vision, language understanding, and document analysis.
             </p>
             <ul style="color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; margin: 0; padding-left: 1.2rem;">
-              <li>Whisper transcription</li>
-              <li>Speaker diarization</li>
-              <li>Entity recognition</li>
-              <li>Timeline extraction</li>
+              <li>Whisper (speech-to-text)</li>
+              <li>GPT-4 / Claude (analysis)</li>
+              <li>Tesseract (OCR)</li>
+              <li>spaCy (entity extraction)</li>
             </ul>
           </div>
         </div>
 
-        <!-- Admin Panel -->
-        <div class="card" style="background: rgba(196, 30, 58, 0.1); border: 1px solid rgba(196, 30, 58, 0.3);">
+        <!-- Security -->
+        <div class="card" style="background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3);" data-aos="flip-left" data-aos-delay="100">
           <div style="padding: var(--space-6);">
             <div style="font-size: 2.5rem; margin-bottom: var(--space-4);">🔐</div>
-            <h3 style="color: white; margin-bottom: var(--space-3);">Admin Panel</h3>
+            <h3 style="color: white; margin-bottom: var(--space-3);">Attorney-Client Privilege</h3>
             <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: var(--space-4);">
-              Comprehensive backend management with user control, settings configuration, and system monitoring.
+              100% local processing ensures privileged information never leaves your control.
             </p>
             <ul style="color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; margin: 0; padding-left: 1.2rem;">
-              <li>User management (CRUD)</li>
-              <li>29 configurable settings</li>
-              <li>System health monitoring</li>
+              <li>Zero cloud transmission</li>
+              <li>AES-256 encryption at rest</li>
+              <li>Role-based access control</li>
               <li>Complete audit logging</li>
             </ul>
           </div>
         </div>
 
-        <!-- Case Management -->
-        <div class="card" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);">
+        <!-- Integrations -->
+        <div class="card" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);" data-aos="flip-left" data-aos-delay="200">
           <div style="padding: var(--space-6);">
-            <div style="font-size: 2.5rem; margin-bottom: var(--space-4);">📁</div>
-            <h3 style="color: white; margin-bottom: var(--space-3);">Case Management</h3>
+            <div style="font-size: 2.5rem; margin-bottom: var(--space-4);">🔗</div>
+            <h3 style="color: white; margin-bottom: var(--space-3);">Flexible Integration</h3>
             <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: var(--space-4);">
-              Organize evidence, track analyses, manage documents, and export court-ready exhibits.
+              REST API, bulk import/export, and compatibility with existing case management systems.
             </p>
             <ul style="color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; margin: 0; padding-left: 1.2rem;">
-              <li>Evidence organization</li>
-              <li>Analysis tracking</li>
-              <li>Document management</li>
-              <li>Export capabilities</li>
+              <li>REST API access</li>
+              <li>Batch processing</li>
+              <li>JSON/CSV/PDF export</li>
+              <li>Webhook notifications</li>
             </ul>
           </div>
         </div>
@@ -274,33 +231,151 @@ hero_features:
     </div>
   </section>
 
-  <!-- Call to Action -->
+  <!-- Stripe-Style Pricing Tiers -->
+  <section id="pricing" class="section" style="background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);">
+    <div class="container">
+      
+      <div style="text-align: center; margin-bottom: var(--space-10);" data-aos="fade-up">
+        <span style="display: inline-block; background: linear-gradient(135deg, #7c3aed, #4f46e5); color: white; padding: 6px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-4);">Founding Member Pricing</span>
+        <h2 style="margin-bottom: var(--space-3);">Simple, Transparent Pricing</h2>
+        <p style="color: var(--text-secondary); font-size: 1.125rem; max-width: 600px; margin: 0 auto;">
+          Start free, upgrade when you need more. No hidden fees, no per-seat licensing, no surprises.
+        </p>
+      </div>
+
+      <!-- Pricing Cards Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6); max-width: 1100px; margin: 0 auto; align-items: stretch;">
+        
+        <!-- Free Tier -->
+        <div class="pricing-tier-card" data-aos="fade-up" data-aos-delay="0" style="background: var(--surface-color); border-radius: 16px; padding: var(--space-6); border: 1px solid var(--border-color); position: relative; display: flex; flex-direction: column; transition: all 0.3s ease;">
+          <div style="text-align: center; margin-bottom: var(--space-5);">
+            <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--space-1);">Free</h3>
+            <p style="color: var(--text-secondary); font-size: 0.875rem;">Perfect for getting started</p>
+          </div>
+          <div style="text-align: center; margin-bottom: var(--space-5);">
+            <span style="font-size: 3rem; font-weight: 800; color: var(--text-primary);">$0</span>
+            <span style="color: var(--text-secondary); font-size: 0.9rem;">/month</span>
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0 0 var(--space-6) 0; flex: 1;">
+            <li style="padding: 10px 0; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; border-bottom: 1px solid var(--border-color);">
+              <span style="color: #10b981; font-weight: bold;">✓</span> 3 cases per month
+            </li>
+            <li style="padding: 10px 0; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; border-bottom: 1px solid var(--border-color);">
+              <span style="color: #10b981; font-weight: bold;">✓</span> Basic BWC analysis
+            </li>
+            <li style="padding: 10px 0; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; border-bottom: 1px solid var(--border-color);">
+              <span style="color: #10b981; font-weight: bold;">✓</span> 100MB storage
+            </li>
+            <li style="padding: 10px 0; display: flex; align-items: center; gap: 10px; font-size: 0.9rem;">
+              <span style="color: #10b981; font-weight: bold;">✓</span> Community support
+            </li>
+          </ul>
+          <a href="/register" class="btn" style="width: 100%; text-align: center; padding: 14px; background: var(--bg-secondary); color: var(--text-primary); border-radius: 8px; font-weight: 600; transition: all 0.2s ease;">Get Started Free</a>
+        </div>
+
+        <!-- Pro Tier (Featured) -->
+        <div class="pricing-tier-card featured" data-aos="fade-up" data-aos-delay="100" style="background: linear-gradient(180deg, rgba(124, 58, 237, 0.08) 0%, var(--surface-color) 100%); border-radius: 16px; padding: var(--space-6); border: 2px solid #7c3aed; position: relative; display: flex; flex-direction: column; transform: scale(1.02); box-shadow: 0 20px 40px rgba(124, 58, 237, 0.15); transition: all 0.3s ease;">
+          <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #7c3aed, #4f46e5); color: white; padding: 6px 16px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Most Popular</div>
+          <div style="text-align: center; margin-bottom: var(--space-5); padding-top: var(--space-2);">
+            <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--space-1);">Professional</h3>
+            <p style="color: var(--text-secondary); font-size: 0.875rem;">For solo practitioners</p>
+          </div>
+          <div style="text-align: center; margin-bottom: var(--space-5);">
+            <div style="display: flex; align-items: baseline; justify-content: center; gap: 8px;">
+              <span style="font-size: 1rem; color: var(--text-secondary); text-decoration: line-through;">$99</span>
+              <span style="font-size: 3rem; font-weight: 800; color: #7c3aed;">$49</span>
+            </div>
+            <span style="color: var(--text-secondary); font-size: 0.9rem;">/month</span>
+            <div style="margin-top: 8px;">
+              <span style="background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 4px 10px; border-radius: 12px; font-size: 0.7rem; font-weight: 700;">SAVE 50% FOREVER</span>
+            </div>
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0 0 var(--space-6) 0; flex: 1;">
+            <li style="padding: 10px 0; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; border-bottom: 1px solid var(--border-color);">
+              <span style="color: #7c3aed; font-weight: bold;">✓</span> Unlimited cases
+            </li>
+            <li style="padding: 10px 0; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; border-bottom: 1px solid var(--border-color);">
+              <span style="color: #7c3aed; font-weight: bold;">✓</span> Advanced AI analysis
+            </li>
+            <li style="padding: 10px 0; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; border-bottom: 1px solid var(--border-color);">
+              <span style="color: #7c3aed; font-weight: bold;">✓</span> 50GB storage
+            </li>
+            <li style="padding: 10px 0; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; border-bottom: 1px solid var(--border-color);">
+              <span style="color: #7c3aed; font-weight: bold;">✓</span> Priority support
+            </li>
+            <li style="padding: 10px 0; display: flex; align-items: center; gap: 10px; font-size: 0.9rem;">
+              <span style="color: #7c3aed; font-weight: bold;">✓</span> API access
+            </li>
+          </ul>
+          <a href="/register?plan=pro" class="btn btn-primary" style="width: 100%; text-align: center; padding: 14px; background: linear-gradient(135deg, #7c3aed, #4f46e5); color: white; border-radius: 8px; font-weight: 600; border: none; transition: all 0.2s ease; box-shadow: 0 4px 14px rgba(124, 58, 237, 0.4);">Start Free Trial</a>
+        </div>
+
+        <!-- Enterprise Tier -->
+        <div class="pricing-tier-card" data-aos="fade-up" data-aos-delay="200" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-radius: 16px; padding: var(--space-6); border: 1px solid rgba(212, 175, 55, 0.3); position: relative; display: flex; flex-direction: column; transition: all 0.3s ease;">
+          <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #d4af37, #f0d78c); border-radius: 16px 16px 0 0;"></div>
+          <div style="text-align: center; margin-bottom: var(--space-5);">
+            <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--space-1); color: white;">Enterprise</h3>
+            <p style="color: rgba(255,255,255,0.7); font-size: 0.875rem;">For firms & organizations</p>
+          </div>
+          <div style="text-align: center; margin-bottom: var(--space-5);">
+            <span style="font-size: 2.5rem; font-weight: 800; color: #d4af37;">Custom</span>
+            <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-top: 4px;">Tailored to your needs</p>
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0 0 var(--space-6) 0; flex: 1; color: white;">
+            <li style="padding: 10px 0; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <span style="color: #d4af37; font-weight: bold;">✓</span> Everything in Pro
+            </li>
+            <li style="padding: 10px 0; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <span style="color: #d4af37; font-weight: bold;">✓</span> Unlimited storage
+            </li>
+            <li style="padding: 10px 0; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <span style="color: #d4af37; font-weight: bold;">✓</span> On-premise deployment
+            </li>
+            <li style="padding: 10px 0; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <span style="color: #d4af37; font-weight: bold;">✓</span> Custom integrations
+            </li>
+            <li style="padding: 10px 0; display: flex; align-items: center; gap: 10px; font-size: 0.9rem;">
+              <span style="color: #d4af37; font-weight: bold;">✓</span> Dedicated support
+            </li>
+          </ul>
+          <a href="/contact?inquiry=enterprise" class="btn" style="width: 100%; text-align: center; padding: 14px; background: transparent; color: #d4af37; border: 2px solid #d4af37; border-radius: 8px; font-weight: 600; transition: all 0.2s ease;">Contact Sales</a>
+        </div>
+
+      </div>
+
+      <!-- Trust Badges -->
+      <div style="text-align: center; margin-top: var(--space-8);" data-aos="fade-up" data-aos-delay="300">
+        <p style="color: var(--text-secondary); font-size: 0.875rem; display: flex; align-items: center; justify-content: center; gap: var(--space-6); flex-wrap: wrap;">
+          <span>🔒 256-bit SSL encryption</span>
+          <span>💳 No credit card required</span>
+          <span>⚡ Cancel anytime</span>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Final CTA -->
   <section class="cta-section">
     <div class="container-narrow">
-      <h2>Ready to Get Started?</h2>
+      <h2>Ready to Transform Your Practice?</h2>
       <p>
-        Access the platform locally or explore our open-source AI tools. 
-        No subscriptions, no cloud APIs, no recurring costs.
+        Join legal professionals who are saving hours on every case with AI-powered evidence analysis.
       </p>
       <div class="cta-buttons">
-        <a href="/admin/" class="btn btn-primary btn-lg">
-          🔐 Admin Panel Info
+        <a href="/register" class="btn btn-primary btn-lg">
+          Start Free Trial
         </a>
-        <a href="/LOCAL-AI-GUIDE.html" class="btn btn-ghost btn-lg">
-          📖 Installation Guide
+        <a href="/contact" class="btn btn-ghost btn-lg">
+          Schedule a Demo
         </a>
       </div>
       <p style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.7); margin-top: var(--space-6); margin-bottom: 0;">
-        Open-source MIT/Apache/BSD licenses • Windows, macOS, Linux • Python 3.8+ • Flask 3.0+
+        14-day free trial • No credit card required • Cancel anytime
       </p>
     </div>
   </section>
 
-  <!-- Legacy Sections (Preserved) -->
-  {% include sections/home/principles.html %}
-  {% include components/forms/connect.html %}
-  {% include sections/home/compliance.html %}
-
 </main>
 
-<script src="{{ "/assets/js/header.js" | relative_url }}" defer>&lt;/script&gt;
+<script src="{{ "/assets/js/header.js" | relative_url }}" defer></script>

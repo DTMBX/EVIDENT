@@ -17,32 +17,32 @@
 
 :root {
   /* Colors */
-  --elegant-primary: #C41E3A;
-  --elegant-primary-dark: #A01729;
-  --elegant-secondary: #1E3A8A;
+  --elegant-primary: #c41e3a;
+  --elegant-primary-dark: #a01729;
+  --elegant-secondary: #1e3a8a;
   --elegant-accent: #d4a574;
   --elegant-text: #0f172a;
   --elegant-text-light: #64748b;
   --elegant-bg: #ffffff;
-  --elegant-bg-blur: rgba(255, 255, 255, 0.85);
+  --elegant-bg-blur: rgb(255 255 255 / 85%);
   --elegant-border: #e2e8f0;
   --elegant-hover-bg: #f8fafc;
-  --elegant-shadow: rgba(0, 0, 0, 0.1);
-  
+  --elegant-shadow: rgb(0 0 0 / 10%);
+
   /* Spacing */
   --elegant-header-height: 72px;
   --elegant-header-padding: 1.5rem;
-  
+
   /* Transitions */
   --elegant-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --elegant-transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  
+
   /* Shadows */
-  --elegant-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --elegant-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --elegant-shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
-  --elegant-shadow-xl: 0 20px 40px -10px rgba(0, 0, 0, 0.25);
-  
+  --elegant-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 5%);
+  --elegant-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 10%);
+  --elegant-shadow-lg: 0 10px 25px -5px rgb(0 0 0 / 15%);
+  --elegant-shadow-xl: 0 20px 40px -10px rgb(0 0 0 / 25%);
+
   /* Z-index */
   --elegant-z-header: 1000;
   --elegant-z-dropdown: 1010;
@@ -56,7 +56,7 @@
     --elegant-text: #f8fafc;
     --elegant-text-light: #94a3b8;
     --elegant-bg: #0f172a;
-    --elegant-bg-blur: rgba(15, 23, 42, 0.85);
+    --elegant-bg-blur: rgb(15 23 42 / 85%);
     --elegant-border: #334155;
     --elegant-hover-bg: #1e293b;
   }
@@ -323,7 +323,11 @@ body {
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
-  background: linear-gradient(135deg, rgba(196, 30, 58, 0.1), rgba(212, 165, 116, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgb(196 30 58 / 10%),
+    rgb(212 165 116 / 10%)
+  );
   border-radius: 0.5rem;
 }
 
@@ -391,14 +395,18 @@ body {
 }
 
 .elegant-btn--primary {
-  background: linear-gradient(135deg, var(--elegant-primary) 0%, var(--elegant-primary-dark) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--elegant-primary) 0%,
+    var(--elegant-primary-dark) 100%
+  );
   color: white;
-  box-shadow: 0 2px 8px rgba(196, 30, 58, 0.2);
+  box-shadow: 0 2px 8px rgb(196 30 58 / 20%);
 }
 
 .elegant-btn--primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(196, 30, 58, 0.3);
+  box-shadow: 0 4px 12px rgb(196 30 58 / 30%);
 }
 
 .elegant-btn--primary:active {
@@ -487,7 +495,7 @@ body {
   width: 100%;
   max-width: 380px;
   background: var(--elegant-bg);
-  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.2);
+  box-shadow: -8px 0 32px rgb(0 0 0 / 20%);
   z-index: var(--elegant-z-drawer);
   display: flex;
   flex-direction: column;
@@ -673,14 +681,18 @@ body {
 }
 
 .drawer-btn--primary {
-  background: linear-gradient(135deg, var(--elegant-primary) 0%, var(--elegant-primary-dark) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--elegant-primary) 0%,
+    var(--elegant-primary-dark) 100%
+  );
   color: white;
-  box-shadow: 0 4px 12px rgba(196, 30, 58, 0.25);
+  box-shadow: 0 4px 12px rgb(196 30 58 / 25%);
 }
 
 .drawer-btn--primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(196, 30, 58, 0.35);
+  box-shadow: 0 6px 16px rgb(196 30 58 / 35%);
 }
 
 .drawer-btn--primary:active {
@@ -704,7 +716,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgb(0 0 0 / 40%);
   backdrop-filter: blur(4px);
   z-index: var(--elegant-z-overlay);
   opacity: 0;
@@ -746,13 +758,13 @@ body.drawer-open {
   .elegant-header {
     border-bottom-width: 2px;
   }
-  
+
   .elegant-nav__link,
   .elegant-dropdown__link,
   .drawer-nav__link {
     border: 1px solid transparent;
   }
-  
+
   .elegant-nav__link:hover,
   .elegant-dropdown__link:hover,
   .drawer-nav__link:hover {
@@ -768,7 +780,7 @@ body.drawer-open {
   .elegant-header__container {
     padding: 0 1rem;
   }
-  
+
   .elegant-drawer {
     max-width: 100%;
   }
@@ -778,7 +790,7 @@ body.drawer-open {
   :root {
     --elegant-header-height: 64px;
   }
-  
+
   .logo-name {
     font-size: 1.125rem;
   }

@@ -9,14 +9,16 @@ Successfully created a professional tier-based authentication and authorization 
 ## ✅ **Admin Account Created**
 
 **Your Credentials:**
-- **Email:** `dTb33@pm.me`
-- **Password:** `LoveAll33!`
+
+- **Email:** Set via `ADMIN_EMAIL` environment variable
+- **Password:** Set via `ADMIN_PASSWORD` environment variable
 - **Tier:** Admin ($9999/mo symbolic price)
 - **Access:** Full backend access + unlimited everything
 
 **Admin Privileges:**
+
 - ✅ Unlimited BWC processing
-- ✅ Unlimited document analysis  
+- ✅ Unlimited document analysis
 - ✅ Unlimited AI transcription
 - ✅ Unlimited storage
 - ✅ Backend tool access
@@ -29,7 +31,9 @@ Successfully created a professional tier-based authentication and authorization 
 ## 💰 **Tier Structure (Profitable & Scalable)**
 
 ### 🆓 **Free Tier** ($0/month)
+
 **Trial & Demo Access**
+
 - 2 BWC videos/month (100MB max each)
 - 50 document pages/month
 - 30 minutes AI transcription/month
@@ -39,7 +43,9 @@ Successfully created a professional tier-based authentication and authorization 
 - Community support only
 
 ### ⭐ **Professional Tier** ($49/month)
+
 **Solo Practitioners & Small Firms**
+
 - 25 BWC videos/month (500MB max each)
 - 1,000 document pages/month
 - 10 hours AI transcription/month
@@ -49,8 +55,10 @@ Successfully created a professional tier-based authentication and authorization 
 - Multi-BWC sync (3 cameras)
 - Email support (48hr response)
 
-### 💎 **Premium Tier** ($149/month)
+### 💎 **Premium Tier** ($199/month)
+
 **Law Firms & Professional Investigators**
+
 - 100 BWC videos/month (2GB max each)
 - 10,000 document pages/month
 - 50 hours AI transcription/month
@@ -64,7 +72,9 @@ Successfully created a professional tier-based authentication and authorization 
 - White-label exports
 
 ### 🏆 **Enterprise Tier** ($499/month)
+
 **Organizations & Legal Teams**
+
 - Unlimited BWC processing (10GB max each)
 - Unlimited document analysis
 - Unlimited AI transcription (all models)
@@ -82,6 +92,7 @@ Successfully created a professional tier-based authentication and authorization 
 ## 📁 **Files Created**
 
 ### Database & Models
+
 1. **`models_auth.py`** (9.2 KB)
    - User model with authentication
    - Tier/subscription management
@@ -97,12 +108,13 @@ Successfully created a professional tier-based authentication and authorization 
 
 3. **`instance/barberx_auth.db`**
    - SQLite database with:
-     - Your admin account (dTb33@pm.me)
+     - Your admin account (set via environment variables)
      - 3 sample test users
      - Usage tracking tables
      - API keys table
 
 ### Authentication System
+
 4. **`auth_routes.py`** (10.3 KB)
    - Login/logout routes
    - Signup/registration
@@ -115,6 +127,7 @@ Successfully created a professional tier-based authentication and authorization 
      - `@check_usage_limit('bwc_videos_processed')`
 
 ### Frontend
+
 5. **`templates/auth/login.html`** (6.2 KB)
    - Clean BarberX-branded login page
    - Gradient background (red/blue)
@@ -127,23 +140,27 @@ Successfully created a professional tier-based authentication and authorization 
 ## 🔒 **Security Features Included**
 
 ✅ **Password Security**
+
 - Bcrypt hashing (industry standard)
 - Minimum 8 characters enforced
 - Salt + hash storage (never plain text)
 
 ✅ **Session Management**
+
 - Flask-Login integration
 - Secure session cookies
 - Remember me functionality
 - Auto-logout on inactivity
 
 ✅ **Access Control**
+
 - Tier-based feature gates
 - Usage limit enforcement
 - Admin-only routes
 - Feature-specific decorators
 
 ✅ **Database Security**
+
 - SQLAlchemy ORM (prevents SQL injection)
 - Parameterized queries
 - Proper foreign key relationships
@@ -153,6 +170,7 @@ Successfully created a professional tier-based authentication and authorization 
 ## 🎯 **Usage Limit Tracking**
 
 The system automatically tracks:
+
 - BWC videos processed this month
 - Document pages analyzed
 - AI transcription minutes used
@@ -167,20 +185,23 @@ The system automatically tracks:
 ## 🚀 **How to Use**
 
 ### 1. Test Admin Login
+
 ```python
 # Already initialized! Just run:
 python init_auth.py  # Shows your account details
 ```
 
 ### 2. Integrate with Flask App
+
 ```python
 from flask import Flask
 from models_auth import db, bcrypt
 from auth_routes import init_auth
+import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your-secret-key'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///instance/barberx_auth.db'
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')  # Set via environment variable
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///instance/barberx_auth.db')
 
 # Initialize extensions
 db.init_app(app)
@@ -192,6 +213,7 @@ if __name__ == '__main__':
 ```
 
 ### 3. Protect Routes
+
 ```python
 from auth_routes import admin_required, tier_required, check_usage_limit
 from models_auth import TierLevel
@@ -218,9 +240,10 @@ def process_bwc():
 ```
 
 ### 4. Login to Your Admin Account
+
 1. Navigate to: `http://localhost:5000/auth/login`
-2. Email: `dTb33@pm.me`
-3. Password: `LoveAll33!`
+2. Email: `admin@barberx.info`
+3. Password: `(set via ADMIN_PASSWORD env var)`
 4. Click "Login"
 5. You now have full admin access!
 
@@ -229,6 +252,7 @@ def process_bwc():
 ## 📊 **Revenue Projections**
 
 ### Year 1 (Conservative)
+
 - 100 Free users
 - 10 Pro subscribers = $490/mo
 - 2 Premium subscribers = $298/mo
@@ -236,6 +260,7 @@ def process_bwc():
 - **Year 1 ARR:** ~$9,456
 
 ### Year 2 (Growth)
+
 - 1,000 Free users
 - 100 Pro subscribers = $4,900/mo
 - 20 Premium subscribers = $2,980/mo
@@ -249,24 +274,26 @@ def process_bwc():
 
 For testing different tier experiences:
 
-| Email | Password | Tier |
-|-------|----------|------|
-| free@example.com | test123 | Free |
-| pro@example.com | test123 | Professional |
-| premium@example.com | test123 | Premium |
-| dTb33@pm.me | LoveAll33! | **Admin** |
+| Email               | Password  | Tier         |
+| ------------------- | --------- | ------------ |
+| free@example.com    | test123   | Free         |
+| pro@example.com     | test123   | Professional |
+| premium@example.com | test123   | Premium      |
+| admin@barberx.info  | (env var) | **Admin**    |
 
 ---
 
 ## ✨ **Next Steps**
 
 ### Immediate
+
 - [ ] Test login with your admin account
 - [ ] Integrate auth_routes into main app.py
 - [ ] Add dashboard page to show usage stats
 - [ ] Create pricing page
 
 ### Soon
+
 - [ ] Add payment integration (Stripe)
 - [ ] Email verification system
 - [ ] Password reset flow
@@ -274,6 +301,7 @@ For testing different tier experiences:
 - [ ] Upgrade prompts in UI
 
 ### Future
+
 - [ ] Two-factor authentication (2FA)
 - [ ] API key management page
 - [ ] Team/organization accounts
@@ -285,6 +313,7 @@ For testing different tier experiences:
 ## 🎨 **Branding Integration**
 
 All authentication pages use BarberX branding:
+
 - Classic barber pole logo
 - Red/blue gradient backgrounds
 - Brand colors throughout
@@ -311,7 +340,7 @@ python init_auth.py
 python
 >>> from init_auth import app, User
 >>> with app.app_context():
-...     admin = User.query.filter_by(email='dTb33@pm.me').first()
+...     admin = User.query.filter_by(email='admin@barberx.info').first()
 ...     print(admin.tier_name)
 ...     print(admin.get_tier_limits())
 
@@ -331,6 +360,6 @@ Your admin account is active with unlimited access to all features and backend t
 ---
 
 **Created:** 2026-01-23  
-**Admin:** dTb33@pm.me  
+**Admin:** admin@barberx.info  
 **Tier System:** 4 tiers + Admin  
 **Security:** Production-ready

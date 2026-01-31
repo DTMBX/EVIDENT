@@ -104,24 +104,24 @@ textarea:focus-visible {
    ========================================== */
 
 /* High contrast mode support is not yet standardized. Use forced-colors or fallback styles. */
-  textarea,
-  .card,
-  .panel {
-    border-width: 2px;
-    border-color: currentcolor;
-  }
-  
-  /* Ensure text has sufficient contrast */
-  body {
-    background: white;
-    color: black;
-  }
-  
-  /* Make focus indicators more visible */
-  *:focus-visible {
-    outline-width: 4px;
-    outline-offset: 4px;
-  }
+textarea,
+.card,
+.panel {
+  border-width: 2px;
+  border-color: currentcolor;
+}
+
+/* Ensure text has sufficient contrast */
+body {
+  background: white;
+  color: black;
+}
+
+/* Make focus indicators more visible */
+*:focus-visible {
+  outline-width: 4px;
+  outline-offset: 4px;
+}
 
 /* ==========================================
    REDUCED MOTION - Respect user preferences
@@ -136,7 +136,7 @@ textarea:focus-visible {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  
+
   /* Disable barber pole animation */
   .barber-pole-spinner__helix {
     animation: none !important;
@@ -257,7 +257,9 @@ select:invalid:not(:focus) {
   white-space: nowrap;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.2s, visibility 0.2s;
+  transition:
+    opacity 0.2s,
+    visibility 0.2s;
   z-index: 1000;
   pointer-events: none;
 }
@@ -345,12 +347,24 @@ th[scope="row"] {
    ========================================== */
 
 /* Ensure proper heading structure */
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.5rem; }
-h4 { font-size: 1.25rem; }
-h5 { font-size: 1.125rem; }
-h6 { font-size: 1rem; }
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4 {
+  font-size: 1.25rem;
+}
+h5 {
+  font-size: 1.125rem;
+}
+h6 {
+  font-size: 1rem;
+}
 
 /* ==========================================
    LOADING STATES - Accessible announcements
@@ -374,11 +388,19 @@ h6 { font-size: 1rem; }
   html {
     font-size: 16px; /* Minimum for accessibility */
   }
-  
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.75rem; }
-  h3 { font-size: 1.5rem; }
-  h4 { font-size: 1.25rem; }
+
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.75rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  h4 {
+    font-size: 1.25rem;
+  }
 }
 
 /* ==========================================
@@ -394,20 +416,20 @@ h6 { font-size: 1rem; }
     box-shadow: none !important;
     text-shadow: none !important;
   }
-  
+
   a,
   a:visited {
     text-decoration: underline;
   }
-  
+
   a[href]::after {
     content: " (" attr(href) ")";
   }
-  
+
   abbr[title]::after {
     content: " (" attr(title) ")";
   }
-  
+
   /* Don't show skip links when printing */
   .skip-link {
     display: none;
@@ -436,5 +458,4 @@ h6 { font-size: 1rem; }
 
 .no-scroll {
   overflow: hidden;
-}
 }

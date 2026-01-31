@@ -1,0 +1,1385 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="X-UA-Compatible" content="IE=Edge" /><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Full Text of The Federalist Papers - Federalist Papers: Primary Documents in American History - Research Guides at Library of Congress</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noarchive" />
+<link rel="shortcut icon" href='https://www.loc.gov/favicon.ico'/>
+<link rel="icon" sizes="192x192" href="https://www.loc.gov/touch-icon-192x192.png">
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="https://www.loc.gov/apple-touch-icon-180x180.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://www.loc.gov/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://www.loc.gov/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" href="https://www.loc.gov/apple-touch-icon-precomposed.png">
+<meta name="msapplication-TileColor" content="#ffffff" />
+<meta name="msapplication-TileImage" content="https://www.loc.gov/ms-icon-144x144.png" />
+
+
+<!-- public_metadata.twig -->
+
+    <!-- auto generated dublin core metadata -->
+    <meta name="DC.Title" content="Research Guides: Federalist Papers: Primary Documents in American History: Full Text of The Federalist Papers"/>
+    <meta name="DC.Creator" content="Ken Drexler"/>
+    <meta name="DC.Subject" content="American History, Early American History, Government, Historic American Law, Political Science, Primary Documents in American History"/>
+    <meta name="DC.Description" content="The Federalist Papers were a series of essays written by Alexander Hamilton, James Madison, and John Jay under the pen name &quot;Publius.&quot; This guide compiles Library of Congress digital materials, external websites, and a print bibliography."/>
+    <meta name="DC.Publishers" content="Library of Congress"/>
+    <meta name="DC.Rights" content="Copyright Library of Congress 2026"/>
+    <meta name="DC.Language" content="en"/>
+    <meta name="DC.Identifier" content="https://guides.loc.gov/federalist-papers/full-text"/>
+    <meta name="DC.Date.Created" content="May 3, 2019"/>
+    <meta name="DC.Date.Modified" content="Jan 20, 2026"/>
+    
+
+<meta property="og:title" content="Research Guides: Federalist Papers: Primary Documents in American History: Full Text of The Federalist Papers">
+<meta property="og:description" content="The Federalist Papers were a series of essays written by Alexander Hamilton, James Madison, and John Jay under the pen name &quot;Publius.&quot; This guide compiles Library of Congress digital materials, external websites, and a print bibliography.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://guides.loc.gov/federalist-papers/full-text">
+    <meta property="og:image" content="https://guides.loc.gov/ld.php?screenshot=jdechd.png&amp;size=facebook&amp;cb=1769671812">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="627">
+    <meta name="twitter:image" content="https://guides.loc.gov/ld.php?screenshot=jdechd.png&amp;size=twitter&amp;cb=1769671812">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@springshare">
+
+
+
+<link rel="stylesheet" href="https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691" />
+
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+<link rel="stylesheet" type="text/css" href="https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css">
+<link rel="stylesheet" type="text/css" href="https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css">
+
+    <link rel="stylesheet" href="https://static-assets-us.libguides.com/web/css3.23.4/lg-public.min.css" />
+
+<script type="text/javascript" src="https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js"></script>
+<script>
+    jQuery(document).ready(function () {
+        jQuery(".dropdown-toggle").on("click", function(e){
+            jQuery(this).siblings("ul.s-lg-subtab-ul.dropdown-menu").toggle();
+        });
+                        var s_lg_guide_name = jQuery('#s-lg-guide-name');
+        if (s_lg_guide_name.length) {
+            if (jQuery.trim(s_lg_guide_name.text()) === '') {
+                s_lg_guide_name.remove();
+            }
+        }
+    });
+</script>
+
+    <script src="//code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script>
+        jQuery.ui ||
+        document.write('<script src="https://static-assets-us.libguides.com/web/jquery/js/jquery-ui.min.js?2691">\x3C/script>');
+    </script>
+
+    <script type="text/javascript" src="https://static-assets-us.libguides.com/web/js3.23.4/lg-public.min.js"></script>
+<style>/** bootstrap_tab_css.twig **/
+#s-lg-tabs-container .nav-tabs > li > a,
+#s-lg-tabs-container .nav-tabs > li > button,
+#s-lg-tabs-container .nav-pills > li > a,
+#s-lg-tabs-container .nav-pills > li > button {
+    border: 1px solid transparent; -webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0;
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: bold;
+    padding: 4px 15px;
+}
+
+#s-lg-tabs-container .nav-tabs {
+    border-bottom: 0;
+}
+
+#s-lg-tabs-container .nav-tabs > li#s-lg-admin-tab-add > a {
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+}
+
+#s-lg-tabs-container .nav-tabs > li > a:hover,
+#s-lg-tabs-container .nav-tabs > li > button:hover,
+#s-lg-tabs-container .nav-pills > li > a:hover,
+#s-lg-tabs-container .nav-pills > li > button:hover {
+    border: 1px solid transparent; -webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+#s-lg-tabs-container .nav-tabs > .active > a,
+#s-lg-tabs-container .nav-tabs > .active > button,
+#s-lg-tabs-container .nav-pills > .active > a,
+#s-lg-tabs-container .nav-pills > .active > button {
+    color: #000000;
+    cursor: default;
+    background-color: #ffffff;
+    border: 1px solid transparent; -webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0;
+    border-bottom-color: transparent;
+    font-weight: bold;
+}
+
+#s-lg-tabs-container .nav-tabs > .active > .s-lg-subtab-ul > .active > a,
+#s-lg-tabs-container .nav-tabs > .active > .s-lg-subtab-ul > .active > button {
+    color: #000000;
+    cursor: default;
+    background-color: #ffffff;
+    border-bottom-color: transparent;
+}
+
+#s-lg-tabs-container .nav-tabs > .active > a:hover,
+#s-lg-tabs-container .nav-pills > .active > a:hover,
+#s-lg-tabs-container .nav-tabs > .active > button:hover,
+#s-lg-tabs-container .nav-pills > .active > button:hover {
+    color: #000000;
+    cursor: pointer;
+    background-color: #ffffff;
+    border: 1px solid transparent; -webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0;
+    border-bottom-color: transparent;
+    font-weight: bold;
+}
+
+#s-lg-tabs-container .nav .dropdown-toggle .caret {
+    border-top-color: #e1e1e1;
+}
+
+#s-lg-tabs-container .nav-tabs button.dropdown-toggle .caret {
+    margin-left: 2px;
+    margin-top: -3px;
+}
+
+#s-lg-tabs-container .nav-tabs > li > a.s-lg-tab-drop {
+    border-radius: 0;
+    padding: 4px 6px 4px 3px;
+    border-left: 1px solid transparent;
+}
+
+#s-lg-tabs-container .nav-tabs > li > button.s-lg-tab-drop {
+    border-radius: 0;
+    padding: 4px 6px 0px 3px;
+    border-left: 1px solid transparent;
+    margin-right: 2px;
+}
+
+#s-lg-tabs-container .nav-tabs > li > a.s-lg-tab-drop:hover {
+    border-radius: 0;
+    border-left: 1px solid #bbb;
+    padding: 4px 6px 4px 3px;
+}
+
+#s-lg-tabs-container .nav-tabs > li > button.s-lg-tab-drop:hover {
+    border-radius: 0;
+    border-left: 1px solid #bbb;
+    padding: 4px 6px 0px 3px;
+}
+
+#s-lg-tabs-container .nav-tabs > li > a.s-lg-tab-top-link,
+#s-lg-tabs-container .nav-tabs > li > a.s-lg-tab-top-link:hover,
+#s-lg-tabs-container .nav-tabs > li > button.s-lg-tab-top-link,
+#s-lg-tabs-container .nav-tabs > li > button.s-lg-tab-top-link:hover {
+    border-radius: 0;
+    font-weight: bold;
+    padding: 4px 5px 4px 10px;
+}
+
+.nav-tabs > li > a.s-lg-tab-top-link,
+.nav-tabs > li > button.s-lg-tab-top-link {
+    margin-right: 0px;
+}
+
+#s-lg-tabs-container .nav-pills > li > a.s-lg-tab-drop,
+#s-lg-tabs-container .nav-pills > li > button.s-lg-tab-drop {
+    border-radius: 0;
+    padding: 4px 8px 4px 8px;
+    border-left: 1px solid transparent;
+    position: absolute;
+    right: 0;
+}
+
+#s-lg-tabs-container .nav-pills > li > a.s-lg-tab-drop:hover,
+#s-lg-tabs-container .nav-pills > li > button.s-lg-tab-drop:hover {
+    border-radius: 0;
+    border-left: 1px solid #bbb;
+    padding: 4px 8px 4px 8px;
+}
+
+#s-lg-tabs-container .nav-pills > li > a.s-lg-tab-top-link,
+#s-lg-tabs-container .nav-pills > li > a.s-lg-tab-top-link:hover,
+#s-lg-tabs-container .nav-pills > li > button.s-lg-tab-top-link,
+#s-lg-tabs-container .nav-pills > li > button.s-lg-tab-top-link:hover {
+    width: 100%;
+    float: left;
+    border-radius: 0;
+    font-weight: bold;
+    padding: 4px 15px 4px 15px;
+}
+
+/** !bootstrap_tab_css.twig **/
+ .s-lib-box {border-color: #cccccc;
+                border-width: 1px;
+                box-shadow: 0 8px 6px -6px #AAAAAA;
+                border-radius: 4px 4px 4px 4px;
+                background-color: #fff;
+            }
+            .s-lib-box-std .s-lib-box-title {background-color: #ffffff; background-image: none;color: #000000;
+                border-bottom: 1px solid #cccccc;
+            }
+            .s-lib-box .s-lib-box-title {background-color: #ffffff; background-image: none;color: #000000;
+                border-bottom: 1px solid #cccccc;
+                border-radius: 3px 3px 0px 0px;
+            }
+            .s-lib-box .s-lg-box-footer {
+                border-radius: 0px 0px 3px 3px;
+            }</style><meta name="dc.type" content="research guide" />
+<meta name="dc.rights" content="Text is U.S. Government Work" />
+<link rel="dc.rights" title="Text is U.S. Government Work" href="http://www.loc.gov/text-us-governmentwork" />
+<link rel=”dc.relation.isPartOf href="https://guides.loc.gov/" title="Library of Congress Research Guides" />
+<meta name="dc.language" content="eng" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+  integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto+Slab:400,700" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.loc.gov/libguide/css/libguide.css" />
+<style>
+  /* add custom styles */
+  iframe {
+    width: 1px;
+    min-width: 100%;
+  }
+
+  .slick-slide img {
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+  }
+
+  .s-lib-box .s-lib-box-title {
+    text-transform: none;
+  }
+
+  /* since we load fontawesome v5 - make sure system icon is not broken*/
+  i.s-lg-file-icon {
+    font-family: FontAwesome;
+  }
+</style>
+<script src="https://www.loc.gov/static/js/lib/iframeResizer.js"></script>
+<script>
+  $(document).ready(function () {
+    // iframeresizer
+    $('iframe').iFrameResize({ log: true });
+
+    // deep link tabs 
+    var url = window.location.href;
+    if (url.indexOf("#") > 0) {
+      var activeTab = url.substring(url.indexOf("#") + 1);
+      $('.nav[role="tablist"] a[href="#' + activeTab + '"]').tab('show');
+    }
+    $('a[role="tab"]').on("click", function () {
+      var newUrl;
+      const hash = $(this).attr("href");
+      newUrl = url.split("#")[0] + hash;
+      history.replaceState(null, null, newUrl);
+    });
+
+    // popover dismiss outside click or focus
+    $(document).on('click touchstart keydown keyup', function (e) {
+      $('[data-toggle="popover"],[data-original-title]').each(function () {
+        if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+          (($(this).popover('hide').data('bs.popover') || {}).inState || {}).click = false
+        }
+      });
+    });
+  });
+
+  window.addEventListener('load', e => {
+    if ($('.slick-slider').length) {
+      $('.slick-slider').slick('slickSetOption', 'responsive', [
+        {
+          breakpoint: 800,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ], true);
+    }
+  })
+</script><script>
+    var springStats = springStats || {};
+    springStats.saConfig = springStats.saConfig || {
+        site_id: 9874,
+        tracking_parameters: {"_st_guide_id":934273,"_st_page_id":6838200,"_st_site_id":9874},
+        tracking_server_host: "libguides-proc.springyaws.com"
+    };
+</script>
+<script  src="https://static-assets-us.libguides.com/web/js/sa.min.js?3116"></script>
+<script>
+			springSpace.Common = springSpace.Common || { };
+			springSpace.Common.constant = {
+					PROCESSING: {
+						ACTION_DISPLAY_POLL: 159
+					}
+			};
+			springSpace.Common.baseURL = "https://guides.loc.gov/";
+			
+			handleScroll=function() {
+                if (false) {
+					var target_elt = "#s-lg-page-section-6838200";
+					jQuery("html, body").animate({ scrollTop: jQuery(target_elt).offset().top }, 750);
+					if (jQuery(this).scrollTop() > 220) {
+						jQuery("#s-lib-scroll-top").fadeIn(750);
+					}
+				}
+			}
+	   </script>
+        <script>
+            // Enable tooltips.
+            jQuery(function () {
+                try {
+                    springSpace.UI.initPopOvers(false);
+                    jQuery(".az-bs-tooltip").tooltip();
+                } catch (e) { }
+            });
+        jQuery(document).ready(function () {
+            springSpace.springTrack.trackPage({_st_type_id: '1',_st_group_id: '16846',_st_guide_id: '934273',_st_page_id: '6838200'});
+        });
+            jQuery(document).ready(function() {
+                handleScroll();
+            });
+        </script></head><!-- SIDE NAV -->
+<body class="s-lg-guide-body">
+<a id="s-lg-public-skiplink" class="alert-info" href="#s-lg-guide-main">Skip to Main Content</a>
+
+<!-- BEGIN: Page Header -->
+<div class="loc-header-wrapper">
+<div class="alert alert-warning alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+  
+
+
+</div>
+<header class="loc-header">
+<div class="logo-container">
+<a href="https://www.loc.gov/" class="logo-loc">
+<span>Library of Congress</span>
+<img src="https://cdn.loc.gov/libguide/images/logo-loc-padded.svg" alt="" />
+</a>
+<a href="/" class="logo-research-guides">
+<span>Research Guides</span>
+<img src="https://cdn.loc.gov/libguide/images/logo-research-guides.svg" alt="" />
+</a>
+</div>
+</header>
+</div>
+<!-- END: Page Header -->
+<div id="s-lg-guide-header-search" class="container loc-lib-header-search">
+            
+<div id="s-lg-guide-search-box">
+    <form role="search" id="s-lg-guide-search-form" action="https://guides.loc.gov/srch.php" method="GET">
+        <div class="input-group input-group-sm">
+            <input 
+                type="text" 
+                id="s-lg-guide-search-terms" 
+                name="q" 
+                class="form-control"
+                maxlength="260" 
+                placeholder="Search this Guide">
+                
+            <label class="sr-only" for="s-lg-guide-search-terms">Search this Guide</label>
+
+                            <input type="hidden" name="guide_id" value="934273">
+            
+            
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">
+                    Search
+                </button>
+            </span>
+        </div>
+    </form>
+</div>
+        </div>
+<!-- BEGIN: Guide Header -->
+<div id="s-lg-guide-header" class="container s-lib-header s-lib-side-borders">
+    <div id="s-lib-bc">
+        <ol id="s-lib-bc-list" class="breadcrumb"><li id="s-lib-bc-customer" class="breadcrumb-item"><a href="https://www.loc.gov/">Library of Congress</a></li><li id="s-lib-bc-site" class="breadcrumb-item"><a href="https://guides.loc.gov/">Research Guides</a></li><li id="s-lib-bc-group" class="breadcrumb-item"><a href="https://guides.loc.gov/main-reading-room">Main Reading Room</a></li><li id="s-lib-bc-guide" class="breadcrumb-item"><a href="https://guides.loc.gov/federalist-papers">Federalist Papers: Primary Documents in American History</a></li><li id="s-lib-bc-page" class="active breadcrumb-item">Full Text of The Federalist Papers</li></ol>
+    </div>
+    <div class="pull-right">
+        <!--div id="s-lg-guide-header-search">
+            
+<div id="s-lg-guide-search-box">
+    <form role="search" id="s-lg-guide-search-form" action="https://guides.loc.gov/srch.php" method="GET">
+        <div class="input-group input-group-sm">
+            <input 
+                type="text" 
+                id="s-lg-guide-search-terms" 
+                name="q" 
+                class="form-control"
+                maxlength="260" 
+                placeholder="Search this Guide">
+                
+            <label class="sr-only" for="s-lg-guide-search-terms">Search this Guide</label>
+
+                            <input type="hidden" name="guide_id" value="934273">
+            
+            
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">
+                    Search
+                </button>
+            </span>
+        </div>
+    </form>
+</div>
+        </div-->
+        
+    </div>
+    <div id="s-lg-guide-header-info">
+        <h1 id="s-lg-guide-name">Federalist Papers: Primary Documents in American History</h1>
+        <div id="s-lg-guide-desc-container">
+            <span id="s-lg-guide-description"></span>
+        </div>
+    </div>
+</div>
+<!-- END: Guide Header -->
+<div id="s-lg-guide-tabs-title-bar" class="container s-lib-side-borders"></div>
+<div id="s-lg-side-nav-content" class="container s-lib-side-borders pad-top-med">
+    <div class="row">
+        <div class="col-md-3 s-lg-tabs-side pad-bottom-med">
+            <div id="s-lg-tabs-container">
+                <div id="s-lg-guide-tabs" role="navigation" aria-label="Guide Page Menu">
+                    <ul class="nav nav-pills nav-stacked split-button-nav"
+                        role="menu">
+
+
+    <li class="">
+        <a title="" class="" 
+           href="https://guides.loc.gov/federalist-papers/introduction" 
+            
+            
+           >
+            <span>Introduction</span>
+            
+        </a>
+        
+    </li>
+
+
+
+                                
+        <li class="active">
+            <a title="" class=" active"
+               href="https://guides.loc.gov/federalist-papers/full-text"
+                
+                
+               >
+                <span>Full Text of The Federalist Papers</span>
+                
+            </a>
+            
+            
+            <ul class="s-lg-subtab-ul nav nav-pills nav-stacked"><li class="">
+    <a title=""
+       href="https://guides.loc.gov/federalist-papers/text-1-10"
+       style=""
+       
+       >
+        Federalist Nos. 1-10 
+    </a>
+    
+</li>
+<li class="">
+    <a title=""
+       href="https://guides.loc.gov/federalist-papers/text-11-20"
+       style=""
+       
+       >
+        Federalist Nos. 11-20 
+    </a>
+    
+</li>
+<li class="">
+    <a title=""
+       href="https://guides.loc.gov/federalist-papers/text-21-30"
+       style=""
+       
+       >
+        Federalist Nos. 21-30 
+    </a>
+    
+</li>
+<li class="">
+    <a title=""
+       href="https://guides.loc.gov/federalist-papers/text-31-40"
+       style=""
+       
+       >
+        Federalist Nos. 31-40 
+    </a>
+    
+</li>
+<li class="">
+    <a title=""
+       href="https://guides.loc.gov/federalist-papers/text-41-50"
+       style=""
+       
+       >
+        Federalist Nos. 41-50 
+    </a>
+    
+</li>
+<li class="">
+    <a title=""
+       href="https://guides.loc.gov/federalist-papers/text-51-60"
+       style=""
+       
+       >
+        Federalist Nos. 51-60 
+    </a>
+    
+</li>
+<li class="">
+    <a title=""
+       href="https://guides.loc.gov/federalist-papers/text-61-70"
+       style=""
+       
+       >
+        Federalist Nos. 61-70 
+    </a>
+    
+</li>
+<li class="">
+    <a title=""
+       href="https://guides.loc.gov/federalist-papers/text-71-80"
+       style=""
+       
+       >
+        Federalist Nos. 71-80 
+    </a>
+    
+</li>
+<li class="">
+    <a title=""
+       href="https://guides.loc.gov/federalist-papers/text-81-85"
+       style=""
+       
+       >
+        Federalist Nos. 81-85 
+    </a>
+    
+</li>
+</ul>
+        </li>
+    
+
+
+    <li class="">
+        <a title="" class="" 
+           href="https://guides.loc.gov/federalist-papers/digital-resources" 
+            
+            
+           >
+            <span>Related Digital Resources</span>
+            
+        </a>
+        
+    </li>
+
+
+
+    <li class="">
+        <a title="" class="" 
+           href="https://guides.loc.gov/federalist-papers/external-websites" 
+            
+            
+           >
+            <span>External Websites</span>
+            
+        </a>
+        
+    </li>
+
+
+
+    <li class="">
+        <a title="" class="" 
+           href="https://guides.loc.gov/federalist-papers/print-resources" 
+            
+            
+           >
+            <span>Print Resources</span>
+            
+        </a>
+        
+    </li>
+
+</ul>
+                    <div class="s-lg-row margin-top-med"><div id="s-lg-col-0"><div class="s-lg-col-boxes"><div id="s-lg-box-wrapper-33623067" class="s-lg-box-wrapper-33623067">
+
+
+    <div id="s-lg-box-19425193-container" class="s-lib-box-container">
+        <div id="s-lg-box-19425193" class="s-lib-box s-lib-box-std s-lib-floating-box">
+                        <div id="s-lg-box-collapse-19425193" >
+                <div class="s-lib-box-content s-lib-floating-box-content">
+                    <div id="s-lg-content-43184439" class="  clearfix">
+    <div class="ask-a-librarian-box">
+<h2 class="ask-a-librarian-title">History, Humanities &amp; Social Sciences<span class="sr-only">: </span><a href="https://ask.loc.gov/history-humanities-social-sciences" target="_blank" title="Ask a Librarian"><span class="sr-only">Ask a Librarian</span><span aria-hidden="true" class="ask-a-librarian-logo-container"><img alt="" loading="lazy" src="https://cdn.loc.gov/libguide/images/ask-a-librarian-logo.svg" /></span></a></h2>
+
+<p>Have a question? Need assistance? Use our <a href="https://ask.loc.gov/history-humanities-social-sciences" target="_blank"><strong>online form</strong></a> to ask a librarian for help.</p>
+
+<p><strong><a href="http://ask.loc.gov/">Chat with a librarian</a>,</strong> Monday through Friday, 12-4pm Eastern Time (except Federal Holidays).</p>
+</div>
+
+    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div></div></div></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="s-lg-tab-content">
+                <div id="s-lg-guide-main" class="tab-pane active">
+                     <h1 class="page-title">
+                     Full Text of The Federalist Papers
+                     </h1>
+                     <div class="row s-lg-row"><div id="s-lg-col-1" class="col-md-12"><div class="s-lg-col-boxes"><div id="s-lg-box-wrapper-25493140" class="s-lg-box-wrapper-25493140">
+
+
+    <div id="s-lg-box-21730435-container" class="s-lib-box-container">
+        <div id="s-lg-box-21730435" class="s-lib-box s-lib-box-std s-lib-floating-box">
+                        <div id="s-lg-box-collapse-21730435" >
+                <div class="s-lib-box-content s-lib-floating-box-content">
+                    
+			<div id="s-lg-content-48956742" class="  clearfix">
+				<p><em>The Federalist</em>, commonly referred to as the Federalist Papers, is a series of 85 essays written by Alexander Hamilton, John Jay, and James Madison between October 1787 and May 1788. The essays were published anonymously, under the pen name &quot;Publius,&quot; in various New York state newspapers of the time.</p>
+
+<p>The Federalist Papers were written and published to urge New Yorkers to ratify the proposed United States Constitution, which was drafted in Philadelphia in the summer of 1787. In lobbying for adoption of the Constitution over the existing Articles of Confederation, the essays explain particular provisions of the Constitution in detail. For this reason, and because Hamilton and Madison were each members of the Constitutional Convention, the Federalist Papers are often used today to help interpret the intentions of those drafting the Constitution.</p>
+
+<p>The Federalist Papers were published primarily in two New York state newspapers: <em>The New York Packet</em> and <em>The Independent Journal</em>. They were reprinted in other newspapers in New York state and in several cities in other states. A bound edition, with revisions and corrections by Hamilton, was published in 1788 by printers J. and A. McLean. An edition published by printer Jacob Gideon in 1818, with revisions and corrections by Madison, was the first to identify each essay by its author&#39;s name. Because of its publishing history, the assignment of authorship, numbering, and exact wording may vary with different editions of <em>The Federalist</em>.</p>
+
+<p>The electronic text of <em>The Federalist</em> used here was compiled for Project Gutenberg by scholars who drew on many available versions of the papers.</p>
+
+<p>One printed edition of the text is <em>The Federalist</em>, edited by Jacob E. Cooke (Middletown, Conn., Wesleyan University Press, 1961). Cooke&#39;s introduction provides background information on the printing history of The Federalist; the information provided above comes in part from his work.</p>
+
+<p>This web-friendly presentation of the original text of the Federalist Papers (also known as The Federalist) was obtained from the e-text archives of Project Gutenberg. Any irregularities with regard to grammar, syntax, spelling, or punctuation are as they exist in the original e-text archives.</p>
+
+		   </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div><div id="s-lg-box-wrapper-25493065" class="s-lg-box-wrapper-25493065">
+
+
+    <div id="s-lg-box-21730373-container" class="s-lib-box-container">
+        <div id="s-lg-box-21730373" class="s-lib-box s-lib-box-std">
+                            <h2 class="s-lib-box-title">
+                    Table of Contents
+                                    </h2>
+                        <div id="s-lg-box-collapse-21730373" >
+                <div class="s-lib-box-content">
+                    
+			<div id="s-lg-content-48956639" class="  clearfix">
+				<div class="table-responsive">
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>No.</th>
+			<th>Title</th>
+			<th>Author</th>
+			<th>Publication</th>
+			<th>Date</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>1.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-1-10#s-lg-box-wrapper-25493264">General Introduction</a></td>
+			<td>Hamilton</td>
+			<td>For the <em>Independent Journal</em></td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>2.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-1-10#s-lg-box-wrapper-25493265">Concerning Dangers from Foreign Force and Influence</a></td>
+			<td>Jay</td>
+			<td>For the <em>Independent Journal</em></td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>3.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-1-10#s-lg-box-wrapper-25493266">The Same Subject Continued: Concerning Dangers from Foreign Force and Influence</a></td>
+			<td>Jay</td>
+			<td>For the <em>Independent Journal</em></td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>4.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-1-10#s-lg-box-wrapper-25493267">The Same Subject Continued: Concerning Dangers from Foreign Force and Influence</a></td>
+			<td>Jay</td>
+			<td>For the<em> Independent Journal</em></td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>5.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-1-10#s-lg-box-wrapper-25493268">The Same Subject Continued: Concerning Dangers from Foreign Force and Influence</a></td>
+			<td>Jay</td>
+			<td>For the<em> Independent Journal</em></td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>6.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-1-10#s-lg-box-wrapper-25493269">Concerning Dangers from Dissensions Between the States</a></td>
+			<td>Hamilton</td>
+			<td>For the <em>Independent Journal</em></td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>7.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-1-10#s-lg-box-wrapper-25493270">The Same Subject Continued: Concerning Dangers from Dissensions Between the States</a></td>
+			<td>Hamilton</td>
+			<td>For the <em>Independent Journal</em></td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>8.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-1-10#s-lg-box-wrapper-25493271">The Consequences of Hostilities Between the States</a></td>
+			<td>Hamilton</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Tuesday, November 20, 1787</td>
+		</tr>
+		<tr>
+			<td>9.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-1-10#s-lg-box-wrapper-25493272">The Union as a Safeguard Against Domestic Faction and Insurrection</a></td>
+			<td>Hamilton</td>
+			<td>For the <em>Independent Journal</em></td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>10.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-1-10#s-lg-box-wrapper-25493273">The Same Subject Continued: The Union as a Safeguard Against Domestic Faction and Insurrection</a></td>
+			<td>Madison</td>
+			<td>Frm the <em>New York Packet</em></td>
+			<td>Friday, November 27, 1787</td>
+		</tr>
+		<tr>
+			<td>11.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-11-20#s-lg-box-wrapper-25493282">The Utility of the Union in Respect to Commercial Relations and a Navy</a></td>
+			<td>Hamilton</td>
+			<td>For the<em> Independent Journal&nbsp;</em></td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>12.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-11-20#s-lg-box-wrapper-25493283">The Utility of the Union in Respect to Revenue</a></td>
+			<td>Hamilton</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Tuesday, November 27, 1787</td>
+		</tr>
+		<tr>
+			<td>13.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-11-20#s-lg-box-wrapper-25493284">Advantage of the Union in Respect to Economy in Government</a></td>
+			<td>Hamilton</td>
+			<td>For the <em>Independent Journal</em></td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>14.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-11-20#s-lg-box-wrapper-25493285">Objections to the Proposed Constitution from Extent of Territory Answered</a></td>
+			<td>Madison</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Friday, November 30, 1787</td>
+		</tr>
+		<tr>
+			<td>15.&nbsp;</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-11-20#s-lg-box-wrapper-25493286">The Insufficiency of the Present Confederation to Preserve the Union</a></td>
+			<td>Hamilton</td>
+			<td>For the <em>Independent Journal</em></td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>16.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-11-20#s-lg-box-wrapper-25493287">The Same Subject Continued: The Insufficiency of the Present Confederation to Preserve the Union</a></td>
+			<td>Hamilton</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Tuesday, December 4, 1787</td>
+		</tr>
+		<tr>
+			<td>17.&nbsp;</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-11-20#s-lg-box-wrapper-25493288">The Same Subject Continued: The Insufficiency of the Present Confederation to Preserve the Union</a></td>
+			<td>Hamilton</td>
+			<td>For the<em> Independent Journal</em></td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>18.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-11-20#s-lg-box-wrapper-25493289">The Same Subject Continued: The Insufficiency of the Present Confederation to Preserve the Union</a></td>
+			<td>Hamilton and Madison</td>
+			<td>For the <em>Independent Journal</em></td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>19.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-11-20#s-lg-box-wrapper-25493290">The Same Subject Continued: The Insufficiency of the Present Confederation to Preserve the Union</a></td>
+			<td>Hamilton and Madison</td>
+			<td>For the <em>Independent Journal</em></td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>20.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-11-20#s-lg-box-wrapper-25493291">The Same Subject Continued: The Insufficiency of the Present Confederation to Preserve the Union</a></td>
+			<td>Hamilton and Madison</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Tuesday, December 11, 1787</td>
+		</tr>
+		<tr>
+			<td>21.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-21-30#s-lg-box-wrapper-25493334">Other Defects of the Present Confederation</a></td>
+			<td>Hamilton</td>
+			<td>For the <em>Independent Journal</em></td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>22.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-21-30#s-lg-box-wrapper-25493335">The Same Subject Continued: Other Defects of the Present Confederation</a></td>
+			<td>Hamilton</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Friday, December 14, 1787</td>
+		</tr>
+		<tr>
+			<td>23.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-21-30#s-lg-box-wrapper-25493336">The Necessity of a Government as Energetic as the One Proposed to the Preservation of the Union</a></td>
+			<td>Hamilton</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Tuesday, December 17, 1787</td>
+		</tr>
+		<tr>
+			<td>24.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-21-30#s-lg-box-wrapper-25493337">The Powers Necessary to the Common Defense Further Considered</a></td>
+			<td>Hamilton</td>
+			<td>For the <em>Independent Journal</em></td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>25.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-21-30#s-lg-box-wrapper-25493338">The Same Subject Continued: The Powers Necessary to the Common Defense Further Considered</a></td>
+			<td>Hamilton</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Friday, December 21, 1787</td>
+		</tr>
+		<tr>
+			<td>26.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-21-30#s-lg-box-wrapper-25493339">The Idea of Restraining the Legislative Authority in Regard to the Common Defense Considered</a></td>
+			<td>Hamilton</td>
+			<td>For the <em>Independent Journal</em></td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>27.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-21-30#s-lg-box-wrapper-25493340">The Same Subject Continued:&nbsp;The Idea of Restraining the Legislative Authority in Regard to the Common Defense Considered</a></td>
+			<td>Hamilton</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Tuesday, December 25, 1787</td>
+		</tr>
+		<tr>
+			<td>28.&nbsp;</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-21-30#s-lg-box-wrapper-25493341">The Same Subject Continued:&nbsp;The Idea of Restraining the Legislative Authority in Regard to the Common Defense Considered</a></td>
+			<td>Hamilton</td>
+			<td>For the <em>Independent Journal</em></td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>29.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-21-30#s-lg-box-wrapper-25493342">Concerning the Militia</a></td>
+			<td>Hamilton</td>
+			<td>From the <em>Daily Advertiser</em></td>
+			<td>Thursday, January 10, 1788</td>
+		</tr>
+		<tr>
+			<td>30.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-21-30#s-lg-box-wrapper-25493343">Concerning the General Power of Taxation</a></td>
+			<td>Hamilton</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Friday, December 28, 1787</td>
+		</tr>
+		<tr>
+			<td>31.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-31-40#s-lg-box-wrapper-25493385">The Same Subject Continued: Concerning the Power of Taxation</a></td>
+			<td>Hamilton</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Tuesday, January 1, 1788</td>
+		</tr>
+		<tr>
+			<td>32.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-31-40#s-lg-box-wrapper-25493386">The Same Subject Continued: Concerning the Power of Taxation</a></td>
+			<td>Hamilton</td>
+			<td>From the <em>Daily Advertiser</em></td>
+			<td>Thursday, January 3, 1788</td>
+		</tr>
+		<tr>
+			<td>33.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-31-40#s-lg-box-wrapper-25493387">The Same Subject Continued: Concerning the Power of Taxation</a></td>
+			<td>Hamilton</td>
+			<td>From the <em>Daily Advertiser</em></td>
+			<td>Thursday, January 3, 1788</td>
+		</tr>
+		<tr>
+			<td>34.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-31-40#s-lg-box-wrapper-25493388">The Same Subject Continued: Concerning the Power of Taxation</a></td>
+			<td>Hamilton</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Friday, January 4, 1788</td>
+		</tr>
+		<tr>
+			<td>35.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-31-40#s-lg-box-wrapper-25493389">The Same Subject Continued: Concerning the Power of Taxation</a></td>
+			<td>Hamilton</td>
+			<td>For the <em>Independent Journal</em></td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>36.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-31-40#s-lg-box-wrapper-25493390">The Same Subject Continued: Concerning the Power of Taxation</a></td>
+			<td>Hamilton</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Tuesday, January 8, 1788</td>
+		</tr>
+		<tr>
+			<td>37.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-31-40#s-lg-box-wrapper-25493391">Concerning the Difficulties of the Convention in Devising a Proper Form of Government</a></td>
+			<td>Madison</td>
+			<td>From the <em>Daily Advertiser</em></td>
+			<td>Friday, January 11, 1788</td>
+		</tr>
+		<tr>
+			<td>38.&nbsp;</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-31-40#s-lg-box-wrapper-25493393">Incoherence of the Objections to the New Plan Exposed</a></td>
+			<td>Madison</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Tuesday, January 15, 1788</td>
+		</tr>
+		<tr>
+			<td>39.&nbsp;</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-31-40#s-lg-box-wrapper-25493394">Conformity of the Plan to Republican Principles</a></td>
+			<td>Madison</td>
+			<td>For the <em>Independent Journal</em></td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>40.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-31-40#s-lg-box-wrapper-25493396">The Powers of the Convention to Form a Mixed Government Examined and Sustained</a></td>
+			<td>Madison</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Friday, January 18, 1788</td>
+		</tr>
+		<tr>
+			<td>41.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-41-50#s-lg-box-wrapper-25493405">General View of the Powers Conferred by the Constitution</a></td>
+			<td>Madison</td>
+			<td>For the <em>Independent Journal</em></td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>42.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-41-50#s-lg-box-wrapper-25493406">The Powers Conferred by the Constitution Further Considered</a></td>
+			<td>Madison</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Tuesday, January 22, 1788</td>
+		</tr>
+		<tr>
+			<td>43.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-41-50#s-lg-box-wrapper-25493407">The Same Subject Continued: The Powers Conferred by the Constitution Further Considered</a></td>
+			<td>Madison</td>
+			<td>For the<em> Independent Journal</em></td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>44.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-41-50#s-lg-box-wrapper-25493408">Restrictions on the Authority of the Several States</a></td>
+			<td>Madison</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Friday, January 25, 1788</td>
+		</tr>
+		<tr>
+			<td>45.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-41-50#s-lg-box-wrapper-25493409">The Alleged Danger From the Powers of the Union to the State Governments Considered</a></td>
+			<td>Madison</td>
+			<td>For the <em>Independent Journal</em></td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>46.&nbsp;</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-41-50#s-lg-box-wrapper-25493411">The Influence of the State and Federal Governments Compared</a></td>
+			<td>Madison</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Tuesday, January 29, 1788</td>
+		</tr>
+		<tr>
+			<td>47.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-41-50#s-lg-box-wrapper-25493412">The Particular Structure of the New Government and Distribution of Power Among Its Different Parts</a></td>
+			<td>Madison</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Friday, February 1, 1788</td>
+		</tr>
+		<tr>
+			<td>48.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-41-50#s-lg-box-wrapper-25493415">These Departments Should Not Be So Far Separated as to Have No Constitutional Control Over Each Other</a></td>
+			<td>Madison</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Friday, February 1, 1788</td>
+		</tr>
+		<tr>
+			<td>49.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-41-50#s-lg-box-wrapper-25493416">Method of Guarding Against the Encroachments of Any One Department of Government by Appealing to the People Through a Convention</a></td>
+			<td>Hamilton or Madison</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Tuesday, February 5, 1788</td>
+		</tr>
+		<tr>
+			<td>50.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-41-50#s-lg-box-wrapper-25493417">Periodic Appeals to the People Considered</a></td>
+			<td>Hamilton or Madison</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Tuesday, February 5, 1788</td>
+		</tr>
+		<tr>
+			<td>51.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-51-60#s-lg-box-wrapper-25493427">The Structure of the Government Must Furnish the Proper Checks and Balances Between the Different Departments</a></td>
+			<td>Hamilton or Madison</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Friday, February 8, 1788</td>
+		</tr>
+		<tr>
+			<td>52.&nbsp;</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-51-60#s-lg-box-wrapper-25493428">The House of Representatives</a></td>
+			<td>Hamilton or Madison</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Friday, February 8, 1788</td>
+		</tr>
+		<tr>
+			<td>53.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-51-60#s-lg-box-wrapper-25493429">The Same Subject Continued: The House of Representatives</a></td>
+			<td>Hamilton or Madison</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Tuesday, February 12, 1788</td>
+		</tr>
+		<tr>
+			<td>54.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-51-60#s-lg-box-wrapper-25493430">The Apportionment of Members Among States</a></td>
+			<td>Hamilton or Madison</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Tuesday, February 12, 1788</td>
+		</tr>
+		<tr>
+			<td>55.&nbsp;</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-51-60#s-lg-box-wrapper-25493431">The Total Number of the House of Representatives</a></td>
+			<td>Hamilton or Madison</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Friday, February 15, 1788</td>
+		</tr>
+		<tr>
+			<td>56.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-51-60#s-lg-box-wrapper-25493432">The Same Subject Continued: The Total Number of the House of Representatives</a></td>
+			<td>Hamilton or Madison</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Tuesday, February 19, 1788</td>
+		</tr>
+		<tr>
+			<td>57.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-51-60#s-lg-box-wrapper-25493433">The Alleged Tendency of the Plan to Elevate the Few at the Expense of the Many Considered in Connection with Representation&nbsp;</a></td>
+			<td>Hamilton or Madison</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Tuesday, February 19, 1788</td>
+		</tr>
+		<tr>
+			<td>58.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-51-60#s-lg-box-wrapper-25493434">Objection that the Number of Members Will Not Be Augmented as the Progress of Population Demands Considered</a></td>
+			<td>Madison</td>
+			<td>--</td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>59.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-51-60#s-lg-box-wrapper-25493435">Concerning the Power of Congress to Regulate the Election of Members</a></td>
+			<td>Hamilton</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Friday, February 22, 1788</td>
+		</tr>
+		<tr>
+			<td>60.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-51-60#s-lg-box-wrapper-25493436">The Same Subject Continued: Concerning the Power of Congress to Regulate the Election of Members</a></td>
+			<td>Hamilton</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Tuesday, February 26, 1788</td>
+		</tr>
+		<tr>
+			<td>61.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-61-70#s-lg-box-wrapper-25493448">The Same Subject Continued: Concerning the Power of Congress to Regulate the Election of Members</a></td>
+			<td>Hamilton</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Tuesday, February 26, 1788</td>
+		</tr>
+		<tr>
+			<td>62.&nbsp;</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-61-70#s-lg-box-wrapper-25493449">The Senate</a></td>
+			<td>Hamilton or Madison</td>
+			<td>For the <em>Independent Journal</em></td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>63.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-61-70#s-lg-box-wrapper-25493450">The Senate Continued</a></td>
+			<td>Hamilton or Madison</td>
+			<td>For the <em>Independent Journal</em></td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>64.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-61-70#s-lg-box-wrapper-25493451">The Powers of the Senate</a></td>
+			<td>Jay</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Friday, March 7, 1788</td>
+		</tr>
+		<tr>
+			<td>65.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-61-70#s-lg-box-wrapper-25493452">The Powers of the Senate Continued</a></td>
+			<td>Hamilton</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Friday, March 7, 1788</td>
+		</tr>
+		<tr>
+			<td>66.&nbsp;</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-61-70#s-lg-box-wrapper-25493453">Objections to the Power of the Senate To Set as a Court for Impeachments&nbsp;Further Considered</a></td>
+			<td>Hamilton</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Tuesday, March 11, 1788</td>
+		</tr>
+		<tr>
+			<td>67.&nbsp;</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-61-70#s-lg-box-wrapper-25493454">The Executive Department&nbsp;</a></td>
+			<td>Hamilton</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Tuesday, March 11, 1788</td>
+		</tr>
+		<tr>
+			<td>68.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-61-70#s-lg-box-wrapper-25493455">The Mode of Electing the President</a></td>
+			<td>Hamilton</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Friday, March 14, 1788</td>
+		</tr>
+		<tr>
+			<td>69.&nbsp;</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-61-70#s-lg-box-wrapper-25493456">The Real Character of the Executive</a></td>
+			<td>Hamilton</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Friday, March 14, 1788</td>
+		</tr>
+		<tr>
+			<td>70.&nbsp;</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-61-70#s-lg-box-wrapper-25493457">The Executive Department Further Considered&nbsp;</a></td>
+			<td>Hamilton</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Friday, March 14, 1788</td>
+		</tr>
+		<tr>
+			<td>71.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-71-80#s-lg-box-wrapper-25493463">The Duration in Office of the Executive</a></td>
+			<td>Hamilton</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Tuesday, March 18, 1788</td>
+		</tr>
+		<tr>
+			<td>72.&nbsp;</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-71-80#s-lg-box-wrapper-25493464">The Same Subject Continued, and Re-Eligibility of the Executive Considered</a></td>
+			<td>Hamilton</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Friday, March 21, 1788</td>
+		</tr>
+		<tr>
+			<td>73.&nbsp;</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-71-80#s-lg-box-wrapper-25493465">The Provision for Support of the Executive, and the Veto Power</a></td>
+			<td>Hamilton</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Friday, March 21, 1788</td>
+		</tr>
+		<tr>
+			<td>74.&nbsp;</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-71-80#s-lg-box-wrapper-25493466">The Command of the Military and Naval Forces, and the Pardoning Power of the Executive</a></td>
+			<td>Hamilton</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Tuesday, March 25, 1788</td>
+		</tr>
+		<tr>
+			<td>75.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-71-80#s-lg-box-wrapper-25493467">The Treaty Making Power of the Executive</a></td>
+			<td>Hamilton</td>
+			<td>For the <em>Independent Journal</em></td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>76.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-71-80#s-lg-box-wrapper-25493468">The Appointing Power of the Executive</a></td>
+			<td>Hamilton</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Tuesday, April 1, 1788</td>
+		</tr>
+		<tr>
+			<td>77.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-71-80#s-lg-box-wrapper-25493469">The Appointing Power Continued and Other Powers of the Executive Considered</a></td>
+			<td>Hamilton</td>
+			<td>From the <em>New York Packet</em></td>
+			<td>Friday, April 4, 1788</td>
+		</tr>
+		<tr>
+			<td>78.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-71-80#s-lg-box-wrapper-25493470">The Judiciary Department</a></td>
+			<td>Hamilton</td>
+			<td>From McLEAN&#39;s Edition, New York</td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>79.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-71-80#s-lg-box-wrapper-25493471">The Judiciary Continued</a></td>
+			<td>Hamilton</td>
+			<td>From&nbsp;McLEAN&#39;s&nbsp;Edition, New York</td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>80.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-71-80#s-lg-box-wrapper-25493472">The Powers of the Judiciary</a></td>
+			<td>Hamilton</td>
+			<td>From&nbsp;McLEAN&#39;s&nbsp;Edition, New York</td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>81.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-81-85#s-lg-box-wrapper-25493488">The Judiciary Continued, and the Distribution of Judicial Authority</a></td>
+			<td>Hamilton</td>
+			<td>From McLEAN&#39;s Edition</td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>82.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-81-85#s-lg-box-wrapper-25493489">The Judiciary Continued</a></td>
+			<td>Hamilton</td>
+			<td>From McLEAN&#39;s Edition</td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>83.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-81-85#s-lg-box-wrapper-25493490">The Judiciary Continued in Relation to Trial by Jury</a></td>
+			<td>Hamilton</td>
+			<td>From McLEAN&#39;s Edition</td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>84.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-81-85#s-lg-box-wrapper-25493491">Certain General and Miscellaneous Objections to the Constitution Considered and Answered</a></td>
+			<td>Hamilton</td>
+			<td>From McLEAN&#39;s Edition</td>
+			<td>--</td>
+		</tr>
+		<tr>
+			<td>85.</td>
+			<td><a href="https://guides.loc.gov/federalist-papers/text-81-85#s-lg-box-wrapper-25493492">Concluding Remarks</a></td>
+			<td>Hamilton</td>
+			<td>From McLEAN&#39;s Edition</td>
+			<td>--</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+		   </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div></div></div></div>
+                </div>
+            </div>
+            <ul id="s-lg-page-prevnext" class="pager s-lib-hide">
+    <li class="previous">
+        <a class="page-link" href="https://guides.loc.gov/federalist-papers/introduction">&lt;&lt; <strong>Previous:</strong> Introduction</a>
+    </li>
+    <li class="next">
+        <a class="page-link" href="https://guides.loc.gov/federalist-papers/text-1-10"><strong>Next:</strong> Federalist Nos. 1-10 &gt;&gt;</a>
+    </li>
+</ul>
+
+
+        </div>
+    </div>
+</div>
+<!-- BEGIN: Page Footer -->
+<div id="s-lib-footer-public"
+     class="s-lib-footer footer container  s-lib-side-borders">
+    <div id="s-lg-guide-header-meta" class="pad-top-sm pad-left-med clearfix">
+        <ul id="s-lg-guide-header-attributes" class="">
+            <li id="s-lg-guide-header-updated" class="s-lg-h-separator">
+                <span class="s-lg-guide-label">Last Updated:</span> <span class="s-lg-text-greyout">Jan 20, 2026 8:22 AM</span>            </li>
+            <li id="s-lg-guide-header-url" class="s-lg-h-separator">
+                <span class="s-lg-guide-label">URL:</span> <span class="s-lg-text-greyout">https://guides.loc.gov/federalist-papers</span>
+            </li>
+            <li id="s-lg-guide-print-url">
+                <a href="javascript: window.print();"><i class="fa fa-print" aria-hidden="true" title="Print Page"></i> Print Page</a>
+            </li>
+        </ul>
+        <div id="s-lib-footer-login-link" class="pull-right pad-right-med">
+            <a href="https://loc.libapps.com/libapps/login.php?site_id=9874&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTkzNDI3MyZwPTY4MzgyMDA=">Login to LibApps</a>        </div>
+    </div>
+    <div class="pad-bottom-sm clearfix">
+        <div id="s-lib-footer-support-link" class="pull-right pad-right-med">
+                    </div>
+        <div id="s-lg-guide-header-subjects" class="pad-top-sm pad-left-med pad-right-med pull-left">
+            <span class="s-lg-guide-label">Subjects: </span><span class="s-lg-small bold"><a href="https://guides.loc.gov/sb.php?subject_id=159909">American History</a>, <a href="https://guides.loc.gov/sb.php?subject_id=159910">Early American History</a>, <a href="https://guides.loc.gov/sb.php?subject_id=152281">Government</a>, <a href="https://guides.loc.gov/sb.php?subject_id=152295">Historic American Law</a>, <a href="https://guides.loc.gov/sb.php?subject_id=152286">Political Science</a>, <a href="https://guides.loc.gov/sb.php?subject_id=162830">Primary Documents in American History</a></span>
+        </div>
+        <!--div id="s-lg-guide-header-tags" class="pad-top-sm pad-left-med">
+            <span class="s-lg-guide-label">Tags: </span><span class="s-lg-small bold"><a href="https://guides.loc.gov/srch.php?tag=Alexander+Hamilton&default_lg=1">Alexander Hamilton</a>, <a href="https://guides.loc.gov/srch.php?tag=Constitutions+of+the+United+States&default_lg=1">Constitutions of the United States</a>, <a href="https://guides.loc.gov/srch.php?tag=Contitution&default_lg=1">Contitution</a>, <a href="https://guides.loc.gov/srch.php?tag=Federalist+Papers&default_lg=1">Federalist Papers</a>, <a href="https://guides.loc.gov/srch.php?tag=James+Madison&default_lg=1">James Madison</a>, <a href="https://guides.loc.gov/srch.php?tag=John+Jay&default_lg=1">John Jay</a>, <a href="https://guides.loc.gov/srch.php?tag=Publius&default_lg=1">Publius</a>, <a href="https://guides.loc.gov/srch.php?tag=Ratification&default_lg=1">Ratification</a>, <a href="https://guides.loc.gov/srch.php?tag=The+Federalist&default_lg=1">The Federalist</a></span>
+        </div-->
+    </div>
+</div>
+<!-- END: Page Footer -->
+			<div id="s-lib-scroll-top" class="lib-scroll-top">
+				<a href="javascript:void(0);" onclick="jQuery('html, body').animate({scrollTop: 0}, 750);" title="Back to Top" aria-label="Back to Top"
+				aria-hidden="true">
+					<!--span class="fa-stack fa-lg">
+					  <i class="fa fa-square-o fa-stack-2x"></i>
+					  <i class="fa fa-angle-double-up fa-stack-1x" style="position:relative; bottom:2px;"></i>
+					</span-->
+                                        <i class="fa fa-arrow-up"></i>&nbsp;<span>Back to top</span>
+				</a>
+			</div><div id="s-lib-alert" title="">
+                            <div id="s-lib-alert-content"></div>
+                       </div>
+                <!-- BEGIN: Custom Footer -->
+                
+<div class="loc-libguides-footer-wrapper">
+<div class="container loc-libguides-footer-container">
+<div class="loc-libguides-footer">
+<div class="loc-libguides-footer-left">
+Hosted by Springshare
+</div>
+<div class="loc-libguides-footer-center">
+<a href="https://www.loc.gov/legal/" target="_blank">Library of Congress Legal</a>
+<a href="https://springshare.com/privacy.html" target="_blank">SpringShare Privacy Policy</a>
+</div>
+<div class="loc-libguides-footer-right">
+<!-- login link -->
+</div>
+</div>
+</div>
+</div>
+</div>
+
+		<!-- END: Custom Footer -->
+<!-- BEGIN: Analytics code --><script src="//assets.adobedtm.com/dac62e20b491e735c6b56e64c39134d8ee93f9cf/satelliteLib-6b47f831c184878d7338d4683ecf773a17973bb9.js"></script>
+        <script type="text/javascript">_satellite.pageBottom();</script><!-- END: Analytics code --></body></html>
