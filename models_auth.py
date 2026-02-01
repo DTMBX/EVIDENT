@@ -166,42 +166,43 @@ class User(UserMixin, db.Model):
                 "template_downloads": True,  # Can download templates
                 "overage_allowed": False,
             },
-            TierLevel.STARTER: {  # FOUNDING MEMBER TIER ($19/mo lifetime locked)
-                "bwc_videos_per_month": 10,  # Soft cap
+            TierLevel.STARTER: {  # ENTRY TIER ($29/mo) - HARD CAP for predictable pricing
+                "bwc_videos_per_month": 10,  # Hard cap
                 "bwc_video_hours_per_month": 10,  # 10 hours total (1hr per video avg)
                 "max_file_size_mb": 512,
-                "pdf_documents_per_month": 5,  # Soft cap
+                "pdf_documents_per_month": 5,  # Hard cap
                 "document_pages_per_month": 250,  # 50 pages per PDF avg
                 "transcription_minutes_per_month": 60,
                 "ai_assistant_access": "basic",
                 "search_queries_per_month": -1,  # Unlimited
                 "storage_gb": 10,
                 "export_watermark": False,
-                "case_limit": 5,  # Soft cap
+                "case_limit": 5,  # Hard cap
                 "court_ready_reports": "basic",
                 "api_access": False,
-                "overage_allowed": True,  # SOFT CAP with overage fees
-                "overage_fee_per_video": 2.00,
-                "overage_fee_per_pdf": 1.00,
-                "overage_fee_per_case": 5.00,
-                "overage_fee_per_gb": 0.50,
+                "trial_days": 7,  # 7-day free trial
+                "overage_allowed": False,  # HARD CAP - no surprise bills
             },
             TierLevel.PROFESSIONAL: {
-                "bwc_videos_per_month": 25,
-                "bwc_video_hours_per_month": 3,
+                "bwc_videos_per_month": 25,  # Soft cap
+                "bwc_video_hours_per_month": 3,  # Per video max
                 "max_file_size_mb": 1024,
-                "pdf_documents_per_month": 15,
+                "pdf_documents_per_month": 15,  # Soft cap
                 "document_pages_per_month": 150,
                 "transcription_minutes_per_month": 180,
                 "ai_assistant_access": "basic",
                 "search_queries_per_month": 1500,
-                "storage_gb": 50,
+                "storage_gb": 50,  # Soft cap
                 "export_watermark": False,
-                "case_limit": 15,
+                "case_limit": 15,  # Soft cap
                 "court_ready_reports": "basic",
-                "trial_days": 3,
+                "trial_days": 3,  # 3-day free trial
                 "api_access": False,
-                "overage_allowed": False,  # Hard cap
+                "overage_allowed": True,  # SOFT CAP - pay for what you use
+                "overage_fee_per_video": 1.50,
+                "overage_fee_per_pdf": 0.75,
+                "overage_fee_per_case": 3.00,
+                "overage_fee_per_gb": 0.40,
             },
             TierLevel.PREMIUM: {
                 "bwc_videos_per_month": 75,  # Soft cap
