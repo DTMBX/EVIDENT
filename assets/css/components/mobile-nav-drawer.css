@@ -40,8 +40,8 @@
   position: absolute;
   left: 50%;
   width: 24px;
-  height: 2px;
-  background: var(--color-text, #1f2937);
+  height: 3px;
+  background: #ffffff;
   border-radius: 2px;
   transform: translateX(-50%);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -78,9 +78,16 @@
 /* Show on mobile/tablet */
 @media (max-width: 1024px) {
   .mobile-nav-hamburger {
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: center;
+  }
+}
+
+/* Also target any potential wrapper or parent containers */
+@media (max-width: 1024px) {
+  .premium-nav__actions .mobile-nav-hamburger {
+    display: flex !important;
   }
 }
 
