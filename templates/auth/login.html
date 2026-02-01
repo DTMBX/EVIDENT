@@ -503,7 +503,7 @@
       <div class="alert alert-{{ category }}">{{ message }}</div>
       {% endfor %} {% endif %} {% endwith %}
 
-      <form method="POST" id="loginForm">
+      <form method="POST" action="{{ url_for('auth.login') }}" id="loginForm">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
         <div class="form-group">
           <label for="email">Email Address</label>
@@ -681,15 +681,14 @@
           console.error("FormValidator not loaded");
         }
 
-        // Add enhanced form handling
+        // Add enhanced form handling with reliable redirect
         loginForm.addEventListener("submit", function (e) {
-          e.preventDefault();
-
           const email = document.getElementById("email").value.trim();
           const password = document.getElementById("password").value;
 
           // Basic client-side validation
           if (!email || !password) {
+            e.preventDefault();
             if (typeof toast !== "undefined") {
               toast.error("Please fill in all required fields");
             } else {
@@ -699,6 +698,7 @@
           }
 
           if (!email.includes("@")) {
+            e.preventDefault();
             if (typeof toast !== "undefined") {
               toast.error("Please enter a valid email address");
             } else {
@@ -708,82 +708,16 @@
             return;
           }
 
-          // Show loading state
+          // Show loading state but let form submit naturally
           if (typeof LoadingState !== "undefined") {
             LoadingState.showButtonLoading(submitBtn, "Signing in...");
           } else {
             submitBtn.disabled = true;
             submitBtn.textContent = "Signing in...";
           }
-
-          // Submit form
-          const formData = new FormData(loginForm);
-          const csrfToken = loginForm.querySelector(
-            'input[name="csrf_token"]',
-          )?.value;
-
-          fetch(loginForm.action || window.location.href, {
-            method: "POST",
-            body: formData,
-            credentials: "same-origin",
-            headers: csrfToken
-              ? {
-                  "X-CSRFToken": csrfToken,
-                }
-              : {},
-          })
-            .then((response) => {
-              if (response.redirected) {
-                if (typeof toast !== "undefined") {
-                  toast.success("Login successful! Redirecting...");
-                }
-                setTimeout(() => {
-                  window.location.href = response.url;
-                }, 500);
-              } else {
-                return response.text().then((html) => {
-                  // Check if there's an error message in the response
-                  const parser = new DOMParser();
-                  const doc = parser.parseFromString(html, "text/html");
-                  const errorAlert = doc.querySelector(".alert-danger");
-
-                  if (typeof LoadingState !== "undefined") {
-                    LoadingState.hideButtonLoading(submitBtn);
-                  } else {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = "Login";
-                  }
-
-                  if (errorAlert) {
-                    const errorMsg = errorAlert.textContent.trim();
-                    if (typeof toast !== "undefined") {
-                      toast.error(errorMsg);
-                    } else {
-                      alert(errorMsg);
-                    }
-                  } else {
-                    // Re-submit using traditional form if AJAX fails
-                    loginForm.submit();
-                  }
-                });
-              }
-            })
-            .catch((error) => {
-              console.error("Login error:", error);
-              if (typeof LoadingState !== "undefined") {
-                LoadingState.hideButtonLoading(submitBtn);
-              } else {
-                submitBtn.disabled = false;
-                submitBtn.textContent = "Login";
-              }
-              const errorMsg =
-                "Unable to connect to the server. Please check your connection and try again.";
-              if (typeof toast !== "undefined") {
-                toast.error(errorMsg);
-              } else {
-                alert(errorMsg);
-              }
-            });
+          
+          // Let the form submit naturally (no e.preventDefault())
+          // This ensures server-side redirect works properly
         });
 
         // Initialize form validator if available
