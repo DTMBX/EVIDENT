@@ -64,6 +64,7 @@
     <link rel="stylesheet" href="{{ '/assets/css/components/ux-enhancements.css' | relative_url }}" />
     <link rel="stylesheet" href="{{ '/assets/css/components/premium-header.css' | relative_url }}" />
     <link rel="stylesheet" href="{{ '/assets/css/components/connect-compliance-footer.css' | relative_url }}" />
+    <link rel="stylesheet" href="{{ '/assets/css/components/mobile-nav-drawer.css' | relative_url }}" />
     
     {%- comment -%} Accessibility Enhancements - WCAG 2.1 Level AA {%- endcomment -%}
     <link rel="stylesheet" href="{{ '/assets/css/accessibility.css' | relative_url }}" />
@@ -149,6 +150,11 @@
       {% include header.html %}
     {% endunless %}
 
+    {%- comment -%} Mobile Navigation Drawer {%- endcomment -%}
+    {% unless page.hide_header %}
+      {% include mobile-nav-drawer.html %}
+    {% endunless %}
+
     {%- comment -%} Main content area with layout-specific classes {%- endcomment -%}
     <main id="main" tabindex="-1"{% if page.main_class %} class="{{ page.main_class }}"{% elsif page.layout == 'case' or page.layout == 'case-enhanced' %} class="case-main"{% elsif page.layout == 'page' %} class="page-main"{% elsif page.layout == 'essay' %} class="essay-main"{% endif %}>
       {{ content }}
@@ -185,6 +191,7 @@
     {%- comment -%} UX Enhancements JavaScript {%- endcomment -%}
     <script src="{{ '/assets/js/ux-enhancements.js' | relative_url }}" defer></script>
     <script src="{{ '/assets/js/premium-header.js' | relative_url }}" defer></script>
+    <script src="{{ '/assets/js/mobile-nav-drawer.js' | relative_url }}" defer></script>
     <script src="{{ '/assets/js/early-access-form.js' | relative_url }}" defer></script>
     
     {%- comment -%} Enhanced Animation & Theme System {%- endcomment -%}
