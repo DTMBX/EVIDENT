@@ -1,0 +1,173 @@
+<!-- 
+  MOBILE NAVIGATION DRAWER
+  
+  Copy this into your _layouts/default.html or _includes/header.html
+  
+  Features:
+  - Animated hamburger icon
+  - Slide-in drawer from right
+  - Backdrop with blur
+  - Submenu support
+  - Touch gestures
+  - Fully accessible
+  
+  Required Files:
+  - /assets/css/components/mobile-nav-drawer.css
+  - /assets/js/mobile-nav-drawer.js
+-->
+
+<!-- Hamburger Button (place in header) -->
+<button 
+  class="mobile-nav-hamburger" 
+  type="button"
+  aria-label="Open navigation menu"
+  aria-expanded="false"
+  aria-controls="mobile-nav-drawer">
+  <span class="mobile-nav-hamburger__line"></span>
+  <span class="mobile-nav-hamburger__line"></span>
+  <span class="mobile-nav-hamburger__line"></span>
+</button>
+
+<!-- Backdrop Overlay -->
+<div class="mobile-nav-backdrop" aria-hidden="true"></div>
+
+<!-- Navigation Drawer -->
+<nav 
+  id="mobile-nav-drawer"
+  class="mobile-nav-drawer" 
+  aria-label="Mobile navigation"
+  aria-hidden="true">
+  
+  <!-- Header with Logo and Close Button -->
+  <div class="mobile-nav-drawer__header">
+    <a href="/" class="mobile-nav-drawer__logo" aria-label="BarberX Home">
+      <svg class="mobile-nav-drawer__logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+      </svg>
+      <span>BarberX</span>
+    </a>
+    
+    <button 
+      class="mobile-nav-close" 
+      type="button"
+      aria-label="Close navigation menu">
+      <svg class="mobile-nav-close__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+  
+  <!-- Main Content -->
+  <div class="mobile-nav-drawer__content">
+    <ul class="mobile-nav-list">
+      
+      <!-- Simple Link -->
+      <li class="mobile-nav-item">
+        <a href="/" class="mobile-nav-link">
+          <span>
+            <svg class="mobile-nav-link__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            Home
+          </span>
+        </a>
+      </li>
+      
+      <!-- Link with Submenu -->
+      <li class="mobile-nav-item">
+        <a 
+          href="/features" 
+          class="mobile-nav-link" 
+          data-submenu-toggle
+          aria-expanded="false">
+          <span>
+            <svg class="mobile-nav-link__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Features
+          </span>
+          <span class="mobile-nav-submenu-toggle">
+            <svg class="mobile-nav-submenu-toggle__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </span>
+        </a>
+        
+        <!-- Submenu -->
+        <div class="mobile-nav-submenu">
+          <ul class="mobile-nav-submenu__list">
+            <li><a href="/features/ai-research" class="mobile-nav-submenu__link">AI Research</a></li>
+            <li><a href="/features/case-analysis" class="mobile-nav-submenu__link">Case Analysis</a></li>
+            <li><a href="/features/document-review" class="mobile-nav-submenu__link">Document Review</a></li>
+            <li><a href="/features/legal-writing" class="mobile-nav-submenu__link">Legal Writing</a></li>
+          </ul>
+        </div>
+      </li>
+      
+      <!-- More Simple Links -->
+      <li class="mobile-nav-item">
+        <a href="/pricing" class="mobile-nav-link">
+          <span>
+            <svg class="mobile-nav-link__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Pricing
+          </span>
+        </a>
+      </li>
+      
+      <li class="mobile-nav-item">
+        <a href="/about" class="mobile-nav-link">
+          <span>
+            <svg class="mobile-nav-link__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            About
+          </span>
+        </a>
+      </li>
+      
+      <li class="mobile-nav-item">
+        <a href="/contact" class="mobile-nav-link">
+          <span>
+            <svg class="mobile-nav-link__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            Contact
+          </span>
+        </a>
+      </li>
+      
+    </ul>
+    
+    <!-- Divider -->
+    <div class="mobile-nav-divider"></div>
+    
+    <!-- Call-to-Action Buttons -->
+    <div class="mobile-nav-cta">
+      <a href="/auth/register" class="mobile-nav-cta__button">
+        Start Free Trial
+      </a>
+      <a href="/auth/login" class="mobile-nav-cta__button mobile-nav-cta__button--secondary">
+        Sign In
+      </a>
+    </div>
+  </div>
+  
+</nav>
+
+<!-- 
+  USAGE:
+  
+  1. Include CSS in <head>:
+     <link rel="stylesheet" href="/assets/css/components/mobile-nav-drawer.css">
+  
+  2. Include JS before </body>:
+     <script src="/assets/js/mobile-nav-drawer.js"></script>
+  
+  3. JavaScript API:
+     - MobileNav.open()    - Open drawer programmatically
+     - MobileNav.close()   - Close drawer programmatically
+     - MobileNav.toggle()  - Toggle drawer state
+     - MobileNav.isOpen()  - Check if drawer is open
+-->
