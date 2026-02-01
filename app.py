@@ -9,7 +9,7 @@ import os
 import sys
 import threading
 import uuid
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
 
@@ -77,13 +77,13 @@ except ImportError as e:
     print(f"[!] Tier gating not available: {e}")
 
     # Fallback decorators that do nothing
-    def require_tier(tier):
+    def require_tier(_tier):
         def decorator(f):
             return f
 
         return decorator
 
-    def check_usage_limit(field, increment=0, hours=None):
+    def check_usage_limit(_field, _increment=0, _hours=None):
         def decorator(f):
             return f
 
@@ -134,8 +134,7 @@ except ImportError as e:
 
 # Import our BWC analyzer (optional - only needed for actual analysis)
 try:
-    pass
-
+    # Placeholder for BWC analyzer import when dependencies are available
     BWC_ANALYZER_AVAILABLE = True
 except ImportError:
     BWC_ANALYZER_AVAILABLE = False
@@ -175,6 +174,33 @@ compress = Compress()
 
 # Initialize CSRF protection
 csrf = CSRFProtect()
+
+# ============================================================================
+# CONSTANTS - Avoid string duplication per SonarQube recommendations
+# ============================================================================
+ANALYSIS_FOLDER_PATH = "./bwc_analysis"
+MIME_TYPE_PDF = "application/pdf"
+MIME_TYPE_TEXT = "text/plain"
+MIME_TYPE_JSON = "application/json"
+USERS_ID_FK = "users.id"
+SETTING_MAINTENANCE_MODE = "site.maintenance_mode"
+SETTING_ALLOW_SIGNUP = "site.allow_signup"
+SETTING_CHAT_ENABLED = "site.chat_enabled"
+ERROR_NO_FILE_SELECTED = "No file selected"
+ERROR_NO_FILE_PROVIDED = "No file provided"
+ERROR_ADMIN_REQUIRED = "Admin access required"
+ERROR_FEATURE_NOT_AVAILABLE = "Feature not available"
+ERROR_ANALYSIS_NOT_FOUND = "Analysis not found"
+ERROR_LEGAL_TOOLS_UNAVAILABLE = "Legal analysis tools not available"
+ERROR_PDF_NOT_FOUND = "PDF not found"
+PRICING_URL = "/pricing"
+FOUNDING_MEMBER_SIGNUPS_FILE = "founding_member_signups.csv"
+
+
+def utc_now():
+    """Return current UTC datetime (timezone-aware replacement for datetime.utcnow())."""
+    return datetime.now(timezone.utc)
+
 
 # Load environment variables
 from dotenv import load_dotenv
@@ -237,7 +263,7 @@ else:
     app.config["SESSION_COOKIE_SAMESITE"] = "Lax"  # Prevent CSRF attacks while allowing normal nav
     app.config["UPLOAD_FOLDER"] = Path("./uploads/bwc_videos")
 
-app.config["ANALYSIS_FOLDER"] = Path("./bwc_analysis")
+app.config["ANALYSIS_FOLDER"] = Path(ANALYSIS_FOLDER_PATH)
 app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(days=7)
 
 # Initialize AI Pipeline Orchestrator with configuration
@@ -308,10 +334,10 @@ ALLOWED_MIME_TYPES = {
     "audio/x-ms-wma",
     "audio/flac",
     # Documents
-    "application/pdf",
+    MIME_TYPE_PDF,
     "application/msword",
     "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-    "text/plain",
+    MIME_TYPE_TEXT,
     "application/rtf",
     # Images
     "image/jpeg",
@@ -347,6 +373,9 @@ csrf.exempt("user_api")
 csrf.exempt("stripe_api")
 csrf.exempt("admin_api")
 csrf.exempt("evidence_api")
+
+# Exempt upload routes from CSRF (will be applied after routes are defined)
+CSRF_EXEMPT_VIEWS = ["upload_file", "upload_pdf", "batch_upload", "unified_batch_upload", "auth.test_credentials"]
 
 CORS(
     app,
@@ -600,7 +629,7 @@ class Analysis(db.Model):
     __table_args__ = {"extend_existing": True}
 
     id = db.Column(db.String(32), primary_key=True)  # UUID
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False, index=True)
+    user_id = db.Column(db.Integer, db.ForeignKey(USERS_ID_FK), nullable=False, index=True)
 
     # File information
     filename = db.Column(db.String(255), nullable=False)
@@ -695,7 +724,7 @@ class AppSettings(db.Model):
     description = db.Column(db.String(500))
     is_editable = db.Column(db.Boolean, default=True)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
-    updated_by = db.Column(db.Integer, db.ForeignKey("users.id"))
+    updated_by = db.Column(db.Integer, db.ForeignKey(USERS_ID_FK))
 
     @staticmethod
     def get(key, default=None):
@@ -733,7 +762,7 @@ class AppSettings(db.Model):
         if setting:
             setting.value = value_str
             setting.value_type = value_type
-            setting.updated_at = datetime.utcnow()
+            setting.updated_at = utc_now()
             if current_user.is_authenticated:
                 setting.updated_by = current_user.id
         else:
@@ -757,13 +786,13 @@ def get_site_settings():
         "ui.theme": "system",
         "ui.brand_color": "#c41e3a",
         "ui.accent_color": "#1e40af",
-        "site.maintenance_mode": False,
+        SETTING_MAINTENANCE_MODE: False,
         "site.maintenance_message": "We are performing maintenance. Please check back shortly.",
         "site.banner_enabled": False,
         "site.banner_message": "",
-        "site.allow_signup": True,
+        SETTING_ALLOW_SIGNUP: True,
         "site.footer_notice": "",
-        "site.chat_enabled": True,
+        SETTING_CHAT_ENABLED: True,
     }
 
     settings = {}
@@ -803,12 +832,12 @@ def enforce_site_controls():
         "/admin",
     )
 
-    if settings.get("site.maintenance_mode"):
+    if settings.get(SETTING_MAINTENANCE_MODE):
         is_admin = current_user.is_authenticated and getattr(current_user, "role", "") == "admin"
         if not path.startswith(allow_paths) and not is_admin:
             return render_template("maintenance.html"), 503
 
-    if not settings.get("site.allow_signup") and (
+    if not settings.get(SETTING_ALLOW_SIGNUP) and (
         path.startswith("/auth/signup")
         or path.startswith("/register")
         or path.startswith("/signup")
@@ -816,7 +845,7 @@ def enforce_site_controls():
         flash("Signups are temporarily disabled.", "warning")
         return redirect("/auth/login")
 
-    if not settings.get("site.chat_enabled"):
+    if not settings.get(SETTING_CHAT_ENABLED):
         if path.startswith("/chat"):
             flash("Chat is temporarily disabled.", "warning")
             return redirect(url_for("dashboard"))
@@ -830,7 +859,7 @@ class PDFUpload(db.Model):
     __tablename__ = "pdf_uploads"
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True, index=True)
+    user_id = db.Column(db.Integer, db.ForeignKey(USERS_ID_FK), nullable=True, index=True)
 
     # File information
     filename = db.Column(db.String(255), nullable=False)
@@ -838,7 +867,7 @@ class PDFUpload(db.Model):
     file_path = db.Column(db.String(500), nullable=False)
     file_size = db.Column(db.Integer, nullable=False)
     file_hash = db.Column(db.String(64), unique=True, nullable=False, index=True)
-    mime_type = db.Column(db.String(100), default="application/pdf")
+    mime_type = db.Column(db.String(100), default=MIME_TYPE_PDF)
 
     # Metadata
     case_number = db.Column(db.String(100), index=True)
@@ -891,7 +920,7 @@ class AuditLog(db.Model):
     __tablename__ = "audit_logs"
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), index=True)
+    user_id = db.Column(db.Integer, db.ForeignKey(USERS_ID_FK), index=True)
 
     action = db.Column(db.String(50), nullable=False, index=True)
     resource_type = db.Column(db.String(50))
@@ -946,7 +975,7 @@ def api_key_required(f):
             return jsonify({"error": "Invalid API key"}), 401
 
         # Update last used
-        key_obj.last_used_at = datetime.utcnow()
+        key_obj.last_used_at = utc_now()
         db.session.commit()
 
         # Set current user
@@ -975,7 +1004,7 @@ def validate_upload_file(file, allowed_extensions=None, max_size=None):
         tuple: (is_valid: bool, error_message: str or None)
     """
     if not file or file.filename == "":
-        return False, "No file selected"
+        return False, ERROR_NO_FILE_SELECTED
 
     # Validate extension
     file_ext = Path(file.filename).suffix.lower()
@@ -1056,7 +1085,7 @@ def index():
 @app.route("/health")
 def health():
     """Simple health check for Render"""
-    return jsonify({"status": "ok", "timestamp": datetime.utcnow().isoformat()})
+    return jsonify({"status": "ok", "timestamp": utc_now().isoformat()})
 
 
 @app.route("/preview")
@@ -1347,7 +1376,7 @@ def analyze_evidence():
             error_message=error_msg,
         )
         return (
-            jsonify({"error": "Quota exceeded", "message": error_msg, "upgrade_url": "/pricing"}),
+            jsonify({"error": "Quota exceeded", "message": error_msg, "upgrade_url": PRICING_URL}),
             429,
         )
 
@@ -1569,7 +1598,7 @@ def get_usage_quota():
             "period": {
                 "start": quota.period_start.isoformat(),
                 "end": quota.period_end.isoformat(),
-                "days_remaining": (quota.period_end - datetime.utcnow()).days,
+                "days_remaining": (quota.period_end - utc_now()).days,
             },
             "quotas": {
                 "ai_tokens": {
@@ -1684,7 +1713,7 @@ def get_usage_events():
     event_type = request.args.get("type")
     days = request.args.get("days", 7, type=int)
 
-    since = datetime.utcnow() - timedelta(days=days)
+    since = utc_now() - timedelta(days=days)
 
     query = SmartMeterEvent.query.filter(
         SmartMeterEvent.user_id == current_user.id, SmartMeterEvent.timestamp >= since
@@ -1729,7 +1758,7 @@ def get_usage_summary():
     from usage_meter import SmartMeter, SmartMeterEvent
 
     days = request.args.get("days", 30, type=int)
-    since = datetime.utcnow() - timedelta(days=days)
+    since = utc_now() - timedelta(days=days)
 
     # Get daily breakdown
     daily_stats = (
@@ -1811,7 +1840,7 @@ def track_usage_event():
 
     # Update rate limit counter
     quota.requests_this_minute += 1
-    quota.last_request_timestamp = datetime.utcnow()
+    quota.last_request_timestamp = utc_now()
     db.session.commit()
 
     event = SmartMeter.track_event(
@@ -1844,7 +1873,7 @@ def health_check_detailed():
         return jsonify(
             {
                 "status": "healthy",
-                "timestamp": datetime.utcnow().isoformat(),
+                "timestamp": utc_now().isoformat(),
                 "backend_optimization": "not available",
             }
         )
@@ -1867,7 +1896,7 @@ def health_check_detailed():
 
     health_status = {
         "status": "healthy" if (db_healthy and services_healthy) else "degraded",
-        "timestamp": datetime.utcnow().isoformat(),
+        "timestamp": utc_now().isoformat(),
         "components": {
             "database": "up" if db_healthy else "down",
             "services": "up" if services_healthy else "degraded",
@@ -2117,7 +2146,7 @@ def account_settings_alias():
 def admin_panel():
     """Enhanced admin panel - requires admin role with full analytics"""
     if not hasattr(current_user, "is_admin") or not current_user.is_admin:
-        flash("Admin access required", "danger")
+        flash(ERROR_ADMIN_REQUIRED, "danger")
         return redirect(url_for("dashboard"))
 
     return send_file("templates/admin/admin-dashboard-enhanced.html")
@@ -2128,12 +2157,12 @@ def admin_panel():
 def admin_founding_members():
     """Admin view of founding member signups"""
     if not hasattr(current_user, "is_admin") or not current_user.is_admin:
-        flash("Admin access required", "danger")
+        flash(ERROR_ADMIN_REQUIRED, "danger")
         return redirect(url_for("dashboard"))
 
     import csv
 
-    signups_file = Path("founding_member_signups.csv")
+    signups_file = Path(FOUNDING_MEMBER_SIGNUPS_FILE)
     signups = []
 
     if signups_file.exists():
@@ -2156,9 +2185,9 @@ def admin_founding_members():
 def admin_export_founding_members():
     """Export founding member signups as CSV"""
     if not hasattr(current_user, "is_admin") or not current_user.is_admin:
-        return jsonify({"error": "Admin access required"}), 403
+        return jsonify({"error": ERROR_ADMIN_REQUIRED}), 403
 
-    signups_file = Path("founding_member_signups.csv")
+    signups_file = Path(FOUNDING_MEMBER_SIGNUPS_FILE)
 
     if not signups_file.exists():
         return jsonify({"error": "No signups found"}), 404
@@ -2167,7 +2196,7 @@ def admin_export_founding_members():
         signups_file,
         mimetype="text/csv",
         as_attachment=True,
-        download_name=f"founding_members_{datetime.utcnow().strftime('%Y%m%d')}.csv",
+        download_name=f"founding_members_{utc_now().strftime('%Y%m%d')}.csv",
     )
 
 
@@ -2180,7 +2209,7 @@ def account_settings():
 
         # Get usage for current month
         usage = UsageTracking.query.filter_by(
-            user_id=current_user.id, month=datetime.utcnow().month, year=datetime.utcnow().year
+            user_id=current_user.id, month=utc_now().month, year=utc_now().year
         ).first()
 
         # Get tier limits
@@ -2200,7 +2229,7 @@ def account_settings():
 def update_user_profile():
     """Update user profile information"""
     if not ENHANCED_AUTH_AVAILABLE:
-        return jsonify({"error": "Feature not available"}), 503
+        return jsonify({"error": ERROR_FEATURE_NOT_AVAILABLE}), 503
 
     from models_auth import db
 
@@ -2225,7 +2254,7 @@ def update_user_profile():
 def change_password():
     """Change user password"""
     if not ENHANCED_AUTH_AVAILABLE:
-        return jsonify({"error": "Feature not available"}), 503
+        return jsonify({"error": ERROR_FEATURE_NOT_AVAILABLE}), 503
 
     from models_auth import db
     from utils.logging_config import get_logger
@@ -2284,7 +2313,7 @@ def export_user_data():
 def delete_user_account():
     """Delete user account (GDPR compliance)"""
     if not ENHANCED_AUTH_AVAILABLE:
-        return jsonify({"error": "Feature not available"}), 503
+        return jsonify({"error": ERROR_FEATURE_NOT_AVAILABLE}), 503
 
     from flask_login import logout_user
 
@@ -2308,7 +2337,7 @@ def delete_user_account():
 def admin_panel_old():
     """Enhanced admin panel - requires admin role with full analytics"""
     if not hasattr(current_user, "role") or current_user.role != "admin":
-        flash("Admin access required", "danger")
+        flash(ERROR_ADMIN_REQUIRED, "danger")
         return redirect(url_for("dashboard"))
 
     if ENHANCED_AUTH_AVAILABLE:
@@ -2372,7 +2401,7 @@ def get_enhanced_analysis(analysis_id):
     analysis = Analysis.query.filter_by(id=analysis_id, user_id=current_user.id).first()
 
     if not analysis:
-        return jsonify({"error": "Analysis not found"}), 404
+        return jsonify({"error": ERROR_ANALYSIS_NOT_FOUND}), 404
 
     # Load the full report from file
     if analysis.report_json_path and os.path.exists(analysis.report_json_path):
@@ -2392,7 +2421,7 @@ def get_analysis_video(analysis_id):
     analysis = Analysis.query.filter_by(id=analysis_id, user_id=current_user.id).first()
 
     if not analysis:
-        return jsonify({"error": "Analysis not found"}), 404
+        return jsonify({"error": ERROR_ANALYSIS_NOT_FOUND}), 404
 
     if not analysis.file_path or not os.path.exists(analysis.file_path):
         return jsonify({"error": "Video file not found"}), 404
@@ -2407,21 +2436,21 @@ def download_analysis_report(analysis_id, format):
     analysis = Analysis.query.filter_by(id=analysis_id, user_id=current_user.id).first()
 
     if not analysis:
-        return jsonify({"error": "Analysis not found"}), 404
+        return jsonify({"error": ERROR_ANALYSIS_NOT_FOUND}), 404
 
-    format = format.lower()
+    output_format = format.lower()
 
-    if format == "json" and analysis.report_json_path:
+    if output_format == "json" and analysis.report_json_path:
         return send_file(
             analysis.report_json_path,
             as_attachment=True,
             download_name=f"{analysis.id}_report.json",
         )
-    elif format == "txt" and analysis.report_txt_path:
+    elif output_format == "txt" and analysis.report_txt_path:
         return send_file(
             analysis.report_txt_path, as_attachment=True, download_name=f"{analysis.id}_report.txt"
         )
-    elif format == "md" and analysis.report_md_path and os.path.exists(analysis.report_md_path):
+    elif output_format == "md" and analysis.report_md_path and os.path.exists(analysis.report_md_path):
         return send_file(
             analysis.report_md_path, as_attachment=True, download_name=f"{analysis.id}_report.md"
         )
@@ -2457,7 +2486,7 @@ def get_user_analyses():
 @app.route("/api/health", methods=["GET"])
 def health_check():
     """System health check"""
-    return jsonify({"status": "ok", "timestamp": datetime.utcnow().isoformat()})
+    return jsonify({"status": "ok", "timestamp": utc_now().isoformat()})
 
 
 # Evidence Processing Routes
@@ -2570,7 +2599,7 @@ def evidence_intake_submit():
 
                     # Sanitize filename and save securely
                     filename = secure_filename(file.filename)
-                    timestamp = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
+                    timestamp = utc_now().strftime("%Y%m%d_%H%M%S")
                     unique_filename = f"{data['id']}_{timestamp}_{filename}"
 
                     # Save file with secure path
@@ -2627,7 +2656,7 @@ def evidence_intake_submit():
 
         # Save evidence package metadata
         metadata_path = (
-            Path(app.config.get("ANALYSIS_FOLDER", "./bwc_analysis"))
+            Path(app.config.get("ANALYSIS_FOLDER", ANALYSIS_FOLDER_PATH))
             / analysis.id
             / "evidence_package.json"
         )
@@ -2673,7 +2702,7 @@ def list_evidence():
     for analysis in analyses:
         # Load evidence package if exists
         metadata_path = (
-            Path(app.config.get("ANALYSIS_FOLDER", "./bwc_analysis"))
+            Path(app.config.get("ANALYSIS_FOLDER", ANALYSIS_FOLDER_PATH))
             / analysis.id
             / "evidence_package.json"
         )
@@ -2692,7 +2721,7 @@ def list_evidence():
                     "processing_status": {
                         "stage": analysis.status,
                         "priority": "normal",
-                        "sla_deadline": (datetime.utcnow() + timedelta(hours=72)).isoformat(),
+                        "sla_deadline": (utc_now() + timedelta(hours=72)).isoformat(),
                     },
                 }
             )
@@ -2799,7 +2828,7 @@ def legal_analysis_dashboard():
 def scan_violations():
     """Scan transcript for legal violations"""
     if not LEGAL_TOOLS_AVAILABLE:
-        return jsonify({"error": "Legal analysis tools not available"}), 503
+        return jsonify({"error": ERROR_LEGAL_TOOLS_UNAVAILABLE}), 503
 
     try:
         data = request.get_json()
@@ -2834,7 +2863,7 @@ def scan_violations():
 def check_compliance():
     """Check evidence for statutory compliance"""
     if not LEGAL_TOOLS_AVAILABLE:
-        return jsonify({"error": "Legal analysis tools not available"}), 503
+        return jsonify({"error": ERROR_LEGAL_TOOLS_UNAVAILABLE}), 503
 
     try:
         data = request.get_json()
@@ -2868,7 +2897,7 @@ def check_compliance():
 def combined_legal_analysis():
     """Run both violation scan and compliance check"""
     if not LEGAL_TOOLS_AVAILABLE:
-        return jsonify({"error": "Legal analysis tools not available"}), 503
+        return jsonify({"error": ERROR_LEGAL_TOOLS_UNAVAILABLE}), 503
 
     try:
         data = request.get_json()
@@ -2883,7 +2912,7 @@ def combined_legal_analysis():
 
         # Combine results
         combined = {
-            "analysis_timestamp": datetime.utcnow().isoformat(),
+            "analysis_timestamp": utc_now().isoformat(),
             "evidence_id": evidence.get("id", "Unknown"),
             "violations": violation_results,
             "compliance": compliance_results,
@@ -2929,11 +2958,11 @@ def transcribe_audio():
     try:
         # Get file from request
         if "file" not in request.files:
-            return jsonify({"error": "No file provided"}), 400
+            return jsonify({"error": ERROR_NO_FILE_PROVIDED}), 400
 
         file = request.files["file"]
         if file.filename == "":
-            return jsonify({"error": "No file selected"}), 400
+            return jsonify({"error": ERROR_NO_FILE_SELECTED}), 400
 
         # Save uploaded file
         filename = secure_filename(file.filename)
@@ -2958,7 +2987,7 @@ def transcribe_audio():
             return jsonify({"success": True, "transcription": result})
         else:
             output = whisper_service.export_transcript(result, export_format)
-            return output, 200, {"Content-Type": "text/plain"}
+            return output, 200, {"Content-Type": MIME_TYPE_TEXT}
 
     except Exception as e:
         app.logger.error(f"Transcription error: {str(e)}")
@@ -2985,11 +3014,11 @@ def extract_text_ocr():
     try:
         # Get file from request
         if "file" not in request.files:
-            return jsonify({"error": "No file provided"}), 400
+            return jsonify({"error": ERROR_NO_FILE_PROVIDED}), 400
 
         file = request.files["file"]
         if file.filename == "":
-            return jsonify({"error": "No file selected"}), 400
+            return jsonify({"error": ERROR_NO_FILE_SELECTED}), 400
 
         # Save uploaded file
         filename = secure_filename(file.filename)
@@ -3113,7 +3142,7 @@ def verify_two_factor():
         )
 
 
-@app.route("/pricing")
+@app.route(PRICING_URL)
 def pricing_page():
     """Pricing page with subscription plans"""
     if STRIPE_AVAILABLE:
@@ -3265,7 +3294,7 @@ def offline_page():
 @app.route("/manifest.json")
 def pwa_manifest():
     """Serve PWA manifest"""
-    return send_file("manifest.json", mimetype="application/json")
+    return send_file("manifest.json", mimetype=MIME_TYPE_JSON)
 
 
 @app.route("/service-worker.js")
@@ -3552,7 +3581,7 @@ def workflow_scan_document():
     try:
         # Handle file upload
         if "file" not in request.files:
-            return jsonify({"error": "No file provided"}), 400
+            return jsonify({"error": ERROR_NO_FILE_PROVIDED}), 400
 
         file = request.files["file"]
         if file.filename == "":
@@ -3856,7 +3885,7 @@ def founding_member_signup():
         import os
         from datetime import datetime
 
-        signups_file = Path("founding_member_signups.csv")
+        signups_file = Path(FOUNDING_MEMBER_SIGNUPS_FILE)
 
         # Check if already signed up
         if signups_file.exists():
@@ -3894,7 +3923,7 @@ def founding_member_signup():
                     "name": name,
                     "firm": firm,
                     "source": source,
-                    "signup_date": datetime.utcnow().isoformat(),
+                    "signup_date": utc_now().isoformat(),
                     "status": "pending",
                 }
             )
@@ -3942,7 +3971,7 @@ def founding_member_signup():
 
 @app.route("/api/upload", methods=["POST"])
 @login_required
-@require_tier(TierLevel.STARTER)
+@require_tier(TierLevel.FREE)
 @check_usage_limit("bwc_videos_per_month", increment=1)
 def upload_file():
     """Handle BWC video file upload"""
@@ -3952,7 +3981,7 @@ def upload_file():
         return jsonify({"error": "Monthly analysis limit reached. Please upgrade your plan."}), 403
 
     if "file" not in request.files:
-        return jsonify({"error": "No file provided"}), 400
+        return jsonify({"error": ERROR_NO_FILE_PROVIDED}), 400
 
     file = request.files["file"]
 
@@ -3963,7 +3992,7 @@ def upload_file():
 
     # Secure filename
     filename = secure_filename(file.filename)
-    timestamp = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
+    timestamp = utc_now().strftime("%Y%m%d_%H%M%S")
     unique_filename = f"{current_user.id}_{timestamp}_{filename}"
     filepath = app.config["UPLOAD_FOLDER"] / unique_filename
 
@@ -4015,7 +4044,7 @@ def upload_file():
 
 @app.route("/api/upload/pdf", methods=["POST"])
 @login_required
-@require_tier(TierLevel.STARTER)
+@require_tier(TierLevel.FREE)
 @check_usage_limit("pdf_documents_per_month", increment=1)
 def upload_pdf():
     """Handle single PDF file upload"""
@@ -4038,18 +4067,18 @@ def upload_pdf():
         )
         return (
             jsonify(
-                {"error": "Upload quota exceeded", "message": error_msg, "upgrade_url": "/pricing"}
+                {"error": "Upload quota exceeded", "message": error_msg, "upgrade_url": PRICING_URL}
             ),
             429,
         )
 
     if "file" not in request.files:
-        return jsonify({"error": "No file provided"}), 400
+        return jsonify({"error": ERROR_NO_FILE_PROVIDED}), 400
 
     file = request.files["file"]
 
     if file.filename == "":
-        return jsonify({"error": "No file selected"}), 400
+        return jsonify({"error": ERROR_NO_FILE_SELECTED}), 400
 
     # Validate PDF file
     if not file.filename.lower().endswith(".pdf"):
@@ -4065,7 +4094,7 @@ def upload_pdf():
     # Secure filename
     original_filename = file.filename
     filename = secure_filename(file.filename)
-    timestamp = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
+    timestamp = utc_now().strftime("%Y%m%d_%H%M%S")
     unique_filename = f"{timestamp}_{filename}"
 
     # Create upload directory
@@ -4172,7 +4201,7 @@ def batch_upload_pdf():
             # Secure filename
             original_filename = file.filename
             filename = secure_filename(file.filename)
-            timestamp = datetime.utcnow().strftime("%Y%m%d_%H%M%S_%f")
+            timestamp = utc_now().strftime("%Y%m%d_%H%M%S_%f")
             unique_filename = f"{timestamp}_{filename}"
 
             # Create upload directory
@@ -4285,7 +4314,7 @@ def get_pdf_info(pdf_id):
     pdf = PDFUpload.query.get(pdf_id)
 
     if not pdf:
-        return jsonify({"error": "PDF not found"}), 404
+        return jsonify({"error": ERROR_PDF_NOT_FOUND}), 404
 
     # Check access
     if not pdf.is_public and (
@@ -4304,7 +4333,7 @@ def download_pdf(pdf_id):
     pdf = PDFUpload.query.get(pdf_id)
 
     if not pdf:
-        return jsonify({"error": "PDF not found"}), 404
+        return jsonify({"error": ERROR_PDF_NOT_FOUND}), 404
 
     # Check access
     if not pdf.is_public and (
@@ -4321,7 +4350,7 @@ def download_pdf(pdf_id):
         pdf.file_path,
         as_attachment=True,
         download_name=pdf.original_filename,
-        mimetype="application/pdf",
+        mimetype=MIME_TYPE_PDF,
     )
 
 
@@ -4332,7 +4361,7 @@ def delete_pdf(pdf_id):
     pdf = PDFUpload.query.get(pdf_id)
 
     if not pdf:
-        return jsonify({"error": "PDF not found"}), 404
+        return jsonify({"error": ERROR_PDF_NOT_FOUND}), 404
 
     # Check permission
     if current_user.id != pdf.user_id and current_user.role != "admin":
@@ -4362,7 +4391,7 @@ def analyze_video():
     analysis = Analysis.query.filter_by(id=upload_id, user_id=current_user.id).first()
 
     if not analysis:
-        return jsonify({"error": "Analysis not found"}), 404
+        return jsonify({"error": ERROR_ANALYSIS_NOT_FOUND}), 404
 
     # Update case metadata
     analysis.case_number = data.get("case_number", "")
@@ -4371,7 +4400,7 @@ def analyze_video():
     analysis.source = data.get("source", "Web Upload")
     analysis.known_officers = data.get("known_officers", [])
     analysis.status = "analyzing"
-    analysis.started_at = datetime.utcnow()
+    analysis.started_at = utc_now()
     analysis.progress = 0
 
     db.session.commit()
@@ -4408,7 +4437,7 @@ def analyze_video():
             analysis.status = "completed"
             analysis.progress = 100
             analysis.current_step = "Analysis complete"
-            analysis.completed_at = datetime.utcnow()
+            analysis.completed_at = utc_now()
             analysis.duration = report.duration
             analysis.total_speakers = len(report.speakers)
             analysis.total_segments = len(report.transcript)
@@ -4476,7 +4505,7 @@ def get_analysis(analysis_id):
     analysis = Analysis.query.filter_by(id=analysis_id, user_id=current_user.id).first()
 
     if not analysis:
-        return jsonify({"error": "Analysis not found"}), 404
+        return jsonify({"error": ERROR_ANALYSIS_NOT_FOUND}), 404
 
     return jsonify(analysis.to_dict(include_results=True))
 
@@ -4488,7 +4517,7 @@ def get_analysis_status(analysis_id):
     analysis = Analysis.query.filter_by(id=analysis_id, user_id=current_user.id).first()
 
     if not analysis:
-        return jsonify({"error": "Analysis not found"}), 404
+        return jsonify({"error": ERROR_ANALYSIS_NOT_FOUND}), 404
 
     status_data = {
         "id": analysis.id,
@@ -4525,7 +4554,7 @@ def download_report(analysis_id, format):
     analysis = Analysis.query.filter_by(id=analysis_id, user_id=current_user.id).first()
 
     if not analysis:
-        return jsonify({"error": "Analysis not found"}), 404
+        return jsonify({"error": ERROR_ANALYSIS_NOT_FOUND}), 404
 
     if analysis.status != "completed":
         return jsonify({"error": "Analysis not completed"}), 400
@@ -4533,10 +4562,10 @@ def download_report(analysis_id, format):
     # Get report file path
     if format == "json":
         report_path = analysis.report_json_path
-        mimetype = "application/json"
+        mimetype = MIME_TYPE_JSON
     elif format == "txt":
         report_path = analysis.report_txt_path
-        mimetype = "text/plain"
+        mimetype = MIME_TYPE_TEXT
     elif format == "md":
         report_path = analysis.report_md_path
         mimetype = "text/markdown"
@@ -4661,7 +4690,7 @@ def export_analysis_report(analysis, format):
 
             return send_file(
                 str(pdf_path),
-                mimetype="application/pdf",
+                mimetype=MIME_TYPE_PDF,
                 as_attachment=True,
                 download_name=f"BWC_Analysis_{analysis.case_number or analysis.id}.pdf",
             )
@@ -4786,7 +4815,7 @@ def export_analysis_report(analysis, format):
                     "analyzed_by": current_user.email,
                 },
                 "metadata": analysis.metadata or {},
-                "export_timestamp": datetime.utcnow().isoformat(),
+                "export_timestamp": utc_now().isoformat(),
                 "platform": "BarberX Legal Tech Platform",
                 "version": "2.0",
             }
@@ -4799,7 +4828,7 @@ def export_analysis_report(analysis, format):
 
             return send_file(
                 str(json_path),
-                mimetype="application/json",
+                mimetype=MIME_TYPE_JSON,
                 as_attachment=True,
                 download_name=f"BWC_Analysis_{analysis.case_number or analysis.id}.json",
             )
@@ -4821,7 +4850,7 @@ def export_analysis_report(analysis, format):
 ========================================
 BWC FORENSIC ANALYSIS REPORT
 ========================================
-Generated: {datetime.utcnow().strftime('%B %d, %Y at %I:%M %p UTC')}
+Generated: {utc_now().strftime('%B %d, %Y at %I:%M %p UTC')}
 
 CASE INFORMATION
 ----------------
@@ -4881,7 +4910,7 @@ For official use only - Confidential
 
             return send_file(
                 str(txt_path),
-                mimetype="text/plain",
+                mimetype=MIME_TYPE_TEXT,
                 as_attachment=True,
                 download_name=f"BWC_Analysis_{analysis.case_number or analysis.id}.txt",
             )
@@ -4901,7 +4930,7 @@ For official use only - Confidential
 
             markdown_content = f"""# BWC FORENSIC ANALYSIS REPORT
 
-**Generated:** {datetime.utcnow().strftime('%B %d, %Y at %I:%M %p UTC')}
+**Generated:** {utc_now().strftime('%B %d, %Y at %I:%M %p UTC')}
 
 ---
 
@@ -5087,7 +5116,7 @@ def dashboard_stats():
     from sqlalchemy import func
 
     # Get current month's analysis count
-    now = datetime.utcnow()
+    now = utc_now()
     first_day = now.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
 
     analyses_this_month = Analysis.query.filter(
@@ -5147,7 +5176,7 @@ def get_analysis_details(analysis_id):
     analysis = Analysis.query.filter_by(id=analysis_id, user_id=current_user.id).first()
 
     if not analysis:
-        return jsonify({"error": "Analysis not found"}), 404
+        return jsonify({"error": ERROR_ANALYSIS_NOT_FOUND}), 404
 
     return jsonify(analysis.to_dict())
 
@@ -5257,7 +5286,7 @@ def list_audit_logs():
 def admin_list_users():
     """Admin: List all users with pagination"""
     if current_user.role != "admin":
-        return jsonify({"error": "Admin access required"}), 403
+        return jsonify({"error": ERROR_ADMIN_REQUIRED}), 403
 
     # Add pagination
     page = request.args.get("page", 1, type=int)
@@ -5278,7 +5307,7 @@ def admin_list_users():
 def admin_manage_user(user_id):
     """Admin: Get, update, or delete specific user"""
     if current_user.role != "admin":
-        return jsonify({"error": "Admin access required"}), 403
+        return jsonify({"error": ERROR_ADMIN_REQUIRED}), 403
 
     user = User.query.get_or_404(user_id)
 
@@ -5293,12 +5322,10 @@ def admin_manage_user(user_id):
             user.full_name = data["full_name"]
         if "organization" in data:
             user.organization = data["organization"]
-        if "subscription_tier" in data:
-            if data["subscription_tier"] in ["free", "professional", "enterprise"]:
-                user.subscription_tier = data["subscription_tier"]
-        if "role" in data:
-            if data["role"] in ["user", "pro", "admin"]:
-                user.role = data["role"]
+        if "subscription_tier" in data and data["subscription_tier"] in ["free", "professional", "enterprise"]:
+            user.subscription_tier = data["subscription_tier"]
+        if "role" in data and data["role"] in ["user", "pro", "admin"]:
+            user.role = data["role"]
         if "is_active" in data:
             user.is_active = data["is_active"]
         if "is_verified" in data:
@@ -5335,7 +5362,7 @@ def admin_manage_user(user_id):
 def admin_toggle_user_status(user_id):
     """Admin: Enable/disable user account"""
     if current_user.role != "admin":
-        return jsonify({"error": "Admin access required"}), 403
+        return jsonify({"error": ERROR_ADMIN_REQUIRED}), 403
 
     user = User.query.get_or_404(user_id)
 
@@ -5370,7 +5397,7 @@ def admin_toggle_user_status(user_id):
 def admin_reset_user_password(user_id):
     """Admin: Reset user password"""
     if current_user.role != "admin":
-        return jsonify({"error": "Admin access required"}), 403
+        return jsonify({"error": ERROR_ADMIN_REQUIRED}), 403
 
     user = User.query.get_or_404(user_id)
     data = request.get_json()
@@ -5392,7 +5419,7 @@ def admin_reset_user_password(user_id):
 def admin_list_analyses():
     """Admin: List all analyses"""
     if current_user.role != "admin":
-        return jsonify({"error": "Admin access required"}), 403
+        return jsonify({"error": ERROR_ADMIN_REQUIRED}), 403
 
     status_filter = request.args.get("status")
     limit = request.args.get("limit", 50, type=int)
@@ -5421,7 +5448,7 @@ def admin_list_analyses():
 def admin_delete_analysis(analysis_id):
     """Admin: Delete an analysis"""
     if current_user.role != "admin":
-        return jsonify({"error": "Admin access required"}), 403
+        return jsonify({"error": ERROR_ADMIN_REQUIRED}), 403
 
     analysis = Analysis.query.get_or_404(analysis_id)
 
@@ -5454,7 +5481,7 @@ def admin_delete_analysis(analysis_id):
 def admin_stats():
     """Admin: Get platform statistics (optimized with aggregation queries)"""
     if current_user.role != "admin":
-        return jsonify({"error": "Admin access required"}), 403
+        return jsonify({"error": ERROR_ADMIN_REQUIRED}), 403
 
     from datetime import timedelta
 
@@ -5490,11 +5517,11 @@ def admin_stats():
     total_storage = db.session.query(func.sum(User.storage_used_mb)).scalar() or 0
 
     # Active users (logged in last 30 days)
-    thirty_days_ago = datetime.utcnow() - timedelta(days=30)
+    thirty_days_ago = utc_now() - timedelta(days=30)
     active_users = User.query.filter(User.last_login >= thirty_days_ago).count()
 
     # Daily activity for last 7 days (optimized with group by)
-    seven_days_ago = datetime.utcnow() - timedelta(days=7)
+    seven_days_ago = utc_now() - timedelta(days=7)
     daily_analyses = (
         db.session.query(
             func.date(Analysis.created_at).label("date"), func.count(Analysis.id).label("count")
@@ -5505,7 +5532,7 @@ def admin_stats():
     )
 
     # Format daily activity
-    now = datetime.utcnow()
+    now = utc_now()
     daily_counts = [0] * 7
     for activity in daily_analyses:
         days_diff = (now.date() - activity.date).days
@@ -5557,7 +5584,7 @@ def admin_stats():
 def admin_operations_summary():
     """Admin: Operational costs, risk flags, and feature toggles"""
     if current_user.role != "admin":
-        return jsonify({"error": "Admin access required"}), 403
+        return jsonify({"error": ERROR_ADMIN_REQUIRED}), 403
 
     from datetime import timedelta
 
@@ -5622,8 +5649,8 @@ def admin_operations_summary():
     budget_crit = ensure_setting("ops.budget_crit_pct", 100, "int")
 
     # Usage data
-    thirty_days_ago = datetime.utcnow() - timedelta(days=30)
-    seven_days_ago = datetime.utcnow() - timedelta(days=7)
+    thirty_days_ago = utc_now() - timedelta(days=30)
+    seven_days_ago = utc_now() - timedelta(days=7)
 
     analyses_last_30 = Analysis.query.filter(Analysis.created_at >= thirty_days_ago).count()
     failed_last_7 = Analysis.query.filter(
@@ -5750,7 +5777,7 @@ def admin_operations_summary():
 def admin_operations_toggles():
     """Admin: Update operational feature toggles"""
     if current_user.role != "admin":
-        return jsonify({"error": "Admin access required"}), 403
+        return jsonify({"error": ERROR_ADMIN_REQUIRED}), 403
 
     data = request.get_json() or {}
     key = data.get("key")
@@ -5777,13 +5804,13 @@ def admin_operations_toggles():
 def admin_site_controls():
     """Admin: Manage site-wide UI and maintenance controls"""
     if current_user.role != "admin":
-        return jsonify({"error": "Admin access required"}), 403
+        return jsonify({"error": ERROR_ADMIN_REQUIRED}), 403
 
     allowed_keys = {
         "ui.theme": ("system", "string", "Site theme: system, light, dark"),
         "ui.brand_color": ("#c41e3a", "string", "Primary brand color"),
         "ui.accent_color": ("#1e40af", "string", "Accent color"),
-        "site.maintenance_mode": (False, "bool", "Enable maintenance mode"),
+        SETTING_MAINTENANCE_MODE: (False, "bool", "Enable maintenance mode"),
         "site.maintenance_message": (
             "We are performing maintenance. Please check back shortly.",
             "string",
@@ -5791,9 +5818,9 @@ def admin_site_controls():
         ),
         "site.banner_enabled": (False, "bool", "Enable announcement banner"),
         "site.banner_message": ("", "string", "Announcement banner message"),
-        "site.allow_signup": (True, "bool", "Allow new user signups"),
+        SETTING_ALLOW_SIGNUP: (True, "bool", "Allow new user signups"),
         "site.footer_notice": ("", "string", "Footer notice text"),
-        "site.chat_enabled": (True, "bool", "Enable chat interface"),
+        SETTING_CHAT_ENABLED: (True, "bool", "Enable chat interface"),
     }
 
     def ensure_setting(key, default, value_type, description):
@@ -5823,7 +5850,7 @@ def admin_site_controls():
     for key, value in data.items():
         if key not in allowed_keys:
             continue
-        default, value_type, description = allowed_keys[key]
+        _, value_type, description = allowed_keys[key]
         AppSettings.set(key, value, value_type=value_type, category="ui", description=description)
         updated[key] = value
 
@@ -5838,7 +5865,7 @@ def admin_site_controls():
 def admin_audit_logs():
     """Admin: View all audit logs"""
     if current_user.role != "admin":
-        return jsonify({"error": "Admin access required"}), 403
+        return jsonify({"error": ERROR_ADMIN_REQUIRED}), 403
 
     action_filter = request.args.get("action")
     limit = request.args.get("limit", 100, type=int)
@@ -5880,7 +5907,7 @@ def admin_audit_logs():
 def admin_system_info():
     """Admin: Get system information"""
     if current_user.role != "admin":
-        return jsonify({"error": "Admin access required"}), 403
+        return jsonify({"error": ERROR_ADMIN_REQUIRED}), 403
 
     import psutil
 
@@ -5933,6 +5960,15 @@ try:
 
         # Admin user already created via create_admin.py
         # Use admin@barberx.info with the 33-char password from that script
+
+    # Apply CSRF exemptions to upload routes
+    for view_name in CSRF_EXEMPT_VIEWS:
+        try:
+            csrf.exempt(view_name)
+            print(f"[OK] CSRF exempt: {view_name}")
+        except Exception:
+            pass  # View may not exist yet
+
 except Exception as e:
     print(f"[CRITICAL] Failed to initialize app: {e}")
     import traceback
@@ -5952,7 +5988,7 @@ except Exception as e:
 def admin_get_settings():
     """Admin: Get all app settings"""
     if current_user.role != "admin":
-        return jsonify({"error": "Admin access required"}), 403
+        return jsonify({"error": ERROR_ADMIN_REQUIRED}), 403
 
     # Get all settings grouped by category
     settings = AppSettings.query.order_by(AppSettings.category, AppSettings.key).all()
@@ -5982,7 +6018,7 @@ def admin_get_settings():
 def admin_update_setting(setting_id):
     """Admin: Update a setting"""
     if current_user.role != "admin":
-        return jsonify({"error": "Admin access required"}), 403
+        return jsonify({"error": ERROR_ADMIN_REQUIRED}), 403
 
     setting = AppSettings.query.get_or_404(setting_id)
 
@@ -5993,7 +6029,7 @@ def admin_update_setting(setting_id):
 
     if "value" in data:
         setting.value = str(data["value"])
-        setting.updated_at = datetime.utcnow()
+        setting.updated_at = utc_now()
         setting.updated_by = current_user.id
 
         db.session.commit()
@@ -6025,7 +6061,7 @@ def admin_update_setting(setting_id):
 def admin_create_setting():
     """Admin: Create a new setting"""
     if current_user.role != "admin":
-        return jsonify({"error": "Admin access required"}), 403
+        return jsonify({"error": ERROR_ADMIN_REQUIRED}), 403
 
     data = request.get_json()
 
@@ -6079,7 +6115,7 @@ def admin_create_setting():
 def admin_delete_setting(setting_id):
     """Admin: Delete a setting"""
     if current_user.role != "admin":
-        return jsonify({"error": "Admin access required"}), 403
+        return jsonify({"error": ERROR_ADMIN_REQUIRED}), 403
 
     setting = AppSettings.query.get_or_404(setting_id)
 
@@ -6100,7 +6136,7 @@ def admin_delete_setting(setting_id):
 def admin_initialize_settings():
     """Admin: Initialize default settings"""
     if current_user.role != "admin":
-        return jsonify({"error": "Admin access required"}), 403
+        return jsonify({"error": ERROR_ADMIN_REQUIRED}), 403
 
     # Define default settings
     default_settings = [
@@ -6407,7 +6443,7 @@ def upload_video():
 
     # Secure filename
     filename = secure_filename(file.filename)
-    timestamp = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
+    timestamp = utc_now().strftime("%Y%m%d_%H%M%S")
     unique_filename = f"{current_user.id}_{timestamp}_{filename}"
 
     # Save to BWC videos folder
@@ -6487,7 +6523,7 @@ def upload_video():
                 db.session.commit()
 
                 # Save report to file
-                output_dir = Path(app.config.get("ANALYSIS_FOLDER", "./bwc_analysis")) / analysis.id
+                output_dir = Path(app.config.get("ANALYSIS_FOLDER", ANALYSIS_FOLDER_PATH)) / analysis.id
                 output_dir.mkdir(parents=True, exist_ok=True)
 
                 # Save JSON report
@@ -6519,7 +6555,7 @@ def upload_video():
                 analysis.status = "completed"
                 analysis.progress = 100
                 analysis.current_step = "Analysis complete"
-                analysis.completed_at = datetime.utcnow()
+                analysis.completed_at = utc_now()
                 analysis.duration = mock_report["metadata"]["duration"]
                 analysis.total_speakers = len(mock_report["transcript"]["speakers"])
                 analysis.total_segments = len(mock_report["transcript"]["segments"])
@@ -6604,13 +6640,13 @@ def ai_chat():
         )
         return (
             jsonify(
-                {"error": "AI quota exceeded", "message": error_msg, "upgrade_url": "/pricing"}
+                {"error": "AI quota exceeded", "message": error_msg, "upgrade_url": PRICING_URL}
             ),
             429,
         )
 
     quota.requests_this_minute += 1
-    quota.last_request_timestamp = datetime.utcnow()
+    quota.last_request_timestamp = utc_now()
     db.session.commit()
 
     data = request.get_json()
@@ -6695,7 +6731,7 @@ def health_check_status():
     return jsonify(
         {
             "status": "healthy",
-            "timestamp": datetime.utcnow().isoformat(),
+            "timestamp": utc_now().isoformat(),
             "version": "1.0.0",
             "database": "connected" if db.engine else "disconnected",
         }
@@ -6906,7 +6942,7 @@ def pricing_stripe():
     return render_template("pricing-stripe-embed.html")
 
 
-@app.route("/pricing")
+@app.route(PRICING_URL)
 def pricing():
     """Main pricing page with custom cards"""
     # Option 1: Use custom cards (pricing-5tier.html)

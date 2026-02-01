@@ -1,13 +1,16 @@
 """
 BarberX Authentication Routes
-Login, logout, signup, and user management
+Login, logout, signup, and user management with enhanced security
 """
 
 import logging
 import secrets
+import hashlib
 from datetime import datetime, timedelta
 from functools import wraps
 from urllib.parse import urljoin, urlparse
+from collections import defaultdict
+import time
 
 from flask import (Blueprint, flash, jsonify, redirect, render_template,
                    request, session, url_for)
@@ -42,6 +45,72 @@ except ImportError as e:
 
     def check_churn_risk(user):
         return {"risk_level": "unknown", "risk_score": 0, "factors": []}
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# RATE LIMITING - Brute Force Protection
+# ═══════════════════════════════════════════════════════════════════════════
+
+# In-memory rate limiting (consider Redis for production)
+login_attempts = defaultdict(list)  # IP -> list of timestamps
+failed_logins = defaultdict(int)    # email -> count of failures
+lockout_until = defaultdict(float)  # email -> lockout timestamp
+
+# Rate limit settings
+MAX_ATTEMPTS_PER_MINUTE = 5
+MAX_FAILED_LOGINS = 5
+LOCKOUT_DURATION = 300  # 5 minutes
+
+
+def get_client_ip():
+    """Get client IP, handling proxies"""
+    if request.headers.get('X-Forwarded-For'):
+        return request.headers['X-Forwarded-For'].split(',')[0].strip()
+    return request.remote_addr or '127.0.0.1'
+
+
+def check_rate_limit(ip_address):
+    """Check if IP has exceeded rate limit"""
+    now = time.time()
+    # Remove old attempts (older than 1 minute)
+    login_attempts[ip_address] = [t for t in login_attempts[ip_address] if now - t < 60]
+    return len(login_attempts[ip_address]) < MAX_ATTEMPTS_PER_MINUTE
+
+
+def record_attempt(ip_address):
+    """Record a login attempt"""
+    login_attempts[ip_address].append(time.time())
+
+
+def check_lockout(email):
+    """Check if email is locked out"""
+    if email in lockout_until:
+        if time.time() < lockout_until[email]:
+            remaining = int(lockout_until[email] - time.time())
+            return True, remaining
+        else:
+            # Lockout expired, clear it
+            del lockout_until[email]
+            failed_logins[email] = 0
+    return False, 0
+
+
+def record_failed_login(email):
+    """Record a failed login and potentially lock out"""
+    failed_logins[email] += 1
+    if failed_logins[email] >= MAX_FAILED_LOGINS:
+        lockout_until[email] = time.time() + LOCKOUT_DURATION
+        logger.warning(f"Account locked out due to {MAX_FAILED_LOGINS} failed attempts: {email}")
+        return True
+    return False
+
+
+def clear_failed_logins(email):
+    """Clear failed login count on successful login"""
+    if email in failed_logins:
+        del failed_logins[email]
+    if email in lockout_until:
+        del lockout_until[email]
 
 
 auth_bp = Blueprint("auth", __name__, url_prefix="/auth")
@@ -185,7 +254,7 @@ def check_usage_limit(field):
 
 @auth_bp.route("/login", methods=["GET", "POST"])
 def login():
-    """User login with AI-powered security"""
+    """User login with enhanced security and rate limiting"""
     if current_user.is_authenticated:
         return redirect(url_for("dashboard"))
 
@@ -193,6 +262,28 @@ def login():
         email = request.form.get("email", "").strip().lower()
         password = request.form.get("password", "")
         remember = request.form.get("remember", False)
+        client_ip = get_client_ip()
+
+        # Rate limiting check
+        if not check_rate_limit(client_ip):
+            logger.warning(f"Rate limit exceeded for IP: {client_ip}")
+            flash("Too many login attempts. Please wait a moment and try again.", "danger")
+            return render_template("auth/login.html")
+
+        record_attempt(client_ip)
+
+        # Check if account is locked out
+        is_locked, remaining_seconds = check_lockout(email)
+        if is_locked:
+            minutes = remaining_seconds // 60
+            seconds = remaining_seconds % 60
+            flash(f"Account temporarily locked. Try again in {minutes}m {seconds}s.", "danger")
+            return render_template("auth/login.html")
+
+        # Basic validation
+        if not email or not password:
+            flash("Email and password are required.", "danger")
+            return render_template("auth/login.html")
 
         # AI Security Check BEFORE authentication
         security_check = check_login_security(email=email)
@@ -202,12 +293,12 @@ def login():
 
         # Block highly suspicious attempts
         if recommendation == "block":
-            logger.warning(f"Blocked suspicious login attempt for {email}: risk_score={risk_score}")
+            logger.warning(f"Blocked suspicious login attempt for {email}: risk_score={risk_score}, IP={client_ip}")
             flash(
                 "Suspicious activity detected. Please try again later or contact support.", "danger"
             )
             track_login(None, success=False, method="password", risk_score=risk_score)
-            return redirect(url_for("auth.login"))
+            return render_template("auth/login.html")
 
         user = User.query.filter_by(email=email).first()
 
@@ -215,7 +306,7 @@ def login():
             if not user.is_active:
                 flash("Your account has been deactivated. Please contact support.", "danger")
                 track_login(user, success=False, method="password", risk_score=risk_score)
-                return redirect(url_for("auth.login"))
+                return render_template("auth/login.html")
 
             # Challenge suspicious logins (require email verification)
             if recommendation == "challenge" and not session.get(f"verified_{user.id}"):
@@ -225,15 +316,19 @@ def login():
                     f"Unusual login detected (risk: {risk_score}/100). Please verify your email.",
                     "warning",
                 )
-                # TODO: Send verification email
                 logger.info(f"Login challenge issued for {email}: risk_score={risk_score}")
                 return redirect(url_for("auth.verify_login"))
+
+            # Clear failed login count on success
+            clear_failed_logins(email)
 
             login_user(user, remember=remember)
             user.update_last_login()
 
             # Track successful login with risk score
             track_login(user, success=True, method="password", risk_score=risk_score)
+
+            logger.info(f"Successful login: {email} from IP {client_ip}")
 
             if is_suspicious:
                 flash(f"Welcome back! (Security check: {risk_score}/100 risk)", "info")
@@ -246,8 +341,19 @@ def login():
                 return redirect(next_page)
             return redirect(url_for("dashboard"))
         else:
-            flash("Invalid email or password.", "danger")
+            # Record failed login
+            is_now_locked = record_failed_login(email)
             track_login(None, success=False, method="password", risk_score=risk_score)
+            logger.warning(f"Failed login attempt for {email} from IP {client_ip}")
+
+            if is_now_locked:
+                flash(f"Too many failed attempts. Account locked for {LOCKOUT_DURATION // 60} minutes.", "danger")
+            else:
+                remaining_attempts = MAX_FAILED_LOGINS - failed_logins.get(email, 0)
+                if remaining_attempts <= 2:
+                    flash(f"Invalid email or password. {remaining_attempts} attempts remaining.", "danger")
+                else:
+                    flash("Invalid email or password.", "danger")
 
     return render_template("auth/login.html")
 
@@ -366,6 +472,59 @@ def logout():
     logout_user()
     flash("You have been logged out successfully.", "info")
     return redirect(url_for("index"))
+
+
+@auth_bp.route("/status")
+def auth_status():
+    """Check authentication status - useful for debugging"""
+    client_ip = get_client_ip()
+    
+    status = {
+        "authenticated": current_user.is_authenticated,
+        "timestamp": datetime.utcnow().isoformat(),
+        "rate_limited": not check_rate_limit(client_ip),
+    }
+    
+    if current_user.is_authenticated:
+        status.update({
+            "user_id": current_user.id,
+            "email": current_user.email,
+            "tier": current_user.tier.name if hasattr(current_user.tier, 'name') else str(current_user.tier),
+            "is_admin": current_user.is_admin,
+            "is_active": current_user.is_active,
+        })
+    
+    return jsonify(status)
+
+
+@auth_bp.route("/test-credentials", methods=["POST"])
+def test_credentials():
+    """Test credentials without logging in - for diagnostics only"""
+    email = request.form.get("email", "").strip().lower()
+    password = request.form.get("password", "")
+    
+    if not email or not password:
+        return jsonify({"success": False, "error": "Email and password required"})
+    
+    user = User.query.filter_by(email=email).first()
+    
+    if not user:
+        return jsonify({
+            "success": False, 
+            "error": "User not found",
+            "email_exists": False
+        })
+    
+    password_valid = user.check_password(password)
+    
+    return jsonify({
+        "success": password_valid,
+        "email_exists": True,
+        "password_valid": password_valid,
+        "user_active": user.is_active,
+        "user_verified": user.is_verified,
+        "tier": user.tier.name if hasattr(user.tier, 'name') else str(user.tier),
+    })
 
 
 @auth_bp.route("/verify-login", methods=["GET", "POST"])
