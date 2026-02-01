@@ -148,8 +148,8 @@
       </ul>
     </nav>
 
-    <!-- CTA Buttons -->
-    <div class="premium-nav__actions flex flex-center gap-sm" style="flex-shrink: 0;">
+    <!-- CTA Buttons (Desktop) -->
+    <div class="premium-nav__actions flex flex-center gap-sm hide-mobile" style="flex-shrink: 0;">
       <a href="{{ '/login/' | relative_url }}" class="premium-nav__link premium-nav__link--login hide-xs" style="
         font-size: var(--text-sm, 0.875rem);
         padding: var(--space-xs, 0.5rem) var(--space-sm, 0.75rem);
@@ -174,20 +174,50 @@
         <span class="show-xs hide-md-up">Start</span>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="hide-xs"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      
-      <!-- Mobile Navigation Hamburger -->
-      <button 
-        class="mobile-nav-hamburger" 
-        type="button"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-        aria-controls="mobile-nav-drawer"
-        style="display: flex; position: relative; width: 44px; height: 44px; background: transparent; border: none; cursor: pointer; padding: 0; flex-shrink: 0; align-items: center; justify-content: center;">
-        <span class="mobile-nav-hamburger__line" style="display: block; position: absolute; left: 50%; width: 24px; height: 3px; background: #fff; transform: translateX(-50%); top: 12px; border-radius: 2px;"></span>
-        <span class="mobile-nav-hamburger__line" style="display: block; position: absolute; left: 50%; width: 24px; height: 3px; background: #fff; transform: translateX(-50%); top: 21px; border-radius: 2px;"></span>
-        <span class="mobile-nav-hamburger__line" style="display: block; position: absolute; left: 50%; width: 24px; height: 3px; background: #fff; transform: translateX(-50%); top: 30px; border-radius: 2px;"></span>
-      </button>
     </div>
+    
+    <!-- MOBILE MENU BUTTON - Completely independent, shows ONLY on mobile -->
+    <button 
+      id="mobileMenuBtn"
+      class="mobile-menu-trigger"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="mobile-nav-drawer"
+      onclick="document.getElementById('mobile-nav-drawer').classList.add('is-open'); document.querySelector('.mobile-nav-backdrop').classList.add('is-visible'); document.body.style.overflow='hidden'; this.setAttribute('aria-expanded','true');"
+      style="
+        display: none;
+        position: relative;
+        width: 48px;
+        height: 48px;
+        background: rgba(220, 38, 38, 0.1);
+        border: 2px solid rgba(220, 38, 38, 0.3);
+        border-radius: 8px;
+        cursor: pointer;
+        padding: 0;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        margin-left: auto;
+      ">
+      <!-- Three lines hamburger icon -->
+      <span style="display: block; position: absolute; left: 50%; width: 22px; height: 3px; background: #ffffff; transform: translateX(-50%); top: 14px; border-radius: 2px; box-shadow: 0 0 2px rgba(0,0,0,0.3);"></span>
+      <span style="display: block; position: absolute; left: 50%; width: 22px; height: 3px; background: #ffffff; transform: translateX(-50%); top: 22px; border-radius: 2px; box-shadow: 0 0 2px rgba(0,0,0,0.3);"></span>
+      <span style="display: block; position: absolute; left: 50%; width: 22px; height: 3px; background: #ffffff; transform: translateX(-50%); top: 30px; border-radius: 2px; box-shadow: 0 0 2px rgba(0,0,0,0.3);"></span>
+    </button>
+    
+    <style>
+      /* Mobile menu button - show only on mobile */
+      @media screen and (max-width: 1024px) {
+        #mobileMenuBtn { display: flex !important; }
+        .hide-mobile { display: none !important; }
+      }
+      @media screen and (min-width: 1025px) {
+        #mobileMenuBtn { display: none !important; }
+        .hide-mobile { display: flex !important; }
+      }
+    </style>
     
   </div>
 </header>
