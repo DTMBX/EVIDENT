@@ -4,8 +4,8 @@ BarberX AI Tools - Quick Test Script
 Tests all AI tool endpoints and dependencies
 """
 
-import sys
 import os
+import sys
 
 print("=" * 60)
 print("BarberX AI Tools - Dependency & Functionality Test")
@@ -14,16 +14,16 @@ print("=" * 60)
 # Test 1: Core Python packages
 print("\n[1/6] Testing Python Dependencies...")
 dependencies = {
-    'flask': 'Flask',
-    'flask_sqlalchemy': 'Flask-SQLAlchemy',
-    'flask_login': 'Flask-Login',
-    'openai': 'OpenAI',
-    'whisper': 'OpenAI Whisper',
-    'pytesseract': 'PyTesseract',
-    'PIL': 'Pillow',
-    'pypdf': 'PyPDF',
-    'langchain': 'LangChain',
-    'sentence_transformers': 'Sentence Transformers',
+    "flask": "Flask",
+    "flask_sqlalchemy": "Flask-SQLAlchemy",
+    "flask_login": "Flask-Login",
+    "openai": "OpenAI",
+    "whisper": "OpenAI Whisper",
+    "pytesseract": "PyTesseract",
+    "PIL": "Pillow",
+    "pypdf": "PyPDF",
+    "langchain": "LangChain",
+    "sentence_transformers": "Sentence Transformers",
 }
 
 missing = []
@@ -48,9 +48,9 @@ if missing:
 # Test 2: Optional dependencies
 print("\n[2/6] Testing Optional Dependencies...")
 optional = {
-    'spacy': 'spaCy (for NER)',
-    'chromadb': 'ChromaDB (for vector search)',
-    'faiss': 'FAISS (for similarity search)',
+    "spacy": "spaCy (for NER)",
+    "chromadb": "ChromaDB (for vector search)",
+    "faiss": "FAISS (for similarity search)",
 }
 
 optional_installed = []
@@ -76,10 +76,11 @@ if optional_missing:
 # Test 3: Tesseract OCR binary
 print("\n[3/6] Testing Tesseract OCR Binary...")
 try:
+    import io
+
     import pytesseract
     from PIL import Image
-    import io
-    
+
     # Try to get tesseract version
     try:
         version = pytesseract.get_tesseract_version()
@@ -96,44 +97,46 @@ except Exception as e:
 print("\n[4/6] Testing Flask App Imports...")
 try:
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-    
+
     # Test critical imports from app.py
     print("  Testing tier_gating module...")
     try:
-        from tier_gating import check_usage_limit, require_tier, TierLevel
+        from tier_gating import TierLevel, check_usage_limit, require_tier
+
         print("    ✓ tier_gating imports successful")
     except Exception as e:
         print(f"    ✗ tier_gating import failed: {e}")
-    
+
     print("  Testing models_auth module...")
     try:
-        from models_auth import User, UsageTracking
+        from models_auth import UsageTracking, User
+
         print("    ✓ models_auth imports successful")
     except Exception as e:
         print(f"    ⚠ models_auth import failed (may need database): {e}")
-    
+
     print("  Testing app configuration...")
     try:
         # Don't import full app, just check if file exists
-        if os.path.exists('app.py'):
+        if os.path.exists("app.py"):
             print("    ✓ app.py found")
         else:
             print("    ✗ app.py not found")
     except Exception as e:
         print(f"    ✗ Error: {e}")
-        
+
 except Exception as e:
     print(f"  ✗ Flask app test failed: {e}")
 
 # Test 5: Check required directories
 print("\n[5/6] Checking Required Directories...")
 required_dirs = [
-    'templates',
-    'templates/tools',
-    'templates/auth',
-    'static',
-    'uploads',
-    'analysis_results',
+    "templates",
+    "templates/tools",
+    "templates/auth",
+    "static",
+    "uploads",
+    "analysis_results",
 ]
 
 for dir_path in required_dirs:
@@ -145,11 +148,11 @@ for dir_path in required_dirs:
 # Test 6: Check new tool templates
 print("\n[6/6] Checking New Tool Templates...")
 tool_templates = [
-    'templates/tools-hub.html',
-    'templates/tools/ocr.html',
-    'templates/bwc-dashboard.html',
-    'templates/legal-analysis.html',
-    'templates/batch-pdf-upload.html',
+    "templates/tools-hub.html",
+    "templates/tools/ocr.html",
+    "templates/bwc-dashboard.html",
+    "templates/legal-analysis.html",
+    "templates/batch-pdf-upload.html",
 ]
 
 for template in tool_templates:

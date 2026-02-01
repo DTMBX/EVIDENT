@@ -3588,7 +3588,7 @@ def workflow_scan_document():
 def tools_index():
     """Tools hub - unified AI analysis tools interface"""
     from models_auth import UsageTracking
-    
+
     try:
         usage = UsageTracking.get_or_create_current(current_user.id)
         limits = current_user.get_tier_limits()
@@ -3596,12 +3596,16 @@ def tools_index():
     except Exception as e:
         app.logger.error(f"Tools hub error: {e}")
         # Fallback with minimal data
-        usage = type('obj', (object,), {
-            'bwc_videos_processed': 0,
-            'pdf_documents_processed': 0,
-            'transcription_minutes_used': 0,
-            'storage_used_mb': 0
-        })()
+        usage = type(
+            "obj",
+            (object,),
+            {
+                "bwc_videos_processed": 0,
+                "pdf_documents_processed": 0,
+                "transcription_minutes_used": 0,
+                "storage_used_mb": 0,
+            },
+        )()
         return render_template("tools-hub.html", user=current_user, usage=usage, limits={})
 
 
