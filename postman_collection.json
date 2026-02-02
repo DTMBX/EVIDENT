@@ -25,7 +25,7 @@
           "name": "Register",
           "request": {
             "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
             "body": {
               "mode": "raw",
               "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"Test123!\",\n  \"name\": \"Test User\"\n}"
@@ -56,7 +56,7 @@
           ],
           "request": {
             "method": "POST",
-            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
             "body": {
               "mode": "raw",
               "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"Test123!\"\n}"
@@ -73,7 +73,7 @@
           "name": "Get Current User",
           "request": {
             "method": "GET",
-            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
             "url": {
               "raw": "{{base_url}}/auth/me",
               "host": ["{{base_url}}"],
@@ -86,7 +86,7 @@
           "name": "Refresh Token",
           "request": {
             "method": "POST",
-            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
             "url": {
               "raw": "{{base_url}}/auth/refresh",
               "host": ["{{base_url}}"],
@@ -99,7 +99,7 @@
           "name": "Logout",
           "request": {
             "method": "POST",
-            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
             "url": {
               "raw": "{{base_url}}/auth/logout",
               "host": ["{{base_url}}"],
@@ -117,7 +117,7 @@
           "name": "Upload PDF",
           "request": {
             "method": "POST",
-            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
             "body": {
               "mode": "formdata",
               "formdata": [
@@ -140,7 +140,7 @@
           "name": "Upload Video",
           "request": {
             "method": "POST",
-            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
             "body": {
               "mode": "formdata",
               "formdata": [
@@ -163,7 +163,7 @@
           "name": "Upload Status",
           "request": {
             "method": "GET",
-            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
             "url": {
               "raw": "{{base_url}}/upload/status/123",
               "host": ["{{base_url}}"],
@@ -182,8 +182,8 @@
           "request": {
             "method": "POST",
             "header": [
-              {"key": "Authorization", "value": "Bearer {{token}}"},
-              {"key": "Content-Type", "value": "application/json"}
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
             ],
             "body": {
               "mode": "raw",
@@ -201,7 +201,7 @@
           "name": "Get Analysis",
           "request": {
             "method": "GET",
-            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
             "url": {
               "raw": "{{base_url}}/analysis/analysis_20260127105500",
               "host": ["{{base_url}}"],
@@ -214,7 +214,7 @@
           "name": "Analysis Status",
           "request": {
             "method": "GET",
-            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
             "url": {
               "raw": "{{base_url}}/analysis/analysis_20260127105500/status",
               "host": ["{{base_url}}"],
@@ -227,12 +227,12 @@
           "name": "Get Report (JSON)",
           "request": {
             "method": "GET",
-            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
             "url": {
               "raw": "{{base_url}}/analysis/analysis_20260127105500/report?format=json",
               "host": ["{{base_url}}"],
               "path": ["analysis", "analysis_20260127105500", "report"],
-              "query": [{"key": "format", "value": "json"}]
+              "query": [{ "key": "format", "value": "json" }]
             }
           },
           "response": []
@@ -241,14 +241,14 @@
           "name": "List Analyses",
           "request": {
             "method": "GET",
-            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
             "url": {
               "raw": "{{base_url}}/analysis/list?page=1&limit=20",
               "host": ["{{base_url}}"],
               "path": ["analysis", "list"],
               "query": [
-                {"key": "page", "value": "1"},
-                {"key": "limit", "value": "20"}
+                { "key": "page", "value": "1" },
+                { "key": "limit", "value": "20" }
               ]
             }
           },
@@ -263,7 +263,7 @@
           "name": "Get Profile",
           "request": {
             "method": "GET",
-            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
             "url": {
               "raw": "{{base_url}}/user/profile",
               "host": ["{{base_url}}"],
@@ -277,8 +277,8 @@
           "request": {
             "method": "PUT",
             "header": [
-              {"key": "Authorization", "value": "Bearer {{token}}"},
-              {"key": "Content-Type", "value": "application/json"}
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
             ],
             "body": {
               "mode": "raw",
@@ -297,8 +297,8 @@
           "request": {
             "method": "POST",
             "header": [
-              {"key": "Authorization", "value": "Bearer {{token}}"},
-              {"key": "Content-Type", "value": "application/json"}
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
             ],
             "body": {
               "mode": "raw",
@@ -316,7 +316,7 @@
           "name": "Get Subscription",
           "request": {
             "method": "GET",
-            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
             "url": {
               "raw": "{{base_url}}/user/subscription",
               "host": ["{{base_url}}"],
@@ -329,7 +329,7 @@
           "name": "Get Usage Stats",
           "request": {
             "method": "GET",
-            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
             "url": {
               "raw": "{{base_url}}/user/usage",
               "host": ["{{base_url}}"],
@@ -348,8 +348,8 @@
           "request": {
             "method": "POST",
             "header": [
-              {"key": "Authorization", "value": "Bearer {{token}}"},
-              {"key": "Content-Type", "value": "application/json"}
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
             ],
             "body": {
               "mode": "raw",
@@ -367,7 +367,7 @@
           "name": "Create Portal Session",
           "request": {
             "method": "POST",
-            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
             "url": {
               "raw": "{{base_url}}/billing/portal",
               "host": ["{{base_url}}"],
@@ -385,14 +385,14 @@
           "name": "List Evidence",
           "request": {
             "method": "GET",
-            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
             "url": {
               "raw": "{{base_url}}/evidence/list?page=1&limit=20",
               "host": ["{{base_url}}"],
               "path": ["evidence", "list"],
               "query": [
-                {"key": "page", "value": "1"},
-                {"key": "limit", "value": "20"}
+                { "key": "page", "value": "1" },
+                { "key": "limit", "value": "20" }
               ]
             }
           },
@@ -402,7 +402,7 @@
           "name": "Get Evidence",
           "request": {
             "method": "GET",
-            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
             "url": {
               "raw": "{{base_url}}/evidence/1",
               "host": ["{{base_url}}"],
@@ -415,7 +415,7 @@
           "name": "Transcribe Evidence",
           "request": {
             "method": "POST",
-            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
             "url": {
               "raw": "{{base_url}}/evidence/1/transcribe",
               "host": ["{{base_url}}"],
@@ -428,7 +428,7 @@
           "name": "OCR Evidence",
           "request": {
             "method": "POST",
-            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
             "url": {
               "raw": "{{base_url}}/evidence/1/ocr",
               "host": ["{{base_url}}"],
@@ -441,7 +441,7 @@
           "name": "Delete Evidence",
           "request": {
             "method": "DELETE",
-            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
             "url": {
               "raw": "{{base_url}}/evidence/1",
               "host": ["{{base_url}}"],
@@ -459,14 +459,14 @@
           "name": "List Users",
           "request": {
             "method": "GET",
-            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
             "url": {
               "raw": "{{base_url}}/admin/users?page=1&limit=50",
               "host": ["{{base_url}}"],
               "path": ["admin", "users"],
               "query": [
-                {"key": "page", "value": "1"},
-                {"key": "limit", "value": "50"}
+                { "key": "page", "value": "1" },
+                { "key": "limit", "value": "50" }
               ]
             }
           },
@@ -476,7 +476,7 @@
           "name": "Get User",
           "request": {
             "method": "GET",
-            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
             "url": {
               "raw": "{{base_url}}/admin/users/1",
               "host": ["{{base_url}}"],
@@ -489,7 +489,7 @@
           "name": "System Stats",
           "request": {
             "method": "GET",
-            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
             "url": {
               "raw": "{{base_url}}/admin/stats",
               "host": ["{{base_url}}"],

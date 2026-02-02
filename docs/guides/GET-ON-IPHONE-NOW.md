@@ -24,6 +24,7 @@ dotnet build -f net10.0-android34.0 -c Release
 ### Install on Android Phone
 
 **Method A: Email**
+
 1. Email the APK to yourself
 2. Open email on Android phone
 3. Download APK
@@ -31,6 +32,7 @@ dotnet build -f net10.0-android34.0 -c Release
 5. **Done!** ✅
 
 **Method B: USB**
+
 1. Connect Android phone via USB
 2. Copy APK to `Downloads` folder
 3. On phone: Files → Downloads → Tap APK
@@ -46,6 +48,7 @@ dotnet build -f net10.0-android34.0 -c Release
 **Why:** Build iOS without owning a Mac.
 
 ### A. MacinCloud (Cheaper)
+
 **Cost:** $30/month (pay-as-you-go)  
 **Setup:** https://www.macincloud.com
 
@@ -53,14 +56,16 @@ dotnet build -f net10.0-android34.0 -c Release
 2. **Choose plan:** "Pay As You Go" ($1/hour)
 3. **Access Mac** via remote desktop
 4. **Install tools** on cloud Mac:
+
    ```bash
    # Install Xcode from App Store (free, ~10 GB)
    # Install .NET SDK
    curl -sSL https://dot.net/v1/dotnet-install.sh | bash
-   
+
    # Install MAUI workload
    dotnet workload install maui
    ```
+
 5. **Clone repo** to cloud Mac:
    ```bash
    git clone https://github.com/YOUR-USERNAME/Evident.info.git
@@ -75,10 +80,12 @@ dotnet build -f net10.0-android34.0 -c Release
 **Drawback:** Complex iPhone connection over remote desktop.
 
 ### B. MacStadium (Better)
+
 **Cost:** $79/month  
 **Setup:** https://www.macstadium.com
 
 Same steps as MacinCloud but:
+
 - ✅ Dedicated Mac instance
 - ✅ Better performance
 - ✅ Easier iPhone deployment
@@ -97,28 +104,28 @@ Same steps as MacinCloud but:
 name: Build iOS App
 
 on:
-  workflow_dispatch:  # Manual trigger
+  workflow_dispatch: # Manual trigger
 
 jobs:
   build-ios:
-    runs-on: macos-14  # FREE GitHub-hosted Mac
-    
+    runs-on: macos-14 # FREE GitHub-hosted Mac
+
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '10.0.x'
-      
+          dotnet-version: "10.0.x"
+
       - name: Install MAUI
         run: dotnet workload install maui
-      
+
       - name: Build iOS
         run: |
           cd src/Evident.MatterDocket.MAUI
           dotnet build -f net10.0-ios -c Release
-      
+
       - name: Upload IPA
         uses: actions/upload-artifact@v4
         with:
@@ -157,12 +164,12 @@ jobs:
 
 ### Timeline
 
-| Week | Task | Duration |
-|------|------|----------|
-| **Week 1** | Enroll in Apple Developer Program | 1-2 days approval |
-| **Week 2** | Create App ID, certificates, profiles | 2-3 hours |
-| **Week 3** | Build iOS app, upload to TestFlight | 1-2 hours |
-| **Week 4** | Beta testing, feedback, iterate | Ongoing |
+| Week       | Task                                  | Duration          |
+| ---------- | ------------------------------------- | ----------------- |
+| **Week 1** | Enroll in Apple Developer Program     | 1-2 days approval |
+| **Week 2** | Create App ID, certificates, profiles | 2-3 hours         |
+| **Week 3** | Build iOS app, upload to TestFlight   | 1-2 hours         |
+| **Week 4** | Beta testing, feedback, iterate       | Ongoing           |
 
 ### Steps
 
@@ -220,6 +227,7 @@ dotnet publish -f net10.0-ios -c Release
 4. **Done!** ✅
 
 **Benefits:**
+
 - ✅ 90-day certificates
 - ✅ Distribute to 10,000 testers
 - ✅ Professional distribution
@@ -230,6 +238,7 @@ dotnet publish -f net10.0-ios -c Release
 ## 🎯 RECOMMENDED PATH
 
 ### This Week
+
 ```
 Day 1 (TODAY): Build Android APK → Test on Android phone
 Day 2-3: Enroll in Apple Developer Program ($99)
@@ -237,6 +246,7 @@ Day 4-5: Set up GitHub Actions workflow (free Mac builds)
 ```
 
 ### Next Week
+
 ```
 Week 2: Apple approval arrives → Create App ID & certificates
 Week 3: Build iOS with GitHub Actions → Upload to TestFlight
@@ -244,6 +254,7 @@ Week 4: Test on iPhone → Distribute to beta testers
 ```
 
 ### Why This Works
+
 - ✅ **Test TODAY** on Android (same app)
 - ✅ **iOS setup** processes in background
 - ✅ **Official distribution** via TestFlight in 2-3 weeks
@@ -253,18 +264,19 @@ Week 4: Test on iPhone → Distribute to beta testers
 
 ## 📋 Comparison
 
-| Method | Time | Cost | iPhone Install | Certificate Expiry |
-|--------|------|------|----------------|-------------------|
-| **Android APK** | 30 min | FREE | N/A (Android) | Never |
-| **Cloud Mac** | 2-3 hours | $30-79/mo | Complex | 7 days (free) / 1 year (paid) |
-| **GitHub Actions** | 1 day setup | FREE | Via Xcode | 7 days (free) / 1 year (paid) |
-| **TestFlight** | 2-4 weeks | $99/year | TestFlight app | 90 days (auto-renews) |
+| Method             | Time        | Cost      | iPhone Install | Certificate Expiry            |
+| ------------------ | ----------- | --------- | -------------- | ----------------------------- |
+| **Android APK**    | 30 min      | FREE      | N/A (Android)  | Never                         |
+| **Cloud Mac**      | 2-3 hours   | $30-79/mo | Complex        | 7 days (free) / 1 year (paid) |
+| **GitHub Actions** | 1 day setup | FREE      | Via Xcode      | 7 days (free) / 1 year (paid) |
+| **TestFlight**     | 2-4 weeks   | $99/year  | TestFlight app | 90 days (auto-renews)         |
 
 ---
 
 ## 💡 What to Do RIGHT NOW
 
 ### Step 1: Build Android APK (30 min)
+
 ```powershell
 bm
 dotnet build -f net10.0-android34.0 -c Release
@@ -272,23 +284,27 @@ dotnet build -f net10.0-android34.0 -c Release
 ```
 
 ### Step 2: Enroll in Apple Developer (5 min)
+
 - Visit: https://developer.apple.com/programs/
 - Click "Enroll"
 - Pay $99
 - Wait 1-2 days
 
 ### Step 3: Set up GitHub Actions (30 min)
+
 - Copy workflow from above
 - Push to GitHub
 - Manual trigger build
 - Download .ipa
 
 ### Step 4: Test Android Today
+
 - Install APK on Android phone
 - Test all features
 - Gather feedback
 
 ### Step 5: iOS in 2 Weeks
+
 - Apple approval arrives
 - Upload to TestFlight
 - Install on iPhone

@@ -47,29 +47,34 @@
 ## 🔒 How Limits Work Now
 
 ### FREE Tier ($0/month):
+
 - ✅ Blocked from uploading (requires STARTER minimum)
 - ✅ Can only use 1 one-time upload
 - ✅ Cannot access /api/upload routes
 
 ### STARTER Tier ($29/month):
+
 - ✅ Can upload up to 10 videos/month
 - ✅ Can upload up to 5 PDFs/month
 - ✅ Hard cap - blocked at limit
 - ✅ Shows upgrade prompt when limit reached
 
 ### PROFESSIONAL Tier ($79/month):
+
 - ✅ Can upload up to 25 videos/month
 - ✅ Can upload up to 15 PDFs/month
 - ✅ Hard cap - blocked at limit
 - ✅ Shows upgrade prompt when limit reached
 
 ### PREMIUM Tier ($199/month):
+
 - ✅ Can upload up to 75 videos/month
 - ✅ Can upload up to 50 PDFs/month
 - ⚠️ Soft cap - allows overage (overage billing not yet implemented)
 - ⚠️ Should be charged $2/video, $1/PDF over limit (TODO)
 
 ### ENTERPRISE Tier ($599/month):
+
 - ✅ Can upload up to 300 videos/month
 - ✅ Can upload up to 200 PDFs/month
 - ⚠️ Soft cap - allows overage (overage billing not yet implemented)
@@ -80,6 +85,7 @@
 ## 📊 Verification
 
 ### Decorators Applied:
+
 ```bash
 $ grep -c "@check_usage_limit" app.py
 6
@@ -93,6 +99,7 @@ Total: 12 enforcement decorators
 ### Sample Code (Before/After):
 
 **BEFORE (❌ No enforcement):**
+
 ```python
 @app.route("/api/upload/video", methods=["POST"])
 @login_required
@@ -101,6 +108,7 @@ def upload_video():
 ```
 
 **AFTER (✅ Enforced):**
+
 ```python
 @require_tier(TierLevel.STARTER)  # ← NEW: Requires STARTER minimum
 @check_usage_limit('bwc_videos_per_month', increment=1)  # ← NEW: Enforces limit
@@ -115,6 +123,7 @@ def upload_video():
 ## 🧪 Testing Required
 
 ### Test 1: FREE User (Should Block)
+
 ```bash
 # Create FREE account
 curl -X POST http://localhost:5000/signup \
@@ -137,6 +146,7 @@ curl -X POST http://localhost:5000/api/upload/video \
 ```
 
 ### Test 2: STARTER User (Should Block After 10)
+
 ```bash
 # Create STARTER account and subscribe
 # Upload 10 videos (should succeed)
@@ -155,6 +165,7 @@ curl -X POST http://localhost:5000/api/upload/video \
 ```
 
 ### Test 3: PREMIUM User (Should Allow Overage)
+
 ```bash
 # Create PREMIUM account
 # Upload 76 videos (should succeed)
@@ -176,28 +187,28 @@ curl -X POST http://localhost:5000/api/upload/video \
 def calculate_monthly_overages(user):
     """Calculate overage charges for PREMIUM/ENTERPRISE users"""
     limits = user.get_tier_limits()
-    
+
     if not limits.get('overage_allowed'):
         return 0  # Hard cap tier
-    
+
     usage = UsageTracking.get_or_create_current(user.id)
     total_overage = 0
-    
+
     # Video overages
     videos_over = max(0, usage.bwc_videos_processed - limits['bwc_videos_per_month'])
     total_overage += videos_over * limits['overage_fee_per_video']
-    
+
     # PDF overages
     pdfs_over = max(0, usage.pdf_documents_processed - limits['pdf_documents_per_month'])
     total_overage += pdfs_over * limits['overage_fee_per_pdf']
-    
+
     return total_overage
 
 def bill_monthly_overages():
     """Run this on 1st of each month via cron"""
     for user in User.query.filter(User.tier.in_([TierLevel.PREMIUM, TierLevel.ENTERPRISE])).all():
         overage = calculate_monthly_overages(user)
-        
+
         if overage > 0:
             stripe.InvoiceItem.create(
                 customer=user.stripe_customer_id,
@@ -210,29 +221,31 @@ def bill_monthly_overages():
 ### 2. Usage Dashboard Warnings
 
 **Add to usage_dashboard.html:**
+
 ```html
 {% if usage_percentage >= 90 %}
-  <div class="alert alert-danger">
-    ⚠️ You've used {{ usage_percentage }}% of your {{ resource_name }} limit!
-    <a href="/pricing">Upgrade now</a>
-  </div>
+<div class="alert alert-danger">
+  ⚠️ You've used {{ usage_percentage }}% of your {{ resource_name }} limit!
+  <a href="/pricing">Upgrade now</a>
+</div>
 {% elif usage_percentage >= 80 %}
-  <div class="alert alert-warning">
-    You've used {{ usage_percentage }}% of your {{ resource_name }} limit.
-  </div>
+<div class="alert alert-warning">
+  You've used {{ usage_percentage }}% of your {{ resource_name }} limit.
+</div>
 {% endif %}
 ```
 
 ### 3. Storage Enforcement
 
 **Add before file upload:**
+
 ```python
 def check_storage_limit(user, file_size_mb):
     usage = UsageTracking.get_or_create_current(user.id)
     limits = user.get_tier_limits()
-    
+
     storage_limit_mb = limits['storage_gb'] * 1024
-    
+
     if usage.storage_used_mb + file_size_mb > storage_limit_mb:
         raise StorageLimitExceeded(
             limit=limits['storage_gb'],
@@ -244,22 +257,23 @@ def check_storage_limit(user, file_size_mb):
 
 ## 📋 Complete Status
 
-| Component | Status | Notes |
-|-----------|--------|-------|
-| Tier limits defined | ✅ Complete | models_auth.py |
-| UsageTracking database | ✅ Complete | models_auth.py |
-| Enforcement decorators | ✅ Complete | tier_gating.py |
-| **Decorators applied** | ✅ **COMPLETE** | **app.py (12 decorators)** |
-| Overage billing | ⚠️ TODO | Phase 2 (HIGH priority) |
-| Monthly reset | ⚠️ TODO | Phase 2 (MEDIUM priority) |
-| Storage enforcement | ⚠️ TODO | Phase 2 (MEDIUM priority) |
-| Usage dashboard warnings | ⚠️ TODO | Phase 2 (LOW priority) |
+| Component                | Status          | Notes                      |
+| ------------------------ | --------------- | -------------------------- |
+| Tier limits defined      | ✅ Complete     | models_auth.py             |
+| UsageTracking database   | ✅ Complete     | models_auth.py             |
+| Enforcement decorators   | ✅ Complete     | tier_gating.py             |
+| **Decorators applied**   | ✅ **COMPLETE** | **app.py (12 decorators)** |
+| Overage billing          | ⚠️ TODO         | Phase 2 (HIGH priority)    |
+| Monthly reset            | ⚠️ TODO         | Phase 2 (MEDIUM priority)  |
+| Storage enforcement      | ⚠️ TODO         | Phase 2 (MEDIUM priority)  |
+| Usage dashboard warnings | ⚠️ TODO         | Phase 2 (LOW priority)     |
 
 ---
 
 ## 🎯 Impact
 
 ### Before (❌):
+
 - FREE user: Unlimited uploads
 - STARTER user: Unlimited uploads
 - PREMIUM user: Unlimited uploads, no overage fees
@@ -267,6 +281,7 @@ def check_storage_limit(user, file_size_mb):
 - **Revenue Loss:** $0 from overage fees
 
 ### After (✅):
+
 - FREE user: ✅ Blocked from uploads (must upgrade)
 - STARTER user: ✅ Blocked after 10 videos
 - PROFESSIONAL user: ✅ Blocked after 25 videos
@@ -280,17 +295,20 @@ def check_storage_limit(user, file_size_mb):
 ## 🚀 Deployment
 
 ### Changes Made:
+
 ```bash
 $ git status
 modified:   app.py (12 decorators added)
 ```
 
 ### Backup Created:
+
 ```
 app.py.backup.20260126_224444
 ```
 
 ### Deploy Command:
+
 ```bash
 git add app.py
 git commit -m "CRITICAL: Enforce data limits on all upload routes
@@ -308,6 +326,7 @@ git push origin main
 ```
 
 ### Restart App:
+
 ```bash
 # Stop current process
 pkill -f "python app.py"
@@ -323,15 +342,18 @@ python app.py
 ### Month 1 After Deployment:
 
 **User Behavior Changes:**
+
 - FREE users hit limit → 5-10% upgrade to STARTER
 - STARTER users hit limit → 10-15% upgrade to PROFESSIONAL
 - PROFESSIONAL users hit limit → 5-10% upgrade to PREMIUM
 
 **Cost Savings:**
+
 - Prevented: ~$500-1000/month in unauthorized usage
 - Infrastructure costs: Predictable within tier limits
 
 **Revenue Impact:**
+
 - Upgrade revenue: +$200-500/month (from forced upgrades)
 - Overage revenue: $0 (TODO: Phase 2 implementation)
 
@@ -350,6 +372,7 @@ python app.py
 - ⚠️ Soft caps allow overage (PREMIUM/ENTERPRISE - billing TODO)
 
 **Next Steps:**
+
 1. ✅ Deploy to production
 2. ⚠️ Test with each tier
 3. ⚠️ Implement overage billing (Phase 2)

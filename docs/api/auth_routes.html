@@ -1,61 +1,498 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-<meta name="generator" content="pdoc3 0.11.6">
-<title>auth_routes API documentation</title>
-<meta name="description" content="Evident Authentication Routes
-Login, logout, signup, and user management">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
-<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
-<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
-<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
-<script>window.addEventListener('DOMContentLoaded', () => {
-hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
-hljs.highlightAll();
-/* Collapse source docstrings */
-setTimeout(() => {
-[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
-.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
-.forEach(el => {
-let d = document.createElement('details');
-d.classList.add('hljs-string');
-d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
-el.replaceWith(d);
-});
-}, 100);
-})</script>
-</head>
-<body>
-<main>
-<article id="content">
-<header>
-<h1 class="title">Module <code>auth_routes</code></h1>
-</header>
-<section id="section-intro">
-<p>Evident Authentication Routes
-Login, logout, signup, and user management</p>
-</section>
-<section>
-</section>
-<section>
-</section>
-<section>
-<h2 class="section-title" id="header-functions">Functions</h2>
-<dl>
-<dt id="auth_routes.admin_change_user_tier"><code class="name flex">
-<span>def <span class="ident">admin_change_user_tier</span></span>(<span>user_id)</span>
-</code></dt>
-<dd>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">@auth_bp.route(&#34;/admin/user/&lt;int:user_id&gt;/change-tier&#34;, methods=[&#34;POST&#34;])
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1"
+    />
+    <meta name="generator" content="pdoc3 0.11.6" />
+    <title>auth_routes API documentation</title>
+    <meta
+      name="description"
+      content="Evident Authentication Routes
+Login, logout, signup, and user management"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css"
+      integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA=="
+      crossorigin
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css"
+      integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA=="
+      crossorigin
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css"
+      crossorigin
+    />
+    <style>
+      :root {
+        --highlight-color: #fe9;
+      }
+      .flex {
+        display: flex !important;
+      }
+      body {
+        line-height: 1.5em;
+      }
+      #content {
+        padding: 20px;
+      }
+      #sidebar {
+        padding: 1.5em;
+        overflow: hidden;
+      }
+      #sidebar > *:last-child {
+        margin-bottom: 2cm;
+      }
+      .http-server-breadcrumbs {
+        font-size: 130%;
+        margin: 0 0 15px 0;
+      }
+      #footer {
+        font-size: 0.75em;
+        padding: 5px 30px;
+        border-top: 1px solid #ddd;
+        text-align: right;
+      }
+      #footer p {
+        margin: 0 0 0 1em;
+        display: inline-block;
+      }
+      #footer p:last-child {
+        margin-right: 30px;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-weight: 300;
+      }
+      h1 {
+        font-size: 2.5em;
+        line-height: 1.1em;
+      }
+      h2 {
+        font-size: 1.75em;
+        margin: 2em 0 0.5em 0;
+      }
+      h3 {
+        font-size: 1.4em;
+        margin: 1.6em 0 0.7em 0;
+      }
+      h4 {
+        margin: 0;
+        font-size: 105%;
+      }
+      h1:target,
+      h2:target,
+      h3:target,
+      h4:target,
+      h5:target,
+      h6:target {
+        background: var(--highlight-color);
+        padding: 0.2em 0;
+      }
+      a {
+        color: #058;
+        text-decoration: none;
+        transition: color 0.2s ease-in-out;
+      }
+      a:visited {
+        color: #503;
+      }
+      a:hover {
+        color: #b62;
+      }
+      .title code {
+        font-weight: bold;
+      }
+      h2[id^="header-"] {
+        margin-top: 2em;
+      }
+      .ident {
+        color: #900;
+        font-weight: bold;
+      }
+      pre code {
+        font-size: 0.8em;
+        line-height: 1.4em;
+        padding: 1em;
+        display: block;
+      }
+      code {
+        background: #f3f3f3;
+        font-family: "DejaVu Sans Mono", monospace;
+        padding: 1px 4px;
+        overflow-wrap: break-word;
+      }
+      h1 code {
+        background: transparent;
+      }
+      pre {
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        margin: 1em 0;
+      }
+      #http-server-module-list {
+        display: flex;
+        flex-flow: column;
+      }
+      #http-server-module-list div {
+        display: flex;
+      }
+      #http-server-module-list dt {
+        min-width: 10%;
+      }
+      #http-server-module-list p {
+        margin-top: 0;
+      }
+      .toc ul,
+      #index {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      #index code {
+        background: transparent;
+      }
+      #index h3 {
+        border-bottom: 1px solid #ddd;
+      }
+      #index ul {
+        padding: 0;
+      }
+      #index h4 {
+        margin-top: 0.6em;
+        font-weight: bold;
+      }
+      @media (min-width: 200ex) {
+        #index .two-column {
+          column-count: 2;
+        }
+      }
+      @media (min-width: 300ex) {
+        #index .two-column {
+          column-count: 3;
+        }
+      }
+      dl {
+        margin-bottom: 2em;
+      }
+      dl dl:last-child {
+        margin-bottom: 4em;
+      }
+      dd {
+        margin: 0 0 1em 3em;
+      }
+      #header-classes + dl > dd {
+        margin-bottom: 3em;
+      }
+      dd dd {
+        margin-left: 2em;
+      }
+      dd p {
+        margin: 10px 0;
+      }
+      .name {
+        background: #eee;
+        font-size: 0.85em;
+        padding: 5px 10px;
+        display: inline-block;
+        min-width: 40%;
+      }
+      .name:hover {
+        background: #e0e0e0;
+      }
+      dt:target .name {
+        background: var(--highlight-color);
+      }
+      .name > span:first-child {
+        white-space: nowrap;
+      }
+      .name.class > span:nth-child(2) {
+        margin-left: 0.4em;
+      }
+      .inherited {
+        color: #999;
+        border-left: 5px solid #eee;
+        padding-left: 1em;
+      }
+      .inheritance em {
+        font-style: normal;
+        font-weight: bold;
+      }
+      .desc h2 {
+        font-weight: 400;
+        font-size: 1.25em;
+      }
+      .desc h3 {
+        font-size: 1em;
+      }
+      .desc dt code {
+        background: inherit;
+      }
+      .source > summary,
+      .git-link-div {
+        color: #666;
+        text-align: right;
+        font-weight: 400;
+        font-size: 0.8em;
+        text-transform: uppercase;
+      }
+      .source summary > * {
+        white-space: nowrap;
+        cursor: pointer;
+      }
+      .git-link {
+        color: inherit;
+        margin-left: 1em;
+      }
+      .source pre {
+        max-height: 500px;
+        overflow: auto;
+        margin: 0;
+      }
+      .source pre code {
+        font-size: 12px;
+        overflow: visible;
+        min-width: max-content;
+      }
+      .hlist {
+        list-style: none;
+      }
+      .hlist li {
+        display: inline;
+      }
+      .hlist li:after {
+        content: ",\2002";
+      }
+      .hlist li:last-child:after {
+        content: none;
+      }
+      .hlist .hlist {
+        display: inline;
+        padding-left: 1em;
+      }
+      img {
+        max-width: 100%;
+      }
+      td {
+        padding: 0 0.5em;
+      }
+      .admonition {
+        padding: 0.1em 1em;
+        margin: 1em 0;
+      }
+      .admonition-title {
+        font-weight: bold;
+      }
+      .admonition.note,
+      .admonition.info,
+      .admonition.important {
+        background: #aef;
+      }
+      .admonition.todo,
+      .admonition.versionadded,
+      .admonition.tip,
+      .admonition.hint {
+        background: #dfd;
+      }
+      .admonition.warning,
+      .admonition.versionchanged,
+      .admonition.deprecated {
+        background: #fd4;
+      }
+      .admonition.error,
+      .admonition.danger,
+      .admonition.caution {
+        background: lightpink;
+      }
+    </style>
+    <style media="screen and (min-width: 700px)">
+      @media screen and (min-width: 700px) {
+        #sidebar {
+          width: 30%;
+          height: 100vh;
+          overflow: auto;
+          position: sticky;
+          top: 0;
+        }
+        #content {
+          width: 70%;
+          max-width: 100ch;
+          padding: 3em 4em;
+          border-left: 1px solid #ddd;
+        }
+        pre code {
+          font-size: 1em;
+        }
+        .name {
+          font-size: 1em;
+        }
+        main {
+          display: flex;
+          flex-direction: row-reverse;
+          justify-content: flex-end;
+        }
+        .toc ul ul,
+        #index ul ul {
+          padding-left: 1em;
+        }
+        .toc > ul > li {
+          margin-top: 0.5em;
+        }
+      }
+    </style>
+    <style media="print">
+      @media print {
+        #sidebar h1 {
+          page-break-before: always;
+        }
+        .source {
+          display: none;
+        }
+      }
+      @media print {
+        * {
+          background: transparent !important;
+          color: #000 !important;
+          box-shadow: none !important;
+          text-shadow: none !important;
+        }
+        a[href]:after {
+          content: " (" attr(href) ")";
+          font-size: 90%;
+        }
+        a[href][title]:after {
+          content: none;
+        }
+        abbr[title]:after {
+          content: " (" attr(title) ")";
+        }
+        .ir a:after,
+        a[href^="javascript:"]:after,
+        a[href^="#"]:after {
+          content: "";
+        }
+        pre,
+        blockquote {
+          border: 1px solid #999;
+          page-break-inside: avoid;
+        }
+        thead {
+          display: table-header-group;
+        }
+        tr,
+        img {
+          page-break-inside: avoid;
+        }
+        img {
+          max-width: 100% !important;
+        }
+        @page {
+          margin: 0.5cm;
+        }
+        p,
+        h2,
+        h3 {
+          orphans: 3;
+          widows: 3;
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          page-break-after: avoid;
+        }
+      }
+    </style>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"
+      integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ=="
+      crossorigin
+    ></script>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        hljs.configure({
+          languages: [
+            "bash",
+            "css",
+            "diff",
+            "graphql",
+            "ini",
+            "javascript",
+            "json",
+            "plaintext",
+            "python",
+            "python-repl",
+            "rust",
+            "shell",
+            "sql",
+            "typescript",
+            "xml",
+            "yaml",
+          ],
+        });
+        hljs.highlightAll();
+        /* Collapse source docstrings */
+        setTimeout(() => {
+          [...document.querySelectorAll(".hljs.language-python > .hljs-string")]
+            .filter(
+              (el) =>
+                el.innerHTML.length > 200 &&
+                ['"""', "'''"].includes(el.innerHTML.substring(0, 3)),
+            )
+            .forEach((el) => {
+              let d = document.createElement("details");
+              d.classList.add("hljs-string");
+              d.innerHTML =
+                '<summary>"""</summary>' + el.innerHTML.substring(3);
+              el.replaceWith(d);
+            });
+        }, 100);
+      });
+    </script>
+  </head>
+  <body>
+    <main>
+      <article id="content">
+        <header>
+          <h1 class="title">Module <code>auth_routes</code></h1>
+        </header>
+        <section id="section-intro">
+          <p>
+            Evident Authentication Routes Login, logout, signup, and user
+            management
+          </p>
+        </section>
+        <section></section>
+        <section></section>
+        <section>
+          <h2 class="section-title" id="header-functions">Functions</h2>
+          <dl>
+            <dt id="auth_routes.admin_change_user_tier">
+              <code class="name flex">
+                <span
+                  >def <span class="ident">admin_change_user_tier</span></span
+                >(<span>user_id)</span>
+              </code>
+            </dt>
+            <dd>
+              <details class="source">
+                <summary>
+                  <span>Expand source code</span>
+                </summary>
+                <pre><code class="python">@auth_bp.route(&#34;/admin/user/&lt;int:user_id&gt;/change-tier&#34;, methods=[&#34;POST&#34;])
 @admin_required
 def admin_change_user_tier(user_id):
     &#34;&#34;&#34;Admin: Change user tier&#34;&#34;&#34;
@@ -70,18 +507,21 @@ def admin_change_user_tier(user_id):
         flash(&#34;Invalid tier selected.&#34;, &#34;danger&#34;)
 
     return redirect(url_for(&#34;auth.admin_users&#34;))</code></pre>
-</details>
-<div class="desc"><p>Admin: Change user tier</p></div>
-</dd>
-<dt id="auth_routes.admin_required"><code class="name flex">
-<span>def <span class="ident">admin_required</span></span>(<span>f)</span>
-</code></dt>
-<dd>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def admin_required(f):
+              </details>
+              <div class="desc"><p>Admin: Change user tier</p></div>
+            </dd>
+            <dt id="auth_routes.admin_required">
+              <code class="name flex">
+                <span>def <span class="ident">admin_required</span></span
+                >(<span>f)</span>
+              </code>
+            </dt>
+            <dd>
+              <details class="source">
+                <summary>
+                  <span>Expand source code</span>
+                </summary>
+                <pre><code class="python">def admin_required(f):
     &#34;&#34;&#34;Decorator to require admin access&#34;&#34;&#34;
 
     @wraps(f)
@@ -93,18 +533,22 @@ def admin_change_user_tier(user_id):
         return f(*args, **kwargs)
 
     return decorated_function</code></pre>
-</details>
-<div class="desc"><p>Decorator to require admin access</p></div>
-</dd>
-<dt id="auth_routes.admin_toggle_user_active"><code class="name flex">
-<span>def <span class="ident">admin_toggle_user_active</span></span>(<span>user_id)</span>
-</code></dt>
-<dd>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">@auth_bp.route(&#34;/admin/user/&lt;int:user_id&gt;/toggle-active&#34;, methods=[&#34;POST&#34;])
+              </details>
+              <div class="desc"><p>Decorator to require admin access</p></div>
+            </dd>
+            <dt id="auth_routes.admin_toggle_user_active">
+              <code class="name flex">
+                <span
+                  >def <span class="ident">admin_toggle_user_active</span></span
+                >(<span>user_id)</span>
+              </code>
+            </dt>
+            <dd>
+              <details class="source">
+                <summary>
+                  <span>Expand source code</span>
+                </summary>
+                <pre><code class="python">@auth_bp.route(&#34;/admin/user/&lt;int:user_id&gt;/toggle-active&#34;, methods=[&#34;POST&#34;])
 @admin_required
 def admin_toggle_user_active(user_id):
     &#34;&#34;&#34;Admin: Toggle user active status&#34;&#34;&#34;
@@ -115,35 +559,41 @@ def admin_toggle_user_active(user_id):
     status = &#34;activated&#34; if user.is_active else &#34;deactivated&#34;
     flash(f&#34;User {user.email} has been {status}.&#34;, &#34;success&#34;)
     return redirect(url_for(&#34;auth.admin_users&#34;))</code></pre>
-</details>
-<div class="desc"><p>Admin: Toggle user active status</p></div>
-</dd>
-<dt id="auth_routes.admin_users"><code class="name flex">
-<span>def <span class="ident">admin_users</span></span>(<span>)</span>
-</code></dt>
-<dd>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">@auth_bp.route(&#34;/admin/users&#34;)
+              </details>
+              <div class="desc"><p>Admin: Toggle user active status</p></div>
+            </dd>
+            <dt id="auth_routes.admin_users">
+              <code class="name flex">
+                <span>def <span class="ident">admin_users</span></span
+                >(<span>)</span>
+              </code>
+            </dt>
+            <dd>
+              <details class="source">
+                <summary>
+                  <span>Expand source code</span>
+                </summary>
+                <pre><code class="python">@auth_bp.route(&#34;/admin/users&#34;)
 @admin_required
 def admin_users():
     &#34;&#34;&#34;Admin dashboard - user management&#34;&#34;&#34;
     users = User.query.order_by(User.created_at.desc()).all()
     return render_template(&#34;auth/admin_users.html&#34;, users=users)</code></pre>
-</details>
-<div class="desc"><p>Admin dashboard - user management</p></div>
-</dd>
-<dt id="auth_routes.check_usage_limit"><code class="name flex">
-<span>def <span class="ident">check_usage_limit</span></span>(<span>field)</span>
-</code></dt>
-<dd>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def check_usage_limit(field):
+              </details>
+              <div class="desc"><p>Admin dashboard - user management</p></div>
+            </dd>
+            <dt id="auth_routes.check_usage_limit">
+              <code class="name flex">
+                <span>def <span class="ident">check_usage_limit</span></span
+                >(<span>field)</span>
+              </code>
+            </dt>
+            <dd>
+              <details class="source">
+                <summary>
+                  <span>Expand source code</span>
+                </summary>
+                <pre><code class="python">def check_usage_limit(field):
     &#34;&#34;&#34;Decorator to check usage limits before allowing action&#34;&#34;&#34;
 
     def decorator(f):
@@ -170,18 +620,23 @@ def admin_users():
         return decorated_function
 
     return decorator</code></pre>
-</details>
-<div class="desc"><p>Decorator to check usage limits before allowing action</p></div>
-</dd>
-<dt id="auth_routes.dashboard"><code class="name flex">
-<span>def <span class="ident">dashboard</span></span>(<span>)</span>
-</code></dt>
-<dd>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">@auth_bp.route(&#34;/dashboard&#34;)
+              </details>
+              <div class="desc">
+                <p>Decorator to check usage limits before allowing action</p>
+              </div>
+            </dd>
+            <dt id="auth_routes.dashboard">
+              <code class="name flex">
+                <span>def <span class="ident">dashboard</span></span
+                >(<span>)</span>
+              </code>
+            </dt>
+            <dd>
+              <details class="source">
+                <summary>
+                  <span>Expand source code</span>
+                </summary>
+                <pre><code class="python">@auth_bp.route(&#34;/dashboard&#34;)
 @login_required
 def dashboard():
     &#34;&#34;&#34;User dashboard showing usage and limits&#34;&#34;&#34;
@@ -202,18 +657,23 @@ def dashboard():
     return render_template(
         &#34;auth/dashboard.html&#34;, usage=usage, limits=limits, recent_analyses=recent_analyses
     )</code></pre>
-</details>
-<div class="desc"><p>User dashboard showing usage and limits</p></div>
-</dd>
-<dt id="auth_routes.feature_required"><code class="name flex">
-<span>def <span class="ident">feature_required</span></span>(<span>feature_name)</span>
-</code></dt>
-<dd>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def feature_required(feature_name):
+              </details>
+              <div class="desc">
+                <p>User dashboard showing usage and limits</p>
+              </div>
+            </dd>
+            <dt id="auth_routes.feature_required">
+              <code class="name flex">
+                <span>def <span class="ident">feature_required</span></span
+                >(<span>feature_name)</span>
+              </code>
+            </dt>
+            <dd>
+              <details class="source">
+                <summary>
+                  <span>Expand source code</span>
+                </summary>
+                <pre><code class="python">def feature_required(feature_name):
     &#34;&#34;&#34;Decorator to check if user has access to specific feature&#34;&#34;&#34;
 
     def decorator(f):
@@ -230,18 +690,23 @@ def dashboard():
         return decorated_function
 
     return decorator</code></pre>
-</details>
-<div class="desc"><p>Decorator to check if user has access to specific feature</p></div>
-</dd>
-<dt id="auth_routes.forgot_password"><code class="name flex">
-<span>def <span class="ident">forgot_password</span></span>(<span>)</span>
-</code></dt>
-<dd>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">@auth_bp.route(&#34;/forgot-password&#34;, methods=[&#34;GET&#34;, &#34;POST&#34;])
+              </details>
+              <div class="desc">
+                <p>Decorator to check if user has access to specific feature</p>
+              </div>
+            </dd>
+            <dt id="auth_routes.forgot_password">
+              <code class="name flex">
+                <span>def <span class="ident">forgot_password</span></span
+                >(<span>)</span>
+              </code>
+            </dt>
+            <dd>
+              <details class="source">
+                <summary>
+                  <span>Expand source code</span>
+                </summary>
+                <pre><code class="python">@auth_bp.route(&#34;/forgot-password&#34;, methods=[&#34;GET&#34;, &#34;POST&#34;])
 def forgot_password():
     &#34;&#34;&#34;Request password reset&#34;&#34;&#34;
     if current_user.is_authenticated:
@@ -277,18 +742,21 @@ def forgot_password():
         return redirect(url_for(&#34;auth.login&#34;))
 
     return render_template(&#34;auth/forgot_password.html&#34;)</code></pre>
-</details>
-<div class="desc"><p>Request password reset</p></div>
-</dd>
-<dt id="auth_routes.init_auth"><code class="name flex">
-<span>def <span class="ident">init_auth</span></span>(<span>app)</span>
-</code></dt>
-<dd>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def init_auth(app):
+              </details>
+              <div class="desc"><p>Request password reset</p></div>
+            </dd>
+            <dt id="auth_routes.init_auth">
+              <code class="name flex">
+                <span>def <span class="ident">init_auth</span></span
+                >(<span>app)</span>
+              </code>
+            </dt>
+            <dd>
+              <details class="source">
+                <summary>
+                  <span>Expand source code</span>
+                </summary>
+                <pre><code class="python">def init_auth(app):
     &#34;&#34;&#34;Initialize authentication system with Flask app&#34;&#34;&#34;
     login_manager.init_app(app)
     login_manager.login_view = &#34;auth.login&#34;
@@ -311,51 +779,64 @@ def forgot_password():
                 401,
             )
         return redirect(url_for(&#34;auth.login&#34;))</code></pre>
-</details>
-<div class="desc"><p>Initialize authentication system with Flask app</p></div>
-</dd>
-<dt id="auth_routes.is_safe_url"><code class="name flex">
-<span>def <span class="ident">is_safe_url</span></span>(<span>target)</span>
-</code></dt>
-<dd>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def is_safe_url(target):
+              </details>
+              <div class="desc">
+                <p>Initialize authentication system with Flask app</p>
+              </div>
+            </dd>
+            <dt id="auth_routes.is_safe_url">
+              <code class="name flex">
+                <span>def <span class="ident">is_safe_url</span></span
+                >(<span>target)</span>
+              </code>
+            </dt>
+            <dd>
+              <details class="source">
+                <summary>
+                  <span>Expand source code</span>
+                </summary>
+                <pre><code class="python">def is_safe_url(target):
     &#34;&#34;&#34;Check if a redirect URL is safe (same host)&#34;&#34;&#34;
     if not target:
         return False
     ref_url = urlparse(request.host_url)
     test_url = urlparse(urljoin(request.host_url, target))
     return test_url.scheme in (&#34;http&#34;, &#34;https&#34;) and ref_url.netloc == test_url.netloc</code></pre>
-</details>
-<div class="desc"><p>Check if a redirect URL is safe (same host)</p></div>
-</dd>
-<dt id="auth_routes.load_user"><code class="name flex">
-<span>def <span class="ident">load_user</span></span>(<span>user_id)</span>
-</code></dt>
-<dd>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">@login_manager.user_loader
+              </details>
+              <div class="desc">
+                <p>Check if a redirect URL is safe (same host)</p>
+              </div>
+            </dd>
+            <dt id="auth_routes.load_user">
+              <code class="name flex">
+                <span>def <span class="ident">load_user</span></span
+                >(<span>user_id)</span>
+              </code>
+            </dt>
+            <dd>
+              <details class="source">
+                <summary>
+                  <span>Expand source code</span>
+                </summary>
+                <pre><code class="python">@login_manager.user_loader
 def load_user(user_id):
     &#34;&#34;&#34;Load user for Flask-Login&#34;&#34;&#34;
     return User.query.get(int(user_id))</code></pre>
-</details>
-<div class="desc"><p>Load user for Flask-Login</p></div>
-</dd>
-<dt id="auth_routes.login"><code class="name flex">
-<span>def <span class="ident">login</span></span>(<span>)</span>
-</code></dt>
-<dd>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">@auth_bp.route(&#34;/login&#34;, methods=[&#34;GET&#34;, &#34;POST&#34;])
+              </details>
+              <div class="desc"><p>Load user for Flask-Login</p></div>
+            </dd>
+            <dt id="auth_routes.login">
+              <code class="name flex">
+                <span>def <span class="ident">login</span></span
+                >(<span>)</span>
+              </code>
+            </dt>
+            <dd>
+              <details class="source">
+                <summary>
+                  <span>Expand source code</span>
+                </summary>
+                <pre><code class="python">@auth_bp.route(&#34;/login&#34;, methods=[&#34;GET&#34;, &#34;POST&#34;])
 def login():
     &#34;&#34;&#34;User login with AI-powered security&#34;&#34;&#34;
     if current_user.is_authenticated:
@@ -422,36 +903,42 @@ def login():
             track_login(None, success=False, method=&#34;password&#34;, risk_score=risk_score)
 
     return render_template(&#34;auth/login.html&#34;)</code></pre>
-</details>
-<div class="desc"><p>User login with AI-powered security</p></div>
-</dd>
-<dt id="auth_routes.logout"><code class="name flex">
-<span>def <span class="ident">logout</span></span>(<span>)</span>
-</code></dt>
-<dd>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">@auth_bp.route(&#34;/logout&#34;)
+              </details>
+              <div class="desc"><p>User login with AI-powered security</p></div>
+            </dd>
+            <dt id="auth_routes.logout">
+              <code class="name flex">
+                <span>def <span class="ident">logout</span></span
+                >(<span>)</span>
+              </code>
+            </dt>
+            <dd>
+              <details class="source">
+                <summary>
+                  <span>Expand source code</span>
+                </summary>
+                <pre><code class="python">@auth_bp.route(&#34;/logout&#34;)
 @login_required
 def logout():
     &#34;&#34;&#34;User logout&#34;&#34;&#34;
     logout_user()
     flash(&#34;You have been logged out successfully.&#34;, &#34;info&#34;)
     return redirect(url_for(&#34;index&#34;))</code></pre>
-</details>
-<div class="desc"><p>User logout</p></div>
-</dd>
-<dt id="auth_routes.resend_verification"><code class="name flex">
-<span>def <span class="ident">resend_verification</span></span>(<span>)</span>
-</code></dt>
-<dd>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">@auth_bp.route(&#34;/resend-verification&#34;, methods=[&#34;POST&#34;])
+              </details>
+              <div class="desc"><p>User logout</p></div>
+            </dd>
+            <dt id="auth_routes.resend_verification">
+              <code class="name flex">
+                <span>def <span class="ident">resend_verification</span></span
+                >(<span>)</span>
+              </code>
+            </dt>
+            <dd>
+              <details class="source">
+                <summary>
+                  <span>Expand source code</span>
+                </summary>
+                <pre><code class="python">@auth_bp.route(&#34;/resend-verification&#34;, methods=[&#34;POST&#34;])
 def resend_verification():
     &#34;&#34;&#34;Resend email verification link&#34;&#34;&#34;
     email = request.form.get(&#34;email&#34;, &#34;&#34;).strip().lower()
@@ -474,18 +961,21 @@ def resend_verification():
             logger.error(f&#34;Failed to send verification email: {e}&#34;)
 
     return redirect(url_for(&#34;auth.login&#34;))</code></pre>
-</details>
-<div class="desc"><p>Resend email verification link</p></div>
-</dd>
-<dt id="auth_routes.reset_password"><code class="name flex">
-<span>def <span class="ident">reset_password</span></span>(<span>token)</span>
-</code></dt>
-<dd>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">@auth_bp.route(&#34;/reset-password/&lt;token&gt;&#34;, methods=[&#34;GET&#34;, &#34;POST&#34;])
+              </details>
+              <div class="desc"><p>Resend email verification link</p></div>
+            </dd>
+            <dt id="auth_routes.reset_password">
+              <code class="name flex">
+                <span>def <span class="ident">reset_password</span></span
+                >(<span>token)</span>
+              </code>
+            </dt>
+            <dd>
+              <details class="source">
+                <summary>
+                  <span>Expand source code</span>
+                </summary>
+                <pre><code class="python">@auth_bp.route(&#34;/reset-password/&lt;token&gt;&#34;, methods=[&#34;GET&#34;, &#34;POST&#34;])
 def reset_password(token):
     &#34;&#34;&#34;Reset password with token&#34;&#34;&#34;
     if current_user.is_authenticated:
@@ -531,18 +1021,21 @@ def reset_password(token):
         return redirect(url_for(&#34;auth.login&#34;))
 
     return render_template(&#34;auth/reset_password.html&#34;, token=token)</code></pre>
-</details>
-<div class="desc"><p>Reset password with token</p></div>
-</dd>
-<dt id="auth_routes.signup"><code class="name flex">
-<span>def <span class="ident">signup</span></span>(<span>)</span>
-</code></dt>
-<dd>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">@auth_bp.route(&#34;/signup&#34;, methods=[&#34;GET&#34;, &#34;POST&#34;])
+              </details>
+              <div class="desc"><p>Reset password with token</p></div>
+            </dd>
+            <dt id="auth_routes.signup">
+              <code class="name flex">
+                <span>def <span class="ident">signup</span></span
+                >(<span>)</span>
+              </code>
+            </dt>
+            <dd>
+              <details class="source">
+                <summary>
+                  <span>Expand source code</span>
+                </summary>
+                <pre><code class="python">@auth_bp.route(&#34;/signup&#34;, methods=[&#34;GET&#34;, &#34;POST&#34;])
 @auth_bp.route(&#34;/register&#34;, methods=[&#34;GET&#34;, &#34;POST&#34;])  # Alias for backward compatibility
 def signup():
     &#34;&#34;&#34;User registration&#34;&#34;&#34;
@@ -647,18 +1140,21 @@ def signup():
         tier_param=tier_param,
         trial_period=trial_period,
     )</code></pre>
-</details>
-<div class="desc"><p>User registration</p></div>
-</dd>
-<dt id="auth_routes.tier_required"><code class="name flex">
-<span>def <span class="ident">tier_required</span></span>(<span>min_tier)</span>
-</code></dt>
-<dd>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def tier_required(min_tier):
+              </details>
+              <div class="desc"><p>User registration</p></div>
+            </dd>
+            <dt id="auth_routes.tier_required">
+              <code class="name flex">
+                <span>def <span class="ident">tier_required</span></span
+                >(<span>min_tier)</span>
+              </code>
+            </dt>
+            <dd>
+              <details class="source">
+                <summary>
+                  <span>Expand source code</span>
+                </summary>
+                <pre><code class="python">def tier_required(min_tier):
     &#34;&#34;&#34;Decorator to require minimum tier level&#34;&#34;&#34;
 
     def decorator(f):
@@ -676,18 +1172,23 @@ def signup():
         return decorated_function
 
     return decorator</code></pre>
-</details>
-<div class="desc"><p>Decorator to require minimum tier level</p></div>
-</dd>
-<dt id="auth_routes.usage_api"><code class="name flex">
-<span>def <span class="ident">usage_api</span></span>(<span>)</span>
-</code></dt>
-<dd>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">@auth_bp.route(&#34;/usage/api&#34;)
+              </details>
+              <div class="desc">
+                <p>Decorator to require minimum tier level</p>
+              </div>
+            </dd>
+            <dt id="auth_routes.usage_api">
+              <code class="name flex">
+                <span>def <span class="ident">usage_api</span></span
+                >(<span>)</span>
+              </code>
+            </dt>
+            <dd>
+              <details class="source">
+                <summary>
+                  <span>Expand source code</span>
+                </summary>
+                <pre><code class="python">@auth_bp.route(&#34;/usage/api&#34;)
 @login_required
 def usage_api():
     &#34;&#34;&#34;API endpoint for current usage stats&#34;&#34;&#34;
@@ -709,18 +1210,23 @@ def usage_api():
             &#34;subscription_active&#34;: current_user.is_subscription_active,
         }
     )</code></pre>
-</details>
-<div class="desc"><p>API endpoint for current usage stats</p></div>
-</dd>
-<dt id="auth_routes.verify_email"><code class="name flex">
-<span>def <span class="ident">verify_email</span></span>(<span>token)</span>
-</code></dt>
-<dd>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">@auth_bp.route(&#34;/verify-email/&lt;token&gt;&#34;)
+              </details>
+              <div class="desc">
+                <p>API endpoint for current usage stats</p>
+              </div>
+            </dd>
+            <dt id="auth_routes.verify_email">
+              <code class="name flex">
+                <span>def <span class="ident">verify_email</span></span
+                >(<span>token)</span>
+              </code>
+            </dt>
+            <dd>
+              <details class="source">
+                <summary>
+                  <span>Expand source code</span>
+                </summary>
+                <pre><code class="python">@auth_bp.route(&#34;/verify-email/&lt;token&gt;&#34;)
 def verify_email(token):
     &#34;&#34;&#34;Verify user email address&#34;&#34;&#34;
     user = EmailVerificationToken.validate(token)
@@ -742,18 +1248,21 @@ def verify_email(token):
     flash(&#34;Your email has been verified! You can now log in.&#34;, &#34;success&#34;)
     logger.info(f&#34;Email verified for {user.email}&#34;)
     return redirect(url_for(&#34;auth.login&#34;))</code></pre>
-</details>
-<div class="desc"><p>Verify user email address</p></div>
-</dd>
-<dt id="auth_routes.verify_login"><code class="name flex">
-<span>def <span class="ident">verify_login</span></span>(<span>)</span>
-</code></dt>
-<dd>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">@auth_bp.route(&#34;/verify-login&#34;, methods=[&#34;GET&#34;, &#34;POST&#34;])
+              </details>
+              <div class="desc"><p>Verify user email address</p></div>
+            </dd>
+            <dt id="auth_routes.verify_login">
+              <code class="name flex">
+                <span>def <span class="ident">verify_login</span></span
+                >(<span>)</span>
+              </code>
+            </dt>
+            <dd>
+              <details class="source">
+                <summary>
+                  <span>Expand source code</span>
+                </summary>
+                <pre><code class="python">@auth_bp.route(&#34;/verify-login&#34;, methods=[&#34;GET&#34;, &#34;POST&#34;])
 def verify_login():
     &#34;&#34;&#34;Email verification for suspicious logins (challenge flow)&#34;&#34;&#34;
     email = session.get(&#34;pending_verification_email&#34;)
@@ -812,48 +1321,211 @@ def verify_login():
         )
 
     return render_template(&#34;auth/verify_login.html&#34;, email=email)</code></pre>
-</details>
-<div class="desc"><p>Email verification for suspicious logins (challenge flow)</p></div>
-</dd>
-</dl>
-</section>
-<section>
-</section>
-</article>
-<nav id="sidebar">
-<div class="toc">
-<ul></ul>
-</div>
-<ul id="index">
-<li><h3><a href="#header-functions">Functions</a></h3>
-<ul class="">
-<li><code><a title="auth_routes.admin_change_user_tier" href="#auth_routes.admin_change_user_tier">admin_change_user_tier</a></code></li>
-<li><code><a title="auth_routes.admin_required" href="#auth_routes.admin_required">admin_required</a></code></li>
-<li><code><a title="auth_routes.admin_toggle_user_active" href="#auth_routes.admin_toggle_user_active">admin_toggle_user_active</a></code></li>
-<li><code><a title="auth_routes.admin_users" href="#auth_routes.admin_users">admin_users</a></code></li>
-<li><code><a title="auth_routes.check_usage_limit" href="#auth_routes.check_usage_limit">check_usage_limit</a></code></li>
-<li><code><a title="auth_routes.dashboard" href="#auth_routes.dashboard">dashboard</a></code></li>
-<li><code><a title="auth_routes.feature_required" href="#auth_routes.feature_required">feature_required</a></code></li>
-<li><code><a title="auth_routes.forgot_password" href="#auth_routes.forgot_password">forgot_password</a></code></li>
-<li><code><a title="auth_routes.init_auth" href="#auth_routes.init_auth">init_auth</a></code></li>
-<li><code><a title="auth_routes.is_safe_url" href="#auth_routes.is_safe_url">is_safe_url</a></code></li>
-<li><code><a title="auth_routes.load_user" href="#auth_routes.load_user">load_user</a></code></li>
-<li><code><a title="auth_routes.login" href="#auth_routes.login">login</a></code></li>
-<li><code><a title="auth_routes.logout" href="#auth_routes.logout">logout</a></code></li>
-<li><code><a title="auth_routes.resend_verification" href="#auth_routes.resend_verification">resend_verification</a></code></li>
-<li><code><a title="auth_routes.reset_password" href="#auth_routes.reset_password">reset_password</a></code></li>
-<li><code><a title="auth_routes.signup" href="#auth_routes.signup">signup</a></code></li>
-<li><code><a title="auth_routes.tier_required" href="#auth_routes.tier_required">tier_required</a></code></li>
-<li><code><a title="auth_routes.usage_api" href="#auth_routes.usage_api">usage_api</a></code></li>
-<li><code><a title="auth_routes.verify_email" href="#auth_routes.verify_email">verify_email</a></code></li>
-<li><code><a title="auth_routes.verify_login" href="#auth_routes.verify_login">verify_login</a></code></li>
-</ul>
-</li>
-</ul>
-</nav>
-</main>
-<footer id="footer">
-<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
-</footer>
-</body>
+              </details>
+              <div class="desc">
+                <p>Email verification for suspicious logins (challenge flow)</p>
+              </div>
+            </dd>
+          </dl>
+        </section>
+        <section></section>
+      </article>
+      <nav id="sidebar">
+        <div class="toc">
+          <ul></ul>
+        </div>
+        <ul id="index">
+          <li>
+            <h3><a href="#header-functions">Functions</a></h3>
+            <ul class="">
+              <li>
+                <code
+                  ><a
+                    title="auth_routes.admin_change_user_tier"
+                    href="#auth_routes.admin_change_user_tier"
+                    >admin_change_user_tier</a
+                  ></code
+                >
+              </li>
+              <li>
+                <code
+                  ><a
+                    title="auth_routes.admin_required"
+                    href="#auth_routes.admin_required"
+                    >admin_required</a
+                  ></code
+                >
+              </li>
+              <li>
+                <code
+                  ><a
+                    title="auth_routes.admin_toggle_user_active"
+                    href="#auth_routes.admin_toggle_user_active"
+                    >admin_toggle_user_active</a
+                  ></code
+                >
+              </li>
+              <li>
+                <code
+                  ><a
+                    title="auth_routes.admin_users"
+                    href="#auth_routes.admin_users"
+                    >admin_users</a
+                  ></code
+                >
+              </li>
+              <li>
+                <code
+                  ><a
+                    title="auth_routes.check_usage_limit"
+                    href="#auth_routes.check_usage_limit"
+                    >check_usage_limit</a
+                  ></code
+                >
+              </li>
+              <li>
+                <code
+                  ><a
+                    title="auth_routes.dashboard"
+                    href="#auth_routes.dashboard"
+                    >dashboard</a
+                  ></code
+                >
+              </li>
+              <li>
+                <code
+                  ><a
+                    title="auth_routes.feature_required"
+                    href="#auth_routes.feature_required"
+                    >feature_required</a
+                  ></code
+                >
+              </li>
+              <li>
+                <code
+                  ><a
+                    title="auth_routes.forgot_password"
+                    href="#auth_routes.forgot_password"
+                    >forgot_password</a
+                  ></code
+                >
+              </li>
+              <li>
+                <code
+                  ><a
+                    title="auth_routes.init_auth"
+                    href="#auth_routes.init_auth"
+                    >init_auth</a
+                  ></code
+                >
+              </li>
+              <li>
+                <code
+                  ><a
+                    title="auth_routes.is_safe_url"
+                    href="#auth_routes.is_safe_url"
+                    >is_safe_url</a
+                  ></code
+                >
+              </li>
+              <li>
+                <code
+                  ><a
+                    title="auth_routes.load_user"
+                    href="#auth_routes.load_user"
+                    >load_user</a
+                  ></code
+                >
+              </li>
+              <li>
+                <code
+                  ><a title="auth_routes.login" href="#auth_routes.login"
+                    >login</a
+                  ></code
+                >
+              </li>
+              <li>
+                <code
+                  ><a title="auth_routes.logout" href="#auth_routes.logout"
+                    >logout</a
+                  ></code
+                >
+              </li>
+              <li>
+                <code
+                  ><a
+                    title="auth_routes.resend_verification"
+                    href="#auth_routes.resend_verification"
+                    >resend_verification</a
+                  ></code
+                >
+              </li>
+              <li>
+                <code
+                  ><a
+                    title="auth_routes.reset_password"
+                    href="#auth_routes.reset_password"
+                    >reset_password</a
+                  ></code
+                >
+              </li>
+              <li>
+                <code
+                  ><a title="auth_routes.signup" href="#auth_routes.signup"
+                    >signup</a
+                  ></code
+                >
+              </li>
+              <li>
+                <code
+                  ><a
+                    title="auth_routes.tier_required"
+                    href="#auth_routes.tier_required"
+                    >tier_required</a
+                  ></code
+                >
+              </li>
+              <li>
+                <code
+                  ><a
+                    title="auth_routes.usage_api"
+                    href="#auth_routes.usage_api"
+                    >usage_api</a
+                  ></code
+                >
+              </li>
+              <li>
+                <code
+                  ><a
+                    title="auth_routes.verify_email"
+                    href="#auth_routes.verify_email"
+                    >verify_email</a
+                  ></code
+                >
+              </li>
+              <li>
+                <code
+                  ><a
+                    title="auth_routes.verify_login"
+                    href="#auth_routes.verify_login"
+                    >verify_login</a
+                  ></code
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </main>
+    <footer id="footer">
+      <p>
+        Generated by
+        <a
+          href="https://pdoc3.github.io/pdoc"
+          title="pdoc: Python API documentation generator"
+          ><cite>pdoc</cite> 0.11.6</a
+        >.
+      </p>
+    </footer>
+  </body>
 </html>

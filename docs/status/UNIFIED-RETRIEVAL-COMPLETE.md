@@ -7,9 +7,11 @@ Successfully implemented a unified retrieval system with citation provenance for
 ## Components Implemented
 
 ### 1. Database Schema ✓
+
 **Location:** `scripts/db/schema.sql`
+
 - `documents` - All ingested legal documents with sha256, source_system tracking
-- `document_pages` - Page-level content for retrieval  
+- `document_pages` - Page-level content for retrieval
 - `document_fts` - FTS5 index with BM25 ranking
 - `citations` - Citation provenance tracking
 - `muni_sources` - Municipal code sources (NJ counties)
@@ -17,14 +19,17 @@ Successfully implemented a unified retrieval system with citation provenance for
 - Auto-syncing FTS triggers
 
 **Initialization:**
+
 ```bash
 python scripts/db/init_db.py
 ```
 
 ### 2. RetrievalService ✓
+
 **Location:** `retrieval_service.py`
 
 **Features:**
+
 - Unified FTS5 BM25-ranked retrieval across all sources
 - Returns `Passage` objects with full provenance:
   - document_id, sha256, filename, storage_path_original
@@ -35,6 +40,7 @@ python scripts/db/init_db.py
 - Configurable top_k results
 
 **Usage:**
+
 ```python
 from retrieval_service import RetrievalService
 
@@ -47,9 +53,11 @@ passages = service.retrieve(
 ```
 
 ### 3. LegalLibraryAdapter ✓
+
 **Location:** `legal_library_adapter.py`
 
 **Features:**
+
 - Ingest PDF documents with page extraction
 - Ingest plain text with virtual paging
 - SHA256 deduplication
@@ -57,6 +65,7 @@ passages = service.retrieve(
 - Document listing and deletion
 
 **Usage:**
+
 ```python
 from legal_library_adapter import LegalLibraryAdapter
 
@@ -80,9 +89,11 @@ doc_id = adapter.ingest_text_document(
 ```
 
 ### 4. ChatGPT Integration Update ✓
+
 **Location:** `chatgpt_legal_library_integration.py`
 
 **Changes:**
+
 - `search_library_for_context()` now returns `(passages, citations_metadata)` tuple
 - Uses `RetrievalService.retrieve()` instead of LIKE-based search
 - `enhance_system_prompt()` builds strict SOURCES block with:
@@ -92,6 +103,7 @@ doc_id = adapter.ingest_text_document(
   - Requirement to cite sources
 
 **Before/After:**
+
 ```python
 # OLD (LIKE search, no provenance)
 cases = integration.search_library_for_context(message)
@@ -118,15 +130,18 @@ prompt = enhance_system_prompt(base, passages)
 ```
 
 ### 5. CitationService ✓
+
 **Location:** `citation_service.py`
 
 **Features:**
+
 - Persist citations for each analysis
 - Track document_id, page, offsets, snippet, rank
 - Retrieve citations by analysis_id or document_id
 - Citation statistics (count, date range)
 
 **Usage:**
+
 ```python
 from citation_service import CitationService
 
@@ -147,9 +162,11 @@ stats = service.get_citation_stats("legal_library_abc123")
 ```
 
 ### 6. MunicipalCodeService ✓
+
 **Location:** `municipal_code_service.py`
 
 **Features:**
+
 - Manage eCode360 / GeneralCode / Municode ordinances
 - Seed core NJ counties (Atlantic, Ocean, Cape May, etc.)
 - Upsert sections with SHA256 deduplication
@@ -157,6 +174,7 @@ stats = service.get_citation_stats("legal_library_abc123")
 - Retrieve by county/municipality
 
 **Usage:**
+
 ```python
 from municipal_code_service import MunicipalCodeService
 
@@ -193,9 +211,11 @@ results = service.search(
 ```
 
 ### 7. CLI Tool ✓
+
 **Location:** `pipeline/cli.py`
 
 **Commands:**
+
 ```bash
 # Retrieve passages
 python -m pipeline.cli retrieve "search seizure warrant" --top 5
@@ -210,9 +230,11 @@ python -m pipeline.cli citations analysis_abc123
 ```
 
 ### 8. Tests ✓
+
 **Location:** `tests/test_unified_retrieval.py`
 
 **Coverage:**
+
 - ✅ Ingestion produces pages
 - ✅ Retrieval returns passages with page+offsets
 - ✅ Citations persist for an analysis
@@ -220,6 +242,7 @@ python -m pipeline.cli citations analysis_abc123
 - ✅ End-to-end flow (ingest → retrieve → cite → persist)
 
 **Results:**
+
 ```
 5 passed in 0.16s
 ```
@@ -238,25 +261,25 @@ citation_svc = CitationService()
 @chatgpt_bp.route('/api/v1/chat/message', methods=['POST'])
 def send_message():
     user_message = request.get_json()['message']
-    
+
     # 1. Retrieve relevant passages
     passages, metadata = integration.search_library_for_context(user_message)
-    
+
     # 2. Build prompt with SOURCES
     system_prompt = integration.enhance_system_prompt(
         base_system_prompt,
         passages
     )
-    
+
     # 3. Call ChatGPT
     response = chatgpt_service.chat(user_message, system_prompt)
-    
+
     # 4. Persist citations
     analysis_id = citation_svc.persist_citations(
         analysis_id=session_id,
         passages=passages
     )
-    
+
     return jsonify({
         'response': response,
         'analysis_id': analysis_id,
@@ -303,11 +326,13 @@ This allows unified retrieval across legal library + BWC without changing BWC in
 ## Next Steps
 
 1. **Ingest legal library documents:**
+
    ```bash
    python -m pipeline.cli ingest cases/*.pdf --source legal_library --doc-type case_law
    ```
 
 2. **Seed municipal codes:**
+
    ```python
    from municipal_code_service import MunicipalCodeService
    service = MunicipalCodeService()
@@ -327,6 +352,7 @@ This allows unified retrieval across legal library + BWC without changing BWC in
 ## Files Created/Modified
 
 **Created:**
+
 - `scripts/db/schema.sql` - Database schema
 - `scripts/db/init_db.py` - DB initialization
 - `retrieval_service.py` - Unified retrieval service
@@ -337,9 +363,11 @@ This allows unified retrieval across legal library + BWC without changing BWC in
 - `tests/test_unified_retrieval.py` - Test suite
 
 **Modified:**
+
 - `chatgpt_legal_library_integration.py` - Updated to use RetrievalService
 
 **Database:**
+
 - `instance/Evident_legal.db` - Unified legal retrieval database
 
 All requirements met:

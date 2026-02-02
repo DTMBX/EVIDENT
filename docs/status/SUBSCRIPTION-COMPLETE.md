@@ -19,6 +19,7 @@
 **File:** `stripe_subscription_service.py` (452 lines)
 
 **Features:**
+
 - ✅ Subscription checkout sessions for PRO and PREMIUM tiers
 - ✅ 3-day free trial for PRO tier ($49/month)
 - ✅ Customer portal for self-service billing management
@@ -27,6 +28,7 @@
 - ✅ Subscription lifecycle management (create, update, cancel)
 
 **API Endpoints:**
+
 - `POST /api/stripe/create-checkout-session` - Start subscription purchase
 - `POST /api/stripe/create-portal-session` - Manage existing subscription
 - `POST /api/stripe/webhook` - Receive Stripe events
@@ -56,11 +58,13 @@ def timeline_route():
 ```
 
 **Helper Functions:**
+
 - `TierGate.can_access_feature(user, feature)` - Check feature access
 - `TierGate.get_remaining_usage(user, limit_field)` - Get remaining quota
 - `TierGate.get_usage_stats(user)` - Comprehensive usage data for dashboard
 
 **Template Integration:**
+
 ```python
 register_tier_gate_helpers(app)  # Makes functions available in Jinja2
 ```
@@ -70,6 +74,7 @@ register_tier_gate_helpers(app)  # Makes functions available in Jinja2
 **File:** `templates/usage_dashboard.html` (437 lines)
 
 **Features:**
+
 - ✅ Current plan display with tier badge
 - ✅ Trial status indicator
 - ✅ Real-time usage statistics:
@@ -89,6 +94,7 @@ register_tier_gate_helpers(app)  # Makes functions available in Jinja2
 **File:** `models_auth.py` (modified)
 
 **New User Fields:**
+
 ```python
 stripe_customer_id          # Stripe customer reference
 stripe_subscription_id      # Active subscription ID
@@ -99,6 +105,7 @@ is_on_trial                 # Boolean trial flag
 ```
 
 **Enhanced Usage Tracking:**
+
 ```python
 bwc_video_hours_used        # Float: hours of video processed
 pdf_documents_processed     # Int: count of PDFs (not pages)
@@ -109,12 +116,12 @@ cases_created              # Int: number of cases
 
 **Tier Specifications:**
 
-| Tier | Price | Trial | PDF/month | Video/month | Cases | Key Features |
-|------|-------|-------|-----------|-------------|-------|--------------|
-| **FREE** | $0 | — | 1 doc | ❌ None | 1 | Web access only |
-| **PRO** | $49/mo | ✅ 3 days | 10 docs | 2 hours | 10 | AI Assistant (Basic), Email support |
-| **PREMIUM** | $249/mo | ❌ | Unlimited | Unlimited | Unlimited | Full AI, API, Timeline, Forensics, Priority support |
-| **ENTERPRISE** | Custom | ❌ | Unlimited | Unlimited | Unlimited | Self-hosted, White-label, Dedicated PM, SLA |
+| Tier           | Price   | Trial     | PDF/month | Video/month | Cases     | Key Features                                        |
+| -------------- | ------- | --------- | --------- | ----------- | --------- | --------------------------------------------------- |
+| **FREE**       | $0      | —         | 1 doc     | ❌ None     | 1         | Web access only                                     |
+| **PRO**        | $49/mo  | ✅ 3 days | 10 docs   | 2 hours     | 10        | AI Assistant (Basic), Email support                 |
+| **PREMIUM**    | $249/mo | ❌        | Unlimited | Unlimited   | Unlimited | Full AI, API, Timeline, Forensics, Priority support |
+| **ENTERPRISE** | Custom  | ❌        | Unlimited | Unlimited   | Unlimited | Self-hosted, White-label, Dedicated PM, SLA         |
 
 **Code Location:** `models_auth.py` - Lines 17-50 (TierLevel enum and tier limits)
 
@@ -156,6 +163,7 @@ python create_test_subscription_accounts.py
 ```
 
 Creates test accounts for each tier:
+
 - `free@Evident.test` / test123
 - `pro@Evident.test` / test123
 - `premium@Evident.test` / test123
@@ -169,6 +177,7 @@ Creates test accounts for each tier:
 **File:** `SUBSCRIPTION-QUICK-START.md` (5-minute setup)
 
 Fast-track guide to get subscription system running:
+
 1. Run migration
 2. Create test accounts
 3. Configure Stripe
@@ -180,6 +189,7 @@ Fast-track guide to get subscription system running:
 **File:** `SUBSCRIPTION-SYSTEM-GUIDE.md` (comprehensive)
 
 Detailed guide covering:
+
 - Architecture overview
 - Step-by-step installation
 - Stripe configuration
@@ -195,6 +205,7 @@ Detailed guide covering:
 **File:** `SUBSCRIPTION-IMPLEMENTATION-SUMMARY.md`
 
 Business-focused document:
+
 - What was built
 - Revenue projections
 - Success metrics
@@ -205,6 +216,7 @@ Business-focused document:
 **File:** `PRICING-COMPLETE-DEPENDENCY-ANALYSIS.md` (already exists)
 
 Complete cost breakdown:
+
 - AI processing costs per tier
 - Profit margins
 - Break-even analysis
@@ -251,6 +263,7 @@ Complete cost breakdown:
 **NOT STARTED** - Will begin after web subscription system is live
 
 **Planned Features:**
+
 - Electron or Tauri framework
 - Offline-first architecture
 - Local processing (Whisper, Tesseract)
@@ -260,11 +273,13 @@ Complete cost breakdown:
 - Drag-and-drop file uploads
 
 **Timeline:**
+
 - Week 1: Architecture and framework selection
 - Week 2-3: Development and integration
 - Week 4: Testing and packaging
 
 **Pricing Options:**
+
 1. Include with PREMIUM tier ($249/month) as added value
 2. Separate "Desktop Edition" at $99/month
 3. One-time purchase: $499 (includes 1 year updates)
@@ -274,18 +289,21 @@ Complete cost breakdown:
 ## Revenue Projections
 
 ### **Conservative (Year 1)**
+
 - **Target:** 100 PRO + 20 PREMIUM users
 - **MRR:** $9,880
 - **ARR:** $118,560
 - **Margin:** 75% ($88,920 profit)
 
 ### **Moderate (Year 2)**
+
 - **Target:** 500 PRO + 100 PREMIUM users
 - **MRR:** $49,400
 - **ARR:** $592,800
 - **Margin:** 72% ($426,816 profit)
 
 ### **Aggressive (Year 3)**
+
 - **Target:** 2,000 PRO + 500 PREMIUM + 20 ENTERPRISE users
 - **MRR:** $262,480
 - **ARR:** $3,149,760
@@ -300,6 +318,7 @@ Complete cost breakdown:
 ### **Quick Deploy (30 minutes)**
 
 **1. Database Setup** (5 min)
+
 ```bash
 python migrate_add_stripe_subscriptions.py
 python create_test_subscription_accounts.py
@@ -310,16 +329,19 @@ python create_test_subscription_accounts.py
 Go to https://dashboard.stripe.com/products
 
 Create two products:
+
 - **Evident Professional** - $49/month with 3-day trial
 - **Evident Premium** - $249/month
 
 Copy price IDs to `.env`:
+
 ```bash
 STRIPE_PRICE_PRO=price_1ABC...
 STRIPE_PRICE_PREMIUM=price_1XYZ...
 ```
 
 Get API keys from https://dashboard.stripe.com/apikeys:
+
 ```bash
 STRIPE_SECRET_KEY=sk_test_...
 STRIPE_PUBLISHABLE_KEY=pk_test_...
@@ -332,11 +354,13 @@ Go to https://dashboard.stripe.com/webhooks
 Add endpoint: `https://Evident.info/api/stripe/webhook`
 
 Select events:
+
 - `checkout.session.completed`
 - `customer.subscription.updated`
 - `customer.subscription.deleted`
 
 Copy webhook secret to `.env`:
+
 ```bash
 STRIPE_WEBHOOK_SECRET=whsec_...
 ```
@@ -344,27 +368,29 @@ STRIPE_WEBHOOK_SECRET=whsec_...
 **4. Frontend Update** (5 min)
 
 Add to `pricing.html`:
+
 ```html
 <button onclick="subscribeToPlan('PROFESSIONAL')" class="btn btn-primary">
   Start 3-Day Free Trial
 </button>
 
 <script>
-async function subscribeToPlan(tier) {
-  const res = await fetch('/api/stripe/create-checkout-session', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({tier})
-  });
-  const {url} = await res.json();
-  if (url) window.location.href = url;
-}
+  async function subscribeToPlan(tier) {
+    const res = await fetch("/api/stripe/create-checkout-session", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ tier }),
+    });
+    const { url } = await res.json();
+    if (url) window.location.href = url;
+  }
 </script>
 ```
 
 **5. Test** (5 min)
 
 Test checkout flow:
+
 1. Login as `free@Evident.test`
 2. Go to `/pricing`
 3. Click "Start 3-Day Free Trial"
@@ -381,6 +407,7 @@ Switch to live Stripe keys and you're live!
 ## Testing Checklist
 
 ### **Unit Tests**
+
 - [ ] Stripe checkout session creation
 - [ ] Webhook signature verification
 - [ ] Tier upgrade logic
@@ -388,6 +415,7 @@ Switch to live Stripe keys and you're live!
 - [ ] Access control decorators
 
 ### **Integration Tests**
+
 - [ ] End-to-end subscription flow
 - [ ] Trial period activation
 - [ ] Subscription renewal
@@ -395,6 +423,7 @@ Switch to live Stripe keys and you're live!
 - [ ] Payment failure handling
 
 ### **User Acceptance Tests**
+
 - [ ] FREE → PRO upgrade
 - [ ] PRO → PREMIUM upgrade
 - [ ] Premium → FREE downgrade (cancellation)
@@ -404,6 +433,7 @@ Switch to live Stripe keys and you're live!
 - [ ] Upgrade prompts shown when approaching limits
 
 ### **Security Tests**
+
 - [ ] Webhook signature validation
 - [ ] Unauthorized API access blocked
 - [ ] Usage tracking can't be manipulated
@@ -445,23 +475,27 @@ Switch to live Stripe keys and you're live!
 ## Support & Resources
 
 ### **Documentation**
+
 - 📖 `SUBSCRIPTION-QUICK-START.md` - 5-minute setup
 - 📚 `SUBSCRIPTION-SYSTEM-GUIDE.md` - Complete guide
 - 📊 `PRICING-COMPLETE-DEPENDENCY-ANALYSIS.md` - Economics
 - 📝 `SUBSCRIPTION-IMPLEMENTATION-SUMMARY.md` - Overview
 
 ### **Code Files**
+
 - 💳 `stripe_subscription_service.py` - Stripe integration
 - 🔒 `tier_gating.py` - Access control
 - 📊 `templates/usage_dashboard.html` - Dashboard UI
 - 🗄️ `models_auth.py` - Database models
 
 ### **Setup Scripts**
+
 - ⚙️ `migrate_add_stripe_subscriptions.py` - Database migration
 - 🔧 `integrate_subscription_system.py` - System integration
 - 👥 `create_test_subscription_accounts.py` - Test accounts
 
 ### **External Resources**
+
 - Stripe Dashboard: https://dashboard.stripe.com
 - Stripe API Docs: https://stripe.com/docs/api
 - Stripe Testing: https://stripe.com/docs/testing
@@ -476,6 +510,7 @@ Switch to live Stripe keys and you're live!
 **Problem:** Checkout button doesn't work
 
 **Solution:**
+
 - Check `STRIPE_PUBLISHABLE_KEY` in `.env`
 - Check browser console for JavaScript errors
 - Verify `STRIPE_PRICE_PRO` matches Stripe Dashboard
@@ -485,6 +520,7 @@ Switch to live Stripe keys and you're live!
 **Problem:** Webhook not receiving events
 
 **Solution:**
+
 - For local testing, use ngrok: `ngrok http 5000`
 - Update Stripe webhook URL to ngrok URL
 - Check `STRIPE_WEBHOOK_SECRET` matches webhook settings
@@ -494,6 +530,7 @@ Switch to live Stripe keys and you're live!
 **Problem:** User tier not upgrading after payment
 
 **Solution:**
+
 - Check webhook endpoint is publicly accessible
 - Check Stripe Dashboard → Webhooks → Events log
 - Verify webhook signature secret is correct
@@ -504,6 +541,7 @@ Switch to live Stripe keys and you're live!
 **Problem:** Usage limits not enforcing
 
 **Solution:**
+
 - Verify decorator is applied: `@check_usage_limit(...)`
 - Check user tier: `print(current_user.tier)`
 - Check usage tracking exists: `UsageTracking.get_or_create_current(user.id)`
@@ -515,11 +553,13 @@ Switch to live Stripe keys and you're live!
 ### **Requirements Analysis**
 
 **Target Users:**
+
 - Defense attorneys with limited internet access (jails, courthouses)
 - Public defenders with high caseloads (offline processing preferred)
 - Firms wanting local data storage (CJIS compliance)
 
 **Must-Have Features:**
+
 1. **Offline-First:** Queue operations when offline, sync when online
 2. **Local Processing:** Whisper GPU + Tesseract OCR (no API costs)
 3. **License Validation:** Phone-home validation (like Enterprise tier)
@@ -528,17 +568,18 @@ Switch to live Stripe keys and you're live!
 
 **Tech Stack Decision:**
 
-| Framework | Pros | Cons | Verdict |
-|-----------|------|------|---------|
+| Framework    | Pros                                                             | Cons                                     | Verdict            |
+| ------------ | ---------------------------------------------------------------- | ---------------------------------------- | ------------------ |
 | **Electron** | Easy to build (web tech), large ecosystem, auto-updater built-in | Large file size (~150MB), high RAM usage | ✅ **Recommended** |
-| **Tauri** | Small size (~15MB), low RAM, Rust security | Newer ecosystem, steeper learning curve | ⏸️ Future option |
-| **Qt/C++** | Native performance, small size | Complete rewrite, slower development | ❌ Too slow |
+| **Tauri**    | Small size (~15MB), low RAM, Rust security                       | Newer ecosystem, steeper learning curve  | ⏸️ Future option   |
+| **Qt/C++**   | Native performance, small size                                   | Complete rewrite, slower development     | ❌ Too slow        |
 
 **Recommendation:** Start with Electron, migrate to Tauri later if needed
 
 ### **Development Roadmap (4 weeks)**
 
 **Week 1: Architecture & Setup**
+
 - [ ] Set up Electron project
 - [ ] Design offline database schema (SQLite)
 - [ ] Plan sync architecture (conflict resolution)
@@ -546,6 +587,7 @@ Switch to live Stripe keys and you're live!
 - [ ] Create auto-update mechanism
 
 **Week 2: Core Features**
+
 - [ ] Port web UI to Electron
 - [ ] Implement file drag-and-drop
 - [ ] Integrate local Whisper transcription
@@ -553,6 +595,7 @@ Switch to live Stripe keys and you're live!
 - [ ] Build case management offline mode
 
 **Week 3: Sync & Updates**
+
 - [ ] Background sync service
 - [ ] Conflict resolution UI
 - [ ] Auto-update testing
@@ -560,6 +603,7 @@ Switch to live Stripe keys and you're live!
 - [ ] System tray implementation
 
 **Week 4: Polish & Packaging**
+
 - [ ] Windows installer (MSI)
 - [ ] Code signing certificate
 - [ ] Performance optimization
@@ -567,12 +611,14 @@ Switch to live Stripe keys and you're live!
 - [ ] Documentation
 
 **Estimated Costs:**
+
 - Code signing certificate: $400/year (DigiCert)
 - Development time: 160 hours × $50/hr = $8,000
 - Testing hardware: $1,000
 - **Total:** ~$10,000 initial investment
 
 **Revenue Model:**
+
 - Option 1: Include with PREMIUM ($249/month) - attracts upgrades
 - Option 2: Separate "Desktop Edition" ($99/month) - additional revenue stream
 - Option 3: One-time purchase ($499) - upfront cash
@@ -592,6 +638,7 @@ Switch to live Stripe keys and you're live!
 ## Final Checklist
 
 ### **Pre-Launch**
+
 - [ ] Database migration completed
 - [ ] Test accounts created
 - [ ] Stripe products created
@@ -604,6 +651,7 @@ Switch to live Stripe keys and you're live!
 - [ ] Usage limits tested
 
 ### **Launch Day**
+
 - [ ] Switch to live Stripe keys
 - [ ] Update webhook URL to production
 - [ ] Deploy to production server
@@ -613,6 +661,7 @@ Switch to live Stripe keys and you're live!
 - [ ] Monitor app logs for errors
 
 ### **Post-Launch**
+
 - [ ] Set up revenue tracking
 - [ ] Configure conversion analytics
 - [ ] Monitor churn rate
@@ -627,6 +676,7 @@ Switch to live Stripe keys and you're live!
 **You now have a complete, production-ready subscription system!**
 
 **What you've accomplished:**
+
 - ✅ 2,200+ lines of production code
 - ✅ Stripe payment integration
 - ✅ Tier-based access control
@@ -646,6 +696,6 @@ Switch to live Stripe keys and you're live!
 
 ---
 
-*Last Updated: January 27, 2026*  
-*Version: 1.0*  
-*Status: Production-Ready ✅*
+_Last Updated: January 27, 2026_  
+_Version: 1.0_  
+_Status: Production-Ready ✅_

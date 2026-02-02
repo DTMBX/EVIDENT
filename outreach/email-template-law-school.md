@@ -88,6 +88,7 @@ Evident Legal Technologies
 📞 [Your phone number]
 
 **Attachments:**
+
 - Evident-Law-School-Partnership-Deck.pdf
 
 ---
@@ -143,7 +144,7 @@ Content:
 ✓ 7-step analysis framework  
 ✓ Legal standards (authentication, hearsay, Brady, spoliation)  
 ✓ Common discrepancies prosecutors miss  
-✓ Cross-examination techniques using BWC  
+✓ Cross-examination techniques using BWC
 
 Download: [Link]
 
@@ -178,6 +179,7 @@ I wanted to share a success story from another law school clinic that might inte
 **The Outcome:** Student used Evident to find 3-second discrepancy proving officer's injury was self-inflicted. Charges dismissed.
 
 **Student's comment:**
+
 > "Without Evident, I would have spent 200+ hours reviewing footage and still missed this. Now I have time to focus on oral arguments and client counseling."
 
 Full case study (anonymized): [Link]
@@ -209,22 +211,26 @@ Would you be interested in co-authoring a paper or article on:
 **"The Role of AI in Clinical Legal Education: Using Body-Worn Camera Analysis Tools to Enhance Student Learning"**
 
 **Potential research questions:**
+
 - Does AI-powered analysis improve student understanding of evidence evaluation?
 - How does automating tedious tasks (transcription) free up time for higher-level learning?
 - What are the ethical considerations of teaching students to use AI tools?
 
 **What I'd contribute:**
+
 - Free Evident access for your clinic (for research purposes)
 - Data on student usage patterns
 - Co-authorship credit
 - Conference presentation support (AALS, SEALS, regional conferences)
 
 **Potential publication outlets:**
+
 - Clinical Law Review
 - Journal of Legal Education
 - Legal Writing Journal
 
 This could be valuable for both of us:
+
 - You: Publishable research + free tool for clinic
 - Me: Academic credibility + improved product based on clinic feedback
 
@@ -349,6 +355,7 @@ NYU Law,Prof. Sarah Lee,Clinic Director,slee@nyu.edu,2026-01-29,Email #1,No resp
 ```
 
 **Columns:**
+
 - **Organization Name:** Law school, bar association, or legal aid org
 - **Contact Name:** Decision-maker
 - **Title:** Clinical professor, executive director, etc.

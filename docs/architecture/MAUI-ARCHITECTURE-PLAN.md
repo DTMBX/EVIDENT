@@ -278,19 +278,19 @@ public class LoginViewModel : BaseViewModel
 {
     private readonly IAuthService _authService;
     private readonly INavigationService _navigationService;
-    
+
     public string Email { get; set; }
     public string Password { get; set; }
-    
+
     public ICommand LoginCommand { get; }
-    
+
     public LoginViewModel(IAuthService authService, INavigationService nav)
     {
         _authService = authService;
         _navigationService = nav;
         LoginCommand = new AsyncRelayCommand(LoginAsync);
     }
-    
+
     private async Task LoginAsync()
     {
         IsBusy = true;
@@ -317,21 +317,21 @@ public class LoginViewModel : BaseViewModel
 public class AuthService : IAuthService
 {
     private readonly IApiService _apiService;
-    
+
     public async Task<LoginResult> LoginAsync(string email, string password)
     {
         var response = await _apiService.PostAsync<LoginResponse>(
             "/api/auth/login",
             new { email, password }
         );
-        
+
         if (response.Success)
         {
             // Store token securely
             await SecureStorage.SetAsync("auth_token", response.Token);
             return new LoginResult { Success = true };
         }
-        
+
         return new LoginResult { Success = false, Message = response.Error };
     }
 }
@@ -342,6 +342,7 @@ public class AuthService : IAuthService
 ## 🔐 Security Implementation
 
 ### Token Storage
+
 ```csharp
 // Secure token storage using MAUI SecureStorage
 await SecureStorage.SetAsync("auth_token", token);
@@ -349,6 +350,7 @@ var token = await SecureStorage.GetAsync("auth_token");
 ```
 
 ### API Request Headers
+
 ```csharp
 private async Task<HttpRequestMessage> CreateAuthenticatedRequest(string endpoint)
 {
@@ -360,6 +362,7 @@ private async Task<HttpRequestMessage> CreateAuthenticatedRequest(string endpoin
 ```
 
 ### Certificate Pinning (Production)
+
 ```csharp
 public class SecureHttpClientHandler : HttpClientHandler
 {
@@ -392,21 +395,21 @@ public class SyncService
             Payload = JsonSerializer.Serialize(new { filePath }),
             CreatedAt = DateTime.UtcNow
         };
-        
+
         await _database.AddToSyncQueue(queueItem);
-        
+
         // Try immediate sync if online
         if (Connectivity.Current.NetworkAccess == NetworkAccess.Internet)
         {
             await ProcessSyncQueue();
         }
     }
-    
+
     // 2. Background sync when online
     public async Task ProcessSyncQueue()
     {
         var pendingItems = await _database.GetPendingSyncItems();
-        
+
         foreach (var item in pendingItems)
         {
             try
@@ -418,7 +421,7 @@ public class SyncService
                         break;
                     // ... other types
                 }
-                
+
                 await _database.RemoveFromSyncQueue(item.Id);
             }
             catch (Exception ex)
@@ -467,6 +470,7 @@ LoginPage
 ## 🎨 Windows 11 Design System
 
 ### Colors (From Evident Branding)
+
 ```xml
 <Color x:Key="PrimaryGold">#d4a574</Color>
 <Color x:Key="BackgroundDark">#0f0f0f</Color>
@@ -476,6 +480,7 @@ LoginPage
 ```
 
 ### Fluent Design Principles
+
 - **Acrylic backgrounds** for depth
 - **Reveal highlights** on hover
 - **Connected animations** between pages
@@ -485,53 +490,59 @@ LoginPage
 
 ## 📊 Performance Targets
 
-| Metric | Target | How to Achieve |
-|--------|--------|----------------|
-| **App Launch** | <1 second | Lazy loading, minimize startup work |
-| **API Calls** | <500ms p95 | Caching, connection pooling |
-| **File Upload** | Progress visible | Chunked upload, background service |
-| **UI Responsiveness** | 60fps | Async operations, virtual scrolling |
-| **Memory Usage** | <200MB idle | Dispose resources, image optimization |
+| Metric                | Target           | How to Achieve                        |
+| --------------------- | ---------------- | ------------------------------------- |
+| **App Launch**        | <1 second        | Lazy loading, minimize startup work   |
+| **API Calls**         | <500ms p95       | Caching, connection pooling           |
+| **File Upload**       | Progress visible | Chunked upload, background service    |
+| **UI Responsiveness** | 60fps            | Async operations, virtual scrolling   |
+| **Memory Usage**      | <200MB idle      | Dispose resources, image optimization |
 
 ---
 
 ## 🚀 Development Phases (Aligned with Phase D)
 
 ### Week 1: Authentication & Foundation
+
 - Create project structure
 - Implement login screen
 - Build ApiService base
 - Set up navigation
 
 ### Week 2: Evidence Upload
+
 - File picker integration
 - Upload progress UI
 - Local caching
 - Offline queue
 
 ### Week 3: Analysis Integration
+
 - Analysis status display
 - Real-time updates
 - Transcript viewer
 - Report export
 
 ### Week 4: Document Generation
+
 - Template selector
 - Parameter forms
 - Preview & download
 
 ### Week 5: Payments
+
 - Subscription display
 - Upgrade flow
 - Invoice management
 
 ### Week 6: Polish & Testing
+
 - Windows 11 features
 - Accessibility
 - Performance optimization
 
 ---
 
-*Architecture Plan Complete*  
-*Ready for Implementation*  
-*Last Updated: January 27, 2026*
+_Architecture Plan Complete_  
+_Ready for Implementation_  
+_Last Updated: January 27, 2026_

@@ -31,11 +31,13 @@
 ### 1. Changed **Future Claims to Present Reality**
 
 **BEFORE:**
+
 - "Shepardizing functional"
 - "Judge intelligence operational"
 - "AI assistant integrated"
 
 **AFTER:**
+
 - "Shepardizing capability (in development)"
 - "Judge intelligence system (beta)"
 - "AI research assistant (coming soon)"
@@ -43,16 +45,19 @@
 ### 2. Grounded **Aspirational Language**
 
 **BEFORE:**
+
 - "Our path to becoming the dominant legal research platform"
 - "When we win market share"
 
 **AFTER:**
+
 - "Our plan to compete with major platforms"
 - "Our growth strategy"
 
 ### 3. Added **Honest Disclaimers**
 
 **ADDED:**
+
 - "Currently in beta with early access users"
 - "Features in development - roadmap subject to change"
 - "Data powered by CourtListener - we add AI, mobile, and support"
@@ -60,9 +65,11 @@
 ### 4. Fixed **Price Comparison Context**
 
 **BEFORE:**
+
 - "Westlaw costs $2,000/month"
 
 **AFTER:**
+
 - "Westlaw Enterprise: $1,500-2,500/month depending on features"
 - "Entry-level Westlaw: $500-800/month"
 - "Evident Professional: $50/month (comparable to entry-level features)"
@@ -70,10 +77,12 @@
 ### 5. Reframed **Timeline as Goals, Not Promises**
 
 **BEFORE:**
+
 - "Target: 1,000 users in 90 days"
 - "6 months: 10,000 active users"
 
 **AFTER:**
+
 - "Goal: 1,000 users in first 90 days"
 - "12-month target: 10,000 active users (aspirational)"
 
@@ -82,6 +91,7 @@
 ## 📊 What We ACTUALLY Have (Jan 2026):
 
 ### ✅ **Working & Deployed:**
+
 - Flask web app (live on Render)
 - User authentication & subscription system (Stripe)
 - Case upload & storage
@@ -92,12 +102,14 @@
 - CourtListener API integration (backend ready)
 
 ### 🚧 **Built But Not in Production UI:**
+
 - Citation network analyzer (Python class ready)
 - Judge intelligence system (Python class ready)
 - ChatGPT integration (service layer ready)
 - Legal document optimizer (Python class ready)
 
 ### 📋 **Planned But Not Built:**
+
 - Shepardizing UI (cite-checking interface)
 - Judge research dashboard
 - AI chat interface
@@ -108,6 +120,7 @@
 - API marketplace
 
 ### 🎯 **Data Access (via CourtListener):**
+
 - 10M+ federal opinions (via API, not ingested)
 - 400M+ citations (via API)
 - 1M+ judge profiles (via API)
@@ -161,12 +174,14 @@ Add disclaimer:
 ## 🎯 CORE MESSAGING (HONEST VERSION):
 
 ### What We Are:
+
 - **Early-stage legal research platform** (not "dominant player")
 - **Integrating CourtListener's data** with AI and mobile tools
 - **Targeting underserved markets** (legal aid, solo practitioners, students)
 - **Mission-driven** to democratize legal research
 
 ### What We're Building:
+
 - **Affordable access** to 10M+ federal opinions
 - **AI-powered research assistant** (ChatGPT integration)
 - **Citation analysis** (Shepard's equivalent)
@@ -174,12 +189,14 @@ Add disclaimer:
 - **Mobile apps** (iOS/Android via MAUI)
 
 ### What We're NOT:
+
 - **Not a competitor to CourtListener** (we amplify their mission)
 - **Not claiming superiority** to Westlaw (we're cheaper, not better)
 - **Not hiding the free alternative** (CourtListener.com)
 - **Not making promises we can't keep** (beta disclaimers)
 
 ### Our Value-Add:
+
 1. **AI assistant** - ChatGPT integration for research queries
 2. **Mobile apps** - iOS/Android for on-the-go research
 3. **Professional support** - Email/chat support (vs. self-service)
@@ -206,6 +223,7 @@ Add disclaimer:
 ## 🤝 CourtListener Alignment:
 
 **Our Responsibility:**
+
 - ✅ Give proper attribution (footer added)
 - ✅ Don't compete with their free service
 - ✅ Be transparent about free alternatives
@@ -218,4 +236,3 @@ Add disclaimer:
 ---
 
 **All fixes are being applied now to align language with reality.** ✅
-

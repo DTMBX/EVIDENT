@@ -9,6 +9,7 @@
 ### Step 1: Open Stripe Webhooks
 
 Go to your Stripe Dashboard:
+
 - **Test Mode:** https://dashboard.stripe.com/test/webhooks
 - **Live Mode:** https://dashboard.stripe.com/webhooks
 
@@ -46,6 +47,7 @@ Click **"+ Select events"** button, then follow the event selection guide.
 ### Step 5: Get Your Signing Secret
 
 After creating the endpoint:
+
 1. Click on your new endpoint in the list
 2. Find **"Signing secret"** section
 3. Click **"Reveal"** to see the secret
@@ -68,10 +70,10 @@ In Stripe's new UI, events are organized by category. Here's exactly what to sel
 
 Click **"Checkout"** in the left sidebar, then check:
 
-| ✓ | Event Name | What It Does for Evident |
-|---|------------|--------------------------|
-| ☑️ | `checkout.session.completed` | **CRITICAL:** Activates new subscription, upgrades user to paid tier |
-| ☐ | `checkout.session.expired` | Optional: Track abandoned checkouts |
+| ✓   | Event Name                   | What It Does for Evident                                             |
+| --- | ---------------------------- | -------------------------------------------------------------------- |
+| ☑️  | `checkout.session.completed` | **CRITICAL:** Activates new subscription, upgrades user to paid tier |
+| ☐   | `checkout.session.expired`   | Optional: Track abandoned checkouts                                  |
 
 **How to find:** Checkout → `session` → check `completed`
 
@@ -81,11 +83,11 @@ Click **"Checkout"** in the left sidebar, then check:
 
 Click **"Customer"** in the left sidebar, then check:
 
-| ✓ | Event Name | What It Does for Evident |
-|---|------------|--------------------------|
-| ☑️ | `customer.created` | Logs new Stripe customer creation |
-| ☑️ | `customer.updated` | Syncs email/name changes from Stripe |
-| ☐ | `customer.deleted` | Optional: Handle account deletion |
+| ✓   | Event Name         | What It Does for Evident             |
+| --- | ------------------ | ------------------------------------ |
+| ☑️  | `customer.created` | Logs new Stripe customer creation    |
+| ☑️  | `customer.updated` | Syncs email/name changes from Stripe |
+| ☐   | `customer.deleted` | Optional: Handle account deletion    |
 
 **How to find:** Customer → check `created` and `updated`
 
@@ -95,14 +97,14 @@ Click **"Customer"** in the left sidebar, then check:
 
 This is the **MOST IMPORTANT** category. Click **"Customer"** → expand **"subscription"**:
 
-| ✓ | Event Name | What It Does for Evident |
-|---|------------|--------------------------|
-| ☑️ | `customer.subscription.created` | Records new subscription in database |
-| ☑️ | `customer.subscription.updated` | **CRITICAL:** Handles plan changes, renewals, status changes |
-| ☑️ | `customer.subscription.deleted` | **CRITICAL:** Downgrades user to FREE when subscription ends |
-| ☑️ | `customer.subscription.paused` | Marks subscription as paused (if you enable this feature) |
-| ☑️ | `customer.subscription.resumed` | Reactivates paused subscription |
-| ☑️ | `customer.subscription.trial_will_end` | **IMPORTANT:** Sends reminder 3 days before trial ends |
+| ✓   | Event Name                             | What It Does for Evident                                     |
+| --- | -------------------------------------- | ------------------------------------------------------------ |
+| ☑️  | `customer.subscription.created`        | Records new subscription in database                         |
+| ☑️  | `customer.subscription.updated`        | **CRITICAL:** Handles plan changes, renewals, status changes |
+| ☑️  | `customer.subscription.deleted`        | **CRITICAL:** Downgrades user to FREE when subscription ends |
+| ☑️  | `customer.subscription.paused`         | Marks subscription as paused (if you enable this feature)    |
+| ☑️  | `customer.subscription.resumed`        | Reactivates paused subscription                              |
+| ☑️  | `customer.subscription.trial_will_end` | **IMPORTANT:** Sends reminder 3 days before trial ends       |
 
 **How to find:** Customer → `subscription` → check all 6 events above
 
@@ -112,14 +114,14 @@ This is the **MOST IMPORTANT** category. Click **"Customer"** → expand **"subs
 
 Click **"Invoice"** in the left sidebar:
 
-| ✓ | Event Name | What It Does for Evident |
-|---|------------|--------------------------|
-| ☑️ | `invoice.paid` | **CRITICAL:** Confirms successful payment, extends subscription |
-| ☑️ | `invoice.payment_failed` | **CRITICAL:** Marks account as past_due, triggers dunning emails |
-| ☑️ | `invoice.payment_action_required` | Notifies when 3D Secure authentication needed |
-| ☑️ | `invoice.upcoming` | Alerts before next billing (good for usage-based charges) |
-| ☐ | `invoice.created` | Optional: Track invoice creation |
-| ☐ | `invoice.finalized` | Optional: Track finalized invoices |
+| ✓   | Event Name                        | What It Does for Evident                                         |
+| --- | --------------------------------- | ---------------------------------------------------------------- |
+| ☑️  | `invoice.paid`                    | **CRITICAL:** Confirms successful payment, extends subscription  |
+| ☑️  | `invoice.payment_failed`          | **CRITICAL:** Marks account as past_due, triggers dunning emails |
+| ☑️  | `invoice.payment_action_required` | Notifies when 3D Secure authentication needed                    |
+| ☑️  | `invoice.upcoming`                | Alerts before next billing (good for usage-based charges)        |
+| ☐   | `invoice.created`                 | Optional: Track invoice creation                                 |
+| ☐   | `invoice.finalized`               | Optional: Track finalized invoices                               |
 
 **How to find:** Invoice → check `paid`, `payment_failed`, `payment_action_required`, `upcoming`
 
@@ -129,10 +131,10 @@ Click **"Invoice"** in the left sidebar:
 
 For one-time payments or add-ons. Click **"Payment Intent"**:
 
-| ✓ | Event Name | What It Does for Evident |
-|---|------------|--------------------------|
-| ☐ | `payment_intent.succeeded` | Confirms one-time payment (add-ons, credits) |
-| ☐ | `payment_intent.payment_failed` | Logs failed one-time payments |
+| ✓   | Event Name                      | What It Does for Evident                     |
+| --- | ------------------------------- | -------------------------------------------- |
+| ☐   | `payment_intent.succeeded`      | Confirms one-time payment (add-ons, credits) |
+| ☐   | `payment_intent.payment_failed` | Logs failed one-time payments                |
 
 **How to find:** Payment Intent → check `succeeded` and `payment_failed` if needed
 
@@ -182,8 +184,10 @@ Select events to listen to:
 ## 🎯 EVENT DETAILS: What Each One Does
 
 ### 🟢 checkout.session.completed
+
 **When:** User completes payment on checkout page  
 **What happens:**
+
 - User's tier upgrades (FREE → PROFESSIONAL/PREMIUM)
 - Stripe subscription ID saved to user record
 - Subscription start date recorded
@@ -198,8 +202,10 @@ User clicks "Subscribe" → Stripe Checkout → Payment success → This webhook
 ---
 
 ### 🟢 customer.subscription.updated
+
 **When:** Any change to subscription (renewal, plan change, status change)  
 **What happens:**
+
 - Updates subscription status (active, past_due, canceled)
 - Updates billing period end date
 - Handles plan upgrades/downgrades
@@ -212,8 +218,10 @@ Monthly renewal succeeds → This webhook fires → Extends billing period by 1 
 ---
 
 ### 🟢 customer.subscription.deleted
+
 **When:** Subscription is fully canceled/expired  
 **What happens:**
+
 - User tier downgrades to FREE
 - Subscription end date recorded
 - Access to paid features revoked
@@ -227,8 +235,10 @@ User cancels subscription → Billing period ends → This webhook fires
 ---
 
 ### 🟢 invoice.paid
+
 **When:** Any invoice is successfully paid  
 **What happens:**
+
 - Confirms subscription renewal
 - Updates subscription status to "active"
 - Logs payment amount for records
@@ -240,8 +250,10 @@ Card charged successfully → This webhook fires → subscription_status = "acti
 ---
 
 ### 🟢 invoice.payment_failed
+
 **When:** Payment attempt fails (card declined, expired, etc.)  
 **What happens:**
+
 - Subscription status set to "past_due"
 - Dunning process begins (Stripe retries)
 - User should receive email to update payment method
@@ -256,8 +268,10 @@ Card declined → This webhook fires → subscription_status = "past_due"
 ---
 
 ### 🟡 customer.subscription.trial_will_end
+
 **When:** 3 days before free trial ends  
 **What happens:**
+
 - Opportunity to send reminder email
 - User can update payment method or cancel
 
@@ -270,8 +284,10 @@ Trial started Jan 1 (14-day trial) → Jan 11: This webhook fires → Send remin
 ---
 
 ### 🟡 invoice.payment_action_required
+
 **When:** Payment needs extra verification (3D Secure, etc.)  
 **What happens:**
+
 - User needs to complete authentication
 - Send email with link to complete payment
 
@@ -282,8 +298,10 @@ Bank requires verification → This webhook fires → Send "Complete your paymen
 ---
 
 ### 🟡 invoice.upcoming
+
 **When:** ~3 days before next invoice is created  
 **What happens:**
+
 - Good time to add usage-based charges
 - Can send "upcoming bill" notification
 
@@ -304,11 +322,13 @@ Next billing in 3 days → This webhook fires → Add any metered usage charges
 ### Add to Your Environment:
 
 **Local Development (.env file):**
+
 ```bash
 STRIPE_WEBHOOK_SECRET=whsec_aBcDeFgHiJkLmNoPqRsTuVwXyZ123456
 ```
 
 **Render.com:**
+
 1. Go to Dashboard → Your Service → Environment
 2. Click "Add Environment Variable"
 3. Key: `STRIPE_WEBHOOK_SECRET`
@@ -316,6 +336,7 @@ STRIPE_WEBHOOK_SECRET=whsec_aBcDeFgHiJkLmNoPqRsTuVwXyZ123456
 5. Click "Save Changes"
 
 **Other Hosts (Heroku, Railway, etc.):**
+
 ```bash
 # Via CLI
 heroku config:set STRIPE_WEBHOOK_SECRET=whsec_xxx
@@ -390,30 +411,33 @@ stripe trigger customer.subscription.deleted
 
 ## 🔗 Useful Links
 
-| Resource | URL |
-|----------|-----|
-| Webhook Dashboard (Test) | https://dashboard.stripe.com/test/webhooks |
-| Webhook Dashboard (Live) | https://dashboard.stripe.com/webhooks |
-| All Event Types | https://stripe.com/docs/api/events/types |
-| Stripe CLI Download | https://stripe.com/docs/stripe-cli |
-| Webhook Best Practices | https://stripe.com/docs/webhooks/best-practices |
-| Testing Webhooks | https://stripe.com/docs/webhooks/test |
+| Resource                 | URL                                             |
+| ------------------------ | ----------------------------------------------- |
+| Webhook Dashboard (Test) | https://dashboard.stripe.com/test/webhooks      |
+| Webhook Dashboard (Live) | https://dashboard.stripe.com/webhooks           |
+| All Event Types          | https://stripe.com/docs/api/events/types        |
+| Stripe CLI Download      | https://stripe.com/docs/stripe-cli              |
+| Webhook Best Practices   | https://stripe.com/docs/webhooks/best-practices |
+| Testing Webhooks         | https://stripe.com/docs/webhooks/test           |
 
 ---
 
 ## 🆘 Troubleshooting
 
 ### "Webhook signature verification failed"
+
 - Check `STRIPE_WEBHOOK_SECRET` is correct
 - Make sure you're using the secret for the right endpoint (test vs live)
 - Don't modify the raw request body before verification
 
 ### "Endpoint not receiving events"
+
 - Verify URL is exactly `https://Evident.info/api/stripe/webhook`
 - Check your server is running and accessible
 - Look at "Recent events" in Stripe Dashboard for delivery attempts
 
 ### "Event received but nothing happens"
+
 - Check server logs for errors
 - Verify user has `stripe_customer_id` set
 - Make sure database connection is working

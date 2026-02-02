@@ -9,11 +9,13 @@
 ## 🚨 CURRENT SITUATION
 
 **Problem:** Production deployment showing "Internal Server Error"
+
 - URL: https://Evident-legal-tech.onrender.com
 - Error: "The server encountered an internal error"
 - Multiple deploy attempts failed
 
 **Root Cause (Suspected):**
+
 - App initialization failing on Render
 - Likely database connection or import error
 - Need logs to diagnose exact issue
@@ -27,11 +29,13 @@
 Deploy a minimal Flask app that DEFINITELY works, then add features incrementally.
 
 **Files Created:**
+
 1. `app_minimal.py` - Bare-bones Flask app (only Flask + CORS)
 2. `build_minimal.sh` - Install only Flask, CORS, gunicorn
 3. `render_minimal.yaml` - Minimal Render config
 
 **To Deploy Minimal Version:**
+
 1. Rename `render.yaml` to `render_full.yaml` (backup)
 2. Rename `render_minimal.yaml` to `render.yaml`
 3. Commit and push
@@ -43,6 +47,7 @@ Deploy a minimal Flask app that DEFINITELY works, then add features incrementall
 Fixed potential issues in main app.py:
 
 **Changes Made:**
+
 1. **Removed nested app_context** in `initialize_backend_services()`
    - Was calling `with app.app_context()` inside another app_context
    - This can cause context errors
@@ -63,6 +68,7 @@ Fixed potential issues in main app.py:
 ### Option A: Deploy Minimal App First (SAFEST)
 
 **Steps:**
+
 ```bash
 cd C:\web-dev\github-repos\Evident.info
 
@@ -79,11 +85,13 @@ git push origin main
 ```
 
 **Result:**
+
 - Minimal app will DEFINITELY work
 - You can verify Render deployment works
 - Then gradually restore features
 
 **Test URLs:**
+
 - https://Evident-legal-tech.onrender.com/ → Should show simple page
 - https://Evident-legal-tech.onrender.com/health → Should return JSON
 - https://Evident-legal-tech.onrender.com/env → Shows environment info
@@ -91,6 +99,7 @@ git push origin main
 ### Option B: Deploy Fixed Main App (CURRENT)
 
 **Already Done:**
+
 - Fixed app.py initialization
 - Commit: Will create below
 - Push and wait for deployment
@@ -141,6 +150,7 @@ git push origin main
 ### Immediate (Next 10 Minutes)
 
 **OPTION 1: Quick Win with Minimal App** ⭐ RECOMMENDED
+
 ```bash
 # Deploy minimal working version
 git mv render.yaml render_full.yaml
@@ -155,12 +165,14 @@ git push origin main
 ```
 
 **Benefits:**
+
 - ✅ Guaranteed to work
 - ✅ Proves Render deployment works
 - ✅ Gives us a working baseline
 - ✅ Can add features one by one
 
 **OPTION 2: Try Fixed Main App**
+
 ```bash
 # Commit the fixes we just made
 git add app.py
@@ -172,6 +184,7 @@ git push origin main
 ```
 
 **Benefits:**
+
 - ✅ If it works, everything is ready
 - ❌ If it fails, need to check logs
 
@@ -180,12 +193,15 @@ git push origin main
 ## 📊 WHAT EACH APPROACH DEPLOYS
 
 ### Minimal App (app_minimal.py)
+
 **Dependencies:** (3 packages, ~30 MB)
+
 - Flask==3.1.0
 - Flask-CORS==5.0.0
 - gunicorn==23.0.0
 
 **Features:**
+
 - ✅ Homepage
 - ✅ Health check
 - ✅ API test endpoint
@@ -197,11 +213,14 @@ git push origin main
 **Purpose:** Prove Render works, establish baseline
 
 ### Full App (app.py)
+
 **Dependencies:** (25 packages, ~500 MB)
+
 - All minimal packages PLUS
 - SQLAlchemy, psycopg2, Pillow, pypdf, etc.
 
 **Features:**
+
 - ✅ Everything (full platform)
 - ✅ Database integration
 - ✅ User accounts
@@ -253,6 +272,7 @@ Based on common Render deployment issues:
 ## ✅ FILES CREATED FOR MINIMAL DEPLOY
 
 **1. app_minimal.py** (127 lines)
+
 - Standalone Flask app
 - No database, no complex imports
 - 4 routes: /, /health, /api/test, /env
@@ -260,11 +280,13 @@ Based on common Render deployment issues:
 - JSON API responses
 
 **2. build_minimal.sh** (15 lines)
+
 - Install Flask, CORS, gunicorn only
 - Fast build (<1 minute)
 - Minimal disk usage
 
 **3. render_minimal.yaml** (20 lines)
+
 - Points to app_minimal.py
 - Uses build_minimal.sh
 - No database dependency
@@ -277,17 +299,21 @@ Based on common Render deployment issues:
 **Choose ONE approach:**
 
 ### A) Deploy Minimal App NOW ⭐ RECOMMENDED
+
 **Pros:**
+
 - Guaranteed to work
 - Quick verification
 - Establish baseline
 - Easy to debug from here
 
 **Cons:**
+
 - Not full features yet
 - Need to restore main app later
 
 **Commands:**
+
 ```bash
 git mv render.yaml render_full.yaml
 git mv render_minimal.yaml render.yaml
@@ -297,16 +323,20 @@ git push origin main
 ```
 
 ### B) Deploy Fixed Main App
+
 **Pros:**
+
 - All features if it works
 - One-step solution
 
 **Cons:**
+
 - Might still fail
 - Need Render logs to debug
 - Could waste more time
 
 **Commands:**
+
 ```bash
 git add app.py
 git commit -m "Fix: App context and error handling"
@@ -341,17 +371,20 @@ git push origin main
 ## 🚨 EMERGENCY CONTACT POINTS
 
 **If you need to revert:**
+
 ```bash
 git revert HEAD
 git push origin main
 ```
 
 **If deployment is stuck:**
+
 - Cancel deploy in Render dashboard
 - Wait for current deploy to finish
 - Then push new commit
 
 **If nothing works:**
+
 - Use minimal app as temporary production
 - Debug main app locally
 - Fix and redeploy when ready
@@ -368,6 +401,7 @@ git push origin main
 **Confidence:** HIGH (minimal app will work)
 
 **Action Required:**
+
 1. Choose Approach A or B
 2. Run the commands
 3. Wait for deployment
@@ -376,5 +410,5 @@ git push origin main
 
 ---
 
-*Last Updated: January 26, 2026 15:18 UTC*  
-*Status: Waiting for user decision on approach*
+_Last Updated: January 26, 2026 15:18 UTC_  
+_Status: Waiting for user decision on approach_

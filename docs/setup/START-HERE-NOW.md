@@ -17,6 +17,7 @@ cd C:\web-dev\github-repos\Evident.info
 ```
 
 This will:
+
 - ✅ Install PowerShell profile (20+ commands)
 - ✅ Install Python packages (openai, cryptography)
 - ✅ Generate encryption key
@@ -61,11 +62,13 @@ Build-MAUI -Configuration Release     # Build
 ```
 
 **APK Location:**
+
 ```
 bin\Release\net10.0-android34.0\com.Evident.matterdocket-Signed.apk
 ```
 
 **Install:**
+
 1. Email APK to yourself
 2. Open on Android phone
 3. Download and install
@@ -82,6 +85,7 @@ See `IOS-TESTING-COMPLETE-GUIDE.md` for 3 deployment paths:
 3. **Development** (2-3 hours) - Direct deployment, FREE
 
 **Start now:**
+
 1. Enroll in Apple Developer Program: https://developer.apple.com/programs/
 2. While waiting, test on Android!
 
@@ -94,6 +98,7 @@ See `IOS-TESTING-COMPLETE-GUIDE.md` for 3 deployment paths:
 **Location:** `src\Evident.MatterDocket.MAUI\Views\ChatPage.xaml`
 
 **Features:**
+
 - ✅ Modern dark theme chat UI
 - ✅ Message bubbles (user/assistant/system)
 - ✅ Typing indicators
@@ -103,6 +108,7 @@ See `IOS-TESTING-COMPLETE-GUIDE.md` for 3 deployment paths:
 - ✅ Message history
 
 **Legal AI Tools (1-click):**
+
 - 🔍 Brady Violation Detector
 - ⚖️ Fourth Amendment Analyzer
 - 🗣️ Miranda Violation Checker
@@ -117,21 +123,22 @@ See `IOS-TESTING-COMPLETE-GUIDE.md` for 3 deployment paths:
 
 **Quick Reference:**
 
-| Command | What It Does |
-|---------|-------------|
-| `br` | Go to Evident root |
-| `bm` | Go to MAUI project |
-| `ba` | Go to API directory |
-| `b-` | Go back to previous location |
-| `brecent` | Show recent 10 locations |
-| `Build-MAUI` | Build MAUI for Windows |
-| `Run-MAUI` | Launch MAUI app |
-| `Start-FlaskAPI` | Start Flask backend |
-| `gs` | Git status (short) |
-| `gquick "msg"` | Add, commit, push |
-| `bmenu` | Show all commands |
+| Command          | What It Does                 |
+| ---------------- | ---------------------------- |
+| `br`             | Go to Evident root           |
+| `bm`             | Go to MAUI project           |
+| `ba`             | Go to API directory          |
+| `b-`             | Go back to previous location |
+| `brecent`        | Show recent 10 locations     |
+| `Build-MAUI`     | Build MAUI for Windows       |
+| `Run-MAUI`       | Launch MAUI app              |
+| `Start-FlaskAPI` | Start Flask backend          |
+| `gs`             | Git status (short)           |
+| `gquick "msg"`   | Add, commit, push            |
+| `bmenu`          | Show all commands            |
 
 **Installation:**
+
 ```powershell
 notepad $PROFILE
 # Copy Evident-Profile.ps1 contents
@@ -148,6 +155,7 @@ bmenu
 **Documentation:** `LEGAL-AI-TOOLS.md`
 
 **Categories:**
+
 1. Constitutional Analysis (Brady, 4th Amendment, Miranda)
 2. Discovery & Evidence (Timeline, Inconsistencies, Chain of Custody)
 3. Witness & Statements (Credibility, Deposition Questions)
@@ -156,6 +164,7 @@ bmenu
 6. Organization (Case Outlines)
 
 **Each Tool Includes:**
+
 - Custom GPT instructions
 - Input/output formats
 - API integration examples
@@ -169,13 +178,14 @@ bmenu
 
 **3 Paths to iPhone:**
 
-| Path | Time | Cost | Best For |
-|------|------|------|----------|
-| Android APK | 30 min | FREE | Test today |
-| TestFlight | 2-4 weeks | $99/year | Team beta testing |
-| Development | 2-3 hours | FREE | Quick personal testing |
+| Path        | Time      | Cost     | Best For               |
+| ----------- | --------- | -------- | ---------------------- |
+| Android APK | 30 min    | FREE     | Test today             |
+| TestFlight  | 2-4 weeks | $99/year | Team beta testing      |
+| Development | 2-3 hours | FREE     | Quick personal testing |
 
 **Includes:**
+
 - Step-by-step setup
 - Apple Developer enrollment
 - Certificate/provisioning
@@ -223,6 +233,7 @@ dotnet build -f net10.0-ios -c Release
 ## 📊 Project Status
 
 ### ✅ Complete
+
 - Flask backend API (30+ endpoints)
 - MAUI services (9 services)
 - Chat UI (ChatPage + ViewModel)
@@ -233,6 +244,7 @@ dotnet build -f net10.0-ios -c Release
 - Android APK build process
 
 ### ⏳ In Progress
+
 - ChatGPT backend activation (needs migration run)
 - Service registration in MauiProgram.cs
 - Navigation setup in AppShell.xaml
@@ -240,6 +252,7 @@ dotnet build -f net10.0-ios -c Release
 - Android device testing
 
 ### 🔜 Coming Soon
+
 - TestFlight beta (waiting for Apple approval)
 - Markdown rendering in chat
 - Voice input for chat
@@ -249,16 +262,16 @@ dotnet build -f net10.0-ios -c Release
 
 ## 🎓 Documentation Index
 
-| Guide | Purpose | Time |
-|-------|---------|------|
-| `Quick-Setup.ps1` | Automated setup script | 5 min |
-| `PROFILE-SETUP-GUIDE.md` | PowerShell commands | 2 min |
-| `LEGAL-AI-TOOLS.md` | 15 legal AI assistants | Reference |
-| `IOS-TESTING-COMPLETE-GUIDE.md` | iPhone deployment | 30 min - 4 weeks |
-| `SESSION-CHAT-UI-COMPLETE.md` | Today's progress | Reference |
-| `CHATGPT-INTEGRATION-PLAN.md` | ChatGPT architecture | Reference |
-| `CHATGPT-QUICK-START.md` | ChatGPT setup | 15 min |
-| `MAUI-BUILD-COMPLETE.md` | Build optimization | Reference |
+| Guide                           | Purpose                | Time             |
+| ------------------------------- | ---------------------- | ---------------- |
+| `Quick-Setup.ps1`               | Automated setup script | 5 min            |
+| `PROFILE-SETUP-GUIDE.md`        | PowerShell commands    | 2 min            |
+| `LEGAL-AI-TOOLS.md`             | 15 legal AI assistants | Reference        |
+| `IOS-TESTING-COMPLETE-GUIDE.md` | iPhone deployment      | 30 min - 4 weeks |
+| `SESSION-CHAT-UI-COMPLETE.md`   | Today's progress       | Reference        |
+| `CHATGPT-INTEGRATION-PLAN.md`   | ChatGPT architecture   | Reference        |
+| `CHATGPT-QUICK-START.md`        | ChatGPT setup          | 15 min           |
+| `MAUI-BUILD-COMPLETE.md`        | Build optimization     | Reference        |
 
 ---
 
@@ -312,18 +325,21 @@ Build-MAUI -Configuration Debug
 ## 🎯 Next Actions
 
 ### Today (30 minutes)
+
 1. Run `Quick-Setup.ps1`
 2. Test PowerShell commands (`bmenu`)
 3. Build Android APK
 4. Install on Android phone
 
 ### This Week
+
 1. Register ChatGPT services in MauiProgram.cs
 2. Add ChatPage route to AppShell.xaml
 3. Test chat UI on Windows
 4. Enroll in Apple Developer Program
 
 ### Next Week
+
 1. Set up TestFlight
 2. Build iOS app
 3. Invite beta testers (law firms)
@@ -382,6 +398,7 @@ dotnet publish -f net10.0-ios -c Release
 ## 🌟 Key Features
 
 ### For Law Firms
+
 - ✅ BWC footage analysis (transcription + AI)
 - ✅ Discovery timeline generation
 - ✅ Brady violation detection
@@ -390,6 +407,7 @@ dotnet publish -f net10.0-ios -c Release
 - ✅ Motion drafting assistance
 
 ### For Civic Organizations
+
 - ✅ Police accountability tools
 - ✅ Evidence organization
 - ✅ Community reporting
@@ -397,6 +415,7 @@ dotnet publish -f net10.0-ios -c Release
 - ✅ Educational resources
 
 ### For Developers
+
 - ✅ Cross-platform (Windows/iOS/Android)
 - ✅ Modern MAUI + MVVM architecture
 - ✅ PowerShell automation (20+ commands)
@@ -408,12 +427,14 @@ dotnet publish -f net10.0-ios -c Release
 ## 📞 Support
 
 **Quick Help:**
+
 - Run `bmenu` to see all PowerShell commands
 - Check `SESSION-CHAT-UI-COMPLETE.md` for latest progress
 - See `IOS-TESTING-COMPLETE-GUIDE.md` for iPhone deployment
 
 **Documentation:**
-- All guides in root directory (*.md files)
+
+- All guides in root directory (\*.md files)
 - Inline code comments in MAUI services
 - API reference in `API-REFERENCE.md`
 
@@ -422,6 +443,7 @@ dotnet publish -f net10.0-ios -c Release
 ## 🚀 Ready to Launch
 
 **What works RIGHT NOW:**
+
 - ✅ Full backend API (Flask)
 - ✅ Complete MAUI app
 - ✅ Chat UI with legal tools
@@ -429,12 +451,14 @@ dotnet publish -f net10.0-ios -c Release
 - ✅ Dev tools installed
 
 **Test today:**
+
 ```powershell
 .\Quick-Setup.ps1
 # Follow prompts, test on Android!
 ```
 
 **Deploy to iPhone:**
+
 1. Read `IOS-TESTING-COMPLETE-GUIDE.md`
 2. Start with Android while iOS setup processes
 3. TestFlight ready in 2-4 weeks
@@ -442,6 +466,7 @@ dotnet publish -f net10.0-ios -c Release
 ---
 
 **Time Investment:**
+
 - Setup: 5 minutes (automated)
 - Android testing: 30 minutes (today)
 - iOS setup: 2-4 weeks (background process)

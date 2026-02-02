@@ -24,6 +24,7 @@ This installation connects our legal mission to the sacrifices that made constit
 ## 🏛️ Flag Display Protocol (Title 4 USC Compliant)
 
 ### Primary Position: US Flag (Stars and Stripes)
+
 **Position:** Center of honor - Supreme position  
 **Authority:** Title 4 USC §§ 1-10  
 **Size:** 280px × 186px (1.5:1 ratio - standard US flag proportions)  
@@ -31,6 +32,7 @@ This installation connects our legal mission to the sacrifices that made constit
 **Finial:** Gold sphere (30px) - traditional military installation standard
 
 **Design Elements:**
+
 - 13 alternating red and white stripes (7 red, 6 white)
 - Blue canton with 50 white stars
 - Proper color codes: Red (#B22234), White (#FFFFFF), Blue (#3C3B6E)
@@ -38,6 +40,7 @@ This installation connects our legal mission to the sacrifices that made constit
 ### Secondary Flags (Left and Right of US Flag)
 
 #### POW/MIA Flag
+
 **Position:** Secondary left  
 **Authority:** 36 USC § 902 (Required by federal law at federal installations)  
 **Size:** 210px × 140px  
@@ -47,6 +50,7 @@ This installation connects our legal mission to the sacrifices that made constit
 **Design:** Black field with white text and star emblem
 
 #### Gadsden Flag (Don't Tread on Me)
+
 **Position:** Secondary right  
 **Era:** Revolutionary War (1775)  
 **Size:** 210px × 140px  
@@ -58,6 +62,7 @@ This installation connects our legal mission to the sacrifices that made constit
 ### Tertiary Flags (Historical Significance)
 
 #### Appeal to Heaven (Pine Tree Flag)
+
 **Era:** 1775 - Washington's Cruisers  
 **Size:** 180px × 120px  
 **Pole Height:** 300px  
@@ -65,6 +70,7 @@ This installation connects our legal mission to the sacrifices that made constit
 **Design:** White field with green pine tree
 
 #### Gonzales Flag (Come and Take It)
+
 **Era:** 1835 - Texas Revolution  
 **Size:** 180px × 120px  
 **Pole Height:** 300px  
@@ -72,6 +78,7 @@ This installation connects our legal mission to the sacrifices that made constit
 **Design:** White field with black cannon and star
 
 #### Betsy Ross Flag
+
 **Era:** 1777 - Birth of the Nation  
 **Size:** 180px × 120px  
 **Pole Height:** 300px  
@@ -83,24 +90,28 @@ This installation connects our legal mission to the sacrifices that made constit
 ## 📜 US Flag Code Compliance Checklist
 
 ### ✅ Position & Precedence (4 USC § 7)
+
 - [x] US flag occupies position of honor (center, highest)
 - [x] US flag never below another flag
 - [x] US flag at its own right (viewer's left) when with other flags
 - [x] US flag equal or larger than accompanying flags
 
 ### ✅ Display Standards (4 USC § 6)
+
 - [x] Displayed from sunrise to sunset (or illuminated if 24/7)
 - [x] Not displayed in inclement weather (digital - always pristine)
 - [x] Never touching ground or floor
 - [x] Never used as decoration (standalone honor)
 
 ### ✅ Respect & Conduct (4 USC § 8)
+
 - [x] Never dipped to any person or thing
 - [x] Stars always uppermost
 - [x] Never carried flat or horizontally
 - [x] Never used for advertising purposes
 
 ### ✅ Digital Display Standards
+
 - [x] Proper color representation (official RGB values)
 - [x] Correct proportions (1.9:1 ratio)
 - [x] 50 stars, 13 stripes accurately depicted
@@ -113,16 +124,19 @@ This installation connects our legal mission to the sacrifices that made constit
 ### Why This Matters for Evident
 
 **Constitutional Foundation:**
+
 - The rights we defend were won through sacrifice
 - 1st Amendment (free speech), 4th Amendment (search/seizure), 5th Amendment (due process) - all defended with blood
 - Our legal work honors their legacy by making justice accessible
 
 **Service to Veterans:**
+
 - Many Evident clients are veterans fighting for justice
 - BWC cases often involve veteran defendants
 - Military families deserve affordable legal representation
 
 **Rule of Law:**
+
 - Service members swore oath to "support and defend the Constitution"
 - We continue that mission through legal advocacy
 - Justice is not possible without the Constitution they protected
@@ -130,21 +144,25 @@ This installation connects our legal mission to the sacrifices that made constit
 ### Target Audience Impact
 
 **Veterans & Military Families:**
+
 - Immediate trust signal ("They respect our service")
 - Emotional connection to brand
 - Higher conversion for veteran users
 
 **Law Enforcement:**
+
 - Many LEOs are veterans
 - Shared values of service and sacrifice
 - Bridge-building between defense advocacy and respect for service
 
 **General Public:**
+
 - Patriotic branding differentiates from competitors
 - Signals traditional American values
 - Appeals to conservative legal market
 
 **Law Students & Young Attorneys:**
+
 - Reminder that legal work serves higher purpose
 - Connection to Constitutional history
 - Inspiration for public service
@@ -155,16 +173,16 @@ This installation connects our legal mission to the sacrifices that made constit
 
 ### American War Dead by Conflict
 
-| Conflict | Years | American Deaths | Memorial Note |
-|----------|-------|-----------------|---------------|
-| Revolutionary War | 1775-1783 | 25,000+ | Birth of Constitution |
-| Civil War | 1861-1865 | 620,000+ | Preservation of Union |
-| World War I | 1917-1918 | 116,516 | Democracy defended |
-| World War II | 1941-1945 | 405,399 | Freedom preserved |
-| Korean War | 1950-1953 | 36,574 | Liberty defended |
-| Vietnam War | 1964-1975 | 58,220 | Service honored |
-| Gulf War & Iraq | 1990-2011 | 4,825 | Terror fought |
-| Afghanistan | 2001-2021 | 2,461 | Freedom protected |
+| Conflict          | Years     | American Deaths | Memorial Note         |
+| ----------------- | --------- | --------------- | --------------------- |
+| Revolutionary War | 1775-1783 | 25,000+         | Birth of Constitution |
+| Civil War         | 1861-1865 | 620,000+        | Preservation of Union |
+| World War I       | 1917-1918 | 116,516         | Democracy defended    |
+| World War II      | 1941-1945 | 405,399         | Freedom preserved     |
+| Korean War        | 1950-1953 | 36,574          | Liberty defended      |
+| Vietnam War       | 1964-1975 | 58,220          | Service honored       |
+| Gulf War & Iraq   | 1990-2011 | 4,825           | Terror fought         |
+| Afghanistan       | 2001-2021 | 2,461           | Freedom protected     |
 
 **Total: 1.3 million American service members gave their lives**
 
@@ -175,11 +193,13 @@ Source: US Department of Defense, Congressional Research Service
 ## 🎨 Technical Implementation
 
 ### File Location
+
 ```
 C:\web-dev\github-repos\Evident.info\templates\honor.html
 ```
 
 ### Route Added to app.py
+
 ```python
 @app.route('/honor')
 def honor():
@@ -188,7 +208,9 @@ def honor():
 ```
 
 ### Navigation Integration
+
 Added to footer navigation:
+
 ```html
 <li><a href="/honor">🇺🇸 Honor Wall</a></li>
 ```
@@ -196,23 +218,27 @@ Added to footer navigation:
 ### Design Features
 
 **Visual Elements:**
+
 - Gradient background (military blue/navy)
 - Gold accents (military tradition)
 - Flag animations (respectful wave, not harsh)
 - Proper spacing per flag protocol
 
 **Typography:**
+
 - Georgia serif font (traditional, respectful)
 - Gold headers (military honor)
 - Proper quote formatting (Gettysburg Address)
 
 **Accessibility:**
+
 - High contrast text
 - Semantic HTML
 - Mobile-responsive design
 - Screen reader friendly
 
 **Performance:**
+
 - Pure CSS animations (no JavaScript required)
 - Lightweight design (~22KB HTML)
 - Fast load times
@@ -223,15 +249,19 @@ Added to footer navigation:
 ## 📖 Key Quotes & Language
 
 ### Gettysburg Address (Full Text Included)
+
 "...that from these honored dead we take increased devotion to that cause for which they gave the last full measure of devotion..."
 
 ### Constitutional Preamble (Full Text)
+
 "We the People of the United States, in Order to form a more perfect Union, establish Justice..."
 
 ### Evident Dedication
+
 "We the creators of Evident Legal Technologies dedicate this platform to the 1.3 million American service members who gave their lives defending the Constitution..."
 
 ### Mission Statement
+
 "Their sacrifice enables our work. Their Constitution guides our mission. Their memory inspires our service. By the Grace of Almighty God, we honor their legacy through accessible justice."
 
 ---
@@ -239,18 +269,21 @@ Added to footer navigation:
 ## 🚀 Marketing & Messaging Integration
 
 ### Website Navigation
+
 - Added "🇺🇸 Honor Wall" link to footer (all pages)
 - Visible on homepage, pricing, mission, contact
 
 ### Brand Messaging Opportunities
 
 **Homepage Hero (Future Enhancement):**
+
 ```
 "Defending Constitutional Rights
 In Honor of Those Who Defended the Constitution"
 ```
 
 **Email Signatures:**
+
 ```
 Evident Legal Technologies
 Affordable Justice • Honoring Service • Defending Rights
@@ -258,6 +291,7 @@ View our Military Honor Installation: Evident.info/honor
 ```
 
 **Social Media Bio:**
+
 ```
 Evident: Affordable legal research for solo practitioners
 Honoring the service & sacrifice that made justice possible
@@ -265,6 +299,7 @@ Honoring the service & sacrifice that made justice possible
 ```
 
 **Client Onboarding:**
+
 - Include link to honor page in welcome email
 - Highlight veteran discounts (if implemented)
 - Share mission alignment with military families
@@ -274,18 +309,21 @@ Honoring the service & sacrifice that made justice possible
 ## 🎖️ Future Enhancements (Optional)
 
 ### Phase 1: Enhanced Content
+
 - [ ] Add service branch flags (Army, Navy, Air Force, Marines, Coast Guard, Space Force)
 - [ ] Medal of Honor recipients section
 - [ ] "This Week in Military History" rotating content
 - [ ] Veteran attorney profiles (if team includes veterans)
 
 ### Phase 2: Interactive Elements
+
 - [ ] Virtual flag ceremony (animation on Veterans Day / Memorial Day)
 - [ ] Donation integration (% of revenue to veteran organizations)
 - [ ] Partnership with veteran legal aid organizations
 - [ ] Pro bono hours dedicated to veteran cases
 
 ### Phase 3: Community Features
+
 - [ ] User-submitted veteran tributes
 - [ ] Memorial Wall for clients' family members who served
 - [ ] Veteran discount code integration with Stripe
@@ -321,12 +359,14 @@ Every legal right we defend was built brick by brick:
 ## 📊 Success Metrics
 
 ### Qualitative Impact
+
 - ✅ Immediate brand differentiation from competitors
 - ✅ Emotional connection with veteran market segment
 - ✅ Values alignment (patriotism, service, sacrifice)
 - ✅ Higher perceived trustworthiness
 
 ### Measurable Goals (Future)
+
 - Track `/honor` page visits (Google Analytics)
 - Survey users: "Does military honor installation increase trust?"
 - Monitor veteran user signups (if tracked)
@@ -354,6 +394,7 @@ Every legal right we defend was built brick by brick:
 **Status:** ✅ **COMPLETE - Ready for deployment**
 
 **Next Steps:**
+
 1. Git commit with message: "Add US military honor installation - respecting the brick work"
 2. Push to production
 3. Verify live at /honor route
@@ -363,7 +404,7 @@ Every legal right we defend was built brick by brick:
 
 **🇺🇸 "We the People" - By the Grace of Almighty God 🇺🇸**
 
-*In honor of the 1.3 million Americans who gave their last full measure of devotion to defend the Constitution we now protect through legal advocacy.*
+_In honor of the 1.3 million Americans who gave their last full measure of devotion to defend the Constitution we now protect through legal advocacy._
 
 ---
 

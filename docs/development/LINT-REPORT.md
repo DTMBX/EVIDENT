@@ -23,6 +23,7 @@
 **Problem:** 19 functions reference `ErrorSanitizer` and `logger` without importing them.
 
 **Affected Lines:**
+
 - 1577-1580, 1609-1612, 1658-1661, 1717-1720
 - 1769-1772, 1818-1821, 1855-1858, 1941-1944
 - 1982-1985, 2057-2060, 2079-2082, 2104-2107
@@ -32,6 +33,7 @@
 **Impact:** Runtime errors in exception handlers (error handling fails gracefully, but logs are lost)
 
 **Fix Required:**
+
 ```python
 # Add to imports section (around line 8-10)
 import logging
@@ -45,6 +47,7 @@ logger = logging.getLogger(__name__)
 **Problem:** Line 315 uses `timedelta` without importing it.
 
 **Fix Required:**
+
 ```python
 # Add to imports
 from datetime import timedelta
@@ -65,6 +68,7 @@ from datetime import timedelta
 ### Unused Variables (F841) - 5 instances
 
 **Locations:**
+
 - `app.py:2887` - `output_files` assigned but never used
 - `app.py:3057` - `report_data` assigned but never used
 - `app.py:3483` - `e` (exception) assigned but never used
@@ -78,10 +82,12 @@ from datetime import timedelta
 ### f-strings Missing Placeholders (F541) - 8 instances
 
 **Locations:**
+
 - `app.py:167, 171, 3076, 3488, 4683, 4691`
 - `auth_routes.py:78, 100, 220, 225`
 
 **Example:**
+
 ```python
 print(f"Message")  # Should be: print("Message")
 ```
@@ -92,6 +98,7 @@ print(f"Message")  # Should be: print("Message")
 ### Bare Except Clauses (E722) - 2 instances
 
 **Locations:**
+
 - `stripe_payments.py:156`
 - `stripe_payments.py:296`
 
@@ -102,6 +109,7 @@ print(f"Message")  # Should be: print("Message")
 ### Variable Redefinition (F811) - 8 instances
 
 **Locations:**
+
 - `app.py:663` - `performance_monitor` redefined
 - `app.py:912, 953, 1093` - `UsageTracking` redefined
 - `app.py:1104, 3964` - `TierLevel` redefined
@@ -113,6 +121,7 @@ print(f"Message")  # Should be: print("Message")
 ### Indentation Issues (E128) - 6 instances
 
 **Locations:**
+
 - `auth_routes.py:229-231, 264-266`
 
 **Issue:** Continuation lines not visually aligned  
@@ -124,11 +133,13 @@ print(f"Message")  # Should be: print("Message")
 ## 🎨 CSS / JAVASCRIPT
 
 ### CSS Linting
+
 **Status:** ❌ No CSS files matched pattern `'**/*.css'`  
 **Reason:** CSS is embedded in HTML templates or in Jekyll `_sass/` directory  
 **Action:** Update stylelint glob pattern or skip CSS linting
 
 ### JavaScript Linting
+
 **Status:** ❌ ESLint not installed  
 **Action:** Optional - install if needed for future development
 
@@ -137,34 +148,42 @@ print(f"Message")  # Should be: print("Message")
 ## 📊 SUMMARY BY FILE
 
 ### app.py (4,887 lines)
+
 - ❌ 57 critical (undefined ErrorSanitizer/logger)
 - ⚠️ 60+ warnings (whitespace, unused vars, f-strings)
 
 ### auth_routes.py (330 lines)
+
 - ✅ 0 critical
 - ⚠️ 35+ warnings (whitespace, f-strings, indentation)
 
 ### stripe_payments.py (350 lines)
+
 - ✅ 0 critical
 - ⚠️ 45 warnings (whitespace, bare except)
 
 ### models_auth.py (293 lines)
+
 - ✅ 0 critical
 - ⚠️ 40 warnings (whitespace only)
 
 ### batch_upload_handler.py (327 lines)
+
 - ✅ 0 critical
 - ⚠️ 45 warnings (whitespace)
 
 ### config_manager.py (368 lines)
+
 - ❌ 1 critical (undefined timedelta)
 - ⚠️ 75 warnings (whitespace)
 
 ### api_middleware.py (504 lines)
+
 - ✅ 0 critical
 - ⚠️ 85 warnings (whitespace, unused var)
 
 ### backend_integration.py
+
 - ✅ Not fully scanned (timeout)
 - Estimated ⚠️ 50+ warnings
 
@@ -173,6 +192,7 @@ print(f"Message")  # Should be: print("Message")
 ## 🎯 RECOMMENDED ACTIONS
 
 ### Immediate (Before Production)
+
 1. **Fix undefined ErrorSanitizer/logger in app.py**
    - Add imports from utils.security
    - Initialize logger
@@ -183,6 +203,7 @@ print(f"Message")  # Should be: print("Message")
    - **Impact:** Prevents runtime error in database cleanup
 
 ### Short-term (Post-Launch)
+
 3. **Fix bare except clauses** (stripe_payments.py)
    - Change to `except Exception as e:`
    - **Impact:** Better error handling, catches actual errors only
@@ -192,6 +213,7 @@ print(f"Message")  # Should be: print("Message")
    - **Impact:** Cleaner code, slight memory improvement
 
 ### Optional (Code Quality)
+
 5. **Run Black formatter** to fix all whitespace
    - Command: `black app.py auth_routes.py stripe_payments.py models_auth.py`
    - **Impact:** Consistent formatting, removes 400+ warnings
@@ -211,12 +233,14 @@ print(f"Message")  # Should be: print("Message")
 **Current Status:** ⚠️ **95% Ready**
 
 ### Blocker Issues: 2
+
 1. ErrorSanitizer/logger undefined (app.py) - **MUST FIX**
 2. timedelta undefined (config_manager.py) - **MUST FIX**
 
 ### After Fixes: ✅ **100% Ready**
 
 **Reasoning:**
+
 - All other issues are cosmetic (whitespace)
 - No syntax errors
 - No security vulnerabilities from linting
@@ -224,6 +248,7 @@ print(f"Message")  # Should be: print("Message")
 - Code runs successfully in production
 
 **Timeline:**
+
 - Fix critical issues: 10 minutes
 - Run Black formatter: 2 minutes
 - Total cleanup time: ~15 minutes
@@ -259,18 +284,21 @@ git push origin main
 ## 📈 IMPROVEMENT METRICS
 
 **Before Linting:**
+
 - Critical errors: 58
 - Total warnings: ~500
 
 **After Quick Fixes:**
+
 - Critical errors: 0
 - Total warnings: ~500 (whitespace)
 
 **After Full Cleanup (Black + manual):**
+
 - Critical errors: 0
 - Total warnings: <10 (only debatable style choices)
 
 ---
 
-*Lint report generated by flake8 v7.x*  
-*Safe to proceed with payment testing while fixes are prepared*
+_Lint report generated by flake8 v7.x_  
+_Safe to proceed with payment testing while fixes are prepared_

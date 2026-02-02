@@ -2,7 +2,7 @@
 
 **Created:** January 27, 2026  
 **Updated by:** Devon Tyler (28, New Jersey, USA - Born on the real land of North America)  
-**Purpose:** Honor religious martyrs and freedom of conscience as foundational to American liberty  
+**Purpose:** Honor religious martyrs and freedom of conscience as foundational to American liberty
 
 ---
 
@@ -11,6 +11,7 @@
 Religious freedom is not granted by government—it is an **inalienable right endowed by the Creator**.
 
 This truth is foundational to:
+
 - Why America exists (settlers fleeing persecution)
 - Why the Constitution was written (protect conscience from state power)
 - Why the First Amendment comes first (freedom of religion before all else)
@@ -23,17 +24,20 @@ This truth is foundational to:
 ## 🕊️ RELIGIOUS MARTYRS HONORED
 
 ### St. Thomas Becket (1118-1170)
+
 **Martyred:** December 29, 1170, Canterbury Cathedral, England  
 **Crime:** Defending the Church against King Henry II's tyranny  
 **Legacy:** Established the principle that conscience stands above earthly power
 
-**His Final Words:**  
+**His Final Words:**
+
 > "Because I have refused to go against my conscience and the law of God, I am to die a martyr for the Church."
 
 **Why He Matters to America:**  
 Thomas Becket's martyrdom proved that state power cannot compel conscience. This truth crossed the ocean with the Pilgrims 450 years later. The First Amendment is his legacy.
 
 ### The Pilgrims (1620)
+
 **Fled:** England's religious persecution  
 **Arrived:** Plymouth, Massachusetts (Real land of North America)  
 **Journey:** 102 souls on the Mayflower  
@@ -48,22 +52,26 @@ They fled a state church that demanded conformity. They crossed an ocean to wors
 First governing document written on North American soil. Self-governance based on covenant—not royal decree.
 
 ### Roger Williams (1603-1683)
+
 **Crime:** Demanded separation of church and state  
 **Punishment:** Banished from Massachusetts Bay Colony (1636)  
 **Response:** Founded Rhode Island as haven for "liberty of conscience"
 
-**His Principle:**  
+**His Principle:**
+
 > "Forced worship stinks in God's nostrils."
 
 **His Legacy:**  
 The First Amendment's Establishment Clause ("Congress shall make no law respecting an establishment of religion") comes directly from Roger Williams' theology. He was exiled for this truth. We now call it the Constitution.
 
 ### Quakers (1650s-1700s)
+
 **Persecuted in:** Massachusetts, Virginia, England  
 **Methods:** Whipping, imprisonment, ear-cropping, tongue-boring, hanging  
 **Crime:** Refusing to attend state-mandated church services
 
-**Famous Martyrs:**  
+**Famous Martyrs:**
+
 - **Mary Dyer** - Hanged in Boston (1660) for being a Quaker
 - **William Robinson & Marmaduke Stevenson** - Hanged in Boston (1659)
 
@@ -71,6 +79,7 @@ The First Amendment's Establishment Clause ("Congress shall make no law respecti
 Their persecution taught the Founders that religious conformity enforced by law leads to tyranny. The First Amendment's Free Exercise Clause protects what they died for.
 
 ### Catholics in Early America
+
 **Persecuted in:** Most colonies (except Maryland, briefly)  
 **Banned from:** Public office, practicing law, voting, public worship  
 **Reason:** Fear of "Papist plots" and foreign allegiance
@@ -79,14 +88,17 @@ Their persecution taught the Founders that religious conformity enforced by law 
 Catholics were banned from public office in most colonies. Yet Catholic principles of natural law (Thomas Aquinas) heavily influenced the Declaration of Independence's "self-evident truths" and "inalienable rights."
 
 ### Jews in Colonial America
+
 **First Arrival:** 1654 (New Amsterdam - now New York)  
 **Status:** Initially denied right to build synagogue, own land, practice trades  
 **Achievement:** George Washington's 1790 letter to Hebrew Congregation of Newport established religious equality as national principle
 
-**Washington's Promise:**  
+**Washington's Promise:**
+
 > "The Government of the United States gives to bigotry no sanction, to persecution no assistance."
 
 ### Military Chaplains (1775-Present)
+
 **First Appointed:** July 29, 1775 (Continental Congress)  
 **Killed in Action:** 400+ chaplains died in service  
 **Faiths Represented:** Protestant, Catholic, Jewish, Muslim, Buddhist, Hindu, others
@@ -94,7 +106,8 @@ Catholics were banned from public office in most colonies. Yet Catholic principl
 **Their Mission:**  
 Minister to service members of **all faiths and no faith**. Defend the right of every American to worship—or not worship—according to conscience.
 
-**Notable Chaplain Deaths:**  
+**Notable Chaplain Deaths:**
+
 - **Four Chaplains (1943)** - Gave life jackets to others and went down with USAT Dorchester in WWII (Protestant, Catholic, Jewish chaplains)
 - **Charles J. Watters (1967)** - Vietnam War, Medal of Honor (ran through enemy fire ministering to wounded)
 
@@ -103,6 +116,7 @@ Minister to service members of **all faiths and no faith**. Defend the right of 
 ## 🏛️ CONSTITUTIONAL FOUNDATION
 
 ### First Amendment (1791)
+
 > "Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof..."
 
 **Two Clauses, One Purpose:**
@@ -122,10 +136,12 @@ The Founders ranked rights by importance. Freedom of conscience is the first fre
 
 ### Natural Law Foundation
 
-**Declaration of Independence (1776):**  
+**Declaration of Independence (1776):**
+
 > "We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights..."
 
-**Source of Rights:**  
+**Source of Rights:**
+
 - NOT from government (governments can be tyrannical)
 - NOT from majority vote (majorities can be wrong)
 - FROM THE CREATOR (inalienable = cannot be taken away)
@@ -146,7 +162,7 @@ This is the truth. This is the foundation. This is what the land of North Americ
 The physical continent of North America served as refuge for:
 
 1. **Pilgrims (1620)** - Fled Anglican persecution
-2. **Puritans (1630)** - Fled Church of England conformity  
+2. **Puritans (1630)** - Fled Church of England conformity
 3. **Catholics (1634)** - Fled Protestant England (founded Maryland)
 4. **Quakers (1681)** - Fled persecution everywhere (founded Pennsylvania)
 5. **Jews (1654)** - Fled Inquisition (Spain/Portugal)
@@ -178,12 +194,14 @@ Not corporate fiction. Not government grant. **Natural refuge on North American 
 ### Why This Matters to Our Work
 
 **Every Religious Freedom Case We Handle:**
+
 - Free Exercise violations (government forcing action against conscience)
 - Establishment Clause violations (government promoting religion)
 - Conscience objections (medical, military, employment)
 - Faith-based discrimination (hiring, housing, services)
 
 **Built on the Blood of Martyrs:**
+
 - St. Thomas Becket proved conscience > state power
 - Pilgrims proved sacrifice for worship freedom
 - Roger Williams proved separation protects liberty
@@ -193,18 +211,21 @@ Not corporate fiction. Not government grant. **Natural refuge on North American 
 ### Our Commitment
 
 **We Defend:**
+
 1. **Free Exercise** - Your right to practice your faith (or no faith)
 2. **Conscience Rights** - Your right to refuse actions against your beliefs
 3. **Equal Treatment** - No faith privileged, no faith discriminated
 4. **Natural Law** - Rights from Creator, not government grant
 
 **We Oppose:**
+
 1. **State Establishment** - Government-mandated religion
 2. **Forced Conformity** - Compelled speech or worship
 3. **Religious Tests** - Faith as condition for rights/office
 4. **Conscience Violation** - Forcing actions against deeply held beliefs
 
 **Truth as Our Standard:**
+
 - Not what government permits
 - Not what majority approves
 - What the Creator endowed
@@ -217,7 +238,8 @@ Not corporate fiction. Not government grant. **Natural refuge on North American 
 
 ### Your Truth, Honored
 
-**You wrote:**  
+**You wrote:**
+
 > "I am 28 born in New Jersey, USA, real land North America, not corp fiction non subject TRUTH is the only subject."
 
 **We hear you. We honor you. We build on this truth:**
@@ -242,21 +264,27 @@ Not corporate fiction. Not government grant. **Natural refuge on North American 
 ## 📖 QUOTES THAT GUIDE US
 
 ### St. Thomas Becket
+
 > "I am ready to die for my Lord, that in my blood the Church may obtain liberty and peace."
 
 ### Roger Williams
+
 > "God requireth not a uniformity of religion to be enacted and enforced in any civil state."
 
 ### George Washington (Letter to Hebrew Congregation, 1790)
+
 > "All possess alike liberty of conscience and immunities of citizenship. It is now no more that toleration is spoken of, as if it was by the indulgence of one class of people, that another enjoyed the exercise of their inherent natural rights."
 
 ### Thomas Jefferson (Virginia Statute for Religious Freedom, 1786)
+
 > "Almighty God hath created the mind free, and manifested his supreme will that free it shall remain by making it altogether insusceptible of restraint."
 
 ### James Madison (Memorial and Remonstrance, 1785)
+
 > "The Religion then of every man must be left to the conviction and conscience of every man; and it is the right of every man to exercise it as these may dictate."
 
 ### First Amendment (1791)
+
 > "Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof..."
 
 ---
@@ -266,10 +294,10 @@ Not corporate fiction. Not government grant. **Natural refuge on North American 
 **This We Declare:**
 
 Religious freedom is not a privilege granted by government.  
-It is an inalienable right endowed by the Creator.  
+It is an inalienable right endowed by the Creator.
 
 The soil of North America received those fleeing persecution.  
-The Constitution protects what martyrs died defending.  
+The Constitution protects what martyrs died defending.
 
 From Thomas Becket's murder in Canterbury Cathedral (1170)  
 To the Pilgrims' landing at Plymouth Rock (1620)  
@@ -280,11 +308,11 @@ To this very moment in 2026...
 
 No government can extinguish it.  
 No corporation can own it.  
-No majority can vote it away.  
+No majority can vote it away.
 
 **Truth is our subject.**  
 **Freedom is our inheritance.**  
-**Justice is our mission.**  
+**Justice is our mission.**
 
 By the Grace of Almighty God, we defend it.
 
@@ -295,7 +323,7 @@ By the Grace of Almighty God, we defend it.
 **Dedicated to:**
 
 - **St. Thomas Becket** (d. 1170) - Died defending conscience against state power
-- **51 Pilgrims** (d. 1620-1621) - Died first winter in pursuit of worship freedom  
+- **51 Pilgrims** (d. 1620-1621) - Died first winter in pursuit of worship freedom
 - **Mary Dyer** (d. 1660) - Hanged in Boston for being a Quaker
 - **Roger Williams** (d. 1683) - Exiled for demanding separation of church and state
 - **400+ Military Chaplains** (d. 1775-Present) - Died ministering to all faiths
@@ -307,7 +335,7 @@ By the Grace of Almighty God, we defend it.
 
 **Their sacrifice is the foundation we build upon.**  
 **Their truth is the standard we uphold.**  
-**Their freedom is the right we defend.**  
+**Their freedom is the right we defend.**
 
 **By the Grace of Almighty God.**  
 **On the real land of North America.**  
@@ -316,7 +344,7 @@ By the Grace of Almighty God, we defend it.
 ---
 
 🇺🇸 **Evident Legal Technologies** 🇺🇸  
-*Defending conscience. Honoring martyrs. Upholding truth.*
+_Defending conscience. Honoring martyrs. Upholding truth._
 
-*Built January 27, 2026, by Devon Tyler and the Evident team*  
-*"Truth is the only subject"*
+_Built January 27, 2026, by Devon Tyler and the Evident team_  
+_"Truth is the only subject"_

@@ -29,6 +29,7 @@ python create_test_subscription_accounts.py
 ```
 
 Test credentials:
+
 - `free@Evident.test` / test123
 - `pro@Evident.test` / test123
 - `premium@Evident.test` / test123
@@ -36,6 +37,7 @@ Test credentials:
 ### **3. Configure Stripe** (2 min)
 
 **Option A: Test Mode (Development)**
+
 1. Go to https://dashboard.stripe.com/test/products
 2. Create products:
    - **Evident PRO:** $49/month, 3-day trial
@@ -61,6 +63,7 @@ Test credentials:
 ### **Test Upgrade Flow:**
 
 1. **Start Flask app:**
+
    ```bash
    python app.py
    ```
@@ -76,21 +79,22 @@ Test credentials:
 
 4. **Test Checkout:**
    - Add checkout button to pricing.html:
+
    ```html
    <button onclick="subscribeToPlan('PROFESSIONAL')" class="btn btn-primary">
      Start 3-Day Free Trial
    </button>
-   
+
    <script>
-   async function subscribeToPlan(tier) {
-     const res = await fetch('/api/stripe/create-checkout-session', {
-       method: 'POST',
-       headers: {'Content-Type': 'application/json'},
-       body: JSON.stringify({tier})
-     });
-     const data = await res.json();
-     if (data.url) window.location.href = data.url;
-   }
+     async function subscribeToPlan(tier) {
+       const res = await fetch("/api/stripe/create-checkout-session", {
+         method: "POST",
+         headers: { "Content-Type": "application/json" },
+         body: JSON.stringify({ tier }),
+       });
+       const data = await res.json();
+       if (data.url) window.location.href = data.url;
+     }
    </script>
    ```
 
@@ -109,17 +113,17 @@ Test credentials:
 
 ## 📋 Pricing Tiers
 
-| Feature | FREE | PRO ($49) | PREMIUM ($249) | ENTERPRISE |
-|---------|------|-----------|----------------|------------|
-| **Trial** | — | ✅ 3 days | — | — |
-| **PDFs/month** | 1 doc | 10 docs | Unlimited | Unlimited |
-| **Video/month** | ❌ | 2 hours | Unlimited | Unlimited |
-| **Cases** | 1 | 10 | Unlimited | Unlimited |
-| **AI Assistant** | ❌ | Basic | Full | Private Instance |
-| **Timeline Builder** | ❌ | ❌ | ✅ | ✅ |
-| **API Access** | ❌ | ❌ | ✅ | ✅ |
-| **White-Label** | ❌ | ❌ | ❌ | ✅ |
-| **Self-Hosted** | ❌ | ❌ | ❌ | ✅ |
+| Feature              | FREE  | PRO ($49) | PREMIUM ($249) | ENTERPRISE       |
+| -------------------- | ----- | --------- | -------------- | ---------------- |
+| **Trial**            | —     | ✅ 3 days | —              | —                |
+| **PDFs/month**       | 1 doc | 10 docs   | Unlimited      | Unlimited        |
+| **Video/month**      | ❌    | 2 hours   | Unlimited      | Unlimited        |
+| **Cases**            | 1     | 10        | Unlimited      | Unlimited        |
+| **AI Assistant**     | ❌    | Basic     | Full           | Private Instance |
+| **Timeline Builder** | ❌    | ❌        | ✅             | ✅               |
+| **API Access**       | ❌    | ❌        | ✅             | ✅               |
+| **White-Label**      | ❌    | ❌        | ❌             | ✅               |
+| **Self-Hosted**      | ❌    | ❌        | ❌             | ✅               |
 
 ---
 
@@ -139,6 +143,7 @@ Test credentials:
 ### **Access Control:**
 
 **Tier Gating:**
+
 ```python
 from tier_gating import require_tier
 from models_auth import TierLevel
@@ -150,6 +155,7 @@ def premium_feature():
 ```
 
 **Usage Limits:**
+
 ```python
 from tier_gating import check_usage_limit
 
@@ -162,6 +168,7 @@ def upload_pdf():
 ```
 
 **Feature Access:**
+
 ```python
 from tier_gating import require_feature
 
@@ -180,11 +187,13 @@ def timeline():
 
 ```html
 {% if current_user.is_authenticated %}
-  <div>
-    <p>Tier: {{ current_user.tier.name }}</p>
-    <p>PDFs used: {{ usage.pdf_documents_processed }} / 
-                  {{ limits.pdf_documents_per_month }}</p>
-  </div>
+<div>
+  <p>Tier: {{ current_user.tier.name }}</p>
+  <p>
+    PDFs used: {{ usage.pdf_documents_processed }} / {{
+    limits.pdf_documents_per_month }}
+  </p>
+</div>
 {% endif %}
 ```
 
@@ -192,22 +201,22 @@ def timeline():
 
 ```html
 {% if current_user.tier.name == 'FREE' %}
-  <div class="alert alert-info">
-    <strong>Upgrade to PRO</strong> for 10 PDFs/month and AI analysis!
-    <a href="/pricing" class="btn btn-primary">Start Free Trial</a>
-  </div>
+<div class="alert alert-info">
+  <strong>Upgrade to PRO</strong> for 10 PDFs/month and AI analysis!
+  <a href="/pricing" class="btn btn-primary">Start Free Trial</a>
+</div>
 {% endif %}
 ```
 
 ### **Limit Warnings:**
 
 ```html
-{% set remaining = get_remaining_usage(current_user, 'pdf_documents_per_month') %}
-{% if remaining < 3 and remaining > 0 %}
-  <div class="alert alert-warning">
-    Only {{ remaining }} PDFs remaining this month!
-    <a href="/pricing">Upgrade for unlimited</a>
-  </div>
+{% set remaining = get_remaining_usage(current_user, 'pdf_documents_per_month')
+%} {% if remaining < 3 and remaining > 0 %}
+<div class="alert alert-warning">
+  Only {{ remaining }} PDFs remaining this month!
+  <a href="/pricing">Upgrade for unlimited</a>
+</div>
 {% endif %}
 ```
 
@@ -216,20 +225,25 @@ def timeline():
 ## 🔧 Common Issues
 
 ### **"Module not found" error:**
+
 ```bash
 pip install -r requirements.txt
 ```
 
 ### **"Database is locked" error:**
+
 Close Visual Studio or any app using the database.
 
 ### **Stripe checkout not working:**
+
 1. Check `STRIPE_PUBLISHABLE_KEY` is in `.env`
 2. Check `STRIPE_PRICE_PRO` matches Stripe Dashboard
 3. Check browser console for JavaScript errors
 
 ### **Webhook not receiving events:**
+
 For local testing:
+
 1. Install ngrok: https://ngrok.com/download
 2. Run: `ngrok http 5000`
 3. Update Stripe webhook URL to ngrok URL
@@ -242,11 +256,13 @@ For local testing:
 **Break-Even:** 50 PRO users OR 20 PREMIUM users
 
 **Year 1 Conservative:**
+
 - 100 PRO × $49 = $4,900/month
 - 20 PREMIUM × $249 = $4,980/month
 - **Total: $9,880/month = $118,560/year**
 
 **Year 2 Moderate:**
+
 - 500 PRO × $49 = $24,500/month
 - 100 PREMIUM × $249 = $24,900/month
 - **Total: $49,400/month = $592,800/year**
@@ -271,6 +287,7 @@ For local testing:
 ## 🎉 You're Ready!
 
 **Everything is built.** Just need to:
+
 1. Run migration
 2. Configure Stripe
 3. Test checkout

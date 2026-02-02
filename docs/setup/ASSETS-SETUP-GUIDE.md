@@ -22,6 +22,7 @@ Create these placeholder images (or use screenshots from actual cases):
    - Show official court header
 
 **Quick Creation:**
+
 ```bash
 # If you don't have real screenshots, create colored placeholders:
 # Use any image editing tool or online placeholder generator
@@ -40,6 +41,7 @@ https://via.placeholder.com/800x600/10b981/ffffff?text=Search+Warrant
 Create these downloadable legal templates:
 
 #### 1. motion_suppress_evidence.docx
+
 ```
 MOTION TO SUPPRESS EVIDENCE
 
@@ -66,7 +68,7 @@ GROUNDS FOR MOTION:
 
 1. Fourth Amendment Violation
    - [Detail violation]
-   
+
 2. Miranda Violation
    - [Detail violation]
 
@@ -87,6 +89,7 @@ Attorney for Defendant
 ```
 
 #### 2. use_of_force_report.docx
+
 ```
 USE OF FORCE ANALYSIS REPORT
 
@@ -118,6 +121,7 @@ CASE LAW CITATIONS:
 ```
 
 #### 3. discovery_request.docx
+
 ```
 DISCOVERY REQUEST
 
@@ -135,11 +139,11 @@ Pursuant to [State Rules], Defendant hereby requests the following:
    - All BWC footage from incident date [DATE]
    - All BWC from involved officers
    - Metadata and timestamps
-   
+
 2. CAD/RMS RECORDS
    - Computer-aided dispatch logs
    - Records management system entries
-   
+
 3. OFFICER PERSONNEL FILES
    - Disciplinary records (Pitchess/Brady material)
    - Training records
@@ -156,7 +160,9 @@ Respectfully,
 ```
 
 #### 4. bwc_timeline_worksheet.xlsx
+
 Create Excel file with columns:
+
 - Timestamp (HH:MM:SS)
 - Event Description
 - Severity (Low/Medium/High)
@@ -165,7 +171,9 @@ Create Excel file with columns:
 - Evidence Link
 
 #### 5. case_intake_form.pdf
+
 Create PDF form with fields:
+
 - Client Information
 - Incident Details
 - Charges Filed
@@ -183,49 +191,56 @@ Use Google Docs or Microsoft Word, then export to PDF/DOCX.
 Create simple HTML pages:
 
 #### bwc_best_practices.html
+
 ```html
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>BWC Best Practices</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="p-5">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="p-5">
     <div class="container">
-        <h1>Body-Worn Camera Analysis Best Practices</h1>
-        
-        <h2>1. Identifying Critical Timestamps</h2>
-        <p>Look for key moments:</p>
-        <ul>
-            <li>Initial contact</li>
-            <li>Rights advisement</li>
-            <li>Use of force</li>
-            <li>Witness statements</li>
-        </ul>
-        
-        <h2>2. Audio Analysis Techniques</h2>
-        <p>Pay attention to:</p>
-        <ul>
-            <li>Officer tone and demeanor</li>
-            <li>Subject responses</li>
-            <li>Background conversations</li>
-            <li>Time gaps in recording</li>
-        </ul>
-        
-        <h2>3. Fourth Amendment Considerations</h2>
-        <ul>
-            <li>Was there probable cause?</li>
-            <li>Was consent voluntary?</li>
-            <li>Were Miranda rights given?</li>
-        </ul>
-        
-        <a href="/free-dashboard" class="btn btn-primary mt-4">Back to Dashboard</a>
+      <h1>Body-Worn Camera Analysis Best Practices</h1>
+
+      <h2>1. Identifying Critical Timestamps</h2>
+      <p>Look for key moments:</p>
+      <ul>
+        <li>Initial contact</li>
+        <li>Rights advisement</li>
+        <li>Use of force</li>
+        <li>Witness statements</li>
+      </ul>
+
+      <h2>2. Audio Analysis Techniques</h2>
+      <p>Pay attention to:</p>
+      <ul>
+        <li>Officer tone and demeanor</li>
+        <li>Subject responses</li>
+        <li>Background conversations</li>
+        <li>Time gaps in recording</li>
+      </ul>
+
+      <h2>3. Fourth Amendment Considerations</h2>
+      <ul>
+        <li>Was there probable cause?</li>
+        <li>Was consent voluntary?</li>
+        <li>Were Miranda rights given?</li>
+      </ul>
+
+      <a href="/free-dashboard" class="btn btn-primary mt-4"
+        >Back to Dashboard</a
+      >
     </div>
-</body>
+  </body>
 </html>
 ```
 
 Create similar pages for:
+
 - pdf_evidence_guide.html
 - case_law_search.html
 - constitutional_issues.html
@@ -235,6 +250,7 @@ Create similar pages for:
 ## 🚀 Quick Setup (5 minutes)
 
 ### Option 1: Use Placeholders
+
 ```bash
 cd static/demos
 # Download placeholder images
@@ -244,6 +260,7 @@ curl "https://via.placeholder.com/800x600/10b981/ffffff?text=Search+Warrant" -o 
 ```
 
 ### Option 2: Create Basic Templates
+
 ```bash
 cd static/templates
 # Create placeholder text files (you can convert to DOCX/PDF later)
@@ -253,6 +270,7 @@ echo "Discovery Request Template - Coming Soon" > discovery_request.txt
 ```
 
 ### Option 3: Skip for Now
+
 Templates are optional for initial testing. You can add real files later when you have them ready.
 
 ---

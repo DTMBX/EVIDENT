@@ -25,16 +25,19 @@ https://Evident.info/payments/webhook
 **Copy-paste these values:**
 
 **Endpoint URL:**
+
 ```
 https://Evident-backend.onrender.com/payments/webhook
 ```
 
 **Description:**
+
 ```
 Evident Payments
 ```
 
 **Events to send - paste this into search and check each:**
+
 ```
 checkout.session.completed
 customer.subscription.updated
@@ -62,6 +65,7 @@ After clicking "Add endpoint":
 **Click this link:** https://dashboard.render.com/
 
 Then:
+
 1. Click your web service
 2. Click **"Environment"** tab
 3. Click **"Add Environment Variable"**
@@ -80,6 +84,7 @@ Value: [paste your whsec_... secret here]
 ## ✅ DONE! THAT'S IT!
 
 After 5 minutes, test with:
+
 ```
 https://Evident-backend.onrender.com/payments/pricing
 ```
@@ -99,6 +104,7 @@ https://Evident-backend.onrender.com/payments/pricing
 ## 🆘 IF STUCK
 
 Just tell me:
+
 - "Not working" - I'll troubleshoot
 - "What's my URL?" - I'll find it
 - "Where's my secret?" - I'll help locate it

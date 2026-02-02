@@ -9,11 +9,13 @@
 ## 🎯 UPDATES APPLIED
 
 ### pypdf: 5.1.0 → 6.6.2 (Jan 26, 2026)
+
 - ✅ **CVE-2026-24688**: Infinite loop in PDF outline processing (CRITICAL)
 - ✅ **CVE-2026-22690**: Never-ending PDF DoS attack (CRITICAL)
 - ✅ Additional memory exhaustion and infinite loop fixes
 
 ### Werkzeug: 3.1.3 → 3.1.5 (Jan 8, 2026)
+
 - ✅ **CVE-2026-21860**: Windows path traversal via special device names (HIGH)
 - ✅ **CVE-2025-66221**: Windows special device hang vulnerability (HIGH)
 - ✅ Multipart form parser fixes

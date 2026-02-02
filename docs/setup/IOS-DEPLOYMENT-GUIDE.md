@@ -7,16 +7,19 @@
 ## Prerequisites
 
 ### 1. **Apple Developer Account** (Required)
+
 - **Free Account:** Can run on YOUR device only (7-day certificate)
 - **Paid Account ($99/year):** Can use TestFlight, distribute to testers
 - Sign up: https://developer.apple.com/programs/
 
 ### 2. **Mac Computer** (Required for iOS builds)
+
 - .NET MAUI iOS builds require macOS
 - Xcode 15+ installed
 - Paired with Visual Studio
 
-### 3. **iPhone** 
+### 3. **iPhone**
+
 - iOS 15.0 or later
 - Connected to Mac via USB or Wi-Fi
 
@@ -29,6 +32,7 @@ If you just want to test on YOUR iPhone quickly:
 ### Option 1: Use Visual Studio on Windows (Paired to Mac)
 
 **Not ideal but possible:**
+
 1. Rent a cloud Mac (MacStadium, MacinCloud)
 2. Pair Visual Studio Windows to cloud Mac
 3. Build and deploy remotely
@@ -95,7 +99,7 @@ xcode-select --install
 
 **Create App ID:**
 
-1. **Go to:** Identifiers → + 
+1. **Go to:** Identifiers → +
 2. **Select:** App IDs → App
 3. **Description:** Evident Matter Docket
 4. **Bundle ID:** com.Evident.matterdocket (Explicit)
@@ -118,20 +122,20 @@ Edit `src/Evident.MatterDocket.MAUI/Evident.MatterDocket.MAUI.csproj`:
 <PropertyGroup Condition="$(TargetFramework.Contains('-ios'))">
     <!-- App Bundle ID -->
     <ApplicationId>com.Evident.matterdocket</ApplicationId>
-    
+
     <!-- Display Name -->
     <ApplicationTitle>Evident</ApplicationTitle>
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
     <ApplicationVersion>1</ApplicationVersion>
-    
+
     <!-- Provisioning -->
     <CodesignKey>iPhone Distribution</CodesignKey>
     <CodesignProvision>Evident Matter Docket Distribution</CodesignProvision>
     <CodesignEntitlements>Platforms/iOS/Entitlements.plist</CodesignEntitlements>
-    
+
     <!-- Architecture -->
     <RuntimeIdentifiers>ios-arm64</RuntimeIdentifiers>
-    
+
     <!-- iOS Version -->
     <SupportedOSPlatformVersion>15.0</SupportedOSPlatformVersion>
 </PropertyGroup>
@@ -195,6 +199,7 @@ xcrun altool --upload-app \
 ```
 
 **Get app-specific password:**
+
 1. Go to https://appleid.apple.com/account/manage
 2. Sign in
 3. App-Specific Passwords → Generate Password
@@ -232,54 +237,56 @@ name: Build iOS
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 
 jobs:
   build-ios:
     runs-on: macos-latest
-    
+
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: '10.0.x'
-    
-    - name: Install MAUI workload
-      run: dotnet workload install maui
-    
-    - name: Restore dependencies
-      run: dotnet restore src/Evident.MatterDocket.MAUI
-    
-    - name: Build iOS
-      run: |
-        cd src/Evident.MatterDocket.MAUI
-        dotnet build -f net10.0-ios -c Release
-    
-    - name: Publish iOS
-      run: |
-        cd src/Evident.MatterDocket.MAUI
-        dotnet publish -f net10.0-ios -c Release \
-          -p:ArchiveOnBuild=true \
-          -p:CodesignKey="${{ secrets.IOS_SIGNING_KEY }}" \
-          -p:CodesignProvision="${{ secrets.IOS_PROVISION }}"
-    
-    - name: Upload IPA
-      uses: actions/upload-artifact@v3
-      with:
-        name: Evident-iOS
-        path: src/Evident.MatterDocket.MAUI/bin/Release/net10.0-ios/ios-arm64/publish/*.ipa
+      - uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Install MAUI workload
+        run: dotnet workload install maui
+
+      - name: Restore dependencies
+        run: dotnet restore src/Evident.MatterDocket.MAUI
+
+      - name: Build iOS
+        run: |
+          cd src/Evident.MatterDocket.MAUI
+          dotnet build -f net10.0-ios -c Release
+
+      - name: Publish iOS
+        run: |
+          cd src/Evident.MatterDocket.MAUI
+          dotnet publish -f net10.0-ios -c Release \
+            -p:ArchiveOnBuild=true \
+            -p:CodesignKey="${{ secrets.IOS_SIGNING_KEY }}" \
+            -p:CodesignProvision="${{ secrets.IOS_PROVISION }}"
+
+      - name: Upload IPA
+        uses: actions/upload-artifact@v3
+        with:
+          name: Evident-iOS
+          path: src/Evident.MatterDocket.MAUI/bin/Release/net10.0-ios/ios-arm64/publish/*.ipa
 ```
 
 **Add secrets to GitHub:**
+
 1. Go to repo → Settings → Secrets → Actions
 2. Add:
    - `IOS_SIGNING_KEY` = Your distribution certificate
    - `IOS_PROVISION` = Your provisioning profile name
 
 **Push to trigger build:**
+
 ```bash
 git add .github/workflows/ios-build.yml
 git commit -m "Add iOS build workflow"
@@ -287,6 +294,7 @@ git push origin main
 ```
 
 **Download .ipa:**
+
 1. Go to Actions tab
 2. Select latest workflow run
 3. Download `Evident-iOS` artifact
@@ -327,6 +335,7 @@ dotnet publish -f net10.0-ios -c Debug -p:BuildIpa=true
 ### "No valid iOS code signing keys found"
 
 **Solution:**
+
 ```bash
 # Check certificates in Keychain
 security find-identity -p codesigning -v
@@ -338,6 +347,7 @@ security find-identity -p codesigning -v
 ### "Provisioning profile doesn't match bundle ID"
 
 **Solution:**
+
 - Make sure `ApplicationId` in .csproj matches Bundle ID in provisioning profile
 - Re-download provisioning profile
 - Clean and rebuild: `dotnet clean && dotnet build`
@@ -350,6 +360,7 @@ On iPhone: Settings → General → Device Management → Trust "Your Name"
 ### "This app cannot be installed because its integrity could not be verified"
 
 **Solution:**
+
 - Use proper distribution certificate (not development)
 - Or use TestFlight (bypasses this issue)
 
@@ -375,29 +386,32 @@ adb install bin\Debug\net10.0-android\com.Evident.matterdocket-Signed.apk
 
 ## Comparison: Deployment Methods
 
-| Method | Time | Cost | Devices | Mac Required |
-|--------|------|------|---------|--------------|
-| **TestFlight** | 48 hours | $99/year | Unlimited | Yes |
-| **Direct Install** | 5 min | FREE | 1 (yours) | Yes |
-| **GitHub Actions** | 30 min | FREE | Unlimited | No |
-| **Android APK** | 5 min | FREE | Unlimited | No |
+| Method             | Time     | Cost     | Devices   | Mac Required |
+| ------------------ | -------- | -------- | --------- | ------------ |
+| **TestFlight**     | 48 hours | $99/year | Unlimited | Yes          |
+| **Direct Install** | 5 min    | FREE     | 1 (yours) | Yes          |
+| **GitHub Actions** | 30 min   | FREE     | Unlimited | No           |
+| **Android APK**    | 5 min    | FREE     | Unlimited | No           |
 
 ---
 
 ## Recommended Workflow
 
-**Week 1:** 
+**Week 1:**
+
 - Build Android APK → Test on Android phone
 - Submit to Apple Developer Program
 - Build Windows .exe → Test on desktop
 
 **Week 2:**
+
 - Apple approval arrives
 - Set up TestFlight
 - Build iOS .ipa
 - Test on iPhone
 
 **Week 3:**
+
 - Polish based on feedback
 - Add more testers
 - Prepare for App Store submission
@@ -416,11 +430,13 @@ Once installed on iPhone:
 
 ---
 
-**Estimated Time:** 
+**Estimated Time:**
+
 - First time: 2-3 hours (includes approval wait)
 - After setup: 10 minutes per build
 
-**Best Method for Now:** 
+**Best Method for Now:**
+
 1. Start with Android (immediate testing)
 2. Set up TestFlight in parallel
 3. Use GitHub Actions for automated builds

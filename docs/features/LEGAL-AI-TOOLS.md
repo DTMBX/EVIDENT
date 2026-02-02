@@ -7,10 +7,15 @@
 ## Tool Categories
 
 ### 1. Constitutional Analysis Tools
+
 ### 2. Discovery & Evidence Tools
+
 ### 3. Witness & Statement Tools
+
 ### 4. Case Research Tools
+
 ### 5. Document Generation Tools
+
 ### 6. Timeline & Organization Tools
 
 ---
@@ -24,6 +29,7 @@
 **Output:** Flagged issues with legal analysis
 
 **Custom Instructions:**
+
 ```
 You are a Brady violation specialist. Analyze the provided documents for:
 
@@ -52,6 +58,7 @@ Format as numbered list with severity ratings (Critical/High/Medium/Low).
 ```
 
 **API Integration:**
+
 ```python
 # Add to api/legal_tools.py
 @chatgpt_bp.route('/legal-tools/brady-analysis', methods=['POST'])
@@ -61,17 +68,17 @@ def analyze_brady_violations():
     """
     data = request.get_json()
     documents = data.get('documents', [])
-    
+
     # Build specialized prompt
     prompt = build_brady_prompt(documents)
-    
+
     # Call ChatGPT with legal analysis mode
     result = chatgpt_service.analyze_legal_issue(
         prompt=prompt,
         max_tokens=6000,
         temperature=0.3  # Lower temperature for factual analysis
     )
-    
+
     return jsonify(result)
 ```
 
@@ -82,6 +89,7 @@ def analyze_brady_violations():
 **Output:** Constitutional analysis with case citations
 
 **Custom Instructions:**
+
 ```
 You are a Fourth Amendment expert. Analyze for:
 
@@ -123,6 +131,7 @@ Format as motion to suppress outline.
 **Output:** Miranda analysis
 
 **Custom Instructions:**
+
 ```
 Analyze interrogation for Miranda violations:
 
@@ -165,6 +174,7 @@ Flag suppressible statements and provide case citations.
 **Output:** Formatted timeline with source citations
 
 **Custom Instructions:**
+
 ```
 Create a detailed chronological timeline:
 
@@ -196,6 +206,7 @@ Output as markdown table for easy export.
 **Output:** Matrix of inconsistencies
 
 **Custom Instructions:**
+
 ```
 Compare all statements and identify:
 
@@ -230,6 +241,7 @@ Create comparison table:
 **Output:** Chain of custody audit
 
 **Custom Instructions:**
+
 ```
 Audit chain of custody for:
 
@@ -268,6 +280,7 @@ Flag any breaks in chain with severity assessment.
 **Output:** Credibility report
 
 **Custom Instructions:**
+
 ```
 Evaluate witness credibility using:
 
@@ -307,6 +320,7 @@ Provide specific impeachment points.
 **Output:** Structured question outline
 
 **Custom Instructions:**
+
 ```
 Generate deposition questions organized by topic:
 
@@ -351,6 +365,7 @@ Format as numbered outline with exhibit references.
 **Output:** Case citations with summaries
 
 **Custom Instructions:**
+
 ```
 Research case law for the described issue:
 
@@ -388,6 +403,7 @@ Flag any negative authority to distinguish.
 **Output:** Element-by-element analysis
 
 **Custom Instructions:**
+
 ```
 Break down statute into elements:
 
@@ -429,6 +445,7 @@ Create element checklist for trial prep.
 **Output:** Formatted motion draft
 
 **Custom Instructions:**
+
 ```
 Draft the following motion:
 
@@ -465,6 +482,7 @@ Include placeholder for case-specific details in [BRACKETS].
 **Output:** Comprehensive discovery list
 
 **Custom Instructions:**
+
 ```
 Generate discovery requests for:
 
@@ -509,6 +527,7 @@ Format as numbered requests with definitions and time periods.
 **Output:** Organized case outline
 
 **Custom Instructions:**
+
 ```
 Organize case into structured outline:
 
@@ -532,7 +551,7 @@ III. WITNESSES
          - Credibility Issues
          - Cross-Exam Outline
    B. Defense Witnesses
-   
+
 IV. EVIDENCE
    A. Physical Evidence
    B. Documentary Evidence
@@ -579,13 +598,13 @@ VI. TRIAL STRATEGY
 ```csharp
 public ObservableCollection<LegalTool> AvailableTools { get; set; } = new()
 {
-    new LegalTool { 
-        Name = "Brady Violation Detector", 
+    new LegalTool {
+        Name = "Brady Violation Detector",
         CustomInstructions = bradyInstructions,
         Icon = "🔍"
     },
-    new LegalTool { 
-        Name = "Fourth Amendment Analyzer", 
+    new LegalTool {
+        Name = "Fourth Amendment Analyzer",
         CustomInstructions = fourthAmendmentInstructions,
         Icon = "⚖️"
     },
@@ -626,7 +645,7 @@ HIGH PRIORITY ISSUES: 1
    Issue: This favorable evidence not disclosed in discovery
    Materiality: HIGH - Could negate mens rea element
    Remedy: Motion to compel + sanctions
-   
+
 2. [CRITICAL] Late Disclosure
    Source: Lab report dated 2024-01-15, disclosed 2024-03-20
    Issue: Report shows negative drug test, disclosed 2 months late

@@ -1,9 +1,11 @@
 # ?? Render Deployment Fix - Python Version Issue
 
 ## ? Problem:
+
 Render auto-selected **Python 3.13.4**, but SQLAlchemy 2.0.23 is **NOT compatible** with Python 3.13.
 
 **Error:**
+
 ```
 AssertionError: Class <class 'sqlalchemy.sql.elements.SQLCoreOperations'> directly inherits TypingOnly but has additional attributes
 ```
@@ -13,13 +15,17 @@ AssertionError: Class <class 'sqlalchemy.sql.elements.SQLCoreOperations'> direct
 ## ? Solution Applied:
 
 ### 1. Created `runtime.txt`
+
 Forces Render to use Python 3.11.9 (compatible):
+
 ```
 python-3.11.9
 ```
 
 ### 2. Updated `requirements.txt`
+
 Added explicit Flask version and fixed dependencies:
+
 ```
 Flask==3.0.0
 Flask-SQLAlchemy==3.1.1
@@ -28,7 +34,9 @@ SQLAlchemy==2.0.23
 ```
 
 ### 3. Updated `build.sh`
+
 Proper Render build script for Flask:
+
 ```bash
 #!/usr/bin/env bash
 set -o errexit
@@ -63,6 +71,7 @@ Go to your Render dashboard:
 **https://dashboard.render.com**
 
 You'll see:
+
 1. **"Deploying"** status (yellow)
 2. Build logs in real-time
 3. **"Live"** status (green) when done
@@ -75,6 +84,7 @@ Your app will be at:
 **https://Evident-legal-tech.onrender.com**
 
 **Test:**
+
 1. Open URL
 2. Click Login
 3. Email: `admin@Evident.info`

@@ -33,16 +33,19 @@
 ## 📚 FUNDAMENTAL CONCEPT: Separation of Concerns
 
 ### GitHub = Library (Code Storage)
+
 - **Purpose:** Store and version control source code
 - **Analogy:** Like a library that holds the recipe book
 - **NOT for:** Running the restaurant, serving customers
 
 ### Render/AWS = Restaurant Kitchen (Application Server)
+
 - **Purpose:** Run your code, serve users, process requests
 - **Analogy:** The kitchen that cooks the food using the recipes
 - **NOT for:** Storing the recipe book long-term
 
 ### CDN = Fast Food Window (Content Delivery)
+
 - **Purpose:** Serve static files fast (images, CSS, JS)
 - **Analogy:** Express window for quick pickup
 - **NOT for:** Complex operations or dynamic content
@@ -52,98 +55,93 @@
 ## ✅ CORRECT ARCHITECTURE (Industry Standard)
 
 ### Tier 1: Code Repository (GitHub)
+
 ```yaml
-What Lives Here:
-  ✓ Source code (.py, .js, .html files)
+What Lives Here: ✓ Source code (.py, .js, .html files)
   ✓ Configuration files (render.yaml, requirements.txt)
   ✓ Documentation (.md files)
   ✓ Version history (git commits)
-  
-What NEVER Lives Here:
-  ✗ User-uploaded files (PDFs, videos, images)
+
+What NEVER Lives Here: ✗ User-uploaded files (PDFs, videos, images)
   ✗ Database data (user accounts, analysis results)
   ✗ Generated reports
   ✗ Cache data
   ✗ Environment secrets (API keys)
-  
+
 Access: Public or Private repository
 Cost: FREE for public, $4/month for private
 Storage Limit: 1-100 GB (not for large files!)
 ```
 
 ### Tier 2: Application Server (Render/AWS/Azure)
+
 ```yaml
-What Lives Here:
-  ✓ Running Flask application
+What Lives Here: ✓ Running Flask application
   ✓ Python environment & dependencies
   ✓ Active user sessions
   ✓ Temporary processing files
   ✓ Application logs
-  
-What NEVER Lives Here:
-  ✗ Git repository (.git folder - too large)
+
+What NEVER Lives Here: ✗ Git repository (.git folder - too large)
   ✗ Long-term file storage (use S3/Azure Blob)
   ✗ Large video files (use cloud storage)
-  
+
 Access: HTTP/HTTPS endpoints
 Cost: $7-25/month (Render), $20-200/month (AWS)
 Storage Limit: 10-50 GB ephemeral (resets on deploy!)
 ```
 
 ### Tier 3: Database (PostgreSQL on Render/AWS)
+
 ```yaml
-What Lives Here:
-  ✓ User accounts & profiles
+What Lives Here: ✓ User accounts & profiles
   ✓ Analysis metadata
   ✓ Case information
   ✓ Subscription data
   ✓ Audit logs
-  
-What NEVER Lives Here:
-  ✗ Large files (videos, PDFs) - use file paths to S3
+
+What NEVER Lives Here: ✗ Large files (videos, PDFs) - use file paths to S3
   ✗ Source code
   ✗ Application logic
-  
+
 Access: Private connection string
 Cost: $7/month (Render), $15-100/month (AWS RDS)
 Storage Limit: 1 GB - 1 TB+ (scalable)
 ```
 
 ### Tier 4: Object Storage (AWS S3 / Azure Blob)
+
 ```yaml
-What Lives Here:
-  ✓ User-uploaded PDFs
+What Lives Here: ✓ User-uploaded PDFs
   ✓ BWC video files
   ✓ Generated reports
   ✓ Evidence images
   ✓ Audio transcriptions
-  
-Why Separate Storage:
-  ✓ Unlimited scalability
+
+Why Separate Storage: ✓ Unlimited scalability
   ✓ 99.99% durability
   ✓ CDN integration
   ✓ Automatic backups
   ✓ Cost-effective ($0.023/GB/month)
-  
+
 Access: Pre-signed URLs or CDN
 Cost: ~$2-50/month for 100-1000 GB
 ```
 
 ### Tier 5: CDN (Cloudflare / AWS CloudFront)
+
 ```yaml
-What Lives Here:
-  ✓ CSS stylesheets
+What Lives Here: ✓ CSS stylesheets
   ✓ JavaScript files
   ✓ Logo images
   ✓ Fonts
   ✓ Icons
-  
-Why CDN:
-  ✓ 10-100x faster load times
+
+Why CDN: ✓ 10-100x faster load times
   ✓ Reduced server bandwidth
   ✓ Global edge locations
   ✓ DDoS protection
-  
+
 Access: Public HTTPS URLs
 Cost: FREE (Cloudflare) or $1-20/month
 ```
@@ -153,6 +151,7 @@ Cost: FREE (Cloudflare) or $1-20/month
 ## 🏗️ Evident OPTIMAL ARCHITECTURE
 
 ### Current Setup (NOT OPTIMAL)
+
 ```
 ❌ CURRENT - Everything on Render:
 ┌────────────────────────────┐
@@ -173,6 +172,7 @@ Cost: FREE (Cloudflare) or $1-20/month
 ```
 
 ### Recommended Setup (OPTIMAL)
+
 ```
 ✅ RECOMMENDED - Distributed Architecture:
 
@@ -202,24 +202,26 @@ Cost: FREE (Cloudflare) or $1-20/month
 ## 💰 COST COMPARISON
 
 ### Option A: All-in-One (Current)
+
 ```
 Render Pro (for 100GB storage): $85/month
   ├─ App Server: $25
   ├─ Database: $20
   └─ Extra Storage: $40
-  
+
 TOTAL: $85/month
 Scalability: Limited to Render's offerings
 Performance: Moderate (no CDN)
 ```
 
 ### Option B: Distributed (Recommended)
+
 ```
 GitHub:        FREE (public) or $4/month (private)
 Render:        $25/month (app) + $7/month (database)
 AWS S3:        $2-10/month (100-1000 GB files)
 Cloudflare:    FREE (CDN)
-  
+
 TOTAL: $34-46/month
 Scalability: Infinite (each service scales independently)
 Performance: Excellent (CDN + optimized storage)
@@ -228,12 +230,13 @@ SAVINGS: $39-51/month (46-60% cheaper!)
 ```
 
 ### Option C: Full AWS (Enterprise)
+
 ```
 AWS EC2:       $50/month (t3.medium instance)
 AWS RDS:       $50/month (PostgreSQL)
 AWS S3:        $5-20/month (storage)
 AWS CloudFront: $5/month (CDN)
-  
+
 TOTAL: $110-125/month
 Scalability: Maximum control and performance
 Performance: Best (dedicated resources)
@@ -296,6 +299,7 @@ Best For: 10,000+ users, high traffic
 ## 📊 WHAT GOES WHERE - Evident Specific
 
 ### GitHub Repository
+
 ```
 Evident.info/
 ├── app.py                    ✓ YES - Application code
@@ -320,6 +324,7 @@ DO NOT PUT IN GITHUB:
 ```
 
 ### Render (Application Server)
+
 ```
 /app/ (Render working directory)
 ├── app.py                   ✓ Copied from GitHub
@@ -339,6 +344,7 @@ PERMANENT (Persists):
 ```
 
 ### AWS S3 (File Storage)
+
 ```
 Evident-files/ (S3 Bucket)
 ├── uploads/
@@ -368,18 +374,19 @@ Benefits:
 ```
 
 ### PostgreSQL Database (on Render)
+
 ```sql
 -- What's stored in database:
 users (
   id, email, password_hash, tier, created_at
 )
 analyses (
-  id, user_id, filename, 
+  id, user_id, filename,
   file_path,  -- S3 URL: s3://bucket/uploads/videos/file.mp4
   status, created_at
 )
 reports (
-  id, analysis_id, 
+  id, analysis_id,
   report_path,  -- S3 URL: s3://bucket/reports/report.pdf
   generated_at
 )
@@ -395,6 +402,7 @@ reports (
 ## 🔧 IMPLEMENTATION GUIDE
 
 ### Phase 1: Current State (Keep Working)
+
 ```bash
 # What you have now:
 ✓ GitHub: Source code
@@ -405,6 +413,7 @@ reports (
 ```
 
 ### Phase 2: Add S3 Integration (Recommended Next Step)
+
 ```bash
 # 1. Create AWS account (free tier available)
 aws configure
@@ -424,12 +433,13 @@ s3.upload_file('local_file.pdf', 'Evident-legal-files', 'uploads/file.pdf')
 analysis.file_path = 's3://Evident-legal-files/uploads/file.pdf'
 
 # 6. Generate pre-signed URLs for downloads
-url = s3.generate_presigned_url('get_object', 
+url = s3.generate_presigned_url('get_object',
     Params={'Bucket': 'Evident-legal-files', 'Key': 'uploads/file.pdf'},
     ExpiresIn=3600)  # URL valid for 1 hour
 ```
 
 ### Phase 3: Add CDN (Optional but Recommended)
+
 ```bash
 # 1. Sign up for Cloudflare (FREE)
 # 2. Add your domain (Evident.info)
@@ -448,6 +458,7 @@ url = s3.generate_presigned_url('get_object',
 ## 📈 SCALABILITY ROADMAP
 
 ### Stage 1: Startup (0-100 users)
+
 ```
 GitHub (FREE) + Render Free Tier ($0)
 ├─ Code: GitHub
@@ -466,6 +477,7 @@ Perfect for: Testing, MVP, early users
 ```
 
 ### Stage 2: Growth (100-1,000 users)
+
 ```
 GitHub ($0) + Render Starter ($25) + AWS S3 ($5)
 ├─ Code: GitHub
@@ -484,6 +496,7 @@ Perfect for: Growing user base
 ```
 
 ### Stage 3: Scale (1,000-10,000 users)
+
 ```
 GitHub ($0) + Render Pro ($85) + AWS S3 ($20) + Cloudflare ($0)
 ├─ Code: GitHub
@@ -503,6 +516,7 @@ Perfect for: Established platform
 ```
 
 ### Stage 4: Enterprise (10,000+ users)
+
 ```
 GitHub ($0) + AWS ($500-2000/month)
 ├─ Code: GitHub
@@ -532,6 +546,7 @@ Perfect for: Major legal tech platform
 ## ✅ ACTION PLAN - Migrate to Best Practices
 
 ### Immediate (This Week)
+
 1. **Keep current setup working**
    - ✓ GitHub for code
    - ✓ Render for app + database
@@ -543,16 +558,18 @@ Perfect for: Major legal tech platform
    - ✓ Identify bottlenecks
 
 ### Short-term (Next 2 Weeks)
+
 1. **Integrate AWS S3**
+
    ```bash
    # Add to requirements.txt:
    boto3==1.35.84
-   
+
    # Create cloud_storage.py:
    class S3Storage:
        def upload(file, key):
            s3.upload_fileobj(file, 'Evident-files', key)
-       
+
        def download_url(key):
            return s3.generate_presigned_url('get_object', ...)
    ```
@@ -563,6 +580,7 @@ Perfect for: Major legal tech platform
    - Update database paths
 
 ### Medium-term (Next Month)
+
 1. **Add CDN (Cloudflare)**
    - Serve CSS/JS from CDN
    - Serve images from CDN
@@ -574,6 +592,7 @@ Perfect for: Major legal tech platform
    - Set up automated backups
 
 ### Long-term (3-6 Months)
+
 1. **Consider AWS migration** (when you hit 1,000+ users)
 2. **Add caching layer** (Redis)
 3. **Implement background jobs** (Celery + RabbitMQ)
@@ -585,13 +604,13 @@ Perfect for: Major legal tech platform
 
 **When to use each platform:**
 
-| Platform | Best For | NOT For |
-|----------|----------|---------|
-| **GitHub** | Source code, version control, CI/CD | Running apps, storing files, databases |
-| **Render** | Small-medium apps, simple deploys | Large-scale apps (>10k users), complex infrastructure |
-| **AWS/Azure** | Enterprise apps, full control | Small projects (overkill), quick MVPs |
-| **Netlify/Vercel** | Static sites, JAMstack | Backend APIs, databases, file processing |
-| **Heroku** | Rapid prototyping | Cost-effective production (expensive) |
+| Platform           | Best For                            | NOT For                                               |
+| ------------------ | ----------------------------------- | ----------------------------------------------------- |
+| **GitHub**         | Source code, version control, CI/CD | Running apps, storing files, databases                |
+| **Render**         | Small-medium apps, simple deploys   | Large-scale apps (>10k users), complex infrastructure |
+| **AWS/Azure**      | Enterprise apps, full control       | Small projects (overkill), quick MVPs                 |
+| **Netlify/Vercel** | Static sites, JAMstack              | Backend APIs, databases, file processing              |
+| **Heroku**         | Rapid prototyping                   | Cost-effective production (expensive)                 |
 
 ---
 
@@ -660,6 +679,6 @@ Your current setup (GitHub + Render) is correct and industry-standard. Just add 
 
 ---
 
-*Last Updated: January 26, 2026*  
-*Architecture: Production-Ready*  
-*Scalability: Designed for 10,000+ users*
+_Last Updated: January 26, 2026_  
+_Architecture: Production-Ready_  
+_Scalability: Designed for 10,000+ users_

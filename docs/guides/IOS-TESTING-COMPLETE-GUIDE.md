@@ -21,6 +21,7 @@ dotnet build -f net10.0-android34.0 -c Release
 ```
 
 **APK Location:**
+
 ```
 bin\Release\net10.0-android34.0\com.Evident.matterdocket-Signed.apk
 ```
@@ -28,12 +29,14 @@ bin\Release\net10.0-android34.0\com.Evident.matterdocket-Signed.apk
 ### Install on Any Android Phone
 
 **Method 1: Email**
+
 1. Email APK to yourself
 2. Open email on Android phone
 3. Download APK
 4. Tap to install (allow "Unknown sources")
 
 **Method 2: USB**
+
 1. Connect Android via USB
 2. Copy APK to `Downloads` folder
 3. Open file manager → Downloads
@@ -46,7 +49,7 @@ bin\Release\net10.0-android34.0\com.Evident.matterdocket-Signed.apk
 ✅ Legal AI tools  
 ✅ Evidence upload  
 ✅ Camera integration  
-✅ Subscription flows  
+✅ Subscription flows
 
 **Result: Full working app on Android while iOS setup processes!**
 
@@ -117,6 +120,7 @@ https://www.macstadium.com
 https://www.macincloud.com
 
 **Steps:**
+
 1. Sign up for cloud Mac service
 2. Remote desktop into Mac
 3. Follow "Option A" steps above
@@ -166,6 +170,7 @@ dotnet publish -f net10.0-ios -c Release
 ```
 
 **Output:**
+
 ```
 bin/Release/net10.0-ios/ios-arm64/publish/Evident.MatterDocket.MAUI.ipa
 ```
@@ -287,10 +292,10 @@ Deploy directly to YOUR iPhone without App Store or TestFlight.
     <!-- Automatic signing (free Apple ID) -->
     <CodesignKey>Apple Development</CodesignKey>
     <CodesignProvision>Automatic</CodesignProvision>
-    
+
     <!-- Unique bundle ID with your Apple ID -->
     <ApplicationId>com.YOUR-NAME.Evident</ApplicationId>
-    
+
     <!-- Development settings -->
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
@@ -335,45 +340,45 @@ name: Build iOS App
 
 on:
   push:
-    branches: [ main, develop ]
-  workflow_dispatch:  # Manual trigger
+    branches: [main, develop]
+  workflow_dispatch: # Manual trigger
 
 jobs:
   build-ios:
-    runs-on: macos-14  # GitHub-hosted Mac
-    
+    runs-on: macos-14 # GitHub-hosted Mac
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      
+
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '10.0.x'
-      
+          dotnet-version: "10.0.x"
+
       - name: Install MAUI workload
         run: dotnet workload install maui
-      
+
       - name: Restore dependencies
         run: dotnet restore src/Evident.MatterDocket.MAUI
-      
+
       - name: Build iOS
         run: |
           cd src/Evident.MatterDocket.MAUI
           dotnet build -f net10.0-ios -c Release
-      
+
       - name: Publish iOS
         run: |
           cd src/Evident.MatterDocket.MAUI
           dotnet publish -f net10.0-ios -c Release
-      
+
       - name: Upload IPA
         uses: actions/upload-artifact@v4
         with:
           name: Evident-iOS
           path: src/Evident.MatterDocket.MAUI/bin/Release/net10.0-ios/**/*.ipa
           retention-days: 30
-      
+
       # Optional: Auto-upload to TestFlight
       - name: Upload to TestFlight
         if: github.ref == 'refs/heads/main'
@@ -404,6 +409,7 @@ jobs:
 ### "Unable to find a valid signing identity"
 
 **Fix:**
+
 ```bash
 # List available signing identities
 security find-identity -v -p codesigning
@@ -417,6 +423,7 @@ security find-identity -v -p codesigning
 ### "Provisioning profile has expired"
 
 **Fix:**
+
 1. Go to https://developer.apple.com/account/
 2. **Profiles** → Delete old profile
 3. Create new profile
@@ -427,6 +434,7 @@ security find-identity -v -p codesigning
 ### Build succeeds but app crashes on iPhone
 
 **Fix:**
+
 ```bash
 # View crash logs
 # On Mac: Xcode → Window → Devices and Simulators
@@ -456,31 +464,34 @@ security find-identity -v -p codesigning
 
 ---
 
-##  Path Comparison
+## Path Comparison
 
-| Path | Time | Cost | Testers | Renewal | Best For |
-|------|------|------|---------|---------|----------|
-| **Android APK** | 30 min | FREE | Unlimited | Never | Immediate testing |
-| **TestFlight** | 2-4 weeks | $99/year | 10,000 | Yearly | Law firm distribution |
-| **Development** | 2-3 hours | FREE | 1 (you) | 7 days | Quick personal testing |
-| **GitHub Actions** | 1 hour setup | FREE | Auto | Never | CI/CD automation |
+| Path               | Time         | Cost     | Testers   | Renewal | Best For               |
+| ------------------ | ------------ | -------- | --------- | ------- | ---------------------- |
+| **Android APK**    | 30 min       | FREE     | Unlimited | Never   | Immediate testing      |
+| **TestFlight**     | 2-4 weeks    | $99/year | 10,000    | Yearly  | Law firm distribution  |
+| **Development**    | 2-3 hours    | FREE     | 1 (you)   | 7 days  | Quick personal testing |
+| **GitHub Actions** | 1 hour setup | FREE     | Auto      | Never   | CI/CD automation       |
 
 ---
 
 ## 📅 Recommended Timeline
 
 ### This Week
+
 - ✅ **Day 1:** Build Android APK, test on Android phone
 - ⏳ **Day 2:** Enroll in Apple Developer Program
 - ⏳ **Day 3-4:** Wait for approval
 
 ### Next Week
+
 - ⏳ **Day 7:** Create App ID, certificates
 - ⏳ **Day 8:** Set up cloud Mac (if needed)
 - ⏳ **Day 9:** Build iOS app
 - ⏳ **Day 10:** Upload to TestFlight
 
 ### Week 3-4
+
 - ⏳ **Day 14:** Invite beta testers (law firms)
 - ⏳ **Day 21:** Gather feedback, iterate
 - ⏳ **Day 28:** Prepare for App Store submission
@@ -490,6 +501,7 @@ security find-identity -v -p codesigning
 ## 🎯 Next Steps
 
 **RIGHT NOW:**
+
 ```powershell
 # Build Android APK (works today!)
 bm
@@ -497,11 +509,13 @@ dotnet build -f net10.0-android34.0 -c Release
 ```
 
 **THIS WEEK:**
+
 1. Enroll in Apple Developer Program
 2. Test app on Android while waiting
 3. Set up cloud Mac access (if no Mac)
 
 **NEXT WEEK:**
+
 1. Create certificates and profiles
 2. Build iOS app
 3. Upload to TestFlight

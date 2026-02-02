@@ -16,6 +16,7 @@
 ## 🔧 Phase 2: AI Tool Integration (IN PROGRESS)
 
 ### ChatGPT Integration
+
 **File:** `chatgpt_legal_library_integration.py`
 
 - [x] Integration class created
@@ -26,6 +27,7 @@
 - [ ] Test with live ChatGPT conversations
 
 **Integration Points:**
+
 ```python
 # In api/chatgpt.py, add:
 from chatgpt_legal_library_integration import ChatGPTLegalLibraryIntegration
@@ -41,6 +43,7 @@ response = library_integration.format_citation_links(chatgpt_response)
 ---
 
 ### Document Optimizer Integration
+
 **File:** `document_optimizer_library_integration.py`
 
 - [x] Integration class created
@@ -51,6 +54,7 @@ response = library_integration.format_citation_links(chatgpt_response)
 - [ ] Test with real legal documents
 
 **Integration Points:**
+
 ```python
 # In legal_document_optimizer.py, add:
 from document_optimizer_library_integration import DocumentOptimizerLibraryIntegration
@@ -58,7 +62,7 @@ from document_optimizer_library_integration import DocumentOptimizerLibraryInteg
 class LegalDocumentOptimizer:
     def __init__(self):
         self.library_integration = DocumentOptimizerLibraryIntegration()
-    
+
     def optimize_document(self, text):
         suggestions = self.library_integration.suggest_citations_for_document(text)
         enhanced_prompt = self.library_integration.enhance_optimization_prompt(base_prompt, text)
@@ -68,6 +72,7 @@ class LegalDocumentOptimizer:
 ---
 
 ### Violation Finder Integration
+
 **File:** `violation_finder_library_integration.py` (TODO)
 
 - [ ] Create integration class
@@ -76,11 +81,12 @@ class LegalDocumentOptimizer:
 - [ ] Example: Miranda violation → Miranda v. Arizona
 
 **Planned Structure:**
+
 ```python
 class ViolationFinderLibraryIntegration:
     def link_violation_to_precedent(self, violation_type):
         """Find precedent case for violation"""
-        
+
     def enhance_violation_report(self, violations):
         """Add case law citations to report"""
 ```
@@ -88,6 +94,7 @@ class ViolationFinderLibraryIntegration:
 ---
 
 ### Evidence Analyzer Integration
+
 **File:** `evidence_analyzer_library_integration.py` (TODO)
 
 - [ ] Create integration class
@@ -100,6 +107,7 @@ class ViolationFinderLibraryIntegration:
 ## 📱 Phase 3: MAUI Mobile/Desktop UI
 
 ### Legal Library Page
+
 **File:** `src/Evident.MatterDocket.MAUI/Views/LegalLibraryPage.cs`
 
 - [x] Placeholder created
@@ -111,6 +119,7 @@ class ViolationFinderLibraryIntegration:
 - [ ] Implement import dialog
 
 **UI Components Needed:**
+
 ```
 ✓ Search bar with filters
 ✓ Results list (CollectionView)
@@ -122,6 +131,7 @@ class ViolationFinderLibraryIntegration:
 ```
 
 ### ChatViewModel Integration
+
 **File:** `src/Evident.MatterDocket.MAUI/ViewModels/ChatViewModel.cs`
 
 - [ ] Add "Legal Library" tool button
@@ -134,6 +144,7 @@ class ViolationFinderLibraryIntegration:
 ## 🚀 Phase 4: Advanced Features
 
 ### Batch Import Tool
+
 **File:** `batch_import_foundation_cases.py`
 
 - [x] Script created
@@ -144,6 +155,7 @@ class ViolationFinderLibraryIntegration:
 - [ ] Add rate limiting
 
 **Usage:**
+
 ```bash
 # Import all foundation cases
 python batch_import_foundation_cases.py all
@@ -158,6 +170,7 @@ python batch_import_foundation_cases.py --custom citations.txt
 ---
 
 ### Citation Network Visualization
+
 **File:** `citation_network_visualizer.py` (TODO)
 
 - [ ] Build citation graph
@@ -169,6 +182,7 @@ python batch_import_foundation_cases.py --custom citations.txt
 ---
 
 ### Shepardize Integration
+
 **File:** `shepardize_integration.py` (TODO)
 
 - [ ] Check case validity
@@ -179,6 +193,7 @@ python batch_import_foundation_cases.py --custom citations.txt
 ---
 
 ### Vector Embeddings Search
+
 **File:** `legal_library_embeddings.py` (TODO)
 
 - [ ] Generate embeddings for cases (OpenAI)
@@ -191,6 +206,7 @@ python batch_import_foundation_cases.py --custom citations.txt
 ## 🧪 Phase 5: Testing & Quality Assurance
 
 ### Integration Tests
+
 **File:** `tests/test_legal_library_integration.py`
 
 - [x] Test file created
@@ -202,6 +218,7 @@ python batch_import_foundation_cases.py --custom citations.txt
 - [ ] Add performance benchmarks
 
 **Test Coverage Goals:**
+
 ```
 ✓ Citation parser: 100%
 ✓ API endpoints: 100%
@@ -234,6 +251,7 @@ python batch_import_foundation_cases.py --custom citations.txt
 ## 🎯 Priority Order
 
 ### Immediate (This Week)
+
 1. ✅ Core infrastructure (DONE)
 2. 🔧 ChatGPT integration (IN PROGRESS)
 3. 🔧 Document Optimizer integration (IN PROGRESS)
@@ -241,6 +259,7 @@ python batch_import_foundation_cases.py --custom citations.txt
 5. 🚀 Batch import testing
 
 ### Short-term (This Month)
+
 6. Violation Finder integration
 7. Evidence Analyzer integration
 8. MAUI document viewer
@@ -248,6 +267,7 @@ python batch_import_foundation_cases.py --custom citations.txt
 10. Integration tests
 
 ### Long-term (Next Quarter)
+
 11. Citation network visualization
 12. Vector embeddings search
 13. Shepardize integration
@@ -285,18 +305,21 @@ python batch_import_foundation_cases.py --custom citations.txt
 ## 🆘 Known Issues & TODOs
 
 ### High Priority
+
 - [ ] Fix Unicode encoding in app.py print statements (partial fix applied)
 - [ ] Add foreign key constraints when `cases` table exists
 - [ ] Implement rate limiting for CourtListener API
 - [ ] Add pagination to search results
 
 ### Medium Priority
+
 - [ ] Improve citation parser accuracy (state reporters)
 - [ ] Add full-text search indexing (FTS5)
 - [ ] Implement relevance scoring algorithm
 - [ ] Add document caching
 
 ### Low Priority
+
 - [ ] Add export to Zotero
 - [ ] Add export to PDF with annotations
 - [ ] Add sharing/collaboration features

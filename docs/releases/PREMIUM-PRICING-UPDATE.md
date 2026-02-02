@@ -1,6 +1,7 @@
 # Premium Tier Pricing Update - $149 → $199
 
 ## Summary
+
 All instances of Premium tier pricing updated from $149 to $199 across the codebase.
 
 ---
@@ -8,6 +9,7 @@ All instances of Premium tier pricing updated from $149 to $199 across the codeb
 ## Files Updated
 
 ### **Core Application Files:**
+
 1. ✅ `pricing.html` - Main pricing page display (line 78)
 2. ✅ `templates/auth/signup.html` - Signup tier selector (line 642)
 3. ✅ `templates/components/tier-upgrade-card.html` - Upgrade prompt (line 154)
@@ -15,6 +17,7 @@ All instances of Premium tier pricing updated from $149 to $199 across the codeb
 5. ✅ `models_auth.py` - Tier enum value (line 21)
 
 ### **Documentation Files:**
+
 6. ✅ `FRONTEND-FIXES-COMPLETE.md`
 7. ✅ `DASHBOARD-GUIDE.md`
 8. ✅ `docs/TIER-SYSTEM-COMPLETE.md`
@@ -27,18 +30,19 @@ All instances of Premium tier pricing updated from $149 to $199 across the codeb
 
 ## Current Pricing Structure
 
-| Tier | Monthly Price | Annual Price | Key Features |
-|------|--------------|--------------|--------------|
-| **Free** | $0 | $0 | 2 videos/month, basic features |
-| **Professional** | $49 | ~$490 | 25 videos/month, priority support |
-| **Premium** | **$199** | ~$1,990 | 100 videos/month, full forensic, API access |
-| **Enterprise** | $499 | Custom | Unlimited everything, dedicated support |
+| Tier             | Monthly Price | Annual Price | Key Features                                |
+| ---------------- | ------------- | ------------ | ------------------------------------------- |
+| **Free**         | $0            | $0           | 2 videos/month, basic features              |
+| **Professional** | $49           | ~$490        | 25 videos/month, priority support           |
+| **Premium**      | **$199**      | ~$1,990      | 100 videos/month, full forensic, API access |
+| **Enterprise**   | $499          | Custom       | Unlimited everything, dedicated support     |
 
 ---
 
 ## Updated Tier Capabilities (Premium @ $199/mo)
 
 ### Premium Tier Features:
+
 - ✅ 100 BWC videos/month
 - ✅ 10,000 PDF pages/month
 - ✅ 3,000 minutes transcription
@@ -73,12 +77,14 @@ All instances of Premium tier pricing updated from $149 to $199 across the codeb
 **Status:** ⚠️ Intentionally left unchanged
 
 **Reason:** The Stripe payment service configuration appears to use different pricing tiers:
+
 - Basic: $49/mo
 - Pro: $99/mo
 - Premium: $299/mo (not $199)
 - Enterprise: Custom
 
 This may be:
+
 1. An older pricing structure
 2. A different product tier system
 3. Test pricing for Stripe integration
@@ -103,6 +109,7 @@ This may be:
    - Tier comparison tables show $199
 
 4. **Database Verification**
+
    ```python
    from models_auth import TierLevel
    print(TierLevel.PREMIUM)  # Should output: 199
@@ -140,20 +147,24 @@ If pricing needs to be reverted:
 ## Impact Assessment
 
 ### **User-Facing Changes:**
+
 - Pricing page shows new $199 price ✅
 - Signup flow reflects new pricing ✅
 - Upgrade prompts updated ✅
 
 ### **Backend Changes:**
+
 - Database model enum updated ✅
 - Helper functions updated ✅
 - Tier validation uses new price ✅
 
 ### **Documentation:**
+
 - All docs reflect $199 ✅
 - No conflicting pricing info ✅
 
 ### **No Impact:**
+
 - Existing Premium subscribers (grandfathered at $149)
 - Free tier users
 - Professional tier pricing unchanged
@@ -162,6 +173,7 @@ If pricing needs to be reverted:
 ---
 
 ## Date of Change
+
 **Updated:** January 26, 2026  
 **Implemented By:** GitHub Copilot CLI  
 **Approved By:** [Pending]
@@ -169,6 +181,7 @@ If pricing needs to be reverted:
 ---
 
 ## Related Documentation
+
 - `USER-FLOW-TESTING-GUIDE.md` - Test registration flow with new pricing
 - `TIER-CAPABILITIES-GUIDE.md` - Full tier comparison with $199 Premium
 - `PREMIUM-FEATURES-COMPLETE.md` - Premium feature set documentation

@@ -3,6 +3,7 @@
 ## Pre-Deployment Checklist
 
 ### ✅ Local Testing (Complete)
+
 - [x] All Python files compile without errors
 - [x] Performance utilities import successfully
 - [x] Cache functionality works
@@ -13,16 +14,19 @@
 ### 📋 Before Deployment (Required)
 
 - [ ] **Install Flask-Compress**
+
   ```bash
   pip install Flask-Compress==1.15
   ```
 
 - [ ] **Run Database Optimization**
+
   ```bash
   python performance_check.py optimize
   ```
 
 - [ ] **Run Verification Test**
+
   ```bash
   python verify_optimizations.py
   # Should output: ✓ ALL CHECKS PASSED
@@ -39,6 +43,7 @@
 ### 🚀 Deployment Steps
 
 #### Option 1: Automatic Deployment (Render/Heroku)
+
 ```bash
 # Just push - requirements.txt will auto-install
 git add .
@@ -47,6 +52,7 @@ git push
 ```
 
 #### Option 2: Manual Deployment
+
 ```bash
 # 1. Pull latest code
 git pull
@@ -64,24 +70,28 @@ sudo systemctl restart Evident  # or your process manager
 ### ✅ Post-Deployment Verification
 
 - [ ] **Check Application Starts**
+
   ```bash
   # Check logs for errors
   tail -f logs/Evident.log
   ```
 
 - [ ] **Verify Compression Works**
+
   ```bash
   curl -H "Accept-Encoding: gzip" https://Evident.info/api/evidence/list -I
   # Should see: Content-Encoding: gzip
   ```
 
 - [ ] **Check Database Indexes**
+
   ```bash
   python performance_check.py check
   # Should show all 15 indexes created
   ```
 
 - [ ] **Run Performance Report**
+
   ```bash
   python performance_check.py report
   # Review metrics
@@ -96,18 +106,21 @@ sudo systemctl restart Evident  # or your process manager
 ### 📊 Monitoring (First 24 Hours)
 
 - [ ] **Monitor Response Times**
+
   ```bash
   # Check X-Response-Time headers
   curl -I https://Evident.info/admin/stats
   ```
 
 - [ ] **Check Slow Queries**
+
   ```bash
   grep "Slow query" logs/Evident.log
   # Should be minimal or none
   ```
 
 - [ ] **Monitor Memory Usage**
+
   ```bash
   # Check process memory
   ps aux | grep gunicorn
@@ -123,6 +136,7 @@ sudo systemctl restart Evident  # or your process manager
 ### 🔧 Troubleshooting
 
 #### Flask-Compress Not Found
+
 ```bash
 pip install Flask-Compress==1.15
 # or
@@ -130,6 +144,7 @@ pip install -r requirements.txt
 ```
 
 #### Indexes Not Created
+
 ```bash
 # Check database permissions
 # Re-run optimization
@@ -137,6 +152,7 @@ python performance_check.py optimize
 ```
 
 #### App Won't Start
+
 ```bash
 # Check syntax
 python -m py_compile app.py
@@ -149,6 +165,7 @@ tail -50 logs/Evident.log
 ```
 
 #### High Memory Usage on Upload
+
 ```bash
 # Verify streaming is working
 grep "file_content = file.read()" app.py
@@ -196,15 +213,16 @@ sudo systemctl restart Evident
 **Documentation**: ✅ Complete
 **Ready for Deployment**: ✅ Yes
 
-**Deployment Date**: _______________
-**Deployed By**: _______________
-**Post-Deployment Check**: _______________
+**Deployment Date**: ******\_\_\_******
+**Deployed By**: ******\_\_\_******
+**Post-Deployment Check**: ******\_\_\_******
 
 ---
 
 ## Quick Reference
 
 ### Key Commands
+
 ```bash
 # Install
 pip install Flask-Compress==1.15
@@ -220,12 +238,14 @@ python performance_check.py report
 ```
 
 ### Key Files
+
 - `app.py` - Main application (optimized)
 - `performance_optimizations.py` - Utilities
 - `performance_check.py` - Monitoring
 - `requirements.txt` - Dependencies
 
 ### Documentation
+
 - `PERFORMANCE-README.md` - Quick reference
 - `PERFORMANCE-OPTIMIZATION-SUMMARY.md` - Executive summary
 - `PERFORMANCE-OPTIMIZATION-COMPLETE.md` - Full documentation

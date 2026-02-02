@@ -203,8 +203,8 @@ New-SelfSignedCertificate -Type Custom -Subject "CN=Evident" -KeyUsage DigitalSi
 Edit `src/Evident.Mobile/Platforms/Windows/Package.appxmanifest`:
 
 ```xml
-<Identity Name="Evident.Mobile" 
-          Publisher="CN=Your Company Name" 
+<Identity Name="Evident.Mobile"
+          Publisher="CN=Your Company Name"
           Version="1.0.0.0" />
 ```
 
@@ -239,12 +239,14 @@ signtool sign /f YourCertificate.pfx /p PASSWORD /fd SHA256 Evident.msix
 Add these secrets to your GitHub repository:
 
 #### Android
+
 - `ANDROID_KEYSTORE_BASE64` - Base64 encoded keystore file
 - `ANDROID_KEYSTORE_PASSWORD` - Keystore password
 - `ANDROID_KEY_ALIAS` - Key alias
 - `ANDROID_KEY_PASSWORD` - Key password
 
 #### iOS
+
 - `IOS_CERTIFICATE_BASE64` - Base64 encoded certificate
 - `IOS_CERTIFICATE_PASSWORD` - Certificate password
 - `IOS_PROVISIONING_PROFILE_BASE64` - Base64 encoded provisioning profile
@@ -268,6 +270,7 @@ base64 -i certificate.p12 -o certificate-base64.txt
 ## Security Best Practices
 
 ### ✅ DO:
+
 - Store signing keys in secure password manager (1Password, LastPass)
 - Use different keys for development and production
 - Enable two-factor authentication on all developer accounts
@@ -276,6 +279,7 @@ base64 -i certificate.p12 -o certificate-base64.txt
 - Backup keystore files securely (encrypted cloud storage)
 
 ### ❌ DON'T:
+
 - Commit signing keys to git
 - Share signing keys via email or chat
 - Use weak passwords for keystores
@@ -287,12 +291,14 @@ base64 -i certificate.p12 -o certificate-base64.txt
 ## Troubleshooting
 
 ### Android: "Keystore was tampered with"
+
 ```powershell
 # Verify keystore integrity
 keytool -list -v -keystore Evident-release.keystore
 ```
 
 ### iOS: "No valid signing identity"
+
 ```bash
 # List available certificates
 security find-identity -v -p codesigning
@@ -302,6 +308,7 @@ security import certificate.p12 -k ~/Library/Keychains/login.keychain
 ```
 
 ### Windows: "Publisher name does not match"
+
 - Ensure Publisher in Package.appxmanifest matches certificate subject
 
 ---
@@ -318,5 +325,6 @@ security import certificate.p12 -k ~/Library/Keychains/login.keychain
 ## Support
 
 For signing issues:
+
 - Email: dev@Evident.info
 - GitHub Issues: https://github.com/DTB396/Evident.info/issues

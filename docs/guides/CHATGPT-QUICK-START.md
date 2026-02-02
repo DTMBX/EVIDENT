@@ -42,6 +42,7 @@ python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().d
 ## Step 3: Set Environment Variable (1 minute)
 
 **Windows (PowerShell):**
+
 ```powershell
 # Create .env file if it doesn't exist
 if (!(Test-Path .env)) { New-Item .env -ItemType File }
@@ -51,6 +52,7 @@ Add-Content .env "API_KEY_ENCRYPTION_KEY=your-generated-key-here"
 ```
 
 **Or manually create `.env` file:**
+
 ```
 API_KEY_ENCRYPTION_KEY=gAAAAABh...your-key-here
 OPENAI_API_KEY=sk-optional-default-key
@@ -65,6 +67,7 @@ python migrate_add_chatgpt.py
 ```
 
 **Expected output:**
+
 ```
 Creating ChatGPT integration tables...
 ✅ Tables created successfully:
@@ -76,6 +79,7 @@ Creating ChatGPT integration tables...
 ```
 
 **Verify:**
+
 ```powershell
 # Check tables were created
 python -c "from models_auth import db; from api.chatgpt import Project, Conversation, Message, UserApiKey; print('✅ All models loaded')"
@@ -97,6 +101,7 @@ app.register_blueprint(chatgpt_bp)
 ```
 
 **Full example:**
+
 ```python
 # Register API blueprints
 from api import register_api_blueprints
@@ -118,6 +123,7 @@ python app.py
 ```
 
 **Verify:**
+
 ```
  * Running on http://127.0.0.1:5000
  * Running on http://localhost:5000
@@ -128,6 +134,7 @@ python app.py
 ## Step 7: Test API with Postman (3 minutes)
 
 ### Test 1: Validate API Key
+
 ```
 POST http://localhost:5000/api/v1/openai/validate-key
 Content-Type: application/json
@@ -138,6 +145,7 @@ Content-Type: application/json
 ```
 
 **Expected response:**
+
 ```json
 {
   "valid": true,
@@ -147,6 +155,7 @@ Content-Type: application/json
 ```
 
 ### Test 2: Store API Key (requires login)
+
 ```
 POST http://localhost:5000/api/v1/user/api-keys
 Authorization: Bearer your-jwt-token
@@ -159,6 +168,7 @@ Content-Type: application/json
 ```
 
 ### Test 3: Create Project
+
 ```
 POST http://localhost:5000/api/v1/projects
 Authorization: Bearer your-jwt-token
@@ -173,6 +183,7 @@ Content-Type: application/json
 ```
 
 **Expected response:**
+
 ```json
 {
   "id": 1,
@@ -182,6 +193,7 @@ Content-Type: application/json
 ```
 
 ### Test 4: Send Chat Message
+
 ```
 POST http://localhost:5000/api/v1/chat/completions
 Authorization: Bearer your-jwt-token
@@ -195,6 +207,7 @@ Content-Type: application/json
 ```
 
 **Expected response:**
+
 ```json
 {
   "conversation_id": 1,
@@ -219,6 +232,7 @@ builder.Services.AddSingleton<IProjectService, ProjectService>();
 ```
 
 **Full example:**
+
 ```csharp
 // Services
 builder.Services.AddSingleton<ApiService>();
@@ -244,6 +258,7 @@ dotnet build -f net10.0-windows10.0.19041.0
 ```
 
 **Expected:**
+
 ```
 Build succeeded.
     0 Error(s)
@@ -275,16 +290,19 @@ Run through this checklist to confirm everything works:
 ## 🐛 Troubleshooting
 
 ### Error: "No module named 'openai'"
+
 ```powershell
 pip install --upgrade openai
 ```
 
 ### Error: "No module named 'cryptography'"
+
 ```powershell
 pip install --upgrade cryptography
 ```
 
 ### Error: "API_KEY_ENCRYPTION_KEY not set"
+
 ```powershell
 # Verify .env file exists and has the key
 cat .env
@@ -292,16 +310,19 @@ cat .env
 ```
 
 ### Error: "Invalid API key"
+
 - Verify you're using a real OpenAI API key from https://platform.openai.com/api-keys
 - Make sure key starts with `sk-`
 - Check key hasn't been revoked
 
 ### Error: "401 Unauthorized" on API calls
+
 - Make sure you're logged in and have a valid JWT token
 - Get token via POST /api/v1/auth/login
 - Include in headers: `Authorization: Bearer your-token`
 
 ### Error: "Project not found"
+
 - Create a project first using POST /api/v1/projects
 - Use the returned `id` in chat requests
 

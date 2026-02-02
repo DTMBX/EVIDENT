@@ -21,6 +21,7 @@ src\Evident.MatterDocket.MAUI\bin\Release\net10.0-android\com.companyname.Eviden
 ### Option 1: Email to Yourself (Easiest)
 
 1. **Email the APK:**
+
    ```powershell
    # Open file location
    explorer "C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI\bin\Release\net10.0-android"
@@ -43,6 +44,7 @@ src\Evident.MatterDocket.MAUI\bin\Release\net10.0-android\com.companyname.Eviden
 1. **Connect phone to PC via USB**
 
 2. **Copy APK to phone:**
+
    ```powershell
    # Phone will appear in Windows Explorer
    # Copy APK to Phone\Downloads folder
@@ -66,6 +68,7 @@ src\Evident.MatterDocket.MAUI\bin\Release\net10.0-android\com.companyname.Eviden
 ## ✅ What Works in This Build
 
 ### ✨ Full Evident Features
+
 - ✅ **Login & Authentication** - JWT token auth
 - ✅ **Case Dashboard** - View all your cases
 - ✅ **File Upload** - PDF, Video, Images
@@ -83,6 +86,7 @@ src\Evident.MatterDocket.MAUI\bin\Release\net10.0-android\com.companyname.Eviden
 - ✅ **Dark Theme UI** - Professional legal interface
 
 ### 📲 Android-Specific Features
+
 - ✅ Native file picker
 - ✅ Native camera integration
 - ✅ Secure keychain storage
@@ -97,24 +101,28 @@ src\Evident.MatterDocket.MAUI\bin\Release\net10.0-android\com.companyname.Eviden
 After installing, test these features:
 
 ### 1. Registration & Login
+
 - [ ] Create new account
 - [ ] Login with existing account
 - [ ] Remember me checkbox
 - [ ] Logout
 
 ### 2. Case Management
+
 - [ ] View case list
 - [ ] Create new case
 - [ ] View case details
 - [ ] Edit case info
 
 ### 3. File Upload
+
 - [ ] Upload PDF (< 10 MB on FREE tier)
 - [ ] Upload video (upgrade prompt on FREE tier)
 - [ ] Upload from camera
 - [ ] Upload from gallery
 
 ### 4. ChatGPT Assistant
+
 - [ ] Navigate to "AI Assistant" tab
 - [ ] Add OpenAI API key in settings
 - [ ] Create project workspace
@@ -128,12 +136,14 @@ After installing, test these features:
 - [ ] View message history
 
 ### 5. Subscription/Billing
+
 - [ ] View current tier (FREE)
 - [ ] Navigate to pricing page
 - [ ] View tier comparison
 - [ ] Test upgrade flow (Stripe)
 
 ### 6. Performance
+
 - [ ] App launches quickly
 - [ ] Smooth scrolling
 - [ ] No crashes
@@ -167,18 +177,22 @@ After installing, test these features:
 ## 🔧 Troubleshooting
 
 ### "App not installed"
+
 - **Cause:** Conflicting package name
 - **Fix:** Uninstall any previous version first
 
 ### "Installation blocked"
+
 - **Cause:** Play Protect warning
 - **Fix:** Settings → Play Protect → Allow this app
 
 ### "Can't open file"
+
 - **Cause:** File corruption during transfer
 - **Fix:** Re-download or re-email the APK
 
 ### App crashes on startup
+
 - **Cause:** Missing permissions
 - **Fix:** Settings → Apps → Evident → Permissions
   - Enable Storage, Camera, Network

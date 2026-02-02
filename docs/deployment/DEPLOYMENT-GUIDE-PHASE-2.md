@@ -95,17 +95,20 @@ git push origin main
 ### Step 4: Deploy to Render.com
 
 **Automatic Deployment:**
+
 - Render.com detects push to `main` branch
 - Builds using `requirements.txt`
 - Runs using `gunicorn app:app`
 - Uses `render.yaml` configuration
 
 **Manual Trigger (if needed):**
+
 1. Go to [Render.com Dashboard](https://dashboard.render.com)
 2. Select "Evident" service
 3. Click "Manual Deploy" → "Deploy latest commit"
 
 **Monitor Deployment:**
+
 - Check build logs for errors
 - Verify "✓ Registered API blueprint" messages
 - Wait for "Service is live" status
@@ -229,12 +232,12 @@ public static MauiApp CreateMauiApp()
 public class BaseViewModel : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler PropertyChanged;
-    
+
     protected void OnPropertyChanged([CallerMemberName] string name = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
-    
+
     protected bool SetProperty<T>(ref T field, T value, [CallerMemberName] string name = null)
     {
         if (EqualityComparer<T>.Default.Equals(field, value)) return false;
@@ -253,29 +256,29 @@ public class BaseViewModel : INotifyPropertyChanged
 public class LoginViewModel : BaseViewModel
 {
     private readonly IAuthService _authService;
-    
+
     public string Email { get; set; }
     public string Password { get; set; }
     public bool IsLoading { get; set; }
     public string ErrorMessage { get; set; }
-    
+
     public ICommand LoginCommand { get; }
     public ICommand RegisterCommand { get; }
-    
+
     public LoginViewModel(IAuthService authService)
     {
         _authService = authService;
         LoginCommand = new Command(async () => await LoginAsync());
         RegisterCommand = new Command(async () => await RegisterAsync());
     }
-    
+
     private async Task LoginAsync()
     {
         IsLoading = true;
         ErrorMessage = null;
-        
+
         var result = await _authService.LoginAsync(Email, Password);
-        
+
         if (result.Success)
         {
             // Navigate to dashboard
@@ -285,7 +288,7 @@ public class LoginViewModel : BaseViewModel
         {
             ErrorMessage = result.ErrorMessage;
         }
-        
+
         IsLoading = false;
     }
 }
@@ -306,43 +309,43 @@ public class LoginViewModel : BaseViewModel
              xmlns:vm="clr-namespace:Evident.MatterDocket.MAUI.ViewModels"
              x:Class="Evident.MatterDocket.MAUI.Views.LoginPage"
              Title="Evident Login">
-    
+
     <ContentPage.BindingContext>
         <vm:LoginViewModel />
     </ContentPage.BindingContext>
-    
+
     <StackLayout Padding="20" VerticalOptions="Center">
         <Label Text="Evident Matter Docket"
                FontSize="32"
                HorizontalOptions="Center"
                Margin="0,0,0,40" />
-        
+
         <Entry Placeholder="Email"
                Text="{Binding Email}"
                Keyboard="Email"
                Margin="0,10" />
-        
+
         <Entry Placeholder="Password"
                Text="{Binding Password}"
                IsPassword="True"
                Margin="0,10" />
-        
+
         <Button Text="Login"
                 Command="{Binding LoginCommand}"
                 IsEnabled="{Binding IsLoading, Converter={StaticResource InverseBoolConverter}}"
                 Margin="0,20,0,10" />
-        
+
         <Button Text="Register"
                 Command="{Binding RegisterCommand}"
                 BackgroundColor="Transparent"
                 TextColor="{StaticResource Primary}"
                 Margin="0,10" />
-        
+
         <Label Text="{Binding ErrorMessage}"
                TextColor="Red"
                IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotNullOrEmptyConverter}}"
                Margin="0,20" />
-        
+
         <ActivityIndicator IsRunning="{Binding IsLoading}"
                           IsVisible="{Binding IsLoading}" />
     </StackLayout>
@@ -399,6 +402,7 @@ public class LoginViewModel : BaseViewModel
 ## 🐛 Troubleshooting
 
 ### API Import Errors
+
 ```bash
 # If "ModuleNotFoundError: No module named 'api'"
 cd C:\web-dev\github-repos\Evident.info
@@ -409,6 +413,7 @@ ls api/__init__.py
 ```
 
 ### JWT Token Issues
+
 ```python
 # Generate new secret key for production
 python -c "import secrets; print(secrets.token_hex(32))"
@@ -418,12 +423,14 @@ python -c "import secrets; print(secrets.token_hex(32))"
 ```
 
 ### CORS Errors from MAUI App
+
 ```python
 # Update CORS_ORIGINS in Render.com
 CORS_ORIGINS=https://Evident.info,https://www.Evident.info,http://localhost:5000
 ```
 
 ### Database Connection Errors
+
 ```bash
 # Check DATABASE_URL format
 postgresql://user:password@host:5432/database

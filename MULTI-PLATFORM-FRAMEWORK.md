@@ -3,6 +3,7 @@
 ## Overview
 
 Evident is built as a comprehensive multi-platform application supporting:
+
 - **Windows** - .NET MAUI native app
 - **Android** - .NET MAUI native app
 - **iOS** - .NET MAUI native app
@@ -15,9 +16,11 @@ Evident is built as a comprehensive multi-platform application supporting:
 ## Architecture Layers
 
 ### 1. **Shared Layer** (`Evident.Shared`)
+
 Cross-platform data models and service interfaces used by all platforms.
 
 **Components**:
+
 - `Models/AnalysisRequest.cs` - Shared data models
 - `Services/IApiClient.cs` - API client interface
 - `Services/ApiClient.cs` - HTTP-based API client implementation
@@ -25,11 +28,13 @@ Cross-platform data models and service interfaces used by all platforms.
 **Purpose**: Ensure consistent data structures and API contracts across all platforms.
 
 ### 2. **Mobile Layer** (`Evident.Mobile`)
+
 .NET MAUI application targeting Windows, Android, iOS, and macOS.
 
 **Architecture**: MVVM (Model-View-ViewModel)
 
 **Components**:
+
 - `Services/AuthService.cs` - Authentication with secure token storage
 - `ViewModels/BaseViewModel.cs` - Base class with INotifyPropertyChanged
 - `ViewModels/LoginViewModel.cs` - Login screen logic
@@ -38,32 +43,38 @@ Cross-platform data models and service interfaces used by all platforms.
 - `MauiProgram.cs` - Dependency injection configuration
 
 **Key Features**:
+
 - Secure credential storage using `SecureStorage`
 - Offline-first architecture (future)
 - Platform-specific optimizations
 - Native UI controls
 
 ### 3. **Web API Layer** (`Evident.Web`)
+
 ASP.NET Core Web API serving as an API gateway to Flask backend.
 
 **Architecture**: RESTful API with controller-based routing
 
 **Components**:
+
 - `Controllers/AnalysisController.cs` - BWC analysis endpoints
 - `Services/IAnalysisService.cs` - Service interface
 - `Services/FlaskProxyAnalysisService.cs` - Proxy to Flask backend
 - `Program.cs` - API configuration (to be updated)
 
-**Purpose**: 
+**Purpose**:
+
 - Provide .NET-native API for mobile apps
 - Handle authentication/authorization
 - Proxy requests to Flask AI backend
 - Add caching, rate limiting, monitoring
 
 ### 4. **Flask Backend** (Existing `app.py`)
+
 Python-based AI processing engine and web application.
 
 **Responsibilities**:
+
 - AI/ML processing (Whisper, OCR, legal analysis)
 - Database operations
 - Web UI rendering
@@ -74,6 +85,7 @@ Python-based AI processing engine and web application.
 ## Data Flow
 
 ### Mobile App → Flask Backend (Direct)
+
 ```
 Mobile App (MAUI)
     ↓ HTTP/HTTPS
@@ -83,6 +95,7 @@ Database / AI Services
 ```
 
 ### Mobile App → ASP.NET Gateway → Flask Backend
+
 ```
 Mobile App (MAUI)
     ↓ HTTP/HTTPS
@@ -94,6 +107,7 @@ Database / AI Services
 ```
 
 ### Web Browser → Flask Backend
+
 ```
 Web Browser
     ↓ HTTP/HTTPS
@@ -107,12 +121,14 @@ Templates (Jinja2)
 ## API Endpoints
 
 ### Authentication
+
 - `POST /auth/login` - User login
 - `POST /auth/register` - User registration
 - `POST /auth/logout` - User logout
 - `GET /auth/profile` - Get user profile
 
 ### BWC Analysis
+
 - `POST /api/upload` - Upload video for analysis
 - `GET /api/analysis/{id}/status` - Get analysis status
 - `GET /api/analysis/{id}` - Get analysis results
@@ -121,17 +137,20 @@ Templates (Jinja2)
 - `GET /api/analysis/{id}/report/{format}` - Download report
 
 ### PDF Processing
+
 - `POST /api/upload/pdf` - Upload PDF
 - `GET /api/pdfs` - List user PDFs
 - `POST /api/pdf/{id}/analyze` - Analyze PDF
 - `DELETE /api/pdf/{id}` - Delete PDF
 
 ### Legal Analysis
+
 - `POST /api/legal/scan-violations` - Scan for violations
 - `POST /api/legal/check-compliance` - Check compliance
 - `POST /api/legal/combined-analysis` - Combined analysis
 
 ### Transcription & OCR
+
 - `POST /api/evidence/transcribe` - Transcribe audio
 - `POST /api/evidence/ocr` - Extract text via OCR
 
@@ -140,30 +159,35 @@ Templates (Jinja2)
 ## Platform-Specific Features
 
 ### Windows (.NET MAUI)
+
 - Native file picker
 - Windows notifications
 - Background tasks
 - Live tiles (optional)
 
 ### Android (.NET MAUI)
+
 - Camera integration
 - Android notifications
 - Background services
 - Material Design 3
 
 ### iOS (.NET MAUI)
+
 - Camera integration
 - iOS notifications
 - Background fetch
 - Cupertino design
 
 ### Web (Flask)
+
 - Progressive Web App (PWA)
 - Service workers for offline
 - Responsive design
 - Touch-optimized UI
 
 ### Mobile Web (Flask)
+
 - Touch gestures
 - Mobile-optimized layouts
 - Reduced data usage
@@ -174,6 +198,7 @@ Templates (Jinja2)
 ## Development Setup
 
 ### Prerequisites
+
 - .NET 10 SDK
 - Python 3.9+
 - Visual Studio 2026 or VS Code
@@ -181,6 +206,7 @@ Templates (Jinja2)
 - Xcode (for iOS development, macOS only)
 
 ### Mobile App Setup
+
 ```bash
 cd src/Evident.Mobile
 dotnet restore
@@ -199,6 +225,7 @@ dotnet run -f net10.0-ios
 ```
 
 ### Web API Setup
+
 ```bash
 cd src/Evident.Web
 dotnet restore
@@ -207,6 +234,7 @@ dotnet run
 ```
 
 ### Flask Backend Setup
+
 ```bash
 cd c:\web-dev\github-repos\Evident.info
 python -m venv .venv
@@ -221,6 +249,7 @@ python app.py
 ## Dependency Injection
 
 ### Mobile App (`MauiProgram.cs`)
+
 ```csharp
 // HttpClient with base URL
 builder.Services.AddHttpClient<IApiClient, ApiClient>(client =>
@@ -241,6 +270,7 @@ builder.Services.AddTransient<AnalysisListPage>();
 ```
 
 ### Web API (`Program.cs`)
+
 ```csharp
 // HttpClient for Flask backend
 builder.Services.AddHttpClient<IAnalysisService, FlaskProxyAnalysisService>(client =>
@@ -261,18 +291,21 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 ## Security
 
 ### Mobile App
+
 - Credentials stored in `SecureStorage` (encrypted)
 - HTTPS-only communication in production
 - Certificate pinning (recommended)
 - Token refresh mechanism
 
 ### Web API
+
 - JWT-based authentication
 - CORS configuration
 - Rate limiting per tier
 - Request validation
 
 ### Flask Backend
+
 - Session-based authentication
 - CSRF protection
 - SQL injection prevention (parameterized queries)
@@ -285,6 +318,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 ### Mobile Apps
 
 #### Windows
+
 ```bash
 dotnet publish -f net10.0-windows -c Release
 # Output: bin/Release/net10.0-windows/publish/
@@ -292,6 +326,7 @@ dotnet publish -f net10.0-windows -c Release
 ```
 
 #### Android
+
 ```bash
 dotnet publish -f net10.0-android -c Release
 # Output: bin/Release/net10.0-android/publish/
@@ -299,6 +334,7 @@ dotnet publish -f net10.0-android -c Release
 ```
 
 #### iOS
+
 ```bash
 dotnet publish -f net10.0-ios -c Release
 # Output: bin/Release/net10.0-ios/publish/
@@ -306,6 +342,7 @@ dotnet publish -f net10.0-ios -c Release
 ```
 
 ### Web API
+
 ```bash
 cd src/Evident.Web
 dotnet publish -c Release -o ./publish
@@ -313,6 +350,7 @@ dotnet publish -c Release -o ./publish
 ```
 
 ### Flask Backend
+
 ```bash
 # Production with Gunicorn
 gunicorn -w 4 -b 0.0.0.0:5000 app:app
@@ -327,6 +365,7 @@ docker run -p 5000:5000 Evident-api
 ## CI/CD Workflows
 
 ### GitHub Actions (Mobile)
+
 ```yaml
 name: Build Mobile Apps
 on: [push, pull_request]
@@ -337,20 +376,21 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '10.0.x'
+          dotnet-version: "10.0.x"
       - run: dotnet build -f net10.0-android
-      
+
   build-ios:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '10.0.x'
+          dotnet-version: "10.0.x"
       - run: dotnet build -f net10.0-ios
 ```
 
 ### GitHub Actions (Web)
+
 ```yaml
 name: Deploy Flask App
 on:
@@ -363,7 +403,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
+          python-version: "3.9"
       - run: pip install -r requirements.txt
       - run: pytest
       - run: # Deploy to production
@@ -374,16 +414,19 @@ jobs:
 ## Testing Strategy
 
 ### Mobile App
+
 - Unit tests for ViewModels
 - Integration tests for API client
 - UI tests with Appium
 
 ### Web API
+
 - Unit tests for controllers
 - Integration tests for services
 - API contract tests
 
 ### Flask Backend
+
 - Unit tests for routes
 - Integration tests for AI pipelines
 - End-to-end tests
@@ -393,18 +436,21 @@ jobs:
 ## Performance Optimization
 
 ### Mobile App
+
 - Image caching
 - Lazy loading
 - Background processing
 - Offline data sync
 
 ### Web API
+
 - Response caching
 - Database connection pooling
 - Async/await throughout
 - CDN for static assets
 
 ### Flask Backend
+
 - Redis caching
 - Celery for background jobs
 - Database indexing
@@ -415,16 +461,19 @@ jobs:
 ## Monitoring & Analytics
 
 ### Mobile App
+
 - Crash reporting (AppCenter)
 - Analytics (PostHog)
 - Performance monitoring
 
 ### Web API
+
 - Application Insights
 - Sentry error tracking
 - Prometheus metrics
 
 ### Flask Backend
+
 - Sentry error tracking
 - PostHog analytics
 - Custom logging
@@ -490,6 +539,7 @@ Evident.info/
 ## Support
 
 For issues or questions:
+
 - Mobile: Check `Evident.Mobile/README.md`
 - Web API: Check `Evident.Web/README.md`
 - Flask: Check `DEPENDENCIES-SETUP.md`

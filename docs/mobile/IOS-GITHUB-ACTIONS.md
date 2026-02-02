@@ -68,11 +68,13 @@ git push origin main
 #### Option A: Development (Free Apple Account)
 
 **Requirements:**
+
 - Mac with Xcode
 - iPhone connected via USB
 - Free Apple Developer account
 
 **Steps:**
+
 1. Open Xcode
 2. Window → Devices and Simulators
 3. Select your iPhone
@@ -84,10 +86,12 @@ git push origin main
 #### Option B: TestFlight (Paid $99/year)
 
 **Requirements:**
+
 - Apple Developer Program membership
 - App Store Connect access
 
 **Steps:**
+
 1. Upload .ipa to App Store Connect
 2. Submit for TestFlight review (1-2 days)
 3. Add testers via email
@@ -135,7 +139,8 @@ Don't want to push code? Run manually:
 
 **Error:** `No signing certificate found`
 
-**Solution:** 
+**Solution:**
+
 - This workflow builds **unsigned development** builds
 - To sign for distribution, need:
   - Apple Developer certificates
@@ -150,7 +155,8 @@ Don't want to push code? Run manually:
 
 **Error:** `Workload 'maui' not found`
 
-**Solution:** 
+**Solution:**
+
 - Workflow automatically installs MAUI
 - If fails, GitHub runner issue (retry)
 
@@ -161,6 +167,7 @@ Don't want to push code? Run manually:
 **Error:** `Unable to install app`
 
 **Reasons:**
+
 1. **App not signed** → Use Xcode to install
 2. **Wrong architecture** → Built for arm64 (real devices), not simulator
 3. **iOS version too old** → Requires iOS 15.0+
@@ -169,15 +176,15 @@ Don't want to push code? Run manually:
 
 ## 📊 Build Time Estimates
 
-| Task | Duration |
-|------|----------|
-| Checkout code | 5-10 seconds |
-| Setup .NET | 10-15 seconds |
-| Install MAUI | 1-2 minutes |
-| Restore packages | 1-2 minutes |
-| Build iOS app | 3-5 minutes |
-| Upload artifact | 10-20 seconds |
-| **Total** | **5-10 minutes** |
+| Task             | Duration         |
+| ---------------- | ---------------- |
+| Checkout code    | 5-10 seconds     |
+| Setup .NET       | 10-15 seconds    |
+| Install MAUI     | 1-2 minutes      |
+| Restore packages | 1-2 minutes      |
+| Build iOS app    | 3-5 minutes      |
+| Upload artifact  | 10-20 seconds    |
+| **Total**        | **5-10 minutes** |
 
 ---
 

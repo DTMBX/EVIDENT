@@ -39,6 +39,7 @@ Based on code inspection of the Evident codebase:
 **Evidence:** Search for `@check_usage_limit` in app.py returned **NO RESULTS**
 
 **Impact:**
+
 - Users can upload unlimited videos (bypassing limits)
 - Users can process unlimited PDFs (bypassing limits)
 - No actual enforcement at API endpoints
@@ -49,12 +50,14 @@ Based on code inspection of the Evident codebase:
 **Problem:** While overage fees are defined in tier limits, the actual billing logic doesn't exist
 
 **Missing Components:**
+
 - No code to calculate overage charges
 - No integration with Stripe to bill overages
 - No monthly invoice generation for overages
 - No overage tracking in database
 
 **Impact:**
+
 - PREMIUM/ENTERPRISE users can exceed limits without being charged
 - No revenue from overage fees
 - Soft caps function as no caps
@@ -64,11 +67,13 @@ Based on code inspection of the Evident codebase:
 **Problem:** Usage counters don't reset monthly
 
 **Missing Components:**
+
 - No cron job to reset monthly counters
 - No billing period tracking
 - Users hit limit once, then permanently blocked
 
 **Impact:**
+
 - STARTER user uploads 10 videos in January
 - In February, still shows 10/10 used (blocked forever)
 - Requires manual database reset
@@ -78,11 +83,13 @@ Based on code inspection of the Evident codebase:
 **Problem:** Storage tracking exists but not enforced before upload
 
 **Missing:**
+
 - Pre-upload storage check
 - File size validation against tier limits
 - Storage quota warnings
 
 **Impact:**
+
 - Users can exceed storage_gb limits
 - No cleanup or enforcement
 
@@ -120,22 +127,23 @@ Based on code inspection of the Evident codebase:
 ### Priority 1: CRITICAL (Fix Immediately)
 
 1. **Apply Decorators to All Upload Routes**
+
    ```python
    # In app.py - ADD THESE DECORATORS
-   
+
    @app.route('/api/upload/video', methods=['POST'])
    @require_tier(TierLevel.STARTER)  # Minimum tier
    @check_usage_limit('bwc_videos_per_month', increment=1)
    @check_usage_limit('bwc_video_hours_per_month', hours=video_duration)
    def upload_video():
        # existing code
-   
+
    @app.route('/api/upload/pdf', methods=['POST'])
    @require_tier(TierLevel.STARTER)
    @check_usage_limit('pdf_documents_per_month', increment=1)
    def upload_pdf():
        # existing code
-   
+
    @app.route('/api/cases/create', methods=['POST'])
    @check_usage_limit('case_limit', increment=1)
    def create_case():
@@ -143,14 +151,15 @@ Based on code inspection of the Evident codebase:
    ```
 
 2. **Implement Storage Validation**
+
    ```python
    def check_storage_before_upload(user, file_size_mb):
        usage = UsageTracking.get_or_create_current(user.id)
        limits = user.get_tier_limits()
-       
+
        storage_limit_gb = limits['storage_gb']
        storage_limit_mb = storage_limit_gb * 1024
-       
+
        if usage.storage_used_mb + file_size_mb > storage_limit_mb:
            raise StorageLimitExceeded(
                f"Storage limit: {storage_limit_gb}GB, "
@@ -175,31 +184,32 @@ Based on code inspection of the Evident codebase:
 ### Priority 2: HIGH (Fix Within 1 Week)
 
 4. **Implement Overage Billing**
+
    ```python
    # In stripe_subscription_service.py
-   
+
    def calculate_overage_charges(user, usage):
        limits = user.get_tier_limits()
-       
+
        if not limits.get('overage_allowed'):
            return 0  # Hard cap tier
-       
+
        total_overage = 0
-       
+
        # Video overages
        videos_over = max(0, usage.bwc_videos_processed - limits['bwc_videos_per_month'])
        total_overage += videos_over * limits['overage_fee_per_video']
-       
+
        # PDF overages
        pdfs_over = max(0, usage.pdf_documents_processed - limits['pdf_documents_per_month'])
        total_overage += pdfs_over * limits['overage_fee_per_pdf']
-       
+
        # Case overages
        cases_over = max(0, usage.cases_created - limits['case_limit'])
        total_overage += cases_over * limits['overage_fee_per_case']
-       
+
        return total_overage
-   
+
    def bill_monthly_overages():
        """Run on 1st of month via cron"""
        for user in User.query.filter(User.tier.in_([TierLevel.PREMIUM, TierLevel.ENTERPRISE])).all():
@@ -209,7 +219,7 @@ Based on code inspection of the Evident codebase:
                year=last_month.year,
                month=last_month.month
            ).first()
-           
+
            if usage:
                overage_amount = calculate_overage_charges(user, usage)
                if overage_amount > 0:
@@ -230,7 +240,7 @@ Based on code inspection of the Evident codebase:
        user = current_user
        usage = UsageTracking.get_or_create_current(user.id)
        limits = user.get_tier_limits()
-       
+
        return jsonify({
            'videos': {
                'used': usage.bwc_videos_processed,
@@ -269,16 +279,16 @@ Based on code inspection of the Evident codebase:
 
 ## 📊 Current Enforcement Status
 
-| Component | Status | Severity | Impact |
-|-----------|--------|----------|--------|
-| Tier limits defined | ✅ Complete | - | Data model ready |
-| UsageTracking model | ✅ Complete | - | Database ready |
-| Decorators created | ✅ Complete | - | Middleware ready |
-| **Decorators applied** | ❌ **MISSING** | 🔴 **CRITICAL** | **No enforcement** |
-| **Overage billing** | ❌ **MISSING** | 🔴 **HIGH** | **No revenue from overages** |
-| **Monthly reset** | ❌ **MISSING** | 🟡 **MEDIUM** | **Counters don't reset** |
-| Storage enforcement | ❌ MISSING | 🟡 MEDIUM | Unbounded storage growth |
-| Usage warnings | ❌ MISSING | 🟡 LOW | Poor UX |
+| Component              | Status         | Severity        | Impact                       |
+| ---------------------- | -------------- | --------------- | ---------------------------- |
+| Tier limits defined    | ✅ Complete    | -               | Data model ready             |
+| UsageTracking model    | ✅ Complete    | -               | Database ready               |
+| Decorators created     | ✅ Complete    | -               | Middleware ready             |
+| **Decorators applied** | ❌ **MISSING** | 🔴 **CRITICAL** | **No enforcement**           |
+| **Overage billing**    | ❌ **MISSING** | 🔴 **HIGH**     | **No revenue from overages** |
+| **Monthly reset**      | ❌ **MISSING** | 🟡 **MEDIUM**   | **Counters don't reset**     |
+| Storage enforcement    | ❌ MISSING     | 🟡 MEDIUM       | Unbounded storage growth     |
+| Usage warnings         | ❌ MISSING     | 🟡 LOW          | Poor UX                      |
 
 ---
 
@@ -294,14 +304,14 @@ import re
 def fix_app_routes():
     with open('app.py', 'r') as f:
         content = f.read()
-    
+
     # Add import at top
     if 'from tier_gating import' not in content:
         content = content.replace(
             'from flask import',
             'from tier_gating import require_tier, check_usage_limit, require_feature\nfrom flask import'
         )
-    
+
     # Find video upload route and add decorators
     content = re.sub(
         r"(@app\.route\(['\"].*upload.*video.*\))",
@@ -309,7 +319,7 @@ def fix_app_routes():
         content,
         flags=re.IGNORECASE
     )
-    
+
     # Find PDF upload route and add decorators
     content = re.sub(
         r"(@app\.route\(['\"].*upload.*pdf.*\))",
@@ -317,10 +327,10 @@ def fix_app_routes():
         content,
         flags=re.IGNORECASE
     )
-    
+
     with open('app.py', 'w') as f:
         f.write(content)
-    
+
     print("✅ Applied limit enforcement decorators to app.py")
 
 if __name__ == '__main__':
@@ -352,6 +362,7 @@ if __name__ == '__main__':
 ## 📋 Testing Checklist
 
 ### Hard Cap Testing (FREE/STARTER/PROFESSIONAL):
+
 - [ ] Upload exceeds limit → blocked with error
 - [ ] Error message shows current usage
 - [ ] Error includes upgrade link
@@ -359,6 +370,7 @@ if __name__ == '__main__':
 - [ ] Month rollover resets counter
 
 ### Soft Cap Testing (PREMIUM/ENTERPRISE):
+
 - [ ] Upload exceeds limit → allowed
 - [ ] Overage calculated correctly
 - [ ] Stripe invoice created
@@ -369,7 +381,7 @@ if __name__ == '__main__':
 
 ## 🎯 Bottom Line
 
-**Answer to your question:** 
+**Answer to your question:**
 
 # ❌ NO, DATA LIMITS ARE NOT PROPERLY ENFORCED
 
@@ -380,6 +392,7 @@ if __name__ == '__main__':
 - **Application: ❌ NOT APPLIED**
 
 **Users can currently:**
+
 - Upload unlimited files (bypassing tier limits)
 - Exceed storage quotas without warnings
 - Not be charged for overages (PREMIUM/ENTERPRISE)

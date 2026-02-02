@@ -8,13 +8,13 @@ Fair-scaled pricing structure with consistent 52-84% margins across all tiers, o
 
 ## 💰 Pricing & Economics Table
 
-| Tier | Price | Monthly Cost | Monthly Profit | Margin | Conversion Goal |
-|------|-------|--------------|----------------|--------|-----------------|
-| **FREE** | $0 | $0.55 | -$0.55 | Loss leader | 5-10% → STARTER |
-| **STARTER** | $29 | $4.58 | $24.42 | 84.2% ✅ | - |
-| **PROFESSIONAL** | $79 | $13.75 | $65.25 | 82.6% ✅ | 10% → PREMIUM |
-| **PREMIUM** | $199 | $62.87 | $136.13 | 68.4% ✅ | 5% → ENTERPRISE |
-| **ENTERPRISE** | $599 | $287.00 | $312.00 | 52.1% ✅ | Retention focus |
+| Tier             | Price | Monthly Cost | Monthly Profit | Margin      | Conversion Goal |
+| ---------------- | ----- | ------------ | -------------- | ----------- | --------------- |
+| **FREE**         | $0    | $0.55        | -$0.55         | Loss leader | 5-10% → STARTER |
+| **STARTER**      | $29   | $4.58        | $24.42         | 84.2% ✅    | -               |
+| **PROFESSIONAL** | $79   | $13.75       | $65.25         | 82.6% ✅    | 10% → PREMIUM   |
+| **PREMIUM**      | $199  | $62.87       | $136.13        | 68.4% ✅    | 5% → ENTERPRISE |
+| **ENTERPRISE**   | $599  | $287.00      | $312.00        | 52.1% ✅    | Retention focus |
 
 ---
 
@@ -22,76 +22,77 @@ Fair-scaled pricing structure with consistent 52-84% margins across all tiers, o
 
 ### Videos
 
-| Tier | Videos/Month | Duration/Month | File Size | Overage Fee | Notes |
-|------|--------------|----------------|-----------|-------------|-------|
-| FREE | 0 (1 ever) | 5 min total | 50 MB | ❌ No overage | One-time upload only |
-| STARTER | 10 | 1 hour | 512 MB | ❌ Hard cap | Must upgrade |
-| PROFESSIONAL | 25 | 3 hours | 1 GB | ❌ Hard cap | Must upgrade |
-| PREMIUM | 75 | 10 hours | 5 GB | ✅ $2/video, $5/hr | 98% margin on overages |
-| ENTERPRISE | 300 | 40 hours | 20 GB | ✅ $1/video, $3/hr | 50% off overage fees |
+| Tier         | Videos/Month | Duration/Month | File Size | Overage Fee        | Notes                  |
+| ------------ | ------------ | -------------- | --------- | ------------------ | ---------------------- |
+| FREE         | 0 (1 ever)   | 5 min total    | 50 MB     | ❌ No overage      | One-time upload only   |
+| STARTER      | 10           | 1 hour         | 512 MB    | ❌ Hard cap        | Must upgrade           |
+| PROFESSIONAL | 25           | 3 hours        | 1 GB      | ❌ Hard cap        | Must upgrade           |
+| PREMIUM      | 75           | 10 hours       | 5 GB      | ✅ $2/video, $5/hr | 98% margin on overages |
+| ENTERPRISE   | 300          | 40 hours       | 20 GB     | ✅ $1/video, $3/hr | 50% off overage fees   |
 
 ### PDFs
 
-| Tier | PDFs/Month | Max Pages | OCR | Overage Fee | Notes |
-|------|------------|-----------|-----|-------------|-------|
-| FREE | 0 (1 ever) | 10 | ✅ | ❌ No overage | One-time upload only |
-| STARTER | 5 | 100 | ✅ | ❌ Hard cap | Must upgrade |
-| PROFESSIONAL | 15 | 200 | ✅ | ❌ Hard cap | Must upgrade |
-| PREMIUM | 50 | 500 | ✅ | ✅ $1/document | Soft cap |
-| ENTERPRISE | 200 | 1000 | ✅ | ✅ $0.50/document | Volume discount |
+| Tier         | PDFs/Month | Max Pages | OCR | Overage Fee       | Notes                |
+| ------------ | ---------- | --------- | --- | ----------------- | -------------------- |
+| FREE         | 0 (1 ever) | 10        | ✅  | ❌ No overage     | One-time upload only |
+| STARTER      | 5          | 100       | ✅  | ❌ Hard cap       | Must upgrade         |
+| PROFESSIONAL | 15         | 200       | ✅  | ❌ Hard cap       | Must upgrade         |
+| PREMIUM      | 50         | 500       | ✅  | ✅ $1/document    | Soft cap             |
+| ENTERPRISE   | 200        | 1000      | ✅  | ✅ $0.50/document | Volume discount      |
 
 ### Cases & Storage
 
-| Tier | Active Cases | Storage | Data Retention | Overage Fee |
-|------|--------------|---------|----------------|-------------|
-| FREE | 1 | 0.1 GB | 7 days | ❌ |
-| STARTER | 5 | 10 GB | Permanent | ❌ Hard cap |
-| PROFESSIONAL | 15 | 50 GB | Permanent | ❌ Hard cap |
-| PREMIUM | 40 | 250 GB | Permanent | ✅ $5/case |
-| ENTERPRISE | 150 | 1 TB | Permanent | ✅ $2/case |
+| Tier         | Active Cases | Storage | Data Retention | Overage Fee |
+| ------------ | ------------ | ------- | -------------- | ----------- |
+| FREE         | 1            | 0.1 GB  | 7 days         | ❌          |
+| STARTER      | 5            | 10 GB   | Permanent      | ❌ Hard cap |
+| PROFESSIONAL | 15           | 50 GB   | Permanent      | ❌ Hard cap |
+| PREMIUM      | 40           | 250 GB  | Permanent      | ✅ $5/case  |
+| ENTERPRISE   | 150          | 1 TB    | Permanent      | ✅ $2/case  |
 
 ### AI & Analysis
 
-| Tier | AI Assistant | Transcription | Search Queries | Court Reports |
-|------|--------------|---------------|----------------|---------------|
-| FREE | ❌ None | ❌ | 100/month | ❌ |
-| STARTER | ✅ Basic | ✅ Limited | 500/month | ✅ Basic templates |
-| PROFESSIONAL | ✅ Basic | ✅ Full | 1,500/month | ✅ Basic templates |
-| PREMIUM | ✅ Full Context | ✅ Full + Timeline | 10,000/month | ✅ Advanced templates |
-| ENTERPRISE | ✅ Private Instance | ✅ Multi-sync | 50,000/month | ✅ Firm-branded |
+| Tier         | AI Assistant        | Transcription      | Search Queries | Court Reports         |
+| ------------ | ------------------- | ------------------ | -------------- | --------------------- |
+| FREE         | ❌ None             | ❌                 | 100/month      | ❌                    |
+| STARTER      | ✅ Basic            | ✅ Limited         | 500/month      | ✅ Basic templates    |
+| PROFESSIONAL | ✅ Basic            | ✅ Full            | 1,500/month    | ✅ Basic templates    |
+| PREMIUM      | ✅ Full Context     | ✅ Full + Timeline | 10,000/month   | ✅ Advanced templates |
+| ENTERPRISE   | ✅ Private Instance | ✅ Multi-sync      | 50,000/month   | ✅ Firm-branded       |
 
 ### Advanced Features
 
-| Feature | FREE | STARTER | PROFESSIONAL | PREMIUM | ENTERPRISE |
-|---------|------|---------|--------------|---------|------------|
-| Demo Cases | ✅ 3 | ❌ | ❌ | ❌ | ❌ |
-| Educational Resources | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Watermarked Exports | ⚠️ Yes | ❌ No | ❌ No | ❌ No | ❌ No |
-| Timeline Builder | ❌ | ❌ | ❌ | ✅ | ✅ |
-| API Access | ❌ | ❌ | ❌ | ✅ | ✅ |
-| Forensic Analysis | ❌ | ❌ | ❌ | ✅ | ✅ |
-| Multi-BWC Sync | ❌ | ❌ | ❌ | ❌ | ✅ 20 videos |
-| White Label | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Dedicated PM | ❌ | ❌ | ❌ | ❌ | ✅ |
-| SLA Guarantee | ❌ | ❌ | ❌ | ❌ | ✅ |
-| On-Premises Data | ❌ | ❌ | ❌ | ❌ | ✅ Option |
-| Team Members | 1 | 1 | 1 | 1 | 25 ($15/user overage) |
+| Feature               | FREE   | STARTER | PROFESSIONAL | PREMIUM | ENTERPRISE            |
+| --------------------- | ------ | ------- | ------------ | ------- | --------------------- |
+| Demo Cases            | ✅ 3   | ❌      | ❌           | ❌      | ❌                    |
+| Educational Resources | ✅     | ✅      | ✅           | ✅      | ✅                    |
+| Watermarked Exports   | ⚠️ Yes | ❌ No   | ❌ No        | ❌ No   | ❌ No                 |
+| Timeline Builder      | ❌     | ❌      | ❌           | ✅      | ✅                    |
+| API Access            | ❌     | ❌      | ❌           | ✅      | ✅                    |
+| Forensic Analysis     | ❌     | ❌      | ❌           | ✅      | ✅                    |
+| Multi-BWC Sync        | ❌     | ❌      | ❌           | ❌      | ✅ 20 videos          |
+| White Label           | ❌     | ❌      | ❌           | ❌      | ✅                    |
+| Dedicated PM          | ❌     | ❌      | ❌           | ❌      | ✅                    |
+| SLA Guarantee         | ❌     | ❌      | ❌           | ❌      | ✅                    |
+| On-Premises Data      | ❌     | ❌      | ❌           | ❌      | ✅ Option             |
+| Team Members          | 1      | 1       | 1            | 1       | 25 ($15/user overage) |
 
 ### Support
 
-| Tier | Support Level | Response Time | Access |
-|------|---------------|---------------|--------|
-| FREE | Community forums | N/A | Self-service |
-| STARTER | Email support | 48 hours | Email |
-| PROFESSIONAL | Email support | 24 hours | Email |
-| PREMIUM | Priority support | 12 hours | Email + Chat |
-| ENTERPRISE | Dedicated support | 4 hours | Email + Chat + Phone + PM |
+| Tier         | Support Level     | Response Time | Access                    |
+| ------------ | ----------------- | ------------- | ------------------------- |
+| FREE         | Community forums  | N/A           | Self-service              |
+| STARTER      | Email support     | 48 hours      | Email                     |
+| PROFESSIONAL | Email support     | 24 hours      | Email                     |
+| PREMIUM      | Priority support  | 12 hours      | Email + Chat              |
+| ENTERPRISE   | Dedicated support | 4 hours       | Email + Chat + Phone + PM |
 
 ---
 
 ## 🎯 Target Customers
 
 ### FREE
+
 - **Who:** Curious prospects, students, part-time defenders
 - **Use Case:** Evaluate platform with demo cases
 - **Conversion Goal:** 5-10% → STARTER within 7 days
@@ -99,6 +100,7 @@ Fair-scaled pricing structure with consistent 52-84% margins across all tiers, o
 - **ROI:** 163-427% (with conversion)
 
 ### STARTER - $29/mo
+
 - **Who:** Part-time attorneys, small practices, freelancers
 - **Use Case:** Occasional case analysis, 1-2 cases per month
 - **Processing:** 10 videos, 5 PDFs, 5 cases
@@ -106,6 +108,7 @@ Fair-scaled pricing structure with consistent 52-84% margins across all tiers, o
 - **Upgrade Path:** 30% → PROFESSIONAL
 
 ### PROFESSIONAL - $79/mo
+
 - **Who:** Solo attorneys, small firms (1-3 attorneys)
 - **Use Case:** Regular case work, defense attorneys
 - **Processing:** 25 videos, 15 PDFs, 15 cases
@@ -114,6 +117,7 @@ Fair-scaled pricing structure with consistent 52-84% margins across all tiers, o
 - **Upgrade Path:** 10% → PREMIUM
 
 ### PREMIUM - $199/mo
+
 - **Who:** High-volume practices, busy PD offices
 - **Use Case:** Multiple cases weekly, heavy BWC analysis
 - **Processing:** 75 videos, 50 PDFs, 40 cases + overages
@@ -122,6 +126,7 @@ Fair-scaled pricing structure with consistent 52-84% margins across all tiers, o
 - **Upgrade Path:** 5% → ENTERPRISE
 
 ### ENTERPRISE - $599/mo
+
 - **Who:** Large firms, PD offices, multi-attorney practices
 - **Use Case:** Institutional deployment, team collaboration
 - **Processing:** 300 videos, 200 PDFs, 150 cases + overages
@@ -134,7 +139,9 @@ Fair-scaled pricing structure with consistent 52-84% margins across all tiers, o
 ## 📈 Conversion Funnels
 
 ### FREE → STARTER (Target: 5-10%)
+
 **Triggers:**
+
 - 7-day data expiration warning
 - One-time upload already used
 - Demo cases show value
@@ -144,7 +151,9 @@ Fair-scaled pricing structure with consistent 52-84% margins across all tiers, o
 **CTA:** "Keep Your Data - Just $29/month"
 
 ### STARTER → PROFESSIONAL (Target: 30%)
+
 **Triggers:**
+
 - Hitting 10 video limit
 - Needing court-ready reports
 - Wanting AI assistant
@@ -153,7 +162,9 @@ Fair-scaled pricing structure with consistent 52-84% margins across all tiers, o
 **CTA:** "Upgrade to PROFESSIONAL - 3-Day Free Trial"
 
 ### PROFESSIONAL → PREMIUM (Target: 10%)
+
 **Triggers:**
+
 - Hitting 25 video limit
 - Needing API access
 - Wanting forensic analysis
@@ -162,7 +173,9 @@ Fair-scaled pricing structure with consistent 52-84% margins across all tiers, o
 **CTA:** "Never Hit Limits - Upgrade to PREMIUM"
 
 ### PREMIUM → ENTERPRISE (Target: 5%)
+
 **Triggers:**
+
 - Team growth (need multi-user)
 - Wanting white-label
 - Requiring SLA
@@ -197,15 +210,15 @@ Fair-scaled pricing structure with consistent 52-84% margins across all tiers, o
 
 ### Conservative Year 1:
 
-| Tier | Users | MRR | ARR |
-|------|-------|-----|-----|
-| FREE | 1,000 | -$550 | -$6,600 |
-| STARTER | 300 | $8,700 | $104,400 |
-| PROFESSIONAL | 500 | $39,500 | $474,000 |
-| PREMIUM | 100 | $19,900 | $238,800 |
-| ENTERPRISE | 20 | $11,980 | $143,760 |
-| **Overage** | - | $2,500 | $30,000 |
-| **TOTAL** | **1,920** | **$82,030** | **$984,360** |
+| Tier         | Users     | MRR         | ARR          |
+| ------------ | --------- | ----------- | ------------ |
+| FREE         | 1,000     | -$550       | -$6,600      |
+| STARTER      | 300       | $8,700      | $104,400     |
+| PROFESSIONAL | 500       | $39,500     | $474,000     |
+| PREMIUM      | 100       | $19,900     | $238,800     |
+| ENTERPRISE   | 20        | $11,980     | $143,760     |
+| **Overage**  | -         | $2,500      | $30,000      |
+| **TOTAL**    | **1,920** | **$82,030** | **$984,360** |
 
 **Costs:** $14,850/month = $178,200/year  
 **Profit:** $67,180/month = **$806,160/year**  
@@ -230,5 +243,5 @@ Fair-scaled pricing structure with consistent 52-84% margins across all tiers, o
 
 ---
 
-*Last Updated: January 27, 2026*  
-*Status: 5-Tier System Mastered - Ready for Final Setup*
+_Last Updated: January 27, 2026_  
+_Status: 5-Tier System Mastered - Ready for Final Setup_

@@ -1,6 +1,7 @@
 # ?? Deploy Evident.info to Custom Domain - Complete Guide
 
-## ?? Goal: 
+## ?? Goal:
+
 Get your Render app live at **app.Evident.info** (or **Evident.info**)
 
 ---
@@ -118,6 +119,7 @@ When status shows **"Verified"** ? with ??, you're live!
 **General DNS Setup:**
 
 Add a CNAME record with these values:
+
 ```
 Type: CNAME
 Name/Host: app
@@ -130,25 +132,34 @@ TTL: 3600 (or Auto)
 ## ? **Verification Checklist:**
 
 ### **1. DNS Records Added?**
+
 Check with: https://dnschecker.org
+
 - Enter: `app.Evident.info`
 - Should show: `Evident-legal-tech.onrender.com`
 
 ### **2. Render Domain Verified?**
+
 In Render dashboard ? Custom Domains:
+
 - Status should be: **"Verified"** ?
 
 ### **3. SSL Certificate Active?**
+
 Look for ?? icon in Render dashboard
+
 - Usually takes 5-15 minutes after verification
 
 ### **4. CORS Updated?**
+
 Environment variables should include your custom domain
 
 ### **5. Test the Site:**
+
 ```
 https://app.Evident.info
 ```
+
 Should load your Evident app!
 
 ---
@@ -169,6 +180,7 @@ docs.Evident.info               ? Documentation (future)
 **Render provides FREE SSL automatically!**
 
 Once DNS is verified:
+
 1. ? Render detects custom domain
 2. ? Auto-requests Let's Encrypt certificate
 3. ? Installs certificate (5-15 mins)
@@ -181,40 +193,45 @@ Once DNS is verified:
 
 ## ?? **Timeline:**
 
-| Step | Time |
-|------|------|
-| Add domain in Render | 1 minute |
-| Update DNS records | 2 minutes |
-| DNS propagation | 5 mins - 2 hours |
-| Render verification | Instant (once DNS propagates) |
-| SSL provisioning | 5-15 minutes |
-| **Total** | **15 mins - 3 hours** |
+| Step                 | Time                          |
+| -------------------- | ----------------------------- |
+| Add domain in Render | 1 minute                      |
+| Update DNS records   | 2 minutes                     |
+| DNS propagation      | 5 mins - 2 hours              |
+| Render verification  | Instant (once DNS propagates) |
+| SSL provisioning     | 5-15 minutes                  |
+| **Total**            | **15 mins - 3 hours**         |
 
 ---
 
 ## ?? **Troubleshooting:**
 
 ### **"Domain not verified" in Render**
+
 - Check DNS with dnschecker.org
 - Wait longer (DNS can take 2 hours)
 - Verify CNAME points to correct Render URL
 
 ### **"SSL Certificate Pending"**
+
 - Normal - takes 5-15 minutes
 - Render uses Let's Encrypt
 - Auto-completes once DNS is stable
 
 ### **"Too Many Redirects"**
+
 - If using Cloudflare: Turn off orange cloud
 - Check CORS_ORIGINS includes your domain
 - Clear browser cache
 
 ### **"ERR_SSL_VERSION_OR_CIPHER_MISMATCH"**
+
 - Wait for SSL to finish provisioning
 - Use http:// temporarily to test (not recommended)
 - Check Render logs for SSL errors
 
 ### **Site works on .onrender.com but not custom domain**
+
 - CORS issue - update CORS_ORIGINS environment variable
 - Check app.py has correct CORS configuration
 
@@ -237,6 +254,7 @@ Your Evident app will be accessible at:
 **Dashboard:** https://app.Evident.info/auth/dashboard
 
 **Credentials:**
+
 - Email: admin@Evident.info
 - Password: Evident2026!
 

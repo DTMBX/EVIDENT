@@ -7,6 +7,7 @@
 ## Quick Start (10 minutes)
 
 ### 1️⃣ Get CourtListener API Key (5 min)
+
 👉 https://www.courtlistener.com/sign-in/
 
 - Create free account
@@ -14,6 +15,7 @@
 - Copy your token
 
 ### 2️⃣ Add to Render (2 min)
+
 👉 https://dashboard.render.com
 
 ```
@@ -27,9 +29,11 @@ Value: <your token>
 ```
 
 ### 3️⃣ Wait for Deploy (2 min)
+
 ✅ Render auto-deploys with new environment variable
 
 ### 4️⃣ Import Foundation Cases (1 min)
+
 ```bash
 # SSH into Render or run locally:
 python overnight_library_builder.py --practice-area all
@@ -42,18 +46,21 @@ python overnight_library_builder.py --practice-area all
 ## What You Get
 
 ### 📚 27 Foundation Cases
+
 - **10** Civil Rights cases (Miranda, Terry, etc.)
 - **8** Criminal Defense cases (Gideon, Brady, etc.)
 - **5** Employment Law cases (McDonnell Douglas, etc.)
 - **4** Constitutional cases (Brown, Marbury, etc.)
 
 ### 🔌 Ready Integrations
+
 - ✅ ChatGPT can cite real case law
 - ✅ Document Optimizer auto-suggests citations
 - ✅ Violation Finder links to precedents
 - ✅ Evidence Analyzer references legal standards
 
 ### 🌐 11 API Endpoints
+
 ```
 GET  /api/legal-library/search?q=Miranda
 GET  /api/legal-library/document/:id
@@ -68,6 +75,7 @@ POST /api/legal-library/annotate
 ## Files Changed Today
 
 ### Core Implementation
+
 - ✅ `legal_library.py` - Added API auth (line 202)
 - ✅ `verified_legal_sources.py` - Added API auth (line 176)
 - ✅ `overnight_library_builder.py` - Fixed Unicode
@@ -75,6 +83,7 @@ POST /api/legal-library/annotate
 - ✅ `app.py` - Fixed Unicode
 
 ### Documentation Created
+
 - 📖 `API-SETUP-COMPLETE.md` - Full setup guide
 - 📖 `RENDER-API-KEY-GUIDE.md` - Visual Render guide
 - 📖 `LEGAL-LIBRARY-API-FIX.md` - Technical details
@@ -85,6 +94,7 @@ POST /api/legal-library/annotate
 ## Need Help?
 
 ### Documentation Index
+
 1. **START HERE** (this file)
 2. **RENDER-API-KEY-GUIDE.md** - Visual Render setup
 3. **API-SETUP-COMPLETE.md** - Complete setup guide
@@ -92,11 +102,13 @@ POST /api/legal-library/annotate
 5. **OVERNIGHT-BUILDER-GUIDE.md** - Import automation
 
 ### Quick Links
+
 - CourtListener API: https://www.courtlistener.com/api/
 - Render Dashboard: https://dashboard.render.com
 - GitHub Repo: https://github.com/yourusername/Evident.info
 
 ### Test Commands
+
 ```powershell
 # Test 3 cases
 python overnight_library_builder.py --practice-area civil_rights --max-cases 3
@@ -113,14 +125,17 @@ python -c "from legal_library import LegalDocument; print(LegalDocument.query.co
 ## Troubleshooting
 
 ### ❌ "403 Forbidden"
+
 → API key not set or invalid  
 → Check Render environment variables
 
 ### ❌ "Could not verify"
+
 → Normal - verification may fail but import still works  
-→ Check logs/import_report_*.json for details
+→ Check logs/import*report*\*.json for details
 
 ### ❌ "0 imported"
+
 → Check COURTLISTENER_API_KEY is set correctly  
 → Try running with `--max-cases 1` first
 
@@ -129,12 +144,14 @@ python -c "from legal_library import LegalDocument; print(LegalDocument.query.co
 ## What's Next?
 
 ### After Import Succeeds
+
 1. ✅ Hook up ChatGPT integration (9 lines of code)
 2. ✅ Test document optimizer citations
 3. ✅ Enable violation finder
 4. ✅ Schedule nightly updates
 
 ### Future Enhancements
+
 - [ ] Add more practice areas
 - [ ] Enable user annotations
 - [ ] Add citation network visualization

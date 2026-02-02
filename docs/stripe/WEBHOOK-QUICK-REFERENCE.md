@@ -1,6 +1,7 @@
 # Stripe Webhook Quick Reference Card
 
 ## 🎯 Endpoint URL
+
 ```
 https://Evident.info/api/stripe/webhook
 ```
@@ -8,6 +9,7 @@ https://Evident.info/api/stripe/webhook
 ## ✅ Events to Enable (Copy This List)
 
 ### MUST HAVE (Your app won't work without these)
+
 ```
 checkout.session.completed
 customer.subscription.updated
@@ -17,6 +19,7 @@ invoice.payment_failed
 ```
 
 ### RECOMMENDED (Better user experience)
+
 ```
 customer.subscription.created
 customer.subscription.trial_will_end
@@ -25,6 +28,7 @@ invoice.upcoming
 ```
 
 ### OPTIONAL (Nice to have)
+
 ```
 customer.subscription.paused
 customer.subscription.resumed
@@ -96,13 +100,13 @@ stripe trigger customer.subscription.deleted
 
 ## 📊 What Each Event Does
 
-| Event | Trigger | Result |
-|-------|---------|--------|
-| `checkout.session.completed` | User pays | Tier → PAID |
-| `invoice.paid` | Monthly renewal | Status → active |
-| `invoice.payment_failed` | Card declined | Status → past_due |
-| `subscription.deleted` | Sub expires | Tier → FREE |
-| `subscription.trial_will_end` | 3 days left | Send email |
+| Event                         | Trigger         | Result            |
+| ----------------------------- | --------------- | ----------------- |
+| `checkout.session.completed`  | User pays       | Tier → PAID       |
+| `invoice.paid`                | Monthly renewal | Status → active   |
+| `invoice.payment_failed`      | Card declined   | Status → past_due |
+| `subscription.deleted`        | Sub expires     | Tier → FREE       |
+| `subscription.trial_will_end` | 3 days left     | Send email        |
 
 ---
 

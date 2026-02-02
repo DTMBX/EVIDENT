@@ -9,6 +9,7 @@
 ## 🎯 What You're Actually Using (Active Projects)
 
 ### 1. **Flask Backend (Python)** - Main Production App
+
 **Location:** `C:\web-dev\github-repos\Evident.info\` (root folder)
 
 ```
@@ -38,6 +39,7 @@ Evident.info/
 ---
 
 ### 2. **.NET MAUI App (C#)** - Cross-Platform Native Apps
+
 **Location:** `C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI\`
 
 ```
@@ -77,7 +79,8 @@ src/Evident.MatterDocket.MAUI/
 ```
 
 **Purpose:** This **ONE MAUI project** builds apps for **ALL platforms**  
-**Platforms:** 
+**Platforms:**
+
 - Windows desktop (.exe)
 - iOS (iPhone/iPad)
 - Android (phones/tablets)
@@ -101,12 +104,14 @@ Evident.MatterDocket.MAUI (Single Project)
 ```
 
 **How it works:**
+
 1. You write code **once** in `src/Evident.MatterDocket.MAUI/`
 2. .NET MAUI compiles it for each platform
 3. Platform-specific features go in `Platforms/` subfolders
 4. Shared code (Services, ViewModels, Views) works everywhere
 
 **Example:**
+
 ```bash
 # Build Windows app
 dotnet build -f net9.0-windows10.0.19041.0
@@ -125,26 +130,31 @@ dotnet build -f net9.0-android
 These folders exist but are **NOT being used** in our current implementation:
 
 ### **src/Evident.Web/**
+
 - **Purpose:** Was intended for Blazor web client
 - **Status:** ❌ Not used (we use Flask templates instead)
 - **Can delete:** Yes (or keep for future Blazor rewrite)
 
 ### **src/Evident.Mobile/**
+
 - **Purpose:** Was a placeholder for mobile
 - **Status:** ❌ Not used (MAUI handles mobile now)
 - **Can delete:** Yes
 
 ### **src/Evident.Shared/**
+
 - **Purpose:** Was for shared .NET code
 - **Status:** ❌ Not used (MAUI Services are the shared code)
 - **Can delete:** Yes
 
 ### **src/Evident.Infrastructure/**
+
 - **Purpose:** Was for database/infrastructure layer
 - **Status:** ❌ Not used (Flask handles this)
 - **Can delete:** Yes
 
 ### **src/Evident.FlaskBridge/**
+
 - **Purpose:** Was for .NET-to-Flask communication
 - **Status:** ❌ Not used (MAUI calls Flask REST API directly)
 - **Can delete:** Yes
@@ -184,6 +194,7 @@ These folders exist but are **NOT being used** in our current implementation:
 ## 🔗 How They Work Together
 
 ### **Flask Backend:**
+
 - Runs on server (Render.com)
 - URL: https://Evident.info
 - Provides:
@@ -194,6 +205,7 @@ These folders exist but are **NOT being used** in our current implementation:
   - Stripe integration
 
 ### **MAUI Client Apps:**
+
 - Run on user devices (Windows PC, iPhone, Android phone)
 - **Call Flask REST API** for all data:
   - `POST /api/v1/auth/login` - Login
@@ -206,18 +218,21 @@ These folders exist but are **NOT being used** in our current implementation:
 ## 📍 Where to Find Your Code
 
 ### **Want to edit the Flask backend?**
+
 ```bash
 cd C:\web-dev\github-repos\Evident.info
 # Edit: app.py, api/*.py, templates/*.html, etc.
 ```
 
 ### **Want to edit the MAUI apps?**
+
 ```bash
 cd C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI
 # Edit: Services/*.cs, ViewModels/*.cs, Views/*.xaml
 ```
 
 ### **Want to edit API endpoints?**
+
 ```bash
 cd C:\web-dev\github-repos\Evident.info\api
 # Edit: auth.py, upload.py, analysis.py, etc.
@@ -228,14 +243,16 @@ cd C:\web-dev\github-repos\Evident.info\api
 ## 🚀 Deployment Paths
 
 ### **Flask Backend:**
+
 ```bash
 # Deployed to Render.com
-git push origin main  
+git push origin main
 # → Render auto-deploys
 # → Live at https://Evident.info
 ```
 
 ### **Windows App:**
+
 ```bash
 cd src/Evident.MatterDocket.MAUI
 dotnet publish -f net9.0-windows10.0.19041.0 -c Release
@@ -244,6 +261,7 @@ dotnet publish -f net9.0-windows10.0.19041.0 -c Release
 ```
 
 ### **iOS App:**
+
 ```bash
 cd src/Evident.MatterDocket.MAUI
 dotnet publish -f net9.0-ios -c Release
@@ -252,6 +270,7 @@ dotnet publish -f net9.0-ios -c Release
 ```
 
 ### **Android App:**
+
 ```bash
 cd src/Evident.MatterDocket.MAUI
 dotnet publish -f net9.0-android -c Release
@@ -263,13 +282,13 @@ dotnet publish -f net9.0-android -c Release
 
 ## 📊 Summary
 
-| Platform | Location | Technology | Status |
-|----------|----------|------------|--------|
-| **Web Browser** | `/` (root) | Flask + HTML | ✅ Production |
-| **REST API** | `/api/` | Flask + PyJWT | ✅ Phase 1 Complete |
-| **Windows Desktop** | `src/Evident.MatterDocket.MAUI/` | .NET MAUI | ✅ Ready to test |
-| **iOS** | `src/Evident.MatterDocket.MAUI/` | .NET MAUI | ✅ Ready to test |
-| **Android** | `src/Evident.MatterDocket.MAUI/` | .NET MAUI | ✅ Ready to test |
+| Platform            | Location                         | Technology    | Status              |
+| ------------------- | -------------------------------- | ------------- | ------------------- |
+| **Web Browser**     | `/` (root)                       | Flask + HTML  | ✅ Production       |
+| **REST API**        | `/api/`                          | Flask + PyJWT | ✅ Phase 1 Complete |
+| **Windows Desktop** | `src/Evident.MatterDocket.MAUI/` | .NET MAUI     | ✅ Ready to test    |
+| **iOS**             | `src/Evident.MatterDocket.MAUI/` | .NET MAUI     | ✅ Ready to test    |
+| **Android**         | `src/Evident.MatterDocket.MAUI/` | .NET MAUI     | ✅ Ready to test    |
 
 ---
 
@@ -295,21 +314,25 @@ dotnet publish -f net9.0-android -c Release
 ## 🎯 Quick Navigation
 
 **Edit Backend API:**
+
 ```bash
 C:\web-dev\github-repos\Evident.info\api\
 ```
 
 **Edit MAUI Services:**
+
 ```bash
 C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI\Services\
 ```
 
 **Edit MAUI UI:**
+
 ```bash
 C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI\Views\
 ```
 
 **Edit Flask Web Templates:**
+
 ```bash
 C:\web-dev\github-repos\Evident.info\templates\
 ```

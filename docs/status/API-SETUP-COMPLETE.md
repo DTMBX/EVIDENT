@@ -7,12 +7,14 @@
 ## ✅ What I Just Did
 
 ### 1. Updated Code for API Authentication
+
 - ✅ Modified `legal_library.py` - Added `Authorization` header support
 - ✅ Modified `verified_legal_sources.py` - Added API key authentication
 - ✅ Both files now read `COURTLISTENER_API_KEY` from environment
 - ✅ Graceful fallback if key is missing (will warn instead of crash)
 
 ### 2. Code Changes Made
+
 ```python
 # In legal_library.py (line 202-208):
 headers = {}
@@ -69,12 +71,14 @@ if api_key:
 **For Local Testing:**
 
 Create `.env` file in project root:
+
 ```bash
 # .env
 COURTLISTENER_API_KEY=your_api_token_here
 ```
 
 Or set environment variable:
+
 ```powershell
 # PowerShell (Windows)
 $env:COURTLISTENER_API_KEY="your_api_token_here"
@@ -88,12 +92,14 @@ python overnight_library_builder.py --practice-area all
 ### Step 4: Test It! (2 minutes)
 
 **Test locally:**
+
 ```powershell
 cd C:\web-dev\github-repos\Evident.info
 python overnight_library_builder.py --practice-area civil_rights --max-cases 3
 ```
 
 **Expected output:**
+
 ```
 [1/3] 384 U.S. 436 - Miranda v. Arizona
   [INFO] Attempting direct import anyway...
@@ -116,6 +122,7 @@ Total cases in library: 3
 ### Foundation Cases (27 total)
 
 **Civil Rights (10 cases):**
+
 - Miranda v. Arizona
 - Terry v. Ohio
 - Tennessee v. Garner
@@ -128,6 +135,7 @@ Total cases in library: 3
 - United States v. Wade
 
 **Criminal Defense (8 cases):**
+
 - Gideon v. Wainwright
 - Brady v. Maryland
 - Batson v. Kentucky
@@ -138,6 +146,7 @@ Total cases in library: 3
 - Berghuis v. Thompkins
 
 **Employment Law (5 cases):**
+
 - McDonnell Douglas v. Green
 - Burlington Industries v. Ellerth
 - Faragher v. City of Boca Raton
@@ -145,6 +154,7 @@ Total cases in library: 3
 - Price Waterhouse v. Hopkins
 
 **Constitutional Law (4 cases):**
+
 - Brown v. Board of Education
 - Roe v. Wade
 - Marbury v. Madison
@@ -155,16 +165,19 @@ Total cases in library: 3
 ## 🎯 Import Commands
 
 ### Test with 3 cases:
+
 ```powershell
 python overnight_library_builder.py --practice-area civil_rights --max-cases 3
 ```
 
 ### Import all 27 foundation cases:
+
 ```powershell
 python overnight_library_builder.py --practice-area all
 ```
 
 ### Import by practice area:
+
 ```powershell
 python overnight_library_builder.py --practice-area criminal_defense
 python overnight_library_builder.py --practice-area employment
@@ -176,6 +189,7 @@ python overnight_library_builder.py --practice-area constitutional
 ## 🔍 Verify It Worked
 
 ### Check database:
+
 ```python
 from legal_library import LegalDocument
 cases = LegalDocument.query.all()
@@ -185,11 +199,13 @@ for case in cases:
 ```
 
 ### Check via API:
+
 ```bash
 curl https://Evident.onrender.com/api/legal-library/search?q=Miranda
 ```
 
 ### Check in logs:
+
 ```
 logs/overnight_import_20260127.log
 logs/import_report_20260127_*.json
@@ -213,18 +229,22 @@ logs/import_report_20260127_*.json
 ## 🐛 Troubleshooting
 
 ### Error: "403 Forbidden"
+
 **Problem:** API key not set or invalid  
 **Fix:** Double-check environment variable name and value
 
 ### Error: "Could not verify"
+
 **Problem:** API key working but citations not found  
 **Fix:** Normal - some citations might not be in CourtListener database
 
 ### Error: "Import failed - not found"
+
 **Problem:** Case exists but not in CourtListener format  
 **Fix:** Try alternative citation format or manual upload
 
 ### No errors but 0 imported
+
 **Problem:** Rate limiting or network issue  
 **Fix:** Add `--delay 3` flag to slow down requests
 
@@ -233,18 +253,21 @@ logs/import_report_20260127_*.json
 ## 📈 Next Steps After Import
 
 ### 1. Hook Up Integrations (5 minutes)
+
 ```python
 # Add to api/chatgpt.py
 from chatgpt_legal_library_integration import ChatGPTLegalLibraryIntegration
 ```
 
 ### 2. Test ChatGPT Integration
+
 ```bash
 curl -X POST https://Evident.onrender.com/api/chatgpt/assist \
   -d '{"question": "What is qualified immunity?"}'
 ```
 
 ### 3. Schedule Nightly Updates
+
 ```powershell
 # Windows Task Scheduler
 # Run: python overnight_library_builder.py --practice-area all
@@ -256,12 +279,14 @@ curl -X POST https://Evident.onrender.com/api/chatgpt/assist \
 ## 💰 CourtListener API Limits
 
 **Free Tier:**
+
 - ✅ Unlimited read requests
 - ✅ Access to 10M+ opinions
 - ✅ No credit card required
 - ⚠️ Rate limit: ~100 requests/minute (plenty for your needs)
 
 **Your Usage:**
+
 - Initial import: 27 requests (one-time)
 - Nightly updates: ~5-10 requests
 - User searches: ~10-50 requests/day
@@ -273,6 +298,7 @@ curl -X POST https://Evident.onrender.com/api/chatgpt/assist \
 ## 🎉 Result
 
 Once you add the API key:
+
 - ✅ 27 verified Supreme Court cases in your database
 - ✅ ChatGPT can reference real case law
 - ✅ Document Optimizer can auto-cite precedents
@@ -282,4 +308,3 @@ Once you add the API key:
 **Time to complete:** 10 minutes  
 **Cost:** $0 (free tier)  
 **Value:** Priceless (professional legal research tool!)
-

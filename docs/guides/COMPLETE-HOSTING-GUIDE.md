@@ -1,4 +1,5 @@
 # Complete Hosting Architecture Guide
+
 # GitHub Pages + Render + Custom DNS Setup
 
 ## ?? **Overview: Two-Part Architecture**
@@ -29,6 +30,7 @@ Your Evident.info needs BOTH services working together:
 ## ?? **Part 1: GitHub Pages Setup**
 
 ### **What It Does:**
+
 - Hosts your static marketing website
 - Shows: docs.html, pricing.html, contact.html
 - No backend, no database
@@ -74,6 +76,7 @@ exclude:
 #### **3. What Gets Deployed:**
 
 GitHub Pages will serve:
+
 - ? `index.html` ? https://dtb396.github.io/Evident.info/
 - ? `docs.html` ? https://dtb396.github.io/Evident.info/docs.html
 - ? `pricing.html` ? https://dtb396.github.io/Evident.info/pricing.html
@@ -87,6 +90,7 @@ GitHub Pages will serve:
 ## ?? **Part 2: Render Setup**
 
 ### **What It Does:**
+
 - Hosts your Flask application
 - Runs Python backend
 - Connects to PostgreSQL
@@ -95,6 +99,7 @@ GitHub Pages will serve:
 ### **Setup Steps:**
 
 #### **1. Already Configured:**
+
 Your `render.yaml` is already set up correctly:
 
 ```yaml
@@ -115,6 +120,7 @@ databases:
 ```
 
 #### **2. Auto-Deploy:**
+
 - Render watches your GitHub repo
 - On push to `main` branch
 - Automatically rebuilds and deploys
@@ -123,6 +129,7 @@ databases:
 #### **3. What Gets Deployed:**
 
 Render deploys:
+
 - ? `app.py` ? Flask application
 - ? `requirements.txt` ? Python dependencies
 - ? `templates/` ? Flask templates
@@ -196,14 +203,14 @@ TTL: 3600
 
 ### **Complete DNS Setup Example (GoDaddy):**
 
-| Type | Name | Value | TTL |
-|------|------|-------|-----|
-| A | @ | 185.199.108.153 | 1 Hour |
-| A | @ | 185.199.109.153 | 1 Hour |
-| A | @ | 185.199.110.153 | 1 Hour |
-| A | @ | 185.199.111.153 | 1 Hour |
-| CNAME | www | dtb396.github.io | 1 Hour |
-| CNAME | app | Evident-legal-tech.onrender.com | 1 Hour |
+| Type  | Name | Value                           | TTL    |
+| ----- | ---- | ------------------------------- | ------ |
+| A     | @    | 185.199.108.153                 | 1 Hour |
+| A     | @    | 185.199.109.153                 | 1 Hour |
+| A     | @    | 185.199.110.153                 | 1 Hour |
+| A     | @    | 185.199.111.153                 | 1 Hour |
+| CNAME | www  | dtb396.github.io                | 1 Hour |
+| CNAME | app  | Evident-legal-tech.onrender.com | 1 Hour |
 
 ---
 
@@ -275,6 +282,7 @@ User clicks "Login"
 ### **Scenario: User wants to analyze BWC footage**
 
 **Step 1: Discovery** (GitHub Pages)
+
 ```
 https://Evident.info
 ?
@@ -283,6 +291,7 @@ User clicks "Get Started"
 ```
 
 **Step 2: Registration** (Render)
+
 ```
 Redirects to: https://app.Evident.info/auth/register
 ?
@@ -290,6 +299,7 @@ User creates account (saved in PostgreSQL on Render)
 ```
 
 **Step 3: Login** (Render)
+
 ```
 https://app.Evident.info/auth/login
 ?
@@ -297,6 +307,7 @@ User logs in (Flask session on Render)
 ```
 
 **Step 4: Dashboard** (Render)
+
 ```
 https://app.Evident.info/auth/dashboard
 ?
@@ -306,6 +317,7 @@ PostgreSQL stores metadata
 ```
 
 **Step 5: Analysis** (Render)
+
 ```
 https://app.Evident.info/analysis/123
 ?
@@ -313,6 +325,7 @@ User views AI analysis results
 ```
 
 **Step 6: Documentation** (GitHub Pages)
+
 ```
 User clicks "Help" ? https://Evident.info/docs.html
 ?
@@ -325,11 +338,13 @@ User reads documentation
 ## ?? **SSL/HTTPS (Automatic):**
 
 ### **GitHub Pages:**
+
 - Free SSL from Let's Encrypt
 - Automatically enabled for custom domains
 - No configuration needed
 
 ### **Render:**
+
 - Free SSL from Let's Encrypt
 - Automatically provisioned for custom domains
 - Auto-renews every 90 days
@@ -340,13 +355,13 @@ User reads documentation
 
 ## ?? **Costs:**
 
-| Service | Cost | What You Get |
-|---------|------|--------------|
-| **GitHub Pages** | FREE | Unlimited bandwidth, free SSL |
-| **Render Free Tier** | FREE | 750 hours/month, sleeps after 15 min |
-| **Render Starter** | $7/month | Always-on, no sleep |
-| **Custom Domain** | $10-15/year | Your own Evident.info domain |
-| **PostgreSQL Free** | FREE | 256MB storage |
+| Service              | Cost        | What You Get                         |
+| -------------------- | ----------- | ------------------------------------ |
+| **GitHub Pages**     | FREE        | Unlimited bandwidth, free SSL        |
+| **Render Free Tier** | FREE        | 750 hours/month, sleeps after 15 min |
+| **Render Starter**   | $7/month    | Always-on, no sleep                  |
+| **Custom Domain**    | $10-15/year | Your own Evident.info domain         |
+| **PostgreSQL Free**  | FREE        | 256MB storage                        |
 
 **Total minimum cost: ~$10-15/year (just domain)**
 
@@ -384,14 +399,17 @@ git push origin main
 **If you own Evident.info:**
 
 **4a. DNS Records:**
+
 - Add GitHub Pages A records
 - Add Render CNAME record
 
 **4b. GitHub Pages:**
+
 - Add custom domain: Evident.info
 - Enable HTTPS
 
 **4c. Render:**
+
 - Add custom domain: app.Evident.info
 - Wait for SSL
 
@@ -410,15 +428,18 @@ git push origin main
 ### **What Happens Next:**
 
 **In 5 minutes:**
+
 1. ? GitHub Pages builds (if enabled)
 2. ? Render deploys Flask app
 3. ? PostgreSQL database created
 
 **You'll have:**
+
 - ? https://dtb396.github.io/Evident.info (marketing)
 - ? https://Evident-legal-tech.onrender.com (app)
 
 **Later (optional):**
+
 - ? Custom domain: Evident.info
 - ? Custom app domain: app.Evident.info
 
@@ -438,16 +459,19 @@ git push origin main
 ## ?? **Troubleshooting:**
 
 ### **GitHub Pages not showing:**
+
 - Check Settings ? Pages ? Source is set
 - Wait 2-3 minutes for build
 - Check Actions tab for errors
 
 ### **Render not working:**
+
 - Check dashboard.render.com for logs
 - Look for red errors
 - Database should say "Available"
 
 ### **Custom domain not working:**
+
 - DNS propagation takes 1-48 hours
 - Check with: https://dnschecker.org
 - Verify DNS records are correct
@@ -457,11 +481,13 @@ git push origin main
 ## ? **Quick Start Checklist:**
 
 **Right Now:**
+
 - [ ] Enable GitHub Pages (Settings ? Pages)
 - [ ] Wait for Render deployment (5-7 min)
 - [ ] Test both URLs
 
 **Later (Optional):**
+
 - [ ] Buy custom domain (Evident.info)
 - [ ] Configure DNS records
 - [ ] Add custom domain to GitHub Pages

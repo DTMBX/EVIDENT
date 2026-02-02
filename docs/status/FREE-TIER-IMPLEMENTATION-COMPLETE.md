@@ -12,6 +12,7 @@ Successfully implemented a **zero-cost FREE tier** that provides genuine value w
 ## ✅ What's Included in FREE Tier
 
 ### 1. **Pre-Loaded Demo Cases** (Cost: $0)
+
 - 3 fully analyzed sample cases
 - Real-world scenarios (traffic stop, wellness check, search warrant)
 - Complete AI analysis, timelines, and reports
@@ -19,6 +20,7 @@ Successfully implemented a **zero-cost FREE tier** that provides genuine value w
 - **Value:** Users see the full platform power without processing costs
 
 ### 2. **One-Time File Upload** (Cost: $0.04-0.13)
+
 - Upload **ONE file ever** (user's choice):
   - **PDF:** Up to 10 pages
   - **Video:** Up to 5 minutes
@@ -27,18 +29,21 @@ Successfully implemented a **zero-cost FREE tier** that provides genuine value w
 - **Value:** Users test with THEIR data (high conversion!)
 
 ### 3. **7-Day Data Retention** (Cost: $0)
+
 - Automatic deletion after 7 days
 - Email warnings at 3 days and 1 day before deletion
 - Clear upgrade prompts to save data
 - **Value:** Creates urgency to upgrade
 
 ### 4. **Watermarked Exports** (Cost: $0)
+
 - PDF watermarks: Bottom footer text
 - Image watermarks: Bottom-right overlay
 - HTML reports: Upgrade banner
 - **Value:** Functional exports while incentivizing upgrades
 
 ### 5. **Educational Resources** (Cost: $0)
+
 - 4+ comprehensive guides
 - 5+ downloadable templates (motions, reports, worksheets)
 - Video tutorials
@@ -46,6 +51,7 @@ Successfully implemented a **zero-cost FREE tier** that provides genuine value w
 - **Value:** Builds trust and demonstrates expertise
 
 ### 6. **Case Law Search** (Cost: ~$0.05)
+
 - 100 queries per month
 - Read-only access to database
 - **Value:** Useful tool, limited enough to encourage upgrade
@@ -55,7 +61,9 @@ Successfully implemented a **zero-cost FREE tier** that provides genuine value w
 ## 🏗️ Architecture
 
 ### Database Changes
+
 **New fields in `users` table:**
+
 ```python
 one_time_upload_used = db.Column(db.Boolean, default=False)
 one_time_upload_date = db.Column(db.DateTime, nullable=True)
@@ -63,15 +71,15 @@ one_time_upload_date = db.Column(db.DateTime, nullable=True)
 
 ### New Modules
 
-| Module | Purpose | Lines |
-|--------|---------|-------|
-| `free_tier_demo_cases.py` | Pre-loaded demo cases with full analysis | 240 |
-| `free_tier_educational_resources.py` | Guides, templates, tutorials catalog | 280 |
-| `free_tier_upload_manager.py` | One-time upload validation & tracking | 320 |
-| `free_tier_data_retention.py` | Auto-deletion after 7 days | 285 |
-| `free_tier_watermark.py` | Watermark service for exports | 310 |
-| `migrate_add_free_tier_uploads.py` | Database migration script | 120 |
-| `templates/free_tier_dashboard.html` | Beautiful FREE tier dashboard UI | 400 |
+| Module                               | Purpose                                  | Lines |
+| ------------------------------------ | ---------------------------------------- | ----- |
+| `free_tier_demo_cases.py`            | Pre-loaded demo cases with full analysis | 240   |
+| `free_tier_educational_resources.py` | Guides, templates, tutorials catalog     | 280   |
+| `free_tier_upload_manager.py`        | One-time upload validation & tracking    | 320   |
+| `free_tier_data_retention.py`        | Auto-deletion after 7 days               | 285   |
+| `free_tier_watermark.py`             | Watermark service for exports            | 310   |
+| `migrate_add_free_tier_uploads.py`   | Database migration script                | 120   |
+| `templates/free_tier_dashboard.html` | Beautiful FREE tier dashboard UI         | 400   |
 
 **Total:** ~1,955 lines of production-ready code
 
@@ -102,23 +110,23 @@ one_time_upload_date = db.Column(db.DateTime, nullable=True)
 
 ### Cost Breakdown
 
-| Item | Cost per User |
-|------|---------------|
-| Infrastructure (DB, hosting) | $0.50 |
-| One-time upload (avg) | $0.05 |
-| **Total** | **$0.55/month** |
+| Item                         | Cost per User   |
+| ---------------------------- | --------------- |
+| Infrastructure (DB, hosting) | $0.50           |
+| One-time upload (avg)        | $0.05           |
+| **Total**                    | **$0.55/month** |
 
 ### Revenue Projection
 
 **Scenario:** 1,000 FREE users
 
-| Metric | Value |
-|--------|-------|
-| Monthly cost | $550 |
+| Metric                      | Value    |
+| --------------------------- | -------- |
+| Monthly cost                | $550     |
 | 5% convert to STARTER ($29) | 50 users |
-| Monthly revenue | $1,450 |
-| **Net profit** | **$900** |
-| **ROI** | **163%** |
+| Monthly revenue             | $1,450   |
+| **Net profit**              | **$900** |
+| **ROI**                     | **163%** |
 
 **With 10% conversion:** $2,900 revenue = **427% ROI** ✅
 
@@ -141,6 +149,7 @@ one_time_upload_date = db.Column(db.DateTime, nullable=True)
 ### 📋 Next Steps (30 minutes)
 
 1. **Run Migration**
+
    ```bash
    python migrate_add_free_tier_uploads.py
    ```
@@ -158,6 +167,7 @@ one_time_upload_date = db.Column(db.DateTime, nullable=True)
    - Add template files to `/static/templates/`
 
 4. **Set Up Cron Job** (data retention cleanup)
+
    ```python
    # Run daily at 3 AM
    from free_tier_data_retention import DataRetentionManager
@@ -186,13 +196,13 @@ from free_tier_upload_manager import free_tier_upload_route_decorator, OneTimeUp
 def upload_video():
     # Your existing upload logic
     file = request.files['video']
-    
+
     # FREE tier validation
     if current_user.tier == TierLevel.FREE:
         is_valid, error, details = OneTimeUploadManager.validate_file(file, 'video')
         if not is_valid:
             return jsonify({'error': error}), 400
-    
+
     # Continue with normal upload...
     return jsonify({'success': True})
 ```
@@ -205,13 +215,13 @@ from free_tier_watermark import WatermarkService
 def export_report(user, case_id):
     # Generate report
     report_path = generate_pdf_report(case_id)
-    
+
     # Add watermark if FREE tier
     if WatermarkService.should_watermark(user):
         output_path = report_path.replace('.pdf', '_watermarked.pdf')
         WatermarkService.add_pdf_watermark(report_path, output_path, user)
         return output_path
-    
+
     return report_path
 ```
 
@@ -272,17 +282,20 @@ def profile():
 ## 🔧 Maintenance
 
 ### Daily Cron Job (Data Retention)
+
 ```bash
 0 3 * * * cd /var/www/Evident && python -c "from free_tier_data_retention import DataRetentionManager; DataRetentionManager.run_cleanup_job()"
 ```
 
 ### Weekly Review
+
 - Check conversion rate (FREE → STARTER)
 - Review demo case engagement
 - Analyze upgrade prompt effectiveness
 - Adjust limits if needed
 
 ### Monthly Costs
+
 - Monitor per-user infrastructure costs
 - Adjust if storage costs creep up
 - Consider compressing demo assets
@@ -293,14 +306,14 @@ def profile():
 
 Track these in analytics:
 
-| Metric | Target |
-|--------|--------|
-| FREE signup rate | 100-200/month |
-| Demo case views | >80% of FREE users |
-| One-time upload usage | >60% of FREE users |
-| Export with watermark | >30% of uploads |
-| Conversion to STARTER | >5% |
-| 7-day retention | <10% data still stored |
+| Metric                | Target                 |
+| --------------------- | ---------------------- |
+| FREE signup rate      | 100-200/month          |
+| Demo case views       | >80% of FREE users     |
+| One-time upload usage | >60% of FREE users     |
+| Export with watermark | >30% of uploads        |
+| Conversion to STARTER | >5%                    |
+| 7-day retention       | <10% data still stored |
 
 ---
 
@@ -313,9 +326,10 @@ Track these in analytics:
 ✅ **Real value** - Users get to try with THEIR data  
 ✅ **Urgency built-in** - 7-day deletion creates FOMO  
 ✅ **Educational value** - Demo cases + resources build trust  
-✅ **Clear upgrade path** - Every limitation has a CTA  
+✅ **Clear upgrade path** - Every limitation has a CTA
 
 ### Result:
+
 **FREE tier that converts 5-10% to paid = sustainable growth** 🚀
 
 ---
@@ -323,6 +337,7 @@ Track these in analytics:
 ## 📞 Support
 
 For questions about FREE tier implementation:
+
 1. Check this doc first
 2. Review code comments in modules
 3. Test with `free@Evident.test` account

@@ -10,6 +10,7 @@
 ## ✅ COMPLETED
 
 ### Phase 1: Core System (DONE ✅)
+
 - [x] Built Stripe integration (452 lines)
 - [x] Implemented tier-based access control (315 lines)
 - [x] Created usage dashboard (437 lines)
@@ -18,12 +19,14 @@
 - [x] Documentation created (13+ guides)
 
 ### Phase 2: Pricing Optimization (DONE ✅)
+
 - [x] Identified pricing problems (5x jump, degrading margins)
 - [x] Designed 5-tier structure
 - [x] Verified all cost calculations
 - [x] Created pricing analysis docs
 
 ### Phase 3: FREE Tier Implementation (DONE ✅)
+
 - [x] Built 11 FREE tier modules (2,670 lines)
 - [x] Created demo cases with full AI analysis
 - [x] Implemented one-time upload validation
@@ -41,19 +44,23 @@
 **Status:** Created `pricing-5tier.html` ✅
 
 **Action Items:**
+
 - [ ] Review `pricing-5tier.html` for accuracy
 - [ ] Update any links to point to correct routes
 - [ ] Deploy as main pricing page:
+
   ```bash
   # Backup current pricing
   mv pricing.html pricing-old-backup.html
-  
+
   # Activate new 5-tier pricing
   mv pricing-5tier.html pricing.html
   ```
+
 - [ ] Test responsive design on mobile
 
 **Files:**
+
 - ✅ `pricing-5tier.html` - Complete with all 5 tiers
 - ✅ Comparison table included
 - ✅ Beautiful gradient design
@@ -66,11 +73,13 @@
 #### 2a. Database Migration (2 min)
 
 **When ready** (after installing dependencies):
+
 ```bash
 python migrate_add_free_tier_uploads.py
 ```
 
 **Expected Output:**
+
 ```
 ======================================================================
 FREE Tier One-Time Upload Migration
@@ -86,12 +95,14 @@ Updating existing users...
 ```
 
 **Adds to `users` table:**
+
 - `one_time_upload_used` (BOOLEAN, default FALSE)
 - `one_time_upload_date` (TIMESTAMP, nullable)
 
 #### 2b. Demo Assets (5 min - OPTIONAL)
 
 **Quick Option:** Use placeholders
+
 ```bash
 cd static/demos
 # Download placeholder images
@@ -107,6 +118,7 @@ curl "https://via.placeholder.com/800x600/10b981/ffffff?text=Search+Warrant" -o 
 #### 2c. Cron Job for Data Cleanup (3 min)
 
 **Linux/Mac:**
+
 ```bash
 crontab -e
 # Add this line:
@@ -114,6 +126,7 @@ crontab -e
 ```
 
 **Windows (Task Scheduler):**
+
 1. Open Task Scheduler
 2. Create Basic Task
 3. Trigger: Daily at 3:00 AM
@@ -139,6 +152,7 @@ crontab -e
 **Follow:** `STRIPE-5TIER-SETUP-GUIDE.md`
 
 #### 3a. Create Products (15 min)
+
 - [ ] Login to Stripe Dashboard (Test Mode)
 - [ ] Create "Evident Starter" - $29/month
   - Copy Price ID: `STRIPE_PRICE_STARTER`
@@ -150,21 +164,24 @@ crontab -e
   - Copy Price ID: `STRIPE_PRICE_ENTERPRISE`
 
 #### 3b. Get API Keys (3 min)
+
 - [ ] Go to Developers → API Keys
 - [ ] Copy Publishable Key: `pk_test_...`
 - [ ] Copy Secret Key: `sk_test_...`
 
 #### 3c. Create Webhook (5 min)
+
 - [ ] Go to Developers → Webhooks
 - [ ] Add endpoint: `https://Evident.info/api/stripe/webhook`
 - [ ] Select events:
   - checkout.session.completed
-  - customer.subscription.*
+  - customer.subscription.\*
   - invoice.payment_succeeded
   - invoice.payment_failed
 - [ ] Copy Webhook Secret: `whsec_...`
 
 #### 3d. Update .env (2 min)
+
 ```bash
 # Stripe Configuration
 STRIPE_PUBLISHABLE_KEY=pk_test_YOUR_KEY
@@ -179,6 +196,7 @@ STRIPE_PRICE_ENTERPRISE=price_YOUR_ID
 ```
 
 #### 3e. Restart Flask App (1 min)
+
 ```bash
 # Stop current app
 # Start with new environment variables
@@ -186,6 +204,7 @@ python app.py
 ```
 
 #### 3f. Test Checkout (4 min)
+
 - [ ] Go to `/pricing`
 - [ ] Click "Try Free for 3 Days" (PROFESSIONAL)
 - [ ] Enter test card: `4242 4242 4242 4242`
@@ -198,6 +217,7 @@ python app.py
 ### Task 4: End-to-End Testing ⏰ 15 minutes
 
 #### 4a. FREE Tier Testing (5 min)
+
 - [ ] Create/login as FREE user
 - [ ] View `/free-dashboard`
 - [ ] Click demo case
@@ -207,6 +227,7 @@ python app.py
 - [ ] Verify 7-day warning (if file uploaded)
 
 #### 4b. STARTER Tier Testing (3 min)
+
 - [ ] Subscribe to STARTER ($29)
 - [ ] Verify dashboard shows STARTER limits
 - [ ] Upload a video (should work)
@@ -214,6 +235,7 @@ python app.py
 - [ ] Check no watermarks on export
 
 #### 4c. PROFESSIONAL Tier Testing (3 min)
+
 - [ ] Start 3-day free trial
 - [ ] Verify trial badge shows
 - [ ] Check "Trial ends in X days"
@@ -221,6 +243,7 @@ python app.py
 - [ ] Test "Manage Billing" → Stripe Portal
 
 #### 4d. Billing Portal Testing (2 min)
+
 - [ ] Click "Manage Billing"
 - [ ] Verify Stripe Customer Portal opens
 - [ ] Check can view invoices
@@ -228,6 +251,7 @@ python app.py
 - [ ] Check can cancel subscription
 
 #### 4e. Webhook Testing (2 min)
+
 - [ ] Go to Stripe Dashboard → Webhooks
 - [ ] Check events are being received
 - [ ] Verify successful responses (200 OK)
@@ -240,6 +264,7 @@ python app.py
 ### When All Tasks Complete:
 
 #### Pre-Launch Checklist
+
 - [ ] All tests passing
 - [ ] No critical bugs
 - [ ] Stripe configured correctly
@@ -249,6 +274,7 @@ python app.py
 - [ ] Documentation complete
 
 #### Go Live
+
 ```bash
 # 1. Deploy pricing page
 git add pricing.html pricing-5tier.html
@@ -269,18 +295,21 @@ git push origin main
 ## 📊 Post-Launch Monitoring
 
 ### Day 1
+
 - [ ] Monitor Stripe Dashboard for subscriptions
 - [ ] Check webhook logs for errors
 - [ ] Review FREE tier signups
 - [ ] Track conversion rates
 
 ### Week 1
+
 - [ ] Analyze FREE → STARTER conversion (target: 5-10%)
 - [ ] Check PROFESSIONAL trial conversions
 - [ ] Review any customer support issues
 - [ ] Monitor costs vs revenue
 
 ### Month 1
+
 - [ ] Calculate actual margins
 - [ ] Compare to projections
 - [ ] Optimize based on data
@@ -291,18 +320,21 @@ git push origin main
 ## 🔧 Quick Reference
 
 ### Key URLs
+
 - Pricing Page: `/pricing` or `/pricing.html`
 - FREE Dashboard: `/free-dashboard`
 - Usage Dashboard: `/dashboard/usage`
 - Stripe Portal: `/api/stripe/create-portal-session`
 
 ### Key Files
+
 - Pricing: `pricing-5tier.html` → `pricing.html`
 - FREE Dashboard: `templates/free_tier_dashboard.html`
 - Models: `models_auth.py`
 - Stripe Service: `stripe_subscription_service.py`
 
 ### Test Accounts
+
 ```python
 # Create with:
 python create_test_subscription_accounts.py
@@ -321,12 +353,14 @@ admin@Evident.test / admin123
 ## 🎯 Success Metrics
 
 ### Launch Goals
+
 - 100 FREE signups in first month
 - 5-10% FREE → STARTER conversion
 - 30% STARTER → PROFESSIONAL upgrades
 - First paying customer within 48 hours
 
 ### Revenue Targets
+
 - Month 1: $1,000 MRR
 - Month 3: $5,000 MRR
 - Month 6: $15,000 MRR
@@ -340,9 +374,9 @@ admin@Evident.test / admin123
 **Pricing:** Fair-scaled, 52-84% margins ✅  
 **FREE Tier:** Optimized, 163-427% ROI ✅  
 **Documentation:** 15+ comprehensive guides ✅  
-**Integration:** Complete ✅  
+**Integration:** Complete ✅
 
 **Time to Launch:** 1.5 hours  
-**Projected Year 1 ARR:** $984,360 (82% margin)  
+**Projected Year 1 ARR:** $984,360 (82% margin)
 
 **Ready to generate revenue!** 🚀💰

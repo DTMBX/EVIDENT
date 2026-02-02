@@ -42,16 +42,17 @@ Get-Content "C:\web-dev\github-repos\Evident.info\Evident-Profile.ps1" | Add-Con
 
 ### 📁 Navigation Shortcuts
 
-| Command | Description | Example |
-|---------|-------------|---------|
-| `br` | Go to Evident root | `br` |
-| `bm` | Go to MAUI project | `bm` |
-| `ba` | Go to API directory | `ba` |
-| `bd` | Go to Docs directory | `bd` |
-| `b-` | Go back to previous location | `b-` |
-| `brecent` | Show recent 10 locations | `brecent` |
+| Command   | Description                  | Example   |
+| --------- | ---------------------------- | --------- |
+| `br`      | Go to Evident root           | `br`      |
+| `bm`      | Go to MAUI project           | `bm`      |
+| `ba`      | Go to API directory          | `ba`      |
+| `bd`      | Go to Docs directory         | `bd`      |
+| `b-`      | Go back to previous location | `b-`      |
+| `brecent` | Show recent 10 locations     | `brecent` |
 
 **Usage:**
+
 ```powershell
 # Navigate to MAUI project
 bm
@@ -67,16 +68,17 @@ brecent
 
 ### 🔨 Build & Run
 
-| Command | Description | Example |
-|---------|-------------|---------|
-| `Build-MAUI` | Build MAUI for Windows | `Build-MAUI` |
-| `Build-MAUI -Clean` | Clean and build | `Build-MAUI -Clean` |
-| `Build-MAUI -Configuration Release` | Release build | `Build-MAUI -Configuration Release` |
-| `Run-MAUI` | Launch MAUI app | `Run-MAUI` |
-| `Start-FlaskAPI` | Start Flask backend | `Start-FlaskAPI` |
-| `Test-Evident` | Run all tests | `Test-Evident` |
+| Command                             | Description            | Example                             |
+| ----------------------------------- | ---------------------- | ----------------------------------- |
+| `Build-MAUI`                        | Build MAUI for Windows | `Build-MAUI`                        |
+| `Build-MAUI -Clean`                 | Clean and build        | `Build-MAUI -Clean`                 |
+| `Build-MAUI -Configuration Release` | Release build          | `Build-MAUI -Configuration Release` |
+| `Run-MAUI`                          | Launch MAUI app        | `Run-MAUI`                          |
+| `Start-FlaskAPI`                    | Start Flask backend    | `Start-FlaskAPI`                    |
+| `Test-Evident`                      | Run all tests          | `Test-Evident`                      |
 
 **Usage:**
+
 ```powershell
 # Clean build and run
 Build-MAUI -Clean
@@ -88,16 +90,17 @@ Start-FlaskAPI
 
 ### 📝 Git Shortcuts
 
-| Command | Description | Example |
-|---------|-------------|---------|
-| `gs` | Git status (short) | `gs` |
-| `gaa` | Git add all | `gaa` |
-| `gc "message"` | Git commit | `gc "fix: ChatGPT integration"` |
-| `gp` | Git push | `gp` |
-| `gpl` | Git pull | `gpl` |
-| `gquick "msg"` | Add, commit, push | `gquick "feat: Add chat UI"` |
+| Command        | Description        | Example                         |
+| -------------- | ------------------ | ------------------------------- |
+| `gs`           | Git status (short) | `gs`                            |
+| `gaa`          | Git add all        | `gaa`                           |
+| `gc "message"` | Git commit         | `gc "fix: ChatGPT integration"` |
+| `gp`           | Git push           | `gp`                            |
+| `gpl`          | Git pull           | `gpl`                           |
+| `gquick "msg"` | Add, commit, push  | `gquick "feat: Add chat UI"`    |
 
 **Usage:**
+
 ```powershell
 # Quick save workflow
 gquick "feat: Add ChatPage UI"
@@ -110,13 +113,14 @@ git push origin main
 
 ### 🗄️ Database Commands
 
-| Command | Description | Example |
-|---------|-------------|---------|
-| `Migrate-DB` | Run default migration | `Migrate-DB` |
+| Command                  | Description            | Example                               |
+| ------------------------ | ---------------------- | ------------------------------------- |
+| `Migrate-DB`             | Run default migration  | `Migrate-DB`                          |
 | `Migrate-DB "script.py"` | Run specific migration | `Migrate-DB "migrate_add_chatgpt.py"` |
-| `Reset-DB` | Delete and recreate DB | `Reset-DB` |
+| `Reset-DB`               | Delete and recreate DB | `Reset-DB`                            |
 
 **Usage:**
+
 ```powershell
 # Run ChatGPT migration
 Migrate-DB "migrate_add_chatgpt.py"
@@ -128,9 +132,9 @@ Reset-DB
 
 ### 💡 Help
 
-| Command | Description |
-|---------|-------------|
-| `bmenu` | Show command menu |
+| Command            | Description                   |
+| ------------------ | ----------------------------- |
+| `bmenu`            | Show command menu             |
 | `Show-EvidentMenu` | Show command menu (full name) |
 
 ---
@@ -229,10 +233,10 @@ Add your own functions:
 ```powershell
 function Deploy-Production {
     Write-Host "🚀 Deploying to production..." -ForegroundColor Yellow
-    
+
     # Your deployment commands
     git push production main
-    
+
     Write-Host "✅ Deployed!" -ForegroundColor Green
 }
 ```
@@ -253,6 +257,7 @@ br  # Uncomment this line
 ### "Cannot be loaded because running scripts is disabled"
 
 **Solution:**
+
 ```powershell
 # Run as Administrator
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
@@ -261,6 +266,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ### Commands not found after install
 
 **Solution:**
+
 ```powershell
 # Reload profile
 . $PROFILE
@@ -271,6 +277,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ### Profile changes not taking effect
 
 **Solution:**
+
 ```powershell
 # Make sure you saved the file
 # Reload:

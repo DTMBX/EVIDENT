@@ -5,12 +5,14 @@ A beautiful, modern, and fully accessible navigation system designed for Evident
 ## 🎨 Design Highlights
 
 ### Desktop Navigation
+
 - **Elegant Dropdown Menus**: Rich dropdowns with icons, titles, and descriptions
 - **Glassmorphism Header**: Modern backdrop blur effect with semi-transparent background
 - **Smooth Animations**: Subtle hover effects and transitions throughout
 - **Hover & Click Support**: Works with both mouse hover and touch/click interactions
 
 ### Mobile Navigation
+
 - **Slide-in Drawer**: Smooth right-side drawer with elegant animations
 - **Expandable Submenus**: Accordion-style navigation with chevron indicators
 - **Touch-Optimized**: Large tap targets and smooth scrolling
@@ -19,6 +21,7 @@ A beautiful, modern, and fully accessible navigation system designed for Evident
 ## ✨ Features
 
 ### 🎯 User Experience
+
 - **Responsive Design**: Seamlessly adapts from mobile to desktop
 - **Smart Scroll Detection**: Header style changes subtly on scroll
 - **Focus Management**: Proper focus handling when opening/closing menus
@@ -26,6 +29,7 @@ A beautiful, modern, and fully accessible navigation system designed for Evident
 - **Smooth Transitions**: All animations use cubic-bezier easing
 
 ### ♿ Accessibility
+
 - **WCAG 2.1 AA Compliant**: Meets accessibility standards
 - **Keyboard Navigation**: Full keyboard support with Tab, Arrow keys, Escape
 - **ARIA Attributes**: Proper `aria-expanded`, `aria-hidden`, `aria-label`
@@ -36,6 +40,7 @@ A beautiful, modern, and fully accessible navigation system designed for Evident
 - **High Contrast Mode**: Enhanced visibility in high contrast mode
 
 ### ⌨️ Keyboard Shortcuts
+
 - **Ctrl+K (Cmd+K)**: Open search
 - **Ctrl+M (Cmd+M)**: Toggle mobile menu (mobile only)
 - **Tab / Shift+Tab**: Navigate between elements
@@ -65,6 +70,7 @@ Evident.info/
 ### 1. Copy Files
 
 Copy these three files to your project:
+
 - `_includes/components/navigation/elegant-header.html`
 - `assets/css/components/elegant-header.css`
 - `assets/js/elegant-header.js`
@@ -75,7 +81,10 @@ Add to your layout file (e.g., `_layouts/default.html`):
 
 ```html
 <!-- In <head> section -->
-<link rel="stylesheet" href="{{ '/assets/css/components/elegant-header.css' | relative_url }}">
+<link
+  rel="stylesheet"
+  href="{{ '/assets/css/components/elegant-header.css' | relative_url }}"
+/>
 
 <!-- After <body> tag -->
 {% include components/navigation/elegant-header.html %}
@@ -96,13 +105,13 @@ Edit CSS variables in `elegant-header.css`:
 
 ```css
 :root {
-  --elegant-primary: #C41E3A;        /* Primary brand color */
-  --elegant-primary-dark: #A01729;   /* Darker shade for hover */
-  --elegant-secondary: #1E3A8A;      /* Secondary color */
-  --elegant-accent: #d4a574;         /* Accent color */
-  --elegant-text: #0f172a;           /* Main text color */
-  --elegant-text-light: #64748b;     /* Secondary text */
-  --elegant-bg: #ffffff;             /* Background color */
+  --elegant-primary: #c41e3a; /* Primary brand color */
+  --elegant-primary-dark: #a01729; /* Darker shade for hover */
+  --elegant-secondary: #1e3a8a; /* Secondary color */
+  --elegant-accent: #d4a574; /* Accent color */
+  --elegant-text: #0f172a; /* Main text color */
+  --elegant-text-light: #64748b; /* Secondary text */
+  --elegant-bg: #ffffff; /* Background color */
   /* ... more variables ... */
 }
 ```
@@ -115,7 +124,15 @@ Edit `elegant-header.html` to add, remove, or modify menu items:
 <!-- Add a new menu item -->
 <li class="elegant-nav__item">
   <a href="/your-page/" class="elegant-nav__link">
-    <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <svg
+      class="nav-icon"
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+    >
       <!-- Your icon SVG path -->
     </svg>
     <span>Your Page</span>
@@ -152,6 +169,7 @@ Add a dropdown menu:
 ## 🔧 Technical Details
 
 ### Browser Support
+
 - Chrome/Edge (latest)
 - Firefox (latest)
 - Safari (latest)
@@ -159,17 +177,20 @@ Add a dropdown menu:
 - Android Chrome (latest)
 
 ### Dependencies
+
 - **None!** Pure HTML, CSS, and vanilla JavaScript
 - Uses modern CSS features (CSS Grid, Flexbox, CSS Variables)
 - Uses modern JavaScript (ES6+)
 
 ### Performance
+
 - **Optimized animations**: Uses `requestAnimationFrame` for smooth scrolling
 - **GPU acceleration**: `transform` and `opacity` for animations
 - **Lazy evaluation**: Event listeners only attached when needed
 - **Debounced resize**: Window resize handler is debounced to 250ms
 
 ### CSS Features Used
+
 - CSS Custom Properties (variables)
 - CSS Grid and Flexbox
 - Backdrop filter (glassmorphism)
@@ -180,6 +201,7 @@ Add a dropdown menu:
 - `prefers-contrast` for high contrast mode
 
 ### JavaScript Features Used
+
 - Event delegation where appropriate
 - Focus trap for mobile drawer
 - ARIA attribute management
@@ -190,6 +212,7 @@ Add a dropdown menu:
 ## 🎯 Best Practices Implemented
 
 ### Design
+
 ✅ Mobile-first approach  
 ✅ Consistent spacing and sizing  
 ✅ Clear visual hierarchy  
@@ -198,6 +221,7 @@ Add a dropdown menu:
 ✅ Touch-friendly tap targets (44px minimum)
 
 ### Development
+
 ✅ Semantic HTML5  
 ✅ BEM-inspired class naming  
 ✅ Modular, maintainable code  
@@ -206,6 +230,7 @@ Add a dropdown menu:
 ✅ Cross-browser compatibility
 
 ### Accessibility
+
 ✅ WCAG 2.1 AA compliant  
 ✅ Keyboard navigable  
 ✅ Screen reader friendly  
@@ -227,19 +252,23 @@ The navigation automatically switches between desktop and mobile modes at 1024px
 ## 🐛 Troubleshooting
 
 ### Dropdown menus not appearing
+
 - Check that the dropdown has the class `elegant-nav__item--dropdown`
 - Ensure JavaScript is loaded after the HTML
 
 ### Mobile drawer not opening
+
 - Check that `elegant-header.js` is included
 - Verify that the drawer has `id="mobile-drawer"`
 - Check browser console for errors
 
 ### Glassmorphism not working
+
 - Ensure your browser supports `backdrop-filter`
 - For Safari, check that `-webkit-backdrop-filter` is included
 
 ### Styles not applying
+
 - Verify CSS file is loaded in `<head>`
 - Check for CSS conflicts with existing styles
 - Use browser DevTools to inspect elements
@@ -253,6 +282,7 @@ Part of Evident Legal Technologies. See main project license.
 View the demo page: `elegant-nav-demo.html`
 
 Try it out:
+
 1. Hover over "Platform", "Tools", or "Resources" on desktop
 2. Click the hamburger menu on mobile
 3. Test keyboard navigation with Tab and Arrow keys

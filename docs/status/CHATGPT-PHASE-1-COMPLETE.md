@@ -11,14 +11,16 @@
 ### 1. **Backend API (Flask)** ✅
 
 **Files Created:**
+
 - `chatgpt_service.py` - OpenAI wrapper service
 - `api/chatgpt.py` - REST API endpoints (17 endpoints)
 - `migrate_add_chatgpt.py` - Database migration script
 
 **Database Tables:**
+
 ```sql
 ✅ projects              - Project workspaces
-✅ conversations         - Conversation threads  
+✅ conversations         - Conversation threads
 ✅ messages             - Individual messages
 ✅ user_api_keys        - Encrypted API keys
 ```
@@ -26,21 +28,25 @@
 **API Endpoints Implemented (17 total):**
 
 **Chat:**
+
 - `POST /api/v1/chat/completions` - Send message, get response
 - `POST /api/v1/chat/completions/stream` - Streaming responses (SSE)
 
 **Projects:**
+
 - `GET /api/v1/projects` - List user's projects
 - `POST /api/v1/projects` - Create new project
 - `PUT /api/v1/projects/{id}` - Update project settings
 - `DELETE /api/v1/projects/{id}` - Delete project
 
 **Conversations:**
+
 - `GET /api/v1/conversations?project_id={id}` - List conversations
 - `GET /api/v1/conversations/{id}/messages` - Get message history
 - `DELETE /api/v1/conversations/{id}` - Delete conversation
 
 **API Keys:**
+
 - `POST /api/v1/openai/validate-key` - Validate OpenAI key
 - `POST /api/v1/user/api-keys` - Store encrypted key
 - `GET /api/v1/user/api-keys` - List stored keys
@@ -48,6 +54,7 @@
 ### 2. **MAUI Models** ✅
 
 **Added to ApiModels.cs (14 new models):**
+
 ```csharp
 ✅ ChatRequest              - Send message request
 ✅ ChatResponse             - GPT response
@@ -67,10 +74,12 @@
 ### 3. **MAUI Services** ✅
 
 **Files Created:**
+
 - `Services/ChatGptService.cs` - ChatGPT integration
 - `Services/ProjectService.cs` - Project management
 
 **ChatGptService Methods:**
+
 - `SendMessageAsync()` - Send message to GPT
 - `GetConversationMessagesAsync()` - Get message history
 - `ValidateApiKeyAsync()` - Validate OpenAI key
@@ -78,6 +87,7 @@
 - `GetStoredApiKeyAsync()` - Retrieve from SecureStorage
 
 **ProjectService Methods:**
+
 - `GetProjectsAsync()` - List all projects
 - `CreateProjectAsync()` - Create new project
 - `UpdateProjectAsync()` - Update project settings
@@ -89,12 +99,14 @@
 ## 🎨 Key Features Implemented
 
 ### 1. **Custom Project Workspaces** ✅
+
 - Isolated projects for different cases/clients
 - Project-specific custom instructions
 - Per-project model preferences (gpt-4, gpt-5.2-turbo, etc.)
 - Configurable temperature and max_tokens
 
 ### 2. **User API Key Integration** ✅
+
 - Users bring their own OpenAI API key
 - AES-256 encryption for server storage
 - SecureStorage for client-side storage
@@ -102,7 +114,9 @@
 - Quota tracking (tokens used)
 
 ### 3. **Legal-Optimized System Prompts** ✅
+
 Built-in legal assistant prompt includes:
+
 - Constitutional law expertise
 - Criminal procedure knowledge
 - BWC footage analysis
@@ -111,12 +125,14 @@ Built-in legal assistant prompt includes:
 - Professional legal language
 
 ### 4. **Conversation History** ✅
+
 - Message threading per conversation
 - Automatic title generation
 - Token usage tracking
 - Model tracking (know which GPT version was used)
 
 ### 5. **Security** ✅
+
 - Encrypted API key storage (server)
 - SecureStorage (client)
 - HTTPS-only transmission
@@ -128,6 +144,7 @@ Built-in legal assistant prompt includes:
 ## 🚧 Still To Do (Phase 2)
 
 ### 1. **MAUI UI Components** (Week 2)
+
 - [ ] ChatPage.xaml - Main chat interface
 - [ ] ChatViewModel - Chat logic & state
 - [ ] ProjectsPage.xaml - Project management
@@ -136,6 +153,7 @@ Built-in legal assistant prompt includes:
 - [ ] ApiKeySetupPage.xaml - API key configuration
 
 ### 2. **Advanced Features** (Week 2-3)
+
 - [ ] Streaming responses (SSE in MAUI)
 - [ ] Markdown rendering for messages
 - [ ] Code syntax highlighting
@@ -145,6 +163,7 @@ Built-in legal assistant prompt includes:
 - [ ] Voice input (platform-specific)
 
 ### 3. **Testing & Polish** (Week 3)
+
 - [ ] Test on Windows
 - [ ] Test on Android
 - [ ] Test on iOS
@@ -156,23 +175,27 @@ Built-in legal assistant prompt includes:
 ## 📋 Next Steps (Implementation Order)
 
 ### Step 1: Run Database Migration
+
 ```bash
 cd C:\web-dev\github-repos\Evident.info
 python migrate_add_chatgpt.py
 ```
 
 ### Step 2: Install Dependencies
+
 ```bash
 pip install openai cryptography
 ```
 
 ### Step 3: Set Environment Variables
+
 ```bash
 # Add to .env file
 API_KEY_ENCRYPTION_KEY=your-32-byte-encryption-key-here
 ```
 
 Generate encryption key:
+
 ```python
 from cryptography.fernet import Fernet
 key = Fernet.generate_key()
@@ -180,6 +203,7 @@ print(key.decode())  # Use this as API_KEY_ENCRYPTION_KEY
 ```
 
 ### Step 4: Register Blueprint in app.py
+
 ```python
 # Add to app.py
 from api.chatgpt import chatgpt_bp
@@ -189,6 +213,7 @@ app.register_blueprint(chatgpt_bp)
 ```
 
 ### Step 5: Register Services in MauiProgram.cs
+
 ```csharp
 // Add to MauiProgram.cs
 builder.Services.AddSingleton<IChatGptService, ChatGptService>();
@@ -196,6 +221,7 @@ builder.Services.AddSingleton<IProjectService, ProjectService>();
 ```
 
 ### Step 6: Test API with Postman
+
 ```bash
 # Start Flask app
 python app.py
@@ -223,6 +249,7 @@ POST http://localhost:5000/api/v1/chat/completions
 ```
 
 ### Step 7: Build MAUI UI (Next Session)
+
 Start with ChatPage.xaml and ChatViewModel
 
 ---
@@ -230,6 +257,7 @@ Start with ChatPage.xaml and ChatViewModel
 ## 🎯 Architecture Highlights
 
 ### Client-Server Flow
+
 ```
 MAUI App → ChatGptService → Flask API → OpenAI
                 ↓                ↓
@@ -237,6 +265,7 @@ MAUI App → ChatGptService → Flask API → OpenAI
 ```
 
 ### Message Flow
+
 ```
 1. User types message in ChatPage
 2. ChatViewModel calls ChatGptService.SendMessageAsync()
@@ -251,6 +280,7 @@ MAUI App → ChatGptService → Flask API → OpenAI
 ```
 
 ### Security Layers
+
 ```
 Level 1: HTTPS (all API calls)
 Level 2: JWT Authentication (user identity)
@@ -264,8 +294,10 @@ Level 5: SecureStorage (platform keychain)
 ## 💡 Design Decisions & Rationale
 
 ### 1. Why User-Provided API Keys?
+
 **Decision:** Users bring their own OpenAI API keys  
 **Rationale:**
+
 - No Evident infrastructure cost for GPT
 - Users control their own quota/spending
 - Users get full GPT-5.2 capability
@@ -273,8 +305,10 @@ Level 5: SecureStorage (platform keychain)
 - More transparent pricing
 
 ### 2. Why Project Workspaces?
+
 **Decision:** Isolated projects instead of global chat  
 **Rationale:**
+
 - Prevents context bleeding between cases
 - Each case can have custom instructions
 - Better organization for attorneys
@@ -282,8 +316,10 @@ Level 5: SecureStorage (platform keychain)
 - Follows legal practice patterns
 
 ### 3. Why Custom Instructions?
+
 **Decision:** Allow per-project system prompts  
 **Rationale:**
+
 - Different cases need different AI behaviors
 - Criminal defense ≠ civil rights ≠ discovery
 - Users can fine-tune AI expertise
@@ -291,8 +327,10 @@ Level 5: SecureStorage (platform keychain)
 - Power user feature
 
 ### 4. Why Encrypted Storage?
+
 **Decision:** Encrypt API keys both client and server  
 **Rationale:**
+
 - Protects user's valuable API access
 - Compliance with security best practices
 - Prevents API key theft
@@ -300,8 +338,10 @@ Level 5: SecureStorage (platform keychain)
 - Legal industry requires high security
 
 ### 5. Why Conversation History?
+
 **Decision:** Store all messages in database  
 **Rationale:**
+
 - Legal work requires audit trails
 - Users can reference past analysis
 - Enables better context for future messages
@@ -313,6 +353,7 @@ Level 5: SecureStorage (platform keychain)
 ## 📊 Token Usage & Cost Optimization
 
 ### Token Estimation
+
 ```
 System Prompt: ~300 tokens (legal instructions)
 Conversation History (20 msgs): ~2,000 tokens
@@ -326,6 +367,7 @@ Total per message: ~7,400 tokens
 ```
 
 ### Cost Estimate (GPT-4)
+
 ```
 Input: $0.03 per 1K tokens = $0.19
 Output: $0.06 per 1K tokens = $0.06
@@ -333,6 +375,7 @@ Total per message: ~$0.25
 ```
 
 ### Optimization Strategies
+
 1. **Truncate old history** - Only keep last 20 messages
 2. **Smart context injection** - Only relevant documents
 3. **Model selection** - Let users choose cheaper models
@@ -344,14 +387,16 @@ Total per message: ~$0.25
 ## 🔒 Security Best Practices
 
 ### API Key Protection
+
 ✅ **Never log keys** - Excluded from all logging  
 ✅ **Encrypted at rest** - AES-256 encryption  
 ✅ **Encrypted in transit** - HTTPS only  
 ✅ **Masked in UI** - Show sk-...xyz only  
 ✅ **Validated before storage** - Test key works  
-✅ **Per-user encryption** - Different salt per user  
+✅ **Per-user encryption** - Different salt per user
 
 ### Rate Limiting
+
 ```
 FREE tier: 10 messages/day
 PRO tier: 1,000 messages/day
@@ -360,6 +405,7 @@ ENTERPRISE: Unlimited
 ```
 
 ### Context Safety
+
 - Sanitize all inputs before sending to OpenAI
 - Filter PII if user opts in
 - Limit context size (prevent token exhaustion)
@@ -370,18 +416,21 @@ ENTERPRISE: Unlimited
 ## 📱 Multi-Platform Support
 
 ### Windows ✅
+
 - Native file drag-and-drop (Phase 2)
 - Keyboard shortcuts (Ctrl+Enter)
 - System tray notifications
 - Copy/paste formatting
 
 ### iOS ✅
+
 - Voice input via Siri
 - Handoff between devices
 - Widget for quick access
 - Share extension
 
 ### Android ✅
+
 - Material Design
 - Notification channels
 - Share intent
@@ -392,15 +441,18 @@ ENTERPRISE: Unlimited
 ## 📚 Resources & References
 
 ### OpenAI API Documentation
+
 - [Chat Completions](https://platform.openai.com/docs/api-reference/chat)
 - [Models](https://platform.openai.com/docs/models)
 - [Token Counting](https://platform.openai.com/docs/guides/text-generation/token-counting)
 
 ### .NET MAUI
+
 - [SecureStorage](https://learn.microsoft.com/en-us/dotnet/maui/platform-integration/storage/secure-storage)
 - [Streaming in MAUI](https://learn.microsoft.com/en-us/dotnet/maui/data-cloud/rest)
 
 ### Encryption
+
 - [Fernet (Python)](https://cryptography.io/en/latest/fernet/)
 - [AES-256 Best Practices](https://csrc.nist.gov/publications/detail/sp/800-38d/final)
 
@@ -409,6 +461,7 @@ ENTERPRISE: Unlimited
 ## ✅ Summary
 
 **What We Built:**
+
 - Complete backend API for ChatGPT integration (17 endpoints)
 - Database schema with 4 new tables
 - MAUI service layer with 2 services
@@ -418,6 +471,7 @@ ENTERPRISE: Unlimited
 - User API key management
 
 **What's Ready:**
+
 - Users can store OpenAI API keys
 - Create project workspaces
 - Send messages to GPT-4/GPT-5.2
@@ -426,6 +480,7 @@ ENTERPRISE: Unlimited
 - Configure custom instructions
 
 **What's Next:**
+
 - Build MAUI UI (ChatPage, ProjectsPage)
 - Add markdown rendering
 - Implement streaming responses

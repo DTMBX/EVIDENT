@@ -38,6 +38,7 @@ Located in: `free_tier_demo_cases.py`
    - 2 PDF evidence files
 
 **All cases include:**
+
 - ✅ Full timeline with severity indicators
 - ✅ Complete transcriptions
 - ✅ AI constitutional analysis
@@ -52,14 +53,17 @@ Located in: `free_tier_demo_cases.py`
 ### 2. **Dashboard & Navigation** ✅
 
 **Routes Active:**
+
 - `/free-dashboard` - FREE tier landing page (app.py line 4762)
 - `/cases/<case_id>` - Case detail viewer (app.py line 4792)
 
 **Templates Complete:**
+
 - `templates/free_tier_dashboard.html` - Beautiful gradient cards, upload status, demo cases grid
 - `templates/demo_case_detail.html` - Full case view with timeline, AI analysis, upgrade CTAs
 
 **Features:**
+
 - ✅ Welcome banner with FREE tier benefits
 - ✅ Data expiration countdown (7-day retention)
 - ✅ One-time upload status tracker
@@ -75,13 +79,15 @@ Located in: `free_tier_demo_cases.py`
 **Your Case Directory:** `C:\web-dev\github-repos\Evident.info\cases\`
 
 **Existing Cases:**
+
 - `barber-nj-pcr-2022/` - PCR filings
 - `usdj-1-25-cv-15641/` - Federal case
 - `usdj-1-22-cv-06206/` - Federal case
 - `atl-22-002292/`, `atl-22-002313/` - Atlantic County cases
-- + 8 more case directories
+- - 8 more case directories
 
 **How Demo Works with Your Cases:**
+
 - Demo cases are **pre-generated virtual cases** ($0 cost, no processing)
 - Real cases in `/cases` directory are available for reference/exploration
 - FREE users can explore demo cases + use **1 one-time upload** to process their own file
@@ -93,18 +99,21 @@ Located in: `free_tier_demo_cases.py`
 ## 🔧 Critical Fix Applied
 
 **FIXED:** Missing `TierLevel` import
+
 ```python
 # free_tier_demo_cases.py - Line 8 (ADDED)
 from models_auth import TierLevel
 ```
 
 **Before (❌):**
+
 ```python
 # Line 210 - Would crash with NameError
 if user.tier == TierLevel.FREE:  # TierLevel undefined
 ```
 
 **After (✅):**
+
 ```python
 from models_auth import TierLevel  # ← ADDED
 
@@ -116,17 +125,17 @@ if user.tier == TierLevel.FREE:  # ✅ Works!
 
 ## 📊 FREE Tier Feature Matrix
 
-| Feature | FREE Tier | Notes |
-|---------|-----------|-------|
-| **Demo Cases** | ✅ 3 full cases | Pre-loaded, $0 cost |
-| **One-Time Upload** | ✅ 1 file | PDF (10 pages) OR video (5 min) |
-| **Data Retention** | ✅ 7 days | Auto-deleted after |
-| **Case Law Search** | ✅ 100 queries/mo | Basic search only |
-| **Educational Resources** | ✅ Unlimited | Guides, templates, tutorials |
-| **Court Reports** | ❌ Watermarked | "DEMO - Not for Court Use" |
-| **AI Assistant** | ❌ Locked | Requires STARTER ($29/mo) |
-| **Multi-Case** | ❌ 1 case only | Requires STARTER+ |
-| **API Access** | ❌ | Requires PREMIUM ($199/mo) |
+| Feature                   | FREE Tier         | Notes                           |
+| ------------------------- | ----------------- | ------------------------------- |
+| **Demo Cases**            | ✅ 3 full cases   | Pre-loaded, $0 cost             |
+| **One-Time Upload**       | ✅ 1 file         | PDF (10 pages) OR video (5 min) |
+| **Data Retention**        | ✅ 7 days         | Auto-deleted after              |
+| **Case Law Search**       | ✅ 100 queries/mo | Basic search only               |
+| **Educational Resources** | ✅ Unlimited      | Guides, templates, tutorials    |
+| **Court Reports**         | ❌ Watermarked    | "DEMO - Not for Court Use"      |
+| **AI Assistant**          | ❌ Locked         | Requires STARTER ($29/mo)       |
+| **Multi-Case**            | ❌ 1 case only    | Requires STARTER+               |
+| **API Access**            | ❌                | Requires PREMIUM ($199/mo)      |
 
 **Cost to Evident:** $0.55/user/month  
 **Upgrade Path:** 5-10% convert to STARTER ($29/mo)
@@ -136,6 +145,7 @@ if user.tier == TierLevel.FREE:  # ✅ Works!
 ## 🧪 How to Test
 
 ### Step 1: Create FREE Account
+
 ```bash
 # Navigate to signup
 http://localhost:5000/signup
@@ -146,12 +156,14 @@ Password: demo123
 ```
 
 ### Step 2: Access FREE Dashboard
+
 ```bash
 # After login, go to:
 http://localhost:5000/free-dashboard
 ```
 
 **You should see:**
+
 - ✅ Welcome banner: "Welcome to Evident FREE Tier"
 - ✅ 3 demo case cards:
   - Traffic Stop - Use of Force Review
@@ -162,12 +174,14 @@ http://localhost:5000/free-dashboard
 - ✅ Educational resources grid
 
 ### Step 3: View Demo Case
+
 ```bash
 # Click on "Traffic Stop" demo case
 http://localhost:5000/cases/demo_traffic_stop_2024
 ```
 
 **You should see:**
+
 - ✅ "This is a DEMO case" banner
 - ✅ Case title and number
 - ✅ Timeline with 7 events
@@ -177,6 +191,7 @@ http://localhost:5000/cases/demo_traffic_stop_2024
 - ✅ "Upgrade to process your own files" CTA
 
 ### Step 4: Test One-Time Upload
+
 ```bash
 # From dashboard, click "Upload File"
 # Select PDF (10 pages max) or MP4 (5 min max)
@@ -189,37 +204,43 @@ http://localhost:5000/cases/demo_traffic_stop_2024
 ## 🎯 Demo Case Use Cases
 
 ### Traffic Stop Demo
+
 **Good for:** Defense attorneys, police training, 4th Amendment education  
 **Shows:** Terry stops, Pennsylvania v. Mimms, use of force escalation  
-**Timeline:** 5:30 duration, 7 key events  
+**Timeline:** 5:30 duration, 7 key events
 
 ### Wellness Check Demo
+
 **Good for:** CIT training, mental health crisis response, de-escalation  
 **Shows:** Community caretaking exception, voluntary commitment, empathy  
-**Timeline:** 10:00 duration, 6 key events  
+**Timeline:** 10:00 duration, 6 key events
 
 ### Search Warrant Demo
+
 **Good for:** Prosecutors, evidence review, chain of custody  
 **Shows:** 4th Amendment compliance, knock & announce, probable cause  
-**Timeline:** 4:00 duration, 6 key events, 2 PDF documents  
+**Timeline:** 4:00 duration, 6 key events, 2 PDF documents
 
 ---
 
 ## 💡 Revenue Model
 
 **FREE Tier Economics:**
+
 - Cost: $0.55/user/month
 - Revenue: $0 (loss leader)
 - Purpose: Viral growth, demonstrate value
 - Conversion: 5-10% upgrade to STARTER ($29/mo)
 
 **Conversion Triggers:**
+
 - After viewing demo cases → "Process YOUR case"
 - After one-time upload → "Upload more files"
 - After 7 days → "Keep your data with STARTER"
 - At search limit → "100 queries used this month"
 
 **Expected ROI:**
+
 - 100 FREE users = $55/month cost
 - 10 upgrade to STARTER = $290/month revenue
 - **Net: +$235/month (+427% ROI)** ✅
@@ -234,7 +255,7 @@ http://localhost:5000/cases/demo_traffic_stop_2024
 - [x] TierLevel import fixed (critical blocker)
 - [x] Integration with real cases directory
 - [ ] Test with FREE account (manual QA)
-- [ ] Create demo preview images (/static/demos/*.jpg)
+- [ ] Create demo preview images (/static/demos/\*.jpg)
 - [ ] Add upgrade tracking (analytics)
 - [ ] Monitor conversion rates
 

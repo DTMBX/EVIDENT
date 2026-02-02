@@ -22,12 +22,14 @@ Step 3: Install and launch!
 ### On Your PC:
 
 1. **Open File Explorer:**
+
    ```powershell
    # Run this in PowerShell:
    explorer "C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI\bin\Release\net10.0-android"
    ```
 
 2. **Find the APK file:**
+
    ```
    Look for: com.companyname.Evident.matterdocket.maui-Signed.apk
    Size: 30.57 MB
@@ -68,7 +70,7 @@ Step 3: Install and launch!
 When you tap the APK, Android shows:
 
 ```
-❌ "For your security, your phone is not allowed to install 
+❌ "For your security, your phone is not allowed to install
    unknown apps from this source."
 ```
 
@@ -93,6 +95,7 @@ When you tap the APK, Android shows:
 1. **Open Settings** on phone
 
 2. **Navigate:**
+
    ```
    Settings
    → Security & Privacy
@@ -110,11 +113,12 @@ When you tap the APK, Android shows:
 1. **Tap the APK file** again
 
 2. **Android shows:**
+
    ```
    Do you want to install this application?
-   
+
    Evident.MatterDocket.MAUI
-   
+
    [Cancel]  [Install]
    ```
 
@@ -166,6 +170,7 @@ You should see:
 ### Navigate to AI Assistant
 
 1. **Tap bottom navigation:**
+
    ```
    [Cases] [Upload] [AI] [Account]
                      ↑
@@ -196,6 +201,7 @@ You should see:
 **Problem:** Android says installation failed
 
 **Solutions:**
+
 1. **Uninstall old version first** (if you have one)
    - Settings → Apps → Evident → Uninstall
 
@@ -214,6 +220,7 @@ You should see:
 **Problem:** Google Play Protect warning
 
 **Solution:**
+
 ```
 1. Tap "More details"
 2. Tap "Install anyway"
@@ -229,6 +236,7 @@ This is safe - Play Protect warns about apps from outside the Play Store.
 **Problem:** Tapping APK does nothing
 
 **Solutions:**
+
 1. **Use Files app:**
    - Open "Files" or "My Files" app
    - Navigate to Downloads
@@ -246,6 +254,7 @@ This is safe - Play Protect warns about apps from outside the Play Store.
 **Problem:** App opens then immediately closes
 
 **Solutions:**
+
 1. **Grant permissions:**
    - Settings → Apps → Evident → Permissions
    - Enable: Storage, Camera, Network
@@ -309,6 +318,7 @@ Use Google Drive or Dropbox:
 After installation, try these features:
 
 ### Essential Features
+
 - [ ] Login/Register
 - [ ] View cases dashboard
 - [ ] Upload PDF file
@@ -321,6 +331,7 @@ After installation, try these features:
 - [ ] View pricing/upgrade page
 
 ### Advanced Features
+
 - [ ] Upload video (requires PRO tier)
 - [ ] 2FA setup
 - [ ] Export case report

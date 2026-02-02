@@ -7,6 +7,7 @@
 ## PHASE 1: TEST MODE (10 min)
 
 ### Step 1: Create Test Webhook
+
 ```
 URL: https://Evident.info/payments/webhook
 Mode: TEST mode
@@ -15,6 +16,7 @@ Get signing secret → Add to Render as STRIPE_WEBHOOK_SECRET
 ```
 
 ### Step 2: Test Checkout
+
 ```
 Visit: /payments/pricing
 Click: "Start Pro Trial"
@@ -25,6 +27,7 @@ Check: Webhook fired successfully
 ```
 
 ### Step 3: Verify Everything
+
 ```
 ✓ Payment processed
 ✓ Success page shows
@@ -40,6 +43,7 @@ Check: Webhook fired successfully
 ## PHASE 2: GO LIVE (10 min)
 
 ### Step 4: Switch to Live Keys
+
 ```
 Update Render environment:
 - STRIPE_SECRET_KEY = sk_live_... (your live key)
@@ -48,6 +52,7 @@ Update Render environment:
 ```
 
 ### Step 5: Create Live Webhook
+
 ```
 URL: https://Evident.info/payments/webhook
 Mode: LIVE mode
@@ -56,6 +61,7 @@ Get NEW signing secret → Update STRIPE_WEBHOOK_SECRET in Render
 ```
 
 ### Step 6: Test with Real Money
+
 ```
 Visit: /payments/pricing
 Pay yourself $199 (real charge!)
@@ -64,6 +70,7 @@ Go to Stripe → Refund yourself
 ```
 
 ### Step 7: LAUNCH!
+
 ```
 You're now accepting real payments! 🎉
 ```
@@ -78,7 +85,7 @@ You're now accepting real payments! 🎉
 00:10 - Verified working! ✓
 
 00:11 - Switch to live keys
-00:13 - Create live webhook  
+00:13 - Create live webhook
 00:15 - Test with real $199
 00:18 - Refund yourself
 00:20 - LIVE! 🚀
@@ -100,6 +107,7 @@ You're now accepting real payments! 🎉
 ## 🎯 READY TO START?
 
 **Say "Yes, let's test first"** and I'll guide you through:
+
 1. Test webhook setup (5 min)
 2. Test payment (2 min)
 3. Switch to live (5 min)
