@@ -11,28 +11,28 @@ class ToastNotification {
 
   init() {
     if (!this.container) {
-      this.container = document.createElement('div');
-      this.container.id = 'toast-container';
-      this.container.setAttribute('role', 'status');
-      this.container.setAttribute('aria-live', 'polite');
-      this.container.setAttribute('aria-atomic', 'true');
+      this.container = document.createElement("div");
+      this.container.id = "toast-container";
+      this.container.setAttribute("role", "status");
+      this.container.setAttribute("aria-live", "polite");
+      this.container.setAttribute("aria-atomic", "true");
       document.body.appendChild(this.container);
     }
   }
 
-  show(message, type = 'info', duration = 5000) {
-    const toast = document.createElement('div');
+  show(message, type = "info", duration = 5000) {
+    const toast = document.createElement("div");
     toast.className = `toast toast-${type}`;
-    
+
     const icons = {
-      success: '✓',
-      error: '✕',
-      warning: '⚠',
-      info: 'ⓘ'
+      success: "✓",
+      error: "✕",
+      warning: "⚠",
+      info: "ⓘ",
     };
 
     const icon = icons[type] || icons.info;
-    
+
     toast.innerHTML = `
       <div class="toast-content">
         <span class="toast-icon" aria-hidden="true">${icon}</span>
@@ -41,13 +41,13 @@ class ToastNotification {
       <button class="toast-close" aria-label="Close notification">×</button>
     `;
 
-    toast.querySelector('.toast-close').addEventListener('click', () => {
+    toast.querySelector(".toast-close").addEventListener("click", () => {
       this.dismiss(toast);
     });
 
     this.container.appendChild(toast);
 
-    setTimeout(() => toast.classList.add('toast-show'), 10);
+    setTimeout(() => toast.classList.add("toast-show"), 10);
 
     if (duration > 0) {
       setTimeout(() => this.dismiss(toast), duration);
@@ -57,8 +57,8 @@ class ToastNotification {
   }
 
   dismiss(toast) {
-    toast.classList.remove('toast-show');
-    toast.classList.add('toast-hide');
+    toast.classList.remove("toast-show");
+    toast.classList.add("toast-hide");
     setTimeout(() => {
       if (toast.parentNode) {
         toast.parentNode.removeChild(toast);
@@ -67,23 +67,23 @@ class ToastNotification {
   }
 
   success(message, duration = 5000) {
-    return this.show(message, 'success', duration);
+    return this.show(message, "success", duration);
   }
 
   error(message, duration = 7000) {
-    return this.show(message, 'error', duration);
+    return this.show(message, "error", duration);
   }
 
   warning(message, duration = 6000) {
-    return this.show(message, 'warning', duration);
+    return this.show(message, "warning", duration);
   }
 
   info(message, duration = 5000) {
-    return this.show(message, 'info', duration);
+    return this.show(message, "info", duration);
   }
 
   escapeHtml(text) {
-    const div = document.createElement('div');
+    const div = document.createElement("div");
     div.textContent = text;
     return div.innerHTML;
   }
@@ -93,7 +93,7 @@ class ToastNotification {
 const toast = new ToastNotification();
 
 // Add CSS dynamically
-const toastNotificationStyle = document.createElement('style');
+const toastNotificationStyle = document.createElement("style");
 toastNotificationStyle.textContent = `
   #toast-container {
     position: fixed;
@@ -262,6 +262,6 @@ toastNotificationStyle.textContent = `
 document.head.appendChild(toastNotificationStyle);
 
 // Export for use in other scripts
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== "undefined" && module.exports) {
   module.exports = ToastNotification;
 }

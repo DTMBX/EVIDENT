@@ -16,29 +16,34 @@
 ## 📦 Required Software
 
 ### 1. Visual Studio 2022 Community Edition
+
 **Purpose:** Primary IDE for .NET MAUI development  
 **Download:** https://visualstudio.microsoft.com/vs/community/  
 **License:** Free for individual developers  
 **Size:** ~8-15 GB (with workloads)
 
 **Required Workloads:**
+
 - ✅ .NET Multi-platform App UI development
 - ✅ .NET desktop development
 - ✅ Universal Windows Platform development
 
 **Optional (Recommended):**
+
 - Azure development (for cloud integration)
 - Mobile development with .NET (for cross-platform)
 
 ---
 
 ### 2. .NET 8.0 SDK
+
 **Purpose:** Latest .NET runtime and SDK  
 **Download:** https://dotnet.microsoft.com/download/dotnet/8.0  
 **Version:** 8.0.x (latest)  
 **Size:** ~200 MB
 
 **Verification:**
+
 ```powershell
 dotnet --version
 # Expected: 8.0.xxx
@@ -47,11 +52,13 @@ dotnet --version
 ---
 
 ### 3. Windows SDK
+
 **Purpose:** Windows 11 app packaging and deployment  
 **Download:** Included with Visual Studio  
 **Version:** 10.0.22621.0 or later (Windows 11)
 
 **Components Needed:**
+
 - Windows App SDK
 - MSIX Packaging Tools
 - Code signing tools (SignTool.exe)
@@ -59,12 +66,14 @@ dotnet --version
 ---
 
 ### 4. Git for Windows
+
 **Purpose:** Version control  
 **Download:** https://git-scm.com/download/win  
 **Version:** Latest  
 **Size:** ~50 MB
 
 **Configuration:**
+
 ```powershell
 git config --global user.name "Your Name"
 git config --global user.email "your.email@example.com"
@@ -75,18 +84,22 @@ git config --global user.email "your.email@example.com"
 ### 5. Additional Tools (Optional)
 
 #### Windows Terminal
+
 **Purpose:** Modern terminal for PowerShell/CMD  
 **Download:** Microsoft Store (free)  
 **Why:** Better developer experience
 
 #### PowerShell 7
+
 **Purpose:** Latest PowerShell version  
 **Download:** https://github.com/PowerShell/PowerShell/releases  
 **Size:** ~100 MB
 
 #### Windows Subsystem for Linux (WSL2)
+
 **Purpose:** Run Linux/Python development (Flask backend)  
 **Install:**
+
 ```powershell
 wsl --install
 ```
@@ -98,6 +111,7 @@ wsl --install
 ### Step 1: Install Visual Studio 2022
 
 1. **Download Installer**
+
    ```powershell
    # Download Visual Studio 2022 Community
    Start-Process "https://visualstudio.microsoft.com/vs/community/"
@@ -130,6 +144,7 @@ wsl --install
 ### Step 2: Install .NET 8 SDK
 
 1. **Download SDK**
+
    ```powershell
    # Open download page
    Start-Process "https://dotnet.microsoft.com/download/dotnet/8.0"
@@ -140,10 +155,11 @@ wsl --install
    - Install to default location
 
 3. **Verify Installation**
+
    ```powershell
    dotnet --version
    # Should show: 8.0.xxx
-   
+
    dotnet --list-sdks
    # Should include: 8.0.xxx [C:\Program Files\dotnet\sdk]
    ```
@@ -153,21 +169,24 @@ wsl --install
 ### Step 3: Configure MAUI Workload
 
 1. **Install MAUI Workload**
+
    ```powershell
    dotnet workload install maui
    ```
 
 2. **Verify MAUI Installation**
+
    ```powershell
    dotnet workload list
    # Should show: maui
    ```
 
 3. **Install Additional Workloads (Optional)**
+
    ```powershell
    # For Android support
    dotnet workload install android
-   
+
    # For iOS support (requires Mac for builds)
    dotnet workload install ios
    ```
@@ -177,6 +196,7 @@ wsl --install
 ### Step 4: Install Git (if not already installed)
 
 1. **Check if Git exists**
+
    ```powershell
    git --version
    ```
@@ -197,6 +217,7 @@ wsl --install
 ### Step 5: Install Windows Terminal (Optional but Recommended)
 
 1. **Install from Microsoft Store**
+
    ```powershell
    # Open Microsoft Store
    start ms-windows-store://pdp/?ProductId=9N0DX20HK701
@@ -309,23 +330,27 @@ dotnet add package Microsoft.WindowsAppSDK
 ## ✅ Verification Checklist
 
 ### Visual Studio
+
 - [ ] Visual Studio 2022 installed
 - [ ] .NET Multi-platform App UI workload installed
 - [ ] Can create new MAUI project
 - [ ] XAML designer loads
 
 ### .NET SDK
+
 - [ ] .NET 8.0 SDK installed
 - [ ] `dotnet --version` shows 8.0.x
 - [ ] MAUI workload installed
 - [ ] Can build MAUI project
 
 ### Windows Development
+
 - [ ] Windows SDK installed
 - [ ] MSIX packaging tools available
 - [ ] Code signing certificate ready (dev or commercial)
 
 ### Tools
+
 - [ ] Git installed and configured
 - [ ] Windows Terminal installed (optional)
 - [ ] PowerShell 7 installed (optional)
@@ -350,6 +375,7 @@ dotnet run
 ```
 
 **Expected Result:**
+
 - App should compile without errors
 - Windows window should open
 - Should see "Hello, World!" button
@@ -362,6 +388,7 @@ dotnet run
 ### Issue: MAUI workload not found
 
 **Solution:**
+
 ```powershell
 dotnet workload restore
 dotnet workload install maui
@@ -370,6 +397,7 @@ dotnet workload install maui
 ### Issue: Windows SDK version mismatch
 
 **Solution:**
+
 ```powershell
 # Update Windows SDK
 dotnet workload update
@@ -378,6 +406,7 @@ dotnet workload update
 ### Issue: Visual Studio build errors
 
 **Solution:**
+
 1. Clean solution: Build → Clean Solution
 2. Rebuild: Build → Rebuild Solution
 3. Restart Visual Studio
@@ -385,6 +414,7 @@ dotnet workload update
 ### Issue: XAML Hot Reload not working
 
 **Solution:**
+
 1. Tools → Options → XAML Hot Reload
 2. Enable all options
 3. Restart Visual Studio
@@ -394,12 +424,14 @@ dotnet workload update
 ## 📊 System Requirements
 
 ### Minimum
+
 - **OS:** Windows 11 version 22000 or higher
 - **RAM:** 8 GB
 - **Storage:** 20 GB free space
 - **CPU:** 64-bit processor, 1.8 GHz or faster
 
 ### Recommended
+
 - **OS:** Windows 11 22H2 or later
 - **RAM:** 16 GB or more
 - **Storage:** 50 GB free space (SSD preferred)
@@ -416,6 +448,7 @@ dotnet workload update
    - Test XAML designer
 
 2. **Clone Evident Repository**
+
    ```powershell
    git clone https://github.com/DTB396/Evident.info.git
    ```
@@ -470,6 +503,6 @@ Write-Host "3. Verify: dotnet --version"
 
 ---
 
-*Status: Phase C Ready for Execution*  
-*Estimated Time: 1-2 hours*  
-*Last Updated: January 27, 2026*
+_Status: Phase C Ready for Execution_  
+_Estimated Time: 1-2 hours_  
+_Last Updated: January 27, 2026_

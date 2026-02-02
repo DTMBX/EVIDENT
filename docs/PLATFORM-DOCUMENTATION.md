@@ -22,18 +22,21 @@
 ### Key Features
 
 ✅ **Evidence Processing**
+
 - Video/audio transcription (Whisper AI)
 - Document OCR (Tesseract/AWS Textract)
 - Image analysis
 - Batch processing
 
 ✅ **Legal Analysis**
+
 - Constitutional violation detection (Miranda, 4th Amendment, Brady)
 - Statutory compliance checking (Federal Rules of Evidence)
 - Case law citation
 - Legal research integration (50 US jurisdictions)
 
 ✅ **AI Agents**
+
 - 8 specialized legal AI agents
 - Discovery processor
 - Evidence organizer
@@ -41,6 +44,7 @@
 - Brief writer
 
 ✅ **Premium Features**
+
 - PWA support (mobile app)
 - Command palette (Cmd+K)
 - Analytics dashboard
@@ -48,6 +52,7 @@
 - AI suggestions
 
 ✅ **Security & Performance**
+
 - Tiered rate limiting (10/60/300/1000 req/min)
 - API key authentication
 - Request validation
@@ -140,10 +145,12 @@
 **Purpose:** Orchestrates complete evidence processing pipeline
 
 **Classes:**
+
 - `UnifiedEvidenceProcessor` - Main processing coordinator
 - `EvidenceReportGenerator` - Report generation
 
 **Pipeline:**
+
 1. Upload & Validation
 2. Transcription (video/audio) → cached 1 hour
 3. OCR (documents/images) → cached 1 hour
@@ -152,6 +159,7 @@
 6. Report Generation
 
 **Usage:**
+
 ```python
 from unified_evidence_service import UnifiedEvidenceProcessor
 
@@ -178,12 +186,14 @@ results = processor.process_evidence(
 **Purpose:** Centralized configuration and database optimization
 
 **Classes:**
+
 - `ConfigManager` - Environment-based configuration
 - `DatabaseOptimizer` - Index creation, query optimization
 - `DatabaseBackup` - Automated backups
 - `QueryProfiler` - Slow query detection
 
 **Features:**
+
 - Auto-detects environment (dev/staging/prod)
 - Database connection pooling (10 + 20 overflow)
 - Automatic index creation (11 indexes)
@@ -191,6 +201,7 @@ results = processor.process_evidence(
 - Slow query logging (> 1 second)
 
 **Usage:**
+
 ```python
 from config_manager import ConfigManager, DatabaseOptimizer
 
@@ -211,18 +222,21 @@ optimizer.analyze_tables()   # Update query planner stats
 **Purpose:** Production-ready API security and performance
 
 **Components:**
+
 - `RateLimiter` - Token bucket rate limiting
 - `APIKeyAuth` - API key authentication
 - Decorators: `@rate_limit()`, `@require_api_key()`, `@require_tier()`, `@validate_request()`
 - Combined: `@api_endpoint()` (all-in-one protection)
 
 **Rate Limits:**
+
 - Free: 10 requests/minute
 - Professional: 60 requests/minute
 - Enterprise: 300 requests/minute
 - Admin: 1000 requests/minute
 
 **Usage:**
+
 ```python
 from api_middleware import api_endpoint
 
@@ -247,6 +261,7 @@ def protected_endpoint():
 **Purpose:** Service orchestration and infrastructure
 
 **Components:**
+
 - `ServiceRegistry` - Dependency injection
 - `Cache` - TTL-based caching
 - `PerformanceMonitor` - Metrics tracking
@@ -254,6 +269,7 @@ def protected_endpoint():
 - `TaskQueue` - Async task processing
 
 **Features:**
+
 - Service registration and health tracking
 - Automatic caching with TTL
 - Performance monitoring for all operations
@@ -267,6 +283,7 @@ def protected_endpoint():
 ### 1. Dashboard (`templates/auth/dashboard.html`)
 
 **Features:**
+
 - Feature showcase banner
 - Evidence upload
 - Recent analyses
@@ -277,6 +294,7 @@ def protected_endpoint():
 ### 2. Integrated Analysis (`templates/integrated-analysis.html`)
 
 **Features:**
+
 - 3-panel layout (Upload | Chat | Documents)
 - Drag-and-drop upload
 - Real-time AI chat
@@ -287,6 +305,7 @@ def protected_endpoint():
 ### 3. Command Palette (`templates/components/command-palette.html`)
 
 **Features:**
+
 - Fuzzy search (Cmd+K)
 - 15+ commands
 - Keyboard shortcuts
@@ -296,6 +315,7 @@ def protected_endpoint():
 ### 4. Analytics Dashboard (`templates/analytics.html`)
 
 **Features:**
+
 - 5 interactive charts
 - KPI cards
 - Date range filtering
@@ -305,6 +325,7 @@ def protected_endpoint():
 ### 5. Preview Demo (`templates/preview-demo.html`)
 
 **Features:**
+
 - 3 demo types (video, document, AI chat)
 - 9 sample scenarios
 - No authentication required
@@ -318,6 +339,7 @@ def protected_endpoint():
 ### Evidence Processing
 
 #### POST `/api/evidence/process`
+
 Process evidence through complete pipeline
 
 **Authentication:** Required (API key or session)  
@@ -325,10 +347,11 @@ Process evidence through complete pipeline
 **Rate Limit:** 60/min (professional), 300/min (enterprise)
 
 **Request:**
+
 ```json
 {
   "case_number": "CR-2024-001",
-  "evidence_type": "video",  // optional: auto-detected
+  "evidence_type": "video", // optional: auto-detected
   "tags": ["bodycam", "arrest"],
   "description": "Arrest footage from Officer Smith"
 }
@@ -337,6 +360,7 @@ Process evidence through complete pipeline
 **Files:** Multipart form data with `file` field
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -359,14 +383,17 @@ Process evidence through complete pipeline
 ```
 
 #### GET `/api/evidence/<evidence_id>/report`
+
 Generate report for processed evidence
 
 **Query Params:**
+
 - `format`: markdown (default), html, pdf
 
 **Response:** Report in requested format
 
 #### POST `/api/evidence/batch`
+
 Batch process multiple evidence files
 
 **Authentication:** Required  
@@ -374,6 +401,7 @@ Batch process multiple evidence files
 **Files:** Multiple files in `files[]` array
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -388,9 +416,11 @@ Batch process multiple evidence files
 ### Legal Analysis
 
 #### POST `/api/legal/scan-violations`
+
 Scan transcript for constitutional violations
 
 **Request:**
+
 ```json
 {
   "transcript": "Officer: You have the right...",
@@ -402,9 +432,11 @@ Scan transcript for constitutional violations
 ```
 
 #### POST `/api/legal/check-compliance`
+
 Check evidence compliance with FRE
 
 **Request:**
+
 ```json
 {
   "evidence": {
@@ -419,20 +451,25 @@ Check evidence compliance with FRE
 ### AI Agents
 
 #### POST `/api/workflow/process-evidence`
+
 Process evidence with AI agents
 
 #### POST `/api/workflow/chat`
+
 Chat with AI assistant
 
 #### POST `/api/workflow/generate-document`
+
 Generate legal document
 
 ### Rate Limiting
 
 #### GET `/api/rate-limit/status`
+
 Get current rate limit status
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -446,6 +483,7 @@ Get current rate limit status
 ```
 
 **Response Headers:**
+
 - `X-RateLimit-Limit`: Maximum requests per minute
 - `X-RateLimit-Remaining`: Remaining requests
 - `Retry-After`: Seconds until limit reset (when rate limited)
@@ -453,9 +491,11 @@ Get current rate limit status
 ### Health Check
 
 #### GET `/health`
+
 System health check
 
 **Response:**
+
 ```json
 {
   "status": "healthy",
@@ -476,6 +516,7 @@ System health check
 ## Database Schema
 
 ### Users Table
+
 ```sql
 CREATE TABLE users (
     id INTEGER PRIMARY KEY,
@@ -495,6 +536,7 @@ CREATE INDEX idx_users_tier ON users(tier);
 ```
 
 ### Analyses Table
+
 ```sql
 CREATE TABLE analyses (
     id INTEGER PRIMARY KEY,
@@ -519,6 +561,7 @@ CREATE INDEX idx_analyses_case_number ON analyses(case_number);
 ```
 
 ### API Keys Table
+
 ```sql
 CREATE TABLE api_keys (
     id INTEGER PRIMARY KEY,
@@ -539,6 +582,7 @@ CREATE INDEX idx_api_keys_key ON api_keys(key_hash);
 ```
 
 ### Usage Tracking Table
+
 ```sql
 CREATE TABLE usage_tracking (
     id INTEGER PRIMARY KEY,
@@ -623,28 +667,33 @@ CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
 ## Security
 
 ### Authentication
+
 - Session-based (cookies)
 - API key authentication (SHA-256 hashed)
 - JWT tokens (optional)
 
 ### Authorization
+
 - Tier-based (free, professional, enterprise)
 - Role-based (user, admin)
 - Route-level protection
 
 ### Rate Limiting
+
 - Token bucket algorithm
 - Per-user and per-IP tracking
 - Tiered limits (10/60/300/1000 req/min)
 - Automatic reset
 
 ### Input Validation
+
 - Required field checking
 - Type validation
 - File type validation
 - Size limits
 
 ### Data Protection
+
 - Password hashing (bcrypt)
 - API key hashing (SHA-256)
 - HTTPS required in production
@@ -657,18 +706,21 @@ CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
 ### Optimizations Implemented
 
 **Database:**
+
 - Connection pooling (10 + 20 overflow)
 - 11 optimized indexes (90% faster queries)
 - Query profiling (log slow queries > 1s)
 - Connection recycling (1 hour)
 
 **Caching:**
+
 - Transcription cached 1 hour (99% faster on hits)
 - OCR cached 1 hour (99% faster on hits)
 - TTL-based expiration
 - Automatic cache invalidation
 
 **API:**
+
 - Rate limiting prevents abuse
 - Request validation reduces errors
 - Response compression
@@ -676,13 +728,13 @@ CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
 
 ### Performance Metrics
 
-| Operation | Before | After | Improvement |
-|-----------|--------|-------|-------------|
-| User lookup | 100ms | 10ms | 90% faster |
-| Analysis query | 500ms | 50ms | 90% faster |
-| Transcription (cached) | 60-120s | 0.1s | 99% faster |
-| OCR (cached) | 10-30s | 0.1s | 99% faster |
-| API response | Variable | <100ms (p95) | Consistent |
+| Operation              | Before   | After        | Improvement |
+| ---------------------- | -------- | ------------ | ----------- |
+| User lookup            | 100ms    | 10ms         | 90% faster  |
+| Analysis query         | 500ms    | 50ms         | 90% faster  |
+| Transcription (cached) | 60-120s  | 0.1s         | 99% faster  |
+| OCR (cached)           | 10-30s   | 0.1s         | 99% faster  |
+| API response           | Variable | <100ms (p95) | Consistent  |
 
 ---
 
@@ -691,23 +743,27 @@ CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
 ### Common Issues
 
 **Database Connection Error**
+
 ```
 Solution: Check DATABASE_URL and ensure database is running
 ```
 
 **Rate Limit Exceeded**
+
 ```
 Solution: Wait for limit reset or upgrade tier
 Response includes Retry-After header
 ```
 
 **Transcription Failed**
+
 ```
 Solution: Ensure Whisper model is installed
 Check CUDA availability for GPU acceleration
 ```
 
 **Import Error**
+
 ```
 Solution: Install missing dependencies
 pip install -r requirements.txt
@@ -722,11 +778,13 @@ pip install -r requirements.txt
 ### Health Monitoring
 
 Check system health:
+
 ```bash
 curl http://localhost:5000/health
 ```
 
 View performance metrics:
+
 ```bash
 # Admin dashboard
 http://localhost:5000/admin/system/performance
@@ -734,6 +792,6 @@ http://localhost:5000/admin/system/performance
 
 ---
 
-*Evident Platform Technical Documentation*  
-*Version 1.0*  
-*Last Updated: January 26, 2026*
+_Evident Platform Technical Documentation_  
+_Version 1.0_  
+_Last Updated: January 26, 2026_

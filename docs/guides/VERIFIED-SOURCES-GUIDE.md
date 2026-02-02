@@ -11,6 +11,7 @@
 ### Tier 1: Official Government Sources (10/10 Credibility)
 
 #### 1. Supreme Court of the United States
+
 - **URL:** https://www.supremecourt.gov
 - **API:** PDF downloads available
 - **Coverage:** All SCOTUS opinions (1790-present)
@@ -23,6 +24,7 @@
   - No higher source exists
 
 #### 2. GovInfo.gov (U.S. Government Publishing Office)
+
 - **URL:** https://www.govinfo.gov
 - **API:** https://api.govinfo.gov
 - **Coverage:** Federal statutes, regulations, Congressional documents
@@ -34,6 +36,7 @@
   - Primary source for federal law
 
 #### 3. Cornell Legal Information Institute (LII)
+
 - **URL:** https://www.law.cornell.edu
 - **Coverage:** U.S. Code, Supreme Court, CFR
 - **Verification:** Official Cornell Law School (.edu)
@@ -49,6 +52,7 @@
 ### Tier 2: Verified Non-Profit Sources (9-9.5/10 Credibility)
 
 #### 4. CourtListener
+
 - **URL:** https://www.courtlistener.com
 - **API:** https://www.courtlistener.com/api/rest/v3/
 - **Coverage:** 10M+ legal opinions (federal, state, Supreme Court)
@@ -69,6 +73,7 @@
 ### Tier 3: Verified Commercial Sources (8.5-9/10 Credibility)
 
 #### 5. Justia
+
 - **URL:** https://www.justia.com
 - **Coverage:** Federal and state case law, statutes
 - **Established:** 2003
@@ -81,6 +86,7 @@
 - **Rating:** 9.0/10
 
 #### 6. Google Scholar (Legal)
+
 - **URL:** https://scholar.google.com
 - **Coverage:** Legal opinions indexed from verified sources
 - **Status:** ✅ Verified
@@ -98,16 +104,19 @@
 ### Why Some Sources Are NOT Used
 
 **Commercial Paid Databases:**
+
 - Westlaw - ❌ Proprietary, requires subscription
 - Lexis - ❌ Proprietary, requires subscription
 - Bloomberg Law - ❌ Proprietary, requires subscription
 
 **Unverified Websites:**
+
 - Random law blogs - ❌ Not authoritative
 - Wikipedia - ❌ Not primary source
 - Unknown case law sites - ❌ Cannot verify accuracy
 
 **Social Media / Forums:**
+
 - Reddit legal advice - ❌ Not authoritative
 - Law forums - ❌ Not verified
 - Social media posts - ❌ Not reliable
@@ -119,6 +128,7 @@
 ### Multi-Stage Verification
 
 #### Stage 1: Source Credibility Check
+
 ```python
 source_info = {
     'official': True/False,      # .gov or .edu
@@ -131,6 +141,7 @@ source_info = {
 ```
 
 #### Stage 2: Citation Validation
+
 ```python
 citation_check = {
     'format_valid': True/False,        # Bluebook compliant
@@ -141,6 +152,7 @@ citation_check = {
 ```
 
 #### Stage 3: Cross-Verification
+
 ```python
 cross_verify = {
     'verified_in': ['courtlistener', 'cornell_lii'],
@@ -155,6 +167,7 @@ cross_verify = {
 ```
 
 #### Stage 4: Content Validation
+
 ```python
 content_check = {
     'has_full_text': True/False,
@@ -172,27 +185,32 @@ content_check = {
 ### Document Quality Score (0-100)
 
 **Citation (30 points):**
+
 - Valid format: 20 points
 - Bluebook compliant: 10 points
 
 **Source (25 points):**
+
 - Official source (.gov/.edu): 25 points
 - Verified non-profit: 20 points
 - Verified commercial: 15 points
 - Unverified: 0 points
 
 **Metadata (25 points):**
+
 - Complete metadata: 25 points
 - Partial metadata: 10-20 points
 - Missing metadata: 0 points
 
 **Cross-Verification (20 points):**
+
 - Verified in 3+ sources: 20 points
 - Verified in 2 sources: 15 points
 - Verified in 1 source: 10 points
 - Not verified: 0 points
 
 **Thresholds:**
+
 - 90-100: Excellent - Auto-import
 - 70-89: Good - Auto-import
 - 50-69: Fair - Manual review
@@ -203,6 +221,7 @@ content_check = {
 ## 🛡️ Security Measures
 
 ### API Rate Limiting
+
 ```python
 RATE_LIMITS = {
     'courtlistener': 2,  # 2 seconds between requests
@@ -212,6 +231,7 @@ RATE_LIMITS = {
 ```
 
 ### Request Headers
+
 ```python
 HEADERS = {
     'User-Agent': 'Evident Legal Library Builder/1.0 (Educational; Non-commercial)',
@@ -221,6 +241,7 @@ HEADERS = {
 ```
 
 ### robots.txt Compliance
+
 - ✅ All sources checked for robots.txt
 - ✅ Crawl-delay respected
 - ✅ Disallowed paths avoided
@@ -266,6 +287,7 @@ Before importing any case:
 ## 🎯 Best Practices
 
 ### 1. Always Cross-Verify
+
 ```python
 # Don't trust single source
 citation = "384 U.S. 436"
@@ -280,6 +302,7 @@ if courtlistener_result and cornell_result:
 ```
 
 ### 2. Prefer Official Sources
+
 ```python
 # Priority order:
 1. Supreme Court official (.gov) - Use for SCOTUS cases
@@ -290,21 +313,22 @@ if courtlistener_result and cornell_result:
 ```
 
 ### 3. Validate Before Import
+
 ```python
 # Never import without validation
 def import_case(citation):
     # Step 1: Validate citation format
     if not validate_citation_format(citation):
         return False
-    
+
     # Step 2: Verify source credibility
     if not is_verified_source(source):
         return False
-    
+
     # Step 3: Cross-verify
     if not cross_verify(citation, min_sources=2):
         return False
-    
+
     # Step 4: Import
     return do_import(citation)
 ```
@@ -314,6 +338,7 @@ def import_case(citation):
 ## 📚 Source Documentation
 
 ### CourtListener API Usage
+
 ```python
 # Example: Search for case
 import requests
@@ -332,6 +357,7 @@ if response.status_code == 200:
 ```
 
 ### Cornell LII Access
+
 ```python
 # Example: Get Supreme Court case
 case_url = f"https://www.law.cornell.edu/supremecourt/text/{volume}/{page}"
@@ -345,17 +371,20 @@ case_url = f"https://www.law.cornell.edu/supremecourt/text/{volume}/{page}"
 ## 🔐 Legal & Ethical Compliance
 
 ### Terms of Service
+
 - ✅ All sources reviewed for TOS compliance
 - ✅ Non-commercial educational use
 - ✅ Attribution provided
 - ✅ Rate limits respected
 
 ### Copyright
+
 - ✅ Court opinions are public domain (U.S.)
 - ✅ Government documents are public domain
 - ✅ No proprietary content copied
 
 ### Attribution
+
 ```python
 # Every imported document includes:
 doc.source = 'courtlistener'  # Source attribution
@@ -368,6 +397,7 @@ doc.verified = True           # Verification status
 ## 📊 Verification Statistics
 
 **Expected Results:**
+
 ```
 Total cases attempted:     30
 Successfully verified:     28 (93%)

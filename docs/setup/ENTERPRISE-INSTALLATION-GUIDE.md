@@ -5,6 +5,7 @@
 This guide will help you deploy Evident Enterprise on your own infrastructure using Docker.
 
 **Requirements:**
+
 - Docker & Docker Compose installed
 - Valid Evident Enterprise license key
 - 4+ CPU cores, 16GB+ RAM
@@ -18,10 +19,12 @@ This guide will help you deploy Evident Enterprise on your own infrastructure us
 ### **Step 1: Obtain License Key**
 
 Contact Evident Enterprise team:
+
 - **Email:** enterprise@Evident.info
 - **Sales:** +1 (XXX) XXX-XXXX
 
 You'll receive:
+
 - License key: `BX-XXXX-XXXX-XXXX-XXXX`
 - Installation support
 - Onboarding call
@@ -48,6 +51,7 @@ nano .env
 ```
 
 **Required settings:**
+
 ```bash
 Evident_LICENSE_KEY=BX-XXXX-XXXX-XXXX-XXXX  # Your license key
 SECRET_KEY=<generate-64-char-hex>
@@ -57,6 +61,7 @@ DOMAIN=Evident.yourdomain.com
 ```
 
 **Generate secret key:**
+
 ```bash
 python3 -c "import secrets; print(secrets.token_hex(32))"
 ```
@@ -85,6 +90,7 @@ curl http://localhost:5000/health
 ```
 
 **Access the application:**
+
 ```
 http://your-server-ip:5000
 ```
@@ -121,6 +127,7 @@ else:
 ### **Troubleshooting License Issues**
 
 **Error: "Invalid license key"**
+
 ```bash
 # Check environment variable
 docker exec Evident-app env | grep LICENSE
@@ -130,6 +137,7 @@ docker exec Evident-app env | grep LICENSE
 ```
 
 **Error: "Machine limit exceeded"**
+
 ```bash
 # Your license is installed on too many servers
 # Contact enterprise@Evident.info to:
@@ -139,6 +147,7 @@ docker exec Evident-app env | grep LICENSE
 ```
 
 **Error: "License expired"**
+
 ```bash
 # Renew your license
 # Contact enterprise@Evident.info for renewal
@@ -146,6 +155,7 @@ docker exec Evident-app env | grep LICENSE
 ```
 
 **Error: "Cannot validate - offline"**
+
 ```bash
 # Check internet connectivity
 ping license.Evident.info
@@ -167,6 +177,7 @@ ping license.Evident.info
 **PostgreSQL is included in Docker Compose.**
 
 To use external PostgreSQL:
+
 ```bash
 # In .env
 DATABASE_URL=postgresql://user:password@postgres-server:5432/Evident
@@ -231,6 +242,7 @@ deploy:
 ### **Storage Configuration**
 
 **Local Storage (Default):**
+
 ```bash
 # Data stored in Docker volumes
 docker volume ls | grep Evident
@@ -240,6 +252,7 @@ docker run --rm -v Evident-data:/data -v $(pwd):/backup alpine tar czf /backup/E
 ```
 
 **S3/R2 Storage:**
+
 ```bash
 # In .env
 AWS_ACCESS_KEY_ID=your-key
@@ -465,6 +478,7 @@ docker secret create db_password /path/to/password/file
 ### **Schedule Training**
 
 Email enterprise@Evident.info with:
+
 - Preferred dates/times
 - Number of attendees
 - Specific topics of interest
@@ -474,6 +488,7 @@ Email enterprise@Evident.info with:
 ## 📋 Checklist
 
 ### **Pre-Launch:**
+
 - [ ] License key obtained
 - [ ] Server provisioned (4+ cores, 16GB+ RAM)
 - [ ] Docker & Docker Compose installed
@@ -483,6 +498,7 @@ Email enterprise@Evident.info with:
 - [ ] Backup strategy planned
 
 ### **Post-Launch:**
+
 - [ ] License validated successfully
 - [ ] Admin account created
 - [ ] Test user accounts created

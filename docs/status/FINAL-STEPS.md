@@ -3,6 +3,7 @@
 ## ✅ WHAT'S ALREADY DONE
 
 **Code Integration:**
+
 - ✅ Stripe payment service (`stripe_payments.py`)
 - ✅ Payment routes registered in `app.py`
 - ✅ Analytics tracking integrated
@@ -11,11 +12,13 @@
 - ✅ All code in GitHub branch: `payments-clean`
 
 **Stripe Setup:**
+
 - ✅ Products created (Pro $199, Premium $499)
 - ✅ Price IDs obtained
 - ✅ Test mode configured
 
 **Environment:**
+
 - ✅ Stripe keys ready
 - ✅ Amplitude API key ready
 - ✅ Price IDs ready
@@ -31,11 +34,13 @@
 1. **Create webhook:** https://dashboard.stripe.com/test/webhooks/create
 
 2. **Paste this URL:**
+
    ```
    https://Evident-backend.onrender.com/payments/webhook
    ```
 
 3. **Select these 5 events** (copy each one):
+
    ```
    checkout.session.completed
    customer.subscription.updated
@@ -67,6 +72,7 @@
 2. **Click:** "Start Pro Trial"
 
 3. **Use test card:**
+
    ```
    Card: 4242 4242 4242 4242
    Expiry: 12/27
@@ -90,6 +96,7 @@ python verify_integration.py
 ```
 
 **This will automatically check:**
+
 - ✅ All environment variables set
 - ✅ Stripe connection working
 - ✅ Price IDs valid
@@ -114,6 +121,7 @@ Live:         ⏳ 5 minutes away!
 ## 🎯 YOUR EXACT NEXT STEPS
 
 **Right now (3 min):**
+
 1. Open: https://dashboard.stripe.com/test/webhooks/create
 2. Paste URL: `https://Evident-backend.onrender.com/payments/webhook`
 3. Select 5 events (listed above)
@@ -122,12 +130,14 @@ Live:         ⏳ 5 minutes away!
 6. Add to Render environment
 
 **Wait 5 minutes:**
+
 - Render auto-redeploys
 - App updates with webhook secret
 
 **Then test (2 min):**
+
 1. Visit pricing page
-2. Click "Start Pro Trial"  
+2. Click "Start Pro Trial"
 3. Use test card: 4242 4242 4242 4242
 4. Complete payment
 5. Success! 🎉
@@ -153,6 +163,7 @@ SUCCESS! Accept real money! 💰
 ## 🆘 IF YOU GET STUCK
 
 **Tell me:**
+
 - "Can't find webhook page" → I'll give you direct link
 - "Don't see signing secret" → I'll show you where it is
 - "Render won't deploy" → I'll check the logs
@@ -171,6 +182,7 @@ SUCCESS! Accept real money! 💰
 ## ✅ THAT'S IT!
 
 **Total time: 10 minutes**
+
 - Add webhook: 3 min
 - Wait for deploy: 5 min
 - Test: 2 min
@@ -179,4 +191,4 @@ SUCCESS! Accept real money! 💰
 
 ---
 
-*Just do Step 1 (add webhook), then tell me when done!*
+_Just do Step 1 (add webhook), then tell me when done!_

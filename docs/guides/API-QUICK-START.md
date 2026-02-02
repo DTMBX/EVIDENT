@@ -22,6 +22,7 @@ curl -X POST https://Evident.info/api/v1/auth/register \
 ```
 
 **Response:**
+
 ```json
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
@@ -144,36 +145,39 @@ print(status_response.json())
 
 ```javascript
 // Login
-const loginResponse = await fetch('https://Evident.info/api/v1/auth/login', {
-  method: 'POST',
-  headers: {'Content-Type': 'application/json'},
+const loginResponse = await fetch("https://Evident.info/api/v1/auth/login", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
   body: JSON.stringify({
-    email: 'your@email.com',
-    password: 'YourPassword123!'
-  })
+    email: "your@email.com",
+    password: "YourPassword123!",
+  }),
 });
-const {token} = await loginResponse.json();
+const { token } = await loginResponse.json();
 
 // Upload PDF
 const formData = new FormData();
-formData.append('file', pdfFile);
-const uploadResponse = await fetch('https://Evident.info/api/v1/upload/pdf', {
-  method: 'POST',
-  headers: {'Authorization': `Bearer ${token}`},
-  body: formData
+formData.append("file", pdfFile);
+const uploadResponse = await fetch("https://Evident.info/api/v1/upload/pdf", {
+  method: "POST",
+  headers: { Authorization: `Bearer ${token}` },
+  body: formData,
 });
-const {file_id} = await uploadResponse.json();
+const { file_id } = await uploadResponse.json();
 
 // Start analysis
-const analysisResponse = await fetch('https://Evident.info/api/v1/analysis/start', {
-  method: 'POST',
-  headers: {
-    'Authorization': `Bearer ${token}`,
-    'Content-Type': 'application/json'
+const analysisResponse = await fetch(
+  "https://Evident.info/api/v1/analysis/start",
+  {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ file_id, analysis_type: "full" }),
   },
-  body: JSON.stringify({file_id, analysis_type: 'full'})
-});
-const {analysis_id} = await analysisResponse.json();
+);
+const { analysis_id } = await analysisResponse.json();
 ```
 
 ## C# (.NET MAUI) Example
@@ -196,7 +200,7 @@ var loginResult = await loginResponse.Content.ReadFromJsonAsync<LoginResponse>()
 var token = loginResult.Token;
 
 // Set authorization header for all requests
-client.DefaultRequestHeaders.Authorization = 
+client.DefaultRequestHeaders.Authorization =
     new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 
 // Upload PDF
@@ -230,6 +234,7 @@ All errors return JSON with `error` field:
 ```
 
 **Common HTTP Status Codes:**
+
 - `400`: Bad request (invalid data)
 - `401`: Unauthorized (missing/invalid token)
 - `403`: Forbidden (insufficient tier/role)
@@ -251,12 +256,14 @@ Returns a new token with 24-hour expiration.
 ## Tier Limits
 
 ### FREE Tier
+
 - ✅ PDF uploads (10MB max, 10/month)
 - ❌ Video uploads
 - ❌ AI analysis
 - ❌ Report export
 
 ### PRO Tier ($49.99/month)
+
 - ✅ PDF uploads (100MB max, unlimited)
 - ✅ Video uploads (1GB max, unlimited)
 - ✅ AI transcription
@@ -264,12 +271,14 @@ Returns a new token with 24-hour expiration.
 - ✅ Report export (PDF/JSON)
 
 ### PREMIUM Tier ($149.99/month)
+
 - ✅ All PRO features
 - ✅ Larger files (PDF 500MB, video 5GB)
 - ✅ Advanced AI analysis
 - ✅ Priority processing
 
 ### ENTERPRISE (Custom pricing)
+
 - ✅ All PREMIUM features
 - ✅ Huge files (PDF 5GB, video 20GB)
 - ✅ Self-hosted option
@@ -282,6 +291,7 @@ Returns a new token with 24-hour expiration.
 **PREMIUM+:** Unlimited
 
 Check headers in responses:
+
 ```
 X-RateLimit-Limit: 100
 X-RateLimit-Remaining: 95
@@ -291,16 +301,21 @@ X-RateLimit-Reset: 1643276400
 ## Testing Tools
 
 ### Postman Collection
+
 Import this URL:
+
 ```
 https://Evident.info/api/postman-collection.json
 ```
 
 ### cURL Examples
+
 All examples above use cURL and can be run from terminal.
 
 ### API Playground
+
 Interactive testing:
+
 ```
 https://Evident.info/docs/api-playground
 ```
@@ -309,7 +324,7 @@ https://Evident.info/docs/api-playground
 
 **Documentation:** https://Evident.info/API-REFERENCE.md  
 **Issues:** GitHub Issues  
-**Email:** api-support@Evident.info  
+**Email:** api-support@Evident.info
 
 ## Next Steps
 

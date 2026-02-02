@@ -3,9 +3,11 @@
 ## If Your Domain is on Namecheap:
 
 ### 1. Login to Namecheap
+
 https://www.namecheap.com/myaccount/login/
 
 ### 2. Navigate to Domain List
+
 - Click "Domain List" in left sidebar
 - Find `Evident.info`
 - Click "Manage"
@@ -47,6 +49,7 @@ Your app will be live at:
 For `Evident.info` (no subdomain):
 
 ### Option 1: URL Redirect (Easiest)
+
 In Namecheap Advanced DNS:
 
 ```
@@ -57,6 +60,7 @@ Unmasked
 ```
 
 ### Option 2: A Records (Advanced)
+
 Get Render's IP address from dashboard, then add:
 
 ```
@@ -71,9 +75,11 @@ TTL: Automatic
 ## Troubleshooting:
 
 **DNS not propagating?**
+
 - Clear Namecheap cache: Advanced DNS ? Reset to Default
 - Check: https://dnschecker.org
 
 **Still showing Namecheap parking page?**
+
 - Wait 15-30 minutes for propagation
 - Clear browser cache (Ctrl+Shift+Delete)

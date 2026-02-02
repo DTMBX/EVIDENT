@@ -24,6 +24,7 @@ The Legal Document Optimizer is an AI-powered tool that analyzes and improves yo
 ### Example 1: Verified Complaint + Motion for Interim Relief
 
 **Input:**
+
 - Verified Complaint (rough draft)
 - Motion for Interim Relief (draft)
 - Certificate of Service (template)
@@ -31,6 +32,7 @@ The Legal Document Optimizer is an AI-powered tool that analyzes and improves yo
 - Evidence: 10 PDF exhibits
 
 **Process:**
+
 1. Upload all documents
 2. Link to case evidence
 3. Run optimization
@@ -38,6 +40,7 @@ The Legal Document Optimizer is an AI-powered tool that analyzes and improves yo
 5. Download court-ready documents
 
 **Output:**
+
 - Optimized Complaint (fact-checked against evidence)
 - Optimized Motion (with exhibit citations)
 - Proper Certificate of Service
@@ -50,6 +53,7 @@ The Legal Document Optimizer is an AI-powered tool that analyzes and improves yo
 ### Example 2: Maximize Monetary Relief
 
 **Scenario:** You have a civil rights violation case with potential for:
+
 - Compensatory damages
 - Punitive damages
 - Emotional distress
@@ -57,6 +61,7 @@ The Legal Document Optimizer is an AI-powered tool that analyzes and improves yo
 - Injunctive relief
 
 **Optimizer Actions:**
+
 - ✅ Identifies all damage theories supported by facts
 - ✅ Ensures prayer for relief explicitly requests each category
 - ✅ Adds specific factual support for each damage type
@@ -71,11 +76,13 @@ The Legal Document Optimizer is an AI-powered tool that analyzes and improves yo
 ### Step 1: Prepare Your Documents
 
 **Supported formats:**
+
 - PDF (will be extracted to text)
 - DOCX (Word documents)
 - TXT (plain text)
 
 **Document types:**
+
 - Complaint
 - Motion (any type)
 - Certificate of Service
@@ -124,16 +131,16 @@ The Legal Document Optimizer is an AI-powered tool that analyzes and improves yo
 ```
 1. After uploading documents, system shows:
    "Found 23 factual allegations"
-   
+
 2. Click "Link Evidence"
 
 3. For each allegation, system suggests matching evidence:
    Allegation 5: "Officer did not activate BWC until 3 minutes after initial contact"
-   
+
    Suggested Evidence:
    ☑ BWC Video - Johnson-2024-01-15.mp4
    ☑ BWC Metadata Report
-   
+
 4. Confirm or adjust links
 
 5. System flags unsupported allegations:
@@ -150,19 +157,19 @@ Choose priorities:
 ☑ Maximize Monetary Relief
   → Identifies all potential damage theories
   → Strengthens prayer for relief
-  
+
 ☑ Enhance Social Impact
   → Frames claims for deterrence value
   → Emphasizes public interest
-  
+
 ☑ Strengthen Interim Relief
   → Bolsters irreparable harm arguments
   → Optimizes injunction language
-  
+
 ☑ Improve Clarity
   → Simplifies complex sentences
   → Improves logical flow
-  
+
 ☑ Ensure Compliance
   → Checks jurisdiction-specific rules
   → Verifies all required components
@@ -243,6 +250,7 @@ Or download all:
 ### 1. Procedural Compliance
 
 **Checks:**
+
 - Required documents present (complaint, certificate, verification)
 - Proper formatting for jurisdiction
 - Signature blocks complete
@@ -250,6 +258,7 @@ Or download all:
 - Date formatting standard
 
 **Example Fix:**
+
 ```
 BEFORE:
 Certificate of Service missing
@@ -266,19 +275,21 @@ AFTER:
 ### 2. Evidence Alignment
 
 **Checks:**
+
 - Every factual allegation has supporting evidence
 - Evidence is properly cited (by exhibit number)
 - No contradictions between facts and evidence
 - Evidence fully leveraged (no under-used evidence)
 
 **Example Fix:**
+
 ```
 BEFORE:
 "Officer used excessive force"
 (no citation to evidence)
 
 AFTER:
-"Officer used excessive force by striking Plaintiff 
+"Officer used excessive force by striking Plaintiff
 repeatedly with baton despite Plaintiff's compliance,
 as shown in BWC footage (Ex. C, timestamp 2:34-2:51)
 and corroborated by witness affidavit (Ex. D, ¶¶ 5-7)."
@@ -289,6 +300,7 @@ and corroborated by witness affidavit (Ex. D, ¶¶ 5-7)."
 ### 3. Damage Maximization
 
 **Strategies:**
+
 - Identify ALL potential damage theories
 - Support each with specific facts
 - Calculate concrete amounts where possible
@@ -297,6 +309,7 @@ and corroborated by witness affidavit (Ex. D, ¶¶ 5-7)."
 - Request attorney's fees under fee-shifting statutes
 
 **Example Fix:**
+
 ```
 BEFORE:
 Prayer for Relief:
@@ -309,14 +322,14 @@ Prayer for Relief:
    b. Lost wages: $35,000
    c. Emotional distress: $150,000
    d. Loss of enjoyment of life: $100,000
-   
+
 2. Punitive damages: $500,000
    (to deter future constitutional violations)
-   
+
 3. Attorney's fees and costs under 42 U.S.C. § 1988
-   
+
 4. Prejudgment interest at maximum legal rate
-   
+
 5. Such other relief as Court deems just and proper
 ```
 
@@ -325,6 +338,7 @@ Prayer for Relief:
 ### 4. Social Impact Framing
 
 **Strategies:**
+
 - Emphasize pattern and practice (beyond individual case)
 - Highlight deterrence value
 - Frame as public interest enforcement
@@ -332,17 +346,18 @@ Prayer for Relief:
 - Consider class action potential
 
 **Example Fix:**
+
 ```
 BEFORE:
 "Plaintiff was harmed by Defendant's actions"
 
 AFTER:
-"This case presents a critical opportunity for judicial 
+"This case presents a critical opportunity for judicial
 intervention to address systemic violations of constitutional
-rights within the City Police Department. Plaintiff's 
+rights within the City Police Department. Plaintiff's
 experience reflects a broader pattern of misconduct affecting
 countless community members. A substantial award here serves
-not only to compensate Plaintiff, but to deter future 
+not only to compensate Plaintiff, but to deter future
 violations and vindicate the public interest in accountable,
 constitutional policing."
 ```
@@ -352,6 +367,7 @@ constitutional policing."
 ### 5. Interim Relief Optimization
 
 **Strengthens:**
+
 - Irreparable harm arguments
 - Inadequacy of legal remedies
 - Likelihood of success on merits
@@ -359,21 +375,22 @@ constitutional policing."
 - Public interest factors
 
 **Example Fix:**
+
 ```
 BEFORE:
 "Plaintiff requests preliminary injunction"
 
 AFTER:
-"Plaintiff faces ongoing irreparable harm from Defendants' 
-continued unconstitutional practices. Monetary damages cannot 
-adequately compensate for ongoing First Amendment violations. 
-Plaintiff has demonstrated strong likelihood of success on 
-merits through: (1) direct video evidence of violations; 
+"Plaintiff faces ongoing irreparable harm from Defendants'
+continued unconstitutional practices. Monetary damages cannot
+adequately compensate for ongoing First Amendment violations.
+Plaintiff has demonstrated strong likelihood of success on
+merits through: (1) direct video evidence of violations;
 (2) expert testimony on police best practices; (3) defendant's
-own policy manuals. Balance of hardships strongly favors 
+own policy manuals. Balance of hardships strongly favors
 Plaintiff, as injunction merely requires Defendants to comply
-with existing constitutional obligations. Public interest 
-strongly supports relief to protect community from ongoing 
+with existing constitutional obligations. Public interest
+strongly supports relief to protect community from ongoing
 unconstitutional conduct."
 ```
 
@@ -387,7 +404,7 @@ unconstitutional conduct."
 ✅ **Optimization Engine** - Identifies gaps and opportunities  
 ✅ **Consistency Checker** - Ensures cross-document alignment  
 ✅ **Evidence Linker** - Connects facts to proof  
-✅ **Procedural Validator** - Checks formatting and requirements  
+✅ **Procedural Validator** - Checks formatting and requirements
 
 ### What This Tool IS NOT:
 
@@ -395,7 +412,7 @@ unconstitutional conduct."
 ❌ **Lawyer Replacement** - All output must be reviewed by attorney  
 ❌ **Outcome Guarantee** - No guarantees about litigation results  
 ❌ **Fact Generator** - Will not fabricate facts or evidence  
-❌ **Citation Creator** - Will not make up case law  
+❌ **Citation Creator** - Will not make up case law
 
 ---
 
@@ -430,7 +447,7 @@ Benefits:
 ✅ Link all available evidence  
 ✅ Review all AI suggestions critically  
 ✅ Have attorney review before filing  
-✅ Use optimization report to improve drafting skills  
+✅ Use optimization report to improve drafting skills
 
 ### DON'T:
 
@@ -438,7 +455,7 @@ Benefits:
 ❌ File documents without attorney approval  
 ❌ Fabricate facts to "fill gaps" identified by tool  
 ❌ Ignore evidence gap warnings  
-❌ Skip procedural compliance checks  
+❌ Skip procedural compliance checks
 
 ---
 
@@ -507,6 +524,7 @@ Each template includes:
 ### Real-World Case: Police Excessive Force
 
 **Starting Materials:**
+
 - Rough draft complaint (5 pages)
 - Motion for TRO (3 pages)
 - 3 BWC videos
@@ -514,12 +532,14 @@ Each template includes:
 - Witness affidavits (2)
 
 **Time Investment:**
+
 - Upload/organize: 10 minutes
 - AI optimization: 5 minutes (automated)
 - Review/approve: 30 minutes
 - **Total: 45 minutes**
 
 **Results:**
+
 - Professional 12-page verified complaint
 - Strong 8-page TRO motion
 - Proper certificates and verifications
@@ -528,6 +548,7 @@ Each template includes:
 - Court-ready documents
 
 **Compared to Manual:**
+
 - Manual drafting: 6-8 hours
 - **Time saved: 5-7 hours**
 
@@ -551,12 +572,14 @@ Each template includes:
 ## 🔄 Updates
 
 **Version 1.0** (Jan 2026)
+
 - Initial release
 - Multi-document analysis
 - Evidence cross-reference
 - Basic optimization
 
 **Roadmap:**
+
 - State-specific rules database
 - Monetary relief calculator
 - Template library

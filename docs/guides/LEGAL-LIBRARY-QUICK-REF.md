@@ -11,12 +11,14 @@
 ## 🚀 Quick Start
 
 ### 1. Import Foundation Cases (30 min)
+
 ```bash
 python batch_import_foundation_cases.py civil_rights
 # Imports: Miranda, Terry, Graham, Garner, Monell, + 5 more
 ```
 
 ### 2. Test Search (1 min)
+
 ```bash
 curl "http://localhost:5000/api/legal-library/search?q=miranda"
 ```
@@ -24,6 +26,7 @@ curl "http://localhost:5000/api/legal-library/search?q=miranda"
 ### 3. Hook Up Integrations (5 min)
 
 **ChatGPT** (api/chatgpt.py):
+
 ```python
 from chatgpt_legal_library_integration import ChatGPTLegalLibraryIntegration
 library = ChatGPTLegalLibraryIntegration()
@@ -34,6 +37,7 @@ response = library.format_citation_links(chatgpt_response)
 ```
 
 **Document Optimizer** (legal_document_optimizer.py):
+
 ```python
 from document_optimizer_library_integration import DocumentOptimizerLibraryIntegration
 self.library_integration = DocumentOptimizerLibraryIntegration()
@@ -42,6 +46,7 @@ suggestions = self.library_integration.suggest_citations_for_document(text)
 ```
 
 **Violation Finder** (case_law_violation_scanner.py):
+
 ```python
 from violation_finder_library_integration import ViolationFinderLibraryIntegration
 self.library_integration = ViolationFinderLibraryIntegration()
@@ -50,6 +55,7 @@ enhanced = self.library_integration.enhance_violation_report(violations)
 ```
 
 **Evidence Analyzer** (evidence_processing.py):
+
 ```python
 from evidence_analyzer_library_integration import EvidenceAnalyzerLibraryIntegration
 self.library_integration = EvidenceAnalyzerLibraryIntegration()
@@ -62,11 +68,13 @@ enhanced = self.library_integration.enhance_evidence_report(items)
 ## 📁 Files
 
 ### Core (3 files)
+
 - `legal_library.py` - Core engine (20KB)
 - `api/legal_library.py` - REST API (17KB)
 - `migrate_add_legal_library.py` - Migration ✅
 
 ### Integrations (5 files)
+
 - `chatgpt_legal_library_integration.py`
 - `document_optimizer_library_integration.py`
 - `violation_finder_library_integration.py`
@@ -74,10 +82,12 @@ enhanced = self.library_integration.enhance_evidence_report(items)
 - `batch_import_foundation_cases.py`
 
 ### UI & Tests (2 files)
+
 - `src/.../LegalLibraryPage.cs` (MAUI placeholder)
 - `tests/test_legal_library_integration.py`
 
 ### Docs (7 files)
+
 - `LEGAL-LIBRARY-GUIDE.md` - User guide
 - `LEGAL-LIBRARY-COMPLETE.md` - Tech summary
 - `LEGAL-LIBRARY-QUICK-START.md` - Quick start
@@ -109,6 +119,7 @@ POST /api/legal-library/parse-citation
 ## 📊 Pre-Loaded Data
 
 **10 Legal Topics:**
+
 1. Constitutional Law
 2. 4th Amendment
 3. 5th Amendment
@@ -121,6 +132,7 @@ POST /api/legal-library/parse-citation
 10. Employment Law
 
 **30+ Foundation Cases:**
+
 - Civil Rights: 10 cases
 - Criminal Defense: 8 cases
 - Employment: 5 cases
@@ -179,7 +191,7 @@ python -m unittest tests/test_legal_library_integration.py
 ## 🎯 Priority Actions
 
 1. ✅ Core complete
-2. ✅ Integration files created  
+2. ✅ Integration files created
 3. 🔧 Hook up ChatGPT (3 lines)
 4. 🔧 Hook up Doc Optimizer (2 lines)
 5. 🔧 Hook up Violation Finder (2 lines)

@@ -9,6 +9,7 @@
 ## 🎯 What You Asked For (And Got)
 
 ### **Your Request:**
+
 > "Help show that we intend to sell confidence and to help dig up the truth that often gets buried deep by bad actors. We want to pluck the bad apples so the rest of the good ones sworn by oath are protected and remain good peace officers to protect and serve, which we have an oath to do the same."
 
 ### **What We Built:**
@@ -19,17 +20,18 @@
 ✅ **Removes bad apples from the barrel**  
 ✅ **Mutual oath framework (both sides serve justice)**  
 ✅ **Founding Member program ($19/month, first 100)**  
-✅ **Email capture that works**  
+✅ **Email capture that works**
 
 ---
 
 ## 🛡️ Key Messaging (What Visitors See)
 
 ### **Hero (First Thing They See):**
-> **"Defend the Constitution With Evidence That Speaks"**  
-> *Sell Confidence, Not Conflict — Dig Up Truth, Protect Good Officers*
 
-> "Professional BWC analysis for defense attorneys. When bad actors bury the truth, we help you find it—protecting innocent defendants *and* the good officers who honor their oath."
+> **"Defend the Constitution With Evidence That Speaks"**  
+> _Sell Confidence, Not Conflict — Dig Up Truth, Protect Good Officers_
+
+> "Professional BWC analysis for defense attorneys. When bad actors bury the truth, we help you find it—protecting innocent defendants _and_ the good officers who honor their oath."
 
 ---
 
@@ -39,18 +41,21 @@
 🛡️ Truth Protects Good Officers, Too
 
 **Core Message:**  
-"We're not anti-police. **We're pro-truth.** Evident helps dig up the facts that bad actors bury—protecting innocent defendants *and* the good officers who serve with honor."
+"We're not anti-police. **We're pro-truth.** Evident helps dig up the facts that bad actors bury—protecting innocent defendants _and_ the good officers who serve with honor."
 
 **Three-Part Framework:**
 
 #### ✓ For Good Officers
+
 When you follow procedure, give Miranda warnings, and respect constitutional rights—**the evidence proves it.** Truth protects officers who do their job right.
 
-#### ✗ For Bad Actors  
+#### ✗ For Bad Actors
+
 When someone violates the 4th Amendment, lies in reports, or uses excessive force—**the evidence exposes it.** Truth removes bad apples from the barrel.
 
 #### ⚖️ Mutual Oath
-Peace officers swear to *protect and serve.* Defense attorneys swear to *defend the Constitution.* Both oaths demand truth. We help you honor yours.
+
+Peace officers swear to _protect and serve._ Defense attorneys swear to _defend the Constitution._ Both oaths demand truth. We help you honor yours.
 
 ---
 
@@ -72,6 +77,7 @@ Peace officers swear to *protect and serve.* Defense attorneys swear to *defend 
 ### **1. `templates/landing-public.html` (Complete Rewrite)**
 
 **New sections added:**
+
 - Hero with pro-truth tagline
 - Problem/Solution (emphasizes truth protects everyone)
 - **NEW: "Truth Protects Good Officers" section**
@@ -81,6 +87,7 @@ Peace officers swear to *protect and serve.* Defense attorneys swear to *defend 
 - Footer with constitutional links
 
 **Key updates:**
+
 - Hero tagline: "Sell Confidence, Not Conflict"
 - Problem section: "Bad actors hide violations / Good officers overlooked"
 - Solution section: "Truth surfaces / Confidence not guesswork"
@@ -92,15 +99,17 @@ Peace officers swear to *protect and serve.* Defense attorneys swear to *defend 
 ### **2. `app.py` (Backend API)**
 
 **Updated route:**
+
 - `/` now uses `landing-public.html` (not old index-standalone)
 
 **New API endpoint:**
+
 - `/api/founding-member-signup` (POST)
-  * Captures email, name, firm
-  * Stores in `founding_member_signups` table
-  * Returns spots remaining (out of 100)
-  * Validates email, handles duplicates
-  * Logs all signups
+  - Captures email, name, firm
+  - Stores in `founding_member_signups` table
+  - Returns spots remaining (out of 100)
+  - Validates email, handles duplicates
+  - Logs all signups
 
 ---
 
@@ -122,6 +131,7 @@ cd C:\web-dev\github-repos\Evident.info
 ```
 
 This will:
+
 1. Stage all files
 2. Commit with detailed message
 3. Push to GitHub
@@ -175,6 +185,7 @@ Render.com will auto-deploy in ~2 minutes.
 ## 🎬 Next Steps (After Deploy)
 
 ### **Today (After Deploy):**
+
 1. Visit `https://Evident.info` (or your production URL)
 2. Verify landing page loads correctly
 3. Test email capture form (submit your own email)
@@ -182,12 +193,14 @@ Render.com will auto-deploy in ~2 minutes.
 5. Take screenshot for social media
 
 ### **Tomorrow (Day 2):**
+
 1. Add Founding Member flag to user model
 2. Create Founding Member badge UI
 3. Limit enforcement (first 100 spots)
 4. Manual override to grant status
 
 ### **This Week:**
+
 1. First-use onboarding flow
 2. Discord community setup
 3. Attorney outreach email template
@@ -198,11 +211,13 @@ Render.com will auto-deploy in ~2 minutes.
 ## 💰 Founding Member Program Details
 
 ### **Offer:**
+
 - **$19/month** (locked-in for life)
 - **First 100 members only**
 - **Deadline:** Feb 28, 2026 or 100 members (whichever first)
 
 ### **What They Get:**
+
 - Unlimited BWC uploads (5 hours/video max)
 - AI transcription (Whisper ASR)
 - Constitutional violation detection (4th, 5th, 14th Amendments)
@@ -216,6 +231,7 @@ Render.com will auto-deploy in ~2 minutes.
 - Voice in product roadmap
 
 ### **Email Capture:**
+
 - Name, Email, Firm/Organization
 - Stored in database with source tracking
 - Privacy note: "We respect attorney confidentiality"
@@ -226,11 +242,13 @@ Render.com will auto-deploy in ~2 minutes.
 ## 🇺🇸 Why This Messaging Works
 
 ### **Before (Potential Problem):**
+
 - Could be seen as "anti-police"
 - Defense-only focus
 - Conflict-driven
 
 ### **After (Solution):**
+
 - **Pro-truth** (not anti-anything)
 - **Both sides honored** (mutual oath)
 - **Confidence-driven** (not conflict)
@@ -242,12 +260,14 @@ Render.com will auto-deploy in ~2 minutes.
 ## 📊 Success Metrics to Track
 
 ### **Week 1 Goals:**
+
 - Landing page views: 100+
 - Email signups: 10+
 - Founding Members (paid): 3-5
 - Conversion rate: 3-5%
 
 ### **90-Day Goals (Per Roadmap):**
+
 - Founding Members: 10-20
 - Free users: 50+
 - First case wins: 3+
@@ -265,7 +285,7 @@ Render.com will auto-deploy in ~2 minutes.
 ✅ **Email capture** that works (stores to database)  
 ✅ **Pricing tiers** clearly explained (FREE/FOUNDING/PRO/FIRM)  
 ✅ **Constitutional mission** woven throughout  
-✅ **Ready to launch** and onboard paying customers TODAY  
+✅ **Ready to launch** and onboard paying customers TODAY
 
 **What changed:**
 

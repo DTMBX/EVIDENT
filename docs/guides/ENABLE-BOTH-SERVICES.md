@@ -5,6 +5,7 @@
 **Your repo is ready!** Just pushed fixes to GitHub.
 
 **What's happening RIGHT NOW:**
+
 - ? Render detected your push
 - ?? Building in progress (5-7 minutes)
 - ?? Will be live soon
@@ -41,6 +42,7 @@
 2. **Click:** "Evident-legal-tech" service
 
 3. **Watch "Events" tab** - should show:
+
    ```
    ? Build started
    ? Installing dependencies
@@ -77,13 +79,15 @@ git push origin main
 ## ?? **What You'll Have:**
 
 ### **GitHub Pages (Static Site):**
+
 - **URL:** https://dtb396.github.io/Evident.info
 - **Shows:** Homepage, docs, pricing, contact
 - **Purpose:** Marketing website
 - **Cost:** FREE
 
 ### **Render (Flask App):**
-- **URL:** https://Evident-legal-tech.onrender.com  
+
+- **URL:** https://Evident-legal-tech.onrender.com
 - **Shows:** Login, dashboard, upload, analysis
 - **Purpose:** Web application
 - **Cost:** FREE (with 15-min sleep timeout)
@@ -110,33 +114,39 @@ Flask processes on Render
 
 ## ?? **Timeline:**
 
-| Time | What Happens |
-|------|--------------|
-| **Now** | Render is building (5 min left) |
-| **+2 min** | Enable GitHub Pages |
-| **+5 min** | Render goes live |
-| **+7 min** | Both services working! ? |
+| Time       | What Happens                    |
+| ---------- | ------------------------------- |
+| **Now**    | Render is building (5 min left) |
+| **+2 min** | Enable GitHub Pages             |
+| **+5 min** | Render goes live                |
+| **+7 min** | Both services working! ?        |
 
 ---
 
 ## ?? **Testing (in 7 minutes):**
 
 ### **Test GitHub Pages:**
+
 ```
 https://dtb396.github.io/Evident.info
 ```
+
 Should show: Homepage with docs, pricing links
 
 ### **Test Render:**
+
 ```
 https://Evident-legal-tech.onrender.com
 ```
+
 Should show: Working Flask app (no 500 error!)
 
 ### **Test Login:**
+
 ```
 https://Evident-legal-tech.onrender.com/auth/login
 ```
+
 - Email: admin@Evident.info
 - Password: Evident2026!
 
@@ -149,10 +159,11 @@ https://Evident-legal-tech.onrender.com/auth/login
 ### **DNS Configuration:**
 
 **For GitHub Pages (Evident.info):**
+
 ```
 Type: A
 Name: @
-Values: 
+Values:
   - 185.199.108.153
   - 185.199.109.153
   - 185.199.110.153
@@ -160,6 +171,7 @@ Values:
 ```
 
 **For Render (app.Evident.info):**
+
 ```
 Type: CNAME
 Name: app
@@ -167,6 +179,7 @@ Value: Evident-legal-tech.onrender.com
 ```
 
 **Then:**
+
 1. GitHub ? Settings ? Pages ? Custom domain: Evident.info
 2. Render ? Settings ? Custom domain: app.Evident.info
 3. Wait 1-48 hours for DNS propagation
@@ -177,22 +190,23 @@ Value: Evident-legal-tech.onrender.com
 
 **What's Deployed Where:**
 
-| Feature | Service | URL |
-|---------|---------|-----|
-| Homepage | GitHub Pages | dtb396.github.io/Evident.info |
-| Docs | GitHub Pages | dtb396.github.io/Evident.info/docs.html |
-| Pricing | GitHub Pages | dtb396.github.io/Evident.info/pricing.html |
-| Contact | GitHub Pages | dtb396.github.io/Evident.info/contact.html |
-| Login | Render | Evident-legal-tech.onrender.com/auth/login |
-| Dashboard | Render | Evident-legal-tech.onrender.com/auth/dashboard |
-| Upload | Render | Evident-legal-tech.onrender.com/batch-upload |
-| API | Render | Evident-legal-tech.onrender.com/api/* |
+| Feature   | Service      | URL                                            |
+| --------- | ------------ | ---------------------------------------------- |
+| Homepage  | GitHub Pages | dtb396.github.io/Evident.info                  |
+| Docs      | GitHub Pages | dtb396.github.io/Evident.info/docs.html        |
+| Pricing   | GitHub Pages | dtb396.github.io/Evident.info/pricing.html     |
+| Contact   | GitHub Pages | dtb396.github.io/Evident.info/contact.html     |
+| Login     | Render       | Evident-legal-tech.onrender.com/auth/login     |
+| Dashboard | Render       | Evident-legal-tech.onrender.com/auth/dashboard |
+| Upload    | Render       | Evident-legal-tech.onrender.com/batch-upload   |
+| API       | Render       | Evident-legal-tech.onrender.com/api/\*         |
 
 ---
 
 ## ? **Checklist:**
 
 **Right Now:**
+
 - [x] Code pushed to GitHub ?
 - [x] Render building ?
 - [ ] Enable GitHub Pages (2 minutes)
@@ -200,6 +214,7 @@ Value: Evident-legal-tech.onrender.com
 - [ ] Test both URLs
 
 **Later (Optional):**
+
 - [ ] Buy custom domain
 - [ ] Configure DNS
 - [ ] Enable custom domains

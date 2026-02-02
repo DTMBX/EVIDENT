@@ -10,6 +10,7 @@
 Your iOS build automation is now **ACTIVE ON GITHUB**!
 
 ### Pushed to GitHub:
+
 1. ✅ **iOS Build Workflow** - `.github/workflows/ios-build.yml`
 2. ✅ **Complete MAUI App** - Full source code (4,447 files)
 3. ✅ **Android APK** - 30.57 MB signed package
@@ -27,6 +28,7 @@ Your iOS build automation is now **ACTIVE ON GITHUB**!
 ### iOS Build Triggered Automatically
 
 **View Live Build:**
+
 ```
 https://github.com/DTB396/Evident.info/actions
 ```
@@ -62,7 +64,7 @@ Status: ✅ **Success** (green checkmark)
 ### Step 3: Download Artifact
 
 1. Scroll to **"Artifacts"** section at bottom
-2. Click **"Evident-iOS-Development"** 
+2. Click **"Evident-iOS-Development"**
 3. Downloads: `Evident-iOS-Development.zip`
 
 ### Step 4: Extract IPA
@@ -81,11 +83,13 @@ Expand-Archive Evident-iOS-Development.zip -DestinationPath .\iOS-Build
 ### Option 1: Via Xcode (Development)
 
 **Requirements:**
+
 - Mac with Xcode installed
 - iPhone connected via USB
 - Free Apple Developer account
 
 **Steps:**
+
 1. Open Xcode
 2. Window → Devices and Simulators
 3. Select your iPhone
@@ -100,10 +104,12 @@ Expand-Archive Evident-iOS-Development.zip -DestinationPath .\iOS-Build
 ### Option 2: Via TestFlight (Production)
 
 **Requirements:**
+
 - Apple Developer Program ($99/year)
 - App Store Connect access
 
 **Steps:**
+
 1. Upload .ipa to App Store Connect:
    - https://appstoreconnect.apple.com
    - My Apps → + → New App
@@ -118,6 +124,7 @@ Expand-Archive Evident-iOS-Development.zip -DestinationPath .\iOS-Build
 4. Testers install via TestFlight app
 
 **Benefits:**
+
 - ✅ 90-day beta duration
 - ✅ Up to 10,000 testers
 - ✅ Automatic updates
@@ -161,10 +168,12 @@ Don't want to push code? Run manually:
 Each iOS build ≈ **10 minutes**
 
 **Monthly Estimate:**
+
 - 20 builds/month = 200 Mac minutes
 - **Well under free tier** (2,000 minutes) ✅
 
 **If You Exceed:**
+
 - $0.08/minute for Mac runners
 - 100 extra minutes = $8.00
 
@@ -175,6 +184,7 @@ Each iOS build ≈ **10 minutes**
 Your GitHub Actions runner is building:
 
 ### App Features
+
 - ✅ 15 Legal AI Tools
 - ✅ ChatGPT Integration
 - ✅ Case Management
@@ -186,6 +196,7 @@ Your GitHub Actions runner is building:
 - ✅ Project Workspaces
 
 ### Platforms Included
+
 - ✅ iOS (iPhone/iPad)
 - ✅ Android (APK ready now)
 - ✅ Windows (MAUI)
@@ -198,12 +209,14 @@ Your GitHub Actions runner is building:
 ### Build Fails
 
 **Check:**
+
 1. Go to Actions tab
 2. Click failed workflow run
 3. Expand failed step
 4. Read error message
 
 **Common Issues:**
+
 - MAUI workload install timeout → Retry
 - Code signing error → Expected for development builds
 - Out of disk space → Clean up runner (automatic)
@@ -215,6 +228,7 @@ Your GitHub Actions runner is building:
 **Problem:** No "Artifacts" section
 
 **Solution:**
+
 - Build may still be running (wait 8-12 min)
 - Build may have failed (check logs)
 - Artifact retention expired (30 days)
@@ -226,6 +240,7 @@ Your GitHub Actions runner is building:
 **Problem:** "Unable to install app"
 
 **Solutions:**
+
 1. **App not signed** → Use Xcode to install
 2. **Wrong device** → Built for arm64 (real devices)
 3. **iOS too old** → Requires iOS 15.0+
@@ -236,6 +251,7 @@ Your GitHub Actions runner is building:
 ## 📚 Documentation
 
 ### Mobile Deployment Guides
+
 - **START-INSTALL-NOW.md** - Quick start
 - **INSTALL-ANDROID-VISUAL-GUIDE.md** - Android step-by-step
 - **ANDROID-APK-READY.md** - APK details
@@ -243,6 +259,7 @@ Your GitHub Actions runner is building:
 - **MOBILE-DEPLOYMENT-COMPLETE.md** - Full summary
 
 ### iOS Specific
+
 - **IOS-TESTING-COMPLETE-GUIDE.md** - Detailed iOS deployment
 - **GET-ON-IPHONE-NOW.md** - All iOS options
 
@@ -253,6 +270,7 @@ Your GitHub Actions runner is building:
 ### Today (Right Now!)
 
 1. **Watch build progress:**
+
    ```
    https://github.com/DTB396/Evident.info/actions
    ```
@@ -287,7 +305,7 @@ Your GitHub Actions runner is building:
 ✅ **Multi-platform app** - iOS, Android, Windows, Web  
 ✅ **Production-ready** - Complete MAUI app with ChatGPT  
 ✅ **Professional CI/CD** - Push code → Auto-build → Download  
-✅ **Comprehensive docs** - 7 deployment guides  
+✅ **Comprehensive docs** - 7 deployment guides
 
 **This is a professional-grade development workflow!** 🚀
 
@@ -298,6 +316,7 @@ Your GitHub Actions runner is building:
 ### Email Notifications
 
 GitHub will send you emails:
+
 - ✅ Build started
 - ✅ Build succeeded
 - ❌ Build failed (if errors)
@@ -305,6 +324,7 @@ GitHub will send you emails:
 ### Build Status Badge
 
 Add to your README:
+
 ```markdown
 ![iOS Build](https://github.com/DTB396/Evident.info/workflows/iOS%20Build/badge.svg)
 ```

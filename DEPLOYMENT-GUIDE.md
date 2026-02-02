@@ -3,6 +3,7 @@
 ## Overview
 
 This guide covers deployment strategies for all Evident platforms:
+
 - **Windows Desktop** - .NET MAUI app via Microsoft Store or direct download
 - **Android** - .NET MAUI app via Google Play Store
 - **iOS** - .NET MAUI app via Apple App Store
@@ -14,12 +15,14 @@ This guide covers deployment strategies for all Evident platforms:
 ## Prerequisites
 
 ### All Platforms
+
 - Git repository access
 - CI/CD pipeline (GitHub Actions recommended)
 - Code signing certificates
 - API keys and secrets management
 
 ### Platform-Specific
+
 - **Windows**: Microsoft Store developer account
 - **Android**: Google Play Console account, signing keystore
 - **iOS**: Apple Developer account, provisioning profiles
@@ -30,12 +33,14 @@ This guide covers deployment strategies for all Evident platforms:
 ## 1. Windows Desktop Deployment
 
 ### Build for Production
+
 ```powershell
 cd src/Evident.Mobile
 dotnet publish -f net10.0-windows -c Release -p:RuntimeIdentifierOverride=win10-x64
 ```
 
 ### Package as MSIX
+
 ```powershell
 # Install Windows SDK
 # Create MSIX package
@@ -43,6 +48,7 @@ dotnet publish -f net10.0-windows -c Release /p:GenerateAppxPackageOnBuild=true
 ```
 
 ### Microsoft Store Submission
+
 1. Create app listing in Partner Center
 2. Upload MSIX package
 3. Complete store listing (screenshots, description)
@@ -50,6 +56,7 @@ dotnet publish -f net10.0-windows -c Release /p:GenerateAppxPackageOnBuild=true
 5. Monitor certification status
 
 ### Direct Download Alternative
+
 ```powershell
 # Create installer with Inno Setup or WiX
 # Sign with code signing certificate
@@ -61,12 +68,14 @@ signtool sign /f certificate.pfx /p password /t http://timestamp.digicert.com Ev
 ## 2. Android Deployment
 
 ### Build Release APK/AAB
+
 ```bash
 cd src/Evident.Mobile
 dotnet publish -f net10.0-android -c Release
 ```
 
 ### Sign APK
+
 ```bash
 # Generate keystore (first time only)
 keytool -genkey -v -keystore Evident.keystore -alias Evident -keyalg RSA -keysize 2048 -validity 10000
@@ -79,6 +88,7 @@ zipalign -v 4 app-release-unsigned.apk Evident.apk
 ```
 
 ### Google Play Console
+
 1. Create app in Play Console
 2. Complete store listing
 3. Upload AAB (Android App Bundle)
@@ -86,6 +96,7 @@ zipalign -v 4 app-release-unsigned.apk Evident.apk
 5. Submit for review
 
 ### Configuration
+
 ```xml
 <!-- AndroidManifest.xml -->
 <manifest>
@@ -101,12 +112,14 @@ zipalign -v 4 app-release-unsigned.apk Evident.apk
 ## 3. iOS Deployment
 
 ### Build for iOS
+
 ```bash
 cd src/Evident.Mobile
 dotnet build -f net10.0-ios -c Release
 ```
 
 ### Archive and Export
+
 ```bash
 # Archive (requires macOS)
 dotnet publish -f net10.0-ios -c Release -p:ArchiveOnBuild=true
@@ -116,6 +129,7 @@ dotnet publish -f net10.0-ios -c Release -p:ArchiveOnBuild=true
 ```
 
 ### App Store Connect
+
 1. Create app record in App Store Connect
 2. Upload IPA via Transporter or Xcode
 3. Complete app information
@@ -123,6 +137,7 @@ dotnet publish -f net10.0-ios -c Release -p:ArchiveOnBuild=true
 5. Submit for review
 
 ### Provisioning
+
 - Create App ID in Apple Developer Portal
 - Generate Distribution Certificate
 - Create Distribution Provisioning Profile
@@ -135,6 +150,7 @@ dotnet publish -f net10.0-ios -c Release -p:ArchiveOnBuild=true
 ### Production Server Setup
 
 #### Option A: Render.com (Recommended)
+
 ```yaml
 # render.yaml
 services:
@@ -155,6 +171,7 @@ services:
 ```
 
 #### Option B: Azure App Service
+
 ```bash
 # Create App Service
 az webapp create --resource-group Evident --plan EvidentPlan --name Evident-api --runtime "PYTHON:3.9"
@@ -170,6 +187,7 @@ az webapp config appsettings set --resource-group Evident --name Evident-api --s
 ```
 
 #### Option C: Docker Deployment
+
 ```dockerfile
 # Dockerfile
 FROM python:3.9-slim
@@ -191,6 +209,7 @@ docker run -p 5000:5000 --env-file .env Evident-api
 ```
 
 ### Database Migration
+
 ```bash
 # PostgreSQL production setup
 flask db upgrade
@@ -200,6 +219,7 @@ alembic upgrade head
 ```
 
 ### Environment Variables
+
 ```bash
 # .env.production
 FLASK_ENV=production
@@ -216,12 +236,14 @@ SENTRY_DSN=https://...
 ## 5. ASP.NET Core Web API Deployment
 
 ### Build for Production
+
 ```bash
 cd src/Evident.Web
 dotnet publish -c Release -o ./publish
 ```
 
 ### Azure App Service
+
 ```bash
 # Create App Service
 az webapp create --resource-group Evident --plan EvidentPlan --name Evident-webapi --runtime "DOTNET:9.0"
@@ -237,6 +259,7 @@ az webapp config appsettings set --resource-group Evident --name Evident-webapi 
 ```
 
 ### Docker Deployment
+
 ```dockerfile
 # Dockerfile
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
@@ -262,6 +285,7 @@ ENTRYPOINT ["dotnet", "Evident.Web.dll"]
 ```
 
 ### Configuration
+
 ```json
 // appsettings.Production.json
 {
@@ -302,18 +326,18 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '10.0.x'
-      
+          dotnet-version: "10.0.x"
+
       - name: Restore dependencies
         run: dotnet restore src/Evident.Mobile/Evident.Mobile.csproj
-      
+
       - name: Build Android
         run: dotnet build src/Evident.Mobile/Evident.Mobile.csproj -f net10.0-android -c Release
-      
+
       - name: Sign APK
         if: github.ref == 'refs/heads/main'
         run: |
@@ -323,7 +347,7 @@ jobs:
             -keystore Evident.keystore \
             -storepass ${{ secrets.KEYSTORE_PASSWORD }} \
             bin/Release/net10.0-android/com.Evident.mobile.apk Evident
-      
+
       - name: Upload APK
         uses: actions/upload-artifact@v3
         with:
@@ -334,25 +358,25 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '10.0.x'
-      
+          dotnet-version: "10.0.x"
+
       - name: Install provisioning profile
         run: |
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           echo "${{ secrets.IOS_PROVISIONING_PROFILE }}" | base64 -d > \
             ~/Library/MobileDevice/Provisioning\ Profiles/Evident.mobileprovision
-      
+
       - name: Build iOS
         run: dotnet build src/Evident.Mobile/Evident.Mobile.csproj -f net10.0-ios -c Release
-      
+
       - name: Archive
         if: github.ref == 'refs/heads/main'
         run: dotnet publish src/Evident.Mobile/Evident.Mobile.csproj -f net10.0-ios -c Release -p:ArchiveOnBuild=true
-      
+
       - name: Upload IPA
         uses: actions/upload-artifact@v3
         with:
@@ -375,20 +399,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
-      
+          python-version: "3.9"
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-      
+
       - name: Run tests
         run: pytest
-      
+
       - name: Deploy to Render
         if: success()
         run: |
@@ -410,24 +434,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '9.0.x'
-      
+          dotnet-version: "9.0.x"
+
       - name: Restore dependencies
         run: dotnet restore src/Evident.Web/Evident.Web.csproj
-      
+
       - name: Build
         run: dotnet build src/Evident.Web/Evident.Web.csproj -c Release
-      
+
       - name: Test
         run: dotnet test
-      
+
       - name: Publish
         run: dotnet publish src/Evident.Web/Evident.Web.csproj -c Release -o ./publish
-      
+
       - name: Deploy to Azure
         uses: azure/webapps-deploy@v2
         with:
@@ -441,15 +465,18 @@ jobs:
 ## 7. Secrets Management
 
 ### GitHub Secrets
+
 Required secrets for CI/CD:
 
 **Mobile Apps**:
+
 - `ANDROID_KEYSTORE` - Base64 encoded keystore
 - `KEYSTORE_PASSWORD` - Keystore password
 - `IOS_PROVISIONING_PROFILE` - Base64 encoded profile
 - `IOS_CERTIFICATE` - Base64 encoded certificate
 
 **Backend**:
+
 - `RENDER_DEPLOY_HOOK` - Render.com deploy webhook
 - `AZURE_WEBAPP_PUBLISH_PROFILE` - Azure publish profile
 - `DATABASE_URL` - Production database URL
@@ -458,6 +485,7 @@ Required secrets for CI/CD:
 - `JWT_SECRET` - JWT signing key
 
 ### Environment-Specific Configuration
+
 ```bash
 # Development
 API_BASE_URL=http://localhost:5000
@@ -474,12 +502,14 @@ API_BASE_URL=https://api.Evident.info
 ## 8. Monitoring & Analytics
 
 ### Application Insights (Azure)
+
 ```csharp
 // Program.cs
 builder.Services.AddApplicationInsightsTelemetry();
 ```
 
 ### Sentry Error Tracking
+
 ```python
 # app.py
 import sentry_sdk
@@ -487,6 +517,7 @@ sentry_sdk.init(dsn=os.getenv('SENTRY_DSN'))
 ```
 
 ### PostHog Analytics
+
 ```python
 # app.py
 from posthog import Posthog
@@ -498,18 +529,21 @@ posthog = Posthog(os.getenv('POSTHOG_API_KEY'))
 ## 9. Performance Optimization
 
 ### Mobile Apps
+
 - Enable AOT compilation for iOS
 - Use R8/ProGuard for Android
 - Implement image caching
 - Lazy load views
 
 ### Web API
+
 - Enable response caching
 - Use CDN for static assets
 - Implement Redis caching
 - Enable gzip compression
 
 ### Flask Backend
+
 - Use Gunicorn with multiple workers
 - Enable Redis caching
 - Implement database connection pooling
@@ -520,11 +554,13 @@ posthog = Posthog(os.getenv('POSTHOG_API_KEY'))
 ## 10. Rollback Strategy
 
 ### Mobile Apps
+
 - Keep previous version available in stores
 - Implement feature flags
 - Monitor crash reports closely
 
 ### Backend Services
+
 - Use blue-green deployment
 - Keep previous Docker images
 - Database migration rollback scripts
@@ -535,6 +571,7 @@ posthog = Posthog(os.getenv('POSTHOG_API_KEY'))
 ## Quick Deployment Checklist
 
 ### Pre-Deployment
+
 - [ ] All tests passing
 - [ ] Code reviewed and approved
 - [ ] Version numbers updated
@@ -543,6 +580,7 @@ posthog = Posthog(os.getenv('POSTHOG_API_KEY'))
 - [ ] Database migrations ready
 
 ### Mobile Apps
+
 - [ ] Build signed release
 - [ ] Test on physical devices
 - [ ] Update store listings
@@ -550,6 +588,7 @@ posthog = Posthog(os.getenv('POSTHOG_API_KEY'))
 - [ ] Submit for review
 
 ### Backend
+
 - [ ] Environment variables set
 - [ ] Database backed up
 - [ ] Run migrations
@@ -559,6 +598,7 @@ posthog = Posthog(os.getenv('POSTHOG_API_KEY'))
 - [ ] Monitor logs and metrics
 
 ### Post-Deployment
+
 - [ ] Verify all platforms working
 - [ ] Check error rates
 - [ ] Monitor performance
@@ -570,6 +610,7 @@ posthog = Posthog(os.getenv('POSTHOG_API_KEY'))
 ## Support
 
 For deployment issues:
+
 - Check logs in respective platforms
 - Review CI/CD pipeline outputs
 - Consult platform-specific documentation

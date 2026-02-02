@@ -1,6 +1,7 @@
 # ?? Deploy Evident.info to Render - COMPLETE GUIDE
 
 ## ? Prerequisites
+
 - ? GitHub account with Evident.info repo
 - ? All code pushed to GitHub (DONE!)
 
@@ -34,23 +35,25 @@
 4. **Configure Service:**
 
    **Name:** `Evident-legal-tech`
-   
+
    **Region:** `Oregon (US West)` (or closest to you)
-   
+
    **Branch:** `main`
-   
+
    **Runtime:** `Python 3`
-   
+
    **Build Command:**
+
    ```bash
    pip install -r requirements.txt
    ```
-   
+
    **Start Command:**
+
    ```bash
    gunicorn app:app --bind 0.0.0.0:$PORT --workers 2 --timeout 300
    ```
-   
+
    **Instance Type:** `Free`
 
 5. **Click:** `Create Web Service`
@@ -64,21 +67,25 @@ While the service is deploying, click **"Environment"** in left sidebar:
 **Add these variables** (click "+ Add Environment Variable"):
 
 1. **SECRET_KEY**
+
    ```
    Evident-legal-tech-2026-production-secure-key-change-me-to-random-string
    ```
 
 2. **FLASK_ENV**
+
    ```
    production
    ```
 
 3. **MAX_CONTENT_LENGTH**
+
    ```
    5368709120
    ```
 
 4. **CORS_ORIGINS**
+
    ```
    https://Evident-legal-tech.onrender.com
    ```
@@ -93,11 +100,13 @@ While the service is deploying, click **"Environment"** in left sidebar:
 **Optional (for AI features):**
 
 6. **OPENAI_API_KEY** (if you have one)
+
    ```
    sk-your-openai-key-here
    ```
 
 7. **ANTHROPIC_API_KEY** (if you have one)
+
    ```
    sk-ant-your-anthropic-key-here
    ```
@@ -115,6 +124,7 @@ While the service is deploying, click **"Environment"** in left sidebar:
 
 1. Go to **"Events"** tab
 2. You'll see the build progress:
+
    ```
    ?? Installing dependencies...
    ?? Building...
@@ -131,11 +141,13 @@ While the service is deploying, click **"Environment"** in left sidebar:
 Once you see **"Live"** in green, your URL is ready:
 
 **Your live URL:**
+
 ```
 https://Evident-legal-tech.onrender.com
 ```
 
 **Test it:**
+
 1. Open that URL in your browser
 2. You should see the Evident.info homepage
 3. Click "Login"
@@ -154,6 +166,7 @@ After first login, change the default password!
 ## ?? What's Deployed:
 
 ? **Full Flask Application**
+
 - User authentication
 - Dashboard
 - PDF upload
@@ -162,6 +175,7 @@ After first login, change the default password!
 - File storage (Render disk)
 
 ? **Features Working:**
+
 - Login/Logout
 - User management
 - PDF processing
@@ -169,6 +183,7 @@ After first login, change the default password!
 - Case management
 
 ?? **AI Features:**
+
 - Requires API keys (optional)
 - Add keys in Environment Variables
 
@@ -177,18 +192,22 @@ After first login, change the default password!
 ## ?? Render Dashboard Features:
 
 ### **Logs:**
+
 - Click "Logs" to see real-time server output
 - Debug errors here
 
 ### **Metrics:**
+
 - See CPU, Memory, Request stats
 
 ### **Settings:**
+
 - Update environment variables
 - Change instance size (upgrade from free)
 - Configure custom domains
 
 ### **Auto-Deploy:**
+
 - Every `git push` to `main` auto-deploys!
 - Takes 2-3 minutes
 
@@ -221,25 +240,30 @@ If you own `Evident.info`:
 ## ?? Troubleshooting
 
 ### **Build Failed**
+
 - Check "Logs" tab
 - Common issue: Missing dependency in `requirements.txt`
 - Fix: Update `requirements.txt`, commit, push
 
 ### **App Crashes**
+
 - Check "Logs" tab for errors
 - Common: Database connection issues
 - Fix: Verify `DATABASE_URL` is set
 
 ### **404 Not Found**
+
 - Render is sleeping (free tier sleeps after 15 min inactivity)
 - Wait 30 seconds for wake-up
 - Solution: Upgrade to paid tier ($7/month for always-on)
 
 ### **File Uploads Not Working**
+
 - Free tier has limited disk space
 - Solution: Use AWS S3 for uploads (config needed)
 
 ### **Database Full**
+
 - Free PostgreSQL: 256MB limit
 - Solution: Upgrade database or clean old data
 
@@ -248,11 +272,13 @@ If you own `Evident.info`:
 ## ?? Pricing
 
 **Current Setup (FREE):**
+
 - Web Service: Free tier (750 hrs/month)
 - PostgreSQL: Free tier (256MB)
 - **Total: $0/month**
 
 **Upgrade Options:**
+
 - Starter Web Service: $7/month (always-on, no sleep)
 - Starter PostgreSQL: $7/month (1GB storage)
 - Pro: $25/month (more resources)

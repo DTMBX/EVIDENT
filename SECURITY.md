@@ -7,6 +7,7 @@
 The following files contain sensitive information and must NEVER be committed to Git:
 
 #### Environment Variables
+
 - `.env`
 - `.env.local`
 - `.env.production`
@@ -14,12 +15,14 @@ The following files contain sensitive information and must NEVER be committed to
 - Any file containing API keys or secrets
 
 #### Database Files
+
 - `*.db`
 - `*.sqlite`
 - `*.sqlite3`
 - `instance/*.db`
 
 #### Signing Certificates & Keys
+
 - `*.keystore`
 - `*.jks`
 - `*.p12`
@@ -29,12 +32,14 @@ The following files contain sensitive information and must NEVER be committed to
 - `*.key`
 
 #### Configuration Files
+
 - `appsettings.Production.json`
 - `appsettings.Staging.json`
 - `config.production.py`
 - `launchSettings.json`
 
 #### Financial & Business Data
+
 - `INVESTOR-LOG.md`
 - `*CONFIDENTIAL*.md`
 - `*.xlsx` (financial spreadsheets)
@@ -63,6 +68,7 @@ These files are safe to commit and should be in version control:
 If you need to commit production configuration:
 
 1. **Use Environment Variables** (Recommended)
+
    ```bash
    # Store in CI/CD secrets, not in files
    export OPENAI_API_KEY=sk-...
@@ -70,17 +76,18 @@ If you need to commit production configuration:
    ```
 
 2. **Use git-crypt** (For team collaboration)
+
    ```bash
    # Install git-crypt
    brew install git-crypt  # macOS
    choco install git-crypt # Windows
-   
+
    # Initialize
    git-crypt init
-   
+
    # Add users
    git-crypt add-gpg-user USER_ID
-   
+
    # Mark files for encryption in .gitattributes
    echo "*.production.json filter=git-crypt diff=git-crypt" >> .gitattributes
    echo "config.production.py filter=git-crypt diff=git-crypt" >> .gitattributes
@@ -111,6 +118,7 @@ Before committing, verify:
 ## 🔍 Scanning for Secrets
 
 ### Manual Check
+
 ```bash
 # Search for potential secrets in staged files
 git diff --cached | grep -i "api_key\|secret\|password\|token"
@@ -119,6 +127,7 @@ git diff --cached | grep -i "api_key\|secret\|password\|token"
 ### Automated Tools
 
 #### git-secrets (Recommended)
+
 ```bash
 # Install
 brew install git-secrets  # macOS
@@ -134,6 +143,7 @@ git secrets --add 'sk_live_[a-zA-Z0-9]{99}'  # Stripe keys
 ```
 
 #### TruffleHog
+
 ```bash
 # Scan repository history
 trufflehog git file://. --only-verified
@@ -151,12 +161,13 @@ trufflehog git file://. --only-verified
    - Invalidate tokens
 
 2. **Remove from Git history**
+
    ```bash
    # Using BFG Repo-Cleaner (recommended)
    bfg --delete-files .env
    git reflog expire --expire=now --all
    git gc --prune=now --aggressive
-   
+
    # Force push (WARNING: Rewrites history)
    git push --force
    ```
@@ -175,6 +186,7 @@ trufflehog git file://. --only-verified
 ## 📋 Environment Variable Management
 
 ### Development
+
 ```bash
 # Create .env from template
 cp .env.template .env
@@ -186,6 +198,7 @@ nano .env
 ### Production
 
 **Option 1: Cloud Provider Secrets**
+
 ```bash
 # Azure
 az keyvault secret set --vault-name EvidentVault --name OpenAIKey --value "sk-..."
@@ -195,6 +208,7 @@ aws secretsmanager create-secret --name OpenAIKey --secret-string "sk-..."
 ```
 
 **Option 2: CI/CD Secrets**
+
 ```yaml
 # GitHub Actions
 env:
@@ -203,6 +217,7 @@ env:
 ```
 
 **Option 3: Docker Secrets**
+
 ```bash
 # Create secret
 echo "sk-..." | docker secret create openai_key -
@@ -245,6 +260,7 @@ git status --ignored
 ## 🎯 Quick Reference
 
 ### Files to NEVER commit:
+
 - `.env*` (except `.env.template`)
 - `*.db`, `*.sqlite`
 - `*.keystore`, `*.p12`, `*.pem`
@@ -253,6 +269,7 @@ git status --ignored
 - `*.xlsx` (financial data)
 
 ### Safe to commit:
+
 - `.env.template`
 - Source code
 - Documentation
@@ -260,6 +277,7 @@ git status --ignored
 - Development configs
 
 ### Tools:
+
 - `git-secrets` - Prevent commits with secrets
 - `git-crypt` - Encrypt files in Git
 - `trufflehog` - Scan for secrets
@@ -284,6 +302,7 @@ If you discover a security issue:
 ## ✅ Current Repository Status
 
 This repository has:
+
 - ✅ Comprehensive `.gitignore`
 - ✅ `.env.template` for safe configuration
 - ✅ Security documentation

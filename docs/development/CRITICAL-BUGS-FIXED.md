@@ -7,6 +7,7 @@
 **Location:** `app.py` line 68
 
 **Problem:**
+
 ```python
 if database_url:
     database_url = database_url.replace('postgres://', 'postgresql://', 1)
@@ -16,12 +17,14 @@ if database_url:
 **Even when DATABASE_URL is set (on Render), it was using SQLite!**
 
 This caused:
+
 - App tries to use SQLite on Render (not available)
 - Database file can't be created
 - App crashes with error
 - Internal Server Error 500
 
 **Fixed To:**
+
 ```python
 if database_url:
     database_url = database_url.replace('postgres://', 'postgresql://', 1)
@@ -35,11 +38,13 @@ if database_url:
 **Location:** `render.yaml`
 
 **Problem:**
+
 - Database defined but not linked to web service
 - DATABASE_URL not passed to app
 - App can't connect to PostgreSQL
 
 **Fixed:**
+
 ```yaml
 envVars:
   - key: DATABASE_URL
@@ -53,12 +58,14 @@ envVars:
 ### **BUG #3: CORS_ORIGINS Not Set**
 
 **Problem:**
+
 ```yaml
 - key: CORS_ORIGINS
-  sync: false  # ? This does nothing!
+  sync: false # ? This does nothing!
 ```
 
 **Fixed:**
+
 ```yaml
 - key: CORS_ORIGINS
   value: "https://Evident.info,https://www.Evident.info,https://Evident-legal-tech.onrender.com"
@@ -79,11 +86,13 @@ envVars:
 ## ?? **Deployment:**
 
 ### **Changes Committed:**
+
 - ? app.py (database fix)
 - ? render.yaml (database linking)
 - ? Ready to deploy
 
 ### **Push to Render:**
+
 ```bash
 git add app.py render.yaml scripts/get-render-error.ps1
 git commit -m "fix: Critical database configuration bugs - use PostgreSQL on Render"
@@ -94,13 +103,13 @@ git push origin main
 
 ## ?? **Timeline:**
 
-| Time | Status |
-|------|--------|
-| **Now** | Pushing fixes ? |
-| **+30 sec** | Render detects push |
-| **+2 min** | Database provisioned |
-| **+5 min** | Build complete |
-| **+7 min** | **LIVE!** ? |
+| Time        | Status               |
+| ----------- | -------------------- |
+| **Now**     | Pushing fixes ?      |
+| **+30 sec** | Render detects push  |
+| **+2 min**  | Database provisioned |
+| **+5 min**  | Build complete       |
+| **+7 min**  | **LIVE!** ?          |
 
 ---
 
@@ -127,6 +136,7 @@ https://Evident-legal-tech.onrender.com
 ```
 
 **Should show:**
+
 - ? Homepage loads
 - ? No "Internal Server Error"
 - ? Can login
@@ -138,11 +148,13 @@ https://Evident-legal-tech.onrender.com
 ## ?? **How to Verify:**
 
 ### **Check Database:**
+
 1. Render dashboard ? Evident-db
 2. Should show "Available"
 3. Connection string present
 
 ### **Check App Logs:**
+
 1. Render dashboard ? Evident-legal-tech ? Logs
 2. Should see:
    ```
@@ -152,6 +164,7 @@ https://Evident-legal-tech.onrender.com
    ```
 
 ### **No Errors:**
+
 - ? No "could not connect to database"
 - ? No "ModuleNotFoundError"
 - ? No "Internal Server Error"
@@ -179,12 +192,14 @@ https://Evident-legal-tech.onrender.com
 ## ?? **Lessons Learned:**
 
 ### **Always Check:**
+
 - ? Database URL is actually used
 - ? Environment variables are linked
 - ? Render logs after deploy
 - ? Test production config locally
 
 ### **Best Practices:**
+
 - ? Use docker-compose for local dev (matches production)
 - ? Test with PostgreSQL before deploying
 - ? Review render.yaml syntax
@@ -195,16 +210,19 @@ https://Evident-legal-tech.onrender.com
 ## ? **Summary:**
 
 **3 Critical Bugs Found:**
+
 1. ? SQLite used instead of PostgreSQL
 2. ? DATABASE_URL not linked
 3. ? CORS_ORIGINS not set
 
 **All Fixed:**
+
 1. ? PostgreSQL properly configured
 2. ? DATABASE_URL linked from database
 3. ? CORS_ORIGINS set correctly
 
 **Result:**
+
 - ?? App will deploy successfully
 - ?? Database will work
 - ?? No more Internal Server Error
@@ -216,11 +234,13 @@ https://Evident-legal-tech.onrender.com
 **These fixes are CRITICAL for Render to work!**
 
 Without them:
+
 - App crashes immediately
 - Can't connect to database
 - Shows "Internal Server Error"
 
 With them:
+
 - App starts successfully
 - Connects to PostgreSQL
 - Works perfectly!

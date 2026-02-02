@@ -12,6 +12,7 @@ This creates `instance/Evident_legal.db` with tables for documents, pages, FTS i
 ## 2. Ingest Documents
 
 ### Python API
+
 ```python
 from legal_library_adapter import LegalLibraryAdapter
 
@@ -37,6 +38,7 @@ doc_id = adapter.ingest_text_document(
 ## 3. Retrieve Passages
 
 ### Python API
+
 ```python
 from retrieval_service import RetrievalService
 
@@ -163,7 +165,7 @@ for cite in citations:
 
 # Document usage stats
 stats = service.get_citation_stats("legal_library_abc123")
-# {'total_citations': 15, 'analyses_count': 3, 
+# {'total_citations': 15, 'analyses_count': 3,
 #  'first_cited': '2024-01-30...', 'last_cited': '2024-01-30...'}
 ```
 
@@ -175,7 +177,7 @@ python -m pytest tests/test_unified_retrieval.py -v
 
 # All 5 tests should pass:
 # ✓ test_01_ingest_text_document
-# ✓ test_02_retrieve_passages  
+# ✓ test_02_retrieve_passages
 # ✓ test_03_persist_citations
 # ✓ test_04_municipal_code_storage
 # ✓ test_05_end_to_end_citation_flow
@@ -202,7 +204,7 @@ python -m pipeline.cli citations analysis_abc123
 User Query
     ↓
 RetrievalService.retrieve(query, filters)
-    ↓ 
+    ↓
 FTS5 BM25 Search on document_fts
     ↓
 Returns Passage[] with:
@@ -233,19 +235,23 @@ Citations Table
 ## Database Schema
 
 **Documents:**
+
 - document_id (unique), sha256, filename, storage_path_original
 - source_system ('legal_library', 'muni_code', 'bwc')
 - document_type, metadata (JSON)
 
 **Document Pages:**
+
 - document_id, page_number, text_content
 - Auto-syncs to FTS5 via triggers
 
 **Citations:**
+
 - analysis_id, document_id, page_number
 - text_start, text_end, snippet, citation_rank
 
 **Municipal Sources/Sections:**
+
 - state, county, municipality, provider
 - section_citation, title, text, source_url
 

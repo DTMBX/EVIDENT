@@ -21,12 +21,14 @@
 ## 🧪 TEST CHECKOUT FLOW
 
 ### Step 1: Visit Pricing Page
+
 ```
 URL: https://Evident.info/payments/pricing
 Expected: See pricing table with Professional ($199) and Premium ($499) plans
 ```
 
 ### Step 2: Select a Plan
+
 - Click "Subscribe" on either Professional or Premium plan
 - Expected: Redirect to Stripe Checkout page
 
@@ -35,21 +37,25 @@ Expected: See pricing table with Professional ($199) and Premium ($499) plans
 **Test Card Number:** `4242 4242 4242 4242`
 
 **Other Test Cards Available:**
+
 - `4000 0025 0000 3155` - Requires authentication (3D Secure)
 - `4000 0000 0000 9995` - Declined card
 - `4000 0082 6000 0000` - Declined (insufficient funds)
 
 **Card Details:**
+
 - Expiry: Any future date (e.g., `12/26`)
 - CVC: Any 3 digits (e.g., `123`)
 - ZIP: Any 5 digits (e.g., `12345`)
 - Email: Any email address
 
 ### Step 4: Complete Checkout
+
 - Click "Subscribe" or "Pay"
 - Expected: Payment processing → Success page
 
 ### Step 5: Verify Success
+
 - ✅ Redirected to `/payments/success` page
 - ✅ Success message displayed
 - ✅ Analytics event fired (check browser console)
@@ -61,6 +67,7 @@ Expected: See pricing table with Professional ($199) and Premium ($499) plans
 ### In Stripe Dashboard
 
 1. **Go to Webhooks:**
+
    ```
    https://dashboard.stripe.com/test/webhooks/we_1StxRKHGgvJKMFG1nEgqpfm4
    ```
@@ -119,6 +126,7 @@ with app.app_context():
 ```
 
 Expected output:
+
 ```
 User: test@example.com
 Tier: PROFESSIONAL  (or PREMIUM)
@@ -130,24 +138,30 @@ Subscription active: True
 ## 🐛 TROUBLESHOOTING
 
 ### Pricing Page Returns 404
+
 **Cause:** Payment routes not deployed  
 **Solution:** Check Render deployment logs, ensure latest commit deployed
 
 ### Webhook Not Firing
+
 **Cause:** Webhook URL incorrect or secret missing  
-**Solution:** 
+**Solution:**
+
 1. Verify webhook endpoint: `https://Evident.info/payments/webhook`
 2. Check Render env var: `STRIPE_WEBHOOK_SECRET` is set
 3. Check webhook events are selected in Stripe dashboard
 
 ### Checkout Redirects But No Success Page
+
 **Cause:** Session handling or database error  
 **Solution:**
+
 1. Check Render logs for errors
 2. Verify database migration ran
 3. Check user exists and tier updated
 
 ### Test Card Declined
+
 **Cause:** Wrong test card number  
 **Solution:** Use exact card number: `4242 4242 4242 4242`
 
@@ -229,15 +243,15 @@ Payment system is working correctly when:
 
 **Last Tested:** January 26, 2026
 
-| Test | Status | Notes |
-|------|--------|-------|
-| Pricing page loads | ✅ | Returns 200 OK |
-| Stripe elements present | ⏳ | Needs browser test |
-| Test card checkout | ⏳ | Ready to test |
-| Webhook delivery | ⏳ | Ready to verify |
-| User tier upgrade | ⏳ | Needs database check |
-| Success page redirect | ⏳ | Needs checkout test |
-| Analytics tracking | ⏳ | Needs browser test |
+| Test                    | Status | Notes                |
+| ----------------------- | ------ | -------------------- |
+| Pricing page loads      | ✅     | Returns 200 OK       |
+| Stripe elements present | ⏳     | Needs browser test   |
+| Test card checkout      | ⏳     | Ready to test        |
+| Webhook delivery        | ⏳     | Ready to verify      |
+| User tier upgrade       | ⏳     | Needs database check |
+| Success page redirect   | ⏳     | Needs checkout test  |
+| Analytics tracking      | ⏳     | Needs browser test   |
 
 **Next:** Complete manual checkout test with browser
 
@@ -252,4 +266,4 @@ Payment system is working correctly when:
 
 ---
 
-*Ready to accept your first paying customer!* 🎉
+_Ready to accept your first paying customer!_ 🎉

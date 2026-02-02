@@ -81,6 +81,7 @@ Evident Legal Technologies
 📞 [Your phone number]
 
 **Attachments:**
+
 - Evident-Bar-Association-Partnership-Deck.pdf
 
 ---
@@ -104,6 +105,7 @@ I know you're busy, so I'll keep this short:
 **Quick Question:** Would your members benefit from a tool that reduces BWC analysis time from 20 hours to 2 hours per case?
 
 If yes, I'd love to discuss how Evident can:
+
 1. Save your members time (85% faster analysis)
 2. Generate revenue for [State Bar] (10% commission on subscriptions)
 3. Provide valuable CLE content (1.5 credits on BWC analysis)
@@ -136,7 +138,7 @@ I've created a **free BWC Analysis Checklist (PDF)** that defense attorneys can 
 ✓ 7-step analysis framework  
 ✓ Legal standards for admissibility  
 ✓ Common discrepancies to look for  
-✓ Cross-examination techniques  
+✓ Cross-examination techniques
 
 **No strings attached**—just a resource your members might find helpful.
 
@@ -216,6 +218,7 @@ partnerships@Evident.info
 ## Tips for Effective Outreach
 
 **Timing:**
+
 - Email #1: Initial outreach (Tuesday-Thursday, 9-11 AM)
 - Email #2: Follow-up 7 days later
 - Email #3: Value-add 14 days later (free resource)
@@ -223,22 +226,26 @@ partnerships@Evident.info
 - Email #5: Final check-in 60 days later
 
 **Personalization:**
+
 - Research the bar association's priorities (listed on website)
 - Mention recent bar events or initiatives
 - Reference any mutual connections (if applicable)
 
 **Subject Line Best Practices:**
+
 - Keep under 50 characters
 - Avoid ALL CAPS or excessive punctuation
 - Use "Partnership Opportunity" not "Vendor Pitch"
 - Include bar association name for personalization
 
 **Call-to-Action:**
+
 - Always offer 2-3 specific time slots
 - Include Calendly link for easy scheduling
 - Make it easy to say yes (one-click calendar invite)
 
 **Follow-Up Strategy:**
+
 - If no response after 5 emails, move to next target
 - Add to "revisit in 6 months" list
 - Track all outreach in spreadsheet (see: partnership-outreach-tracker.csv)

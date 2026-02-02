@@ -12,6 +12,7 @@
 ## 🎯 What You Have Now
 
 ### Complete 5-Tier Pricing System
+
 - **FREE** - $0 (demo + one upload, 163% ROI)
 - **STARTER** - $29/mo (entry tier, 84% margin)
 - **PROFESSIONAL** - $79/mo (3-day trial, 83% margin)
@@ -19,6 +20,7 @@
 - **ENTERPRISE** - $599/mo (organizations, 52% margin)
 
 ### Production-Ready Code
+
 - ✅ Stripe subscription integration (452 lines)
 - ✅ Tier-based access control (315 lines)
 - ✅ Usage tracking dashboard (437 lines)
@@ -28,6 +30,7 @@
 - ✅ Routes integrated into app.py
 
 ### Comprehensive Documentation
+
 1. **TIER-SYSTEM-MASTERED.md** - Master overview
 2. **TIER-SYSTEM-COMPLETE.md** - Complete breakdown
 3. **pricing-5tier.html** - Beautiful pricing page
@@ -80,6 +83,7 @@
 ### ⏰ REMAINING TASKS
 
 #### Task 1: Deploy Pricing Page (2 min)
+
 ```bash
 mv pricing.html pricing-old-backup.html
 mv pricing-5tier.html pricing.html
@@ -91,15 +95,18 @@ git push
 #### Task 2: FREE Tier Setup (15 min)
 
 **When dependencies installed:**
+
 ```bash
 python migrate_add_free_tier_uploads.py
 ```
 
 **Demo assets** (OPTIONAL - skip for launch):
+
 - See ASSETS-SETUP-GUIDE.md
 - Can add real screenshots post-launch
 
 **Test:**
+
 - Visit /free-dashboard
 - Verify demo cases display
 - Check one-time upload status
@@ -109,6 +116,7 @@ python migrate_add_free_tier_uploads.py
 **Follow:** STRIPE-5TIER-SETUP-GUIDE.md
 
 Steps:
+
 1. Create 4 products in Stripe (15 min)
    - STARTER: $29/month
    - PROFESSIONAL: $79/month (3-day trial)
@@ -116,14 +124,15 @@ Steps:
    - ENTERPRISE: $599/month
 
 2. Get API keys (3 min)
-   - Publishable key: pk_test_...
-   - Secret key: sk_test_...
+   - Publishable key: pk*test*...
+   - Secret key: sk*test*...
 
 3. Create webhook (5 min)
    - URL: https://Evident.info/api/stripe/webhook
-   - Events: checkout.*, customer.subscription.*
+   - Events: checkout._, customer.subscription._
 
 4. Update .env (2 min)
+
    ```bash
    STRIPE_PUBLISHABLE_KEY=pk_test_...
    STRIPE_SECRET_KEY=sk_test_...
@@ -144,6 +153,7 @@ Steps:
 #### Task 4: End-to-End Testing (15 min)
 
 **Test each tier:**
+
 - [ ] FREE dashboard works
 - [ ] STARTER subscription works
 - [ ] PROFESSIONAL trial works
@@ -156,6 +166,7 @@ Steps:
 ## 🚀 LAUNCH SEQUENCE
 
 ### Pre-Launch Checklist
+
 - [ ] Pricing page deployed
 - [ ] FREE tier migration run
 - [ ] Stripe configured
@@ -164,6 +175,7 @@ Steps:
 - [ ] App restarted
 
 ### Launch!
+
 ```bash
 # 1. Final commit
 git add .
@@ -184,18 +196,21 @@ git push origin main
 ## 📊 What to Monitor
 
 ### Day 1
+
 - First subscriber (🎉 celebrate!)
 - Webhook events processing
 - FREE tier signups
 - Any errors in logs
 
 ### Week 1
+
 - FREE → STARTER conversion (target: 5-10%)
 - PROFESSIONAL trial starts
 - Support requests
 - User feedback
 
 ### Month 1
+
 - Calculate actual margins
 - Compare to projections ($80K+ ARR year 1)
 - Optimize based on data
@@ -206,6 +221,7 @@ git push origin main
 ## 💰 Revenue Projections
 
 ### Conservative Year 1:
+
 ```
 1,000 FREE users     →  Loss leader (converts at 163% ROI)
   300 STARTER        →  $104,400/year
@@ -221,6 +237,7 @@ Margin:                82% ✅
 ```
 
 ### First Dollar Timeline:
+
 - **Hour 1:** Configure Stripe (30 min)
 - **Hour 1.5:** Test & launch
 - **Hour 2-48:** First subscriber! 💵
@@ -261,6 +278,7 @@ Margin:                82% ✅
 ## 📁 Quick Reference
 
 ### Key Files to Know:
+
 - **pricing-5tier.html** → Deploy as pricing.html
 - **STRIPE-5TIER-SETUP-GUIDE.md** → Follow for Stripe config
 - **LAUNCH-CHECKLIST-COMPLETE.md** → Complete launch steps
@@ -268,6 +286,7 @@ Margin:                82% ✅
 - **stripe_subscription_service.py** → Payment processing
 
 ### Test Accounts:
+
 ```python
 # Create with: python create_test_subscription_accounts.py
 free@Evident.test / test123
@@ -278,6 +297,7 @@ enterprise@Evident.test / test123
 ```
 
 ### Key Routes:
+
 - `/pricing` - Pricing page
 - `/free-dashboard` - FREE tier dashboard
 - `/dashboard/usage` - Usage tracking
@@ -289,6 +309,7 @@ enterprise@Evident.test / test123
 ## 🎊 YOU'RE READY!
 
 **What You've Built:**
+
 - Complete 5-tier subscription platform
 - Fair-scaled pricing (52-84% margins)
 - Optimized FREE tier (163% ROI)
@@ -297,12 +318,14 @@ enterprise@Evident.test / test123
 - Production-ready code base
 
 **Time Investment:**
+
 - Planning & design: Done ✅
 - Implementation: Done ✅
 - Documentation: Done ✅
 - **Remaining: 1 hour to launch** ⏰
 
 **Potential Revenue:**
+
 - Year 1 ARR: $984,360
 - Profit Margin: 82%
 - First Dollar: Within 48 hours
@@ -320,6 +343,6 @@ Your tier system is mastered. Time to make money! 💰
 
 ---
 
-*Implementation Complete: January 27, 2026*  
-*Status: READY TO LAUNCH*  
-*First Dollar: Coming soon!*
+_Implementation Complete: January 27, 2026_  
+_Status: READY TO LAUNCH_  
+_First Dollar: Coming soon!_

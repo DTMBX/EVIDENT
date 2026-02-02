@@ -5,6 +5,7 @@
 A beautiful, **sanctuary-inspired navigation system** specifically designed for Tillerstead with:
 
 ### 🎨 Brand Identity
+
 - **Forest Green Palette**: #2D5016, #5B8A3C, #8FBC66 (primary)
 - **Earth Tones**: #8B7355, #A0826D (accent)
 - **Cream/Beige**: #F5F1E8, #EDE7D9 (peaceful backgrounds)
@@ -40,6 +41,7 @@ A beautiful, **sanctuary-inspired navigation system** specifically designed for 
 ## 🎯 Navigation Structure
 
 ### Desktop Menu
+
 ```
 About ▾                Programs ▾              Agriculture ▾         Get Involved ▾
 ├─ 🌾 Our Vision       ├─ 💚 Recovery         ├─ 🌿 Urban Farming  ├─ 📝 Petition
@@ -51,6 +53,7 @@ About ▾                Programs ▾              Agriculture ▾         Get I
 ```
 
 ### Mobile Drawer
+
 - Slides in from right
 - Cream/beige header
 - Expandable submenus
@@ -60,6 +63,7 @@ About ▾                Programs ▾              Agriculture ▾         Get I
 ## 🌟 Design Highlights
 
 ### Visual Aesthetic
+
 ✨ **Peaceful & Welcoming** - Soft earth tones create a sanctuary feel  
 ✨ **Agricultural Symbolism** - Wheat stalks represent harvest and growth  
 ✨ **Natural Gradients** - Forest greens blend seamlessly  
@@ -67,6 +71,7 @@ About ▾                Programs ▾              Agriculture ▾         Get I
 ✨ **Rounded Corners** - Softer, more organic feel (0.625rem-0.875rem)
 
 ### Mission Alignment
+
 💚 **Recovery Focus** - "Get Help" is primary CTA  
 🙏 **Spiritual Support** - "Prayer Request" prominently featured  
 🌾 **Agriculture** - Dedicated menu section  
@@ -75,26 +80,28 @@ About ▾                Programs ▾              Agriculture ▾         Get I
 
 ## 🎨 Color Psychology
 
-| Color | Hex | Meaning |
-|-------|-----|---------|
-| **Forest Dark** | #2D5016 | Stability, growth, nature |
-| **Forest** | #5B8A3C | Life, renewal, hope |
-| **Forest Light** | #8FBC66 | Fresh start, healing |
-| **Earth** | #8B7355 | Grounding, reliability |
-| **Cream** | #F5F1E8 | Peace, purity, calm |
+| Color            | Hex     | Meaning                   |
+| ---------------- | ------- | ------------------------- |
+| **Forest Dark**  | #2D5016 | Stability, growth, nature |
+| **Forest**       | #5B8A3C | Life, renewal, hope       |
+| **Forest Light** | #8FBC66 | Fresh start, healing      |
+| **Earth**        | #8B7355 | Grounding, reliability    |
+| **Cream**        | #F5F1E8 | Peace, purity, calm       |
 
 ## ⚡ Quick Start
 
 ### 1. View the Demo
+
 ```bash
 # Open in browser
 tillerstead-nav-demo.html
 ```
 
 ### 2. Add to Your Site
+
 ```html
 <!-- In <head> -->
-<link rel="stylesheet" href="/assets/css/components/tillerstead-header.css">
+<link rel="stylesheet" href="/assets/css/components/tillerstead-header.css" />
 
 <!-- After <body> -->
 {% include components/navigation/tillerstead-header.html %}
@@ -104,21 +111,22 @@ tillerstead-nav-demo.html
 ```
 
 ### 3. Customize (Optional)
+
 Edit CSS variables to match your exact brand colors or adjust spacing.
 
 ## 🆚 Comparison: Evident vs Tillerstead
 
-| Feature | Evident (Legal Tech) | Tillerstead (Sanctuary) |
-|---------|---------------------|------------------------|
-| **Primary Color** | Crimson Red (#C41E3A) | Forest Green (#5B8A3C) |
-| **Secondary** | Navy Blue (#1E3A8A) | Earth Brown (#8B7355) |
-| **Accent** | Brass (#d4a574) | Sage Green (#9CAF88) |
-| **Logo** | BX Geometric | Wheat Stalks |
-| **Tone** | Sharp, Professional | Peaceful, Welcoming |
-| **CTA** | "Login" | "Get Help", "Prayer" |
-| **Menu Focus** | Cases, Platform, Tools | Programs, Agriculture, Get Involved |
-| **Industry** | Legal eDiscovery | Faith-based Sanctuary |
-| **Target** | Legal professionals | Those seeking help |
+| Feature           | Evident (Legal Tech)   | Tillerstead (Sanctuary)             |
+| ----------------- | ---------------------- | ----------------------------------- |
+| **Primary Color** | Crimson Red (#C41E3A)  | Forest Green (#5B8A3C)              |
+| **Secondary**     | Navy Blue (#1E3A8A)    | Earth Brown (#8B7355)               |
+| **Accent**        | Brass (#d4a574)        | Sage Green (#9CAF88)                |
+| **Logo**          | BX Geometric           | Wheat Stalks                        |
+| **Tone**          | Sharp, Professional    | Peaceful, Welcoming                 |
+| **CTA**           | "Login"                | "Get Help", "Prayer"                |
+| **Menu Focus**    | Cases, Platform, Tools | Programs, Agriculture, Get Involved |
+| **Industry**      | Legal eDiscovery       | Faith-based Sanctuary               |
+| **Target**        | Legal professionals    | Those seeking help                  |
 
 ## ✨ Both Systems Include
 
@@ -131,19 +139,21 @@ Edit CSS variables to match your exact brand colors or adjust spacing.
 ✅ Focus management  
 ✅ Reduced motion support  
 ✅ Dark mode ready  
-✅ No dependencies  
+✅ No dependencies
 
 ## 🎉 Ready to Use!
 
 Both navigation systems are **production-ready** and fully functional:
 
 ### Evident Navigation
+
 - **Files**: `elegant-header.html`, `elegant-header.css`, `elegant-header.js`
 - **Demo**: `elegant-nav-demo.html`
 - **Docs**: `ELEGANT-NAV-SYSTEM.md`
 - **Best for**: Legal tech, professional services, B2B platforms
 
 ### Tillerstead Navigation
+
 - **Files**: `tillerstead-header.html`, `tillerstead-header.css`, `tillerstead-header.js`
 - **Demo**: `tillerstead-nav-demo.html`
 - **Docs**: `TILLERSTEAD-NAV-SYSTEM.md`
@@ -151,10 +161,10 @@ Both navigation systems are **production-ready** and fully functional:
 
 ## 📊 File Statistics
 
-| System | HTML | CSS | JS | Total |
-|--------|------|-----|----|----|
-| **Evident** | 16.6 KB | 17.3 KB | 10.9 KB | 44.8 KB |
-| **Tillerstead** | 21.1 KB | 19.5 KB | 9.5 KB | 50.1 KB |
+| System          | HTML    | CSS     | JS      | Total   |
+| --------------- | ------- | ------- | ------- | ------- |
+| **Evident**     | 16.6 KB | 17.3 KB | 10.9 KB | 44.8 KB |
+| **Tillerstead** | 21.1 KB | 19.5 KB | 9.5 KB  | 50.1 KB |
 
 ## 🌟 Next Steps
 
@@ -185,7 +195,7 @@ Both navigation systems are **production-ready** and fully functional:
 **Two beautiful navigation systems, one development session.**  
 **Both production-ready. Both fully accessible. Both perfect.**
 
-🎨 *Evident: Sharp, professional, powerful*  
-🌾 *Tillerstead: Peaceful, welcoming, hopeful*
+🎨 _Evident: Sharp, professional, powerful_  
+🌾 _Tillerstead: Peaceful, welcoming, hopeful_
 
 Choose the one that matches your mission. 🚀

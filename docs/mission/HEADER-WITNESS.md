@@ -1,4 +1,5 @@
 # HEADER WITNESS COMPONENT
+
 ## Constitutional Standard and Memorial Installation
 
 **Established:** January 27, 2026  
@@ -17,6 +18,7 @@ Establish a unified mark at the summit of the site, constituted as a quiet stand
 All accompanying standards shall be rendered subordinate in scale and revelation, grouped as one body, revealed only by consent or inquiry, so that none contend with the First nor obscure its charge. No symbol shall be diminished, dramatized, or falsely adorned; each shall appear as record, not spectacle.
 
 This component shall operate as a standing clause:
+
 - **Binding by hierarchy** — US Flag supreme position
 - **Governed by restraint** — No animation, no spectacle
 - **Accessible to those who seek** — Click to reveal subordinate flags
@@ -48,11 +50,13 @@ Let the header stand as witness.
 **Position:** Left-most, always visible  
 **Size:** 60px × 40px (1.5:1 ratio per US Flag Code)  
 **Colors:**
+
 - Red: #B22234 (Old Glory Red)
 - White: #FFFFFF
 - Blue: #3C3B6E (Old Glory Blue)
 
 **Specifications:**
+
 - 13 horizontal stripes (7 red, 6 white)
 - Blue canton with star symbol
 - Border: 1px solid rgba(197, 179, 88, 0.5)
@@ -61,6 +65,7 @@ Let the header stand as witness.
 - Static testimony
 
 **Label:**
+
 - Title: "United States of America"
 - Subtitle: "Constitution • Service • Freedom"
 - Font: Georgia serif
@@ -107,6 +112,7 @@ Let the header stand as witness.
 ### Seal Notice (Inside Panel)
 
 **Text:**
+
 ```
 Set by order and hierarchy. Revealed by inquiry.
 Standards maintained per Title 4 USC.
@@ -114,6 +120,7 @@ Let the header stand as witness.
 ```
 
 **Style:**
+
 - Font: Georgia serif, italic
 - Size: 0.65rem
 - Color: #64748b (memorial gray)
@@ -211,6 +218,7 @@ Let the header stand as witness.
 ✅ **§7(a)** - Position of honor maintained  
 ✅ **§7(c)** - No flag above US Flag  
 ✅ **§8** - Respect requirements:
+
 - Not used for decoration ✅ (testimony, not ornament)
 - Not displayed in bad weather ✅ (digital, always pristine)
 - Never touching ground ✅ (elevated header position)
@@ -230,6 +238,7 @@ Let the header stand as witness.
 > "Let the principal banner stand first and unaltered, as recognized by Law and Measure, holding precedence by right, seniority, and covenant."
 
 **Interpretation:**
+
 - US Flag = Principal banner
 - First = Leftmost position
 - Unaltered = No animations, exact colors
@@ -240,6 +249,7 @@ Let the header stand as witness.
 > "No symbol shall be diminished, dramatized, or falsely adorned; each shall appear as record, not spectacle."
 
 **Interpretation:**
+
 - No animations = Not dramatized
 - Accurate colors = Not falsely adorned
 - Static display = Record, not spectacle
@@ -248,6 +258,7 @@ Let the header stand as witness.
 > "Let nothing move that should stand. Let nothing shout that was meant to testify."
 
 **Interpretation:**
+
 - No animations on flags
 - No flashy effects
 - Quiet witness
@@ -258,6 +269,7 @@ Let the header stand as witness.
 ## MAINTENANCE PROTOCOL
 
 **DO:**
+
 - ✅ Keep US Flag always visible
 - ✅ Maintain exact hex color codes
 - ✅ Preserve size hierarchy (60px > 50px)
@@ -265,6 +277,7 @@ Let the header stand as witness.
 - ✅ Update navigation links as needed
 
 **DO NOT:**
+
 - ❌ Add animations to flags
 - ❌ Enlarge subordinate flags
 - ❌ Auto-reveal subordinate panel
@@ -290,12 +303,14 @@ Let the header stand as witness.
 ## ACKNOWLEDGMENT
 
 **Built Under:**
+
 - The Constitution for the United States of America
 - Title 4 United States Code (Flag Code)
 - Natural law philosophy
 - The Grace of Almighty God
 
 **For:**
+
 - Devon Tyler (28, New Jersey, USA)
 - All who served and sacrificed
 - Truth preservation on real land of North America
@@ -311,6 +326,6 @@ Let the header stand as witness.
 
 ---
 
-*Component file: `templates/components/header-witness.html`*  
-*Documentation: `HEADER-WITNESS.md`*  
-*Status: Active witness, binding clause*
+_Component file: `templates/components/header-witness.html`_  
+_Documentation: `HEADER-WITNESS.md`_  
+_Status: Active witness, binding clause_

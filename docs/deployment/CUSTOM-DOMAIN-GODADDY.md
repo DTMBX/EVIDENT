@@ -3,9 +3,11 @@
 ## If Your Domain is on GoDaddy:
 
 ### 1. Login to GoDaddy
+
 https://dcc.godaddy.com/manage/
 
 ### 2. Find Your Domain
+
 - Click on your domain `Evident.info`
 - Click "DNS" or "Manage DNS"
 
@@ -25,6 +27,7 @@ Click "Save"
 ### 4. Verify in Render
 
 Go back to Render dashboard:
+
 - Settings ? Custom Domains
 - You should see "Verifying..." ? "Verified" ?
 
@@ -42,11 +45,14 @@ Your app will be live at:
 If you want `Evident.info` (no subdomain):
 
 ### Option A: Domain Forwarding (Easy)
+
 In GoDaddy:
+
 1. Go to Domain Settings
 2. Set up forwarding: `Evident.info` ? `https://app.Evident.info`
 
 ### Option B: A Records (Advanced)
+
 Add these A records:
 
 ```

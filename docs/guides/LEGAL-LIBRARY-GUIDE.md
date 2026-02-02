@@ -19,6 +19,7 @@ The Legal Reference Library is a comprehensive system for storing, searching, an
 ## ✨ Key Features
 
 ### 1. Multi-Source Ingestion
+
 ```
 Import from:
 ✓ CourtListener API (free legal database)
@@ -30,6 +31,7 @@ Import from:
 ```
 
 ### 2. Full-Text Search
+
 ```
 Search across:
 ✓ Case names
@@ -46,6 +48,7 @@ Filters:
 ```
 
 ### 3. Citation Linking
+
 ```
 Automatic detection of:
 ✓ U.S. Reports citations (347 U.S. 483)
@@ -58,6 +61,7 @@ Creates network of:
 ```
 
 ### 4. AI Integration
+
 ```
 Works with:
 ✓ ChatGPT Assistant (cite cases in responses)
@@ -67,6 +71,7 @@ Works with:
 ```
 
 ### 5. Personal Annotations
+
 ```
 Add notes to any document:
 ✓ Highlight key passages
@@ -115,6 +120,7 @@ Result: Document parsed and searchable
 **Import Key Cases for Your Practice Area:**
 
 Civil Rights / Police Misconduct:
+
 ```
 ✓ Miranda v. Arizona, 384 U.S. 436 (1966)
 ✓ Terry v. Ohio, 392 U.S. 1 (1968)
@@ -124,6 +130,7 @@ Civil Rights / Police Misconduct:
 ```
 
 Criminal Defense:
+
 ```
 ✓ Gideon v. Wainwright, 372 U.S. 335 (1963)
 ✓ Brady v. Maryland, 373 U.S. 83 (1963)
@@ -131,6 +138,7 @@ Criminal Defense:
 ```
 
 Employment:
+
 ```
 ✓ McDonnell Douglas Corp. v. Green, 411 U.S. 792 (1973)
 ✓ Burlington Industries v. Ellerth, 524 U.S. 742 (1998)
@@ -141,6 +149,7 @@ Employment:
 ### Step 3: Search Your Library
 
 **Basic Search:**
+
 ```
 Search bar: "fourth amendment warrantless search"
 
@@ -152,6 +161,7 @@ Results:
 ```
 
 **Advanced Search:**
+
 ```
 Query: "qualified immunity"
 Filters:
@@ -167,19 +177,21 @@ Results: Recent qualified immunity cases
 ### Step 4: Use with AI Tools
 
 **ChatGPT Integration:**
+
 ```
 Chat: "What's the standard for excessive force?"
 
 AI Response:
-"The standard for excessive force claims under § 1983 is 
-'objective reasonableness' under the Fourth Amendment, as 
-established in Graham v. Connor, 490 U.S. 386 (1989). 
+"The standard for excessive force claims under § 1983 is
+'objective reasonableness' under the Fourth Amendment, as
+established in Graham v. Connor, 490 U.S. 386 (1989).
 The Court held that..."
 
 [View Full Case: Graham v. Connor ↗]
 ```
 
 **Document Optimizer Integration:**
+
 ```
 Drafting complaint about warrantless search
 
@@ -196,6 +208,7 @@ Would you like to add these citations?"
 ## 📖 Database Schema
 
 ### Legal Documents Table
+
 ```sql
 legal_documents:
   - id
@@ -220,6 +233,7 @@ legal_documents:
 ```
 
 ### Citations Table
+
 ```sql
 citations:
   - id
@@ -230,6 +244,7 @@ citations:
 ```
 
 ### Annotations Table
+
 ```sql
 document_annotations:
   - id
@@ -246,6 +261,7 @@ document_annotations:
 ## 🔧 API Endpoints
 
 ### Search Library
+
 ```bash
 GET /api/legal-library/search?q=miranda+rights&court=Supreme+Court
 
@@ -268,6 +284,7 @@ Response:
 ```
 
 ### Get Document
+
 ```bash
 GET /api/legal-library/document/1
 
@@ -298,6 +315,7 @@ Response:
 ```
 
 ### Upload Document
+
 ```bash
 POST /api/legal-library/upload
 Content-Type: multipart/form-data
@@ -319,6 +337,7 @@ Response:
 ```
 
 ### Import from CourtListener
+
 ```bash
 POST /api/legal-library/import-from-web
 Content-Type: application/json
@@ -337,6 +356,7 @@ Response:
 ```
 
 ### Add Annotation
+
 ```bash
 POST /api/legal-library/annotate
 
@@ -355,6 +375,7 @@ Response:
 ```
 
 ### Get Related Cases
+
 ```bash
 GET /api/legal-library/related/1
 
@@ -379,6 +400,7 @@ Response:
 ## 💡 Advanced Features
 
 ### Citation Network Visualization
+
 ```
 View citation network for any case:
 
@@ -393,6 +415,7 @@ Miranda v. Arizona (center)
 ```
 
 ### Topic Clustering
+
 ```
 Browse by legal topic:
 
@@ -408,6 +431,7 @@ Browse by legal topic:
 ```
 
 ### Smart Suggestions
+
 ```
 While drafting complaint about excessive force:
 
@@ -425,7 +449,9 @@ These cases support your § 1983 excessive force claim."
 ## 📚 Pre-Built Case Collections
 
 ### Civil Rights - Police Misconduct
+
 **Supreme Court Cases (20):**
+
 - Miranda v. Arizona, 384 U.S. 436 (1966)
 - Terry v. Ohio, 392 U.S. 1 (1968)
 - Tennessee v. Garner, 471 U.S. 1 (1985)
@@ -433,14 +459,18 @@ These cases support your § 1983 excessive force claim."
 - [16 more...]
 
 ### Criminal Defense - Brady Material
+
 **Supreme Court Cases (15):**
+
 - Brady v. Maryland, 373 U.S. 83 (1963)
 - Giglio v. United States, 405 U.S. 150 (1972)
 - Kyles v. Whitley, 514 U.S. 419 (1995)
 - [12 more...]
 
 ### Employment Law
+
 **Supreme Court Cases (18):**
+
 - McDonnell Douglas Corp. v. Green, 411 U.S. 792 (1973)
 - Burlington Industries v. Ellerth, 524 U.S. 742 (1998)
 - [16 more...]
@@ -452,6 +482,7 @@ These cases support your § 1983 excessive force claim."
 ## 🔒 Privacy & Access Control
 
 ### Public vs. Private Documents
+
 ```
 Public documents:
 ✓ Available to all Evident users
@@ -469,6 +500,7 @@ Your annotations are ALWAYS private.
 ```
 
 ### Case Association
+
 ```
 Link documents to specific cases:
 
@@ -481,7 +513,7 @@ Case: Smith v. City PD (2024-CV-1234)
     - Graham v. Connor (excessive force standard)
     - Tennessee v. Garner (deadly force)
     - Monell v. Dept of Social Services (municipal liability)
-    
+
 All linked materials accessible from case dashboard.
 ```
 
@@ -490,6 +522,7 @@ All linked materials accessible from case dashboard.
 ## 🎓 Best Practices
 
 ### Building Your Library
+
 1. **Start with fundamentals** - Import landmark cases in your practice area
 2. **Import as you research** - Add cases you cite in briefs
 3. **Annotate liberally** - Note key holdings, procedural quirks
@@ -497,6 +530,7 @@ All linked materials accessible from case dashboard.
 5. **Link to cases** - Associate library docs with your active cases
 
 ### Search Tips
+
 ```
 Effective searches:
 ✓ "excessive force qualified immunity" (multi-term)
@@ -511,6 +545,7 @@ Less effective:
 ```
 
 ### Citation Management
+
 ```
 Always verify:
 ✓ Citation format (Bluebook compliant)
@@ -529,6 +564,7 @@ Library will flag:
 ## 🚀 Future Enhancements
 
 ### Coming Soon:
+
 - [ ] **Shepardize Integration** - Check case validity
 - [ ] **Westlaw/Lexis Import** - Sync with commercial databases
 - [ ] **AI Summarization** - Auto-generate case summaries
@@ -542,6 +578,7 @@ Library will flag:
 ## 📊 Statistics
 
 **Typical Library Growth:**
+
 ```
 Month 1:  50 cases (foundation)
 Month 3:  150 cases (active practice)
@@ -550,6 +587,7 @@ Month 12: 500+ cases (expert reference)
 ```
 
 **Search Performance:**
+
 ```
 Average search time: < 100ms
 Full-text search: Instant
@@ -594,6 +632,7 @@ A: Yes, your uploaded cases can be deleted. Public cases remain.
 ---
 
 **Related Tools:**
+
 - ChatGPT Assistant - Cite cases in AI responses
 - Document Optimizer - Auto-suggest citations
 - Violation Finder - Link violations to precedent

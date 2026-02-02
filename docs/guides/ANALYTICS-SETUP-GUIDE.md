@@ -2,7 +2,7 @@
 
 **Status:** Ready for Setup  
 **Platforms:** Mixpanel (Recommended) OR Amplitude  
-**Estimated Setup Time:** 30 minutes  
+**Estimated Setup Time:** 30 minutes
 
 ---
 
@@ -11,6 +11,7 @@
 Track user behavior to optimize conversion, reduce churn, and improve product-market fit.
 
 **Key Metrics to Monitor:**
+
 - User activation rate (complete onboarding)
 - Feature adoption (uploads, analysis, document generation)
 - Time to value (registration → first analysis)
@@ -22,6 +23,7 @@ Track user behavior to optimize conversion, reduce churn, and improve product-ma
 ## 🏆 RECOMMENDED: Mixpanel
 
 **Why Mixpanel?**
+
 - ✅ Best for SaaS products
 - ✅ Advanced cohort analysis
 - ✅ Funnel visualization
@@ -42,6 +44,7 @@ Track user behavior to optimize conversion, reduce churn, and improve product-ma
    - Copy your Project Token (looks like: `a1b2c3d4e5f6...`)
 
 3. **Add to Environment Variables**
+
    ```bash
    # On Render.com
    MIXPANEL_TOKEN=your_project_token_here
@@ -58,6 +61,7 @@ Track user behavior to optimize conversion, reduce churn, and improve product-ma
 ## 📊 ALTERNATIVE: Amplitude
 
 **Why Amplitude?**
+
 - ✅ More visual interface
 - ✅ Better for non-technical stakeholders
 - ✅ Strong behavioral cohorts
@@ -75,6 +79,7 @@ Track user behavior to optimize conversion, reduce churn, and improve product-ma
    - Copy your API Key
 
 3. **Add to Environment Variables**
+
    ```bash
    AMPLITUDE_API_KEY=your_api_key_here
    ```
@@ -93,6 +98,7 @@ I've created a unified analytics service that works with both platforms.
 ### File: `utils/analytics.py` (Created Below)
 
 **Features:**
+
 - ✅ Works with Mixpanel OR Amplitude (or both!)
 - ✅ Automatic environment detection
 - ✅ Graceful fallback if keys missing
@@ -132,6 +138,7 @@ I've created a unified analytics service that works with both platforms.
 ## 📝 USAGE EXAMPLES
 
 ### Track User Registration
+
 ```python
 from utils.analytics import track_event, identify_user
 
@@ -152,6 +159,7 @@ track_event(user.id, 'user_registered', {
 ```
 
 ### Track Evidence Upload
+
 ```python
 track_event(current_user.id, 'evidence_uploaded', {
     'file_type': file.content_type,
@@ -162,6 +170,7 @@ track_event(current_user.id, 'evidence_uploaded', {
 ```
 
 ### Track Document Generation
+
 ```python
 track_event(current_user.id, 'document_generated', {
     'document_type': 'motion',
@@ -172,6 +181,7 @@ track_event(current_user.id, 'document_generated', {
 ```
 
 ### Track Revenue
+
 ```python
 track_revenue(user.id, {
     'amount': 199.00,
@@ -185,6 +195,7 @@ track_revenue(user.id, {
 ## 📊 CRITICAL FUNNELS TO MONITOR
 
 ### 1. Activation Funnel
+
 ```
 Registration → Welcome Screen → First Upload → First Analysis → First Document
 ```
@@ -192,6 +203,7 @@ Registration → Welcome Screen → First Upload → First Analysis → First Do
 **Target Conversion:** 50% registration → first document
 
 ### 2. Conversion Funnel
+
 ```
 Free Tier → View Pricing → Trial Started → Payment Method → Paid Customer
 ```
@@ -199,6 +211,7 @@ Free Tier → View Pricing → Trial Started → Payment Method → Paid Custome
 **Target Conversion:** 25% free → paid
 
 ### 3. Retention Funnel
+
 ```
 Day 1 Active → Day 7 Active → Day 14 Active → Day 30 Active
 ```
@@ -245,6 +258,7 @@ Create these charts in Mixpanel/Amplitude:
 ## 🚀 IMPLEMENTATION CHECKLIST
 
 ### Week 1 (This Week)
+
 - [ ] Choose platform: Mixpanel (✅ Recommended) or Amplitude
 - [ ] Create account and get API token
 - [ ] Add token to Render environment variables
@@ -255,12 +269,14 @@ Create these charts in Mixpanel/Amplitude:
 - [ ] Test events in Mixpanel dashboard (10 min)
 
 ### Week 2
+
 - [ ] Add tracking to all critical events
 - [ ] Create 6 key dashboards
 - [ ] Set up weekly email reports
 - [ ] Configure alerts (trial ending, churn risk)
 
 ### Week 3
+
 - [ ] Add cohort analysis
 - [ ] Create A/B test for pricing page
 - [ ] Set up funnel drop-off alerts
@@ -271,16 +287,19 @@ Create these charts in Mixpanel/Amplitude:
 ## 💰 COST BREAKDOWN
 
 ### Mixpanel
+
 - **Free Tier:** 100K events/month
 - **Growth Tier:** $25/month for 1M events
 - **Enterprise:** Custom pricing
 
 ### Amplitude
+
 - **Free Tier:** 10M events/month (!)
 - **Growth Tier:** $49/month
 - **Enterprise:** Custom pricing
 
 **Recommendation for Evident:**
+
 - Start with **Amplitude Free Tier** (10M events is huge)
 - Switch to Mixpanel Growth if you need advanced features
 - Cost: $0/month for first 6 months
@@ -294,6 +313,7 @@ Follow this pattern for consistency:
 **Format:** `object_action`
 
 **Examples:**
+
 - ✅ `user_registered`
 - ✅ `evidence_uploaded`
 - ✅ `document_generated`
@@ -303,6 +323,7 @@ Follow this pattern for consistency:
 **Properties Format:** `snake_case`
 
 **Examples:**
+
 - ✅ `file_type`, `user_tier`, `generation_time`
 - ❌ `fileType`, `UserTier`, `generationTime`
 
@@ -331,12 +352,14 @@ track_event('test_user_123', 'test_event', {
 ## 🔐 PRIVACY & COMPLIANCE
 
 **GDPR Compliance:**
+
 - ✅ Don't send PII (names, addresses) as event properties
 - ✅ Use user_id only (not email)
 - ✅ Add "Delete My Data" in user settings
 - ✅ Document data retention policy (90 days)
 
 **Data Minimization:**
+
 - Only track what you'll actually use
 - Avoid tracking sensitive case data
 - Use hashed IDs for cases/documents
@@ -346,11 +369,13 @@ track_event('test_user_123', 'test_event', {
 ## 📚 RESOURCES
 
 **Mixpanel:**
+
 - Docs: https://docs.mixpanel.com/
 - Python SDK: https://github.com/mixpanel/mixpanel-python
 - Best Practices: https://mixpanel.com/blog/product-analytics-best-practices/
 
 **Amplitude:**
+
 - Docs: https://www.docs.developers.amplitude.com/
 - Python SDK: https://github.com/amplitude/Amplitude-Python
 - Behavioral Cohorts: https://help.amplitude.com/hc/en-us/articles/231881448
@@ -360,6 +385,7 @@ track_event('test_user_123', 'test_event', {
 ## 🎯 SUCCESS CRITERIA
 
 Analytics setup is complete when:
+
 - [ ] Platform account created
 - [ ] SDK installed and configured
 - [ ] 5+ events tracking successfully
@@ -382,5 +408,5 @@ Analytics setup is complete when:
 
 ---
 
-*Created for Evident Legal Technologies*  
-*Data-driven product development starts now* 📊
+_Created for Evident Legal Technologies_  
+_Data-driven product development starts now_ 📊

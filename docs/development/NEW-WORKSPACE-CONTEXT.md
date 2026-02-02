@@ -37,44 +37,54 @@ Evident-MultiPlatform.code-workspace
 ## ✅ WHAT WE JUST COMPLETED (Last Session)
 
 ### Phase A: PWA Packaging ✅
+
 - Created Windows 11 MSIX package (Evident-MatterDocket-DTMB.msix)
 - Rebranded entire app to "Evident Matter Docket (DTMB)"
 
 ### Phase B: MAUI Architecture ✅
+
 - Designed complete .NET MAUI + WinUI 3 architecture
 - Created 6-week development roadmap
 - Mapped all Flask API endpoints for integration
 
 ### Phase C: Development Environment ✅
+
 - Installed and configured Visual Studio 2022
 - Verified all tools (.NET 10.0.102, MAUI Workload 10.0.100)
 - Successfully built test MAUI project
 
 ### Phase D: Windows 11 App - Login Screen ✅
+
 **JUST COMPLETED - 11 files created:**
 
 **Services:**
+
 - `AuthService.cs` - Authentication with secure token storage (SecureStorage)
 - `ApiService.cs` - HTTP client for Flask REST API at Evident.info/api
 
 **ViewModels:**
+
 - `BaseViewModel.cs` - MVVM base class with IsBusy, Title, ErrorMessage
 - `LoginViewModel.cs` - Login logic, email/password validation, error handling
 
 **Views:**
+
 - `LoginPage.xaml` - Professional login UI with Evident gold theme (#d4a574)
 - `LoginPage.xaml.cs` - Code-behind
 - `DashboardPage.xaml` - Post-login dashboard UI
 - `DashboardPage.xaml.cs` - Code-behind
 
 **Models:**
+
 - `ApiModels.cs` - User, Evidence, Analysis, LoginRequest/Response models
 
 **Helpers:**
+
 - `Constants.cs` - App-wide constants (API URL, branding colors, storage keys)
 - `Converters.cs` - XAML value converters (StringNotNullOrEmptyConverter)
 
 **Configuration Updated:**
+
 - `MauiProgram.cs` - Dependency injection configured (ApiService, AuthService, ViewModels, Pages)
 - `AppShell.xaml` - Navigation routes for Login and Dashboard
 - `App.xaml` - Global resources and converters registered
@@ -98,6 +108,7 @@ Success Green:    #00ff00  /* Success states */
 The Windows app connects to the **LIVE Flask API** at https://Evident.info/api:
 
 ### Authentication Flow
+
 ```csharp
 // User enters email/password in LoginPage.xaml
 // LoginViewModel validates and calls AuthService
@@ -115,6 +126,7 @@ await Shell.Current.GoToAsync("//Dashboard");
 ```
 
 ### API Endpoints Ready to Use
+
 ```
 POST   /api/auth/login              ✅ Login (implemented in Windows app)
 POST   /api/auth/logout             🔜 Next to implement
@@ -128,6 +140,7 @@ POST   /api/documents/generate      🔜 Next to implement
 ## 🎯 IMMEDIATE NEXT STEPS
 
 ### 1. Test Windows App (RIGHT NOW)
+
 ```
 In Visual Studio 2022:
 1. Open: C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI\Evident.MatterDocket.MAUI.csproj
@@ -139,25 +152,30 @@ Expected: Professional login screen with gold branding appears
 ```
 
 ### 2. Build Next Feature for BOTH Platforms
+
 **Evidence Upload Module** - Build simultaneously for Web + Windows:
 
 **Backend (Flask API):**
+
 - Endpoint already exists: `POST /api/evidence/upload`
 - Accepts: PDF, MP4, images
 - Returns: Evidence ID, file metadata
 
 **Web (Flask Template):**
+
 - Template exists: `templates/evidence_upload.html`
 - JavaScript handles drag-drop upload
 - Status: ✅ Already working
 
 **Windows (MAUI):**
+
 - Create: `EvidenceUploadPage.xaml` (file picker UI)
 - Create: `EvidenceViewModel.cs` (upload logic)
 - Implement: File picker, progress tracking, offline queue
 - Status: 🔜 Next to build
 
 ### 3. Sync & Test
+
 - Test upload from web
 - Test upload from Windows app
 - Verify both hit same API
@@ -196,6 +214,7 @@ Expected: Professional login screen with gold branding appears
 ## 🛠️ TECHNICAL STACK DETAILS
 
 ### Web App (Python)
+
 ```python
 Framework: Flask 3.x
 Database: PostgreSQL (Render)
@@ -207,6 +226,7 @@ Deployment: Render.com (auto-deploy)
 ```
 
 ### Windows/Mobile App (C#)
+
 ```csharp
 Framework: .NET MAUI 10.0
 UI: WinUI 3 (Windows), native controls (Mobile)
@@ -217,6 +237,7 @@ Platforms: Windows 11, Android, iOS, macOS
 ```
 
 ### Shared API (REST)
+
 ```
 Base URL: https://Evident.info/api
 Auth: JWT Bearer tokens
@@ -227,6 +248,7 @@ CORS: Enabled for all platforms
 ## 📁 KEY FILE LOCATIONS
 
 ### Web App Root
+
 ```
 C:\web-dev\github-repos\Evident.info\
 ├── app.py                    # Main Flask app
@@ -238,6 +260,7 @@ C:\web-dev\github-repos\Evident.info\
 ```
 
 ### Windows App Root
+
 ```
 C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI\
 ├── ViewModels/              # Business logic
@@ -249,6 +272,7 @@ C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI\
 ```
 
 ### Documentation
+
 ```
 C:\web-dev\github-repos\Evident.info\
 ├── MULTI-PLATFORM-ARCHITECTURE.md     # Overview (11 KB)
@@ -271,11 +295,12 @@ What's already implemented and working:
 ✅ Error message display (red text, appears on login failure)  
 ✅ Auto-navigation to Dashboard on success  
 ✅ Secure token storage (SecureStorage API)  
-✅ Password cleared after login attempt (security)  
+✅ Password cleared after login attempt (security)
 
 ## 🚀 WHAT TO DO NEXT IN NEW WORKSPACE
 
 ### Option 1: Test Windows App
+
 ```
 Tell me: "run the windows app" or "test login screen"
 
@@ -287,6 +312,7 @@ I will:
 ```
 
 ### Option 2: Build Next Feature (Evidence Upload)
+
 ```
 Tell me: "build evidence upload" or "add upload feature"
 
@@ -299,6 +325,7 @@ I will:
 ```
 
 ### Option 3: Continue Multi-Platform Development
+
 ```
 Tell me: "build [feature] for all platforms"
 
@@ -311,6 +338,7 @@ I will build the feature for web + desktop simultaneously
 ```
 
 ### Option 4: Fix/Improve Existing Code
+
 ```
 Tell me what needs improvement:
 - "improve login screen UI"
@@ -322,6 +350,7 @@ Tell me what needs improvement:
 ## 💾 PACKAGES INSTALLED
 
 ### Web App (Python)
+
 ```
 Flask==3.0.3
 SQLAlchemy
@@ -333,6 +362,7 @@ requests
 ```
 
 ### Windows App (NuGet)
+
 ```
 CommunityToolkit.Mvvm 8.3.2         # MVVM pattern
 Microsoft.Extensions.Http 10.0.0    # HTTP client
@@ -350,6 +380,7 @@ public const string WebsiteUrl = "https://Evident.info";
 ```
 
 For local testing against localhost Flask:
+
 ```csharp
 // Change to:
 public const string ApiBaseUrl = "http://localhost:5000/api";
@@ -357,15 +388,15 @@ public const string ApiBaseUrl = "http://localhost:5000/api";
 
 ## 📊 PROJECT STATUS SUMMARY
 
-| Component | Status | Completion |
-|-----------|--------|-----------|
-| Web App | ✅ Live | 100% |
-| REST API | ✅ Live | 100% |
-| Windows Login | ✅ Ready | 100% |
-| Windows Upload | 🔜 Next | 0% |
-| Windows Analysis | 🔜 Planned | 0% |
-| Android App | 🔜 Week 2 | 0% |
-| iOS App | 🔜 Week 3 | 0% |
+| Component        | Status     | Completion |
+| ---------------- | ---------- | ---------- |
+| Web App          | ✅ Live    | 100%       |
+| REST API         | ✅ Live    | 100%       |
+| Windows Login    | ✅ Ready   | 100%       |
+| Windows Upload   | 🔜 Next    | 0%         |
+| Windows Analysis | 🔜 Planned | 0%         |
+| Android App      | 🔜 Week 2  | 0%         |
+| iOS App          | 🔜 Week 3  | 0%         |
 
 **Overall Platform Progress:** 35% (Web + API complete, Desktop starting)
 
@@ -381,12 +412,14 @@ public const string ApiBaseUrl = "http://localhost:5000/api";
 ## ⚡ READY TO CONTINUE!
 
 I have the workspace open with both folders:
+
 - 🌐 Evident.info (web/API)
 - 💻 Evident MAUI (desktop/mobile)
 
 **Tell me what you want to build next!**
 
 Common commands:
+
 - "run the windows app"
 - "build evidence upload"
 - "add [feature] to windows app"

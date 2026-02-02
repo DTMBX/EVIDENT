@@ -3,6 +3,7 @@
 ## 🚀 Quick Start (3 Steps)
 
 ### 1. Initialize Configuration
+
 ```python
 from config_manager import ConfigManager
 config_mgr = ConfigManager()
@@ -10,6 +11,7 @@ app.config.update(config_mgr.get_sqlalchemy_config())
 ```
 
 ### 2. Optimize Database
+
 ```python
 from config_manager import DatabaseOptimizer
 optimizer = DatabaseOptimizer(db)
@@ -17,6 +19,7 @@ optimizer.create_indexes()  # Creates 11 indexes
 ```
 
 ### 3. Use Services
+
 ```python
 from unified_evidence_service import UnifiedEvidenceProcessor
 processor = UnifiedEvidenceProcessor()
@@ -28,6 +31,7 @@ results = processor.process_evidence(file, type, context)
 ## 📦 Key Components
 
 ### Unified Evidence Service
+
 ```python
 from unified_evidence_service import UnifiedEvidenceProcessor, EvidenceReportGenerator
 
@@ -46,6 +50,7 @@ html = report_gen.generate_report(results, format='html')
 ```
 
 ### API Middleware
+
 ```python
 from api_middleware import api_endpoint, rate_limit, require_tier
 
@@ -70,6 +75,7 @@ def protected():
 ```
 
 ### Configuration Manager
+
 ```python
 from config_manager import ConfigManager, DatabaseOptimizer, DatabaseBackup
 
@@ -93,12 +99,14 @@ backup.cleanup_old_backups(keep_days=30)
 ## 🔐 Security
 
 ### Rate Limits
+
 - **Free:** 10 req/min
 - **Professional:** 60 req/min
 - **Enterprise:** 300 req/min
 - **Admin:** 1000 req/min
 
 ### Authentication
+
 ```python
 # API key
 @require_api_key(db)
@@ -111,6 +119,7 @@ backup.cleanup_old_backups(keep_days=30)
 ```
 
 ### Validation
+
 ```python
 @validate_request({
     'required': ['field1', 'field2'],
@@ -125,12 +134,14 @@ def endpoint():
 ## 📊 Performance
 
 ### Database Indexes (11 total)
+
 - `idx_users_email`, `idx_users_username`, `idx_users_tier`
 - `idx_analyses_user_id`, `idx_analyses_created_at`, `idx_analyses_status`, `idx_analyses_case_number`
 - `idx_api_keys_user_id`, `idx_api_keys_key`
 - `idx_usage_user_id`, `idx_usage_date`
 
 ### Connection Pooling
+
 ```python
 # Automatic configuration
 SQLALCHEMY_ENGINE_OPTIONS = {
@@ -143,6 +154,7 @@ SQLALCHEMY_ENGINE_OPTIONS = {
 ```
 
 ### Caching
+
 ```python
 # Automatic for transcription & OCR (1 hour TTL)
 # Manual caching:
@@ -158,6 +170,7 @@ def expensive_operation(param):
 ## 🔄 Integration
 
 ### Add to app.py
+
 ```python
 # 1. Imports (top of file)
 from config_manager import ConfigManager, DatabaseOptimizer
@@ -188,12 +201,14 @@ def process_evidence():
 ## 🌍 Environment Variables
 
 ### Development (defaults work)
+
 ```bash
 FLASK_ENV=development
 DEBUG=true
 ```
 
 ### Production (required)
+
 ```bash
 FLASK_ENV=production
 DEBUG=false
@@ -208,11 +223,13 @@ OPENAI_API_KEY=sk-...
 ## 🔍 Monitoring
 
 ### Health Check
+
 ```bash
 curl http://localhost:5000/health
 ```
 
 ### Performance Metrics
+
 ```python
 from backend_integration import performance_monitor
 stats = performance_monitor.get_stats()
@@ -220,6 +237,7 @@ print(f"Avg: {stats['operation']['avg_duration']:.2f}s")
 ```
 
 ### Slow Queries
+
 ```python
 # Automatic logging to logs/slow_queries.log
 # Queries > 1 second are logged
@@ -230,6 +248,7 @@ print(f"Avg: {stats['operation']['avg_duration']:.2f}s")
 ## 🐛 Troubleshooting
 
 ### Database Connection Error
+
 ```bash
 # Check DATABASE_URL
 echo $DATABASE_URL
@@ -239,6 +258,7 @@ python -c "from app import db; db.engine.execute('SELECT 1')"
 ```
 
 ### Rate Limit Exceeded
+
 ```bash
 # Check status
 curl http://localhost:5000/api/rate-limit/status
@@ -250,6 +270,7 @@ curl http://localhost:5000/api/rate-limit/status
 ```
 
 ### Import Error
+
 ```bash
 # Install dependencies
 pip install -r requirements.txt
@@ -270,6 +291,7 @@ pip install -r requirements.txt
 ## ✅ Checklist
 
 **Before Deployment:**
+
 - [ ] Set production environment variables
 - [ ] Run database optimizer: `optimizer.create_indexes()`
 - [ ] Test health endpoint: `curl /health`
@@ -278,6 +300,7 @@ pip install -r requirements.txt
 - [ ] Configure logging
 
 **After Deployment:**
+
 - [ ] Monitor `/health` endpoint
 - [ ] Check slow query logs
 - [ ] Monitor rate limit usage
@@ -289,6 +312,7 @@ pip install -r requirements.txt
 ## 🎯 Common Patterns
 
 ### Protected Endpoint
+
 ```python
 @app.route('/api/endpoint', methods=['POST'])
 @api_endpoint(db, require_auth=True, min_tier='professional')
@@ -297,6 +321,7 @@ def endpoint():
 ```
 
 ### Process Evidence
+
 ```python
 results = processor.process_evidence(
     evidence_file=Path(file.filename),
@@ -306,11 +331,13 @@ results = processor.process_evidence(
 ```
 
 ### Generate Report
+
 ```python
 report = report_generator.generate_report(results, format='markdown')
 ```
 
 ### Event Subscription
+
 ```python
 from backend_integration import event_bus
 
@@ -323,4 +350,4 @@ event_bus.subscribe('evidence.processed', on_processed)
 ---
 
 **Evident Backend - Production Ready ✅**  
-*Version 1.0 | January 26, 2026*
+_Version 1.0 | January 26, 2026_

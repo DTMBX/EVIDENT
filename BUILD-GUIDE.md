@@ -1,7 +1,9 @@
 # Evident Multi-Platform Build Guide
 
 ## Overview
+
 Evident is a comprehensive legal tech platform with support for:
+
 - **Windows Desktop** (.NET MAUI)
 - **iOS Mobile** (.NET MAUI)
 - **Android Mobile** (.NET MAUI)
@@ -13,16 +15,19 @@ Evident is a comprehensive legal tech platform with support for:
 ## Prerequisites
 
 ### For All Platforms
+
 - **.NET 9.0 SDK** or later
 - **Visual Studio 2022** (17.8+) or **Visual Studio Code**
 - **Git** for version control
 
 ### For Mobile Development
+
 - **Xcode 15+** (macOS only, for iOS)
 - **Android SDK** (API 21+)
 - **JDK 17** or later
 
 ### For Web Development
+
 - **Python 3.9+**
 - **Node.js 18+** and **npm**
 - **Flask** and dependencies
@@ -167,21 +172,25 @@ STRIPE_SECRET_KEY=your-stripe-key
 ## Platform-Specific Features
 
 ### Windows
+
 - Native file system integration
 - Windows Hello authentication
 - Desktop notifications
 
 ### iOS
+
 - Face ID/Touch ID authentication
 - iOS Share Sheet integration
 - Background upload support
 
 ### Android
+
 - Biometric authentication
 - Android Share integration
 - Background services
 
 ### Web/Mobile Web
+
 - Progressive Web App (PWA) support
 - Offline mode with service workers
 - Responsive design for all screen sizes
@@ -193,22 +202,26 @@ STRIPE_SECRET_KEY=your-stripe-key
 ### Mobile Apps
 
 #### iOS App Store
+
 1. Configure signing in Xcode
 2. Build archive: `dotnet publish -f net10.0-ios -c Release`
 3. Upload to App Store Connect via Xcode or Transporter
 
 #### Google Play Store
+
 1. Generate signed APK/AAB
 2. Configure app signing in Google Play Console
 3. Upload via Google Play Console
 
 #### Microsoft Store (Windows)
+
 1. Create MSIX package
 2. Submit via Partner Center
 
 ### Web Application
 
 #### Netlify (Static Frontend)
+
 ```powershell
 # Build static assets
 npm run build
@@ -218,6 +231,7 @@ netlify deploy --prod
 ```
 
 #### Railway/Render (Flask Backend)
+
 ```yaml
 # render.yaml
 services:
@@ -233,6 +247,7 @@ services:
 ## Testing
 
 ### Mobile Apps
+
 ```powershell
 # Run unit tests
 dotnet test
@@ -242,6 +257,7 @@ dotnet test --filter Category=UI
 ```
 
 ### Web Application
+
 ```powershell
 # Python tests
 pytest
@@ -260,18 +276,22 @@ npx playwright test
 ### Common Issues
 
 **MAUI Build Errors:**
+
 - Clean and rebuild: `dotnet clean && dotnet build`
 - Clear NuGet cache: `dotnet nuget locals all --clear`
 
 **Android Deployment Issues:**
+
 - Check ADB connection: `adb devices`
 - Restart ADB server: `adb kill-server && adb start-server`
 
 **iOS Code Signing:**
+
 - Verify provisioning profiles in Xcode
 - Check bundle identifier matches
 
 **Flask Import Errors:**
+
 - Ensure virtual environment is activated
 - Reinstall dependencies: `pip install -r requirements.txt --force-reinstall`
 
@@ -299,6 +319,7 @@ npx playwright test
 ## Support
 
 For issues or questions:
+
 - GitHub Issues: https://github.com/DTB396/Evident.info/issues
 - Email: support@Evident.info
 - Documentation: https://Evident.info/docs

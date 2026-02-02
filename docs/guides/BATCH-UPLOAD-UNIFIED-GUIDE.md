@@ -3,6 +3,7 @@
 ## ?? **Overview**
 
 Evident now supports **unified batch uploads** - upload PDFs, BWC videos, and images **together** in one batch. The system automatically:
+
 1. ? **Separates** files by type (PDF, Video, Image)
 2. ? **Processes in parallel** using ThreadPoolExecutor
 3. ? **Returns detailed results** for each file type
@@ -12,17 +13,20 @@ Evident now supports **unified batch uploads** - upload PDFs, BWC videos, and im
 ## ?? **Features**
 
 ### **Automatic File Categorization:**
+
 - **BWC Videos:** `.mp4`, `.mov`, `.avi`, `.mkv`, `.webm`
 - **PDFs:** `.pdf`
 - **Images:** `.jpg`, `.jpeg`, `.png`, `.gif`, `.bmp`
 
 ### **Parallel Processing:**
+
 - Uses Python's `ThreadPoolExecutor`
 - Maximum 4 concurrent workers
 - Videos, PDFs, and images processed simultaneously
 - SHA-256 hashing for all files
 
 ### **Chain of Custody:**
+
 - Each file gets unique ID
 - SHA-256 hash calculated
 - Timestamp recorded
@@ -51,6 +55,7 @@ files: [file1.pdf, file2.mp4, file3.jpg, ...]
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -103,6 +108,7 @@ python scripts/test-batch-upload-discovery.py
 ```
 
 This will:
+
 1. ? Find all PDFs and BWC videos in `assets/discovery`
 2. ? Upload them in one batch
 3. ? Show categorization (8 officers, 24 videos, 2 PDFs)
@@ -130,12 +136,14 @@ Processing:
 ## ?? **Processing Flow**
 
 ### **1. File Reception:**
+
 ```python
 files = request.files.getlist('files')
 # Receives: [file1.pdf, file2.mp4, file3.jpg, ...]
 ```
 
 ### **2. Categorization:**
+
 ```python
 categorized_files = {
     'video': [file2.mp4, ...],
@@ -146,28 +154,30 @@ categorized_files = {
 ```
 
 ### **3. Parallel Processing:**
+
 ```python
 with ThreadPoolExecutor(max_workers=4) as executor:
     futures = []
-    
+
     # Submit video processing
     for file in categorized_files['video']:
         futures.append(executor.submit(process_video_file, file, user_id))
-    
+
     # Submit PDF processing
     for file in categorized_files['pdf']:
         futures.append(executor.submit(process_pdf_file, file, user_id))
-    
+
     # Submit image processing
     for file in categorized_files['image']:
         futures.append(executor.submit(process_image_file, file, user_id))
-    
+
     # Collect results as they complete
     for future in as_completed(futures):
         result = future.result()
 ```
 
 ### **4. Result Collection:**
+
 ```python
 results = {
     'successful': {
@@ -184,7 +194,9 @@ results = {
 ## ?? **Use Cases**
 
 ### **Case 1: Upload All Discovery Files**
+
 You receive discovery with:
+
 - 24 BWC videos (mixed officers)
 - 2 PDF documents
 - 5 photos
@@ -195,9 +207,11 @@ You receive discovery with:
 ---
 
 ### **Case 2: Multi-Officer Incident**
+
 6 officers responded, each with BWC footage:
 
 **Upload together:**
+
 - `BryanMerritt_*.mp4` (3 files)
 - `CristianMartin_*.mp4` (2 files)
 - `DennisBakker_*.mp4` (2 files)
@@ -207,7 +221,8 @@ You receive discovery with:
 - Police report PDF
 - CAD log PDF
 
-**Result:** 
+**Result:**
+
 - All videos indexed by officer
 - All PDFs cross-referenced
 - Timeline synchronized
@@ -224,18 +239,18 @@ def process_video_file(file, user_id):
     """Process BWC video file"""
     # 1. Secure filename
     filename = secure_filename(file.filename)
-    
+
     # 2. Add timestamp for uniqueness
     timestamp = datetime.utcnow().strftime('%Y%m%d_%H%M%S_%f')
     unique_filename = f"{user_id}_{timestamp}_{filename}"
-    
+
     # 3. Save to uploads/bwc_videos/
     filepath = Path('./uploads/bwc_videos') / unique_filename
     file.save(filepath)
-    
+
     # 4. Calculate SHA-256 hash
     file_hash = calculate_file_hash(filepath)
-    
+
     # 5. Create database record
     analysis = Analysis(
         user_id=user_id,
@@ -246,7 +261,7 @@ def process_video_file(file, user_id):
     )
     db.session.add(analysis)
     db.session.commit()
-    
+
     return {'success': True, 'upload_id': analysis.id}
 ```
 
@@ -263,6 +278,7 @@ def process_video_file(file, user_id):
 ## ?? **Security & Compliance**
 
 ### **Chain of Custody:**
+
 ? SHA-256 hash at upload
 ? Timestamp recorded
 ? User attribution
@@ -270,12 +286,14 @@ def process_video_file(file, user_id):
 ? File integrity verification
 
 ### **Access Control:**
+
 ? Login required
 ? Tier limits enforced
 ? Storage quotas checked
 ? Audit logs created
 
 ### **File Validation:**
+
 ? Extension whitelist
 ? Size limits per tier
 ? Filename sanitization
@@ -287,11 +305,11 @@ def process_video_file(file, user_id):
 
 ### **Benchmarks:**
 
-| Files | Size | Time (Sequential) | Time (Parallel) | Speedup |
-|-------|------|-------------------|-----------------|---------|
-| 10 PDFs | 50 MB | 15s | 5s | 3x |
-| 5 BWC | 2 GB | 120s | 40s | 3x |
-| 20 Mixed | 5 GB | 180s | 60s | 3x |
+| Files    | Size  | Time (Sequential) | Time (Parallel) | Speedup |
+| -------- | ----- | ----------------- | --------------- | ------- |
+| 10 PDFs  | 50 MB | 15s               | 5s              | 3x      |
+| 5 BWC    | 2 GB  | 120s              | 40s             | 3x      |
+| 20 Mixed | 5 GB  | 180s              | 60s             | 3x      |
 
 **Parallel processing is 3x faster!**
 
@@ -300,12 +318,14 @@ def process_video_file(file, user_id):
 ## ?? **Error Handling**
 
 ### **Failed Uploads:**
+
 - Invalid file type ? Categorized as "unknown", rejected
 - File too large ? Tier limit enforced
 - Duplicate hash ? Warning (already uploaded)
 - Corrupted file ? Error reported
 
 ### **Partial Success:**
+
 - Some files succeed, others fail
 - Each file has individual status
 - Failed files listed with error message
@@ -370,6 +390,7 @@ print(f"  PDFs: {result['summary']['breakdown']['pdfs']['successful']}")
 ## ?? **Summary**
 
 **Yes! Evident can now:**
+
 1. ? Accept PDFs and BWC videos in **one batch upload**
 2. ? **Automatically separate** them by file type
 3. ? **Process simultaneously** (parallel processing)

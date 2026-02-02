@@ -114,6 +114,7 @@
 ## ✅ Verification
 
 After deploy completes, check logs:
+
 ```
 Dashboard → Events → Latest Deploy → Logs
 
@@ -129,16 +130,20 @@ Look for:
 ## 🔑 Where to Get API Key
 
 ### Option 1: Direct Link
+
 https://www.courtlistener.com/api/rest-info/
 
 ### Option 2: Via Profile
+
 1. Sign in to CourtListener
 2. Click your username (top right)
 3. Click "API" or "API Access"
 4. Copy the token shown
 
 ### Option 3: Generate New Token
+
 If you don't see a token:
+
 1. Go to: https://www.courtlistener.com/api/rest/token/
 2. Click "Generate Token"
 3. Copy and save it (you won't see it again!)
@@ -148,6 +153,7 @@ If you don't see a token:
 ## 🎯 Expected Result
 
 **Before adding key:**
+
 ```
 2026-01-27 11:00:00 - WARNING - [WARN] Could not verify citation
 2026-01-27 11:00:00 - ERROR - [FAIL] Import failed
@@ -155,6 +161,7 @@ Success rate: 0%
 ```
 
 **After adding key:**
+
 ```
 2026-01-27 16:30:00 - INFO - [OK] Verified (confidence: MEDIUM)
 2026-01-27 16:30:01 - INFO - [OK] Imported successfully (id: 1)
@@ -180,18 +187,22 @@ Success rate: 100%
 ## 🚨 Common Mistakes
 
 ### ❌ Wrong key name
+
 - Don't use: `COURTLISTENER_API`, `CL_API_KEY`, `API_KEY`
 - Use: `COURTLISTENER_API_KEY` (exact match)
 
 ### ❌ Extra spaces
-- Don't: ` a1b2c3... ` (leading/trailing spaces)
+
+- Don't: `a1b2c3...` (leading/trailing spaces)
 - Do: `a1b2c3...` (no spaces)
 
 ### ❌ Including "Token" prefix
+
 - Don't: `Token a1b2c3...`
 - Do: `a1b2c3...` (code adds "Token" prefix)
 
 ### ❌ Forgetting to save
+
 - Must click "Add Variable" button!
 - Wait for deploy to complete
 
@@ -200,6 +211,7 @@ Success rate: 100%
 ## 📞 Need Help?
 
 If it doesn't work:
+
 1. Check environment variable name (exact: `COURTLISTENER_API_KEY`)
 2. Check token is valid (test at https://www.courtlistener.com/api/)
 3. Check deploy completed successfully
@@ -214,6 +226,6 @@ If it doesn't work:
 ✅ Deploy completed successfully  
 ✅ Logs show "COURTLISTENER_API_KEY set"  
 ✅ Test import succeeds with 100% rate  
-✅ Cases appear in database  
+✅ Cases appear in database
 
 **Then:** Run full import and celebrate! 🎊

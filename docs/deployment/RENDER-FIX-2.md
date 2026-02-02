@@ -1,6 +1,7 @@
 # ?? Render Deploy Fix #2 - Python Version Detection
 
 ## ? Previous Issue:
+
 Render ignored `runtime.txt` with format `python-3.11.9` and used Python 3.13 anyway.
 
 Pillow 10.1.0 failed to build from source on Python 3.13.
@@ -10,36 +11,46 @@ Pillow 10.1.0 failed to build from source on Python 3.13.
 ## ? Fixes Applied:
 
 ### 1. **Updated `runtime.txt` Format**
+
 ```
 3.11.9
 ```
+
 (Removed "python-" prefix - Render prefers just the version number)
 
-### 2. **Created `.python-version`** 
+### 2. **Created `.python-version`**
+
 ```
 3.11.9
 ```
+
 (Backup method - some platforms use this)
 
 ### 3. **Updated `render.yaml`**
+
 ```yaml
 envVars:
   - key: PYTHON_VERSION
     value: "3.11.9"
 runtime: python
 ```
+
 (Explicitly set Python version in Render config)
 
 ### 4. **Updated Pillow Version**
+
 ```
 Pillow==10.4.0
 ```
+
 (Latest version with pre-built wheels - no source compilation needed)
 
 ### 5. **Added Flask-Bcrypt**
+
 ```
 Flask-Bcrypt==1.0.1
 ```
+
 (Required for password hashing in models_auth.py)
 
 ---
@@ -47,11 +58,13 @@ Flask-Bcrypt==1.0.1
 ## ?? What This Does:
 
 **Three-layer Python version enforcement:**
+
 1. ? `runtime.txt` ? Primary method
 2. ? `.python-version` ? Backup method
 3. ? `render.yaml` ? Explicit env var
 
 **Plus:**
+
 - ? Pillow uses pre-built wheel (no compilation)
 - ? All dependencies have wheels for Python 3.11
 
@@ -80,11 +93,12 @@ Flask-Bcrypt==1.0.1
 **Go to:** https://dashboard.render.com
 
 **Watch for:**
+
 ```
 ? Detected Python 3.11.9
 ? Installing dependencies from wheels...
 ? Build succeeded
-? Deploy succeeded  
+? Deploy succeeded
 ? Live!
 ```
 

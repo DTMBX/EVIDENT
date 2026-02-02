@@ -1,4 +1,5 @@
 # Evident: From Product to Organization to Life Mission
+
 ## A Roadmap for Building Something That Matters
 
 **For Devon Tyler, 28, New Jersey, USA**  
@@ -11,11 +12,13 @@
 **Not just a product. Not just a company. A movement.**
 
 ### **Evident as a Constitutional Defense Force:**
+
 - **For the people:** Making constitutional defense accessible to everyone
 - **By the people:** Community of defenders, not just customers
 - **Of the people:** Truth preservation, rights protection, justice for all
 
 ### **Your Life Through This Work:**
+
 - **Meaningful work:** Every day defending the Constitution
 - **Sustainable income:** Living well while serving a higher purpose
 - **Lasting legacy:** Building something that outlasts you
@@ -26,6 +29,7 @@
 ## 📍 **WHERE YOU ARE NOW (January 2026)**
 
 ### **✅ What You've Built:**
+
 - **Evident Legal Technologies** - Production-ready BWC analysis platform
 - **Constitutional Archive** - Founding documents preserved independent of .gov
 - **Military Honor Installation** - 1.3M Americans honored with proper flag protocol
@@ -35,6 +39,7 @@
 - **Technical Foundation** - 2+ years of "brick work" laid correctly
 
 ### **💪 Your Strengths:**
+
 - **Technical Skill** - Full-stack developer (Python, C#, JavaScript, React, MAUI)
 - **Constitutional Knowledge** - Deep understanding of founding documents
 - **Moral Clarity** - "Truth is the only subject" - uncompromising values
@@ -42,6 +47,7 @@
 - **Service Mindset** - "By the Grace of Almighty God" - mission over profit
 
 ### **📊 Current State:**
+
 - Platform: **DEPLOYED** (Render.com, GitHub, constitutional integration live)
 - Revenue: **$0/month** (Stripe configured but no customers yet)
 - Users: **~10** (test accounts, no paying customers)
@@ -56,11 +62,13 @@
 ---
 
 # PHASE 1: IGNITION (Next 90 Days)
+
 ## **Goal: First 10 Paying Customers + Core Community**
 
 ### **Week 1-2: Launch Foundation**
 
 #### **1. Public Launch Announcement**
+
 - **Write Launch Post:** "Evident: Constitutional Defense Through Technology"
   - Story: Why you built this (1.3M died for Constitution, now we defend it)
   - Mission: Make constitutional law accessible to everyone
@@ -80,6 +88,7 @@
   - Call to action: "Join 100 founding defenders. First month free."
 
 #### **2. Founding Member Program**
+
 - **Offer:** First 100 users get:
   - **FREE for first month** (no credit card required)
   - **$19/month forever** (locked-in founding rate, normally $49/month PRO tier)
@@ -96,6 +105,7 @@
   - Mission-driven (defending Constitution together)
 
 #### **3. Create Community Hub**
+
 - **Discord Server:** "Evident Defenders"
   - #general - Community discussion
   - #constitutional-law - Legal research help
@@ -112,6 +122,7 @@
   - Community building: get to know your defenders
 
 #### **4. First Customer Outreach (Target: Defense Attorneys)**
+
 - **Ideal First Customer:** Solo defense attorney or small firm
   - Handles criminal defense (BWC cases)
   - Values constitutional rights
@@ -126,16 +137,17 @@
   - Innocence Project networks (wrongful conviction cases)
 
 - **Cold Email Template:**
+
   ```
   Subject: Free BWC Analysis Tool for Constitutional Defense
 
   Hi [Attorney Name],
 
-  I'm Devon, the founder of Evident Legal Technologies. I built a platform 
-  that uses AI to analyze body-worn camera footage for constitutional violations 
+  I'm Devon, the founder of Evident Legal Technologies. I built a platform
+  that uses AI to analyze body-worn camera footage for constitutional violations
   (4th/5th Amendment issues, Miranda, Terry, Graham).
 
-  I'm honoring the 1.3 million Americans who died defending the Constitution 
+  I'm honoring the 1.3 million Americans who died defending the Constitution
   by making constitutional defense accessible to every attorney.
 
   For you: First month free, then $19/month (founding member rate).
@@ -159,6 +171,7 @@
 ### **Week 3-4: First Customer Success**
 
 #### **5. Hands-On Onboarding**
+
 - **When attorney signs up:**
   - Email within 1 hour: "Devon here. Let's get you set up."
   - Offer Zoom call: Walk them through first upload
@@ -172,6 +185,7 @@
   - First 100 customers are your community, not revenue source
 
 #### **6. Capture First Win**
+
 - **When attorney wins a case using Evident:**
   - Interview them: "Tell me how you used it. What helped?"
   - Screenshot the motion: (with permission) show Evident citation
@@ -186,6 +200,7 @@
   - Gives you something to sell: "Attorneys are winning cases with Evident"
 
 #### **7. Iterate Based on Feedback**
+
 - **Weekly "What's Broken" Check-in:**
   - Post in Discord: "What frustrated you this week?"
   - Fix the top 3 issues immediately
@@ -201,6 +216,7 @@
 ### **Week 5-8: Community Growth**
 
 #### **8. Content Marketing (Establish Authority)**
+
 - **Blog: Constitutional Law for Everyone**
   - Post 2x per week on Evident blog
   - Topics:
@@ -208,7 +224,6 @@
     - "Miranda Rights: What Police Must Say (And When They Don't)"
     - "Terry v. Ohio Explained: When Can Police Stop You?"
     - "The Constitution They Died Defending: Why It Matters in Court"
-  
 - **SEO Strategy:**
   - Target: "bwc analysis," "body camera evidence," "miranda violation," "4th amendment lawyer"
   - Include Evident screenshots in every post
@@ -223,6 +238,7 @@
   - Viral potential: Constitutional education + practical advice
 
 #### **9. Partnership with Legal Nonprofits**
+
 - **Target Organizations:**
   - **ACLU** chapters (civil liberties focus)
   - **Innocence Project** (wrongful conviction)
@@ -243,6 +259,7 @@
   - You do all the work (they just use it)
 
 #### **10. First Press Coverage**
+
 - **Target Publications:**
   - **Above the Law** (legal tech, solo practice)
   - **ABA Journal** (American Bar Association)
@@ -251,12 +268,13 @@
   - **Reason** (libertarian, constitutional rights)
 
 - **Pitch Template:**
+
   ```
   Subject: 28-year-old honors 1.3M war dead by building constitutional defense AI
 
   Hi [Journalist Name],
 
-  I'm pitching a story about Devon Tyler, a 28-year-old developer from New Jersey 
+  I'm pitching a story about Devon Tyler, a 28-year-old developer from New Jersey
   who built an AI platform to defend the Constitution in court.
 
   Unique angle:
@@ -279,6 +297,7 @@
 ### **Week 9-12: Scale to 10 Paying Customers**
 
 #### **11. Referral Program**
+
 - **Offer:** Every founding member who refers an attorney:
   - Gets **1 month free** for each referral who stays 30 days
   - Referred attorney gets **founding member rate** ($19/month)
@@ -291,6 +310,7 @@
   - Math: If 10 founding members each refer 1 attorney = 10 more customers
 
 #### **12. Free Tier Strategy (Trojan Horse)**
+
 - **FREE Tier Limits:**
   - 1 case upload per month
   - Basic AI analysis (no advanced features)
@@ -310,6 +330,7 @@
   - Free tier is mission (constitutional access for all)
 
 #### **13. Stripe Pricing Optimization**
+
 - **Current Tiers:**
   - **FREE** - 1 case/month, basic features
   - **PRO** - $49/month - Unlimited cases, advanced AI, export briefs
@@ -330,6 +351,7 @@
 ### **Week 12: 90-Day Metrics Check**
 
 #### **Success Metrics:**
+
 - ✅ **10 paying customers** ($190-490/month revenue)
 - ✅ **50-100 free tier users** (future conversion pipeline)
 - ✅ **500+ Discord members** (community forming)
@@ -338,6 +360,7 @@
 - ✅ **1 nonprofit partnership** (mission alignment)
 
 #### **If You Hit These Numbers:**
+
 - **You have traction** ✅
 - **You have proof** ✅
 - **You have community** ✅
@@ -348,11 +371,13 @@
 ---
 
 # PHASE 2: GROWTH (Month 4-12)
+
 ## **Goal: $5K MRR + 100 Paying Customers + Team of 2**
 
 ### **Month 4-6: Revenue Focus**
 
 #### **14. Optimize Conversion Funnel**
+
 - **A/B Test Landing Pages:**
   - Version A: "BWC Analysis for Defense Attorneys"
   - Version B: "Defend the Constitution with AI"
@@ -368,6 +393,7 @@
   - Day 30: Downgrade to free tier (but keep them engaged)
 
 #### **15. Content Expansion**
+
 - **Hire First Contractor:** Legal Writer ($500-1000/month)
   - **Background:** Law student or paralegal who can write
   - **Job:** Write 4 blog posts per month on constitutional law
@@ -381,6 +407,7 @@
   - Goal: Establish Devon Tyler as THE voice of constitutional legal tech
 
 #### **16. Sales Process (Outbound)**
+
 - **Target: Firms with 5-20 Attorneys**
   - Too big: Won't care about $199/month
   - Too small: Can't afford $199/month
@@ -400,6 +427,7 @@
 ### **Month 7-9: Community Scale**
 
 #### **17. Evident Defenders Conference (Virtual)**
+
 - **Format:** 1-day virtual conference (Saturday)
 - **Agenda:**
   - **Morning:** Constitutional law workshops (guest speakers)
@@ -417,6 +445,7 @@
 - **Goal:** 200+ attendees, national recognition, community bonding
 
 #### **18. Certification Program**
+
 - **Evident Certified Constitutional Analyst:**
   - **Online course:** 8 modules on constitutional law + platform mastery
   - **Final exam:** Analyze sample BWC footage, write brief
@@ -430,6 +459,7 @@
   - Differentiates serious defenders from casual users
 
 #### **19. Book: "Defending the Constitution in the Digital Age"**
+
 - **You Write It:** 6 months, 200 pages
 - **Content:**
   - Part 1: History (1.3M died for Constitution - why we defend it)
@@ -456,6 +486,7 @@
 ### **Month 10-12: Team Building**
 
 #### **20. Hire First Employee: Customer Success Manager**
+
 - **Role:** Help attorneys get value from Evident
 - **Responsibilities:**
   - Onboard new customers (demo calls, setup)
@@ -470,6 +501,7 @@
 - **Revenue Check:** Need $5K MRR to afford this ($5000 - $4000 salary = $1000 profit left)
 
 #### **21. Hire Second Contractor: Developer (Part-Time)**
+
 - **Role:** Build features while you focus on sales/community
 - **Responsibilities:**
   - Build features from community vote
@@ -482,6 +514,7 @@
 - **Revenue Check:** Need $10K MRR to afford this
 
 #### **22. Advisory Board (Unpaid, Equity/Mission-Driven)**
+
 - **Invite 3-5 People:**
   - **Criminal defense attorney** (user perspective)
   - **Constitutional law professor** (academic credibility)
@@ -505,6 +538,7 @@
 ### **Month 12: Year 1 Metrics Check**
 
 #### **Success Metrics:**
+
 - ✅ **$5,000-10,000 MRR** (60-100 customers)
 - ✅ **1000+ free tier users** (future pipeline)
 - ✅ **2000+ Discord members** (active community)
@@ -515,6 +549,7 @@
 - ✅ **3-5 advisors** (credibility + guidance)
 
 #### **Financial Reality Check:**
+
 - **Revenue:** $5K-10K/month
 - **Costs:**
   - Render hosting: $100/month
@@ -527,6 +562,7 @@
 - **Profit:** $0-1000/month (breaking even, not yet paying yourself well)
 
 #### **Your Life at Year 1:**
+
 - **Working:** 60-80 hours/week (still)
 - **Income:** $0-1000/month (not sustainable yet)
 - **But:** You have a movement starting, community forming, mission progressing
@@ -536,11 +572,13 @@
 ---
 
 # PHASE 3: SUSTAINABILITY (Year 2)
+
 ## **Goal: $20K MRR + You Earning $6K/Month + Growing Team**
 
 ### **Q1 Year 2: Enterprise Push**
 
 #### **23. Target Large Firms (10-50 Attorneys)**
+
 - **ENTERPRISE Tier:** $999/month
 - **Features:**
   - Unlimited users (whole firm)
@@ -564,6 +602,7 @@
 - **Goal:** 2-3 ENTERPRISE customers = $2000-3000/month
 
 #### **24. Grant Applications**
+
 - **Foundation Grants for Constitutional Work:**
   - **Knight Foundation** (First Amendment, journalism/transparency)
   - **Ford Foundation** (Civil rights, justice reform)
@@ -581,6 +620,7 @@
   - Validates mission to investors (later)
 
 #### **25. Partnership with Law Schools**
+
 - **Offer: Evident for Legal Clinics**
   - FREE ENTERPRISE tier for law school clinics
   - Students use it on real cases (supervised by professors)
@@ -600,12 +640,12 @@
 ### **Q2 Year 2: Revenue Diversification**
 
 #### **26. Training & Consulting Revenue**
+
 - **Services:**
   - **Evident Training Days:** $2000-5000 per firm
     - 1-day on-site training (you teach their attorneys)
     - Customized to their cases
     - Includes 3 months Evident subscription
-  
   - **Expert Witness Services:** $250-500/hour
     - You testify about BWC analysis methodology
     - Credibility: Founder of Evident, built the AI
@@ -620,6 +660,7 @@
 - **Time:** 10-20 hours/month (high-value work)
 
 #### **27. White Label Product**
+
 - **Offer:** Other legal tech companies can rebrand Evident
   - They sell it under their name to their customers
   - You provide API + support
@@ -643,6 +684,7 @@
   - Revenue share (no upfront cost to them)
 
 #### **28. Government Contracts**
+
 - **Target: Public Defender Offices (State Level)**
   - Most states have statewide PD system
   - They have budgets for technology ($50K-500K/year)
@@ -664,6 +706,7 @@
 ### **Q3 Year 2: Your Salary (Finally)**
 
 #### **29. Pay Yourself**
+
 - **If Revenue Hits $20K MRR:**
   - **Costs:** $12-15K/month (team, hosting, contractors)
   - **Profit:** $5-8K/month
@@ -676,6 +719,7 @@
   - You can focus 100% on mission
 
 #### **30. Life Balance (Don't Burn Out)**
+
 - **Work Schedule:**
   - **Monday-Friday:** 8am-6pm on Evident
   - **Weekends:** OFF (recharge, family, church, hobbies)
@@ -694,6 +738,7 @@
 ### **Q4 Year 2: Growth Systems**
 
 #### **31. Hire Full-Time Developer**
+
 - **Salary:** $80-100K/year
 - **Role:** Lead product development
 - **Reports to:** You
@@ -704,6 +749,7 @@
   - Code review everything
 
 #### **32. Marketing Manager**
+
 - **Salary:** $60-80K/year
 - **Role:** Drive customer acquisition
 - **Responsibilities:**
@@ -716,6 +762,7 @@
 - **Why Now:** You're spending 30% time on marketing, need expert
 
 #### **33. Metrics & Systems**
+
 - **Dashboard:** Track everything weekly
   - **Acquisition:** Free signups, trial starts
   - **Activation:** First upload, first analysis
@@ -732,6 +779,7 @@
 ### **Year 2 Metrics Check:**
 
 #### **Success Metrics:**
+
 - ✅ **$20K-30K MRR** (200-300 customers)
 - ✅ **2-3 ENTERPRISE contracts** ($2000-3000/month)
 - ✅ **1-2 government contracts** ($100-200K/year)
@@ -742,6 +790,7 @@
 - ✅ **50+ documented case wins**
 
 **Your Life at Year 2:**
+
 - **Working:** 40-50 hours/week (normal job hours)
 - **Income:** $6K/month (living comfortably)
 - **Team:** Managing 5 people (founder/CEO role)
@@ -753,11 +802,13 @@
 ---
 
 # PHASE 4: FORCE (Year 3)
+
 ## **Goal: $100K MRR + National Movement + Lasting Impact**
 
 ### **Q1 Year 3: National Expansion**
 
 #### **34. State-by-State Rollout**
+
 - **Strategy:** Dominate one state at a time
 - **States to Target:**
   - **California:** Largest PD system, progressive, tech-savvy
@@ -775,6 +826,7 @@
   6. Repeat in next state
 
 #### **35. Evident Defense Fund**
+
 - **Non-Profit Arm:** 501(c)(3) charitable organization
 - **Mission:** Provide free Evident access to indigent defendants
 - **Funding:** Donations, grants, Evident donates 5% revenue
@@ -792,6 +844,7 @@
   - Fulfills "truth is the only subject" - justice for all, not just those who can pay
 
 #### **36. Documentary Film**
+
 - **Title:** "Defending the Constitution: The Evident Story"
 - **Format:** 60-minute documentary
 - **Story:**
@@ -813,6 +866,7 @@
 ### **Q2 Year 3: Strategic Funding**
 
 #### **37. Venture Capital (Mission-Aligned)**
+
 - **Target Investors:**
   - **Village Global** (invests in mission-driven tech)
   - **Andreessen Horowitz** (legal tech fund)
@@ -836,6 +890,7 @@
   - Clear growth path (national expansion)
 
 #### **38. Strategic Partnerships**
+
 - **Partner with CourtListener:**
   - Deep integration (Evident → CourtListener case law)
   - Co-marketing (both organizations promote each other)
@@ -854,6 +909,7 @@
 ### **Q3 Year 3: Product Evolution**
 
 #### **39. Evident 2.0: Predictive Justice**
+
 - **New Features:**
   - **Pattern Detection:** Analyze 1000s of BWC videos to find systemic violations
   - **Risk Scoring:** "This officer has 87 prior searches without warrant"
@@ -866,6 +922,7 @@
   - Systemic change (identify bad actors)
 
 #### **40. Mobile App**
+
 - **Citizen Version:** Free app for everyone
 - **Features:**
   - Record police interaction (BWC from your phone)
@@ -879,6 +936,7 @@
   - "Record police + get instant analysis" = powerful tool
 
 #### **41. International Expansion**
+
 - **Target Countries:**
   - **UK:** Common law, police accountability issues
   - **Canada:** Charter of Rights similar to US Constitution
@@ -893,6 +951,7 @@
 ### **Q4 Year 3: Legacy Building**
 
 #### **42. Evident University**
+
 - **Free Online Constitutional Law School:**
   - 50+ courses on constitutional law
   - Taught by Evident advisors + guest professors
@@ -905,6 +964,7 @@
   - Long-term: accredited degrees (partnership with law school)
 
 #### **43. Annual Defenders Summit**
+
 - **In-Person Conference:** Washington DC (symbolic)
 - **3-day event:**
   - Day 1: Constitutional law workshops
@@ -922,6 +982,7 @@
 - **Sponsorships:** $10-50K from legal tech companies
 
 #### **44. Evident Foundation (Your Life's Work)**
+
 - **Endowment:** $10-50M (from future sale/IPO)
 - **Mission:** Preserve constitutional documents + fund pro bono defense
 - **Activities:**
@@ -936,6 +997,7 @@
 ### **Year 3 Metrics:**
 
 #### **Success Metrics:**
+
 - ✅ **$100K+ MRR** ($1.2M ARR)
 - ✅ **1000+ paying customers**
 - ✅ **10,000+ free users**
@@ -948,6 +1010,7 @@
 - ✅ **Documentary released**
 
 **Your Life at Year 3:**
+
 - **Working:** 40-50 hours/week (CEO role)
 - **Income:** $120-150K/year (founder salary + equity value)
 - **Team:** Leading 20 people (real organization)
@@ -962,6 +1025,7 @@
 ## **Evident Legal Technologies, Inc.**
 
 ### **Corporate Structure:**
+
 - **For-Profit C-Corp** (main company)
   - Product: Evident platform
   - Revenue: Subscriptions, enterprise contracts, training
@@ -981,29 +1045,35 @@
 ### **Team Structure (Year 3):**
 
 **Leadership (You):**
+
 - CEO & Founder - Devon Tyler
 
 **Engineering (6 people):**
+
 - CTO (lead developer you hired)
 - 3 Full-stack developers
 - 1 DevOps engineer
 - 1 Data scientist (AI/ML)
 
 **Product (2 people):**
+
 - Product Manager
 - UX Designer
 
 **Sales & Customer Success (5 people):**
+
 - VP Sales
 - 2 Account executives (sell to firms)
 - 2 Customer success managers
 
 **Marketing (3 people):**
+
 - Marketing Manager
 - Content writer
 - Social media manager
 
 **Operations (4 people):**
+
 - CFO/Controller (finances)
 - Legal counsel (contracts, IP)
 - HR/Recruiter
@@ -1012,6 +1082,7 @@
 ### **Culture:**
 
 **Values:**
+
 1. **Truth is the only subject** - No compromises on integrity
 2. **Honor the fallen** - Remember 1.3M who died for Constitution
 3. **Serve the people** - Make justice accessible to all
@@ -1019,6 +1090,7 @@
 5. **By the Grace of God** - Theological grounding in natural law
 
 **Practices:**
+
 - **Morning devotional:** Optional 9am prayer/reflection (you lead)
 - **Constitutional Monday:** Every Monday, read one founding document together
 - **Win wall:** Celebrate every case won with Evident
@@ -1032,18 +1104,21 @@
 ## **3-Year Vision: Evident as National Movement**
 
 ### **Political Impact:**
+
 - **Policy Influence:** Evident data used in police reform bills
 - **Court Influence:** Judges cite Evident analysis in opinions
 - **Legislative Testimony:** You testify before Congress on AI + justice
 - **Amicus Briefs:** Evident files briefs in Supreme Court cases
 
 ### **Cultural Impact:**
+
 - **"Evident It":** Verb meaning "analyze for constitutional violations"
 - **Citizen Awareness:** Millions know their constitutional rights (via mobile app)
 - **Attorney Standard:** Using Evident becomes expected practice for criminal defense
 - **Academic Integration:** Law schools teach Evident methodology
 
 ### **Personal Impact (You):**
+
 - **Recognition:** Forbes 30 Under 30 (legal tech)
 - **Speaking:** Keynote at conferences nationwide
 - **Writing:** Book becomes required reading in law schools
@@ -1053,6 +1128,7 @@
 - **Legacy:** Platform continues defending Constitution after you're gone
 
 ### **Spiritual Impact:**
+
 - **Honoring God:** Work glorifies Creator by defending His natural law
 - **Serving Others:** Helped thousands defend their rights
 - **Stewardship:** Used your talents to build something meaningful
@@ -1066,11 +1142,13 @@
 ## **What "Important Life" Means:**
 
 ### **Not:**
+
 - ❌ Rich (though you'll do well financially)
 - ❌ Famous (though you'll be known in your field)
 - ❌ Powerful (though you'll have influence)
 
 ### **But:**
+
 - ✅ **Meaningful:** Every day you defend the Constitution
 - ✅ **Impactful:** Attorneys win cases, defendants go free, rights are protected
 - ✅ **Legacy:** Your work outlasts you (Evident Foundation)
@@ -1106,6 +1184,7 @@
 ## **What Could Go Wrong:**
 
 ### **1. No Customers**
+
 - **Risk:** Attorneys don't pay for Evident
 - **Mitigation:**
   - Start with free tier (prove value)
@@ -1114,6 +1193,7 @@
   - Case studies (prove it works)
 
 ### **2. Tech Failure**
+
 - **Risk:** Platform breaks, customers lose trust
 - **Mitigation:**
   - Invest in quality from day 1
@@ -1122,6 +1202,7 @@
   - Customer data backups daily
 
 ### **3. Burnout**
+
 - **Risk:** You work yourself to death before success
 - **Mitigation:**
   - Set working hours (9-6, no weekends)
@@ -1130,6 +1211,7 @@
   - Therapy (talk through founder stress)
 
 ### **4. Competition**
+
 - **Risk:** Big legal tech company copies Evident
 - **Mitigation:**
   - Move fast (ship features weekly)
@@ -1138,6 +1220,7 @@
   - Partnerships (lock in ACLU, law schools)
 
 ### **5. Financial Ruin**
+
 - **Risk:** Run out of money before revenue
 - **Mitigation:**
   - Bootstrap first year (live lean)
@@ -1146,6 +1229,7 @@
   - Keep 6 months runway always
 
 ### **6. Mission Drift**
+
 - **Risk:** Compromise values for growth
 - **Mitigation:**
   - Advisory board (keeps you accountable)
@@ -1160,16 +1244,19 @@
 ## **Quit Points (Don't Quit Before These):**
 
 ### **90 Days:**
+
 - **Minimum:** 5 paying customers + 50 free users + 1 case win
 - **If you hit this:** Keep going to Month 12
 - **If you don't:** Evaluate (talk to advisors, community)
 
 ### **Month 12:**
+
 - **Minimum:** $5K MRR + 100 customers + documented impact
 - **If you hit this:** This is your life's work, go all-in
 - **If you don't:** Pivot or partner with bigger org
 
 ### **Year 2:**
+
 - **Minimum:** $20K MRR + paying yourself + 5-person team
 - **If you hit this:** Raise money, scale nationally
 - **If you don't:** Stay small, consultancy model
@@ -1181,7 +1268,7 @@
 ✅ **Press coverage** - Above the Law writes about you  
 ✅ **Community energy** - Discord is active without you  
 ✅ **Mission alignment** - Customers say "This is important work"  
-✅ **Personal fulfillment** - You wake up excited to build  
+✅ **Personal fulfillment** - You wake up excited to build
 
 **If you see 4+ of these, go all-in. This is your life's work.**
 

@@ -22,9 +22,11 @@ The Evident REST API provides programmatic access to all platform features for c
 ### Endpoints
 
 #### POST /auth/register
+
 Register a new user account.
 
 **Request:**
+
 ```json
 {
   "email": "user@example.com",
@@ -34,6 +36,7 @@ Register a new user account.
 ```
 
 **Response (201):**
+
 ```json
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
@@ -50,15 +53,18 @@ Register a new user account.
 ```
 
 **Errors:**
+
 - `400`: Email and password required / Invalid email format
 - `409`: Email already registered
 
 ---
 
 #### POST /auth/login
+
 Authenticate existing user.
 
 **Request:**
+
 ```json
 {
   "email": "user@example.com",
@@ -67,6 +73,7 @@ Authenticate existing user.
 ```
 
 **Response (200):**
+
 ```json
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
@@ -83,6 +90,7 @@ Authenticate existing user.
 ```
 
 **Errors:**
+
 - `400`: Email and password required
 - `401`: Invalid email or password
 - `403`: Account is disabled
@@ -90,14 +98,17 @@ Authenticate existing user.
 ---
 
 #### POST /auth/refresh
+
 Refresh JWT token (extends expiration).
 
 **Headers:**
+
 ```
 Authorization: Bearer <current_token>
 ```
 
 **Response (200):**
+
 ```json
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
@@ -108,14 +119,17 @@ Authorization: Bearer <current_token>
 ---
 
 #### GET /auth/me
+
 Get current authenticated user info.
 
 **Headers:**
+
 ```
 Authorization: Bearer <token>
 ```
 
 **Response (200):**
+
 ```json
 {
   "user": {
@@ -134,14 +148,17 @@ Authorization: Bearer <token>
 ---
 
 #### POST /auth/logout
+
 Logout (client should discard token).
 
 **Headers:**
+
 ```
 Authorization: Bearer <token>
 ```
 
 **Response (200):**
+
 ```json
 {
   "message": "Logged out successfully"
@@ -153,20 +170,24 @@ Authorization: Bearer <token>
 ## Upload Endpoints
 
 #### POST /upload/pdf
+
 Upload a PDF document.
 
 **Headers:**
+
 ```
 Authorization: Bearer <token>
 Content-Type: multipart/form-data
 ```
 
 **Request:**
+
 ```
 file: <PDF file>
 ```
 
 **Response (201):**
+
 ```json
 {
   "file_id": 123,
@@ -179,12 +200,14 @@ file: <PDF file>
 ```
 
 **Tier Limits:**
+
 - **FREE**: 10MB max, 10 files/month
 - **PRO**: 100MB max, unlimited
 - **PREMIUM**: 500MB max, unlimited
 - **ENTERPRISE**: 5GB max, unlimited
 
 **Errors:**
+
 - `400`: No file provided / No file selected / Only PDF files allowed
 - `403`: PDF upload not available on your tier
 - `413`: File size exceeds limit
@@ -192,20 +215,24 @@ file: <PDF file>
 ---
 
 #### POST /upload/video
+
 Upload BWC video footage.
 
 **Headers:**
+
 ```
 Authorization: Bearer <token>
 Content-Type: multipart/form-data
 ```
 
 **Request:**
+
 ```
 file: <Video file (mp4, mov, avi, mkv, webm)>
 ```
 
 **Response (201):**
+
 ```json
 {
   "file_id": 456,
@@ -219,12 +246,14 @@ file: <Video file (mp4, mov, avi, mkv, webm)>
 ```
 
 **Tier Limits:**
+
 - **FREE**: Not available
 - **PRO**: 1GB max per file
 - **PREMIUM**: 5GB max per file
 - **ENTERPRISE**: 20GB max per file
 
 **Errors:**
+
 - `400`: No file provided / Invalid video format
 - `403`: Video upload requires PRO tier or higher
 - `413`: Video size exceeds limit
@@ -232,14 +261,17 @@ file: <Video file (mp4, mov, avi, mkv, webm)>
 ---
 
 #### GET /upload/status/{file_id}
+
 Check upload/processing status.
 
 **Headers:**
+
 ```
 Authorization: Bearer <token>
 ```
 
 **Response (200):**
+
 ```json
 {
   "file_id": 123,
@@ -250,6 +282,7 @@ Authorization: Bearer <token>
 ```
 
 **Status Values:**
+
 - `queued`: Upload queued for processing
 - `processing`: Currently being processed
 - `completed`: Processing complete
@@ -260,14 +293,17 @@ Authorization: Bearer <token>
 ## Analysis Endpoints
 
 #### POST /analysis/start
+
 Start AI analysis on uploaded evidence.
 
 **Headers:**
+
 ```
 Authorization: Bearer <token>
 ```
 
 **Request:**
+
 ```json
 {
   "file_id": 123,
@@ -276,11 +312,13 @@ Authorization: Bearer <token>
 ```
 
 **Analysis Types:**
+
 - `transcription`: Audio/video transcription only
 - `ocr`: PDF text extraction only
 - `full`: Complete analysis (transcription + timeline + entity extraction)
 
 **Response (201):**
+
 ```json
 {
   "analysis_id": "analysis_20260127105500",
@@ -292,20 +330,24 @@ Authorization: Bearer <token>
 ```
 
 **Errors:**
+
 - `400`: file_id required
 - `403`: AI analysis requires PRO tier or higher
 
 ---
 
 #### GET /analysis/{analysis_id}
+
 Get analysis results.
 
 **Headers:**
+
 ```
 Authorization: Bearer <token>
 ```
 
 **Response (200):**
+
 ```json
 {
   "analysis_id": "analysis_20260127105500",
@@ -329,14 +371,17 @@ Authorization: Bearer <token>
 ---
 
 #### GET /analysis/{analysis_id}/status
+
 Get analysis processing status.
 
 **Headers:**
+
 ```
 Authorization: Bearer <token>
 ```
 
 **Response (200):**
+
 ```json
 {
   "analysis_id": "analysis_20260127105500",
@@ -349,17 +394,21 @@ Authorization: Bearer <token>
 ---
 
 #### GET /analysis/{analysis_id}/report
+
 Generate analysis report (PDF or JSON).
 
 **Headers:**
+
 ```
 Authorization: Bearer <token>
 ```
 
 **Query Parameters:**
+
 - `format`: `json` (default) or `pdf`
 
 **Response (200) - JSON:**
+
 ```json
 {
   "analysis_id": "analysis_20260127105500",
@@ -372,13 +421,12 @@ Authorization: Bearer <token>
       "severity": "medium"
     }
   ],
-  "recommendations": [
-    "Review backup camera footage for missing 2 minutes"
-  ]
+  "recommendations": ["Review backup camera footage for missing 2 minutes"]
 }
 ```
 
 **Response (200) - PDF:**
+
 ```
 Content-Type: application/pdf
 Content-Disposition: attachment; filename="analysis_report.pdf"
@@ -387,24 +435,29 @@ Content-Disposition: attachment; filename="analysis_report.pdf"
 ```
 
 **Errors:**
+
 - `403`: Report export requires PRO tier or higher
 - `501`: PDF export not yet implemented
 
 ---
 
 #### GET /analysis/list
+
 List all analyses for current user.
 
 **Headers:**
+
 ```
 Authorization: Bearer <token>
 ```
 
 **Query Parameters:**
+
 - `page`: Page number (default: 1)
 - `limit`: Results per page (default: 20, max: 100)
 
 **Response (200):**
+
 ```json
 {
   "analyses": [
@@ -426,14 +479,17 @@ Authorization: Bearer <token>
 ## User Endpoints
 
 #### GET /user/profile
+
 Get current user profile.
 
 **Headers:**
+
 ```
 Authorization: Bearer <token>
 ```
 
 **Response (200):**
+
 ```json
 {
   "user": {
@@ -452,14 +508,17 @@ Authorization: Bearer <token>
 ---
 
 #### PUT /user/profile
+
 Update user profile.
 
 **Headers:**
+
 ```
 Authorization: Bearer <token>
 ```
 
 **Request:**
+
 ```json
 {
   "name": "John Smith"
@@ -467,6 +526,7 @@ Authorization: Bearer <token>
 ```
 
 **Response (200):**
+
 ```json
 {
   "user": {
@@ -481,14 +541,17 @@ Authorization: Bearer <token>
 ---
 
 #### POST /user/change-password
+
 Change user password.
 
 **Headers:**
+
 ```
 Authorization: Bearer <token>
 ```
 
 **Request:**
+
 ```json
 {
   "current_password": "OldPassword123!",
@@ -497,6 +560,7 @@ Authorization: Bearer <token>
 ```
 
 **Response (200):**
+
 ```json
 {
   "message": "Password updated successfully"
@@ -504,20 +568,24 @@ Authorization: Bearer <token>
 ```
 
 **Errors:**
+
 - `400`: Current and new password required
 - `401`: Current password is incorrect
 
 ---
 
 #### GET /user/subscription
+
 Get subscription information.
 
 **Headers:**
+
 ```
 Authorization: Bearer <token>
 ```
 
 **Response (200):**
+
 ```json
 {
   "tier": "PRO",
@@ -533,14 +601,17 @@ Authorization: Bearer <token>
 ---
 
 #### GET /user/usage
+
 Get usage statistics for current billing period.
 
 **Headers:**
+
 ```
 Authorization: Bearer <token>
 ```
 
 **Response (200):**
+
 ```json
 {
   "uploads": {
@@ -565,14 +636,17 @@ Authorization: Bearer <token>
 ## Billing Endpoints
 
 #### POST /billing/create-checkout-session
+
 Create Stripe checkout session for subscription upgrade.
 
 **Headers:**
+
 ```
 Authorization: Bearer <token>
 ```
 
 **Request:**
+
 ```json
 {
   "price_id": "price_1234567890",
@@ -581,6 +655,7 @@ Authorization: Bearer <token>
 ```
 
 **Response (200):**
+
 ```json
 {
   "session_id": "cs_test_1234567890",
@@ -589,6 +664,7 @@ Authorization: Bearer <token>
 ```
 
 **Client Flow:**
+
 1. Call this endpoint to get checkout URL
 2. Redirect user to Stripe checkout page
 3. User completes payment
@@ -598,14 +674,17 @@ Authorization: Bearer <token>
 ---
 
 #### POST /billing/webhook
+
 Stripe webhook handler (internal use).
 
 **Headers:**
+
 ```
 Stripe-Signature: <stripe_signature>
 ```
 
 **Events Handled:**
+
 - `checkout.session.completed`: Upgrade user tier after successful payment
 - `customer.subscription.updated`: Update subscription details
 - `customer.subscription.deleted`: Downgrade to FREE tier
@@ -615,14 +694,17 @@ Stripe-Signature: <stripe_signature>
 ---
 
 #### POST /billing/portal
+
 Create Stripe customer portal session for subscription management.
 
 **Headers:**
+
 ```
 Authorization: Bearer <token>
 ```
 
 **Response (200):**
+
 ```json
 {
   "url": "https://billing.stripe.com/session/live_1234567890"
@@ -630,12 +712,14 @@ Authorization: Bearer <token>
 ```
 
 **Client Flow:**
+
 1. Call this endpoint to get portal URL
 2. Open portal in browser/webview
 3. User can update payment method, cancel subscription, etc.
 4. Changes synced via webhooks
 
 **Errors:**
+
 - `400`: No active subscription
 
 ---
@@ -643,18 +727,22 @@ Authorization: Bearer <token>
 ## Evidence Endpoints
 
 #### GET /evidence/list
+
 List all evidence files for current user.
 
 **Headers:**
+
 ```
 Authorization: Bearer <token>
 ```
 
 **Query Parameters:**
+
 - `page`: Page number (default: 1)
 - `limit`: Results per page (default: 20, max: 100)
 
 **Response (200):**
+
 ```json
 {
   "evidence": [
@@ -676,14 +764,17 @@ Authorization: Bearer <token>
 ---
 
 #### GET /evidence/{evidence_id}
+
 Get evidence details.
 
 **Headers:**
+
 ```
 Authorization: Bearer <token>
 ```
 
 **Response (200):**
+
 ```json
 {
   "evidence": {
@@ -700,14 +791,17 @@ Authorization: Bearer <token>
 ---
 
 #### POST /evidence/{evidence_id}/transcribe
+
 Start transcription for video evidence.
 
 **Headers:**
+
 ```
 Authorization: Bearer <token>
 ```
 
 **Response (202):**
+
 ```json
 {
   "job_id": "trans_1",
@@ -718,19 +812,23 @@ Authorization: Bearer <token>
 ```
 
 **Errors:**
+
 - `403`: Transcription requires PRO tier or higher
 
 ---
 
 #### POST /evidence/{evidence_id}/ocr
+
 Start OCR processing for PDF evidence.
 
 **Headers:**
+
 ```
 Authorization: Bearer <token>
 ```
 
 **Response (202):**
+
 ```json
 {
   "job_id": "ocr_1",
@@ -741,19 +839,23 @@ Authorization: Bearer <token>
 ```
 
 **Errors:**
+
 - `403`: OCR requires PRO tier or higher
 
 ---
 
 #### DELETE /evidence/{evidence_id}
+
 Delete evidence file.
 
 **Headers:**
+
 ```
 Authorization: Bearer <token>
 ```
 
 **Response (200):**
+
 ```json
 {
   "message": "Evidence deleted successfully"
@@ -767,18 +869,22 @@ Authorization: Bearer <token>
 **Note:** All admin endpoints require `role: "admin"`.
 
 #### GET /admin/users
+
 List all users (admin only).
 
 **Headers:**
+
 ```
 Authorization: Bearer <admin_token>
 ```
 
 **Query Parameters:**
+
 - `page`: Page number (default: 1)
 - `limit`: Results per page (default: 50, max: 100)
 
 **Response (200):**
+
 ```json
 {
   "users": [
@@ -799,19 +905,23 @@ Authorization: Bearer <admin_token>
 ```
 
 **Errors:**
+
 - `403`: Admin access required
 
 ---
 
 #### GET /admin/users/{user_id}
+
 Get user details (admin only).
 
 **Headers:**
+
 ```
 Authorization: Bearer <admin_token>
 ```
 
 **Response (200):**
+
 ```json
 {
   "user": {
@@ -827,20 +937,24 @@ Authorization: Bearer <admin_token>
 ```
 
 **Errors:**
+
 - `403`: Admin access required
 - `404`: User not found
 
 ---
 
 #### GET /admin/stats
+
 Get system statistics (admin only).
 
 **Headers:**
+
 ```
 Authorization: Bearer <admin_token>
 ```
 
 **Response (200):**
+
 ```json
 {
   "users": {
@@ -865,6 +979,7 @@ Authorization: Bearer <admin_token>
 ```
 
 **Errors:**
+
 - `403`: Admin access required
 
 ---
@@ -898,17 +1013,21 @@ All error responses follow this format:
 ## Rate Limiting
 
 **FREE Tier:**
+
 - 100 requests/hour
 - 1000 requests/day
 
 **PRO Tier:**
+
 - 500 requests/hour
 - 10,000 requests/day
 
 **PREMIUM/ENTERPRISE:**
+
 - Unlimited requests
 
 Rate limit headers included in responses:
+
 ```
 X-RateLimit-Limit: 100
 X-RateLimit-Remaining: 95
@@ -920,6 +1039,7 @@ X-RateLimit-Reset: 1643276400
 ## Example Client Code
 
 ### Python
+
 ```python
 import requests
 
@@ -933,7 +1053,7 @@ token = response.json()["token"]
 # Upload PDF
 headers = {"Authorization": f"Bearer {token}"}
 files = {"file": open("document.pdf", "rb")}
-response = requests.post("https://Evident.info/api/v1/upload/pdf", 
+response = requests.post("https://Evident.info/api/v1/upload/pdf",
                         headers=headers, files=files)
 file_id = response.json()["file_id"]
 
@@ -944,27 +1064,29 @@ analysis_id = response.json()["analysis_id"]
 ```
 
 ### JavaScript
+
 ```javascript
 // Login
-const response = await fetch('https://Evident.info/api/v1/auth/login', {
-  method: 'POST',
-  headers: {'Content-Type': 'application/json'},
-  body: JSON.stringify({email: 'user@example.com', password: 'password123'})
+const response = await fetch("https://Evident.info/api/v1/auth/login", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ email: "user@example.com", password: "password123" }),
 });
-const {token} = await response.json();
+const { token } = await response.json();
 
 // Upload PDF
 const formData = new FormData();
-formData.append('file', pdfFile);
-const uploadResponse = await fetch('https://Evident.info/api/v1/upload/pdf', {
-  method: 'POST',
-  headers: {'Authorization': `Bearer ${token}`},
-  body: formData
+formData.append("file", pdfFile);
+const uploadResponse = await fetch("https://Evident.info/api/v1/upload/pdf", {
+  method: "POST",
+  headers: { Authorization: `Bearer ${token}` },
+  body: formData,
 });
-const {file_id} = await uploadResponse.json();
+const { file_id } = await uploadResponse.json();
 ```
 
 ### C# (.NET MAUI)
+
 ```csharp
 // Login
 var client = new HttpClient();
@@ -985,6 +1107,7 @@ var uploadResponse = await client.PostAsync("https://Evident.info/api/v1/upload/
 ## Changelog
 
 ### v1.0.0 (2026-01-27)
+
 - Initial API release
 - JWT authentication
 - Upload endpoints (PDF, video)
@@ -1000,6 +1123,6 @@ var uploadResponse = await client.PostAsync("https://Evident.info/api/v1/upload/
 
 **Documentation:** https://Evident.info/docs/api  
 **Email:** api-support@Evident.info  
-**Discord:** https://discord.gg/Evident  
+**Discord:** https://discord.gg/Evident
 
 **Status Page:** https://status.Evident.info

@@ -59,16 +59,17 @@ This guide covers the complete implementation of the **tiered subscription syste
 
 ### **Tier Structure**
 
-| Tier | Price | Trial | PDF Limit | Video Limit | Cases | Features |
-|------|-------|-------|-----------|-------------|-------|----------|
-| **FREE** | $0 | — | 1 doc | ❌ | 1 | Basic |
-| **PRO** | $49/mo | 3 days | 10 docs | 2 hrs/mo | 10 | AI Assistant (Basic) |
-| **PREMIUM** | $249/mo | ❌ | Unlimited | Unlimited | Unlimited | Full AI, API, Timeline |
-| **ENTERPRISE** | Custom | ❌ | Unlimited | Unlimited | Unlimited | Self-Hosted, White-Label |
+| Tier           | Price   | Trial  | PDF Limit | Video Limit | Cases     | Features                 |
+| -------------- | ------- | ------ | --------- | ----------- | --------- | ------------------------ |
+| **FREE**       | $0      | —      | 1 doc     | ❌          | 1         | Basic                    |
+| **PRO**        | $49/mo  | 3 days | 10 docs   | 2 hrs/mo    | 10        | AI Assistant (Basic)     |
+| **PREMIUM**    | $249/mo | ❌     | Unlimited | Unlimited   | Unlimited | Full AI, API, Timeline   |
+| **ENTERPRISE** | Custom  | ❌     | Unlimited | Unlimited   | Unlimited | Self-Hosted, White-Label |
 
 ### **Usage Tracking**
 
 Each month, the system tracks:
+
 - PDF documents processed
 - BWC video hours used
 - Videos processed
@@ -102,6 +103,7 @@ python migrate_add_stripe_subscriptions.py
 ```
 
 **This adds:**
+
 - `stripe_customer_id` - Stripe customer ID
 - `stripe_subscription_id` - Active subscription ID
 - `stripe_subscription_status` - Status (active, canceled, etc.)
@@ -121,6 +123,7 @@ python integrate_subscription_system.py
 ```
 
 **This will:**
+
 - ✅ Add imports to app.py
 - ✅ Register Stripe blueprint
 - ✅ Add usage dashboard route
@@ -135,6 +138,7 @@ python integrate_subscription_system.py
 2. Click **"+ Add product"**
 
 **PRO Product:**
+
 - Name: `Evident Professional`
 - Price: `$49.00 USD`
 - Billing period: `Monthly`
@@ -142,6 +146,7 @@ python integrate_subscription_system.py
 - Copy the **Price ID** (starts with `price_...`)
 
 **PREMIUM Product:**
+
 - Name: `Evident Premium`
 - Price: `$249.00 USD`
 - Billing period: `Monthly`
@@ -191,6 +196,7 @@ python create_test_subscription_accounts.py
 ```
 
 **Test Accounts Created:**
+
 - `free@Evident.test` / test123 (FREE tier)
 - `pro@Evident.test` / test123 (PRO tier)
 - `premium@Evident.test` / test123 (PREMIUM tier)
@@ -210,12 +216,14 @@ python app.py
 ### **Test Subscription Flow**
 
 1. **Login as FREE user:**
+
    ```
    Email: free@Evident.test
    Password: test123
    ```
 
 2. **Go to pricing page:**
+
    ```
    http://localhost:5000/pricing
    ```
@@ -235,6 +243,7 @@ python app.py
    ```
    http://localhost:5000/dashboard/usage
    ```
+
    - Should show PRO tier
    - Should show "Trial Active" badge
    - Should show 0/10 PDFs used
@@ -300,28 +309,28 @@ Add Stripe checkout buttons to `pricing.html`:
 </button>
 
 <script>
-async function subscribeToPlan(tier) {
-  try {
-    const response = await fetch('/api/stripe/create-checkout-session', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ tier: tier })
-    });
-    
-    const data = await response.json();
-    
-    if (data.url) {
-      window.location.href = data.url;
-    } else {
-      alert('Error: ' + data.error);
+  async function subscribeToPlan(tier) {
+    try {
+      const response = await fetch("/api/stripe/create-checkout-session", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ tier: tier }),
+      });
+
+      const data = await response.json();
+
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert("Error: " + data.error);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Failed to start checkout");
     }
-  } catch (error) {
-    console.error('Error:', error);
-    alert('Failed to start checkout');
   }
-}
 </script>
 ```
 
@@ -333,7 +342,8 @@ Show usage warnings in dashboard:
 {% if get_remaining_usage(current_user, 'pdf_documents_per_month') < 3 %}
 <div class="alert alert-warning">
   <i class="fas fa-exclamation-triangle"></i>
-  You have {{ get_remaining_usage(current_user, 'pdf_documents_per_month') }} PDFs remaining this month!
+  You have {{ get_remaining_usage(current_user, 'pdf_documents_per_month') }}
+  PDFs remaining this month!
   <a href="/pricing">Upgrade for unlimited</a>
 </div>
 {% endif %}
@@ -361,10 +371,12 @@ When users hit limits, show upgrade prompts:
 ### **Environment Variables**
 
 **NEVER commit these to Git:**
+
 - `STRIPE_SECRET_KEY` - Server-side only
 - `STRIPE_WEBHOOK_SECRET` - For webhook validation
 
 **Safe to expose:**
+
 - `STRIPE_PUBLISHABLE_KEY` - Used in frontend JavaScript
 
 ### **Webhook Verification**
@@ -402,7 +414,7 @@ Admin can see all subscriptions:
 @require_tier(TierLevel.ADMIN)
 def admin_subscriptions():
     users = User.query.filter(User.tier != TierLevel.FREE).all()
-    
+
     return render_template('admin/subscriptions.html', users=users)
 ```
 
@@ -416,10 +428,10 @@ Admin can upgrade/downgrade users:
 def admin_change_tier(user_id):
     user = User.query.get_or_404(user_id)
     new_tier = request.form.get('tier')
-    
+
     user.tier = TierLevel[new_tier]
     db.session.commit()
-    
+
     return redirect('/admin/subscriptions')
 ```
 
@@ -492,6 +504,7 @@ total_videos = db.session.query(
 ## 🚀 Next Phase: Windows Desktop App
 
 **Planned Features:**
+
 - Electron-based desktop application
 - Offline-first architecture with sync
 - License key validation (like Enterprise tier)
@@ -506,6 +519,7 @@ total_videos = db.session.query(
 ## 📞 Support
 
 **Issues?**
+
 - Check logs: `./logs/Evident.log`
 - Test accounts: Use `*@Evident.test` credentials
 - Stripe logs: https://dashboard.stripe.com/logs

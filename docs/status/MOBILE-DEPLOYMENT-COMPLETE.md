@@ -40,6 +40,7 @@ com.companyname.Evident.matterdocket.maui-Signed.apk
 **Works On:** Android 5.0+ (API 21+)
 
 ### Full Guide
+
 → See `ANDROID-APK-READY.md`
 
 ---
@@ -65,12 +66,14 @@ git push origin main
 ```
 
 **Pros:**
+
 - ✅ No Mac needed for builds
 - ✅ Automated on every push
 - ✅ Free for public repos
 - ✅ 200 minutes/month free for private repos
 
 **Cons:**
+
 - ❌ Still need Mac to install .ipa on iPhone (or use TestFlight)
 - ❌ Development builds expire in 7 days (unless using TestFlight)
 
@@ -103,6 +106,7 @@ git push origin main
 ```
 
 **Pros:**
+
 - ✅ No Mac needed for installation
 - ✅ Install on unlimited devices
 - ✅ 90-day beta testing
@@ -110,6 +114,7 @@ git push origin main
 - ✅ Automatic updates
 
 **Cons:**
+
 - ❌ Costs $99/year
 - ❌ Takes 2-4 weeks to set up
 - ❌ Requires review approval
@@ -117,6 +122,7 @@ git push origin main
 ---
 
 ### Full Guide
+
 → See `IOS-GITHUB-ACTIONS.md`
 
 ---
@@ -128,6 +134,7 @@ git push origin main
 **Linux CANNOT build iOS apps.** Neither can Windows.
 
 Apple strictly enforces:
+
 - ✅ macOS required
 - ✅ Xcode required
 - ✅ Apple Developer account required
@@ -137,10 +144,11 @@ Apple strictly enforces:
 GitHub provides **free macOS virtual machines** that run in the cloud:
 
 ```yaml
-runs-on: macos-latest  # ← Free Mac in cloud!
+runs-on: macos-latest # ← Free Mac in cloud!
 ```
 
 So you:
+
 1. **Write code on Windows/Linux**
 2. **Push to GitHub**
 3. **GitHub Mac runner builds iOS app**
@@ -153,15 +161,15 @@ So you:
 
 ## 📊 Platform Comparison
 
-| Feature | Android | iOS |
-|---------|---------|-----|
-| **Build Time** | ✅ 5 minutes | ✅ 10 minutes |
-| **Build On** | ✅ Windows | ⚠️ macOS only (or GitHub) |
-| **Install** | ✅ Direct APK | ⚠️ Xcode or TestFlight |
-| **Cost** | ✅ Free | ⚠️ $99/year (for TestFlight) |
-| **Distribution** | ✅ Email/USB/Drive | ⚠️ TestFlight or Xcode |
-| **App Expires** | ✅ Never | ⚠️ 7 days (dev) / 90 days (TestFlight) |
-| **Max Testers** | ✅ Unlimited | ✅ 10,000 (TestFlight) |
+| Feature          | Android            | iOS                                    |
+| ---------------- | ------------------ | -------------------------------------- |
+| **Build Time**   | ✅ 5 minutes       | ✅ 10 minutes                          |
+| **Build On**     | ✅ Windows         | ⚠️ macOS only (or GitHub)              |
+| **Install**      | ✅ Direct APK      | ⚠️ Xcode or TestFlight                 |
+| **Cost**         | ✅ Free            | ⚠️ $99/year (for TestFlight)           |
+| **Distribution** | ✅ Email/USB/Drive | ⚠️ TestFlight or Xcode                 |
+| **App Expires**  | ✅ Never           | ⚠️ 7 days (dev) / 90 days (TestFlight) |
+| **Max Testers**  | ✅ Unlimited       | ✅ 10,000 (TestFlight)                 |
 
 ---
 
@@ -222,6 +230,7 @@ So you:
 ## ✨ App Features (Both Platforms)
 
 ### Legal AI Tools (15 Total)
+
 1. 🔍 **Brady Violations** - Evidence suppression analysis
 2. ⚖️ **4th Amendment** - Search & seizure constitutionality
 3. 🗣️ **Miranda Rights** - Custodial interrogation review
@@ -239,6 +248,7 @@ So you:
 15. 🔍 **Case Law Search** - Precedent research
 
 ### Core Features
+
 - ✅ Multi-case management
 - ✅ File upload (PDF, video, images)
 - ✅ AI-powered analysis
@@ -256,18 +266,21 @@ So you:
 ## 📚 Complete Documentation
 
 ### Installation Guides
+
 - **`ANDROID-APK-READY.md`** - Android installation (3-step guide)
 - **`IOS-GITHUB-ACTIONS.md`** - iOS workflow setup
 - **`IOS-TESTING-COMPLETE-GUIDE.md`** - Detailed iOS deployment
 - **`GET-ON-IPHONE-NOW.md`** - All iOS options explained
 
 ### Developer Guides
+
 - **`BUILD-SUCCESS.md`** - MAUI integration summary
 - **`CHATGPT-QUICK-START.md`** - ChatGPT features
 - **`LEGAL-AI-TOOLS.md`** - 15 AI assistants documented
 - **`PROFILE-SETUP-GUIDE.md`** - PowerShell dev tools
 
 ### API & Backend
+
 - **`API-REFERENCE.md`** - REST API endpoints
 - **`CHATGPT-INTEGRATION-PLAN.md`** - ChatGPT architecture
 - **`STRIPE-SETUP-GUIDE.md`** - Billing integration
@@ -277,6 +290,7 @@ So you:
 ## 🚀 Next Steps
 
 ### Today (10 minutes)
+
 ```powershell
 # Install on Android
 explorer "src\Evident.MatterDocket.MAUI\bin\Release\net10.0-android"
@@ -286,6 +300,7 @@ explorer "src\Evident.MatterDocket.MAUI\bin\Release\net10.0-android"
 ```
 
 ### This Week (2 hours)
+
 ```powershell
 # Push iOS workflow
 git add .github/workflows/ios-build.yml
@@ -297,6 +312,7 @@ git push
 ```
 
 ### Next Month (Production)
+
 - Collect feedback from Android testing
 - Fix bugs and improve features
 - Set up TestFlight

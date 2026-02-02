@@ -3,8 +3,9 @@
 ## ISSUE: Cannot login to live Evident app
 
 **Test accounts not working:**
+
 - free@Evident.test
-- pro@Evident.test  
+- pro@Evident.test
 - admin@Evident.test
 
 ---
@@ -21,6 +22,7 @@
 4. **Register page:** https://Evident.info/register
 
 **What do you see?**
+
 - Working page? ✅
 - Error 500? ❌
 - Cannot connect? ❌
@@ -35,6 +37,7 @@
 1. **Go to:** https://Evident.info/register
 
 2. **Fill out with YOUR real info:**
+
    ```
    Email: your.real.email@gmail.com (use your actual email)
    Password: YourSecurePass123!
@@ -62,15 +65,17 @@
 **I'll create a script to check the live app status:**
 
 Run this to diagnose:
+
 ```bash
 cd C:\web-dev\github-repos\Evident.info
 python check_live_app.py
 ```
 
 This will:
+
 - ✅ Check if app is accessible
 - ✅ Test registration endpoint
-- ✅ Test login endpoint  
+- ✅ Test login endpoint
 - ✅ Show any errors
 
 ---

@@ -12,6 +12,7 @@ pip install Flask-Compress==1.15
 ```
 
 Or install all requirements:
+
 ```bash
 pip install -r requirements.txt
 ```
@@ -25,6 +26,7 @@ python performance_check.py optimize
 ```
 
 This will:
+
 - Create 13 database indexes for faster queries
 - Analyze tables for query optimization
 - Vacuum the database (if supported)
@@ -44,12 +46,14 @@ python performance_check.py report
 ## What Changed?
 
 ### Files Modified
+
 - `app.py` - Added compression, fixed queries, added pagination
 - `batch_upload_handler.py` - Optimized file hashing
 - `config_manager.py` - Added more database indexes
 - `requirements.txt` - Added Flask-Compress
 
 ### Files Created
+
 - `performance_optimizations.py` - Caching and optimization utilities
 - `performance_check.py` - Performance monitoring script
 - `PERFORMANCE-OPTIMIZATION-COMPLETE.md` - Full documentation
@@ -57,12 +61,14 @@ python performance_check.py report
 ## Performance Improvements
 
 ### Before
+
 - 500-2000ms page loads with all users loaded
 - 2-4GB RAM for 1GB file upload
 - No compression on responses
 - 7-10 database queries per admin page
 
 ### After
+
 - 50-200ms page loads with pagination
 - 50-100MB RAM for any size upload (streaming)
 - 60-80% smaller responses (gzipped)
@@ -71,6 +77,7 @@ python performance_check.py report
 ## Testing
 
 ### Test Response Compression
+
 ```bash
 # Start the app
 python app.py
@@ -81,6 +88,7 @@ curl -H "Accept-Encoding: gzip" http://localhost:5000/api/evidence/list -I
 ```
 
 ### Test Database Indexes
+
 ```bash
 # Run performance check
 python performance_check.py check
@@ -89,6 +97,7 @@ python performance_check.py check
 ```
 
 ### Test Caching
+
 ```python
 from performance_optimizations import cached
 
@@ -101,9 +110,11 @@ def expensive_query():
 ## Production Deployment
 
 ### Render.com / Heroku
+
 The `requirements.txt` is automatically used. No changes needed.
 
 ### Manual Server
+
 ```bash
 # Install dependencies
 pip install -r requirements.txt
@@ -118,17 +129,20 @@ gunicorn app:app --workers 4 --timeout 120
 ## Monitoring
 
 ### Check Slow Queries
+
 ```bash
 grep "Slow query" logs/Evident.log
 ```
 
 ### Monitor Performance
+
 ```bash
 # Run periodic checks
 python performance_check.py report
 ```
 
 ### Key Metrics
+
 - Response time: <200ms (target)
 - Database queries: <100ms each
 - Memory usage: Constant (not growing)
@@ -137,16 +151,19 @@ python performance_check.py report
 ## Troubleshooting
 
 ### Flask-Compress not found
+
 ```bash
 pip install Flask-Compress==1.15
 ```
 
 ### Database indexes fail to create
+
 - Check database permissions
 - Ensure tables exist
 - Review error in logs
 
 ### App won't start
+
 ```bash
 # Check syntax
 python -m py_compile app.py
@@ -158,6 +175,7 @@ python -c "import app; print('OK')"
 ## Rollback (if needed)
 
 If issues occur, revert changes:
+
 ```bash
 # Remove new files
 rm performance_optimizations.py performance_check.py
@@ -185,5 +203,6 @@ However, all changes have been tested and are backwards compatible.
 See `PERFORMANCE-OPTIMIZATION-COMPLETE.md` for detailed documentation.
 
 Questions? Check the logs:
+
 - `logs/Evident.log` - Application logs
 - Performance issues should show with timing data

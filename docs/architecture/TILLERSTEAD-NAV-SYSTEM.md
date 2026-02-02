@@ -5,6 +5,7 @@ A beautiful, peaceful, and fully accessible navigation system designed specifica
 ## 🎨 Design Philosophy
 
 ### Color Palette
+
 The Tillerstead navigation uses a carefully selected earthy palette that reflects the sanctuary's mission of agriculture, recovery, and stewardship:
 
 - **Forest Greens**: #2D5016, #5B8A3C, #8FBC66 (Primary brand colors)
@@ -13,7 +14,9 @@ The Tillerstead navigation uses a carefully selected earthy palette that reflect
 - **Warm Grays**: #4A4A4A, #6B6B6B (Text, secondary)
 
 ### Logo Symbolism
+
 The wheat stalks in the logo represent:
+
 - 🌾 **Harvest** - The fruits of labor and stewardship
 - 🌱 **Growth** - Recovery, healing, and transformation
 - 🌿 **Agriculture** - Urban farming and food production
@@ -22,6 +25,7 @@ The wheat stalks in the logo represent:
 ## ✨ Features
 
 ### Navigation Structure
+
 Organized around Tillerstead's four core pillars:
 
 1. **About** - Vision, theology, masterplan, governance
@@ -30,16 +34,19 @@ Organized around Tillerstead's four core pillars:
 4. **Get Involved** - Petition, volunteer, donate, partnerships
 
 ### Mission-Focused CTAs
+
 - 💚 **"Get Help"** - Primary CTA for those seeking sanctuary
 - 🙏 **"Prayer Request"** - Secondary CTA for spiritual support
 
 ### Desktop Experience
+
 - Elegant dropdown menus with icons and descriptions
 - Forest green gradient accents throughout
 - Hover effects with earth-tone backgrounds
 - Smooth, peaceful transitions
 
 ### Mobile Experience
+
 - Right-side drawer with cream/beige header
 - Expandable accordion submenus
 - Large, touch-friendly targets
@@ -65,17 +72,23 @@ Evident.info/
 ## 🚀 Installation
 
 ### Step 1: Add Files
+
 The files are already in place:
+
 - `_includes/components/navigation/tillerstead-header.html`
 - `assets/css/components/tillerstead-header.css`
 - `assets/js/tillerstead-header.js`
 
 ### Step 2: Include in Layout
+
 Add to your layout file (e.g., `_layouts/default.html`):
 
 ```html
 <!-- In <head> section -->
-<link rel="stylesheet" href="{{ '/assets/css/components/tillerstead-header.css' | relative_url }}">
+<link
+  rel="stylesheet"
+  href="{{ '/assets/css/components/tillerstead-header.css' | relative_url }}"
+/>
 
 <!-- After <body> tag -->
 {% include components/navigation/tillerstead-header.html %}
@@ -85,42 +98,49 @@ Add to your layout file (e.g., `_layouts/default.html`):
 ```
 
 ### Step 3: View Demo
+
 Open `tillerstead-nav-demo.html` to see the navigation in action!
 
 ## 🎯 Customization
 
 ### Update Navigation Links
+
 Edit `tillerstead-header.html` to add/remove menu items or change links to match your site structure.
 
 ### Adjust Colors
+
 Modify CSS variables in `tillerstead-header.css`:
 
 ```css
 :root {
-  --tillerstead-forest-dark: #2D5016;
-  --tillerstead-forest: #5B8A3C;
-  --tillerstead-forest-light: #8FBC66;
-  --tillerstead-cream: #F5F1E8;
+  --tillerstead-forest-dark: #2d5016;
+  --tillerstead-forest: #5b8a3c;
+  --tillerstead-forest-light: #8fbc66;
+  --tillerstead-cream: #f5f1e8;
   /* ... more variables ... */
 }
 ```
 
 ### Change CTAs
+
 Update the "Get Help" and "Prayer" buttons in the header HTML to link to your actual forms/pages.
 
 ## 🌟 Design Details
 
 ### Typography
+
 - **Logo**: 1.375rem, bold, tight letter-spacing
 - **Navigation**: 0.9375rem, medium weight
 - **Dropdowns**: Rich with titles and descriptions
 
 ### Spacing
+
 - **Header Height**: 76px (slightly taller for peaceful presence)
 - **Touch Targets**: 46px minimum
 - **Generous padding**: Creates breathing room
 
 ### Animations
+
 - **Timing**: 0.35s cubic-bezier (slightly slower, more peaceful)
 - **Hover Effects**: Subtle transforms and color shifts
 - **Focus States**: Clear forest green outlines
@@ -139,22 +159,22 @@ Update the "Get Help" and "Prayer" buttons in the header HTML to link to your ac
 
 ## 📱 Responsive Breakpoints
 
-| Screen Size | Navigation Type |
-|-------------|----------------|
-| < 640px | Mobile drawer, simplified logo |
-| 640px - 1023px | Mobile drawer, full logo |
-| ≥ 1024px | Desktop dropdowns |
+| Screen Size    | Navigation Type                |
+| -------------- | ------------------------------ |
+| < 640px        | Mobile drawer, simplified logo |
+| 640px - 1023px | Mobile drawer, full logo       |
+| ≥ 1024px       | Desktop dropdowns              |
 
 ## 🆚 Tillerstead vs Evident
 
-| Aspect | Evident | Tillerstead |
-|--------|---------|-------------|
-| **Colors** | Crimson, Navy, Brass | Forest greens, Earth tones |
-| **Logo** | Geometric BX | Wheat stalks symbol |
-| **Focus** | Legal technology | Sanctuary & agriculture |
-| **Tone** | Professional, sharp | Peaceful, welcoming |
-| **CTAs** | "Login", "Search" | "Get Help", "Prayer" |
-| **Menu** | Cases, Platform, Tools | About, Programs, Agriculture |
+| Aspect     | Evident                | Tillerstead                  |
+| ---------- | ---------------------- | ---------------------------- |
+| **Colors** | Crimson, Navy, Brass   | Forest greens, Earth tones   |
+| **Logo**   | Geometric BX           | Wheat stalks symbol          |
+| **Focus**  | Legal technology       | Sanctuary & agriculture      |
+| **Tone**   | Professional, sharp    | Peaceful, welcoming          |
+| **CTAs**   | "Login", "Search"      | "Get Help", "Prayer"         |
+| **Menu**   | Cases, Platform, Tools | About, Programs, Agriculture |
 
 ## 🌾 Mission Alignment
 
@@ -181,6 +201,7 @@ This navigation system reflects Tillerstead's core values:
 **View the demo**: Open `tillerstead-nav-demo.html` in your browser
 
 Features to try:
+
 1. Hover over menu items on desktop to see rich dropdowns
 2. Click the hamburger menu on mobile
 3. Expand/collapse submenus in the mobile drawer
@@ -190,9 +211,10 @@ Features to try:
 
 ## 🙏 Mission Statement
 
-*"Tillerstead Sanctuary: Where faith, work, and harvest meet in a haven of healing and hope."*
+_"Tillerstead Sanctuary: Where faith, work, and harvest meet in a haven of healing and hope."_
 
 This navigation system embodies that mission through:
+
 - Earthy, agricultural symbolism
 - Peaceful, sanctuary-inspired colors
 - Recovery and help-focused CTAs
@@ -201,5 +223,5 @@ This navigation system embodies that mission through:
 ---
 
 **Created with care for Tillerstead Sanctuary**  
-*Faith Frontier Ecclesiastical Trust*  
+_Faith Frontier Ecclesiastical Trust_  
 January 2026

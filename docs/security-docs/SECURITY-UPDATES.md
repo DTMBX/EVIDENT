@@ -11,7 +11,6 @@ Based on common CVEs and best practices, updating all dependencies to latest sec
 1. **Pillow** (10.4.0 → 11.0.0)
    - CVE-2024-28176: Buffer overflow vulnerability
    - CVE-2024-28179: OOB read vulnerability
-   
 2. **cryptography** (43.0.1 → 44.0.0)
    - Multiple CVEs in older versions
    - Always keep cryptography up to date
@@ -72,8 +71,9 @@ stripe==11.4.0
 ```
 
 ### Changes Summary:
+
 - ✅ Flask: 3.0.3 → 3.1.0
-- ✅ Werkzeug: 3.0.3 → 3.1.3  
+- ✅ Werkzeug: 3.0.3 → 3.1.3
 - ✅ gunicorn: 22.0.0 → 23.0.0
 - ✅ psycopg2-binary: 2.9.9 → 2.9.10
 - ✅ SQLAlchemy: 2.0.35 → 2.0.36
@@ -89,17 +89,19 @@ stripe==11.4.0
 - ✅ Flask-CORS: 4.0.0 → 5.0.0
 
 ### Node.js Dependencies:
+
 - ✅ No vulnerabilities found in production dependencies
 - ✅ All devDependencies already at latest versions
 
 ### Breaking Changes to Address:
 
 1. **PyPDF2 → pypdf**: Update imports
+
    ```python
    # OLD
    from PyPDF2 import PdfReader, PdfWriter
-   
-   # NEW  
+
+   # NEW
    from pypdf import PdfReader, PdfWriter
    ```
 
@@ -110,6 +112,7 @@ stripe==11.4.0
 4. **Stripe 11.4**: Minor API changes (check stripe_payment_service.py)
 
 ### Test Plan:
+
 1. Update requirements.txt
 2. Update any PyPDF2 imports to pypdf
 3. Test core functionality

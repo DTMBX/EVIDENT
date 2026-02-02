@@ -3,6 +3,7 @@
 ## WHAT YOU'RE TESTING
 
 End-to-end payment flow:
+
 ```
 Login → Pricing Page → Checkout → Payment → Success → Verification
 ```
@@ -17,9 +18,10 @@ Go to: https://dashboard.render.com/
 Click your service → Environment tab
 
 **Verify all 6 Stripe variables are set:**
+
 ```
 ✓ STRIPE_SECRET_KEY
-✓ STRIPE_PUBLISHABLE_KEY  
+✓ STRIPE_PUBLISHABLE_KEY
 ✓ STRIPE_PRICE_PRO
 ✓ STRIPE_PRICE_PREMIUM
 ✓ STRIPE_WEBHOOK_SECRET
@@ -33,11 +35,13 @@ Click your service → Environment tab
 Visit: `https://YOUR-URL/payments/pricing`
 
 **Should see:**
+
 - Beautiful pricing page
 - 3 tiers: Free, Pro ($199), Premium ($499)
 - "Start Trial" buttons
 
 **If you see errors:**
+
 - Check Render logs
 - Make sure deployment succeeded
 - Verify all environment variables set
@@ -70,12 +74,14 @@ Visit: `https://YOUR-URL/payments/pricing`
 2. Should see the pricing page
 
 ### What to check:
+
 - ✅ All 3 plans showing
 - ✅ Prices correct ($199, $499)
 - ✅ "Start Trial" buttons present
 - ✅ Page loads without errors
 
 **Open Browser Console (F12):**
+
 - Should see no red errors
 - Might see Amplitude tracking events (good!)
 
@@ -86,11 +92,13 @@ Visit: `https://YOUR-URL/payments/pricing`
 ### Click "Start Pro Trial" button
 
 **What should happen:**
+
 1. Button click triggers JavaScript
 2. POST request to `/payments/create-checkout-session`
 3. Redirect to Stripe checkout page
 
 **Stripe Checkout Page looks like:**
+
 - Stripe branding at top
 - "Evident Pro" product name
 - "$199.00 / month" pricing
@@ -98,6 +106,7 @@ Visit: `https://YOUR-URL/payments/pricing`
 - Secure padlock icon in URL
 
 **If redirect fails:**
+
 - Check browser console for errors
 - Verify you're logged in
 - Check Render logs for backend errors
@@ -109,6 +118,7 @@ Visit: `https://YOUR-URL/payments/pricing`
 ### Use Stripe Test Card:
 
 **Fill out the form:**
+
 ```
 Email: test@example.com (any email)
 
@@ -126,6 +136,7 @@ ZIP: 12345 (any 5 digits)
 ### Click "Subscribe" button
 
 **What happens:**
+
 1. Stripe processes payment (~2 seconds)
 2. Webhook fires to your backend
 3. Redirect to success page
@@ -144,6 +155,7 @@ Your subscription is now active.
 ```
 
 **Check:**
+
 - ✅ Success message displayed
 - ✅ Amplitude tracking fires
 - ✅ "Go to Dashboard" button works
@@ -155,18 +167,21 @@ Your subscription is now active.
 ### A. Check Stripe Dashboard
 
 **Payments:**
+
 1. Go to: https://dashboard.stripe.com/test/payments
 2. Should see your $199 payment
 3. Status: **Succeeded**
 4. Customer: test@example.com
 
 **Subscriptions:**
+
 1. Go to: https://dashboard.stripe.com/test/subscriptions
 2. Should see new subscription
 3. Status: **Active**
 4. Plan: Evident Pro
 
 **Webhooks:**
+
 1. Go to: https://dashboard.stripe.com/test/webhooks
 2. Click your webhook endpoint
 3. Should see recent events:
@@ -180,10 +195,12 @@ Your subscription is now active.
 **Login and check:**
 
 **Events (Analytics → Events):**
+
 - `pricing_page_viewed`
 - `subscription_success`
 
 **Revenue (Analytics → Revenue):**
+
 - New revenue event: $199.00
 - User: test@example.com
 - Event properties: plan=pro, type=subscription
@@ -193,6 +210,7 @@ Your subscription is now active.
 ### C. Check Your Database (if accessible)
 
 **User record should have:**
+
 ```sql
 subscription_tier: "pro" (was "free")
 subscription_status: "active"
@@ -200,6 +218,7 @@ stripe_customer_id: cus_... (Stripe customer ID)
 ```
 
 **How to check:**
+
 - If using PostgreSQL: Connect and query users table
 - Or: Create admin endpoint to view user data
 - Or: Check via Render shell
@@ -214,6 +233,7 @@ stripe_customer_id: cus_... (Stripe customer ID)
 2. Should redirect to Stripe Customer Portal
 
 **What you should see:**
+
 - Your subscription: Evident Pro
 - Next payment: [Date] for $199.00
 - Payment method: •••• 4242
@@ -237,6 +257,7 @@ stripe_customer_id: cus_... (Stripe customer ID)
 ## 🎉 SUCCESS CHECKLIST
 
 **You successfully tested when:**
+
 - ✅ Pricing page loads
 - ✅ Checkout session created
 - ✅ Redirected to Stripe
@@ -260,6 +281,7 @@ stripe_customer_id: cus_... (Stripe customer ID)
 **Cause:** Not logged in or session expired
 
 **Fix:**
+
 - Logout completely
 - Register new account
 - Try again
@@ -269,6 +291,7 @@ stripe_customer_id: cus_... (Stripe customer ID)
 **Cause:** JavaScript error
 
 **Fix:**
+
 - Open browser console (F12)
 - Look for red errors
 - Check if `fetch` request is made
@@ -279,6 +302,7 @@ stripe_customer_id: cus_... (Stripe customer ID)
 **Cause:** Webhook not processing
 
 **Fix:**
+
 - Check webhook was delivered (Stripe dashboard)
 - Check webhook returns 200 OK
 - Verify STRIPE_WEBHOOK_SECRET is correct
@@ -289,6 +313,7 @@ stripe_customer_id: cus_... (Stripe customer ID)
 **Cause:** Backend error creating checkout session
 
 **Fix:**
+
 - Check Render logs
 - Verify STRIPE_SECRET_KEY is set
 - Verify price IDs are correct
@@ -299,6 +324,7 @@ stripe_customer_id: cus_... (Stripe customer ID)
 **Cause:** API key missing or incorrect
 
 **Fix:**
+
 - Verify AMPLITUDE_API_KEY in Render
 - Check browser console for tracking errors
 - Use Amplitude debugger: https://analytics.amplitude.com/debugger
@@ -310,6 +336,7 @@ stripe_customer_id: cus_... (Stripe customer ID)
 ### Test Different Cards:
 
 **Successful payments:**
+
 ```
 4242 4242 4242 4242 - Always succeeds
 5555 5555 5555 4444 - Mastercard
@@ -317,6 +344,7 @@ stripe_customer_id: cus_... (Stripe customer ID)
 ```
 
 **Failed payments:**
+
 ```
 4000 0000 0000 0002 - Generic decline
 4000 0000 0000 9995 - Insufficient funds
@@ -346,12 +374,14 @@ stripe_customer_id: cus_... (Stripe customer ID)
 ### Stripe Dashboard:
 
 **Daily:**
+
 - New subscriptions
 - Payment success rate
 - Failed payments
 - Churn rate
 
 **Weekly:**
+
 - MRR (Monthly Recurring Revenue)
 - Customer count
 - Average revenue per user
@@ -359,6 +389,7 @@ stripe_customer_id: cus_... (Stripe customer ID)
 ### Amplitude Dashboard:
 
 **Key Metrics:**
+
 - Pricing page views
 - Checkout starts
 - Conversion rate (pricing → paid)
@@ -372,6 +403,7 @@ stripe_customer_id: cus_... (Stripe customer ID)
 ### Before switching to live mode:
 
 **1. Test everything in test mode:**
+
 - ✅ Multiple successful payments
 - ✅ Failed payment handling
 - ✅ Webhook delivery
@@ -380,20 +412,24 @@ stripe_customer_id: cus_... (Stripe customer ID)
 - ✅ Cancellations
 
 **2. Create live products:**
+
 - Create Pro and Premium in live mode
 - Get live price IDs
 
 **3. Get live API keys:**
-- Publishable: pk_live_...
-- Secret: sk_live_...
+
+- Publishable: pk*live*...
+- Secret: sk*live*...
 
 **4. Update environment:**
+
 - Replace test keys with live keys
 - Update price IDs
 - Create live webhook
 - Test with real $1 payment
 
 **5. Launch!**
+
 - Announce on social media
 - Email beta users
 - Product Hunt launch
@@ -406,16 +442,19 @@ stripe_customer_id: cus_... (Stripe customer ID)
 ### If test succeeded:
 
 **Immediate:**
+
 - [ ] Merge PR to main
 - [ ] Document any issues found
 - [ ] Plan production launch date
 
 **This Week:**
+
 - [ ] Beta user testing
 - [ ] Create demo video
 - [ ] Prepare marketing materials
 
 **Next Week:**
+
 - [ ] Switch to live mode
 - [ ] Launch to public
 - [ ] Monitor first real payments
@@ -425,6 +464,7 @@ stripe_customer_id: cus_... (Stripe customer ID)
 ## 💰 EXPECTED RESULTS
 
 **First Month (Conservative):**
+
 ```
 10 Pro users × $199 = $1,990 MRR
 1 Premium × $499 = $499 MRR
@@ -433,6 +473,7 @@ Total: $2,489 MRR
 ```
 
 **Month 3 (Moderate):**
+
 ```
 25 Pro × $199 = $4,975 MRR
 3 Premium × $499 = $1,497 MRR
@@ -441,6 +482,7 @@ Total: $6,472 MRR
 ```
 
 **Month 6 (Aggressive):**
+
 ```
 50 Pro × $199 = $9,950 MRR
 10 Premium × $499 = $4,990 MRR
@@ -453,6 +495,7 @@ Total: $14,940 MRR (~$180K ARR)
 ## 🎉 YOU DID IT!
 
 **You now have:**
+
 - ✅ Working payment system
 - ✅ Verified checkout flow
 - ✅ Revenue tracking
@@ -463,4 +506,4 @@ Total: $14,940 MRR (~$180K ARR)
 
 ---
 
-*Test completed - Ready for launch!*
+_Test completed - Ready for launch!_

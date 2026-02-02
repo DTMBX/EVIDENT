@@ -18,6 +18,7 @@
 ### Technology Stack
 
 **Frontend (MAUI):**
+
 - .NET 8.0 SDK
 - .NET MAUI (Multi-platform App UI)
 - WinUI 3 (Windows 11 native UI)
@@ -25,12 +26,14 @@
 - C# for business logic
 
 **Backend (Unchanged):**
+
 - Flask REST API (Python)
 - PostgreSQL database
 - Stripe payments
 - OpenAI AI services
 
 **Communication:**
+
 - HTTP/HTTPS REST API
 - JSON data interchange
 - WebSocket for real-time updates (future)
@@ -134,6 +137,7 @@ Evident.MatterDocket.MAUI/
 ## 🛠️ Development Phases
 
 ### Week 1: Environment Setup + Authentication
+
 - [ ] Install Visual Studio 2022
 - [ ] Install .NET 8 SDK
 - [ ] Configure MAUI workload
@@ -143,6 +147,7 @@ Evident.MatterDocket.MAUI/
 - [ ] Test authentication flow
 
 ### Week 2: Core UI Implementation
+
 - [ ] Design dashboard layout
 - [ ] Implement navigation
 - [ ] Create evidence upload UI
@@ -151,6 +156,7 @@ Evident.MatterDocket.MAUI/
 - [ ] Implement data binding (MVVM)
 
 ### Week 3: Backend Integration
+
 - [ ] Connect all API endpoints
 - [ ] Implement local caching (SQLite)
 - [ ] Add offline queue
@@ -158,6 +164,7 @@ Evident.MatterDocket.MAUI/
 - [ ] Test end-to-end flows
 
 ### Week 4: Windows 11 Native Features
+
 - [ ] Fluent Design System
 - [ ] Acrylic effects
 - [ ] Windows notifications
@@ -166,6 +173,7 @@ Evident.MatterDocket.MAUI/
 - [ ] File type associations
 
 ### Week 5: Payment & AI Features
+
 - [ ] Stripe payment integration
 - [ ] AI analysis display
 - [ ] Document generation
@@ -173,6 +181,7 @@ Evident.MatterDocket.MAUI/
 - [ ] Download manager
 
 ### Week 6: Testing & Polish
+
 - [ ] Unit tests
 - [ ] Integration tests
 - [ ] Performance optimization
@@ -184,6 +193,7 @@ Evident.MatterDocket.MAUI/
 ## 🔧 Key Features to Implement
 
 ### Authentication
+
 - [x] Login with email/password
 - [x] Token-based auth (JWT)
 - [ ] Windows Hello integration (optional)
@@ -191,6 +201,7 @@ Evident.MatterDocket.MAUI/
 - [ ] Auto-logout on inactivity
 
 ### Evidence Management
+
 - [ ] File upload (PDF, images, video, audio)
 - [ ] Drag-and-drop support
 - [ ] Progress indicators
@@ -199,6 +210,7 @@ Evident.MatterDocket.MAUI/
 - [ ] Offline queue for uploads
 
 ### AI Analysis
+
 - [ ] Display analysis results
 - [ ] Real-time progress updates
 - [ ] Export analysis reports
@@ -206,6 +218,7 @@ Evident.MatterDocket.MAUI/
 - [ ] Highlight key findings
 
 ### Document Generation
+
 - [ ] Select document templates
 - [ ] Fill evidence-based fields
 - [ ] Preview generated docs
@@ -213,12 +226,14 @@ Evident.MatterDocket.MAUI/
 - [ ] Save to local files
 
 ### Payments
+
 - [ ] View subscription status
 - [ ] Upgrade/downgrade tiers
 - [ ] Payment method management
 - [ ] Invoice history
 
 ### Windows 11 Integration
+
 - [ ] Native window chrome
 - [ ] Dark/Light theme sync
 - [ ] System notifications
@@ -235,19 +250,19 @@ Evident.MatterDocket.MAUI/
 <ItemGroup>
   <!-- HTTP Client -->
   <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
-  
+
   <!-- JSON Serialization -->
   <PackageReference Include="System.Text.Json" Version="8.0.0" />
-  
+
   <!-- Local Database -->
   <PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
-  
+
   <!-- MVVM Toolkit -->
   <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
-  
+
   <!-- WinUI 3 -->
   <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.5.240311000" />
-  
+
   <!-- Stripe (if client-side needed) -->
   <PackageReference Include="Stripe.net" Version="44.0.0" />
 </ItemGroup>
@@ -264,13 +279,13 @@ public class ApiService
 {
     private readonly HttpClient _httpClient;
     private readonly string _baseUrl = "https://Evident.info/api";
-    
+
     public ApiService()
     {
         _httpClient = new HttpClient();
         _httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
     }
-    
+
     // Authentication
     public async Task<AuthResponse> LoginAsync(string email, string password)
     {
@@ -278,7 +293,7 @@ public class ApiService
         var response = await _httpClient.PostAsJsonAsync($"{_baseUrl}/auth/login", payload);
         return await response.Content.ReadFromJsonAsync<AuthResponse>();
     }
-    
+
     // Evidence Upload
     public async Task<UploadResponse> UploadEvidenceAsync(string filePath, string caseId)
     {
@@ -286,11 +301,11 @@ public class ApiService
         var fileBytes = await File.ReadAllBytesAsync(filePath);
         form.Add(new ByteArrayContent(fileBytes), "file", Path.GetFileName(filePath));
         form.Add(new StringContent(caseId), "case_id");
-        
+
         var response = await _httpClient.PostAsync($"{_baseUrl}/evidence/upload", form);
         return await response.Content.ReadFromJsonAsync<UploadResponse>();
     }
-    
+
     // Get Analysis
     public async Task<AnalysisResult> GetAnalysisAsync(string analysisId)
     {
@@ -305,6 +320,7 @@ public class ApiService
 ## 🎨 UI Design Guidelines
 
 ### Windows 11 Fluent Design
+
 - Use Acrylic material for backgrounds
 - Rounded corners (CornerRadius="8")
 - Fluent shadows and elevation
@@ -312,6 +328,7 @@ public class ApiService
 - Responsive layouts
 
 ### Color Scheme
+
 - **Primary:** #d4a574 (Evident gold)
 - **Background:** #0f0f0f (dark)
 - **Surface:** #1a1a1a
@@ -319,6 +336,7 @@ public class ApiService
 - **Accent:** #d4a574
 
 ### Typography
+
 - **Headers:** Segoe UI Variable Display
 - **Body:** Segoe UI Variable Text
 - **Monospace:** Cascadia Mono (for code/logs)
@@ -328,18 +346,21 @@ public class ApiService
 ## 🧪 Testing Strategy
 
 ### Unit Tests
+
 - ViewModel logic
 - API client methods
 - Data model validation
 - Service layer functions
 
 ### Integration Tests
+
 - Login flow
 - Evidence upload
 - Analysis retrieval
 - Payment processing
 
 ### UI Tests (WinAppDriver)
+
 - Navigation flows
 - Form validation
 - File upload
@@ -350,6 +371,7 @@ public class ApiService
 ## 📊 Success Criteria
 
 ### Performance
+
 - [ ] App launches in <1 second
 - [ ] API calls complete in <500ms (p95)
 - [ ] File upload shows progress
@@ -357,6 +379,7 @@ public class ApiService
 - [ ] Memory usage <200MB idle
 
 ### Functionality
+
 - [ ] All Flask API endpoints accessible
 - [ ] Offline mode for viewing cached data
 - [ ] Background sync works
@@ -364,6 +387,7 @@ public class ApiService
 - [ ] AI analysis displays properly
 
 ### User Experience
+
 - [ ] Intuitive navigation
 - [ ] Clear error messages
 - [ ] Loading states
@@ -375,6 +399,7 @@ public class ApiService
 ## 🚀 Next Actions
 
 ### Immediate (Phase C)
+
 1. Install Visual Studio 2022 Community
 2. Install .NET 8 SDK
 3. Enable MAUI workload
@@ -382,6 +407,7 @@ public class ApiService
 5. Configure development environment
 
 ### After Setup (Week 1)
+
 6. Implement login screen
 7. Build API service
 8. Test authentication
@@ -390,5 +416,5 @@ public class ApiService
 
 ---
 
-*Status: Phase B Planning Complete - Ready for Phase C*  
-*Last Updated: January 27, 2026*
+_Status: Phase B Planning Complete - Ready for Phase C_  
+_Last Updated: January 27, 2026_

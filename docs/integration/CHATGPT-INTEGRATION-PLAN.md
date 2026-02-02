@@ -7,6 +7,7 @@
 ## 🎯 Feature Overview
 
 ### Core Features
+
 1. **Custom Project Workspaces**
    - Users create isolated projects for different cases/clients
    - Each project has its own conversation history
@@ -37,6 +38,7 @@
 ## 🏗️ Architecture Design
 
 ### System Architecture
+
 ```
 ┌─────────────────────────────────────────────────────────┐
 │                    MAUI App (Client)                     │
@@ -66,6 +68,7 @@
 ```
 
 ### Data Flow
+
 ```
 User Input → ChatViewModel → ChatGptService → Flask API
                                                     ↓
@@ -85,6 +88,7 @@ User Input → ChatViewModel → ChatGptService → Flask API
 ### New Tables
 
 #### `projects` Table
+
 ```sql
 CREATE TABLE projects (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -102,6 +106,7 @@ CREATE TABLE projects (
 ```
 
 #### `conversations` Table
+
 ```sql
 CREATE TABLE conversations (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -116,6 +121,7 @@ CREATE TABLE conversations (
 ```
 
 #### `messages` Table
+
 ```sql
 CREATE TABLE messages (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -130,6 +136,7 @@ CREATE TABLE messages (
 ```
 
 #### `user_api_keys` Table
+
 ```sql
 CREATE TABLE user_api_keys (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -145,6 +152,7 @@ CREATE TABLE user_api_keys (
 ```
 
 #### `document_contexts` Table
+
 ```sql
 CREATE TABLE document_contexts (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -166,20 +174,23 @@ CREATE TABLE document_contexts (
 ### Chat Endpoints
 
 #### POST `/api/v1/chat/completions`
+
 Send a message and get GPT response.
 
 **Request:**
+
 ```json
 {
   "project_id": 123,
-  "conversation_id": 456,  // Optional, creates new if omitted
+  "conversation_id": 456, // Optional, creates new if omitted
   "message": "Analyze this evidence for Brady violations",
-  "include_context": true,  // Include project documents in context
+  "include_context": true, // Include project documents in context
   "stream": false
 }
 ```
 
 **Response:**
+
 ```json
 {
   "conversation_id": 456,
@@ -192,14 +203,17 @@ Send a message and get GPT response.
 ```
 
 #### POST `/api/v1/chat/completions/stream`
+
 Same as above but streams response in SSE format.
 
 ### Project Endpoints
 
 #### GET `/api/v1/projects`
+
 List user's projects.
 
 **Response:**
+
 ```json
 {
   "projects": [
@@ -217,9 +231,11 @@ List user's projects.
 ```
 
 #### POST `/api/v1/projects`
+
 Create new project.
 
 **Request:**
+
 ```json
 {
   "name": "State v. Johnson",
@@ -230,20 +246,25 @@ Create new project.
 ```
 
 #### PUT `/api/v1/projects/{id}`
+
 Update project settings.
 
 #### DELETE `/api/v1/projects/{id}`
+
 Delete project and all conversations.
 
 ### Conversation Endpoints
 
 #### GET `/api/v1/conversations?project_id={id}`
+
 List conversations in a project.
 
 #### GET `/api/v1/conversations/{id}/messages`
+
 Get all messages in a conversation.
 
 **Response:**
+
 ```json
 {
   "conversation": {
@@ -276,14 +297,17 @@ Get all messages in a conversation.
 ```
 
 #### DELETE `/api/v1/conversations/{id}`
+
 Delete conversation.
 
 ### API Key Management
 
 #### POST `/api/v1/openai/validate-key`
+
 Validate user's OpenAI API key.
 
 **Request:**
+
 ```json
 {
   "api_key": "sk-..."
@@ -291,19 +315,22 @@ Validate user's OpenAI API key.
 ```
 
 **Response:**
+
 ```json
 {
   "valid": true,
   "organization": "user-org-123",
-  "quota_remaining": 1000000,  // tokens
+  "quota_remaining": 1000000, // tokens
   "models_available": ["gpt-5.2", "gpt-5.2-turbo"]
 }
 ```
 
 #### POST `/api/v1/user/api-keys`
+
 Store encrypted API key.
 
 **Request:**
+
 ```json
 {
   "provider": "openai",
@@ -312,9 +339,11 @@ Store encrypted API key.
 ```
 
 #### GET `/api/v1/user/api-keys`
+
 List user's stored API keys (masked).
 
 **Response:**
+
 ```json
 {
   "keys": [
@@ -332,9 +361,11 @@ List user's stored API keys (masked).
 ### PDF Processing
 
 #### POST `/api/v1/extract/pdf-text`
+
 Extract text from uploaded PDF for chat context.
 
 **Request:**
+
 ```json
 {
   "file_id": 789,
@@ -343,13 +374,14 @@ Extract text from uploaded PDF for chat context.
 ```
 
 **Response:**
+
 ```json
 {
   "file_id": 789,
   "text": "Full extracted text...",
   "page_count": 25,
   "word_count": 5000,
-  "context_id": 999  // For referencing in chat
+  "context_id": 999 // For referencing in chat
 }
 ```
 
@@ -358,22 +390,23 @@ Extract text from uploaded PDF for chat context.
 ## 💾 MAUI Models (ApiModels.cs)
 
 ### Chat Models
+
 ```csharp
 // Chat Request
 public class ChatRequest
 {
     [JsonPropertyName("project_id")]
     public int ProjectId { get; set; }
-    
+
     [JsonPropertyName("conversation_id")]
     public int? ConversationId { get; set; }
-    
+
     [JsonPropertyName("message")]
     public string Message { get; set; } = string.Empty;
-    
+
     [JsonPropertyName("include_context")]
     public bool IncludeContext { get; set; } = true;
-    
+
     [JsonPropertyName("stream")]
     public bool Stream { get; set; } = false;
 }
@@ -383,19 +416,19 @@ public class ChatResponse
 {
     [JsonPropertyName("conversation_id")]
     public int ConversationId { get; set; }
-    
+
     [JsonPropertyName("message_id")]
     public int MessageId { get; set; }
-    
+
     [JsonPropertyName("role")]
     public string Role { get; set; } = "assistant";
-    
+
     [JsonPropertyName("content")]
     public string Content { get; set; } = string.Empty;
-    
+
     [JsonPropertyName("tokens_used")]
     public int TokensUsed { get; set; }
-    
+
     [JsonPropertyName("model")]
     public string Model { get; set; } = string.Empty;
 }
@@ -405,19 +438,19 @@ public class ChatMessage
 {
     [JsonPropertyName("id")]
     public int Id { get; set; }
-    
+
     [JsonPropertyName("role")]
     public string Role { get; set; } = string.Empty;  // "system", "user", "assistant"
-    
+
     [JsonPropertyName("content")]
     public string Content { get; set; } = string.Empty;
-    
+
     [JsonPropertyName("tokens_used")]
     public int? TokensUsed { get; set; }
-    
+
     [JsonPropertyName("created_at")]
     public DateTime CreatedAt { get; set; }
-    
+
     // UI helper property
     public bool IsUser => Role == "user";
     public bool IsAssistant => Role == "assistant";
@@ -425,34 +458,35 @@ public class ChatMessage
 ```
 
 ### Project Models
+
 ```csharp
 // Project Model
 public class Project
 {
     [JsonPropertyName("id")]
     public int Id { get; set; }
-    
+
     [JsonPropertyName("name")]
     public string Name { get; set; } = string.Empty;
-    
+
     [JsonPropertyName("description")]
     public string? Description { get; set; }
-    
+
     [JsonPropertyName("custom_instructions")]
     public string? CustomInstructions { get; set; }
-    
+
     [JsonPropertyName("model_preference")]
     public string ModelPreference { get; set; } = "gpt-5.2";
-    
+
     [JsonPropertyName("max_tokens")]
     public int MaxTokens { get; set; } = 4000;
-    
+
     [JsonPropertyName("temperature")]
     public double Temperature { get; set; } = 0.7;
-    
+
     [JsonPropertyName("conversation_count")]
     public int ConversationCount { get; set; }
-    
+
     [JsonPropertyName("created_at")]
     public DateTime CreatedAt { get; set; }
 }
@@ -462,13 +496,13 @@ public class CreateProjectRequest
 {
     [JsonPropertyName("name")]
     public string Name { get; set; } = string.Empty;
-    
+
     [JsonPropertyName("description")]
     public string? Description { get; set; }
-    
+
     [JsonPropertyName("custom_instructions")]
     public string? CustomInstructions { get; set; }
-    
+
     [JsonPropertyName("model_preference")]
     public string ModelPreference { get; set; } = "gpt-5.2";
 }
@@ -478,19 +512,19 @@ public class Conversation
 {
     [JsonPropertyName("id")]
     public int Id { get; set; }
-    
+
     [JsonPropertyName("project_id")]
     public int ProjectId { get; set; }
-    
+
     [JsonPropertyName("title")]
     public string Title { get; set; } = "New Conversation";
-    
+
     [JsonPropertyName("message_count")]
     public int MessageCount { get; set; }
-    
+
     [JsonPropertyName("last_message_at")]
     public DateTime? LastMessageAt { get; set; }
-    
+
     [JsonPropertyName("created_at")]
     public DateTime CreatedAt { get; set; }
 }
@@ -500,16 +534,16 @@ public class ApiKeyInfo
 {
     [JsonPropertyName("id")]
     public int Id { get; set; }
-    
+
     [JsonPropertyName("provider")]
     public string Provider { get; set; } = "openai";
-    
+
     [JsonPropertyName("masked_key")]
     public string MaskedKey { get; set; } = string.Empty;
-    
+
     [JsonPropertyName("is_active")]
     public bool IsActive { get; set; }
-    
+
     [JsonPropertyName("last_validated")]
     public DateTime? LastValidated { get; set; }
 }
@@ -519,13 +553,13 @@ public class ApiKeyValidation
 {
     [JsonPropertyName("valid")]
     public bool Valid { get; set; }
-    
+
     [JsonPropertyName("organization")]
     public string? Organization { get; set; }
-    
+
     [JsonPropertyName("quota_remaining")]
     public long? QuotaRemaining { get; set; }
-    
+
     [JsonPropertyName("models_available")]
     public List<string> ModelsAvailable { get; set; } = new();
 }
@@ -535,16 +569,16 @@ public class PdfTextExtractionResponse
 {
     [JsonPropertyName("file_id")]
     public int FileId { get; set; }
-    
+
     [JsonPropertyName("text")]
     public string Text { get; set; } = string.Empty;
-    
+
     [JsonPropertyName("page_count")]
     public int PageCount { get; set; }
-    
+
     [JsonPropertyName("word_count")]
     public int WordCount { get; set; }
-    
+
     [JsonPropertyName("context_id")]
     public int ContextId { get; set; }
 }
@@ -555,6 +589,7 @@ public class PdfTextExtractionResponse
 ## 🔧 Implementation Priority
 
 ### Phase 1: Backend Foundation (Week 1)
+
 1. Create database migrations for new tables
 2. Implement OpenAI service wrapper in Flask
 3. Create chat API endpoints
@@ -562,6 +597,7 @@ public class PdfTextExtractionResponse
 5. Test with Postman
 
 ### Phase 2: MAUI Services (Week 1-2)
+
 1. Add models to ApiModels.cs
 2. Create ChatGptService
 3. Create ProjectService
@@ -569,6 +605,7 @@ public class PdfTextExtractionResponse
 5. Add API key storage in SecureStorage
 
 ### Phase 3: MAUI UI (Week 2)
+
 1. Create ChatPage.xaml with message list
 2. Create ProjectsPage.xaml for workspace management
 3. Create ProjectSettingsPage.xaml for custom instructions
@@ -576,6 +613,7 @@ public class PdfTextExtractionResponse
 5. Add markdown rendering for chat responses
 
 ### Phase 4: Advanced Features (Week 3)
+
 1. PDF text extraction integration
 2. Context injection from case files
 3. Streaming responses (SSE)
@@ -583,6 +621,7 @@ public class PdfTextExtractionResponse
 5. Export conversations
 
 ### Phase 5: Testing & Polish (Week 3-4)
+
 1. Test on Windows
 2. Test on Android
 3. Test on iOS
@@ -594,6 +633,7 @@ public class PdfTextExtractionResponse
 ## 🎨 UI Design Mockups
 
 ### ChatPage Layout
+
 ```
 ┌─────────────────────────────────────────┐
 │  ≡  State v. Johnson    [Projects] [⚙]  │  ← Header
@@ -616,6 +656,7 @@ public class PdfTextExtractionResponse
 ```
 
 ### ProjectsPage Layout
+
 ```
 ┌─────────────────────────────────────────┐
 │  Projects                    [+ New]     │
@@ -637,6 +678,7 @@ public class PdfTextExtractionResponse
 ```
 
 ### ProjectSettingsPage Layout
+
 ```
 ┌─────────────────────────────────────────┐
 │  ← Project Settings                      │
@@ -671,18 +713,21 @@ public class PdfTextExtractionResponse
 ## 🔐 Security Considerations
 
 ### API Key Storage
+
 - **Client-side:** Use platform SecureStorage (Keychain/Keystore)
 - **Server-side:** AES-256 encryption with user-specific salt
 - **Transmission:** Always HTTPS, never log keys
 - **Validation:** Test key before storing
 
 ### Context Injection
+
 - Sanitize all user inputs
 - Limit context size to prevent token exhaustion
 - Filter PII before sending to OpenAI
 - Option to disable context sharing per project
 
 ### Rate Limiting
+
 - Enforce tier-based message limits (FREE: 10/day, PRO: 1000/day)
 - Track token usage per user
 - Implement exponential backoff for failures
@@ -692,16 +737,19 @@ public class PdfTextExtractionResponse
 ## 📱 Multi-Platform Optimizations
 
 ### Windows
+
 - Native file drag-and-drop for PDFs
 - Keyboard shortcuts (Ctrl+Enter to send)
 - System tray notification for long responses
 
 ### iOS
+
 - SwiftKey integration for voice input
 - Handoff support between devices
 - Widget for quick access
 
 ### Android
+
 - Material Design chat bubbles
 - Notification channels for responses
 - Share intent for sending files

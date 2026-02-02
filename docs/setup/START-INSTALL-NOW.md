@@ -8,12 +8,15 @@
 ## ⚡ Quick Install (3 Steps)
 
 ### Step 1: Open APK Location
+
 ```powershell
 explorer "C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI\bin\Release\net10.0-android"
 ```
 
 ### Step 2: Email File to Yourself
+
 Look for this file:
+
 ```
 com.companyname.Evident.matterdocket.maui-Signed.apk
 (30.57 MB)
@@ -23,6 +26,7 @@ Right-click → Send to → Mail recipient
 Email to yourself
 
 ### Step 3: Install on Android Phone
+
 1. Open email on phone
 2. Download APK attachment
 3. Allow "Install from Unknown Sources"
@@ -87,12 +91,14 @@ After installing on Android:
 ## 📚 All Documentation
 
 ### Installation
+
 - **`INSTALL-ANDROID-VISUAL-GUIDE.md`** ⭐ Detailed Android guide
 - **`ANDROID-APK-READY.md`** - APK details
 - **`IOS-GITHUB-ACTIONS.md`** - iOS automation
 - **`MOBILE-DEPLOYMENT-COMPLETE.md`** - Full summary
 
 ### Features
+
 - **`LEGAL-AI-TOOLS.md`** - 15 AI assistants explained
 - **`CHATGPT-QUICK-START.md`** - ChatGPT features
 - **`BUILD-SUCCESS.md`** - Integration complete
@@ -102,11 +108,13 @@ After installing on Android:
 ## 🎯 Recommended Path
 
 ### Today (10 min)
+
 ✅ Install Android APK  
 ✅ Test AI assistant  
 ✅ Try legal tools
 
 ### This Week (Optional)
+
 ⏳ Push iOS workflow to GitHub  
 ⏳ Enroll in Apple Developer  
 ⏳ Set up TestFlight
@@ -116,18 +124,24 @@ After installing on Android:
 ## ❓ Common Questions
 
 ### Q: Why can't I build iOS on Windows?
+
 **A:** Apple requires macOS + Xcode (strict enforcement). But GitHub Actions provides free Mac runners in the cloud!
 
 ### Q: Is this the same app for Android and iOS?
+
 **A:** Yes! .NET MAUI shares 100% of the code. Same features on both platforms.
 
 ### Q: How much does it cost?
-**A:** 
+
+**A:**
+
 - Android: FREE (just email the APK)
 - iOS: FREE via GitHub Actions (or $99/year for TestFlight)
 
 ### Q: Can I distribute this to my team?
+
 **A:**
+
 - Android: Email APK or upload to shared drive
 - iOS: Use TestFlight (up to 10,000 testers)
 

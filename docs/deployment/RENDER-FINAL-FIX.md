@@ -15,11 +15,13 @@ ModuleNotFoundError: No module named 'openai'
 ## ? **The Fix Applied:**
 
 ### **1. Added `openai` to requirements.txt:**
+
 ```
 openai==1.6.1
 ```
 
 ### **2. Made import optional in app.py:**
+
 ```python
 try:
     import openai
@@ -45,6 +47,7 @@ This way the app works even without OpenAI API key.
 ## ?? **Build Progress:**
 
 Render will now:
+
 1. ? Clone from GitHub
 2. ? Use Python 3.11.9
 3. ? Install all requirements (including openai)
@@ -77,6 +80,7 @@ https://Evident-legal-tech.onrender.com
 Go to: https://dashboard.render.com
 
 Watch for:
+
 ```
 ? Build complete
 ? Deploying...

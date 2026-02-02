@@ -7,6 +7,7 @@
 ## 🛡️ What Changed (Pro-Truth Update)
 
 Devon requested messaging that shows:
+
 1. **We sell confidence, not conflict**
 2. **Truth protects good officers too**
 3. **Not anti-police — we're pro-accountability**
@@ -18,24 +19,29 @@ Devon requested messaging that shows:
 ## ✅ New Section Added: "Truth Protects Good Officers, Too"
 
 ### **Core Message:**
-> "We're not anti-police. **We're pro-truth.** Evident helps dig up the facts that bad actors bury—protecting innocent defendants *and* the good officers who serve with honor."
+
+> "We're not anti-police. **We're pro-truth.** Evident helps dig up the facts that bad actors bury—protecting innocent defendants _and_ the good officers who serve with honor."
 
 ### **Three-Part Framework:**
 
 #### ✓ **For Good Officers**
+
 When you follow procedure, give Miranda warnings, and respect constitutional rights—**the evidence proves it.** Truth protects officers who do their job right.
 
 #### ✗ **For Bad Actors**
+
 When someone violates the 4th Amendment, lies in reports, or uses excessive force—**the evidence exposes it.** Truth removes bad apples from the barrel.
 
 #### ⚖️ **Mutual Oath**
-Peace officers swear to *protect and serve.* Defense attorneys swear to *defend the Constitution.* Both oaths demand truth. We help you honor yours.
+
+Peace officers swear to _protect and serve._ Defense attorneys swear to _defend the Constitution._ Both oaths demand truth. We help you honor yours.
 
 ---
 
 ## 🇺🇸 Key Messaging Updates
 
 ### **Hero Section (Updated):**
+
 **Before:**  
 "Professional BWC Analysis for Defense Attorneys"
 
@@ -43,7 +49,7 @@ Peace officers swear to *protect and serve.* Defense attorneys swear to *defend 
 "Sell Confidence, Not Conflict — Dig Up Truth, Protect Good Officers"
 
 **Sub-tagline now includes:**  
-"...protecting innocent defendants *and* the good officers who honor their oath."
+"...protecting innocent defendants _and_ the good officers who honor their oath."
 
 ---
 
@@ -56,6 +62,7 @@ Peace officers swear to *protect and serve.* Defense attorneys swear to *defend 
 "Truth-seeking technology shouldn't be exclusive to one side. Good evidence protects everyone—including good officers."
 
 **New bullet points added:**
+
 - ❌ "Bad actors hide violations in hours of footage"
 - ❌ "Good officers' proper procedures get overlooked"
 - ✓ "Truth surfaces—whether it helps or hurts"
@@ -65,7 +72,7 @@ Peace officers swear to *protect and serve.* Defense attorneys swear to *defend 
 
 ### **"We Sell Confidence, Not Conflict" Callout:**
 
-> "Evident gives you **confidence in the evidence**—that you found every Miranda warning, every 4th Amendment issue, every contradiction. When defense attorneys have the tools to uncover truth, good officers are protected and bad actors are held accountable. *That's how the system is supposed to work.*"
+> "Evident gives you **confidence in the evidence**—that you found every Miranda warning, every 4th Amendment issue, every contradiction. When defense attorneys have the tools to uncover truth, good officers are protected and bad actors are held accountable. _That's how the system is supposed to work._"
 
 ---
 
@@ -79,11 +86,13 @@ Peace officers swear to *protect and serve.* Defense attorneys swear to *defend 
 ## 💡 Why This Matters
 
 ### **Before this update:**
+
 - Landing page could be perceived as "anti-police"
 - Messaging was defense-focused only
 - No acknowledgment of good officers
 
 ### **After this update:**
+
 - **Balanced:** Honors both sides' oaths to justice
 - **Pro-truth:** Not anti-anything, just pro-accountability
 - **Protective:** Shows how truth protects good officers
@@ -95,21 +104,25 @@ Peace officers swear to *protect and serve.* Defense attorneys swear to *defend 
 ## 🎯 Target Audience Impact
 
 ### **For Defense Attorneys:**
+
 - Confidence that they're not "attacking police"
 - They're upholding the Constitution (mutual oath)
 - Truth is the goal, not conflict
 
 ### **For Good Officers:**
+
 - If they see this page, they understand we honor them
 - We're not the enemy—bad actors are
 - Evidence protects them when they do their job right
 
 ### **For Prosecutors:**
+
 - Even prosecutors need truth
 - Good evidence makes good cases
 - Both sides benefit from accurate BWC analysis
 
 ### **For The Public:**
+
 - Evident isn't divisive
 - We're about accountability, not sides
 - The system works when truth is accessible
@@ -119,10 +132,12 @@ Peace officers swear to *protect and serve.* Defense attorneys swear to *defend 
 ## 📊 Conversion Psychology
 
 ### **Before:**
+
 - Potential customers might feel "anti-police" stigma
 - Good defense attorneys want truth, not conflict
 
 ### **After:**
+
 - **Confidence framing:** "I'm buying confidence in evidence"
 - **Moral high ground:** "I'm honoring my oath, just like good officers honor theirs"
 - **Win-win:** "Truth protects everyone—including good cops"
@@ -133,12 +148,15 @@ Peace officers swear to *protect and serve.* Defense attorneys swear to *defend 
 ## 🇺🇸 Constitutional Alignment
 
 ### **Original Mission (Preserved):**
+
 "They fought for the Constitution. We preserve it. You defend it."
 
 ### **New Addition (Complementary):**
+
 "Both peace officers and defense attorneys swear oaths to uphold justice. When we honor truth, we honor both oaths."
 
 ### **Net Result:**
+
 Evident is about **the Constitution**, not prosecution vs defense.  
 The Constitution protects **everyone**—including good officers.
 
@@ -147,18 +165,23 @@ The Constitution protects **everyone**—including good officers.
 ## ✅ Final Messaging Hierarchy
 
 ### **Primary Message:**
+
 Defend the Constitution with evidence that speaks.
 
 ### **Secondary Message:**
+
 Sell confidence, not conflict. Dig up truth, protect good officers.
 
 ### **Supporting Message:**
+
 Truth-seeking technology shouldn't be exclusive to one side.
 
 ### **Proof Point:**
+
 When defense attorneys have tools to uncover truth, good officers are protected and bad actors are held accountable.
 
 ### **Call to Action:**
+
 Join Founding Defenders — $19/month for first 100.
 
 ---
@@ -166,6 +189,7 @@ Join Founding Defenders — $19/month for first 100.
 ## 🚀 What This Enables
 
 ### **Devon can now:**
+
 1. **Outreach to defense attorneys** without them feeling "anti-police"
 2. **Partner with reform-minded police** who want bad apples removed
 3. **Pitch to prosecutors** who want accurate evidence
@@ -173,6 +197,7 @@ Join Founding Defenders — $19/month for first 100.
 5. **Avoid political polarization** (truth isn't left or right)
 
 ### **Messaging works for:**
+
 - Criminal defense firms ✓
 - Public defender offices ✓
 - Civil rights orgs ✓
@@ -196,6 +221,7 @@ Join Founding Defenders — $19/month for first 100.
 ## 🎬 Next Steps
 
 ### **Ready to deploy:**
+
 - [x] Pro-truth messaging integrated
 - [x] Good officer protection emphasized
 - [x] Mutual oath framework explained
@@ -204,6 +230,7 @@ Join Founding Defenders — $19/month for first 100.
 - [ ] Deploy to production
 
 ### **Next use cases to test:**
+
 1. Show to defense attorney (does it resonate?)
 2. Show to reform cop (do they feel respected?)
 3. Show to prosecutor (do they see value?)
@@ -223,4 +250,4 @@ Join Founding Defenders — $19/month for first 100.
 **By the Grace of Almighty God, truth protects the innocent—and the honorable.**
 
 🛡️ **Evident Matter Docket (DTMB)**  
-*Pro-Truth. Pro-Constitution. Pro-Accountability.*
+_Pro-Truth. Pro-Constitution. Pro-Accountability._

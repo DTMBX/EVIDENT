@@ -1,4 +1,5 @@
 # THE BILL OF RIGHTS
+
 ## Amendments 1-10 of the Constitution
 
 **📜 Archival Preservation Record**
@@ -42,6 +43,7 @@ Congress shall make no law respecting an establishment of religion, or prohibiti
 **Ratified:** December 15, 1791
 
 **Key Protections:**
+
 - **Religion:** No state church, no prohibition of free exercise
 - **Speech:** Government cannot censor speech
 - **Press:** Freedom of the press from government control
@@ -61,13 +63,15 @@ A well regulated Militia, being necessary to the security of a free State, the r
 **Ratified:** December 15, 1791
 
 **Key Protection:**
+
 - Individual right to keep and bear arms
 - Necessary for security of free state
 - Shall not be infringed
 
 **Supreme Court Interpretation:**
-- *District of Columbia v. Heller* (2008) - Individual right, not militia-dependent
-- *McDonald v. City of Chicago* (2010) - Applied to states via 14th Amendment
+
+- _District of Columbia v. Heller_ (2008) - Individual right, not militia-dependent
+- _McDonald v. City of Chicago_ (2010) - Applied to states via 14th Amendment
 
 ---
 
@@ -80,6 +84,7 @@ No Soldier shall, in time of peace be quartered in any house, without the consen
 **Ratified:** December 15, 1791
 
 **Key Protection:**
+
 - No forced quartering of troops in private homes
 - Response to British Quartering Acts (colonial grievance)
 
@@ -96,6 +101,7 @@ The right of the people to be secure in their persons, houses, papers, and effec
 **Ratified:** December 15, 1791
 
 **Key Protections:**
+
 - Secure in persons, houses, papers, effects
 - No unreasonable searches or seizures
 - Warrants require probable cause
@@ -114,6 +120,7 @@ No person shall be held to answer for a capital, or otherwise infamous crime, un
 **Ratified:** December 15, 1791
 
 **Key Protections:**
+
 - **Grand Jury:** Indictment required for serious crimes
 - **Double Jeopardy:** Cannot be tried twice for same offense
 - **Self-Incrimination:** Right to remain silent ("plead the Fifth")
@@ -133,13 +140,14 @@ In all criminal prosecutions, the accused shall enjoy the right to a speedy and 
 **Ratified:** December 15, 1791
 
 **Key Rights:**
+
 - **Speedy Trial:** Cannot be held indefinitely
 - **Public Trial:** Open to public scrutiny
 - **Impartial Jury:** Jury of peers from local district
 - **Notice:** Informed of charges
 - **Confrontation:** Face accusers in court
 - **Compulsory Process:** Subpoena favorable witnesses
-- **Counsel:** Right to attorney (*Gideon v. Wainwright*, 1963)
+- **Counsel:** Right to attorney (_Gideon v. Wainwright_, 1963)
 
 **Foundation of Fair Trial:** Every protection in this amendment is critical to defending the accused against government power.
 
@@ -154,6 +162,7 @@ In Suits at common law, where the value in controversy shall exceed twenty dolla
 **Ratified:** December 15, 1791
 
 **Key Protection:**
+
 - Jury trial in civil cases (common law suits)
 - Jury findings cannot be overturned except per common law rules
 
@@ -170,11 +179,13 @@ Excessive bail shall not be required, nor excessive fines imposed, nor cruel and
 **Ratified:** December 15, 1791
 
 **Key Protections:**
+
 - **Bail:** Cannot be excessive
 - **Fines:** Cannot be excessive
 - **Punishment:** Cannot be cruel and unusual
 
 **Critical Issues:**
+
 - Death penalty (challenges under 8th Amendment)
 - Solitary confinement
 - Prison conditions
@@ -191,6 +202,7 @@ The enumeration in the Constitution, of certain rights, shall not be construed t
 **Ratified:** December 15, 1791
 
 **Key Principle:**
+
 - Rights listed in Constitution are NOT the only rights
 - People retain additional unenumerated rights
 - Just because a right isn't listed doesn't mean it doesn't exist
@@ -198,7 +210,8 @@ The enumeration in the Constitution, of certain rights, shall not be construed t
 **Natural Law Foundation:** This amendment acknowledges natural rights philosophy - rights exist before government and are not granted by government.
 
 **Examples of Unenumerated Rights (court-recognized):**
-- Right to privacy (*Griswold v. Connecticut*, 1965)
+
+- Right to privacy (_Griswold v. Connecticut_, 1965)
 - Right to travel
 - Right to vote (extended by 14th, 15th, 19th, 24th, 26th Amendments)
 - Right to association
@@ -214,6 +227,7 @@ The powers not delegated to the United States by the Constitution, nor prohibite
 **Ratified:** December 15, 1791
 
 **Key Principle:**
+
 - **Federal Powers:** Only what Constitution explicitly grants
 - **State Powers:** Everything else (except what's prohibited)
 - **People's Rights:** Ultimate sovereignty rests with the people
@@ -221,6 +235,7 @@ The powers not delegated to the United States by the Constitution, nor prohibite
 **Federalism:** This amendment preserves state sovereignty and limits federal government to enumerated powers.
 
 **Critical Tension:** Ongoing debates over federal vs. state power:
+
 - Commerce Clause expansion
 - Necessary and Proper Clause interpretation
 - 14th Amendment incorporation of Bill of Rights to states
@@ -244,6 +259,7 @@ The powers not delegated to the United States by the Constitution, nor prohibite
 11. **Virginia** - December 15, 1791 ✓ (Ratification complete - 3/4 of 14 states)
 
 **States That Ratified Later:**
+
 - **Massachusetts** - March 2, 1939 (sesquicentennial)
 - **Georgia** - March 18, 1939
 - **Connecticut** - April 19, 1939
@@ -253,21 +269,23 @@ The powers not delegated to the United States by the Constitution, nor prohibite
 ## PROPOSED BUT NOT RATIFIED (1789)
 
 **Article the First** (Congressional Apportionment)  
-*Not ratified* - Would have set representation ratio
+_Not ratified_ - Would have set representation ratio
 
 **Article the Second** (Congressional Pay)  
-*Ratified 203 years later as 27th Amendment (1992)*
+_Ratified 203 years later as 27th Amendment (1992)_
 
 ---
 
 ## WHY THE BILL OF RIGHTS MATTERS
 
 **Historical Purpose:**
+
 - Anti-Federalists demanded protection from federal power
 - Constitution originally lacked explicit rights protections
 - Bill of Rights was condition for ratification
 
 **Enduring Importance:**
+
 - Protects individual liberty against government
 - Limits federal power
 - Preserves state sovereignty
@@ -275,6 +293,7 @@ The powers not delegated to the United States by the Constitution, nor prohibite
 
 **Evident Mission:**
 These rights are what we defend in every case:
+
 - 1st Amendment - Religious freedom, speech
 - 4th Amendment - Search and seizure (BWC cases)
 - 5th Amendment - Due process, self-incrimination
@@ -290,8 +309,9 @@ These rights are what we defend in every case:
 Originally, Bill of Rights only limited federal government. Through "incorporation doctrine," Supreme Court applied most protections to states via 14th Amendment Due Process Clause.
 
 **Incorporated Rights (Applied to States):**
+
 - ✅ 1st Amendment - All protections (religion, speech, press, assembly, petition)
-- ✅ 2nd Amendment - Right to bear arms (*McDonald*, 2010)
+- ✅ 2nd Amendment - Right to bear arms (_McDonald_, 2010)
 - ❌ 3rd Amendment - NOT incorporated (rarely litigated)
 - ✅ 4th Amendment - Search and seizure protections
 - ✅ 5th Amendment - Due process, self-incrimination, double jeopardy (NOT grand jury requirement)
@@ -310,6 +330,7 @@ Originally, Bill of Rights only limited federal government. Through "incorporati
 **Why Exact Text Matters:** Constitutional interpretation depends on precise wording. Supreme Court cases hinge on individual words ("the people," "shall not be infringed," "due process").
 
 **Living vs. Original Intent:**
+
 - **Originalists:** Interpret based on 1791 meaning
 - **Living Constitution:** Interpret based on evolving standards
 
@@ -325,5 +346,5 @@ Originally, Bill of Rights only limited federal government. Through "incorporati
 
 ---
 
-*Previous Document:* See `constitution.md` for Articles I-VII (1787)  
-*Next Document:* See `amendments-11-27.md` for remaining amendments (1795-1992)
+_Previous Document:_ See `constitution.md` for Articles I-VII (1787)  
+_Next Document:_ See `amendments-11-27.md` for remaining amendments (1795-1992)
