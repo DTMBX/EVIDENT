@@ -93,4 +93,4 @@ databases:
     databaseName: Evident_production
     plan: free
     region: oregon
-    ipAllowList: []  # Allow all IPs (required for Render free tier)
+    ipAllowList: [] # Allow all IPs (required for Render free tier)
