@@ -1,0 +1,43 @@
+<section class="hero">
+  <div class="container">
+    {% if page.badge %}
+    <div class="hero-badge">
+      <span>{{ page.badge }}</span>
+    </div>
+    {% endif %}
+
+    <h1 class="hero-title">
+      Legal-Grade Evidence Processing for Modern Legal Practice
+    </h1>
+
+    <p class="hero-subtitle">
+      AI-powered transcription, document intelligence, and chain-of-custody verification. 
+      100% local processing — your data never leaves your machine.
+    </p>
+
+    <div class="hero-actions">
+      <a href="{{ page.cta_primary_url | default: '/register' }}" class="btn btn-primary btn-lg">
+        {{ page.cta_primary | default: "Get Started Free" }}
+      </a>
+      <a href="{{ page.cta_secondary_url | default: '#how-it-works' }}" class="btn btn-secondary btn-lg">
+        {{ page.cta_secondary | default: "See How It Works" }}
+      </a>
+    </div>
+  </div>
+</section>
+
+{% if page.hero_features %}
+<section class="section-sm" style="background: var(--bg-tertiary);">
+  <div class="container">
+    <div class="features-grid">
+      {% for feature in page.hero_features %}
+      <div class="card">
+        <div class="card-icon">{{ feature.icon }}</div>
+        <h3 class="card-title">{{ feature.title }}</h3>
+        <p class="card-text">{{ feature.description }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
