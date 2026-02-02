@@ -23,11 +23,19 @@
 }
 
 @keyframes tilt-left {
-  0% { transform: rotate(-7deg); }
-  100% { transform: rotate(7deg); }
+  0% {
+    transform: rotate(-7deg);
+  }
+  100% {
+    transform: rotate(7deg);
+  }
 }
 
 @keyframes tilt-right {
-  0% { transform: rotate(7deg); }
-  100% { transform: rotate(-7deg); }
+  0% {
+    transform: rotate(7deg);
+  }
+  100% {
+    transform: rotate(-7deg);
+  }
 }
