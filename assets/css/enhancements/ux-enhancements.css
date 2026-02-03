@@ -221,6 +221,49 @@ select {
     box-shadow var(--transition-fast) var(--ease-out);
 }
 
+/* Custom checkbox */
+.checkbox-custom {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 0.5rem;
+}
+
+.checkbox-custom input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkbox-custom .checkmark {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #d1d5db;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast) var(--ease-out);
+}
+
+.checkbox-custom input:checked + .checkmark {
+  background: #c41e3a;
+  border-color: #c41e3a;
+}
+
+.checkbox-custom input:checked + .checkmark::after {
+  content: "\2713";
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.checkbox-custom input:focus-visible + .checkmark {
+  box-shadow: var(--shadow-focus);
+}
+
 input:focus,
 textarea:focus,
 select:focus {
@@ -270,35 +313,11 @@ input:invalid:not(:placeholder-shown, :focus) {
 
 .checkbox-custom input:checked + .checkmark::after {
   content: "✓";
-  color: white;
-  font-size: 12px;
-  font-weight: bold;
-}
+  border-color: #ef4444;
 
-.checkbox-custom input:focus-visible + .checkmark {
-  box-shadow: var(--shadow-focus);
-}
-
-/* ===========================
-   Better Cards
-   =========================== */
-.card {
-  background: white;
-  border-radius: 12px;
-  box-shadow: var(--shadow-md);
-  transition:
-    transform var(--transition-normal) var(--ease-out),
-    box-shadow var(--transition-normal) var(--ease-out);
-}
-
-.card-interactive:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
-}
-
-.card-interactive:active {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+.card-interactive.selected {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgb(59 130 246 / 10%);
 }
 
 /* ===========================

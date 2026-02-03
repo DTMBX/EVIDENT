@@ -1,76 +1,66 @@
-<!-- htmlhint doctype-first:false -->
-
-<header
-  class="site-header bg-paper"
-  style="border-bottom: 1.5px solid var(--grid)"
->
-  <div
-    class="container"
-    style="
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 64px;
-      gap: 2rem;
-    "
-  >
-    <!-- Logo & Brand -->
+<header class="site-header">
+  <div class="header-container">
+    <!-- Brand -->
     <a
       href="{{ '/' | relative_url }}"
       class="header-brand"
       aria-label="Evident Home"
-      style="
-        display: flex;
-        align-items: center;
-        gap: 0.75em;
-        text-decoration: none;
-      "
     >
       <img
         src="/assets/img/brand/evident-wordmark-light-hd.svg"
-        alt="Evident Trinity E Wordmark"
-        style="height: 48px; width: auto; display: block; margin-right: 0"
+        alt="Evident Technologies"
+        class="brand-logo"
       />
     </a>
 
-    <!-- Desktop Navigation -->
-    <nav
-      class="header-nav"
-      aria-label="Main navigation"
-      style="display: flex; gap: 1.5em"
+    <!-- Mobile Toggle -->
+    <button
+      class="nav-toggle"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      data-nav-toggle
     >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="header-nav" aria-label="Main navigation">
       <a
         href="{{ '/' | relative_url }}"
         class="nav-link{% if page.url == '/' %} active{% endif %}"
-        style="color: var(--ink); font-weight: 500; text-decoration: none"
-        >Home</a
       >
+        Home
+      </a>
       <a
         href="{{ '/pricing.html' | relative_url }}"
         class="nav-link{% if page.url contains 'pricing' %} active{% endif %}"
-        style="color: var(--ink); font-weight: 500; text-decoration: none"
-        >Pricing</a
       >
+        Pricing
+      </a>
       <a
         href="{{ '/docs.html' | relative_url }}"
         class="nav-link{% if page.url contains 'docs' %} active{% endif %}"
-        style="color: var(--ink); font-weight: 500; text-decoration: none"
-        >Documentation</a
       >
+        Documentation
+      </a>
       <a
         href="{{ '/contact.html' | relative_url }}"
         class="nav-link{% if page.url contains 'contact' %} active{% endif %}"
-        style="color: var(--ink); font-weight: 500; text-decoration: none"
-        >Contact</a
       >
+        Contact
+      </a>
     </nav>
 
-    <!-- Header Actions -->
-    <div class="header-actions" style="display: flex; gap: 0.75em">
-      <a href="https://app.evident.icu/login" class="btn btn-ghost">Sign In</a>
-      <a href="https://app.evident.icu/register" class="btn btn-primary"
-        >Get Started</a
-      >
+    <!-- Actions -->
+    <div class="header-actions">
+      <a href="https://app.evident.icu/login" class="btn btn-ghost">
+        Sign In
+      </a>
+      <a href="https://app.evident.icu/register" class="btn btn-primary">
+        Get Started
+      </a>
     </div>
   </div>
 </header>
