@@ -309,3 +309,14 @@ google-services.json
 # Local Development
 launchSettings.json
 *.local.json
+
+# --- build/caches ---
+_site/
+.jekyll-cache/
+.venv/
+instance/
+test-results/
+stylelint-report.txt
+
+# --- OS/IDE ---
+.vs/
