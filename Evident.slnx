@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Evident.Infrastructure/Evident.Infrastructure.csproj" />
+    <Project Path="src/Evident.Mobile/Evident.Mobile.csproj" />
+    <Project Path="src/Evident.Shared/Evident.Shared.csproj" />
+    <Project Path="src/Evident.Web/Evident.Web.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Evident.Tests.Unit/Evident.Tests.Unit.csproj" />
+  </Folder>
+</Solution>

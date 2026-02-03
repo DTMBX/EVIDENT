@@ -41,7 +41,7 @@
 .barber-pole-icon {
   width: 32px;
   height: 32px;
-  background: url('/assets/img/evident-logo.svg') no-repeat center/contain;
+  background: url("/assets/img/evident-logo.svg") no-repeat center/contain;
   border-radius: 4px;
 }
 

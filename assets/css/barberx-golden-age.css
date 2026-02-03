@@ -1,0 +1,416 @@
+/**
+ * Evident Technologies
+ * Professional Legal Aesthetic
+ * Precision | Excellence | Trust | Integrity
+ */
+
+:root {
+  /* Professional Color Palette */
+  --evident-gold: #d4af37;
+  --evident-dark-gold: #b8941c;
+  --evident-brass: #b5a642;
+  --evident-copper: #b87333;
+  --evident-navy: #0a2540;
+  --evident-blue: #3b82f6;
+  --evident-charcoal: #1f2937;
+  /*
+    Evident Golden Age Theme
+    Premium Evident branding and UI
+    All BarberX references removed, rebranded for Evident
+  */
+
+  :root {
+  background: linear-gradient(
+    90deg,
+
+  /* ============================================
+    Evident Premium Header
+    ============================================ */
+  .evident-premium-header {
+    var(--evident-gold) 0%,
+    var(--evident-crimson) 50%,
+
+  .evident-premium-header::before {
+    var(--evident-gold) 100%
+  );
+
+  .evident-brand {
+  opacity: 0.6;
+}
+
+  .evident-brand:hover .evident-logo__text {
+
+.evident-logo__tagline {
+
+  .evident-logo {
+  text-transform: uppercase;
+  font-weight: 500;
+
+  .evident-logo__text {
+}
+
+
+  .evident-logo__text::after {
+/* ============================================
+   NAVIGATION - ART DECO STYLE
+
+  .evident-logo__tagline {
+   ============================================ */
+
+
+  /* ============================================
+    Evident Premium Navigation
+    ============================================ */
+  .premium-nav__link {
+.premium-nav__link {
+  font-family: var(--evident-font-sans);
+
+  .premium-nav__link::before {
+  font-weight: 500;
+  letter-spacing: 0.05em;
+
+  .premium-nav__link:hover::before,
+  .premium-nav__link:focus::before {
+  text-transform: uppercase;
+  font-size: 0.85rem;
+
+  /* Evident Login/CTA Button */
+  .premium-nav__link--cta {
+  position: relative;
+}
+
+  .premium-nav__link--cta::before {
+
+.premium-nav__link::before {
+
+  .premium-nav__link--cta:hover {
+  content: "";
+  position: absolute;
+
+  .premium-nav__link--highlight {
+  bottom: -2px;
+  left: 50%;
+
+  .premium-nav__link--highlight:hover {
+  transform: translateX(-50%);
+  width: 0;
+
+  .premium-nav__dropdown {
+  height: 2px;
+  background: var(--evident-gold-gradient);
+
+  .premium-nav__dropdown-link {
+  transition: width 0.3s ease;
+}
+
+  .premium-nav__dropdown-link:hover {
+
+.premium-nav__link:hover::before,
+
+  /* ============================================
+    Evident Premium Footer
+    ============================================ */
+  .evident-footer-logo {
+.premium-nav__link:focus::before {
+  width: 100%;
+
+  .evident-footer-logo::after {
+}
+
+
+  .footer-tagline {
+/* Golden Login/CTA Button */
+.premium-nav__link--cta {
+
+  .footer-description {
+  background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+  color: #1a1a2e !important;
+
+  .footer-contact .contact-link {
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+
+  .footer-contact .contact-link:hover {
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgb(212 175 55 / 30%);
+
+  .footer-legal {
+  transition: all 0.3s ease;
+}
+
+  /* ============================================
+    Evident Premium Buttons
+    ============================================ */
+  .btn-primary {
+
+.premium-nav__link--cta::before {
+
+  .btn-primary:hover {
+  display: none;
+}
+
+  .btn-ghost {
+
+.premium-nav__link--cta:hover {
+
+  .btn-ghost:hover {
+  box-shadow: 0 4px 16px rgb(212 175 55 / 50%);
+  transform: translateY(-1px);
+  background: linear-gradient(135deg, #ffd700 0%, #d4af37 100%);
+}
+
+.premium-nav__link--highlight {
+  background: var(--evident-gold-gradient);
+  color: var(--evident-navy) !important;
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgb(212 175 55 / 30%);
+}
+
+.premium-nav__link--highlight:hover {
+  box-shadow: 0 4px 16px rgb(212 175 55 / 50%);
+  transform: translateY(-1px);
+}
+
+.premium-nav__dropdown {
+  border: 1px solid var(--evident-gold);
+  background: linear-gradient(135deg, #1a1a2e 0%, #2d2d3a 100%);
+  box-shadow: 0 8px 32px rgb(212 175 55 / 20%);
+}
+
+.premium-nav__dropdown-link {
+  font-family: var(--evident-font-sans);
+  transition: all 0.2s ease;
+  border-left: 2px solid transparent;
+}
+
+.premium-nav__dropdown-link:hover {
+  background: rgb(212 175 55 / 10%);
+  border-left-color: var(--evident-gold);
+  padding-left: 1.25rem;
+}
+
+/* ============================================
+   FOOTER - GOLDEN AGE STYLING
+   ============================================ */
+
+.evident-footer-logo {
+  position: relative;
+  padding-bottom: var(--space-4);
+}
+
+.evident-footer-logo::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: var(--evident-gold-gradient);
+}
+
+.footer-tagline {
+  font-size: 1.1rem;
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.footer-description {
+  line-height: 1.7;
+  color: #888;
+}
+
+.footer-contact .contact-link {
+  color: var(--evident-gold);
+  font-family: var(--evident-font-mono);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+  padding: 0.5rem 0;
+}
+
+.footer-contact .contact-link:hover {
+  color: var(--evident-brass);
+  text-shadow: 0 0 12px rgb(212 175 55 / 30%);
+  transform: translateX(4px);
+}
+
+.footer-legal {
+  opacity: 0.7;
+  margin-top: 0.25rem;
+}
+
+/* ============================================
+   BUTTONS - ART DECO STYLE
+   ============================================ */
+
+.btn-primary {
+  background: var(--evident-gold-gradient);
+  color: var(--evident-navy);
+  font-family: var(--evident-font-sans);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: none;
+  box-shadow: 0 4px 16px rgb(212 175 55 / 30%);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 8px 24px rgb(212 175 55 / 50%);
+  transform: translateY(-2px);
+  background: var(--evident-gold-gradient);
+}
+
+.btn-ghost {
+  border: 2px solid var(--evident-gold);
+  color: var(--evident-gold);
+  font-size: 0.95rem;
+  font-family: var(--evident-font-sans);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.btn-ghost:hover {
+  background: var(--evident-gold);
+  color: var(--evident-navy);
+  box-shadow: 0 4px 16px rgb(212 175 55 / 40%);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   CARDS - ART DECO GEOMETRIC PATTERNS
+   ============================================ */
+
+.card {
+  position: relative;
+  overflow: hidden;
+  background: var(--evident-gold-gradient);
+  color: var(--evident-navy);
+  font-family: var(--evident-font-sans);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--evident-gold-gradient);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  background: var(--evident-gold-gradient);
+}
+
+/* ============================================
+   SECTION HEADERS - GOLDEN AGE TYPOGRAPHY
+   ============================================ */
+
+h1,
+h2,
+h3 {
+  font-family: var(--evident-font-display);
+}
+
+h2 {
+  position: relative;
+  padding-bottom: var(--space-4);
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--evident-gold-gradient);
+}
+
+/* ============================================
+   HERO SECTIONS - ART DECO BACKGROUNDS
+   ============================================ */
+
+.hero,
+.cta-section {
+  position: relative;
+  background: var(--evident-deco-gradient);
+}
+
+.hero::before,
+.cta-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 50px,
+      rgb(212 175 55 / 3%) 50px,
+      rgb(212 175 55 / 3%) 51px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 50px,
+      rgb(212 175 55 / 3%) 50px,
+      rgb(212 175 55 / 3%) 51px
+    );
+  pointer-events: none;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (width <= 768px) {
+  .evident-logo__text {
+    font-size: 1.5rem !important;
+  }
+
+  .evident-logo__tagline {
+    font-size: 0.55rem !important;
+  }
+
+  .premium-nav__link {
+    font-size: 0.95rem;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY ENHANCEMENTS
+   ============================================ */
+
+.evident-brand:focus,
+.premium-nav__link:focus,
+.btn-primary:focus,
+.btn-ghost:focus {
+  outline: 2px solid var(--evident-gold);
+  outline-offset: 4px;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .evident-brand,
+  .premium-nav__link,
+  .card,
+  .btn-primary,
+  .btn-ghost {
+    transition: none;
+  }
+}

@@ -1,0 +1,149 @@
+/*
+  Evident Design Tokens (v2)
+  Brand: Evident (evident.icu)
+  Notes:
+  - Use semantic tokens in components (surface/text/primary/etc.)
+  - Keep brand tokens for brand identity & future palette swaps
+*/
+:root {
+  /* =========================
+     Brand (raw palette)
+  ========================== */
+  --ink: #0b0d10; /* Obsidian Black */
+  --paper: #f6f3ed; /* Archival Ivory */
+  --blue: #2f5d9f; /* Evidentiary Blue */
+  --red: #7a1e2b; /* Seal Red */
+  --muted: #6b7280; /* Hash Gray */
+  --grid: #e5e7eb; /* Grid line */
+
+  /* =========================
+     Semantic (use these in UI)
+  ========================== */
+  --bg: var(--paper);
+  --fg: var(--ink);
+
+  --surface: #ffffff; /* cards/panels */
+  --surface-2: #fbf8f2; /* subtle alt surface */
+  --border: #e7e1d7; /* warmer than --grid for UI borders */
+  --border-strong: #d7d0c5;
+
+  --text-muted: var(--muted);
+  --text-subtle: #8b9099;
+
+  --primary: var(--blue);
+  --primary-hover: #2a518a;
+  --primary-active: #244677;
+
+  --danger: var(--red);
+  --danger-hover: #6a1925;
+  --danger-active: #57141e;
+
+  /* Text on colored backgrounds */
+  --on-ink: var(--paper);
+  --on-paper: var(--ink);
+  --on-primary: #ffffff;
+  --on-danger: #ffffff;
+
+  /* =========================
+     Radius
+  ========================== */
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 18px;
+  --r-pill: 999px;
+
+  /* =========================
+     Shadows (elevation)
+  ========================== */
+  --shadow-0: none;
+  --shadow-1: 0 1px 2px rgb(0 0 0 / 6%);
+  --shadow-2: 0 6px 24px rgb(0 0 0 / 8%);
+  --shadow-3: 0 18px 48px rgb(0 0 0 / 12%);
+
+  /* =========================
+     Spacing
+  ========================== */
+  --space-2xs: 0.125rem;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+
+  /* =========================
+     Typography
+  ========================== */
+  --font-ui: "Inter", "Source Sans 3", "IBM Plex Sans", Arial, sans-serif;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* Type scale (optional but useful) */
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+
+  /* =========================
+     Focus / accessibility
+  ========================== */
+  --ring: color-mix(in srgb, var(--primary) 55%, white);
+  --ring-outer: 0 0 0 4px color-mix(in srgb, var(--primary) 18%, transparent);
+  --ring-inner: 0 0 0 2px var(--ring);
+}
+
+/* Base helpers */
+.bg-paper {
+  background: var(--bg);
+  color: var(--fg);
+}
+.bg-ink {
+  background: var(--ink);
+  color: var(--on-ink);
+}
+
+/*
+  Grid pattern
+  IMPORTANT: Do not use opacity on the container;
+  it will fade child content. Use a pseudo-element overlay.
+*/
+.bg-grid {
+  position: relative;
+  background: var(--bg);
+  overflow: hidden;
+}
+.bg-grid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(90deg, var(--grid) 0 1px, transparent 1px 32px),
+    repeating-linear-gradient(180deg, var(--grid) 0 1px, transparent 1px 32px);
+  opacity: 0.06;
+}
+
+/* A “card” baseline that matches the Evident vibe */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-1);
+}
+
+/* Focus ring utility (use on buttons/links/inputs) */
+.u-focus-ring:focus-visible {
+  outline: none;
+  box-shadow: var(--ring-inner), var(--ring-outer);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
