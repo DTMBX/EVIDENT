@@ -26,6 +26,7 @@
   0% {
     transform: rotate(-7deg);
   }
+
   100% {
     transform: rotate(7deg);
   }
@@ -35,6 +36,7 @@
   0% {
     transform: rotate(7deg);
   }
+
   100% {
     transform: rotate(-7deg);
   }

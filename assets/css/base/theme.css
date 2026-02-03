@@ -1,11 +1,10 @@
 /* ============================================================================
-   Evident Technologies Master Theme
-   Unified design system for consistent styling across all pages
-   
-   NOTE: All CSS imports are now centralized in main.css to prevent duplication.
-   This file contains theme-specific styling only (header, nav, footer, etc.)
-   ============================================================================ */
-/* BarberX/Barber Shoppe theme purged. Evident professional theme installed. */
+  Evident Master Theme
+  Unified design system for consistent styling across all pages
+  All legacy/BarberX references removed. Optimized for clarity and best practices.
+  NOTE: All CSS imports are now centralized in main.css to prevent duplication.
+  This file contains theme-specific styling only (header, nav, footer, etc.)
+  ============================================================================ */
 
 /* Import Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Merriweather:wght@400;600;700&display=swap");
@@ -834,5 +833,38 @@
   .footer-nav a {
     font-size: 1.1rem;
     padding: 0.5rem 0;
+  }
+}
+
+/*
+  Evident Theme Policy
+  Dark mode + reduced motion live here (not in brand tokens).
+*/
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0a0a0f;
+    --fg: #f8f6f0;
+
+    --border: rgb(248 246 240 / 14%);
+    --muted: rgb(248 246 240 / 60%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-instant: 0ms;
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+    --duration-slower: 0ms;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0ms !important;
+    scroll-behavior: auto !important;
   }
 }

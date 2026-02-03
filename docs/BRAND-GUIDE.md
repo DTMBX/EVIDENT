@@ -28,7 +28,7 @@
 The classic 1920s spinning barber pole is our primary brand symbol:
 
 - **Glass Cylinder**: Smooth, transparent, honest
-- **Red, White, Blue Stripes**: Classic American barbershop tradition
+- **Red, White, Blue Stripes**: Classic American Evident tradition
 - **Brass Finials**: Premium quality, attention to detail
 - **Spinning Motion**: Continuous progress, always working
 
@@ -232,3 +232,4 @@ When adding the barber pole to a new page:
 **Remember**: Like a barber perfecting a fade, attention to detail makes the difference between good and great. Every pixel, every transition, every shadow should be intentional.
 
 **A CUT ABOVE** ✂️
+

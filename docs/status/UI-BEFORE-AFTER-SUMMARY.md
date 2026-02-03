@@ -2,13 +2,13 @@
 
 ## Overview
 
-This document summarizes the changes made during the rebrand and UI modernization of the Evident platform (formerly BarberX). All legacy branding, design tokens, and UI systems have been replaced with the new Evident system, focused on forensic clarity, accessibility, and modern design.
+This document summarizes the changes made during the rebrand and UI modernization of the Evident platform (formerly Evident). All legacy branding, design tokens, and UI systems have been replaced with the new Evident system, focused on forensic clarity, accessibility, and modern design.
 
 ---
 
-## Before (BarberX)
+## Before (Evident)
 
-- Scattered brand references: "BarberX", "BarberX.Web", etc.
+- Scattered brand references: "Evident", "Evident.Web", etc.
 - Multiple .btn variants, inconsistent button styles
 - No centralized design tokens; colors and radii hardcoded
 - Header, hero, and footer used legacy layout and gradients
@@ -31,7 +31,7 @@ This document summarizes the changes made during the rebrand and UI modernizatio
 
 ## Checklist
 
-- [x] All BarberX references removed from UI, docs, and configs
+- [x] All Evident references removed from UI, docs, and configs
 - [x] Design tokens created and used for all UI
 - [x] Unified button system implemented
 - [x] Header, hero, and footer refactored
@@ -40,3 +40,4 @@ This document summarizes the changes made during the rebrand and UI modernizatio
 - [x] BRAND.md created with system documentation
 
 _Last updated: 2026-02-02_
+

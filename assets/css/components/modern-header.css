@@ -11,7 +11,7 @@
   --color-secondary: #1e3a8a;
   --color-text: #1e293b;
   --color-text-light: #64748b;
-  --color-bg: #ffffff;
+  --color-bg: #fff;
   --color-bg-subtle: #f8fafc;
   --color-border: #e2e8f0;
   --color-hover: #f1f5f9;
@@ -56,7 +56,7 @@
   text-decoration: none;
   font-weight: 600;
   z-index: 9999;
-  border-radius: 0 0 4px 0;
+  border-radius: 0 0 4px;
   transition: top var(--transition-fast);
 }
 
@@ -74,7 +74,6 @@
   position: sticky;
   top: 0;
   z-index: var(--z-header);
-  background: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
   box-shadow: var(--shadow-sm);
   backdrop-filter: blur(8px);
@@ -152,7 +151,7 @@
   display: none;
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .nav-desktop {
     display: block;
   }
@@ -348,7 +347,7 @@
 }
 
 /* Hide desktop sign-in on mobile */
-@media (max-width: 1023px) {
+@media (width <= 1023px) {
   .button-primary {
     display: none;
   }
@@ -379,7 +378,7 @@
   transition: all var(--transition-fast);
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .mobile-menu-toggle {
     display: none;
   }
@@ -421,10 +420,7 @@
 
 .nav-mobile {
   position: fixed;
-  top: var(--header-height);
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: var(--header-height) 0 0 0;
   background: var(--color-bg);
   z-index: var(--z-mobile-nav);
   overflow-y: auto;
@@ -607,10 +603,7 @@
 
 .mobile-nav-overlay {
   position: fixed;
-  top: var(--header-height);
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: var(--header-height) 0 0 0;
   background: rgb(0 0 0 / 50%);
   z-index: var(--z-overlay);
   opacity: 0;
@@ -658,7 +651,7 @@
   .nav-link:hover,
   .dropdown-link:hover,
   .mobile-nav-link:hover {
-    border-color: currentColor;
+    border-color: currentcolor;
   }
 }
 
@@ -674,7 +667,7 @@
   }
 
   .Evident-header {
-    background: rgba(15, 23, 42, 0.95);
+    background: rgb(15 23 42 / 95%);
   }
 }
 
@@ -682,7 +675,7 @@
    RESPONSIVE BREAKPOINTS
    ===================================================== */
 
-@media (max-width: 1023px) {
+@media (width <= 1023px) {
   .header-container {
     padding: 0 var(--spacing-md);
   }
@@ -692,7 +685,7 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (width <= 640px) {
   :root {
     --header-height: 64px;
   }

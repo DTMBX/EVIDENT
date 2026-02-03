@@ -2,7 +2,7 @@
 
 ## Brand & Content
 
-- [x] All BarberX references removed from UI, docs, configs, and assets
+- [x] All Evident references removed from UI, docs, configs, and assets
 - [x] All brand, logo, and color references updated to Evident
 - [x] Forensic, accessible, and trustworthy tone validated in all content
 
@@ -28,3 +28,4 @@
 ---
 
 _Last updated: 2026-02-02_
+

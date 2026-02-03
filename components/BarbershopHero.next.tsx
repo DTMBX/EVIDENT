@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import styles from "./BarbershopHero.module.css";
+import styles from "./EvidentHero.module.css";
 
 /**
- * BarbershopHero.next.tsx
+ * EvidentHero.next.tsx
  * Next.js App Router TypeScript component for animated barber shop hero
  *
  * Features:
@@ -17,11 +17,11 @@ import styles from "./BarbershopHero.module.css";
  * - Server-safe with typeof window checks
  *
  * @example
- * import BarbershopHero from '@/components/BarbershopHero.next';
+ * import EvidentHero from '@/components/EvidentHero.next';
  *
  * export default function Home() {
  *   return (
- *     <BarbershopHero
+ *     <EvidentHero
  *       variant="default"
  *       onCtaClick={() => console.log('CTA clicked')}
  *     />
@@ -29,7 +29,7 @@ import styles from "./BarbershopHero.module.css";
  * }
  */
 
-interface BarbershopHeroProps {
+interface EvidentHeroProps {
   /** Heading text displayed above the pole */
   heading?: string;
   /** Descriptive text/tagline */
@@ -52,9 +52,9 @@ interface BarbershopHeroProps {
   badgeText?: string;
 }
 
-export default function BarbershopHero({
+export default function EvidentHero({
   heading = "Welcome to Barber Cam",
-  tagline = "Premium barbershop experience",
+  tagline = "Premium Evident experience",
   variant = "default",
   ctaText = "Get Started",
   onCtaClick,
@@ -63,7 +63,7 @@ export default function BarbershopHero({
   animationDuration = 5.5,
   showBadge = false,
   badgeText = "Premium",
-}: BarbershopHeroProps) {
+}: EvidentHeroProps) {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -99,8 +99,8 @@ export default function BarbershopHero({
   }, [onCtaClick]);
 
   const rootClass = [
-    styles["barbershop-hero"],
-    styles[`barbershop-hero--${variant}`],
+    styles["Evident-hero"],
+    styles[`Evident-hero--${variant}`],
     prefersReducedMotion && styles["no-animation"],
     isDarkMode && styles["dark-mode"],
     className,
@@ -113,7 +113,7 @@ export default function BarbershopHero({
   return (
     <section
       className={rootClass}
-      aria-label="Barbershop hero section with animated barber pole"
+      aria-label="Evident hero section with animated barber pole"
       role="banner"
     >
       <div className={styles["hero-inner"]}>
@@ -261,3 +261,4 @@ export default function BarbershopHero({
     </section>
   );
 }
+

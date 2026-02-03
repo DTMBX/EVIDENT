@@ -9,11 +9,12 @@
     "selector-type-no-unknown": true,
     "string-no-newline": true,
     "selector-class-pattern": [
-      "^[a-z][a-z0-9]*(-[a-z0-9]+)*(__[a-z0-9]+(-[a-z0-9]+)*)?(--[a-z0-9]+(-[a-z0-9]+)*)?$",
+      "^(?:[a-z][a-z0-9]*(-[a-z0-9]+)*(__[a-z0-9]+(-[a-z0-9]+)*)?(--[a-z0-9]+(-[a-z0-9]+)*)?|([a-z0-9]+:)+[a-z0-9-]+)$",
       {
-        "message": "Expected class selector to follow BEM naming (block-name__element--modifier)"
+        "message": "Expected class selector to follow BEM naming (block-name__element--modifier) or Tailwind-style utility (e.g., sm:grid-cols-2)"
       }
     ],
-    "no-descending-specificity": null
+    "no-descending-specificity": [true, { "severity": "warning" }],
+    "no-duplicate-selectors": [true, { "severity": "warning" }]
   }
 }

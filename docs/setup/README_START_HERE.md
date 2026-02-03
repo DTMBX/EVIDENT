@@ -22,26 +22,26 @@ Welcome! This is your complete guide to all animated hero components for the Bar
 
 **What you get:**
 
-- `components/BarbershopHero.jsx` — React component with hooks
-- `components/BarbershopHero.css` — Shared stylesheet
+- `components/EvidentHero.jsx` — React component with hooks
+- `components/EvidentHero.css` — Shared stylesheet
 - Full customization via props (heading, tagline, animation speed, etc.)
 - 3 layout variants (default, minimal, full)
 
 **Installation (2 minutes):**
 
 ```bash
-cp components/BarbershopHero.jsx src/components/
-cp components/BarbershopHero.css src/components/
+cp components/EvidentHero.jsx src/components/
+cp components/EvidentHero.css src/components/
 ```
 
 **Usage:**
 
 ```jsx
-import BarbershopHero from "@/components/BarbershopHero";
+import EvidentHero from "@/components/EvidentHero";
 
 export default function Home() {
   return (
-    <BarbershopHero
+    <EvidentHero
       heading="Welcome to Barber Cam"
       ctaText="Book Now"
       onCtaClick={() => handleNavigation()}
@@ -60,27 +60,27 @@ export default function Home() {
 
 **What you get:**
 
-- `components/BarbershopHero.next.tsx` — Next.js App Router component
+- `components/EvidentHero.next.tsx` — Next.js App Router component
 - Full TypeScript support with strict types
-- `components/BarbershopHero.css` — Shared stylesheet
+- `components/EvidentHero.css` — Shared stylesheet
 - Server-safe implementation (SSR-compatible)
 - All React features + Next.js optimizations
 
 **Installation (2 minutes):**
 
 ```bash
-cp components/BarbershopHero.next.tsx src/components/BarbershopHero.tsx
-cp components/BarbershopHero.css src/components/
+cp components/EvidentHero.next.tsx src/components/EvidentHero.tsx
+cp components/EvidentHero.css src/components/
 ```
 
 **Usage:**
 
 ```tsx
-import BarbershopHero from "@/components/BarbershopHero";
+import EvidentHero from "@/components/EvidentHero";
 
 export default function Home() {
   return (
-    <BarbershopHero
+    <EvidentHero
       heading="Welcome to Barber Cam"
       ctaText="Book Now"
       onCtaClick={() => router.push("/booking")}
@@ -99,12 +99,12 @@ export default function Home() {
 
 **What you get:**
 
-- `barbershop-badge-hero.html` — Standalone HTML (all-in-one file)
-- `components/BarbershopBadgeHero.jsx` — React component
+- `Evident-badge-hero.html` — Standalone HTML (all-in-one file)
+- `components/EvidentBadgeHero.jsx` — React component
 - Optimized for mobile (360px base)
 - Responsive breakpoints (480px, 640px, 1024px)
 
-**Next step:** Read `BARBERSHOP_BADGE_QUICKSTART.md` (4 minutes)
+**Next step:** Read `Evident_BADGE_QUICKSTART.md` (4 minutes)
 
 ---
 
@@ -116,8 +116,8 @@ export default function Home() {
 | **REACT_NEXTJS_GUIDE.md**          | You're using React or Next.js               | 10 min |
 | **PERFORMANCE_GUIDE.md**           | You want to understand optimization details | 10 min |
 | **DELIVERY_SUMMARY_v2.md**         | You need a complete project summary         | 10 min |
-| **BARBERSHOP_BADGE_GUIDE.md**      | You're building the badge component         | 10 min |
-| **BARBERSHOP_BADGE_QUICKSTART.md** | You want the fastest badge setup            | 4 min  |
+| **Evident_BADGE_GUIDE.md**      | You're building the badge component         | 10 min |
+| **Evident_BADGE_QUICKSTART.md** | You want the fastest badge setup            | 4 min  |
 
 ---
 
@@ -163,19 +163,19 @@ barber-cam-preview-main/
 ├── index.html (updated v2.0)
 ├── assets/css/style.css (updated v2.0)
 ├── components/
-│   ├── BarbershopHero.jsx (8.2KB)
-│   ├── BarbershopHero.css (8.9KB)
-│   ├── BarbershopHero.next.tsx (7.3KB)
-│   ├── BarbershopBadgeHero.jsx (6.2KB)
-│   └── BarbershopBadgeHero.module.css (8KB)
-├── barbershop-badge-hero.html (13.3KB)
+│   ├── EvidentHero.jsx (8.2KB)
+│   ├── EvidentHero.css (8.9KB)
+│   ├── EvidentHero.next.tsx (7.3KB)
+│   ├── EvidentBadgeHero.jsx (6.2KB)
+│   └── EvidentBadgeHero.module.css (8KB)
+├── Evident-badge-hero.html (13.3KB)
 ├── HERO_COMPONENT_INDEX.md
 ├── REACT_NEXTJS_GUIDE.md
 ├── PERFORMANCE_GUIDE.md
 ├── DELIVERY_SUMMARY_v2.md
-├── BARBERSHOP_BADGE_GUIDE.md
-├── BARBERSHOP_BADGE_QUICKSTART.md
-├── BARBERSHOP_BADGE_DELIVERY.md
+├── Evident_BADGE_GUIDE.md
+├── Evident_BADGE_QUICKSTART.md
+├── Evident_BADGE_DELIVERY.md
 └── README_START_HERE.md (this file)
 ```
 
@@ -188,7 +188,7 @@ barber-cam-preview-main/
 **React/Next.js:**
 
 ```jsx
-<BarbershopHero animationDuration={6} /> {/* 6 seconds instead of 5.5 */}
+<EvidentHero animationDuration={6} /> {/* 6 seconds instead of 5.5 */}
 ```
 
 **HTML/CSS:**
@@ -230,7 +230,7 @@ Everything should automatically switch colors.
 **React/Next.js:**
 
 ```jsx
-<BarbershopHero
+<EvidentHero
   onCtaClick={() => {
     // Your handler here
     router.push("/booking");
@@ -329,7 +329,7 @@ A: Yes! Edit the SVG element in the component or HTML file.
 - ⚛️ **React/Next.js:** Read `REACT_NEXTJS_GUIDE.md`
 - ⚡ **Performance:** Read `PERFORMANCE_GUIDE.md`
 - 📦 **Delivery Summary:** Read `DELIVERY_SUMMARY_v2.md`
-- 📱 **Badge Component:** Read `BARBERSHOP_BADGE_QUICKSTART.md`
+- 📱 **Badge Component:** Read `Evident_BADGE_QUICKSTART.md`
 
 Happy deploying! 🚀
 
@@ -356,3 +356,4 @@ Happy deploying! 🚀
 ---
 
 Replace `YOUR_NETLIFY_SITE_ID` in the badge URL with your actual Netlify site ID for live status.
+

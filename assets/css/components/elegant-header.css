@@ -23,7 +23,7 @@
   --elegant-accent: #d4a574;
   --elegant-text: #0f172a;
   --elegant-text-light: #64748b;
-  --elegant-bg: #ffffff;
+  --elegant-bg: #fff;
   --elegant-bg-blur: rgb(255 255 255 / 85%);
   --elegant-border: #e2e8f0;
   --elegant-hover-bg: #f8fafc;
@@ -99,7 +99,6 @@
   z-index: var(--elegant-z-header);
   background: var(--elegant-bg-blur);
   backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
   border-bottom: 1px solid var(--elegant-border);
   box-shadow: var(--elegant-shadow-sm);
   transition: all var(--elegant-transition);
@@ -178,7 +177,7 @@ body {
   line-height: 1;
 }
 
-@media (max-width: 640px) {
+@media (width <= 640px) {
   .logo-tagline {
     display: none;
   }
@@ -193,7 +192,7 @@ body {
   display: none;
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .elegant-nav {
     display: block;
   }
@@ -419,7 +418,7 @@ body {
 }
 
 /* Hide desktop elements on mobile */
-@media (max-width: 1023px) {
+@media (width <= 1023px) {
   .elegant-icon-btn,
   .elegant-btn--primary {
     display: none;
@@ -446,7 +445,7 @@ body {
   transition: all var(--elegant-transition-fast);
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .elegant-mobile-toggle {
     display: none;
   }
@@ -621,7 +620,7 @@ body {
 /* Drawer Submenu */
 .drawer-submenu {
   list-style: none;
-  margin: 0.5rem 0 0.75rem 0;
+  margin: 0.5rem 0 0.75rem;
   padding: 0 0 0 calc(22px + 0.875rem + 1rem);
   max-height: 0;
   overflow: hidden;
@@ -712,10 +711,7 @@ body {
 
 .elegant-drawer-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: rgb(0 0 0 / 40%);
   backdrop-filter: blur(4px);
   z-index: var(--elegant-z-overlay);
@@ -768,7 +764,7 @@ body.drawer-open {
   .elegant-nav__link:hover,
   .elegant-dropdown__link:hover,
   .drawer-nav__link:hover {
-    border-color: currentColor;
+    border-color: currentcolor;
   }
 }
 
@@ -776,7 +772,7 @@ body.drawer-open {
    Responsive Adjustments
    ======================================== */
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .elegant-header__container {
     padding: 0 1rem;
   }
@@ -786,7 +782,7 @@ body.drawer-open {
   }
 }
 
-@media (max-width: 480px) {
+@media (width <= 480px) {
   :root {
     --elegant-header-height: 64px;
   }

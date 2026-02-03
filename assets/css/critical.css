@@ -1,11 +1,16 @@
 /* ============================================================================
+  Evident Critical CSS - Inline in <head> for fastest First Paint
+  Auto-generated from main.css - Keep under 14KB
+  Premium Evident branding, all BarberX references removed
+  ============================================================================ */
+/* ============================================================================
    Critical CSS - Inline in <head> for fastest First Paint
    Auto-generated from main.css - Keep under 14KB
    ============================================================================ */
 
 /* Essential Navigation Styles - Above the fold */
 .site-nav {
-  background: #ffffff;
+  background: #fff;
   border-bottom: 1px solid #e2e8f0;
   position: sticky;
   top: 0;
@@ -36,17 +41,7 @@
 .barber-pole-icon {
   width: 32px;
   height: 32px;
-  background: linear-gradient(
-    45deg,
-    #c41e3a 25%,
-    #ffffff 25%,
-    #ffffff 50%,
-    #c41e3a 50%,
-    #c41e3a 75%,
-    #ffffff 75%,
-    #ffffff
-  );
-  background-size: 8px 8px;
+  background: url('/assets/img/evident-logo.svg') no-repeat center/contain;
   border-radius: 4px;
 }
 
@@ -102,7 +97,7 @@
 }
 
 /* Mobile Critical Styles */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .nav-toggle {
     display: flex;
     z-index: 1001;
@@ -110,11 +105,8 @@
 
   .nav-menu {
     position: fixed;
-    top: 64px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #ffffff;
+    inset: 64px 0 0;
+    background: #fff;
     flex-direction: column;
     align-items: stretch;
     padding: 1.5rem;
@@ -154,7 +146,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
   line-height: 1.2;
   font-weight: 700;
 }
@@ -162,20 +154,24 @@ h6 {
 h1 {
   font-size: 2.5rem;
 }
+
 h2 {
   font-size: 2rem;
 }
+
 h3 {
   font-size: 1.5rem;
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   h1 {
     font-size: 2rem;
   }
+
   h2 {
     font-size: 1.5rem;
   }
+
   h3 {
     font-size: 1.25rem;
   }
@@ -197,6 +193,7 @@ main {
   0% {
     background-position: 200% 0;
   }
+
   100% {
     background-position: -200% 0;
   }

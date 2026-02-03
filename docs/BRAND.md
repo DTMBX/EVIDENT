@@ -30,10 +30,11 @@ Evident is a legal-grade evidence processing platform focused on forensic clarit
 
 ## Usage
 
-- Never use BarberX or legacy branding
+- Never use Evident or legacy branding
 - All UI, docs, and assets must reference Evident
 - Forensic, accessible, and trustworthy tone in all content
 
 ---
 
 _Last updated: 2026-02-02_
+

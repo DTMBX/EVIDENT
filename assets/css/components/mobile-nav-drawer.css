@@ -24,7 +24,7 @@
 }
 
 /* CRITICAL: Show hamburger on mobile - must override any display:none */
-@media screen and (max-width: 1024px) {
+@media screen and (width <= 1024px) {
   .mobile-nav-hamburger {
     display: flex !important;
     align-items: center !important;
@@ -33,14 +33,14 @@
 }
 
 .mobile-nav-hamburger:hover {
-  background: rgba(196, 30, 58, 0.1);
+  background: rgb(196 30 58 / 10%);
   border-color: var(--Evident-red-primary, #c41e3a);
 }
 
 .mobile-nav-hamburger:focus {
   outline: none;
   border-color: var(--Evident-red-primary, #c41e3a);
-  box-shadow: 0 0 0 3px rgba(196, 30, 58, 0.2);
+  box-shadow: 0 0 0 3px rgb(196 30 58 / 20%);
 }
 
 /* Hamburger lines */
@@ -50,7 +50,7 @@
   left: 50%;
   width: 24px;
   height: 3px;
-  background: #ffffff;
+  background: #fff;
   border-radius: 2px;
   transform: translateX(-50%);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -85,8 +85,9 @@
 }
 
 /* Show on mobile/tablet */
-@media (max-width: 1024px) {
+@media (width <= 1024px) {
   /* CRITICAL: Force premium-nav__actions div to show on mobile */
+
   /* This overrides connect-compliance-footer.css which hides it below 900px */
   .premium-nav__actions {
     display: flex !important;
@@ -102,7 +103,7 @@
 }
 
 /* Also target any potential wrapper or parent containers */
-@media (max-width: 1024px) {
+@media (width <= 1024px) {
   .premium-nav__actions .mobile-nav-hamburger {
     display: flex !important;
   }
@@ -114,13 +115,9 @@
 
 .mobile-nav-backdrop {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
+  inset: 0;
+  background: rgb(0 0 0 / 60%);
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   opacity: 0;
   visibility: hidden;
   z-index: 999;
@@ -143,12 +140,11 @@
   bottom: 0;
   width: 85%;
   max-width: 400px;
-  background: var(--color-background, #ffffff);
-  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.2);
+  background: var(--color-background, #fff);
+  box-shadow: -8px 0 32px rgb(0 0 0 / 20%);
   transform: translateX(100%);
   z-index: 1000;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden auto;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   -webkit-overflow-scrolling: touch;
 }
@@ -165,7 +161,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px 24px;
-  background: var(--color-background, #ffffff);
+  background: var(--color-background, #fff);
   border-bottom: 1px solid var(--color-border, #e5e7eb);
   z-index: 10;
 }
@@ -202,14 +198,14 @@
 }
 
 .mobile-nav-close:hover {
-  background: rgba(196, 30, 58, 0.1);
+  background: rgb(196 30 58 / 10%);
   border-color: var(--Evident-red-primary, #c41e3a);
 }
 
 .mobile-nav-close:focus {
   outline: none;
   border-color: var(--Evident-red-primary, #c41e3a);
-  box-shadow: 0 0 0 3px rgba(196, 30, 58, 0.2);
+  box-shadow: 0 0 0 3px rgb(196 30 58 / 20%);
 }
 
 .mobile-nav-close__icon {
@@ -262,7 +258,7 @@
 }
 
 .mobile-nav-link.is-active {
-  background: rgba(196, 30, 58, 0.1);
+  background: rgb(196 30 58 / 10%);
   color: var(--Evident-red-primary, #c41e3a);
   font-weight: 600;
 }
@@ -289,7 +285,7 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
-  margin: 8px 0 12px 0;
+  margin: 8px 0 12px;
   padding: 0 0 0 32px;
   list-style: none;
 }
@@ -349,19 +345,19 @@
   font-size: 16px;
   font-weight: 600;
   text-align: center;
-  color: #ffffff;
+  color: #fff;
   background: linear-gradient(135deg, #c41e3a 0%, #a01529 100%);
   border: none;
   border-radius: 8px;
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(196, 30, 58, 0.3);
+  box-shadow: 0 4px 12px rgb(196 30 58 / 30%);
 }
 
 .mobile-nav-cta__button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(196, 30, 58, 0.4);
+  box-shadow: 0 6px 16px rgb(196 30 58 / 40%);
 }
 
 .mobile-nav-cta__button:active {
@@ -377,7 +373,7 @@
 }
 
 .mobile-nav-cta__button--secondary:hover {
-  background: rgba(196, 30, 58, 0.1);
+  background: rgb(196 30 58 / 10%);
   box-shadow: none;
 }
 
@@ -440,12 +436,12 @@
 /* High contrast mode support */
 @media (prefers-contrast: high) {
   .mobile-nav-hamburger {
-    border: 2px solid currentColor;
+    border: 2px solid currentcolor;
   }
 
   .mobile-nav-link:focus,
   .mobile-nav-close:focus {
-    outline: 3px solid currentColor;
+    outline: 3px solid currentcolor;
     outline-offset: 2px;
   }
 }
