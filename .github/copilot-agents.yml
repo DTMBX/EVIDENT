@@ -107,8 +107,6 @@ agents:
       → @documentation: Document API endpoints
       ```
 
-      **Agent Invocation Format:**
-
   # Cloud Integration Agent - Cloud Storage & Services
   cloud-integration:
     name: "Evident Cloud Integration Expert"
@@ -216,7 +214,7 @@ agents:
       ```python
       # Setup webhook for file changes
       webhook_config = service.setup_webhook(
-          webhook_url="https://Evident.info/api/webhooks/dropbox",
+          webhook_url="https://evident.info/api/webhooks/dropbox",
           folder_path="/Evidence"
       )
 
@@ -1056,7 +1054,7 @@ agents:
       **Request:**
       ```bash
       curl -X POST \
-        https://Evident.info/api/cases/12345/evidence \
+        https://evident.info/api/cases/12345/evidence \
         -H "Authorization: Bearer YOUR_TOKEN" \
         -F "file=@video.mp4" \
         -F "description=Officer dashcam footage"
