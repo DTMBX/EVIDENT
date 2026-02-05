@@ -6,6 +6,8 @@ The system is designed to help litigants, advocates, and legal teams work with *
 
 > Evidence is processed locally. Originals are preserved. Analysis is reproducible.
 
+Note: This repository includes governance guidance for AI assistants in `.github/copilot-instructions.md` and `copilot-instructions.md`.
+
 ---
 
 ## Purpose & Design Principles

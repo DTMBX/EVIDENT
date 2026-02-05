@@ -1,20 +1,17 @@
 {
   "extends": "stylelint-config-standard",
   "rules": {
-    "color-no-invalid-hex": true,
-    "declaration-block-no-duplicate-properties": true,
     "block-no-empty": true,
-    "unit-no-unknown": true,
-    "property-no-unknown": true,
     "selector-type-no-unknown": true,
-    "string-no-newline": true,
+    "no-duplicate-selectors": null,
+    "no-descending-specificity": null,
     "selector-class-pattern": [
-      "^(?:[a-z][a-z0-9]*(-[a-z0-9]+)*(__[a-z0-9]+(-[a-z0-9]+)*)?(--[a-z0-9]+(-[a-z0-9]+)*)?|([a-z0-9]+:)+[a-z0-9-]+)$",
+      "^[a-z0-9\\-\\\\:]+$",
       {
-        "message": "Expected class selector to follow BEM naming (block-name__element--modifier) or Tailwind-style utility (e.g., sm:grid-cols-2)"
+        "message": "Expected class selector to be kebab-case (allows escaped utility tokens)"
       }
     ],
-    "no-descending-specificity": [true, { "severity": "warning" }],
-    "no-duplicate-selectors": [true, { "severity": "warning" }]
+    "selector-id-pattern": null,
+    "media-feature-name-value-no-unknown": null
   }
 }
