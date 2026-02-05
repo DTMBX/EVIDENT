@@ -4,7 +4,7 @@
 **Target Deploy Date:** TBD  
 **Environment:** Production (Render.com)
 
----
+--
 
 ## 📋 Pre-Deployment Checklist
 
@@ -34,7 +34,7 @@
 - [ ] **No linting errors**
 
   ```powershell
-  npx prettier --check .
+  npx prettier -check .
   npx stylelint "**/*.css"
   npx htmlhint "**/*.html"
   ```
@@ -45,7 +45,7 @@
   # Expected: working tree clean or only documented changes
   ```
 
----
+--
 
 ### Environment Configuration
 
@@ -86,7 +86,7 @@
   - [ ] `S3_ACCESS_KEY`
   - [ ] `S3_SECRET_KEY`
 
----
+--
 
 ### Database
 
@@ -115,7 +115,7 @@
   - Retention policy: 30 days minimum
   - Restore procedure documented
 
----
+--
 
 ### PWA Requirements
 
@@ -154,7 +154,7 @@
   - [ ] 16x16 (`/favicon-16x16.png`)
   - [ ] ICO format (`/favicon.ico`)
 
----
+--
 
 ### Static Files
 
@@ -177,7 +177,7 @@
   - [ ] Font files accessible
   - [ ] `font-display: swap` in CSS
 
----
+--
 
 ### SEO & Social
 
@@ -206,7 +206,7 @@
   - [ ] Site added and verified
   - [ ] Sitemap submitted
 
----
+--
 
 ### Security
 
@@ -249,7 +249,7 @@
   - [ ] Environment variables used
   - [ ] `.env` file in `.gitignore`
 
----
+--
 
 ### Monitoring & Logging
 
@@ -281,7 +281,7 @@
   - Status page URL: https://status.Evident.info
   - Linked from footer
 
----
+--
 
 ### Performance
 
@@ -304,7 +304,7 @@
   - Connection pooling configured
   - Query performance profiled
 
----
+--
 
 ## 🚀 Deployment Steps
 
@@ -414,7 +414,7 @@
   - Test checkout flow (test mode first!)
   - Verify webhook receives events
 
----
+--
 
 ## 📱 Mobile Device Testing
 
@@ -439,7 +439,7 @@
   - [ ] Touch targets ≥48px
   - [ ] Tap highlights styled
 
----
+--
 
 ## 🔍 Performance Testing
 
@@ -473,7 +473,7 @@
   - [ ] INP < 100ms
   - [ ] CLS < 0.05
 
----
+--
 
 ## 🎯 User Acceptance Testing
 
@@ -520,7 +520,7 @@
   - View usage statistics
   - Modify user tier (test only)
 
----
+--
 
 ## 📊 Analytics Verification
 
@@ -541,7 +541,7 @@
   - Total uploads
   - Total spend
 
----
+--
 
 ## 🔐 Security Testing
 
@@ -580,7 +580,7 @@
   - Try uploading oversized file (>100MB)
   - Expected: Rejected
 
----
+--
 
 ## 🎉 Launch Checklist
 
@@ -618,7 +618,7 @@
   - Zendesk, Intercom, or similar
   - Integration tested
 
----
+--
 
 ## 🛟 Rollback Plan
 
@@ -649,7 +649,7 @@
    - Email to active users (if downtime >15 min)
    - Post-mortem report
 
----
+--
 
 ## 📝 Post-Launch Monitoring (First 48 Hours)
 
@@ -679,7 +679,7 @@
 - [ ] Analyze user behavior (Amplitude)
 - [ ] Plan hotfixes if needed
 
----
+--
 
 ## ✅ Final Sign-Off
 
@@ -695,19 +695,19 @@
 - [ ] **Product Owner:** \***\*\*\*\*\***\_\***\*\*\*\*\*** Date: **\_**
 - [ ] **QA Lead:** \***\*\*\*\*\***\_\***\*\*\*\*\*** Date: **\_**
 
----
+--
 
 **Deployment Status:** ⏳ Pending / ✅ Complete / ❌ Failed
 
 **Notes:**
 
----
+--
 
----
+--
 
----
+--
 
----
+--
 
 **Last Updated:** January 27, 2026  
 **Next Review:** Upon deployment completion

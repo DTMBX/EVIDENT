@@ -4,7 +4,7 @@
 **Version:** 2.1.0  
 **Status:** Production Ready 🚀
 
----
+--
 
 ## 📁 Folder Structure
 
@@ -27,7 +27,7 @@
 | **status/**        | Project status & tracking        | 77    |
 | **stripe/**        | Stripe payment documentation     | 1     |
 
----
+--
 
 ## 📝 Where to Put New Documentation
 
@@ -44,7 +44,7 @@
 | Security update          | `security-docs/` | `SECURITY-UPDATE.md`       |
 | Release notes            | `releases/`      | `VERSION-CHANGELOG.md`     |
 
----
+--
 
 ## 📚 Documentation Files
 
@@ -81,7 +81,7 @@
 - **[DEMO-VIDEO-SCRIPT.md](DEMO-VIDEO-SCRIPT.md)** — Professional 2-minute demo walkthrough  
   _Scene-by-scene script with timing and talking points_
 
----
+--
 
 ### 404 Error Fix Project
 
@@ -116,7 +116,7 @@
 - **[AUTH-UI-OPTIMIZATION.md](AUTH-UI-OPTIMIZATION.md)** — UI optimization (7.3 KB)  
   _Login, signup, and dashboard enhancements_
 
----
+--
 
 ## 🚀 Progressive Web App (PWA)
 
@@ -146,7 +146,7 @@
 - **API Calls** → Network-first with cache fallback
 - **HTML Pages** → Network-first
 
----
+--
 
 ## 🎨 CSS Architecture
 
@@ -177,7 +177,7 @@ assets/css/
 
 **Performance Gain:** 15KB reduction in initial load, ~300ms faster First Contentful Paint
 
----
+--
 
 ## 🔍 SEO Implementation
 
@@ -206,7 +206,7 @@ Includes:
 {% include 'components/structured-data.html' %}
 ```
 
----
+--
 
 ## 🔐 Security Implementation
 
@@ -232,7 +232,7 @@ Implemented in `../app.py` via `@app.after_request` decorator:
 - **Filename sanitization:** Remove dangerous characters
 - **MIME type verification:** Check actual file content
 
----
+--
 
 ## 📊 Performance Metrics
 
@@ -260,7 +260,7 @@ Implemented in `../app.py` via `@app.after_request` decorator:
 - **Mobile CSS:** 8KB (conditional)
 - **Total JavaScript:** ~45KB (minified)
 
----
+--
 
 ## 🎯 Quick Start
 
@@ -322,7 +322,7 @@ Implemented in `../app.py` via `@app.after_request` decorator:
 2. Read [FLASK-INTEGRATION-GUIDE.md](FLASK-INTEGRATION-GUIDE.md) for routes
 3. Reference `models_auth.py` and `auth_routes.py`
 
----
+--
 
 ## 📋 Project Status
 
@@ -373,7 +373,7 @@ Implemented in `../app.py` via `@app.after_request` decorator:
 - [x] Custom 404 page
 - [x] Brand design system
 
----
+--
 
 ### ⏳ In Progress
 
@@ -381,7 +381,7 @@ Implemented in `../app.py` via `@app.after_request` decorator:
 - [ ] PWA icon generation (72px - 512px)
 - [ ] Social media images (OG, Twitter)
 
----
+--
 
 ### 📅 Pending (Next Sprint)
 
@@ -403,7 +403,7 @@ Implemented in `../app.py` via `@app.after_request` decorator:
 - [ ] CI/CD pipeline
 - [ ] Monitoring & alerts
 
----
+--
 
 ## 🛠️ Development Workflow
 
@@ -443,16 +443,16 @@ python security_audit.py
 
 ```powershell
 # Prettier (format all files)
-npx prettier --write .
+npx prettier -write .
 
 # Stylelint (CSS linting)
-npx stylelint "**/*.css" --fix
+npx stylelint "**/*.css" -fix
 
 # HTMLHint (HTML validation)
 npx htmlhint "**/*.html"
 ```
 
----
+--
 
 ## 🔗 Quick Links
 
@@ -477,7 +477,7 @@ npx htmlhint "**/*.html"
 - **Usage:** `/api/usage/check`, `/api/usage/increment`
 - **Payments:** `/api/payments/create-checkout`, `/api/payments/webhook`
 
----
+--
 
 ## 📁 Project Structure
 
@@ -532,7 +532,7 @@ Evident.info/
 └── [other project files]
 ```
 
----
+--
 
 ## ⚙️ Configuration Checklist
 
@@ -561,7 +561,7 @@ AMPLITUDE_API_KEY=...               # TODO: Sign up at amplitude.com
 SENDGRID_API_KEY=...                # For transactional emails
 ```
 
----
+--
 
 ## 🚦 Deployment Checklist
 
@@ -594,7 +594,7 @@ SENDGRID_API_KEY=...                # For transactional emails
 - [ ] Test payment flow end-to-end
 - [ ] Verify analytics tracking
 
----
+--
 
 ## 💡 Key Technical Concepts
 
@@ -630,7 +630,7 @@ SENDGRID_API_KEY=...                # For transactional emails
 - **HTML pages** → Network-first (5min cache)
 - **Offline fallback** → offline.html
 
----
+--
 
 ## 📞 Support & Resources
 
@@ -648,7 +648,7 @@ SENDGRID_API_KEY=...                # For transactional emails
 - **Lighthouse:** https://developers.google.com/web/tools/lighthouse
 - **Flask Docs:** https://flask.palletsprojects.com/
 
----
+--
 
 ## 📈 Roadmap
 
@@ -687,11 +687,11 @@ SENDGRID_API_KEY=...                # For transactional emails
 - 📅 Offline video processing queue
 - 📅 AI-powered suggestions
 
----
+--
 
 **🎉 You're all set! Start with the Quick Start guide above.**
 
----
+--
 
 **Last Updated:** January 27, 2026  
 **Maintained By:** Evident Development Team  

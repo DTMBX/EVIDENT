@@ -64,24 +64,24 @@ Per-user quota tracking with automatic period resets:
 ```sql
 id                  INTEGER PRIMARY KEY
 user_id             INTEGER NOT NULL (FK -> users.id)
-event_type          VARCHAR(50) -- 'ai_request', 'file_upload', etc.
-event_category      VARCHAR(50) -- 'compute', 'storage', 'api', 'feature'
-resource_name       VARCHAR(100) -- e.g., 'gpt-4', 'claude-3-5'
-quantity            FLOAT -- Generic quantity metric
-tokens_input        INTEGER -- AI input tokens
-tokens_output       INTEGER -- AI output tokens
-duration_seconds    FLOAT -- Processing time
-file_size_bytes     BIGINT -- File sizes
-cost_usd            NUMERIC(12,6) -- Actual cost
-cost_credits        INTEGER -- Internal credits
-endpoint            VARCHAR(200) -- API endpoint
-ip_address          VARCHAR(45) -- IPv4/IPv6
-user_agent          VARCHAR(500) -- Browser info
-session_id          VARCHAR(100) -- Session tracking
-request_id          VARCHAR(100) -- Request tracing
-status              VARCHAR(20) -- 'success', 'error', 'throttled', 'denied'
-error_message       TEXT -- Error details
-timestamp           DATETIME -- Event time
+event_type          VARCHAR(50) - 'ai_request', 'file_upload', etc.
+event_category      VARCHAR(50) - 'compute', 'storage', 'api', 'feature'
+resource_name       VARCHAR(100) - e.g., 'gpt-4', 'claude-3-5'
+quantity            FLOAT - Generic quantity metric
+tokens_input        INTEGER - AI input tokens
+tokens_output       INTEGER - AI output tokens
+duration_seconds    FLOAT - Processing time
+file_size_bytes     BIGINT - File sizes
+cost_usd            NUMERIC(12,6) - Actual cost
+cost_credits        INTEGER - Internal credits
+endpoint            VARCHAR(200) - API endpoint
+ip_address          VARCHAR(45) - IPv4/IPv6
+user_agent          VARCHAR(500) - Browser info
+session_id          VARCHAR(100) - Session tracking
+request_id          VARCHAR(100) - Request tracing
+status              VARCHAR(20) - 'success', 'error', 'throttled', 'denied'
+error_message       TEXT - Error details
+timestamp           DATETIME - Event time
 ```
 
 ### `usage_quotas`

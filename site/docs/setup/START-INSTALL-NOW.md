@@ -3,7 +3,7 @@
 **⏱️ Time to Install:** 2 minutes  
 **📱 Works On:** Android phones (iOS coming soon)
 
----
+--
 
 ## ⚡ Quick Install (3 Steps)
 
@@ -33,7 +33,7 @@ Email to yourself
 4. Tap APK to install
 5. Launch Evident!
 
----
+--
 
 ## 📖 Detailed Guide
 
@@ -41,7 +41,7 @@ For step-by-step instructions with troubleshooting:
 
 → **See `INSTALL-ANDROID-VISUAL-GUIDE.md`**
 
----
+--
 
 ## 🍎 What About iPhone?
 
@@ -65,7 +65,7 @@ For step-by-step instructions with troubleshooting:
 
 **Timeline:** 2-4 weeks for full iOS setup
 
----
+--
 
 ## 🧪 What to Test
 
@@ -86,7 +86,7 @@ After installing on Android:
 9. **Attach evidence to chat**
 10. **View pricing/upgrade page**
 
----
+--
 
 ## 📚 All Documentation
 
@@ -103,7 +103,7 @@ After installing on Android:
 - **`CHATGPT-QUICK-START.md`** - ChatGPT features
 - **`BUILD-SUCCESS.md`** - Integration complete
 
----
+--
 
 ## 🎯 Recommended Path
 
@@ -119,7 +119,7 @@ After installing on Android:
 ⏳ Enroll in Apple Developer  
 ⏳ Set up TestFlight
 
----
+--
 
 ## ❓ Common Questions
 
@@ -145,12 +145,12 @@ After installing on Android:
 - Android: Email APK or upload to shared drive
 - iOS: Use TestFlight (up to 10,000 testers)
 
----
+--
 
 ## 🚀 You're Ready!
 
 **Install Android app now** → See `INSTALL-ANDROID-VISUAL-GUIDE.md`
 
----
+--
 
 **Questions?** Check the guides above or test the app!

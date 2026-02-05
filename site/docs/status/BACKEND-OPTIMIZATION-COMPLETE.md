@@ -43,7 +43,7 @@ This backend optimization round created a **production-ready foundation** for th
 - Integrates `statutory_compliance_checker.py`
 - Publishes events: `evidence.transcribed`, `evidence.processed`, `evidence.processing_failed`
 
----
+--
 
 ### 2. Configuration Manager (`config_manager.py`)
 
@@ -89,27 +89,27 @@ CacheConfig:
 **Optimizations Created:**
 
 ```sql
--- User indexes
+- User indexes
 idx_users_email
 idx_users_username
 idx_users_tier
 
--- Analysis indexes
+- Analysis indexes
 idx_analyses_user_id
 idx_analyses_created_at
 idx_analyses_status
 idx_analyses_case_number
 
--- API key indexes
+- API key indexes
 idx_api_keys_user_id
 idx_api_keys_key
 
--- Usage tracking indexes
+- Usage tracking indexes
 idx_usage_user_id
 idx_usage_date
 ```
 
----
+--
 
 ### 3. API Middleware (`api_middleware.py`)
 
@@ -178,7 +178,7 @@ def full_endpoint():
     pass
 ```
 
----
+--
 
 ## 🔄 Integration Architecture
 
@@ -235,7 +235,7 @@ def full_endpoint():
 └─────────────────────────────────────────────────────────────┘
 ```
 
----
+--
 
 ## 📊 Performance Optimizations
 
@@ -261,7 +261,7 @@ def full_endpoint():
 - **Tiered Limits:** Higher limits for paying customers
 - **Headers:** Client knows their limit status
 
----
+--
 
 ## 🚀 Production Readiness
 
@@ -304,7 +304,7 @@ FLASK_ENV=production
 DEBUG=false
 ```
 
----
+--
 
 ## 📖 Next Integration Steps
 
@@ -366,7 +366,7 @@ profiler = QueryProfiler(db, slow_query_threshold=1.0)
 # Automatically logs queries taking > 1 second
 ```
 
----
+--
 
 ## 📈 Expected Performance Gains
 
@@ -380,7 +380,7 @@ profiler = QueryProfiler(db, slow_query_threshold=1.0)
 | Error recovery         | Manual    | Automatic                | 100% coverage  |
 | Rate limit enforcement | None      | Tiered                   | Prevents abuse |
 
----
+--
 
 ## 🎯 Files Created
 
@@ -403,7 +403,7 @@ profiler = QueryProfiler(db, slow_query_threshold=1.0)
    - 7 decorator functions
    - Combined `@api_endpoint` decorator
 
----
+--
 
 ## ✅ Quality Checklist
 
@@ -420,7 +420,7 @@ profiler = QueryProfiler(db, slow_query_threshold=1.0)
 - [x] Scalable architecture
 - [x] Event-driven design
 
----
+--
 
 ## 🎉 Summary
 
@@ -437,7 +437,7 @@ profiler = QueryProfiler(db, slow_query_threshold=1.0)
 
 **Result:** Evident platform is now enterprise-grade and ready for high-volume production use.
 
----
+--
 
 _Backend Optimization Complete_  
 _January 26, 2026_

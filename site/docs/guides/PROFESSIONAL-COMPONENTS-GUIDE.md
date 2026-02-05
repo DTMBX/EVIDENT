@@ -82,9 +82,9 @@ Automatically loaded in `default.html` layout. Supports:
 **Disable on specific pages:**
 
 ```yaml
----
+--
 track_analytics: false
----
+--
 ```
 
 ### 2. SEO Meta Tags (`seo-meta.html`)
@@ -92,7 +92,7 @@ track_analytics: false
 Automatically included in `<head>`. Override per page:
 
 ```yaml
----
+--
 title: "Custom Page Title"
 description: "Custom page description for SEO"
 og_image: "/assets/images/custom-og.jpg"
@@ -100,7 +100,7 @@ og_type: "article"
 twitter_card: "summary_large_image"
 keywords: [custom, keywords, here]
 robots: "index, follow"
----
+--
 ```
 
 ### 3. Cookie Consent (`cookie-consent.html`)
@@ -152,9 +152,9 @@ Include in layouts or pages:
 **Disable on specific pages:**
 
 ```yaml
----
+--
 hide_social_share: true
----
+--
 ```
 
 **Custom styling:**
@@ -178,9 +178,9 @@ Automatically loaded in `default.html`. Features:
 **Disable on specific pages:**
 
 ```yaml
----
+--
 hide_back_to_top: true
----
+--
 ```
 
 ### 7. Reading Progress Bar (`reading-progress.html`)
@@ -190,9 +190,9 @@ Automatically loaded in `default.html`. Shows scroll progress at top of page.
 **Disable on specific pages:**
 
 ```yaml
----
+--
 hide_progress_bar: true
----
+--
 ```
 
 ### 8. Search Component (`search.html`)
@@ -218,9 +218,9 @@ Add to your header or any page:
 **Exclude pages from search:**
 
 ```yaml
----
+--
 exclude_from_search: true
----
+--
 ```
 
 ### 9. Comments System (`comments.html`)
@@ -230,9 +230,9 @@ Automatically included in `page.html` layout.
 **Disable on specific pages:**
 
 ```yaml
----
+--
 comments: false
----
+--
 ```
 
 **Manual inclusion:**
@@ -268,28 +268,28 @@ All components are in: `_includes/components/`
 ### Article with all features:
 
 ```yaml
----
+--
 layout: page
 title: "My Article"
 description: "Article description"
 show_breadcrumbs: true
 show_newsletter: true
 tags: [legal, advocacy]
----
+--
 Content here...
 ```
 
 ### Minimal page (no extras):
 
 ```yaml
----
+--
 layout: page
 title: "Simple Page"
 hide_social_share: true
 hide_back_to_top: true
 hide_progress_bar: true
 comments: false
----
+--
 Content here...
 ```
 
@@ -302,6 +302,6 @@ Content here...
 5. **Test all components** in development
 6. **Add Open Graph image** at `/assets/images/og-default.jpg`
 
----
+--
 
 All components are production-ready and follow accessibility best practices!

@@ -4,7 +4,7 @@
 **Decision:** Choose your analytics platform  
 **Timeline:** 15 minutes to set up
 
----
+--
 
 ## 🏆 RECOMMENDATION: Start with Amplitude
 
@@ -34,7 +34,7 @@
    - Easy to upgrade as you grow
    - Strong customer success team
 
----
+--
 
 ## 📊 Side-by-Side Comparison
 
@@ -56,7 +56,7 @@
 | **Startup-Friendly** | ✅ Very       | ✅ Yes         |
 | **Enterprise Scale** | ✅ Yes        | ✅ Yes         |
 
----
+--
 
 ## 💰 Pricing Comparison (When You Scale)
 
@@ -84,7 +84,7 @@
 
 **First Year Savings with Amplitude:** $3,000-5,000
 
----
+--
 
 ## 🚀 Quick Setup: Amplitude (15 minutes)
 
@@ -146,7 +146,7 @@ Then check Amplitude dashboard:
 - Events → Live Stream
 - You should see your test event appear!
 
----
+--
 
 ## 📊 Essential Dashboards to Create (Week 2)
 
@@ -193,7 +193,7 @@ Then check Amplitude dashboard:
 - Feature usage trends
 - User retention cohorts
 
----
+--
 
 ## 🎯 Critical Events to Track (Already Implemented)
 
@@ -224,7 +224,7 @@ track_subscription_change(user_id, old_tier, new_tier, amount)
 track_revenue(user_id, amount, {...})
 ```
 
----
+--
 
 ## 🔔 Alerts to Set Up (Week 3)
 
@@ -243,7 +243,7 @@ track_revenue(user_id, amount, {...})
 3. **Viral Coefficient:** >0.3 (users referring users)
 4. **Feature Adoption:** >10% using new feature
 
----
+--
 
 ## 📈 Success Metrics (From Roadmap)
 
@@ -261,7 +261,7 @@ track_revenue(user_id, amount, {...})
 - [ ] Conversion funnel optimized (>25% conversion)
 - [ ] User segmentation by behavior
 
----
+--
 
 ## 🎓 Learning Resources
 
@@ -277,7 +277,7 @@ track_revenue(user_id, amount, {...})
 - Book: "Lean Analytics" by Croll & Yoskovitz
 - Guide: "The Ultimate Guide to SaaS Metrics"
 
----
+--
 
 ## ✅ Action Items
 
@@ -305,7 +305,7 @@ track_revenue(user_id, amount, {...})
 - [ ] Optimize conversion funnel
 - [ ] Build product roadmap from data
 
----
+--
 
 ## 🔄 Alternative: Use Both (Advanced)
 
@@ -331,7 +331,7 @@ Events will be sent to both platforms automatically.
 - When you want to compare analytics platforms
 - Never hurts to have backup data!
 
----
+--
 
 ## 💡 Pro Tips
 
@@ -370,7 +370,7 @@ Analytics are useless without action:
 - Low conversion? Optimize pricing
 - Drop-off point? Fix that UX
 
----
+--
 
 ## 🎯 Final Recommendation
 
@@ -386,7 +386,7 @@ Analytics are useless without action:
 **Cost:** $0 (for your usage)  
 **Value:** Priceless insights 📊
 
----
+--
 
 ## 📞 Next Steps
 

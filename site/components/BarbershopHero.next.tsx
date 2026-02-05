@@ -99,8 +99,8 @@ export default function EvidentHero({
   }, [onCtaClick]);
 
   const rootClass = [
-    styles["Evident-hero"],
-    styles[`Evident-hero--${variant}`],
+    styles["evident-hero"],
+    styles[`Evident-hero-${variant}`],
     prefersReducedMotion && styles["no-animation"],
     isDarkMode && styles["dark-mode"],
     className,
@@ -261,4 +261,3 @@ export default function EvidentHero({
     </section>
   );
 }
-

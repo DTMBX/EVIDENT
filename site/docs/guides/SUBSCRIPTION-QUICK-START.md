@@ -9,7 +9,7 @@
 ✅ **Automated billing** with webhooks  
 ✅ **Production-ready code** (~2,200 lines)
 
----
+--
 
 ## 🚀 5-Minute Setup
 
@@ -56,7 +56,7 @@ Test credentials:
 
 **Option B: Live Mode (Production)** - Same as above but use live dashboard
 
----
+--
 
 ## 🧪 Test It (3 minutes)
 
@@ -109,7 +109,7 @@ Test credentials:
    - Should show "Trial Active" badge
    - Should show usage limits (0/10 PDFs, 0/2 video hours)
 
----
+--
 
 ## 📋 Pricing Tiers
 
@@ -125,7 +125,7 @@ Test credentials:
 | **White-Label**      | ❌    | ❌        | ❌             | ✅               |
 | **Self-Hosted**      | ❌    | ❌        | ❌             | ✅               |
 
----
+--
 
 ## 🛠️ How It Works
 
@@ -179,7 +179,7 @@ def timeline():
     return "Timeline feature"
 ```
 
----
+--
 
 ## 🎨 Frontend Integration
 
@@ -220,7 +220,7 @@ def timeline():
 {% endif %}
 ```
 
----
+--
 
 ## 🔧 Common Issues
 
@@ -249,7 +249,7 @@ For local testing:
 3. Update Stripe webhook URL to ngrok URL
 4. Restart Flask app
 
----
+--
 
 ## 📊 Revenue Calculator
 
@@ -267,7 +267,7 @@ For local testing:
 - 100 PREMIUM × $249 = $24,900/month
 - **Total: $49,400/month = $592,800/year**
 
----
+--
 
 ## ✅ Pre-Launch Checklist
 
@@ -282,7 +282,7 @@ For local testing:
 - [ ] Upgrade CTAs working
 - [ ] Production Stripe keys (for live launch)
 
----
+--
 
 ## 🎉 You're Ready!
 
@@ -295,7 +295,7 @@ For local testing:
 
 **Time to revenue:** 30 minutes (setup Stripe + test)
 
----
+--
 
 ## 📚 Resources
 
@@ -305,6 +305,6 @@ For local testing:
 - **Stripe Docs:** https://stripe.com/docs
 - **Test Cards:** https://stripe.com/docs/testing
 
----
+--
 
 **🚀 Let's make money!**

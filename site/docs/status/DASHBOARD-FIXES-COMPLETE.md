@@ -180,7 +180,7 @@ No more fallback to wrong template!
 **Templates:** Rendering correctly  
 **API:** Dashboard stats returning data
 
----
+--
 
 ## Quick Test Checklist
 

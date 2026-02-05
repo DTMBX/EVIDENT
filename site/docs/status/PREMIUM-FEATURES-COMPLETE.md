@@ -4,7 +4,7 @@
 
 Complete premium feature implementation including extracted styles, responsive breakpoints, toast notifications, dark mode, and skeleton loaders.
 
----
+--
 
 ## 🎨 **1. Extracted Inline Styles**
 
@@ -26,30 +26,30 @@ Complete premium feature implementation including extracted styles, responsive b
 ✅ Cleaner HTML structure  
 ✅ Easier debugging and updates
 
----
+--
 
 ## 📱 **2. Unified Breakpoint System**
 
 ### **Created: `/assets/css/breakpoints.css`**
 
 - **Breakpoints**:
-  - `--breakpoint-xs`: 320px
-  - `--breakpoint-sm`: 640px
-  - `--breakpoint-md`: 768px (most common)
-  - `--breakpoint-lg`: 1024px
-  - `--breakpoint-xl`: 1280px
-  - `--breakpoint-2xl`: 1536px
+  - `-breakpoint-xs`: 320px
+  - `-breakpoint-sm`: 640px
+  - `-breakpoint-md`: 768px (most common)
+  - `-breakpoint-lg`: 1024px
+  - `-breakpoint-xl`: 1280px
+  - `-breakpoint-2xl`: 1536px
 
 ### **Container Classes**:
 
 ```html
 <div class="container-sm">
-  <!-- Max 640px -->
+  <!-- Max 640px ->
   <div class="container-md">
-    <!-- Max 768px -->
+    <!-- Max 768px ->
     <div class="container-lg">
-      <!-- Max 1024px -->
-      <div class="container-xl"><!-- Max 1280px --></div>
+      <!-- Max 1024px ->
+      <div class="container-xl"><!-- Max 1280px -></div>
     </div>
   </div>
 </div>
@@ -58,17 +58,17 @@ Complete premium feature implementation including extracted styles, responsive b
 ### **Utility Classes**:
 
 ```html
-<!-- Hide on mobile -->
+<!-- Hide on mobile ->
 <div class="hidden-xs">Desktop only</div>
 
-<!-- Show only on mobile -->
+<!-- Show only on mobile ->
 <div class="show-xs">Mobile only</div>
 
-<!-- Show only on tablet -->
+<!-- Show only on tablet ->
 <div class="show-md">Tablet only</div>
 ```
 
----
+--
 
 ## 🔔 **3. Toast Notification System**
 
@@ -114,7 +114,7 @@ toast.success("Saved!", 3000);
 - Icons for each type
 - Smooth transitions
 
----
+--
 
 ## 🌙 **4. Complete Dark Mode System**
 
@@ -161,7 +161,7 @@ document.addEventListener("darkmodechange", (e) => {
 - Shows ☀️ (sun) in dark mode
 - Smooth scale/rotate animation on hover
 
----
+--
 
 ## ⏳ **5. Skeleton Loader System**
 
@@ -172,39 +172,39 @@ document.addEventListener("darkmodechange", (e) => {
 #### **Basic Skeletons**:
 
 ```html
-<!-- Text line -->
+<!-- Text line ->
 <div class="skeleton skeleton-text"></div>
 
-<!-- Heading -->
+<!-- Heading ->
 <div class="skeleton skeleton-heading"></div>
 
-<!-- Avatar -->
+<!-- Avatar ->
 <div class="skeleton skeleton-avatar"></div>
 
-<!-- Button -->
+<!-- Button ->
 <div class="skeleton skeleton-button"></div>
 
-<!-- Image (16:9) -->
+<!-- Image (16:9) ->
 <div class="skeleton skeleton-image"></div>
 ```
 
 #### **Variants**:
 
 ```html
-<!-- Avatar sizes -->
+<!-- Avatar sizes ->
 <div class="skeleton skeleton-avatar sm"></div>
 <div class="skeleton skeleton-avatar lg"></div>
 <div class="skeleton skeleton-avatar xl"></div>
 
-<!-- Text lengths -->
+<!-- Text lengths ->
 <div class="skeleton skeleton-text short"></div>
-<!-- 60% width -->
+<!-- 60% width ->
 <div class="skeleton skeleton-text medium"></div>
-<!-- 80% width -->
+<!-- 80% width ->
 <div class="skeleton skeleton-text long"></div>
-<!-- 100% width -->
+<!-- 100% width ->
 
-<!-- Image shapes -->
+<!-- Image shapes ->
 <div class="skeleton skeleton-image square"></div>
 <div class="skeleton skeleton-image circle"></div>
 ```
@@ -212,7 +212,7 @@ document.addEventListener("darkmodechange", (e) => {
 #### **Complex Layouts**:
 
 ```html
-<!-- Feature Card Skeleton -->
+<!-- Feature Card Skeleton ->
 <div class="skeleton-feature-card">
   <div class="skeleton skeleton-icon"></div>
   <div class="skeleton skeleton-heading"></div>
@@ -220,7 +220,7 @@ document.addEventListener("darkmodechange", (e) => {
   <div class="skeleton skeleton-text short"></div>
 </div>
 
-<!-- Profile Skeleton -->
+<!-- Profile Skeleton ->
 <div class="skeleton-profile">
   <div class="skeleton skeleton-avatar lg"></div>
   <div class="skeleton-profile-content">
@@ -229,7 +229,7 @@ document.addEventListener("darkmodechange", (e) => {
   </div>
 </div>
 
-<!-- List Item Skeleton -->
+<!-- List Item Skeleton ->
 <div class="skeleton-list-item">
   <div class="skeleton skeleton-avatar"></div>
   <div style="flex: 1;">
@@ -242,7 +242,7 @@ document.addEventListener("darkmodechange", (e) => {
 #### **Grid Layouts**:
 
 ```html
-<!-- Skeleton Grid -->
+<!-- Skeleton Grid ->
 <div class="skeleton-grid">
   <div class="skeleton-feature-card">...</div>
   <div class="skeleton-feature-card">...</div>
@@ -259,7 +259,7 @@ document.addEventListener("darkmodechange", (e) => {
 ✅ GPU-accelerated animations  
 ✅ Accessible (`aria-busy="true"`)
 
----
+--
 
 ## 📁 **File Structure**
 
@@ -281,7 +281,7 @@ templates/
 └── landing.html                 (Updated: removed inline styles)
 ```
 
----
+--
 
 ## 🚀 **Integration Guide**
 
@@ -289,11 +289,11 @@ templates/
 
 ```html
 <head>
-  <!-- Core styles -->
+  <!-- Core styles ->
   <link rel="stylesheet" href="/assets/css/legal-tech-platform.css" />
   <link rel="stylesheet" href="/assets/css/enhanced-animations.css" />
 
-  <!-- New premium features -->
+  <!-- New premium features ->
   <link rel="stylesheet" href="/assets/css/breakpoints.css" />
   <link rel="stylesheet" href="/assets/css/landing-page.css" />
   <link rel="stylesheet" href="/assets/css/toast.css" />
@@ -301,9 +301,9 @@ templates/
 </head>
 
 <body>
-  <!-- Your content -->
+  <!-- Your content ->
 
-  <!-- Scripts -->
+  <!-- Scripts ->
   <script src="/assets/js/scroll-reveal.js" defer></script>
   <script src="/assets/js/toast.js" defer></script>
   <script src="/assets/js/dark-mode.js" defer></script>
@@ -348,7 +348,7 @@ fetch("/api/features")
   });
 ```
 
----
+--
 
 ## 🎯 **Benefits Summary**
 
@@ -380,7 +380,7 @@ fetch("/api/features")
 ✅ Respects `prefers-reduced-motion`  
 ✅ Proper focus states (already in legal-tech-platform.css)
 
----
+--
 
 ## 📊 **Browser Support**
 
@@ -390,7 +390,7 @@ fetch("/api/features")
 - Mobile browsers: ✅ Full support
 - IE11: ⚠️ Graceful degradation (no CSS variables)
 
----
+--
 
 ## 🔄 **Migration Notes**
 
@@ -405,7 +405,7 @@ fetch("/api/features")
 
 ❌ None - all changes are additive
 
----
+--
 
 ## 📝 **Next Steps** (Optional Future Enhancements)
 
@@ -429,7 +429,7 @@ fetch("/api/features")
    - Monitor toast dismissal rates
    - A/B test skeleton vs. spinners
 
----
+--
 
 ## 🎉 **Summary**
 

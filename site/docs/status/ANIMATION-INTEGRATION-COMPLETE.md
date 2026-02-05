@@ -115,20 +115,20 @@ http://localhost:5000/animation-demo
 ### 2. Add Animations to Elements
 
 ```html
-<!-- Fade in on scroll -->
+<!-- Fade in on scroll ->
 <div class="fade-in">Content</div>
 
-<!-- Slide up with delay -->
+<!-- Slide up with delay ->
 <div class="slide-up" data-delay="100">Content</div>
 
-<!-- Stagger multiple elements -->
+<!-- Stagger multiple elements ->
 <div class="stagger-container">
   <div class="slide-left" data-delay="0">Item 1</div>
   <div class="slide-left" data-delay="100">Item 2</div>
   <div class="slide-left" data-delay="200">Item 3</div>
 </div>
 
-<!-- Hover effects -->
+<!-- Hover effects ->
 <div class="hover-lift">Lifts on hover</div>
 <div class="hover-glow">Glows on hover</div>
 ```
@@ -249,7 +249,7 @@ http://localhost:5000/animation-demo
 ✅ **Zero Dependencies** - Pure vanilla JS  
 ✅ **Full Accessibility** - Motion preferences respected
 
----
+--
 
 **The modern animation system is now fully integrated and operational!**
 

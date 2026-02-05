@@ -25,13 +25,13 @@
     );
 }
 
-.ff-hero__inner {
+.ff-hero-inner {
   max-width: 980px;
   margin: 0 auto;
   padding: 0 1.25rem;
 }
 
-.ff-hero__kicker {
+.ff-hero-kicker {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-size: 0.75rem;
@@ -39,7 +39,7 @@
   margin: 0 0 0.75rem;
 }
 
-.ff-hero__title {
+.ff-hero-title {
   font-family: Cinzel, "Libre Baskerville", serif;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -49,7 +49,7 @@
   margin: 0 0 0.9rem;
 }
 
-.ff-hero__lede {
+.ff-hero-lede {
   color: rgb(215 229 255 / 85%);
   font-size: 1rem;
   line-height: 1.7;
@@ -57,14 +57,14 @@
   max-width: 70ch;
 }
 
-.ff-hero__actions {
+.ff-hero-actions {
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
   margin-bottom: 0.9rem;
 }
 
-.ff-hero__note {
+.ff-hero-note {
   font-size: 0.85rem;
   color: rgb(215 229 255 / 70%);
   max-width: 85ch;
@@ -100,14 +100,14 @@
   background: rgb(1 6 15 / 35%);
 }
 
-.ff-card__title {
+.ff-card-title {
   margin: 0 0 0.35rem;
   color: #fdf7ec;
   font-size: 0.95rem;
   letter-spacing: 0.02em;
 }
 
-.ff-card__text {
+.ff-card-text {
   margin: 0;
   color: rgb(215 229 255 / 78%);
   line-height: 1.6;
@@ -120,20 +120,20 @@
   gap: 1rem;
 }
 
-.ff-list__item {
+.ff-list-item {
   padding: 1.1rem 1.05rem;
   border-left: 3px solid rgb(214 175 102 / 55%);
   background: rgb(1 6 15 / 25%);
   border-radius: 12px;
 }
 
-.ff-list__title {
+.ff-list-title {
   margin: 0 0 0.35rem;
   color: #fdf7ec;
   font-size: 0.98rem;
 }
 
-.ff-list__text {
+.ff-list-text {
   margin: 0 0 0.65rem;
   color: rgb(215 229 255 / 78%);
   line-height: 1.6;
@@ -157,14 +157,14 @@
   padding: 1rem 1.05rem;
 }
 
-.ff-callout__text {
+.ff-callout-text {
   margin: 0;
   color: rgb(215 229 255 / 84%);
   line-height: 1.7;
   font-size: 0.92rem;
 }
 
-.ff-section--cta {
+.ff-section-cta {
   padding-top: 0.5rem;
 }
 
@@ -184,12 +184,12 @@
   font-size: 0.9rem;
 }
 
-.ff-btn--primary {
+.ff-btn-primary {
   background: #e4c88d;
   color: #01060f;
 }
 
-.ff-btn--ghost {
+.ff-btn-ghost {
   border: 1px solid rgb(228 200 141 / 60%);
   color: #fdf7ec;
   background: transparent;
@@ -201,7 +201,7 @@
 }
 
 @media (width >= 820px) {
-  .ff-hero__title {
+  .ff-hero-title {
     font-size: 2.25rem;
   }
 

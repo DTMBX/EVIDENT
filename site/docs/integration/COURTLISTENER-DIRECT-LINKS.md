@@ -4,7 +4,7 @@
 **Time:** 10 minutes  
 **Result:** Access to 10M+ opinions, citations, judges, dockets
 
----
+--
 
 ## 📍 STEP 1: GET YOUR API KEY (2 minutes)
 
@@ -31,7 +31,7 @@
 Example: a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0
 ```
 
----
+--
 
 ## 📍 STEP 2: ADD TO RENDER (3 minutes)
 
@@ -53,7 +53,7 @@ Example: a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0
 
 **Screenshot guide:** See `RENDER-API-KEY-GUIDE.md`
 
----
+--
 
 ## 📍 STEP 3: EXPLORE THE API (5 minutes)
 
@@ -96,7 +96,7 @@ Example: a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0
 
 - 🔗 **Courts:** https://www.courtlistener.com/api/rest/v4/courts/
 
----
+--
 
 ## 📍 STEP 4: TEST YOUR API KEY (2 minutes)
 
@@ -138,7 +138,7 @@ cd C:\web-dev\github-repos\Evident.info
 python -c "from legal_library import LegalLibrary; ll = LegalLibrary(); print(ll.ingest_from_courtlistener('410 U.S. 113'))"
 ```
 
----
+--
 
 ## 🎯 OTHER ELITE LEGAL TOOLS TO INTEGRATE
 
@@ -156,7 +156,7 @@ python -c "from legal_library import LegalLibrary; ll = LegalLibrary(); print(ll
 - Use `recap-documents` endpoint for PDFs
 - Real-time docket tracking via webhooks
 
----
+--
 
 ### **2. Caselaw Access Project (Harvard Law)**
 
@@ -192,7 +192,7 @@ def search_caselaw_access_project(query):
     return response.json()
 ```
 
----
+--
 
 ### **3. OpenLaw (Legal Forms & Smart Contracts)**
 
@@ -202,7 +202,7 @@ def search_caselaw_access_project(query):
 **Use:** Document assembly for pro se users  
 **Free:** Yes, open source
 
----
+--
 
 ### **4. Justia (Free Legal Resources)**
 
@@ -212,7 +212,7 @@ def search_caselaw_access_project(query):
 **No API:** Web scraping only (check robots.txt)  
 **Use:** Backup data source, citation verification
 
----
+--
 
 ### **5. Google Scholar (Case Law)**
 
@@ -222,7 +222,7 @@ def search_caselaw_access_project(query):
 **No API:** Web interface only  
 **Use:** Citation finding, verification
 
----
+--
 
 ### **6. Cornell Legal Information Institute (LII)**
 
@@ -239,7 +239,7 @@ def search_caselaw_access_project(query):
 - Justice votes
 - Case summaries
 
----
+--
 
 ### **7. Congressional Research Service (CRS)**
 
@@ -248,7 +248,7 @@ def search_caselaw_access_project(query):
 **What:** Legislative analysis, policy research  
 **Use:** Legislative history, statutory interpretation
 
----
+--
 
 ### **8. Public.Resource.Org**
 
@@ -257,7 +257,7 @@ def search_caselaw_access_project(query):
 **What:** Free access to legal materials  
 **Use:** Standards, codes, regulations
 
----
+--
 
 ## 🚀 RECOMMENDED INTEGRATION PRIORITY
 
@@ -275,7 +275,7 @@ def search_caselaw_access_project(query):
 - [ ] Test Shepardizing
 - [ ] Test judge intelligence
 
----
+--
 
 ### **Phase 2: Add State Cases (Week 2-3)**
 
@@ -289,7 +289,7 @@ def search_caselaw_access_project(query):
 - [ ] Add state court search
 - [ ] Update stats (10M federal + 6.7M state)
 
----
+--
 
 ### **Phase 3: Add Oral Arguments (Week 4)**
 
@@ -303,7 +303,7 @@ def search_caselaw_access_project(query):
 - [ ] Link to opinions
 - [ ] Add to dashboard
 
----
+--
 
 ### **Phase 4: Add Legislative Data (Month 2)**
 
@@ -317,7 +317,7 @@ def search_caselaw_access_project(query):
 - [ ] Link to cases citing statutes
 - [ ] Add legislative history tool
 
----
+--
 
 ## 🎯 COMPETITIVE POSITIONING WITH THESE TOOLS
 
@@ -341,7 +341,7 @@ def search_caselaw_access_project(query):
 - **Legislative history:** Bill analysis ✅
 - **Comprehensive:** Cases + statutes + audio + history ✅
 
----
+--
 
 ## 📊 STATS UPDATE WITH ALL TOOLS
 
@@ -368,7 +368,7 @@ def search_caselaw_access_project(query):
 - $50/month
 - **New tagline:** "17M Cases • 100K Audio • 1M Judges • $50/month"
 
----
+--
 
 ## 🔗 DIRECT LINKS SUMMARY
 
@@ -389,7 +389,7 @@ def search_caselaw_access_project(query):
 7. **CRS Reports:** https://crsreports.congress.gov/
 8. **Cornell LII:** https://www.law.cornell.edu/
 
----
+--
 
 ## ✅ IMMEDIATE NEXT STEPS
 
@@ -414,7 +414,7 @@ def search_caselaw_access_project(query):
 **3. Test Import:**
 
 - Wait 2 minutes for deploy
-- Run: `python overnight_library_builder.py --practice-area all`
+- Run: `python overnight_library_builder.py -practice-area all`
 - Check: `logs/import_report_*.json` for success
 
 **4. Verify:**
@@ -427,7 +427,7 @@ python -c "from citation_network_analyzer import shepardize; print(shepardize('4
 python -c "from judge_intelligence import JudgeIntelligence; ji = JudgeIntelligence(); print(ji.get_judge_profile('Roberts'))"
 ```
 
----
+--
 
 ## 🎯 WHAT MAKES YOU THE GREATEST
 
@@ -467,7 +467,7 @@ With CourtListener + Harvard CAP:
 - Better UX
 - Real-time updates
 
----
+--
 
 **GET YOUR API KEY NOW:** https://www.courtlistener.com/api/rest-info/
 

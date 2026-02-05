@@ -21,19 +21,15 @@
   ========================== */
   --bg: var(--paper);
   --fg: var(--ink);
-
-  --surface: #ffffff; /* cards/panels */
+  --surface: #fff; /* cards/panels */
   --surface-2: #fbf8f2; /* subtle alt surface */
   --border: #e7e1d7; /* warmer than --grid for UI borders */
   --border-strong: #d7d0c5;
-
   --text-muted: var(--muted);
   --text-subtle: #8b9099;
-
   --primary: var(--blue);
   --primary-hover: #2a518a;
   --primary-active: #244677;
-
   --danger: var(--red);
   --danger-hover: #6a1925;
   --danger-active: #57141e;
@@ -41,8 +37,8 @@
   /* Text on colored backgrounds */
   --on-ink: var(--paper);
   --on-paper: var(--ink);
-  --on-primary: #ffffff;
-  --on-danger: #ffffff;
+  --on-primary: #fff;
+  --on-danger: #fff;
 
   /* =========================
      Radius
@@ -73,7 +69,7 @@
   /* =========================
      Typography
   ========================== */
-  --font-ui: "Inter", "Source Sans 3", "IBM Plex Sans", Arial, sans-serif;
+  --font-ui: "Inter", "Source Sans 3", "IBM Plex Sans", arial, sans-serif;
   --font-weight-medium: 500;
   --font-weight-bold: 700;
 
@@ -96,6 +92,7 @@
   background: var(--bg);
   color: var(--fg);
 }
+
 .bg-ink {
   background: var(--ink);
   color: var(--on-ink);
@@ -111,6 +108,7 @@
   background: var(--bg);
   overflow: hidden;
 }
+
 .bg-grid::before {
   content: "";
   position: absolute;

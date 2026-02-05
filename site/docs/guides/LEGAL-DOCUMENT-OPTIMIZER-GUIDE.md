@@ -2,7 +2,7 @@
 
 **Transform rough legal drafts into court-ready filings**
 
----
+--
 
 ## 🎯 What It Does
 
@@ -17,7 +17,7 @@ The Legal Document Optimizer is an AI-powered tool that analyzes and improves yo
 5. **AI Optimization** - Improves clarity, persuasiveness, and structure
 6. **Court-Ready Output** - Produces polished, professional documents
 
----
+--
 
 ## 📋 Use Cases
 
@@ -48,7 +48,7 @@ The Legal Document Optimizer is an AI-powered tool that analyzes and improves yo
 - Consistency Report
 - Strategic Improvement Summary
 
----
+--
 
 ### Example 2: Maximize Monetary Relief
 
@@ -69,7 +69,7 @@ The Legal Document Optimizer is an AI-powered tool that analyzes and improves yo
 - ✅ Emphasizes public interest and social impact
 - ✅ Optimizes interim relief arguments (irreparable harm)
 
----
+--
 
 ## 🚀 How to Use
 
@@ -91,7 +91,7 @@ The Legal Document Optimizer is an AI-powered tool that analyzes and improves yo
 - Memorandum of Law
 - Exhibits
 
----
+--
 
 ### Step 2: Upload to Evident
 
@@ -124,7 +124,7 @@ The Legal Document Optimizer is an AI-powered tool that analyzes and improves yo
 7. Tap "Optimize"
 ```
 
----
+--
 
 ### Step 3: Link Evidence
 
@@ -147,7 +147,7 @@ The Legal Document Optimizer is an AI-powered tool that analyzes and improves yo
    ⚠ Allegation 12 has no supporting evidence
 ```
 
----
+--
 
 ### Step 4: Set Optimization Goals
 
@@ -175,7 +175,7 @@ Choose priorities:
   → Verifies all required components
 ```
 
----
+--
 
 ### Step 5: Review Results
 
@@ -227,7 +227,7 @@ Strategic Improvements (8):
 • ... [4 more]
 ```
 
----
+--
 
 ### Step 6: Download Optimized Documents
 
@@ -243,7 +243,7 @@ Or download all:
 └── SmithvCityPD_Optimized_Filing_Set.zip
 ```
 
----
+--
 
 ## 🎓 Optimization Principles
 
@@ -270,7 +270,7 @@ AFTER:
   - Included date and signature block
 ```
 
----
+--
 
 ### 2. Evidence Alignment
 
@@ -295,7 +295,7 @@ as shown in BWC footage (Ex. C, timestamp 2:34-2:51)
 and corroborated by witness affidavit (Ex. D, ¶¶ 5-7)."
 ```
 
----
+--
 
 ### 3. Damage Maximization
 
@@ -333,7 +333,7 @@ Prayer for Relief:
 5. Such other relief as Court deems just and proper
 ```
 
----
+--
 
 ### 4. Social Impact Framing
 
@@ -362,7 +362,7 @@ violations and vindicate the public interest in accountable,
 constitutional policing."
 ```
 
----
+--
 
 ### 5. Interim Relief Optimization
 
@@ -394,7 +394,7 @@ strongly supports relief to protect community from ongoing
 unconstitutional conduct."
 ```
 
----
+--
 
 ## ⚖️ Important Disclaimers
 
@@ -414,7 +414,7 @@ unconstitutional conduct."
 ❌ **Fact Generator** - Will not fabricate facts or evidence  
 ❌ **Citation Creator** - Will not make up case law
 
----
+--
 
 ## 🔒 Privacy & Security
 
@@ -437,7 +437,7 @@ Benefits:
 • Recommended for highly sensitive cases
 ```
 
----
+--
 
 ## 💡 Best Practices
 
@@ -457,7 +457,7 @@ Benefits:
 ❌ Ignore evidence gap warnings  
 ❌ Skip procedural compliance checks
 
----
+--
 
 ## 🎯 Advanced Features
 
@@ -479,7 +479,7 @@ Each includes:
 • Citation format
 ```
 
----
+--
 
 ### Monetary Relief Calculator (Coming Soon)
 
@@ -497,7 +497,7 @@ Output:
 • Punitive multiplier: 2-5x compensatory
 ```
 
----
+--
 
 ### Template Library (Coming Soon)
 
@@ -517,7 +517,7 @@ Each template includes:
 • Evidence linking guide
 ```
 
----
+--
 
 ## 📚 Example Workflow
 
@@ -552,7 +552,7 @@ Each template includes:
 - Manual drafting: 6-8 hours
 - **Time saved: 5-7 hours**
 
----
+--
 
 ## 🆘 Support
 
@@ -567,7 +567,7 @@ Each template includes:
 - GitHub: https://github.com/DTB396/Evident.info/issues
 - Tag: `document-optimizer`
 
----
+--
 
 ## 🔄 Updates
 
@@ -587,7 +587,7 @@ Each template includes:
 - Collaborative editing
 - Version control for drafts
 
----
+--
 
 **Ready to optimize your legal documents?**  
 See `CHATGPT-QUICK-START.md` for setup instructions!

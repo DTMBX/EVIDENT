@@ -448,14 +448,14 @@
 
 .content-view {
   display: none;
-  animation: fadeIn 0.3s ease;
+  animation: fade-in 0.3s ease;
 }
 
 .content-view.active {
   display: block;
 }
 
-@keyframes fadeIn {
+@keyframes fade-in {
   from {
     opacity: 0;
     transform: translateY(10px);

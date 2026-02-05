@@ -280,40 +280,8 @@ input:invalid:not(:placeholder-shown, :focus) {
 }
 
 /* Custom checkbox */
-.checkbox-custom {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  cursor: pointer;
-  gap: 0.5rem;
-}
 
-.checkbox-custom input {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.checkbox-custom .checkmark {
-  width: 20px;
-  height: 20px;
-  border: 2px solid #d1d5db;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all var(--transition-fast) var(--ease-out);
-}
-
-.checkbox-custom input:checked + .checkmark {
-  background: #c41e3a;
-  border-color: #c41e3a;
-}
-
-.checkbox-custom input:checked + .checkmark::after {
-  content: "✓";
-  border-color: #ef4444;
+/* (duplicate checkbox rules removed — original definitions kept earlier) */
 
 .card-interactive.selected {
   border-color: #3b82f6;

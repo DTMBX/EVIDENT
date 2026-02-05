@@ -161,9 +161,9 @@ export class ContrastUtils {
       options.brandTokens,
     );
 
-    element.style.setProperty("--adaptive-text", textColor);
-    element.style.setProperty("--adaptive-link", linkColors.primary);
-    element.style.setProperty("--adaptive-link-hover", linkColors.primaryHover);
+    element.style.setProperty("-adaptive-text", textColor);
+    element.style.setProperty("-adaptive-link", linkColors.primary);
+    element.style.setProperty("-adaptive-link-hover", linkColors.primaryHover);
 
     // Store contrast ratios as data attributes for debugging
     const textContrast = this.getContrastRatio(textColor, bgColor);

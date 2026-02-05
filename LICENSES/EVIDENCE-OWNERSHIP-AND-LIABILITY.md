@@ -1,4 +1,5 @@
-# Evident Technologies  
+# Evident Technologies
+
 ## Evidence Ownership & Liability Boundary
 
 ---
@@ -7,9 +8,9 @@
 
 Users retain full ownership of:
 
-- Uploaded evidence files  
-- Source materials  
-- Derived exhibits and exports generated from their data  
+- Uploaded evidence files
+- Source materials
+- Derived exhibits and exports generated from their data
 
 Evident does not claim ownership of user evidence.
 
@@ -19,10 +20,10 @@ Evident does not claim ownership of user evidence.
 
 Evident Technologies retains exclusive ownership of:
 
-- The Evident software platform  
-- Evidence processing workflows  
-- Integrity verification systems  
-- Audit and custody mechanisms  
+- The Evident software platform
+- Evidence processing workflows
+- Integrity verification systems
+- Audit and custody mechanisms
 
 No transfer of ownership is implied by use of the platform.
 
@@ -33,10 +34,11 @@ No transfer of ownership is implied by use of the platform.
 Evident provides **technical processing only**.
 
 Evident does not:
-- Provide legal advice  
-- Make factual determinations  
-- Guarantee admissibility  
-- Replace attorney judgment  
+
+- Provide legal advice
+- Make factual determinations
+- Guarantee admissibility
+- Replace attorney judgment
 
 All legal interpretation and strategic use of evidence remains the sole responsibility of the user.
 
@@ -46,9 +48,9 @@ All legal interpretation and strategic use of evidence remains the sole responsi
 
 While Evident employs integrity and verification mechanisms designed to support evidentiary reliability:
 
-- No outcome is guaranteed  
-- No inference is mandated  
-- No adjudicative authority is exercised  
+- No outcome is guaranteed
+- No inference is mandated
+- No adjudicative authority is exercised
 
 Outputs are tools, not determinations.
 
@@ -58,8 +60,8 @@ Outputs are tools, not determinations.
 
 Users agree not to rely on Evident software as a substitute for:
 
-- Legal counsel  
-- Judicial review  
-- Independent evidentiary analysis  
+- Legal counsel
+- Judicial review
+- Independent evidentiary analysis
 
 Use of the platform constitutes acceptance of these boundaries.

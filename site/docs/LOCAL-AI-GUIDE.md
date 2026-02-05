@@ -12,7 +12,7 @@ Process all evidence **locally on your machine** using 100% open-source AI tools
 - ✅ **Offline** - Works without internet connection
 - ✅ **Control** - You own the models and processing pipeline
 
----
+--
 
 ## 📦 Installation
 
@@ -28,7 +28,7 @@ source .venv/bin/activate  # Linux/Mac
 python tillerstead-toolkit/backend/scripts/setup_local_ai_tools.py
 
 # Verify installation
-python tillerstead-toolkit/backend/scripts/setup_local_ai_tools.py --verify-only
+python tillerstead-toolkit/backend/scripts/setup_local_ai_tools.py -verify-only
 ```
 
 ### Step 2: Configure Environment
@@ -55,7 +55,7 @@ python -c "from ultralytics import YOLO; model = YOLO('yolov8m.pt'); print('✅ 
 python -c "import spacy; nlp = spacy.load('en_core_web_md'); print('✅ spaCy ready')"
 ```
 
----
+--
 
 ## 🤖 Available AI Tools
 
@@ -94,7 +94,7 @@ for segment in result["segments"]:
 - Radio communications
 - 911 calls
 
----
+--
 
 ### 2. **pyannote.audio** (Speaker Diarization)
 
@@ -128,7 +128,7 @@ for segment in segments:
 - Identify multiple officers at scene
 - Track who said what in interviews
 
----
+--
 
 ### 3. **Tesseract OCR** (Document Text Extraction)
 
@@ -162,7 +162,7 @@ print(text)
 - Police reports
 - License plates in photos
 
----
+--
 
 ### 4. **Real-ESRGAN** (AI Super-Resolution)
 
@@ -206,7 +206,7 @@ upscaled.save("upscaled.jpg")
 - Improve low-res BWC footage
 - Upscale faces for identification
 
----
+--
 
 ### 5. **YOLO** (Object/Scene Detection)
 
@@ -249,7 +249,7 @@ for detection in detections:
 - Vehicle tracking
 - Scene analysis
 
----
+--
 
 ### 6. **spaCy** (Entity Extraction)
 
@@ -296,7 +296,7 @@ for entity in entities:
 - Build entity relationship maps
 - Auto-populate chronologies
 
----
+--
 
 ### 7. **sentence-transformers** (Semantic Search)
 
@@ -338,7 +338,7 @@ for doc_idx, score in results:
 - Search across all evidence by meaning
 - Build "similar events" finder
 
----
+--
 
 ## 🚀 Integration with eDiscovery Platform
 
@@ -391,7 +391,7 @@ result = await document_processor.process_document(
 print(result.ocr_text)
 ```
 
----
+--
 
 ## 💻 System Requirements
 
@@ -416,7 +416,7 @@ print(result.ocr_text)
 - **Real-ESRGAN:** 10-20x faster
 - **YOLO:** 5-10x faster
 
----
+--
 
 ## 🔧 Troubleshooting
 
@@ -458,7 +458,7 @@ which tesseract
 2. Set in .env: `HUGGINGFACE_TOKEN=your_token`
 3. Accept license: https://huggingface.co/pyannote/speaker-diarization
 
----
+--
 
 ## 📊 Processing Speed Estimates
 
@@ -471,7 +471,7 @@ which tesseract
 | Tesseract OCR (1 page)    | 2-5 sec      | N/A (CPU only)        |
 | spaCy (1000 words)        | 1-2 sec      | N/A (CPU only)        |
 
----
+--
 
 ## 🆚 Local vs Cloud Comparison
 
@@ -486,7 +486,7 @@ which tesseract
 
 **Recommendation:** Use local AI for all processing. Only use cloud as fallback if local fails.
 
----
+--
 
 ## 📚 Model Licenses
 
@@ -500,7 +500,7 @@ All models are **open-source** and **free for commercial use**:
 - **spaCy:** MIT License
 - **sentence-transformers:** Apache 2.0
 
----
+--
 
 ## 🎓 Training Resources
 
@@ -522,7 +522,7 @@ All models support custom training for your specific use case:
 - Train spaCy to recognize officer names, badge numbers
 - Fine-tune Whisper on police radio communications
 
----
+--
 
 ## ✅ Quick Start Checklist
 
@@ -537,14 +537,14 @@ All models support custom training for your specific use case:
 - [ ] Review quality of transcripts
 - [ ] Adjust settings in `.env` as needed
 
----
+--
 
 ## 🆘 Support
 
 For issues with local AI tools:
 
 1. Check logs: `./logs/local_ai.log`
-2. Verify installation: `python setup_local_ai_tools.py --verify-only`
+2. Verify installation: `python setup_local_ai_tools.py -verify-only`
 3. Review troubleshooting section above
 4. Check model documentation (links above)
 

@@ -7,7 +7,7 @@
 **Builder:** Devon Tyler (28, New Jersey, USA)  
 **Purpose:** Standing witness to constitutional foundation
 
----
+--
 
 ## PROCLAMATION
 
@@ -28,7 +28,7 @@ Let spacing be deliberate, alignment square, and color truthful. Let nothing mov
 
 By this design, truth is preserved, order is maintained, and all contained herein is held in good faith, under the Light, and under the Son—set apart for remembrance, protection, and lawful continuity.
 
----
+--
 
 ## WITNESS SEAL (Short Version)
 
@@ -41,7 +41,7 @@ Bind by hierarchy and truth.
 Let the header stand as witness.
 ```
 
----
+--
 
 ## TECHNICAL SPECIFICATIONS
 
@@ -126,7 +126,7 @@ Let the header stand as witness.
 - Color: #64748b (memorial gray)
 - Background: rgba(0, 0, 0, 0.3)
 
----
+--
 
 ## HIERARCHY PROTOCOL
 
@@ -155,7 +155,7 @@ Let the header stand as witness.
    - Square alignment
    - Truthful colors (official hex codes)
 
----
+--
 
 ## USAGE INSTRUCTIONS
 
@@ -170,7 +170,7 @@ Add to top of any page template:
 Or in static HTML:
 
 ```html
-<!-- Include header-witness.html content here -->
+<!-- Include header-witness.html content here ->
 ```
 
 ### Mobile Behavior
@@ -187,7 +187,7 @@ Or in static HTML:
 - Keyboard accessible (tab to button, enter to toggle)
 - Screen reader friendly
 
----
+--
 
 ## CONSOLE WITNESS MARK
 
@@ -208,7 +208,7 @@ Let the header stand as witness.
 
 **Purpose:** Technical verification and witness mark in browser console.
 
----
+--
 
 ## LEGAL COMPLIANCE
 
@@ -229,7 +229,7 @@ Let the header stand as witness.
 ✅ Properly subordinate to US Flag  
 ✅ Visible on significant dates
 
----
+--
 
 ## DESIGN PHILOSOPHY
 
@@ -264,7 +264,7 @@ Let the header stand as witness.
 - Quiet witness
 - Testimony through presence, not performance
 
----
+--
 
 ## MAINTENANCE PROTOCOL
 
@@ -285,7 +285,7 @@ Let the header stand as witness.
 - ❌ Move US Flag from primary position
 - ❌ Add hover effects to flags
 
----
+--
 
 ## WITNESS RECORD
 
@@ -298,7 +298,7 @@ Let the header stand as witness.
 5. **Hierarchical Order** - Proper precedence maintained
 6. **Quiet Standard** - Not ornament, not spectacle
 
----
+--
 
 ## ACKNOWLEDGMENT
 
@@ -316,7 +316,7 @@ Let the header stand as witness.
 - Truth preservation on real land of North America
 - Future generations seeking constitutional foundation
 
----
+--
 
 **Established: January 27, 2026**
 
@@ -324,7 +324,7 @@ Let the header stand as witness.
 
 🇺🇸 "We the People" 🇺🇸
 
----
+--
 
 _Component file: `templates/components/header-witness.html`_  
 _Documentation: `HEADER-WITNESS.md`_  

@@ -46,7 +46,7 @@ Render auto-provisions SSL (5-15 minutes)
 Your app will be live at:
 **https://app.Evident.info** ??
 
----
+--
 
 ## Alternative: Root Domain
 
@@ -72,7 +72,7 @@ Proxy status: DNS only (gray cloud)
 TTL: Auto
 ```
 
----
+--
 
 ## Enable Cloudflare Proxy (After SSL Works)
 
@@ -86,7 +86,7 @@ Once Render SSL is active:
    - Analytics
    - Rate limiting
 
----
+--
 
 ## Troubleshooting:
 

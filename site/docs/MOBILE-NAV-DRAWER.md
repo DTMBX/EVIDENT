@@ -97,7 +97,7 @@ const CONFIG = {
 <li class="mobile-nav-item">
   <a href="/page" class="mobile-nav-link">
     <span>
-      <svg class="mobile-nav-link__icon"><!-- icon --></svg>
+      <svg class="mobile-nav-link-icon"><!-- icon -></svg>
       Page Name
     </span>
   </a>
@@ -115,21 +115,21 @@ const CONFIG = {
     aria-expanded="false"
   >
     <span>
-      <svg class="mobile-nav-link__icon"><!-- icon --></svg>
+      <svg class="mobile-nav-link-icon"><!-- icon -></svg>
       Features
     </span>
     <span class="mobile-nav-submenu-toggle">
-      <svg class="mobile-nav-submenu-toggle__icon"><!-- arrow --></svg>
+      <svg class="mobile-nav-submenu-toggle-icon"><!-- arrow -></svg>
     </span>
   </a>
 
   <div class="mobile-nav-submenu">
-    <ul class="mobile-nav-submenu__list">
+    <ul class="mobile-nav-submenu-list">
       <li>
-        <a href="/features/item1" class="mobile-nav-submenu__link">Item 1</a>
+        <a href="/features/item1" class="mobile-nav-submenu-link">Item 1</a>
       </li>
       <li>
-        <a href="/features/item2" class="mobile-nav-submenu__link">Item 2</a>
+        <a href="/features/item2" class="mobile-nav-submenu-link">Item 2</a>
       </li>
     </ul>
   </div>
@@ -190,7 +190,7 @@ The template uses inline SVG icons. Replace with your preferred icon system:
 ### Using Font Awesome
 
 ```html
-<i class="fas fa-home mobile-nav-link__icon"></i>
+<i class="fas fa-home mobile-nav-link-icon"></i>
 ```
 
 ### Using Heroicons
@@ -200,7 +200,7 @@ Already implemented in the template! Just swap the SVG paths.
 ### Using Image Icons
 
 ```html
-<img src="/assets/images/icon-home.svg" class="mobile-nav-link__icon" alt="" />
+<img src="/assets/images/icon-home.svg" class="mobile-nav-link-icon" alt="" />
 ```
 
 ## 🌙 Dark Mode
@@ -272,24 +272,24 @@ If using a toggle, add to CSS:
     />
   </head>
   <body>
-    <!-- Header -->
+    <!-- Header ->
     <header>
       <div class="logo">Evident</div>
 
-      <!-- Hamburger Button -->
+      <!-- Hamburger Button ->
       <button class="mobile-nav-hamburger" aria-label="Open menu">
-        <span class="mobile-nav-hamburger__line"></span>
-        <span class="mobile-nav-hamburger__line"></span>
-        <span class="mobile-nav-hamburger__line"></span>
+        <span class="mobile-nav-hamburger-line"></span>
+        <span class="mobile-nav-hamburger-line"></span>
+        <span class="mobile-nav-hamburger-line"></span>
       </button>
     </header>
 
-    <!-- Backdrop -->
+    <!-- Backdrop ->
     <div class="mobile-nav-backdrop"></div>
 
-    <!-- Drawer -->
+    <!-- Drawer ->
     <nav class="mobile-nav-drawer">
-      <!-- Content from _includes/mobile-nav-drawer.html -->
+      <!-- Content from _includes/mobile-nav-drawer.html ->
     </nav>
 
     <script src="/assets/js/mobile-nav-drawer.js"></script>

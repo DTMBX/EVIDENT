@@ -12,7 +12,7 @@ This guide will help you deploy Evident Enterprise on your own infrastructure us
 - 500GB+ storage
 - Ubuntu 20.04+ or similar Linux distribution
 
----
+--
 
 ## 🚀 Quick Start (15 minutes)
 
@@ -95,7 +95,7 @@ curl http://localhost:5000/health
 http://your-server-ip:5000
 ```
 
----
+--
 
 ## 🔒 License Activation
 
@@ -168,7 +168,7 @@ ping license.Evident.info
 #   - Manual activation via USB key
 ```
 
----
+--
 
 ## 🔧 Configuration
 
@@ -194,7 +194,7 @@ DATABASE_URL=postgresql://user:password@postgres-server:5432/Evident
 sudo apt install certbot
 
 # Generate certificate
-sudo certbot certonly --standalone -d Evident.yourdomain.com
+sudo certbot certonly -standalone -d Evident.yourdomain.com
 
 # Copy certs to nginx
 sudo cp /etc/letsencrypt/live/Evident.yourdomain.com/fullchain.pem ssl/
@@ -248,7 +248,7 @@ deploy:
 docker volume ls | grep Evident
 
 # Backup volumes
-docker run --rm -v Evident-data:/data -v $(pwd):/backup alpine tar czf /backup/Evident-backup.tar.gz /data
+docker run -rm -v Evident-data:/data -v $(pwd):/backup alpine tar czf /backup/Evident-backup.tar.gz /data
 ```
 
 **S3/R2 Storage:**
@@ -262,7 +262,7 @@ AWS_REGION=us-west-2
 CLOUD_STORAGE_ENABLED=true
 ```
 
----
+--
 
 ## 📊 Monitoring
 
@@ -303,7 +303,7 @@ client = LicenseClient()
 "
 ```
 
----
+--
 
 ## 🔄 Updates
 
@@ -331,7 +331,7 @@ docker exec Evident-app python3 -c "import os; print(os.getenv('Evident_VERSION'
 docker exec -it Evident-app flask db upgrade
 ```
 
----
+--
 
 ## 💾 Backup & Restore
 
@@ -348,7 +348,7 @@ mkdir -p $BACKUP_DIR
 docker exec Evident-postgres pg_dump -U Evident Evident > $BACKUP_DIR/database.sql
 
 # Backup data volumes
-docker run --rm -v Evident-data:/data -v $BACKUP_DIR:/backup alpine tar czf /backup/data.tar.gz /data
+docker run -rm -v Evident-data:/data -v $BACKUP_DIR:/backup alpine tar czf /backup/data.tar.gz /data
 
 # Backup configuration
 cp .env $BACKUP_DIR/
@@ -369,7 +369,7 @@ BACKUP_DIR=$1
 cat $BACKUP_DIR/database.sql | docker exec -i Evident-postgres psql -U Evident Evident
 
 # Restore data
-docker run --rm -v Evident-data:/data -v $BACKUP_DIR:/backup alpine tar xzf /backup/data.tar.gz -C /
+docker run -rm -v Evident-data:/data -v $BACKUP_DIR:/backup alpine tar xzf /backup/data.tar.gz -C /
 
 # Restart services
 docker-compose -f docker-compose.enterprise.yml restart
@@ -377,7 +377,7 @@ docker-compose -f docker-compose.enterprise.yml restart
 echo "Restore complete"
 ```
 
----
+--
 
 ## 🔐 Security Best Practices
 
@@ -422,7 +422,7 @@ echo ".env" >> .gitignore
 docker secret create db_password /path/to/password/file
 ```
 
----
+--
 
 ## 📞 Support
 
@@ -454,7 +454,7 @@ docker secret create db_password /path/to/password/file
    - Schedule consultation call
    - Custom development quotes available
 
----
+--
 
 ## 🎓 Training & Onboarding
 
@@ -483,7 +483,7 @@ Email enterprise@Evident.info with:
 - Number of attendees
 - Specific topics of interest
 
----
+--
 
 ## 📋 Checklist
 
@@ -508,7 +508,7 @@ Email enterprise@Evident.info with:
 - [ ] Monitoring alerts configured
 - [ ] Team training scheduled
 
----
+--
 
 ## 🚀 Next Steps
 
@@ -519,7 +519,7 @@ Email enterprise@Evident.info with:
 5. **Import user accounts** (bulk import available)
 6. **Start analyzing cases!**
 
----
+--
 
 **Questions? Contact enterprise@Evident.info anytime.**
 

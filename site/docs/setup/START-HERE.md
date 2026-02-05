@@ -17,7 +17,7 @@ npm run setup:agents    # Verify installation
 **📖 Full Guide:** [COPILOT-AGENTS-GUIDE.md](COPILOT-AGENTS-GUIDE.md)  
 **⚡ Quick Ref:** [AGENTS-QUICK-REF.md](AGENTS-QUICK-REF.md)
 
----
+--
 
 ## 📋 Development Workflows
 
@@ -43,13 +43,13 @@ npm run setup:agents    # Verify installation
 3. `@database-architect` - Validate schema
 4. `@documentation` - Update deployment docs
 
----
+--
 
 # 🚀 DASHBOARD OPTIMIZATION - WHAT TO DO NEXT
 
 ## ✅ Status: COMPLETE - Ready for Deployment
 
----
+--
 
 ## 📋 Quick Activation Guide (3 Steps)
 
@@ -135,7 +135,7 @@ http://localhost:5000/admin
 - Platform statistics
 - Charts and graphs
 
----
+--
 
 ## 🎯 What You Got
 
@@ -183,7 +183,7 @@ http://localhost:5000/admin
    - Quality assurance
    - Next steps
 
----
+--
 
 ## 📊 Features at a Glance
 
@@ -243,7 +243,7 @@ http://localhost:5000/admin
 ✅ Mobile-responsive  
 ✅ Professional charts
 
----
+--
 
 ## 🔐 Security & Access
 
@@ -275,7 +275,7 @@ Password: admin123
 | `/api/dashboard-stats` | Authenticated | Any user       |
 | `/admin/users`         | Authenticated | `role='admin'` |
 
----
+--
 
 ## 📈 API Endpoints
 
@@ -321,7 +321,7 @@ curl http://localhost:5000/api/dashboard-stats \
 }
 ```
 
----
+--
 
 ## 🎨 Design Preview
 
@@ -345,7 +345,7 @@ Body: 400-600 weight, 1rem
 Small: 0.75rem - 0.875rem
 ```
 
----
+--
 
 ## ✅ Quality Checklist
 
@@ -383,7 +383,7 @@ Before going to production, verify:
 - [x] Professional styling
 - [x] Brand coherence
 
----
+--
 
 ## 🚀 Production Deployment
 
@@ -437,10 +437,10 @@ server {
 ### 6. Enable HTTPS:
 
 ```bash
-sudo certbot --nginx -d app.Evident.info
+sudo certbot -nginx -d app.Evident.info
 ```
 
----
+--
 
 ## 📊 Success Metrics
 
@@ -455,7 +455,7 @@ sudo certbot --nginx -d app.Evident.info
 | **Admin Panel**       | Complete         | ✅ 5 Tabs       |
 | **Charts/Analytics**  | Implemented      | ✅ 5 Charts     |
 
----
+--
 
 ## 🎯 Immediate Next Steps
 
@@ -481,7 +481,7 @@ sudo certbot --nginx -d app.Evident.info
 4. **Enable monitoring** (1 hour)
 5. **Launch to users** 🎉
 
----
+--
 
 ## 📚 Documentation Links
 
@@ -511,7 +511,7 @@ Read these for details:
    - Success metrics
    - 520 lines, ~13 min read
 
----
+--
 
 ## 💡 Pro Tips
 
@@ -541,7 +541,7 @@ Watch the Network tab to see all API endpoints being called:
 python -c "from app import db, User, Analysis; print(f'Users: {User.query.count()}'); print(f'Analyses: {Analysis.query.count()}')"
 ```
 
----
+--
 
 ## 🎉 You're Ready!
 
@@ -567,7 +567,7 @@ python app.py
 
 **Then open:** http://localhost:5000
 
----
+--
 
 ## 📞 Need Help?
 
@@ -576,7 +576,7 @@ python app.py
 - **Issues**: Check DASHBOARD-BEFORE-AFTER.md
 - **Summary**: Review DASHBOARD-COMPLETE.md
 
----
+--
 
 **Status: ✅ READY FOR PRODUCTION**
 

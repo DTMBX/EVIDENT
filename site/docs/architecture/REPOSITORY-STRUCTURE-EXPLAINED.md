@@ -4,7 +4,7 @@
 
 **Answer:** You have **ONE repository** with **multiple project folders**, but most are legacy/placeholder. Here's what you actually have:
 
----
+--
 
 ## 🎯 What You're Actually Using (Active Projects)
 
@@ -36,7 +36,7 @@ Evident.info/
 **Platforms:** Web browsers (all platforms)  
 **Status:** ✅ Production-ready with new REST API
 
----
+--
 
 ### 2. **.NET MAUI App (C#)** - Cross-Platform Native Apps
 
@@ -88,7 +88,7 @@ src/Evident.MatterDocket.MAUI/
 
 **Status:** ✅ Phase 1-3 complete, ready for testing
 
----
+--
 
 ## 🔍 How .NET MAUI Works (The Magic!)
 
@@ -123,7 +123,7 @@ dotnet build -f net9.0-ios
 dotnet build -f net9.0-android
 ```
 
----
+--
 
 ## 📂 Other Folders (Legacy/Unused)
 
@@ -159,7 +159,7 @@ These folders exist but are **NOT being used** in our current implementation:
 - **Status:** ❌ Not used (MAUI calls Flask REST API directly)
 - **Can delete:** Yes
 
----
+--
 
 ## 🎯 Current Architecture (What We Built)
 
@@ -189,7 +189,7 @@ These folders exist but are **NOT being used** in our current implementation:
 └──────────────┘   └───────────────────────────┘
 ```
 
----
+--
 
 ## 🔗 How They Work Together
 
@@ -213,7 +213,7 @@ These folders exist but are **NOT being used** in our current implementation:
   - `GET /api/v1/user/profile` - Get user data
   - etc.
 
----
+--
 
 ## 📍 Where to Find Your Code
 
@@ -238,7 +238,7 @@ cd C:\web-dev\github-repos\Evident.info\api
 # Edit: auth.py, upload.py, analysis.py, etc.
 ```
 
----
+--
 
 ## 🚀 Deployment Paths
 
@@ -278,7 +278,7 @@ dotnet publish -f net9.0-android -c Release
 # → Upload to Google Play Console
 ```
 
----
+--
 
 ## 📊 Summary
 
@@ -290,7 +290,7 @@ dotnet publish -f net9.0-android -c Release
 | **iOS**             | `src/Evident.MatterDocket.MAUI/` | .NET MAUI     | ✅ Ready to test    |
 | **Android**         | `src/Evident.MatterDocket.MAUI/` | .NET MAUI     | ✅ Ready to test    |
 
----
+--
 
 ## 💡 Key Takeaways
 
@@ -309,7 +309,7 @@ dotnet publish -f net9.0-android -c Release
 
 5. **All apps connect to same Flask backend** via REST API
 
----
+--
 
 ## 🎯 Quick Navigation
 
@@ -337,6 +337,6 @@ C:\web-dev\github-repos\Evident.info\src\Evident.MatterDocket.MAUI\Views\
 C:\web-dev\github-repos\Evident.info\templates\
 ```
 
----
+--
 
 **Simple Answer:** You have **ONE repository** with **ONE Flask backend** and **ONE MAUI project** that builds apps for all platforms. The magic of .NET MAUI is that you write the code once and it compiles to Windows .exe, iOS .app, and Android .apk from the same source! 🎉

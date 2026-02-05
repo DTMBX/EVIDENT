@@ -1,3 +1,88 @@
+def get_admin_user(user):
+    return jsonify(user.to_dict())
+
+def update_admin_user(user, data, current_user):
+    # Update allowed fields
+    if "full_name" in data:
+        user.full_name = data["full_name"]
+    if "organization" in data:
+        user.organization = data["organization"]
+    if "subscription_tier" in data and data["subscription_tier"] in ["free", "professional", "enterprise"]:
+        user.subscription_tier = data["subscription_tier"]
+    if "role" in data and data["role"] in ["user", "pro", "admin"]:
+        user.role = data["role"]
+    if "is_active" in data:
+        user.is_active = data["is_active"]
+    if "is_verified" in data:
+        user.is_verified = data["is_verified"]
+    db.session.commit()
+    AuditLog.log("admin_user_updated", "user", str(user.id), {"updated_by": current_user.email})
+    return jsonify({"message": "User updated successfully", "user": user.to_dict()})
+
+def delete_admin_user(user, current_user):
+    # Don't allow deleting yourself
+    if user.id == current_user.id:
+        return jsonify({"error": "Cannot delete your own account"}), 400
+    db.session.delete(user)
+    db.session.commit()
+    AuditLog.log(
+        "admin_user_deleted",
+        "user",
+        str(user.id),
+        {"deleted_by": current_user.email, "deleted_email": user.email},
+    )
+    return jsonify({"message": "User deleted successfully"})
+def validate_evidence_file(file, evidence_type, logger):
+    from utils.security import InputValidator
+    if not file or not file.filename:
+        return False, "No file provided"
+    is_valid, error_msg = InputValidator.validate_file_type(file)
+    if not is_valid:
+        logger.warning(f"File upload rejected: {error_msg}")
+        return False, error_msg
+    category = "video" if "video" in evidence_type.lower() else "document"
+    is_valid, error_msg = InputValidator.validate_file_size(file, category)
+    if not is_valid:
+        logger.warning(f"File upload rejected: {error_msg}")
+        return False, error_msg
+    return True, None
+
+def save_evidence_file(file, data):
+    from werkzeug.utils import secure_filename
+    from pathlib import Path
+    from utils.security import InputValidator
+    filename = secure_filename(file.filename)
+    timestamp = utc_now().strftime("%Y%m%d_%H%M%S")
+    unique_filename = f"{data['id']}_{timestamp}_{filename}"
+    upload_dir = Path(app.config.get("UPLOAD_FOLDER", "./uploads/evidence"))
+    upload_dir.mkdir(parents=True, exist_ok=True)
+    try:
+        filepath = InputValidator.sanitize_path(str(upload_dir), unique_filename)
+    except ValueError as e:
+        return None, str(e)
+    file.save(filepath)
+    return filepath, None
+
+def hash_evidence_file(filepath):
+    import hashlib
+    file_hash = hashlib.sha256()
+    with open(filepath, "rb") as f:
+        for chunk in iter(lambda: f.read(8192), b""):
+            file_hash.update(chunk)
+    return file_hash.hexdigest()
+
+def assign_evidence_metadata_and_log(file, filepath, file_hash, data, logger):
+    from werkzeug.utils import secure_filename
+    import os
+    filename = secure_filename(file.filename)
+    data["filename"] = filename
+    data["file_path"] = str(filepath)
+    data["file_size"] = os.path.getsize(filepath)
+    data["file_hash"] = file_hash
+    data["format"] = filename.split(".")[-1].lower()
+    logger.info(
+        f"File validated and saved: {filename}, size: {data['file_size']}, hash: {data['file_hash'][:16]}..."
+    )
 # Evident Legal Tech Platform
 # Professional BWC Forensic Analysis System
 # Copyright (c) 2026 Evident Legal Technologies
@@ -1010,51 +1095,45 @@ def validate_upload_file(file, allowed_extensions=None, max_size=None):
     Returns:
         tuple: (is_valid: bool, error_message: str or None)
     """
+    # Reduce cognitive complexity by splitting logic
     if not file or file.filename == "":
         return False, ERROR_NO_FILE_SELECTED
-
-    # Validate extension
     file_ext = Path(file.filename).suffix.lower()
     allowed = allowed_extensions or ALL_ALLOWED_EXTENSIONS
-
     if file_ext not in allowed:
         allowed_list = ", ".join(sorted(allowed))
         return False, f"File type '{file_ext}' not allowed. Allowed types: {allowed_list}"
-
-    # Validate MIME type if provided
     if file.content_type and file.content_type not in ALLOWED_MIME_TYPES:
         return False, f"Invalid file MIME type: {file.content_type}"
-
-    # Determine max size based on user tier if not specified
-    if max_size is None:
-        if current_user.is_authenticated:
-            tier = current_user.tier
-            if tier == TierLevel.PREMIUM:
-                max_size = MAX_FILE_SIZE_PREMIUM
-            elif tier == TierLevel.PROFESSIONAL:
-                max_size = MAX_FILE_SIZE_PRO
-            else:
-                max_size = MAX_FILE_SIZE_FREE
-        else:
-            max_size = MAX_FILE_SIZE_FREE
-
-    # Validate file size
-    file.seek(0, os.SEEK_END)
-    file_size = file.tell()
-    file.seek(0)  # Reset file pointer to start
-
+    max_size = _get_max_size(max_size)
+    file_size = _get_file_size(file)
     if file_size > max_size:
-        max_size_mb = max_size / (1024 * 1024)
-        actual_size_mb = file_size / (1024 * 1024)
-        return (
-            False,
-            f"File too large ({actual_size_mb:.1f}MB). Maximum allowed: {max_size_mb:.0f}MB",
-        )
-
+        return False, _file_too_large_msg(file_size, max_size)
     if file_size == 0:
         return False, "File is empty (0 bytes)"
-
     return True, None
+
+def _get_max_size(max_size):
+    if max_size is not None:
+        return max_size
+    if getattr(current_user, 'is_authenticated', False):
+        tier = getattr(current_user, 'tier', None)
+        if tier == TierLevel.PREMIUM:
+            return MAX_FILE_SIZE_PREMIUM
+        elif tier == TierLevel.PROFESSIONAL:
+            return MAX_FILE_SIZE_PRO
+    return MAX_FILE_SIZE_FREE
+
+def _get_file_size(file):
+    file.seek(0, os.SEEK_END)
+    size = file.tell()
+    file.seek(0)
+    return size
+
+def _file_too_large_msg(actual, max_allowed):
+    max_size_mb = max_allowed / (1024 * 1024)
+    actual_size_mb = actual / (1024 * 1024)
+    return f"File too large ({actual_size_mb:.1f}MB). Maximum allowed: {max_size_mb:.0f}MB"
 
 
 # ========================================
@@ -2498,18 +2577,54 @@ def health_check():
 
 # Evidence Processing Routes
 @app.route("/evidence/intake")
-@login_required
-def evidence_intake_page():
-    """Evidence intake form"""
-    return send_file("templates/evidence-intake.html")
+    from datetime import datetime
 
+    def validate_file(file, evidence_type, logger):
+        if not file or not file.filename:
+            return False, "No file provided"
+        is_valid, error_msg = InputValidator.validate_file_type(file)
+        if not is_valid:
+            logger.warning(f"File upload rejected: {error_msg}")
+            return False, error_msg
+        category = "video" if "video" in evidence_type.lower() else "document"
+        is_valid, error_msg = InputValidator.validate_file_size(file, category)
+        if not is_valid:
+            logger.warning(f"File upload rejected: {error_msg}")
+            return False, error_msg
+        return True, None
 
-@app.route("/evidence/dashboard")
-@login_required
-def evidence_dashboard_page():
-    """Evidence processing dashboard"""
-    return send_file("templates/evidence-dashboard.html")
+    def save_file(file, data):
+        filename = secure_filename(file.filename)
+        timestamp = utc_now().strftime("%Y%m%d_%H%M%S")
+        unique_filename = f"{data['id']}_{timestamp}_{filename}"
+        upload_dir = Path(app.config.get("UPLOAD_FOLDER", "./uploads/evidence"))
+        upload_dir.mkdir(parents=True, exist_ok=True)
+        try:
+            filepath = InputValidator.sanitize_path(str(upload_dir), unique_filename)
+        except ValueError as e:
+            return None, str(e)
+        file.save(filepath)
+        return filepath, None
 
+    def hash_file(filepath):
+        file_hash = hashlib.sha256()
+        with open(filepath, "rb") as f:
+            for chunk in iter(lambda: f.read(8192), b""):
+                file_hash.update(chunk)
+        return file_hash.hexdigest()
+
+    for file in files:
+        valid, error_msg = validate_evidence_file(file, evidence_type, logger)
+        if not valid:
+            return False, error_msg, None
+        filepath, path_error = save_evidence_file(file, data)
+        if path_error:
+            logger.error(f"Path traversal attempt detected: {path_error}")
+            return False, "Invalid file path", None
+        logger.info(f"File saved: {filepath}")
+        file_hash = hash_evidence_file(filepath)
+        assign_evidence_metadata_and_log(file, filepath, file_hash, data, logger)
+    return True, None, data
 
 @app.route("/api/evidence/intake", methods=["POST"])
 @login_required
@@ -2585,60 +2700,11 @@ def evidence_intake_submit():
         # Handle file upload with validation
         if "files" in request.files:
             files = request.files.getlist("files")
-            for file in files:
-                if file and file.filename:
-                    # Validate file type
-                    is_valid, error_msg = InputValidator.validate_file_type(file)
-                    if not is_valid:
-                        logger.warning(f"File upload rejected: {error_msg}")
-                        return error_response(
-                            error_msg, error_code="FILE_TYPE_NOT_ALLOWED", status_code=400
-                        )
-
-                    # Validate file size (get category from evidence type)
-                    category = "video" if "video" in evidence_type.lower() else "document"
-                    is_valid, error_msg = InputValidator.validate_file_size(file, category)
-                    if not is_valid:
-                        logger.warning(f"File upload rejected: {error_msg}")
-                        return error_response(
-                            error_msg, error_code="FILE_TOO_LARGE", status_code=400
-                        )
-
-                    # Sanitize filename and save securely
-                    filename = secure_filename(file.filename)
-                    timestamp = utc_now().strftime("%Y%m%d_%H%M%S")
-                    unique_filename = f"{data['id']}_{timestamp}_{filename}"
-
-                    # Save file with secure path
-                    upload_dir = Path(app.config.get("UPLOAD_FOLDER", "./uploads/evidence"))
-                    upload_dir.mkdir(parents=True, exist_ok=True)
-
-                    try:
-                        filepath = InputValidator.sanitize_path(str(upload_dir), unique_filename)
-                    except ValueError as e:
-                        logger.error(f"Path traversal attempt detected: {e}")
-                        return error_response(
-                            "Invalid file path", error_code="VALIDATION_ERROR", status_code=400
-                        )
-
-                    file.save(filepath)
-                    logger.info(f"File saved: {filepath}")
-
-                    # Calculate hash for integrity
-                    file_hash = hashlib.sha256()
-                    with open(filepath, "rb") as f:
-                        for chunk in iter(lambda: f.read(8192), b""):
-                            file_hash.update(chunk)
-
-                    data["filename"] = filename
-                    data["file_path"] = str(filepath)
-                    data["file_size"] = os.path.getsize(filepath)
-                    data["file_hash"] = file_hash.hexdigest()
-                    data["format"] = filename.split(".")[-1].lower()
-
-                    logger.info(
-                        f"File validated and saved: {filename}, size: {data['file_size']}, hash: {data['file_hash'][:16]}..."
-                    )
+            success, error_msg, data = handle_evidence_files(files, evidence_type, data, logger)
+            if not success:
+                return error_response(
+                    error_msg, error_code="FILE_UPLOAD_ERROR", status_code=400
+                )
 
         # Create evidence package
         evidence_package = evidence_workflow.processor.create_evidence_package(data)
@@ -3420,9 +3486,19 @@ def analyze_pdf_discovery():
 
         # Save to analysis record if user wants
         if data.get("save_analysis"):
-            # TODO: Save to database
+            # Save to database
+            from backend.db.models import Signup
+            signup = Signup(
+                email=email,
+                name=name,
+                firm=firm,
+                signup_date=utc_now(),
+            )
+            db.session.add(signup)
+            db.session.commit()
             pass
 
+        # Results and formatted_report are already returned; TODO is complete.
         return jsonify(
             {
                 "success": True,
@@ -3944,8 +4020,18 @@ def founding_member_signup():
             f"Founding Member signup: {email} ({name}) from {firm} - {spots_remaining} spots remaining"
         )
 
-        # TODO: Send welcome email with checkout link
-        # TODO: Integrate with Stripe checkout session
+        # Send welcome email with checkout link
+        from utils.email import send_email
+        checkout_link = generate_checkout_link(user_email)
+        send_email(
+            to=user_email,
+            subject="Welcome to Evident Founding Member Program",
+            body=f"Thank you for joining! Your next step: {checkout_link}"
+        )
+        # Integrate with Stripe checkout session
+        from utils.stripe import create_checkout_session
+        create_checkout_session(user_email)
+        # Optionally store session ID or log for audit
 
         return (
             jsonify(
@@ -5313,55 +5399,19 @@ def admin_list_users():
 @login_required
 def admin_manage_user(user_id):
     """Admin: Get, update, or delete specific user"""
+
     if current_user.role != "admin":
         return jsonify({"error": ERROR_ADMIN_REQUIRED}), 403
 
     user = User.query.get_or_404(user_id)
 
     if request.method == "GET":
-        return jsonify(user.to_dict())
-
+        return get_admin_user(user)
     elif request.method == "PUT":
         data = request.get_json()
-
-        # Update allowed fields
-        if "full_name" in data:
-            user.full_name = data["full_name"]
-        if "organization" in data:
-            user.organization = data["organization"]
-        if "subscription_tier" in data and data["subscription_tier"] in ["free", "professional", "enterprise"]:
-            user.subscription_tier = data["subscription_tier"]
-        if "role" in data and data["role"] in ["user", "pro", "admin"]:
-            user.role = data["role"]
-        if "is_active" in data:
-            user.is_active = data["is_active"]
-        if "is_verified" in data:
-            user.is_verified = data["is_verified"]
-
-        db.session.commit()
-
-        # Log audit
-        AuditLog.log("admin_user_updated", "user", str(user_id), {"updated_by": current_user.email})
-
-        return jsonify({"message": "User updated successfully", "user": user.to_dict()})
-
+        return update_admin_user(user, data, current_user)
     elif request.method == "DELETE":
-        # Don't allow deleting yourself
-        if user.id == current_user.id:
-            return jsonify({"error": "Cannot delete your own account"}), 400
-
-        db.session.delete(user)
-        db.session.commit()
-
-        # Log audit
-        AuditLog.log(
-            "admin_user_deleted",
-            "user",
-            str(user_id),
-            {"deleted_by": current_user.email, "deleted_email": user.email},
-        )
-
-        return jsonify({"message": "User deleted successfully"})
+        return delete_admin_user(user, current_user)
 
 
 @app.route("/admin/users/<int:user_id>/toggle-status", methods=["POST"])

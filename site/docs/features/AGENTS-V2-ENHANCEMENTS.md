@@ -4,7 +4,7 @@
 **Version:** 2.0 (Enhanced with code examples, templates, collaboration patterns)  
 **Status:** ✅ All tests passing (21/21), all agents validated
 
----
+--
 
 ## 🎯 Enhancement Overview
 
@@ -16,7 +16,7 @@ Enhanced all 7 custom GitHub Copilot agents based on real-world simulation testi
 4. **Agent Collaboration** - When to suggest other specialized agents
 5. **Testing Requirements** - Mandatory test suggestions for all code changes
 
----
+--
 
 ## 📊 Before vs After Metrics
 
@@ -30,7 +30,7 @@ Enhanced all 7 custom GitHub Copilot agents based on real-world simulation testi
 | **Simulation Improvements** | 5 identified  | 2 remaining              | 60% reduction       |
 | **Test Pass Rate**          | 100% (21/21)  | 100% (21/21)             | Maintained          |
 
----
+--
 
 ## 🚀 Key Enhancements by Agent
 
@@ -62,7 +62,7 @@ material = Material(
 full_text = westlaw.get_full_opinion()  # ❌ NEVER DO THIS
 ```
 
----
+--
 
 ### @bwc-forensics - BWC Forensics Specialist
 
@@ -99,7 +99,7 @@ def upload_video(file, user_id):
     )
 ```
 
----
+--
 
 ### @flask-backend - Flask Backend Developer
 
@@ -126,7 +126,7 @@ def get_case(case_id):
     return jsonify(case.to_dict(exclude_proprietary=True))
 ```
 
----
+--
 
 ### @frontend-dev - Frontend Developer
 
@@ -141,7 +141,7 @@ def get_case(case_id):
 **Example Enhancement:**
 
 ```html
-<!-- GOOD: Accessible form with ARIA labels and keyboard nav -->
+<!-- GOOD: Accessible form with ARIA labels and keyboard nav ->
 <form class="case-upload-form" role="form" aria-label="Upload BWC Evidence">
   <label for="caseNumber">
     Case Number
@@ -160,7 +160,7 @@ def get_case(case_id):
 </form>
 ```
 
----
+--
 
 ### @database-architect - Database Architect
 
@@ -176,7 +176,7 @@ def get_case(case_id):
 
 ```python
 class Case(db.Model):
-    __tablename__ = 'cases'
+    -tablename- = 'cases'
 
     id = Column(Integer, primary_key=True)
     case_number = Column(String(50), unique=True, nullable=False, index=True)  # ✅ Indexed
@@ -184,12 +184,12 @@ class Case(db.Model):
     created_at = Column(DateTime, nullable=False, index=True)  # ✅ Indexed for sorting
 
     # GOOD: Composite index for common queries
-    __table_args__ = (
+    -table_args- = (
         Index('ix_case_attorney_date', 'attorney_id', 'created_at'),
     )
 ```
 
----
+--
 
 ### @security-devops - Security & DevOps Engineer
 
@@ -218,7 +218,7 @@ class Config:
         raise ValueError("SECRET_KEY environment variable not set")
 ```
 
----
+--
 
 ### @documentation - Documentation Specialist
 
@@ -261,7 +261,7 @@ curl -X POST \
 ```
 ````
 
----
+--
 
 ## 🧪 Testing Results
 
@@ -303,7 +303,7 @@ Pass Rate: 100.0%
 
 Remaining 2 issues are minor enhancements for future iterations.
 
----
+--
 
 ## 📝 How to Use Enhanced Agents
 
@@ -362,7 +362,7 @@ Agent:
    For database schema, collaborate with @database-architect
 ```
 
----
+--
 
 ## 🔄 Migration Notes
 
@@ -384,7 +384,7 @@ Agent:
 Copy-Item .github\copilot-agents-v1-backup.yml .github\copilot-agents.yml -Force
 ```
 
----
+--
 
 ## 📦 Files Modified
 
@@ -394,7 +394,7 @@ Copy-Item .github\copilot-agents-v1-backup.yml .github\copilot-agents.yml -Force
 | `AGENTS-V2-ENHANCEMENTS.md`            | Created this summary  | NEW              |
 | `.github/copilot-agents-v1-backup.yml` | Backup of v1.0        | Backup copy      |
 
----
+--
 
 ## 🎓 Lessons Learned
 
@@ -412,7 +412,7 @@ Copy-Item .github\copilot-agents-v1-backup.yml .github\copilot-agents.yml -Force
 3. **Custom Tools** - Add specialized tools per agent (e.g., SQL query runner for @database-architect)
 4. **Multi-Agent Workflows** - Predefined workflows combining multiple agents
 
----
+--
 
 ## 🚀 Next Steps
 
@@ -422,7 +422,7 @@ Copy-Item .github\copilot-agents-v1-backup.yml .github\copilot-agents.yml -Force
 4. **Monitor usage** - Track which agents are most used
 5. **Collect feedback** - Improve based on real-world attorney usage
 
----
+--
 
 ## 📞 Support
 
@@ -433,7 +433,7 @@ For issues or questions about custom agents:
 - **Testing:** Run `python scripts/test-agents.py`
 - **Validation:** Run `python scripts/validate-agents.py`
 
----
+--
 
 **Version:** 2.0  
 **Last Updated:** January 23, 2026  

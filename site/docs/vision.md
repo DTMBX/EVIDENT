@@ -1,8 +1,9 @@
 ---
+
 layout: default
 title: Vision
 permalink: /docs/vision/
----
+--
 
 <article class="md">
   <header class="md-header">
@@ -23,7 +24,7 @@ problems honestly and productively.
 Documentation should expose truth, not obscure it. Every case shared must serve honesty,
 clarity, and helping good people make better decisions — never revenge, harassment, or manipulation.
 
----
+--
 
 ## Foundational Principles
 
@@ -45,7 +46,7 @@ My approach emphasizes:
 - **Pattern focus** — Individual incidents reveal systemic issues
 - **Protective purpose** — Document to inform, not to attack
 
----
+--
 
 ## What This Site Is
 
@@ -61,7 +62,7 @@ My approach emphasizes:
 - A vigilante operation or harassment campaign
 - A replacement for professional legal advice
 
----
+--
 
 ## Why Evident?
 
@@ -71,7 +72,7 @@ experiences with bad actors who hide behind process, paperwork, and position.
 **Truth is preserved through careful documentation.** The goal is protection, not retribution.
 Evidence exists to help good people recognize bad patterns.
 
----
+--
 
 ## Legal & Ethical Framework
 
@@ -85,7 +86,7 @@ This documentation operates within legal boundaries:
 **Important:** This site shares experiences and documentation, not legal advice.
 Consult licensed attorneys for guidance on your specific situation.
 
----
+--
 
 ## Current Focus
 
@@ -196,7 +197,7 @@ Demonstrate that ethical, citizen-led documentation can strengthen constitutiona
 - Mutual aid networks stronger because they're transparent
 - Long-term records supporting justice and learning
 
----
+--
 
 ## How We Get There
 
@@ -239,7 +240,7 @@ We will systematically refuse temptations to add features that:
 - Willingness to acknowledge mistakes
 - Continuous improvement cycles
 
----
+--
 
 ## Success Metrics
 
@@ -266,7 +267,7 @@ We will systematically refuse temptations to add features that:
 - ✓ Trust in government and community institutions measurably restored
 - ✓ Citizens capable of stewarding their own accountability
 
----
+--
 
 ## Risks We Acknowledge
 
@@ -302,7 +303,7 @@ We will systematically refuse temptations to add features that:
 - Response: Community mechanisms to identify and address misuse
 - Design: Tools designed for accountability, not coercion
 
----
+--
 
 ## What Success Looks Like
 
@@ -323,7 +324,7 @@ We will systematically refuse temptations to add features that:
 - Not replacing law enforcement or courts
 - But **citizens who understand their rights, stewards of truth, and institutions accountable to constitutional limits**
 
----
+--
 
 ## Our Commitment
 
@@ -333,7 +334,7 @@ We will build tools with restraint. We will operate with accountability. We will
 
 **The future depends on trustworthy documentation. Barber Cam is here to make that possible.**
 
----
+--
 
 _This vision document reflects Barber Cam's commitment to ethical, lawful, and transparent operation. It is a living document, subject to refinement as we learn from experience and community feedback._
 

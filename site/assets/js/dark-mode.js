@@ -80,7 +80,7 @@ class DarkMode {
 
   save(isDark) {
     try {
-      localStorage.setItem("Evident-dark-mode", isDark ? "true" : "false");
+      localStorage.setItem("evident-dark-mode", isDark ? "true" : "false");
     } catch (e) {
       console.warn("Could not save dark mode preference:", e);
     }
@@ -88,7 +88,7 @@ class DarkMode {
 
   getSavedMode() {
     try {
-      const saved = localStorage.getItem("Evident-dark-mode");
+      const saved = localStorage.getItem("evident-dark-mode");
 
       // If user has a saved preference, use it
       if (saved !== null) {
@@ -113,7 +113,7 @@ class DarkMode {
     mediaQuery.addEventListener("change", (e) => {
       // Only auto-switch if user hasn't manually set a preference
       const hasManualPreference =
-        localStorage.getItem("Evident-dark-mode") !== null;
+        localStorage.getItem("evident-dark-mode") !== null;
 
       if (!hasManualPreference) {
         this.darkMode = e.matches;

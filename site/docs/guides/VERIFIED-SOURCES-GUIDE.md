@@ -4,7 +4,7 @@
 
 **Purpose:** Ensure only legitimate, verified, and respected legal sources are used.
 
----
+--
 
 ## ✅ Verified Source Registry
 
@@ -47,7 +47,7 @@
   - Primary source for legal research
   - Cited by courts and scholars
 
----
+--
 
 ### Tier 2: Verified Non-Profit Sources (9-9.5/10 Credibility)
 
@@ -68,7 +68,7 @@
 - **Rating:** 9.5/10
 - **PRIMARY SOURCE FOR AUTOMATED IMPORTS**
 
----
+--
 
 ### Tier 3: Verified Commercial Sources (8.5-9/10 Credibility)
 
@@ -97,7 +97,7 @@
   - Wide coverage
 - **Rating:** 8.5/10
 
----
+--
 
 ## ❌ Non-Verified Sources (Rejected)
 
@@ -121,7 +121,7 @@
 - Law forums - ❌ Not verified
 - Social media posts - ❌ Not reliable
 
----
+--
 
 ## 🔍 Verification Process
 
@@ -178,7 +178,7 @@ content_check = {
 }
 ```
 
----
+--
 
 ## 📊 Quality Scoring System
 
@@ -216,7 +216,7 @@ content_check = {
 - 50-69: Fair - Manual review
 - 0-49: Poor - Reject
 
----
+--
 
 ## 🛡️ Security Measures
 
@@ -247,7 +247,7 @@ HEADERS = {
 - ✅ Disallowed paths avoided
 - ✅ Terms of service reviewed
 
----
+--
 
 ## 📈 Source Comparison
 
@@ -267,7 +267,7 @@ Lexis             Highest     Fastest  $$$     Highest       N/A*
 * Not used due to cost/licensing restrictions
 ```
 
----
+--
 
 ## ✅ Verification Checklist
 
@@ -282,7 +282,7 @@ Before importing any case:
 - [ ] Rate limiting respected
 - [ ] Terms of service compliant
 
----
+--
 
 ## 🎯 Best Practices
 
@@ -333,7 +333,7 @@ def import_case(citation):
     return do_import(citation)
 ```
 
----
+--
 
 ## 📚 Source Documentation
 
@@ -366,7 +366,7 @@ case_url = f"https://www.law.cornell.edu/supremecourt/text/{volume}/{page}"
 # https://www.law.cornell.edu/supremecourt/text/384/436
 ```
 
----
+--
 
 ## 🔐 Legal & Ethical Compliance
 
@@ -392,7 +392,7 @@ doc.url = 'https://...'       # Original URL
 doc.verified = True           # Verification status
 ```
 
----
+--
 
 ## 📊 Verification Statistics
 
@@ -409,7 +409,7 @@ Average quality score:     92.3/100
 Average credibility:       9.2/10
 ```
 
----
+--
 
 **Summary:** Only legitimate, verified, and respected sources used. Multi-stage verification ensures quality and authenticity.
 

@@ -10,7 +10,7 @@
 - ?? Building in progress (5-7 minutes)
 - ?? Will be live soon
 
----
+--
 
 ## ?? **3 Simple Steps to Enable BOTH Services:**
 
@@ -33,13 +33,13 @@
 
 **Done!** GitHub Pages is now serving your marketing site.
 
----
+--
 
 ### **STEP 2: Check Render Deployment (happening now)**
 
 1. **Go to:** https://dashboard.render.com
 
-2. **Click:** "Evident-legal-tech" service
+2. **Click:** "evident-legal-tech" service
 
 3. **Watch "Events" tab** - should show:
 
@@ -57,7 +57,7 @@
 
 **Done!** Render is now serving your Flask application.
 
----
+--
 
 ### **STEP 3: Commit New Files (optional, for documentation)**
 
@@ -74,7 +74,7 @@ git push origin main
 
 **Done!** Documentation is updated.
 
----
+--
 
 ## ?? **What You'll Have:**
 
@@ -92,7 +92,7 @@ git push origin main
 - **Purpose:** Web application
 - **Cost:** FREE (with 15-min sleep timeout)
 
----
+--
 
 ## ?? **How They Work Together:**
 
@@ -110,7 +110,7 @@ User uploads BWC videos
 Flask processes on Render
 ```
 
----
+--
 
 ## ?? **Timeline:**
 
@@ -121,7 +121,7 @@ Flask processes on Render
 | **+5 min** | Render goes live                |
 | **+7 min** | Both services working! ?        |
 
----
+--
 
 ## ?? **Testing (in 7 minutes):**
 
@@ -150,7 +150,7 @@ https://Evident-legal-tech.onrender.com/auth/login
 - Email: admin@Evident.info
 - Password: Evident2026!
 
----
+--
 
 ## ?? **Custom Domain (Later - Optional):**
 
@@ -184,7 +184,7 @@ Value: Evident-legal-tech.onrender.com
 2. Render ? Settings ? Custom domain: app.Evident.info
 3. Wait 1-48 hours for DNS propagation
 
----
+--
 
 ## ?? **Summary:**
 
@@ -201,7 +201,7 @@ Value: Evident-legal-tech.onrender.com
 | Upload    | Render       | Evident-legal-tech.onrender.com/batch-upload   |
 | API       | Render       | Evident-legal-tech.onrender.com/api/\*         |
 
----
+--
 
 ## ? **Checklist:**
 
@@ -219,7 +219,7 @@ Value: Evident-legal-tech.onrender.com
 - [ ] Configure DNS
 - [ ] Enable custom domains
 
----
+--
 
 ## ?? **Next Steps:**
 
@@ -228,6 +228,6 @@ Value: Evident-legal-tech.onrender.com
 3. **Test both URLs**
 4. **Success!** Both services working together! ??
 
----
+--
 
 **It's that simple! You'll have both working in under 10 minutes!** ??

@@ -95,7 +95,7 @@
 └─────────────────────────────────────────────────────────────┘
 ```
 
----
+--
 
 ## 📝 Exact Steps
 
@@ -109,7 +109,7 @@
 8. **Click:** "Add Variable" button
 9. **Wait:** ~2 minutes for auto-deploy to complete
 
----
+--
 
 ## ✅ Verification
 
@@ -125,7 +125,7 @@ Look for:
 ✓ Service live
 ```
 
----
+--
 
 ## 🔑 Where to Get API Key
 
@@ -148,7 +148,7 @@ If you don't see a token:
 2. Click "Generate Token"
 3. Copy and save it (you won't see it again!)
 
----
+--
 
 ## 🎯 Expected Result
 
@@ -169,7 +169,7 @@ Success rate: 0%
 Success rate: 100%
 ```
 
----
+--
 
 ## ⏱️ Timeline
 
@@ -182,7 +182,7 @@ Success rate: 100%
 
 **Total time:** 8 minutes
 
----
+--
 
 ## 🚨 Common Mistakes
 
@@ -206,7 +206,7 @@ Success rate: 100%
 - Must click "Add Variable" button!
 - Wait for deploy to complete
 
----
+--
 
 ## 📞 Need Help?
 
@@ -218,7 +218,7 @@ If it doesn't work:
 4. Check logs for errors
 5. Try manual redeploy (Settings → Manual Deploy)
 
----
+--
 
 ## 🎉 You're Done When...
 

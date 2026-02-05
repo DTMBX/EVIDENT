@@ -4,7 +4,7 @@
 **Project:** Windows 11 Native Desktop Application  
 **Technology:** .NET MAUI + WinUI 3 + Flask Backend
 
----
+--
 
 ## 🏗️ Architecture Overview
 
@@ -65,7 +65,7 @@
 └─────────────────────────────────────────────────┘
 ```
 
----
+--
 
 ## 📁 Project Structure (Detailed)
 
@@ -148,7 +148,7 @@ Evident.MatterDocket.MAUI/
     └── 📄 CachedModels.cs                  # Offline models
 ```
 
----
+--
 
 ## 🔌 API Integration Map
 
@@ -194,12 +194,12 @@ POST   /payments/create-checkout-session → CreateCheckoutAsync(tier)
 GET    /api/user/invoices           → GetInvoicesAsync()
 ```
 
----
+--
 
 ## 🗄️ Local Database Schema (SQLite)
 
 ```sql
--- Cached user data
+- Cached user data
 CREATE TABLE Users (
     Id INTEGER PRIMARY KEY,
     Email TEXT NOT NULL,
@@ -209,7 +209,7 @@ CREATE TABLE Users (
     LastSync INTEGER
 );
 
--- Cached cases
+- Cached cases
 CREATE TABLE Cases (
     Id INTEGER PRIMARY KEY,
     CaseNumber TEXT,
@@ -220,7 +220,7 @@ CREATE TABLE Cases (
     IsSynced INTEGER DEFAULT 0
 );
 
--- Cached evidence files
+- Cached evidence files
 CREATE TABLE Evidence (
     Id INTEGER PRIMARY KEY,
     CaseId INTEGER,
@@ -228,35 +228,35 @@ CREATE TABLE Evidence (
     FilePath TEXT,
     FileType TEXT,
     FileSize INTEGER,
-    UploadStatus TEXT, -- 'pending', 'uploading', 'completed', 'failed'
+    UploadStatus TEXT, - 'pending', 'uploading', 'completed', 'failed'
     CreatedAt INTEGER,
     FOREIGN KEY (CaseId) REFERENCES Cases(Id)
 );
 
--- Analysis results cache
+- Analysis results cache
 CREATE TABLE AnalysisResults (
     Id INTEGER PRIMARY KEY,
     EvidenceId INTEGER,
     Status TEXT,
     Progress INTEGER,
-    ResultJson TEXT, -- JSON blob
+    ResultJson TEXT, - JSON blob
     CompletedAt INTEGER,
     FOREIGN KEY (EvidenceId) REFERENCES Evidence(Id)
 );
 
--- Sync queue
+- Sync queue
 CREATE TABLE SyncQueue (
     Id INTEGER PRIMARY KEY AUTOINCREMENT,
-    EntityType TEXT, -- 'evidence', 'analysis', 'document'
+    EntityType TEXT, - 'evidence', 'analysis', 'document'
     EntityId INTEGER,
-    Action TEXT, -- 'upload', 'delete', 'update'
-    Payload TEXT, -- JSON blob
+    Action TEXT, - 'upload', 'delete', 'update'
+    Payload TEXT, - JSON blob
     Retries INTEGER DEFAULT 0,
     CreatedAt INTEGER
 );
 ```
 
----
+--
 
 ## 🎨 MVVM Pattern Implementation
 
@@ -337,7 +337,7 @@ public class AuthService : IAuthService
 }
 ```
 
----
+--
 
 ## 🔐 Security Implementation
 
@@ -376,7 +376,7 @@ public class SecureHttpClientHandler : HttpClientHandler
 }
 ```
 
----
+--
 
 ## 📱 Offline-First Strategy
 
@@ -434,7 +434,7 @@ public class SyncService
 }
 ```
 
----
+--
 
 ## 🎯 Navigation Flow
 
@@ -465,7 +465,7 @@ LoginPage
     └─► (Failed) → Error Dialog → Retry
 ```
 
----
+--
 
 ## 🎨 Windows 11 Design System
 
@@ -486,7 +486,7 @@ LoginPage
 - **Connected animations** between pages
 - **Shadow elevation** for hierarchy
 
----
+--
 
 ## 📊 Performance Targets
 
@@ -498,7 +498,7 @@ LoginPage
 | **UI Responsiveness** | 60fps            | Async operations, virtual scrolling   |
 | **Memory Usage**      | <200MB idle      | Dispose resources, image optimization |
 
----
+--
 
 ## 🚀 Development Phases (Aligned with Phase D)
 
@@ -541,7 +541,7 @@ LoginPage
 - Accessibility
 - Performance optimization
 
----
+--
 
 _Architecture Plan Complete_  
 _Ready for Implementation_  

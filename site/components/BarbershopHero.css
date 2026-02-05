@@ -1,4 +1,4 @@
-
+:root {
   --hero-border-dark: #424245;
   --hero-shadow-light: rgb(0 0 0 / 8%);
   --hero-shadow-dark: rgb(0 0 0 / 32%);
@@ -42,9 +42,8 @@
   --animation-duration: 5.5s;
 }
 
-
 @media (prefers-color-scheme: dark) {
-  .Evident-hero {
+  .evident-hero {
     font-family: var(--font-sans);
     color: var(--hero-text-dark);
     overflow: hidden;
@@ -53,17 +52,16 @@
   }
 }
 
-
-.Evident-hero.no-animation {
+.evident-hero.no-animation {
   /* File removed as part of legacy component removal */
 }
 
-.Evident-hero--full .hero-content {
+.evident-hero-full .hero-content {
   order: 2;
   text-align: left;
 }
 
-.Evident-hero--full .hero-visual {
+.evident-hero-full .hero-visual {
   order: 1;
 }
 
@@ -202,7 +200,7 @@
 
 /* Small mobile (480px) */
 @media (width >= 480px) {
-  .Evident-hero {
+  .evident-hero {
     padding: var(--spacing-lg);
   }
 
@@ -217,7 +215,7 @@
 
 /* Tablet (640px) */
 @media (width >= 640px) {
-  .Evident-hero {
+  .evident-hero {
     padding: var(--spacing-2xl) var(--spacing-lg);
     min-height: auto;
   }
@@ -231,7 +229,7 @@
   }
 
   /* Full variant layout switches to grid at 640px */
-  .Evident-hero--full .hero-inner {
+  .evident-hero-full .hero-inner {
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-2xl);
   }
@@ -239,7 +237,7 @@
 
 /* Desktop (1024px) */
 @media (width >= 1024px) {
-  .Evident-hero {
+  .evident-hero {
     min-height: 100vh;
     padding: var(--spacing-2xl);
   }
@@ -249,14 +247,14 @@
     margin: 0 auto;
   }
 
-  .Evident-hero--full .hero-inner {
+  .evident-hero-full .hero-inner {
     grid-template-columns: 1fr 1.2fr;
   }
 }
 
 /* ===== Dark Mode Support ===== */
 @media (prefers-color-scheme: dark) {
-  .Evident-hero {
+  .evident-hero {
     background: linear-gradient(
       135deg,
       var(--hero-bg-dark) 0%,
@@ -277,7 +275,7 @@
 
 /* ===== Reduced Motion Support ===== */
 @media (prefers-reduced-motion: reduce) {
-  .Evident-hero,
+  .evident-hero,
   .hero-visual svg,
   .hero-cta {
     animation: none !important;
@@ -298,7 +296,7 @@
 
 /* Print styles */
 @media print {
-  .Evident-hero {
+  .evident-hero {
     background: white;
     min-height: auto;
     break-inside: avoid;
@@ -309,4 +307,3 @@
     filter: none;
   }
 }
-

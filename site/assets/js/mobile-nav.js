@@ -33,7 +33,7 @@ class EvidentMobileNav {
     if (window.innerWidth > 768) return;
 
     const nav = document.createElement("nav");
-    nav.className = "Evident-mobile-nav";
+    nav.className = "evident-mobile-nav";
     nav.innerHTML = `
       <div class="mobile-nav-items">
         <a href="/workspace" class="mobile-nav-item" data-nav="workspace">
@@ -135,10 +135,10 @@ class EvidentMobileNav {
   }
 
   injectStyles() {
-    if (document.getElementById("Evident-mobile-nav-styles")) return;
+    if (document.getElementById("evident-mobile-nav-styles")) return;
 
     const styles = document.createElement("style");
-    styles.id = "Evident-mobile-nav-styles";
+    styles.id = "evident-mobile-nav-styles";
     styles.textContent = `
       .Evident-mobile-nav {
         display: none;

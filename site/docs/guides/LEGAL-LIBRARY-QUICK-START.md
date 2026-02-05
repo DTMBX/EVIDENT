@@ -4,7 +4,7 @@
 
 The Legal Reference Library is now fully integrated into Evident!
 
----
+--
 
 ## 🎯 What's New
 
@@ -21,7 +21,7 @@ The Legal Reference Library is now fully integrated into Evident!
 ✅ **Search, upload, import, annotate**  
 ✅ **Full documentation** in LEGAL-LIBRARY-GUIDE.md
 
----
+--
 
 ## 🚀 Quick Test
 
@@ -66,7 +66,7 @@ curl -X POST http://localhost:5000/api/legal-library/import-from-web \
 curl "http://localhost:5000/api/legal-library/search?q=miranda+rights"
 ```
 
----
+--
 
 ## 📚 Files Created
 
@@ -77,7 +77,7 @@ curl "http://localhost:5000/api/legal-library/search?q=miranda+rights"
 5. **`LEGAL-LIBRARY-COMPLETE.md`** (13KB) - Technical summary
 6. **This file** - Quick start guide
 
----
+--
 
 ## 🔗 Integration with Other Tools
 
@@ -93,7 +93,7 @@ Auto-suggests relevant citations from your library when optimizing legal documen
 
 Links detected violations to precedent cases in your library.
 
----
+--
 
 ## 📊 Pre-Loaded Data
 
@@ -110,7 +110,7 @@ Links detected violations to precedent cases in your library.
 - Evidence
 - Employment Law
 
----
+--
 
 ## 🎓 Recommended Next Steps
 
@@ -119,7 +119,7 @@ Links detected violations to precedent cases in your library.
 3. **Add annotations** to key passages
 4. **Build MAUI UI** for mobile/desktop access
 
----
+--
 
 ## 📖 Full Documentation
 
@@ -131,7 +131,7 @@ See **`LEGAL-LIBRARY-GUIDE.md`** for:
 - Integration guides
 - Best practices
 
----
+--
 
 **Legal Reference Library is ready!** 📚⚖️
 

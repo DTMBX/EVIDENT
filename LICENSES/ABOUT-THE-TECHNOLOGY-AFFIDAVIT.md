@@ -1,4 +1,5 @@
-# Evident Technologies  
+# Evident Technologies
+
 ## About the Technology – Statement of Technical Function
 
 I submit the following description for the purpose of explaining, in plain technical terms, how the Evident Technologies platform functions.
@@ -47,6 +48,7 @@ All uploads, exports, interpretations, and uses of outputs are initiated and con
 ## 6. Limitations
 
 Evident does not:
+
 - Determine legal relevance
 - Determine credibility
 - Guarantee admissibility

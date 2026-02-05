@@ -6,7 +6,7 @@
 
 **Critical Finding:** Your current implementation has NO downloadable/desktop app. Everything runs through the web interface at Evident.info.
 
----
+--
 
 ## 📊 Feature Comparison Matrix
 
@@ -26,7 +26,7 @@
 | **Priority Support**      | ❌     | ❌           | ❌        | ✅                         |
 | **SLA Guarantee**         | ❌     | ❌           | ❌        | ✅                         |
 
----
+--
 
 ## ⚠️ CRITICAL ISSUE: Enterprise at $799/month for Web-Only
 
@@ -45,7 +45,7 @@ Your Enterprise tier ($499, or $799 with my recommendation) offers:
 - Your revenue: $799/month
 - **Margin squeeze or loss** ⚠️
 
----
+--
 
 ## 💡 RECOMMENDED TIER ARCHITECTURE
 
@@ -85,7 +85,7 @@ TierLevel.ENTERPRISE: {
 - ❌ Requires your infrastructure to scale
 - ❌ Internet dependency
 
----
+--
 
 ### **Option B: Hybrid Model (RECOMMENDED)** ⭐
 
@@ -190,7 +190,7 @@ Volume tier: 1,000 videos/month = $2,999/month
 - ❌ Support burden (helping them install/configure)
 - ❌ License server infrastructure needed
 
----
+--
 
 ### **Option C: Desktop App for All Tiers**
 
@@ -240,7 +240,7 @@ async function analyzeVideo(videoPath) {
 - ❌ Auto-update complexity
 - ❌ Similar to web app, just different UI
 
----
+--
 
 ## 🎯 MY RECOMMENDATION
 
@@ -303,7 +303,7 @@ Evident Desktop: Available for Pro+ tiers
 - Still calls API for processing
 ```
 
----
+--
 
 ## 📋 Feature Justification by Tier
 
@@ -320,7 +320,7 @@ Evident Desktop: Available for Pro+ tiers
 
 **Value Prop:** "Try before you buy"
 
----
+--
 
 ### **Professional ($79) - Solo Practitioners**
 
@@ -341,7 +341,7 @@ Evident Desktop: Available for Pro+ tiers
 - Small firm handling civil rights cases
 - Processes 1-2 BWC videos per case
 
----
+--
 
 ### **Premium ($249) - Small Firms**
 
@@ -364,7 +364,7 @@ Evident Desktop: Available for Pro+ tiers
 - Processes 50-100 videos/year
 - Needs API to integrate with Clio/MyCase
 
----
+--
 
 ### **Enterprise ($999-1,999) - Large Organizations**
 
@@ -395,7 +395,7 @@ Evident Desktop: Available for Pro+ tiers
 - Air-gapped networks
 - Countries with data sovereignty laws
 
----
+--
 
 ## 🔒 Preventing Fee Bypass (Self-Hosted)
 
@@ -509,7 +509,7 @@ if current_version < minimum_version:
     return "Update required. Download version 2.5+"
 ```
 
----
+--
 
 ## 💰 Pricing Rationale for Self-Hosted
 
@@ -530,7 +530,7 @@ Enterprise: $4,999/month (up to 5,000 videos/month)
 Custom: $10k+/month (unlimited, multiple servers)
 ```
 
----
+--
 
 ## 🎬 Final Recommendation
 

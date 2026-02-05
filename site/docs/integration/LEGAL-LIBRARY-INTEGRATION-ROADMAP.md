@@ -11,7 +11,7 @@
 - [x] User annotations
 - [x] Access control
 
----
+--
 
 ## 🔧 Phase 2: AI Tool Integration (IN PROGRESS)
 
@@ -40,7 +40,7 @@ enhanced_prompt = library_integration.enhance_system_prompt(base_prompt, relevan
 response = library_integration.format_citation_links(chatgpt_response)
 ```
 
----
+--
 
 ### Document Optimizer Integration
 
@@ -69,7 +69,7 @@ class LegalDocumentOptimizer:
         # ... optimization logic
 ```
 
----
+--
 
 ### Violation Finder Integration
 
@@ -91,7 +91,7 @@ class ViolationFinderLibraryIntegration:
         """Add case law citations to report"""
 ```
 
----
+--
 
 ### Evidence Analyzer Integration
 
@@ -102,7 +102,7 @@ class ViolationFinderLibraryIntegration:
 - [ ] Cite evidentiary rules from library
 - [ ] Example: Hearsay analysis → Crawford v. Washington
 
----
+--
 
 ## 📱 Phase 3: MAUI Mobile/Desktop UI
 
@@ -139,7 +139,7 @@ class ViolationFinderLibraryIntegration:
 - [ ] Click citation to open in library
 - [ ] Suggest importing cited cases
 
----
+--
 
 ## 🚀 Phase 4: Advanced Features
 
@@ -164,10 +164,10 @@ python batch_import_foundation_cases.py all
 python batch_import_foundation_cases.py civil_rights
 
 # Import custom list
-python batch_import_foundation_cases.py --custom citations.txt
+python batch_import_foundation_cases.py -custom citations.txt
 ```
 
----
+--
 
 ### Citation Network Visualization
 
@@ -179,7 +179,7 @@ python batch_import_foundation_cases.py --custom citations.txt
 - [ ] Show cases citing THIS case
 - [ ] Interactive navigation
 
----
+--
 
 ### Shepardize Integration
 
@@ -190,7 +190,7 @@ python batch_import_foundation_cases.py --custom citations.txt
 - [ ] Show treatment (positive, negative, neutral)
 - [ ] Integrate with Westlaw/Lexis (if API available)
 
----
+--
 
 ### Vector Embeddings Search
 
@@ -201,7 +201,7 @@ python batch_import_foundation_cases.py --custom citations.txt
 - [ ] Topic clustering
 - [ ] Auto-categorization
 
----
+--
 
 ## 🧪 Phase 5: Testing & Quality Assurance
 
@@ -227,7 +227,7 @@ python batch_import_foundation_cases.py --custom citations.txt
 ✓ MAUI UI: 85%
 ```
 
----
+--
 
 ## 📊 Phase 6: Analytics & Metrics
 
@@ -246,7 +246,7 @@ python batch_import_foundation_cases.py --custom citations.txt
 - [ ] Citation linking performance
 - [ ] Database query optimization
 
----
+--
 
 ## 🎯 Priority Order
 
@@ -274,7 +274,7 @@ python batch_import_foundation_cases.py --custom citations.txt
 14. Analytics dashboard
 15. Team library sharing
 
----
+--
 
 ## 📝 Integration Checklist
 
@@ -300,7 +300,7 @@ python batch_import_foundation_cases.py --custom citations.txt
 - [ ] Test on all platforms (Windows, iOS, Android)
 - [ ] Update user guide
 
----
+--
 
 ## 🆘 Known Issues & TODOs
 
@@ -325,7 +325,7 @@ python batch_import_foundation_cases.py --custom citations.txt
 - [ ] Add sharing/collaboration features
 - [ ] Add mobile offline mode
 
----
+--
 
 **Last Updated:** January 27, 2026  
 **Status:** Phase 1 complete, Phase 2 in progress  

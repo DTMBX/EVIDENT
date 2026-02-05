@@ -10,7 +10,7 @@
 4. ✅ Trial period messaging added
 5. ✅ Signup redirects to checkout for paid tiers
 
----
+--
 
 ## **Complete User Journey Test Cases**
 
@@ -35,7 +35,7 @@
    - User tier: FREE
    - Usage tracking initialized
 
----
+--
 
 ### **Test Case 2: Professional Tier Signup**
 
@@ -58,7 +58,7 @@
    - Redirects back to `/pricing` to complete payment
    - User tier: FREE (until payment)
 
----
+--
 
 ### **Test Case 3: Premium Tier Signup**
 
@@ -77,7 +77,7 @@
    - Redirects to pricing for checkout
    - Session stores tier preference
 
----
+--
 
 ### **Test Case 4: Existing User Login**
 
@@ -93,7 +93,7 @@
    - Redirects to `/dashboard`
    - Last login timestamp updated
 
----
+--
 
 ### **Test Case 5: Registration Link Variations**
 
@@ -106,7 +106,7 @@
 5. `/register?tier=premium` → ✅ Shows tier badge
 6. `/register?tier=free` → ✅ No special badge (default)
 
----
+--
 
 ### **Test Case 6: Password Validation**
 
@@ -123,7 +123,7 @@
 - "LongSecurePassword123!" → ✅ Accepts
 - "MyP@ssw0rd" → ✅ Accepts
 
----
+--
 
 ### **Test Case 7: Duplicate Email**
 
@@ -138,7 +138,7 @@
    - Flash message: "An account with this email already exists."
    - Redirects to `/auth/login`
 
----
+--
 
 ### **Test Case 8: Password Mismatch**
 
@@ -154,7 +154,7 @@
    - Stays on signup page
    - Form preserves entered data
 
----
+--
 
 ### **Test Case 9: Dashboard Access**
 
@@ -170,7 +170,7 @@
 4. **Expected Result:**
    - Redirects back to `/dashboard`
 
----
+--
 
 ### **Test Case 10: Logout Flow**
 
@@ -188,7 +188,7 @@
 5. **Expected Result:**
    - Redirects to login (not authenticated)
 
----
+--
 
 ## **Edge Cases to Test**
 
@@ -217,28 +217,28 @@
 - Input: "notanemail"
 - **Expected:** "Invalid email format"
 
----
+--
 
 ## **Database Verification Queries**
 
 After successful registration, verify in database:
 
 ```sql
--- Check user created
+- Check user created
 SELECT id, email, full_name, tier, is_active, is_verified, created_at
 FROM users
 WHERE email = 'test@example.com';
 
--- Check usage tracking initialized
+- Check usage tracking initialized
 SELECT * FROM usage_tracking
 WHERE user_id = (SELECT id FROM users WHERE email = 'test@example.com');
 
--- Check tier enum value
+- Check tier enum value
 SELECT tier FROM users WHERE email = 'test@example.com';
--- Should return: 0 (FREE), 1 (PRO), 2 (PREMIUM), or 3 (ADMIN)
+- Should return: 0 (FREE), 1 (PRO), 2 (PREMIUM), or 3 (ADMIN)
 ```
 
----
+--
 
 ## **Browser Console Checks**
 
@@ -251,7 +251,7 @@ Open browser DevTools and verify:
    - POST to `/register` returns 302 redirect
    - Redirect location is correct
 
----
+--
 
 ## **Session/Cookie Verification**
 
@@ -261,7 +261,7 @@ After login, check:
 2. **Remember me** (if checked): Cookie expires in 30 days
 3. **CSRF token** present in form
 
----
+--
 
 ## **Accessibility Testing**
 
@@ -276,7 +276,7 @@ After login, check:
 3. **Color Contrast:**
    - Text meets WCAG AA standards ✅
 
----
+--
 
 ## **Performance Metrics**
 
@@ -287,7 +287,7 @@ After login, check:
 - Database query: < 100ms
 - Redirect: < 200ms
 
----
+--
 
 ## **Known Limitations & Future Enhancements**
 
@@ -306,7 +306,7 @@ After login, check:
 4. Add rate limiting (prevent spam registrations)
 5. Add CAPTCHA for bot prevention
 
----
+--
 
 ## **Quick Test Commands**
 
@@ -327,7 +327,7 @@ tail -f logs/app.log
 watch -n 1 'psql -d Evident -c "SELECT COUNT(*) FROM users;"'
 ```
 
----
+--
 
 ## **Success Criteria**
 
@@ -342,7 +342,7 @@ All test cases pass when:
 - ✅ All error messages are user-friendly
 - ✅ Database integrity maintained
 
----
+--
 
 ## **Rollback Plan**
 

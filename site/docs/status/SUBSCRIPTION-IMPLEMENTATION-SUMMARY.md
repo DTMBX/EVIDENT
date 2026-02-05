@@ -39,7 +39,7 @@
    ENTERPRISE:  Custom  - Self-hosted, white-label, dedicated PM
    ```
 
----
+--
 
 ## 📦 Files Created/Modified
 
@@ -66,7 +66,7 @@
 | `app.py`         | Added Stripe blueprint, tier gating helpers, usage dashboard route |
 | `.env`           | Added Stripe API key placeholders                                  |
 
----
+--
 
 ## 🚀 How to Deploy
 
@@ -160,7 +160,7 @@ Add checkout buttons to `pricing.html`:
 3. Test live checkout
 4. Monitor Stripe Dashboard for subscriptions
 
----
+--
 
 ## 💰 Revenue Projections
 
@@ -186,7 +186,7 @@ Add checkout buttons to `pricing.html`:
 - **Total MRR: $262,480**
 - **ARR: $3,149,760**
 
----
+--
 
 ## 🎯 Next: Windows Desktop App
 
@@ -233,7 +233,7 @@ Add checkout buttons to `pricing.html`:
 - OR separate "Desktop Edition" at $99/month
 - OR one-time purchase: $499 (with 1 year of updates)
 
----
+--
 
 ## 📊 Current Status
 
@@ -259,7 +259,7 @@ Add checkout buttons to `pricing.html`:
 - Production testing (needs Stripe live keys)
 - Windows desktop app (4-week project)
 
----
+--
 
 ## 🎉 Success Metrics
 
@@ -287,7 +287,7 @@ Once deployed, you can track:
    - Marketing spend / new customers
    - Target: CAC < $50 for PRO, <$200 for PREMIUM
 
----
+--
 
 ## 📞 Support & Resources
 
@@ -309,7 +309,7 @@ Once deployed, you can track:
 - Decline: `4000 0000 0000 0002`
 - 3D Secure: `4000 0027 6000 3184`
 
----
+--
 
 ## 🚀 Ready to Launch!
 
@@ -329,6 +329,6 @@ All that remains:
 
 **Break-even:** ~50 PRO subscribers OR 20 PREMIUM subscribers will cover all operating costs
 
----
+--
 
 **🎊 Congratulations! You now have a complete, secure, scalable subscription system ready to generate revenue!**

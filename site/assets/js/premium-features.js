@@ -116,7 +116,7 @@
       document.getElementById("toast-container") || createToastContainer();
 
     const toast = document.createElement("div");
-    toast.className = `toast toast--${type}`;
+    toast.className = `toast toast-${type}`;
 
     const icons = {
       success: "✓",
@@ -126,9 +126,9 @@
     };
 
     toast.innerHTML = `
-      <span class="toast__icon">${icons[type] || icons.info}</span>
-      <span class="toast__message">${message}</span>
-      <button class="toast__close" aria-label="Close">✕</button>
+      <span class="toast-icon">${icons[type] || icons.info}</span>
+      <span class="toast-message">${message}</span>
+      <button class="toast-close" aria-label="Close">✕</button>
     `;
 
     container.appendChild(toast);
@@ -185,7 +185,7 @@
     ];
 
     nav.innerHTML = `
-      <ul class="bottom-nav__items">
+      <ul class="bottom-nav-items">
         ${navItems
           .map((item) => {
             const isActive = item.paths.some(
@@ -193,9 +193,9 @@
             );
             return `
             <li>
-              <a href="${item.href}" class="bottom-nav__item${isActive ? " active" : ""}" aria-current="${isActive ? "page" : "false"}">
-                <span class="bottom-nav__icon">${item.icon}</span>
-                <span class="bottom-nav__label">${item.label}</span>
+              <a href="${item.href}" class="bottom-nav-item${isActive ? " active" : ""}" aria-current="${isActive ? "page" : "false"}">
+                <span class="bottom-nav-icon">${item.icon}</span>
+                <span class="bottom-nav-label">${item.label}</span>
               </a>
             </li>
           `;
@@ -216,17 +216,17 @@
     fab.setAttribute("aria-label", "Quick actions");
     fab.setAttribute("aria-expanded", "false");
     fab.innerHTML = `
-      <span class="fab__icon">⚡</span>
-      <div class="fab__menu">
-        <a href="/cases/" class="fab__menu-item">
+      <span class="fab-icon">⚡</span>
+      <div class="fab-menu">
+        <a href="/cases/" class="fab-menu-item">
           <span>📁</span>
           <span>Browse Cases</span>
         </a>
-        <a href="/opra/" class="fab__menu-item">
+        <a href="/opra/" class="fab-menu-item">
           <span>📋</span>
           <span>OPRA Records</span>
         </a>
-        <a href="#top" class="fab__menu-item" data-action="scroll-top">
+        <a href="#top" class="fab-menu-item" data-action="scroll-top">
           <span>⬆️</span>
           <span>Back to Top</span>
         </a>
@@ -267,16 +267,16 @@
     banner.id = "install-banner";
     banner.className = "install-banner";
     banner.innerHTML = `
-      <div class="install-banner__content">
-        <div class="install-banner__icon">⚖️</div>
-        <div class="install-banner__text">
-          <div class="install-banner__title">Install Evident</div>
-          <div class="install-banner__desc">Add to home screen for quick access</div>
+      <div class="install-banner-content">
+        <div class="install-banner-icon">⚖️</div>
+        <div class="install-banner-text">
+          <div class="install-banner-title">Install Evident</div>
+          <div class="install-banner-desc">Add to home screen for quick access</div>
         </div>
       </div>
-      <div class="install-banner__actions">
-        <button class="install-banner__btn install-banner__btn--secondary" data-action="dismiss">Not Now</button>
-        <button class="install-banner__btn install-banner__btn--primary" data-action="install">Install</button>
+      <div class="install-banner-actions">
+        <button class="install-banner-btn install-banner-btn-secondary" data-action="dismiss">Not Now</button>
+        <button class="install-banner-btn install-banner-btn-primary" data-action="install">Install</button>
       </div>
     `;
 
@@ -344,9 +344,9 @@
       emptyState = document.createElement("div");
       emptyState.className = "empty-state search-empty-state";
       emptyState.innerHTML = `
-        <div class="empty-state__icon">🔍</div>
-        <h3 class="empty-state__title">No results found</h3>
-        <p class="empty-state__desc">Try adjusting your search or filters</p>
+        <div class="empty-state-icon">🔍</div>
+        <h3 class="empty-state-title">No results found</h3>
+        <p class="empty-state-desc">Try adjusting your search or filters</p>
       `;
       document.querySelector(".cases-grid, .opra-grid")?.after(emptyState);
     } else if (!show && emptyState) {
@@ -412,7 +412,7 @@
 
     const indicator = document.createElement("div");
     indicator.className = "pull-indicator";
-    indicator.innerHTML = '<div class="pull-indicator__spinner"></div>';
+    indicator.innerHTML = '<div class="pull-indicator-spinner"></div>';
     document.body.appendChild(indicator);
 
     document.addEventListener(
@@ -584,38 +584,38 @@
       modal = document.createElement("div");
       modal.className = "shortcuts-modal";
       modal.innerHTML = `
-        <div class="shortcuts-modal__content">
-          <div class="shortcuts-modal__header">
-            <h2 class="shortcuts-modal__title">⌨️ Keyboard Shortcuts</h2>
-            <button class="bottom-sheet__close" aria-label="Close">✕</button>
+        <div class="shortcuts-modal-content">
+          <div class="shortcuts-modal-header">
+            <h2 class="shortcuts-modal-title">⌨️ Keyboard Shortcuts</h2>
+            <button class="bottom-sheet-close" aria-label="Close">✕</button>
           </div>
           
           <div class="shortcut-group">
-            <h3 class="shortcut-group__title">Navigation</h3>
+            <h3 class="shortcut-group-title">Navigation</h3>
             <div class="shortcut-item">
-              <span class="shortcut-item__desc">Go to Home</span>
-              <div class="shortcut-item__keys">
+              <span class="shortcut-item-desc">Go to Home</span>
+              <div class="shortcut-item-keys">
                 <span class="shortcut-key">g</span>
                 <span class="shortcut-key">h</span>
               </div>
             </div>
             <div class="shortcut-item">
-              <span class="shortcut-item__desc">Go to Cases</span>
-              <div class="shortcut-item__keys">
+              <span class="shortcut-item-desc">Go to Cases</span>
+              <div class="shortcut-item-keys">
                 <span class="shortcut-key">g</span>
                 <span class="shortcut-key">c</span>
               </div>
             </div>
             <div class="shortcut-item">
-              <span class="shortcut-item__desc">Go to OPRA</span>
-              <div class="shortcut-item__keys">
+              <span class="shortcut-item-desc">Go to OPRA</span>
+              <div class="shortcut-item-keys">
                 <span class="shortcut-key">g</span>
                 <span class="shortcut-key">o</span>
               </div>
             </div>
             <div class="shortcut-item">
-              <span class="shortcut-item__desc">Go to Essays</span>
-              <div class="shortcut-item__keys">
+              <span class="shortcut-item-desc">Go to Essays</span>
+              <div class="shortcut-item-keys">
                 <span class="shortcut-key">g</span>
                 <span class="shortcut-key">e</span>
               </div>
@@ -623,28 +623,28 @@
           </div>
           
           <div class="shortcut-group">
-            <h3 class="shortcut-group__title">Actions</h3>
+            <h3 class="shortcut-group-title">Actions</h3>
             <div class="shortcut-item">
-              <span class="shortcut-item__desc">Focus Search</span>
-              <div class="shortcut-item__keys">
+              <span class="shortcut-item-desc">Focus Search</span>
+              <div class="shortcut-item-keys">
                 <span class="shortcut-key">/</span>
               </div>
             </div>
             <div class="shortcut-item">
-              <span class="shortcut-item__desc">Scroll to Top</span>
-              <div class="shortcut-item__keys">
+              <span class="shortcut-item-desc">Scroll to Top</span>
+              <div class="shortcut-item-keys">
                 <span class="shortcut-key">t</span>
               </div>
             </div>
             <div class="shortcut-item">
-              <span class="shortcut-item__desc">Close / Cancel</span>
-              <div class="shortcut-item__keys">
+              <span class="shortcut-item-desc">Close / Cancel</span>
+              <div class="shortcut-item-keys">
                 <span class="shortcut-key">Esc</span>
               </div>
             </div>
             <div class="shortcut-item">
-              <span class="shortcut-item__desc">Show Shortcuts</span>
-              <div class="shortcut-item__keys">
+              <span class="shortcut-item-desc">Show Shortcuts</span>
+              <div class="shortcut-item-keys">
                 <span class="shortcut-key">?</span>
               </div>
             </div>

@@ -149,7 +149,7 @@ def index():
 def chat():
     return render_template("chat.html")
 
-if __name__ == "__main__":
+if -name- == "-main-":
     app.run(debug=True)
 ```
 
@@ -196,7 +196,7 @@ function exportConversation(conversationId) {
 Frontend HTML template example:
 
 ```html
-<!-- templates/chat.html -->
+<!-- templates/chat.html ->
 <!DOCTYPE html>
 <html>
   <head>
@@ -209,7 +209,7 @@ Frontend HTML template example:
       </div>
 
       <div id="messages" class="chat-messages" role="log" aria-live="polite">
-        <!-- Messages appear here -->
+        <!-- Messages appear here ->
       </div>
 
       <form id="chat-form" class="chat-input">

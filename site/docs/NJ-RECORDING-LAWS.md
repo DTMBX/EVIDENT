@@ -5,7 +5,7 @@
 **Last Updated:** January 28, 2026  
 **Disclaimer:** This is educational information, not legal advice. Consult an attorney for specific guidance.
 
----
+--
 
 ## Quick Summary
 
@@ -27,7 +27,7 @@
 - Trespass on private property to record
 - Record to intimidate, threaten, or harass
 
----
+--
 
 ## New Jersey One-Party Consent Rule
 
@@ -57,7 +57,7 @@ If you're part of the conversation, you can record it. If you're not part of it,
 - Recording your neighbor's private phone call
 - Using hidden cameras in private spaces
 
----
+--
 
 ## Recording Police in Public
 
@@ -108,7 +108,7 @@ Interfering with police duties is a **separate criminal offense** (N.J.S.A. 2C:2
 - Don't touch officers or their equipment
 - Speak calmly if addressed
 
----
+--
 
 ## When Recording Can Be Illegal
 
@@ -142,7 +142,7 @@ New Jersey recognizes **intrusion upon seclusion** as a tort.
 - Using telephoto lens to capture private moments
 - Recording in bathroom/changing room
 
----
+--
 
 ## Barber Cam Safety Guidelines
 
@@ -189,7 +189,7 @@ New Jersey recognizes **intrusion upon seclusion** as a tort.
 - Threaten to "expose" people with the recording
 - Use footage for commercial purposes without consent
 
----
+--
 
 ## Special Situations
 
@@ -236,7 +236,7 @@ New Jersey recognizes **intrusion upon seclusion** as a tort.
 - Record brief interactions (entering store, asking question)
 - Leave if asked, then file complaint or review online
 
----
+--
 
 ## What to Do If Detained or Arrested
 
@@ -268,7 +268,7 @@ New Jersey recognizes **intrusion upon seclusion** as a tort.
 - Contact attorney immediately
 - File motion for return of property if not charged
 
----
+--
 
 ## Additional Resources
 
@@ -288,7 +288,7 @@ New Jersey recognizes **intrusion upon seclusion** as a tort.
 - [Safety Training Video](/training) (coming soon)
 - [Case Studies](/case-studies)
 
----
+--
 
 ## FAQ
 
@@ -307,7 +307,7 @@ A: Recordings can be used as evidence. Consult an attorney before sharing anythi
 **Q: Can I record my own arrest?**  
 A: Yes, if you can do so without resisting or interfering. Use voice recording, hands-free mount, or livestream.
 
----
+--
 
 **Remember:** The goal is documentation, not confrontation. Stay safe, stay legal, stay calm.
 

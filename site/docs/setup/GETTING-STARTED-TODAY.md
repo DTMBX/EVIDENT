@@ -93,7 +93,7 @@ for p in passages:
 
 ```bash
 # Retrieve passages
-python -m pipeline.cli retrieve "search warrant" --top 3
+python -m pipeline.cli retrieve "search warrant" -top 3
 ```
 
 > Note: The CLI currently supports `retrieve` only.
@@ -159,7 +159,7 @@ print(f'✓ Sample document ingested: {doc_id}')
 "
 
 # Now test retrieval
-python -m pipeline.cli retrieve "Miranda rights attorney" --top 2
+python -m pipeline.cli retrieve "Miranda rights attorney" -top 2
 ```
 
 ### Test Municipal Codes
@@ -315,7 +315,7 @@ python test_login_integration.py
 python -c "from app import app; from models_auth import db, User; ..."
 
 # CLI retrieval
-python -m pipeline.cli retrieve "query" --top 5
+python -m pipeline.cli retrieve "query" -top 5
 
 # Initialize databases
 python scripts\db\init_db.py
@@ -328,7 +328,7 @@ python scripts\db\init_db.py
 - `RETRIEVAL-QUICK-START.md` - Retrieval API reference
 - `START.ps1` - Quick startup script
 
----
+--
 
 **You're ready to use Evident today!** 🚀
 

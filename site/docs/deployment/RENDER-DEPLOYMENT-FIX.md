@@ -5,7 +5,7 @@
 **Status:** ✅ FIXED & DEPLOYED  
 **Commit:** 0426a96
 
----
+--
 
 ## 🔧 PROBLEM IDENTIFIED
 
@@ -24,7 +24,7 @@ IndentationError: expected an indented block after function definition on line 5
 - `try:` block contents were inconsistently indented
 - Likely caused by mixed tabs/spaces or file encoding issue
 
----
+--
 
 ## ✅ FIX APPLIED
 
@@ -58,7 +58,7 @@ $ python -m py_compile batch_upload_handler.py
 ✅ File compiles successfully!
 ```
 
----
+--
 
 ## 🚀 DEPLOYMENT STATUS
 
@@ -85,7 +85,7 @@ $ python -m py_compile batch_upload_handler.py
 - Health check: 30 seconds
 - **Total:** ~4-6 minutes
 
----
+--
 
 ## 📊 RENDER DEPLOYMENT CHECKLIST
 
@@ -116,7 +116,7 @@ $ python -m py_compile batch_upload_handler.py
    - "Running 'gunicorn app:app'"
    - "Your service is live 🎉"
 
----
+--
 
 ## 🎯 EXPECTED SUCCESS OUTPUT
 
@@ -142,7 +142,7 @@ BWC Forensic Analyzer not available - AI dependencies not installed
 
 These are expected - the services gracefully degrade if optional dependencies aren't installed.
 
----
+--
 
 ## 🔍 TROUBLESHOOTING
 
@@ -168,7 +168,7 @@ Render expects app to bind to port from `PORT` environment variable:
 
 ```python
 # In app.py (already correct):
-if __name__ == "__main__":
+if -name- == "-main-":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
 ```
@@ -182,7 +182,7 @@ If database errors occur:
 python init_database.py
 ```
 
----
+--
 
 ## 💡 RENDER + GIT BEST PRACTICES
 
@@ -224,7 +224,7 @@ git revert HEAD
 git push origin main
 ```
 
----
+--
 
 ## 🚀 OPTIMIZATION: FASTER DEPLOYS
 
@@ -271,7 +271,7 @@ buildCommand: "pip install -r requirements-production.txt"
 **Recommendation for Evident:**
 Start with current setup (works), optimize later when deploy speed becomes a bottleneck.
 
----
+--
 
 ## 📈 DEPLOYMENT METRICS
 
@@ -289,7 +289,7 @@ Start with current setup (works), optimize later when deploy speed becomes a bot
 - **Health Check:** ~5 seconds
 - **Total:** <2 minutes per deploy
 
----
+--
 
 ## ✅ DEPLOYMENT SUCCESS CRITERIA
 
@@ -302,7 +302,7 @@ A deployment is successful when:
 - [x] Database connection works
 - [x] Application is accessible via https://Evident.info
 
----
+--
 
 ## 🎯 NEXT STEPS
 
@@ -324,7 +324,7 @@ A deployment is successful when:
    - Analytics setup (waiting on your token)
    - Demo video creation
 
----
+--
 
 ## 📚 USEFUL RENDER COMMANDS
 
@@ -345,7 +345,7 @@ render restart
 render env
 ```
 
----
+--
 
 ## 🆘 EMERGENCY ROLLBACK
 
@@ -362,7 +362,7 @@ If deployment breaks production:
 **Method 2: Git Revert**
 
 ```bash
-git log --oneline -n 5
+git log -oneline -n 5
 git revert <bad-commit-hash>
 git push origin main
 # Render auto-deploys good version
@@ -377,7 +377,7 @@ git push origin main
 # Then manually deploy only tested commits
 ```
 
----
+--
 
 ## 🎉 SUMMARY
 
@@ -395,7 +395,7 @@ git push origin main
 **Next Deployment Will Be Faster:**
 We know the workflow now and can catch issues early!
 
----
+--
 
 **Deployment Status:** ✅ FIXED - Auto-deploying now  
 **ETA to Live:** ~5 minutes  

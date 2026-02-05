@@ -271,7 +271,7 @@ git check-ignore INVESTOR-LOG.md
 
 **Celebrate your progress!**
 
----
+--
 
 **Document Version:** 1.0  
 **Created:** January 28, 2026  

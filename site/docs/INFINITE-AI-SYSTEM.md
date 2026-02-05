@@ -4,7 +4,7 @@
 
 The Evident Legal Case Management Pro Suite now includes a **comprehensive automated legal research and AI analysis system** with infinite scalability.
 
----
+--
 
 ## 🤖 Enhanced AI Capabilities
 
@@ -54,7 +54,7 @@ The Evident Legal Case Management Pro Suite now includes a **comprehensive autom
    - Regulations
    - Constitution
 
----
+--
 
 ## 📊 Case Law Database Structure
 
@@ -121,7 +121,7 @@ The Evident Legal Case Management Pro Suite now includes a **comprehensive autom
 - Endpoint URL
 - Status (Ready / Needs Config)
 
----
+--
 
 ## 🔄 Automated Publishing System
 
@@ -153,7 +153,7 @@ The Evident Legal Case Management Pro Suite now includes a **comprehensive autom
    - Public case law portal
    - Always up-to-date
 
----
+--
 
 ## 📚 Seeded SCOTUS Cases
 
@@ -168,7 +168,7 @@ The database comes pre-loaded with essential civil rights cases:
 | Monell v. Dept of Social Services | 436 U.S. 658 (1978) | Municipal liability, custom/policy        |
 | Brady v. Maryland                 | 373 U.S. 83 (1963)  | Exculpatory evidence, disclosure          |
 
----
+--
 
 ## 🚀 API Endpoints
 
@@ -244,7 +244,7 @@ Returns: `"Terry v. Ohio, 392 U.S. 1 (1968)"`
 - Auto-tagging keywords
 - Topic descriptions
 
----
+--
 
 ## 🔧 Setup Instructions
 
@@ -278,7 +278,7 @@ Get free API key: https://www.courtlistener.com/help/api/
 ### 3. Start Backend Server
 
 ```bash
-python -m uvicorn app.main:app --reload
+python -m uvicorn app.main:app -reload
 ```
 
 Access: http://localhost:8000/docs
@@ -306,7 +306,7 @@ await supreme_law_service.export_to_json()
 await supreme_law_service.generate_html_portal()
 ```
 
----
+--
 
 ## 📖 Usage Examples
 
@@ -354,7 +354,7 @@ curl -X POST http://localhost:8000/api/v1/supreme-law/update/run
 curl http://localhost:8000/api/v1/supreme-law/stats
 ```
 
----
+--
 
 ## 🎯 Topic Taxonomy (Auto-Tagging)
 
@@ -373,7 +373,7 @@ Cases are automatically tagged based on content analysis:
 - **equal_protection**: Selective enforcement, racial profiling
 - **brady_giglio**: Exculpatory, impeachment, withheld evidence
 
----
+--
 
 ## 🔐 Data Integrity
 
@@ -402,7 +402,7 @@ Only populate Westlaw fields if:
 
 Otherwise leave blank. This maintains integrity.
 
----
+--
 
 ## 📈 Scaling & Performance
 
@@ -420,7 +420,7 @@ Otherwise leave blank. This maintains integrity.
 3. Enable git auto-commit only if needed
 4. Use topic filters to narrow searches
 
----
+--
 
 ## 🛠️ Troubleshooting
 
@@ -444,7 +444,7 @@ Otherwise leave blank. This maintains integrity.
 
 **Solution**: Run automated update first to populate database
 
----
+--
 
 ## 🎓 Best Practices
 
@@ -469,7 +469,7 @@ Otherwise leave blank. This maintains integrity.
 3. **Respect rate limits**: Even with API key, be reasonable
 4. **Attribute sources**: Always link back to official opinions
 
----
+--
 
 ## 📝 Future Enhancements
 
@@ -483,7 +483,7 @@ Otherwise leave blank. This maintains integrity.
 - [ ] Multi-jurisdiction support
 - [ ] Mobile app integration
 
----
+--
 
 ## 📄 Files Created
 
@@ -514,7 +514,7 @@ Otherwise leave blank. This maintains integrity.
    - Seeded with core SCOTUS cases
    - 6 worksheets (database, index, raw, topics, log, automation)
 
----
+--
 
 ## ✅ System Status
 
@@ -533,7 +533,7 @@ All components tested and functional:
 - ✅ REST API endpoints
 - ✅ Frontend integration
 
----
+--
 
 **Last Updated:** January 22, 2026  
 **Version:** 1.0.0  

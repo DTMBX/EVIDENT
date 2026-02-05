@@ -47,7 +47,7 @@
 - `TIER-ARCHITECTURE-STRATEGY.md` - Tier strategy and pricing
 - `plan.md` - Implementation roadmap
 
----
+--
 
 ## 🚀 How to Implement
 
@@ -128,7 +128,7 @@ with app.app_context():
     print(f"   export Evident_LICENSE_KEY='{license.license_key}'")
 ```
 
----
+--
 
 ### **Phase 2: Build Docker Image** (30 minutes)
 
@@ -165,7 +165,7 @@ docker push Evident/enterprise:1.0.0
 docker push Evident/enterprise:latest
 ```
 
----
+--
 
 ### **Phase 3: Deploy Full Stack** (1 hour)
 
@@ -207,7 +207,7 @@ curl -X POST http://localhost:5000/api/upload \
   -F "video=@test.mp4"
 ```
 
----
+--
 
 ## 🎯 Deployment Models
 
@@ -229,7 +229,7 @@ curl -X POST http://localhost:5000/api/upload \
 
 **Customers access:** `https://Evident.info`
 
----
+--
 
 ### **Model B: Self-Hosted Enterprise** (NEW)
 
@@ -258,7 +258,7 @@ docker-compose -f docker-compose.enterprise.yml up -d
 - White-label branding
 - Air-gap option available
 
----
+--
 
 ### **Model C: Desktop App** (Future - Optional)
 
@@ -278,7 +278,7 @@ docker-compose -f docker-compose.enterprise.yml up -d
 - Native OS features
 - Can't bypass pricing (still calls API)
 
----
+--
 
 ## 💰 Pricing Strategy
 
@@ -311,7 +311,7 @@ docker-compose -f docker-compose.enterprise.yml up -d
 - Want data sovereignty
 - Annual contract ($24k minimum)
 
----
+--
 
 ## 🔒 Security Guarantees
 
@@ -387,7 +387,7 @@ if image_hash != expected_hash:
 - Legal recourse for violations
 - Enterprise customers sign contract
 
----
+--
 
 ## 📊 Revenue Projections
 
@@ -417,7 +417,7 @@ if image_hash != expected_hash:
 
 **After costs (30%):** ~$720k/year profit
 
----
+--
 
 ## 🎬 Next Steps
 
@@ -449,7 +449,7 @@ if image_hash != expected_hash:
 - [ ] Train support team
 - [ ] Set up customer portal
 
----
+--
 
 ## 📞 Support Requirements
 
@@ -475,7 +475,7 @@ if image_hash != expected_hash:
    - Admin guide (TODO)
    - API documentation (TODO)
 
----
+--
 
 ## ✅ Implementation Checklist
 
@@ -518,7 +518,7 @@ if image_hash != expected_hash:
 - [ ] Set up billing for renewals
 - [ ] Create sales page for Enterprise tier
 
----
+--
 
 ## 🚀 Ready to Deploy!
 

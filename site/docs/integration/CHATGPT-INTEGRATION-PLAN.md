@@ -2,7 +2,7 @@
 
 **Integration Goal:** Enterprise-grade ChatGPT integration with custom project workspaces, user-provided API keys, and multi-platform support.
 
----
+--
 
 ## 🎯 Feature Overview
 
@@ -33,7 +33,7 @@
    - File attachment support
    - Voice input (platform-specific)
 
----
+--
 
 ## 🏗️ Architecture Design
 
@@ -81,7 +81,7 @@ User Input → ChatViewModel → ChatGptService → Flask API
                 Store in Conversation History (per Project)
 ```
 
----
+--
 
 ## 📊 Database Schema Extensions
 
@@ -95,7 +95,7 @@ CREATE TABLE projects (
     user_id INTEGER NOT NULL,
     name VARCHAR(255) NOT NULL,
     description TEXT,
-    custom_instructions TEXT,           -- Project-specific system prompt
+    custom_instructions TEXT,           - Project-specific system prompt
     model_preference VARCHAR(50) DEFAULT 'gpt-5.2',
     max_tokens INTEGER DEFAULT 4000,
     temperature FLOAT DEFAULT 0.7,
@@ -112,7 +112,7 @@ CREATE TABLE conversations (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     project_id INTEGER NOT NULL,
     user_id INTEGER NOT NULL,
-    title VARCHAR(255),                 -- Auto-generated from first message
+    title VARCHAR(255),                 - Auto-generated from first message
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (project_id) REFERENCES projects(id),
@@ -126,7 +126,7 @@ CREATE TABLE conversations (
 CREATE TABLE messages (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     conversation_id INTEGER NOT NULL,
-    role VARCHAR(20) NOT NULL,          -- 'system', 'user', 'assistant'
+    role VARCHAR(20) NOT NULL,          - 'system', 'user', 'assistant'
     content TEXT NOT NULL,
     tokens_used INTEGER,
     model VARCHAR(50),
@@ -141,10 +141,10 @@ CREATE TABLE messages (
 CREATE TABLE user_api_keys (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER NOT NULL,
-    provider VARCHAR(50) NOT NULL,      -- 'openai', 'anthropic', etc.
-    encrypted_key TEXT NOT NULL,        -- AES-256 encrypted
+    provider VARCHAR(50) NOT NULL,      - 'openai', 'anthropic', etc.
+    encrypted_key TEXT NOT NULL,        - AES-256 encrypted
     is_active BOOLEAN DEFAULT TRUE,
-    quota_used INTEGER DEFAULT 0,       -- Track usage
+    quota_used INTEGER DEFAULT 0,       - Track usage
     last_validated DATETIME,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id)
@@ -157,17 +157,17 @@ CREATE TABLE user_api_keys (
 CREATE TABLE document_contexts (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     project_id INTEGER NOT NULL,
-    file_id INTEGER NOT NULL,           -- Reference to uploaded file
-    extracted_text TEXT,                -- Text extracted from PDF
-    chunk_index INTEGER,                -- For large documents
-    embedding_vector BLOB,              -- Optional: for semantic search
+    file_id INTEGER NOT NULL,           - Reference to uploaded file
+    extracted_text TEXT,                - Text extracted from PDF
+    chunk_index INTEGER,                - For large documents
+    embedding_vector BLOB,              - Optional: for semantic search
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (project_id) REFERENCES projects(id),
     FOREIGN KEY (file_id) REFERENCES pdf_uploads(id)
 );
 ```
 
----
+--
 
 ## 🔌 API Endpoints (Flask Backend)
 
@@ -385,7 +385,7 @@ Extract text from uploaded PDF for chat context.
 }
 ```
 
----
+--
 
 ## 💾 MAUI Models (ApiModels.cs)
 
@@ -584,7 +584,7 @@ public class PdfTextExtractionResponse
 }
 ```
 
----
+--
 
 ## 🔧 Implementation Priority
 
@@ -628,7 +628,7 @@ public class PdfTextExtractionResponse
 4. Performance optimization
 5. UI polish
 
----
+--
 
 ## 🎨 UI Design Mockups
 
@@ -708,7 +708,7 @@ public class PdfTextExtractionResponse
 └─────────────────────────────────────────┘
 ```
 
----
+--
 
 ## 🔐 Security Considerations
 
@@ -732,7 +732,7 @@ public class PdfTextExtractionResponse
 - Track token usage per user
 - Implement exponential backoff for failures
 
----
+--
 
 ## 📱 Multi-Platform Optimizations
 
@@ -754,7 +754,7 @@ public class PdfTextExtractionResponse
 - Notification channels for responses
 - Share intent for sending files
 
----
+--
 
 **Next Step:** Start implementing backend API endpoints for chat functionality.
 

@@ -52,4 +52,3 @@ See `.env.template` for required configuration.
 ## Related Repositories
 
 - [Evident.info](https://github.com/DTB396/Evident.info) - Marketing website (Jekyll/GitHub Pages)
-

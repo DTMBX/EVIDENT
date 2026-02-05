@@ -113,7 +113,7 @@ No JavaScript changes needed - pure CSS fix.
 3. Test password reveal feature
 4. Text should stay properly positioned
 
----
+--
 
 **Status:** FIXED ✅  
 **Date:** 2026-01-30  

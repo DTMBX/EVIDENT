@@ -35,9 +35,9 @@
   let navOverlay = null;
   let lastFocusedEl = null;
 
-  // -------------------------
+  // -------------
   // Scroll handling (RAF)
-  // -------------------------
+  // -------------
 
   function handleScroll() {
     lastScroll = window.pageYOffset || document.documentElement.scrollTop || 0;
@@ -61,9 +61,9 @@
     }
   }
 
-  // -------------------------
+  // -------------
   // Mobile nav overlay
-  // -------------------------
+  // -------------
 
   function createNavOverlay() {
     if (navOverlay) return navOverlay;
@@ -77,9 +77,9 @@
     return navOverlay;
   }
 
-  // -------------------------
+  // -------------
   // Mobile nav open/close
-  // -------------------------
+  // -------------
 
   function openNav() {
     if (!nav || !navToggle) return;
@@ -164,9 +164,9 @@
     }
   }
 
-  // -------------------------
+  // -------------
   // Smooth scroll (same-page only)
-  // -------------------------
+  // -------------
 
   function initSmoothScroll() {
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
@@ -214,9 +214,9 @@
     });
   }
 
-  // -------------------------
+  // -------------
   // Current page highlighting
-  // -------------------------
+  // -------------
 
   function normalizePath(pathname) {
     if (!pathname) return "/";
@@ -250,9 +250,9 @@
     });
   }
 
-  // -------------------------
+  // -------------
   // Init
-  // -------------------------
+  // -------------
 
   function init() {
     // Scroll state

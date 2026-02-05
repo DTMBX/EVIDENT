@@ -3,13 +3,13 @@
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google Tag Manager -->
+    <!-- Google Tag Manager ->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-WLMC86');</script>
-  <!-- End Google Tag Manager -->
+  <!-- End Google Tag Manager ->
   <meta name="referrer" content="no-referrer-when-downgrade">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" href="https://www.archives.gov/files/apple-icon.png" type="image/png" />
@@ -75,7 +75,7 @@
 @import url("https://www.archives.gov/sites/all/themes/nara/css/mediagallery.css?t9kh06");
 @import url("https://www.archives.gov/sites/all/themes/nara/css/dataTables.bootstrap.min.css?t9kh06");
 </style>
-  <!-- HTML5 element support for IE6-8 -->
+  <!-- HTML5 element support for IE6-8 ->
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
@@ -180,10 +180,10 @@ table.sortable-onload-0  tr:nth-of-type(odd) {
     ]
 }</script></head>
 <body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-39615 node-type-3-col-page " >
-<!-- Google Tag Manager (noscript) -->
+<!-- Google Tag Manager (noscript) ->
 <noscript><iframe alt="Google Tag Manager" src="https://www.googletagmanager.com/ns.html?id=GTM-WLMC86"
 height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<!-- End Google Tag Manager (noscript) ->
 
 <div id='background-gradient'>
 
@@ -236,7 +236,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 
 </section>
   </div>
-  </header> <!-- /#page-header -->
+  </header> <!-- /#page-header ->
 
   
       <nav id="main-nav" class="clearfix ">
@@ -245,14 +245,14 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 <li class="menu-861 teachers"><a href="/education" title="Engage students with lesson plans and other classroom materials." id="teachers" class="teachers">Educator Resources</a></li>
 <li class="menu-862 locations"><a href="/locations" title="Plan a trip to a facility near you or learn about our national network of locations and services." id="locations" class="locations">Visit Us</a></li>
 <li class="menu-367 last shop"><a href="/founding-docs" title="Order books, gift items, photographic prints, and document reproductions online." id="shop" class="shop">America&#039;s Founding Documents</a></li>
-</ul>    </nav><!-- /main-nav -->
+</ul>    </nav><!-- /main-nav ->
   
 <div class='page-body-wrapper'>
   <div id="page-body" class="no-sidebar">
     <header id="title-bar">
                     <p>America's Founding Documents</p>
                             <div class="breadcrumb">
-                <a href="/">Home</a> &gt; <a href="/founding-docs">America&#039;s Founding Documents</a> &gt; Declaration of Independence Transcript            </div><!-- /breadcrumbs -->
+                <a href="/">Home</a> &gt; <a href="/founding-docs">America&#039;s Founding Documents</a> &gt; Declaration of Independence Transcript            </div><!-- /breadcrumbs ->
             </header>
 
     <div class="row">
@@ -278,7 +278,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 <ul>
 <li><a href="/founding-docs/making-the-docs/">Making the Documents</a></li>
 <li><a href="/founding-docs/impact/">The Documents' Impact</a></li>
-</ul>-->
+</ul>->
 
 <h3>Special Features</h3>
 
@@ -304,7 +304,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 </ul>
   
 </nav>
-          </aside>  <!-- /#sidebar-first -->
+          </aside>  <!-- /#sidebar-first ->
         </nav>
       
               <div id="main-col" class="col-sm-7">
@@ -349,7 +349,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 
 <p><strong>The unanimous Declaration of the thirteen united States of America,</strong> When in the Course of human events, it becomes necessary for one people to dissolve the political bands which have connected them with another, and to assume among the powers of the earth, the separate and equal station to which the Laws of Nature and of Nature's God entitle them, a decent respect to the opinions of mankind requires that they should declare the causes which impel them to the separation.</p>
 
-<p>We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.--That to secure these rights, Governments are instituted among Men, deriving their just powers from the consent of the governed, --That whenever any Form of Government becomes destructive of these ends, it is the Right of the People to alter or to abolish it, and to institute new Government, laying its foundation on such principles and organizing its powers in such form, as to them shall seem most likely to effect their Safety and Happiness. Prudence, indeed, will dictate that Governments long established should not be changed for light and transient causes; and accordingly all experience hath shewn, that mankind are more disposed to suffer, while evils are sufferable, than to right themselves by abolishing the forms to which they are accustomed. But when a long train of abuses and usurpations, pursuing invariably the same Object evinces a design to reduce them under absolute Despotism, it is their right, it is their duty, to throw off such Government, and to provide new Guards for their future security.--Such has been the patient sufferance of these Colonies; and such is now the necessity which constrains them to alter their former Systems of Government. The history of the present King of Great Britain is a history of repeated injuries and usurpations, all having in direct object the establishment of an absolute Tyranny over these States. To prove this, let Facts be submitted to a candid world.</p>
+<p>We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.--That to secure these rights, Governments are instituted among Men, deriving their just powers from the consent of the governed, -That whenever any Form of Government becomes destructive of these ends, it is the Right of the People to alter or to abolish it, and to institute new Government, laying its foundation on such principles and organizing its powers in such form, as to them shall seem most likely to effect their Safety and Happiness. Prudence, indeed, will dictate that Governments long established should not be changed for light and transient causes; and accordingly all experience hath shewn, that mankind are more disposed to suffer, while evils are sufferable, than to right themselves by abolishing the forms to which they are accustomed. But when a long train of abuses and usurpations, pursuing invariably the same Object evinces a design to reduce them under absolute Despotism, it is their right, it is their duty, to throw off such Government, and to provide new Guards for their future security.--Such has been the patient sufferance of these Colonies; and such is now the necessity which constrains them to alter their former Systems of Government. The history of the present King of Great Britain is a history of repeated injuries and usurpations, all having in direct object the establishment of an absolute Tyranny over these States. To prove this, let Facts be submitted to a candid world.</p>
 
 <div class="space-left">
   <p>He has refused his Assent to Laws, the most wholesome and necessary for the public good.</p>
@@ -660,12 +660,12 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
   <div class="dynamic-widget"><p><a class="moreLink" href="https://www.nationalarchivesstore.org/collections/documents?utm_campaign=2019eStore&amp;utm_medium=website&amp;utm_source=nara&amp;utm_content=organic">Shop the <strong>National Archives Store</strong></a></p>
 </div>
 </div>
-                            </aside>  <!-- /#sidebar-second -->
+                            </aside>  <!-- /#sidebar-second ->
       </div>
     
   </div>
 </div>
-</div> <!-- page-body-wrapper -->
+</div> <!-- page-body-wrapper ->
   <footer id="page-footer">
     <div class="clearfix row last-update-wrapper ">
       <p id="last-update">
@@ -761,7 +761,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 
 
 
-</div>-->
+</div>->
 
 <div class="mega-col panel panel-default">
   <div class="panel-heading">
@@ -883,7 +883,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 </section>
   </div>
       </section>
-      </footer><!-- /page-footer -->
+      </footer><!-- /page-footer ->
 
 </div>
 
@@ -916,6 +916,6 @@ $('.toc').toc({
   }
 }());
 </script>
-</div> <!-- end -->
+</div> <!-- end ->
 </body>
 </html>

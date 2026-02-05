@@ -22,7 +22,7 @@ This minimal installation gives you **core eDiscovery capabilities** with ~2GB i
 - ❌ YOLOv8 (ultralytics) - Object detection (~2GB)
 - ❌ basicsr - Image processing backend (~1GB)
 
----
+--
 
 ## Quick Installation Script
 
@@ -38,7 +38,7 @@ python -m spacy download en_core_web_md
 # https://github.com/UB-Mannheim/tesseract/wiki
 ```
 
----
+--
 
 ## What You CAN Still Do (With Essential Tools)
 
@@ -63,7 +63,7 @@ python -m spacy download en_core_web_md
 - Build timelines automatically
 - Extract entities from reports
 
----
+--
 
 ## What You CAN'T Do (Without Optional Tools)
 
@@ -79,7 +79,7 @@ python -m spacy download en_core_web_md
 - Scene analysis
 - **Workaround:** Manual review or add later
 
----
+--
 
 ## Disk Space Cleanup Commands
 
@@ -107,7 +107,7 @@ Get-ChildItem -Path C:\ -Directory -ErrorAction SilentlyContinue |
   } | Sort-Object SizeGB -Descending | Select-Object -First 10
 ```
 
----
+--
 
 ## Recommended Next Steps
 
@@ -132,7 +132,7 @@ Get-ChildItem -Path C:\ -Directory -ErrorAction SilentlyContinue |
 3. Run full installation there
 4. Requires updating PATH variables
 
----
+--
 
 ## Current Installation Status
 
@@ -156,7 +156,7 @@ Based on the errors, here's what succeeded:
 
 **You already have 70% of the core functionality working!**
 
----
+--
 
 ## Modified local_ai_service.py for Essential-Only
 
@@ -184,7 +184,7 @@ def detect_objects(self, image_or_video, confidence=0.25):
     # ... rest of method
 ```
 
----
+--
 
 ## Storage Requirements
 
@@ -205,7 +205,7 @@ def detect_objects(self, image_or_video, confidence=0.25):
 |                       |             |
 | **GRAND TOTAL**       | **~8.5 GB** |
 
----
+--
 
 ## Conclusion
 

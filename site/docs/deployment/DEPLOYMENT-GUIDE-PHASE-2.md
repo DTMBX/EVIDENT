@@ -6,7 +6,7 @@
 🔧 **Phase 2 In Progress:** MAUI services 50% complete  
 📋 **Next:** Deploy API to production and complete MAUI layer
 
----
+--
 
 ## 🚀 Part 1: Deploy API to Production (Render.com)
 
@@ -137,7 +137,7 @@ curl -X POST https://Evident.info/api/v1/auth/register \
 3. Set base URL: `https://Evident.info`
 4. Run test suite against production
 
----
+--
 
 ## 🔧 Part 2: Complete MAUI Services
 
@@ -220,7 +220,7 @@ public static MauiApp CreateMauiApp()
 }
 ```
 
----
+--
 
 ## 📱 Part 3: Build ViewModels (MVVM Pattern)
 
@@ -294,14 +294,14 @@ public class LoginViewModel : BaseViewModel
 }
 ```
 
----
+--
 
 ## 🖼️ Part 4: Create UI Pages (XAML)
 
 ### LoginPage.xaml
 
 ```xml
-<!-- Location: src/Evident.MatterDocket.MAUI/Views/LoginPage.xaml -->
+<!-- Location: src/Evident.MatterDocket.MAUI/Views/LoginPage.xaml ->
 
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -352,7 +352,7 @@ public class LoginViewModel : BaseViewModel
 </ContentPage>
 ```
 
----
+--
 
 ## ✅ Deployment Checklist
 
@@ -397,7 +397,7 @@ public class LoginViewModel : BaseViewModel
 - [ ] Monitor error logs for 24 hours
 - [ ] Update documentation with production URLs
 
----
+--
 
 ## 🐛 Troubleshooting
 
@@ -439,7 +439,7 @@ postgresql://user:password@host:5432/database
 python -c "from app import db; db.create_all(); print('OK')"
 ```
 
----
+--
 
 ## 📊 Success Metrics
 
@@ -453,7 +453,7 @@ After deployment, verify:
 6. **Performance:** Response time < 2 seconds
 7. **Uptime:** 99.9% availability (monitor with Render.com)
 
----
+--
 
 ## 🚀 Next Phase
 
@@ -487,6 +487,6 @@ After successful deployment:
    - iOS: TestFlight beta
    - Android: Google Play Internal Testing
 
----
+--
 
 **Ready to deploy?** Run the commands in Part 1 to push to production! 🚀

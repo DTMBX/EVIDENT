@@ -2,7 +2,7 @@
 
 **Status:** Code updated and ready. Just need API key!
 
----
+--
 
 ## ✅ What I Just Did
 
@@ -33,7 +33,7 @@ if api_key:
     headers['Authorization'] = f'Token {api_key}'
 ```
 
----
+--
 
 ## 🚀 Setup Instructions
 
@@ -46,7 +46,7 @@ if api_key:
    - OR: Profile → API → "Get API Token"
 4. **Copy your token** (looks like: `a1b2c3d4e5f6...`)
 
----
+--
 
 ### Step 2: Add to Render (2 minutes)
 
@@ -64,7 +64,7 @@ if api_key:
 6. Click **"Save Changes"**
 7. ✅ Render will auto-deploy in ~2 minutes
 
----
+--
 
 ### Step 3: Add to Local Development (1 minute)
 
@@ -84,10 +84,10 @@ Or set environment variable:
 $env:COURTLISTENER_API_KEY="your_api_token_here"
 
 # Then run:
-python overnight_library_builder.py --practice-area all
+python overnight_library_builder.py -practice-area all
 ```
 
----
+--
 
 ### Step 4: Test It! (2 minutes)
 
@@ -95,7 +95,7 @@ python overnight_library_builder.py --practice-area all
 
 ```powershell
 cd C:\web-dev\github-repos\Evident.info
-python overnight_library_builder.py --practice-area civil_rights --max-cases 3
+python overnight_library_builder.py -practice-area civil_rights -max-cases 3
 ```
 
 **Expected output:**
@@ -115,7 +115,7 @@ SUCCESS RATE: 100%
 Total cases in library: 3
 ```
 
----
+--
 
 ## 📊 What Will Import
 
@@ -160,31 +160,31 @@ Total cases in library: 3
 - Marbury v. Madison
 - McCulloch v. Maryland
 
----
+--
 
 ## 🎯 Import Commands
 
 ### Test with 3 cases:
 
 ```powershell
-python overnight_library_builder.py --practice-area civil_rights --max-cases 3
+python overnight_library_builder.py -practice-area civil_rights -max-cases 3
 ```
 
 ### Import all 27 foundation cases:
 
 ```powershell
-python overnight_library_builder.py --practice-area all
+python overnight_library_builder.py -practice-area all
 ```
 
 ### Import by practice area:
 
 ```powershell
-python overnight_library_builder.py --practice-area criminal_defense
-python overnight_library_builder.py --practice-area employment
-python overnight_library_builder.py --practice-area constitutional
+python overnight_library_builder.py -practice-area criminal_defense
+python overnight_library_builder.py -practice-area employment
+python overnight_library_builder.py -practice-area constitutional
 ```
 
----
+--
 
 ## 🔍 Verify It Worked
 
@@ -211,7 +211,7 @@ logs/overnight_import_20260127.log
 logs/import_report_20260127_*.json
 ```
 
----
+--
 
 ## ✅ Success Checklist
 
@@ -224,7 +224,7 @@ logs/import_report_20260127_*.json
 - [ ] Verified cases in database
 - [ ] Checked API endpoint returns results
 
----
+--
 
 ## 🐛 Troubleshooting
 
@@ -246,9 +246,9 @@ logs/import_report_20260127_*.json
 ### No errors but 0 imported
 
 **Problem:** Rate limiting or network issue  
-**Fix:** Add `--delay 3` flag to slow down requests
+**Fix:** Add `-delay 3` flag to slow down requests
 
----
+--
 
 ## 📈 Next Steps After Import
 
@@ -270,11 +270,11 @@ curl -X POST https://Evident.onrender.com/api/chatgpt/assist \
 
 ```powershell
 # Windows Task Scheduler
-# Run: python overnight_library_builder.py --practice-area all
+# Run: python overnight_library_builder.py -practice-area all
 # Schedule: Daily at 2 AM
 ```
 
----
+--
 
 ## 💰 CourtListener API Limits
 
@@ -293,7 +293,7 @@ curl -X POST https://Evident.onrender.com/api/chatgpt/assist \
 
 **Total:** Well within free tier limits!
 
----
+--
 
 ## 🎉 Result
 

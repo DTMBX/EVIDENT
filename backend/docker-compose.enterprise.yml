@@ -150,4 +150,3 @@ volumes:
 networks:
   Evident-network:
     driver: bridge
-

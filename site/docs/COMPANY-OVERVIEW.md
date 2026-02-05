@@ -6,7 +6,7 @@
 
 **Evident Legal Technologies** is a professional-grade software platform specializing in court-defensible forensic analysis of body-worn camera (BWC) footage for civil rights litigation, law enforcement accountability, and legal research.
 
----
+--
 
 ## 🚀 Platform Features
 
@@ -76,7 +76,7 @@
 - **Analyzer Interface:** Drag-and-drop BWC upload
 - **Responsive Design:** Mobile-friendly layouts
 
----
+--
 
 ## 📊 Business Model
 
@@ -121,7 +121,7 @@
 - **Open Source:** MIT license builds trust
 - **Specialization:** Purpose-built for legal use cases
 
----
+--
 
 ## 🛠️ Technical Stack
 
@@ -154,7 +154,7 @@
 - **Database:** SQLite → PostgreSQL migration path
 - **File Storage:** Local filesystem → S3 (future)
 
----
+--
 
 ## 📈 Scaling Roadmap
 
@@ -190,7 +190,7 @@
 - [ ] Multi-language support
 - [ ] Real-time analysis (streaming)
 
----
+--
 
 ## 🔒 Compliance & Legal
 
@@ -222,7 +222,7 @@
 - User rights (access, deletion)
 - Cookie policy
 
----
+--
 
 ## 💼 Go-to-Market Strategy
 
@@ -265,7 +265,7 @@
    - Webinars: "BWC Analysis for Litigators"
    - Conference sponsorships
 
----
+--
 
 ## 📊 Key Metrics
 
@@ -292,7 +292,7 @@
 - **Avg processing time**
 - **Storage usage per user**
 
----
+--
 
 ## 🚀 Getting Started (For Developers)
 
@@ -335,7 +335,7 @@ $env:UPLOAD_FOLDER = "C:\\uploads"
 $env:ANALYSIS_FOLDER = "C:\\analysis"
 ```
 
----
+--
 
 ## 📁 Project Structure
 
@@ -368,7 +368,7 @@ Evident.info/
     └── COMPANY-OVERVIEW.md         # This file
 ```
 
----
+--
 
 ## 🤝 Contributing
 
@@ -394,13 +394,13 @@ We welcome contributions! Areas of focus:
    - Integration tests
    - Load testing
 
----
+--
 
 ## 📄 License
 
 MIT License - Free and open source
 
----
+--
 
 ## 📞 Contact
 
@@ -410,7 +410,7 @@ MIT License - Free and open source
 - **Support:** support@Evident.info
 - **GitHub:** https://github.com/Evident/Evident.info
 
----
+--
 
 **Evident Legal Technologies**  
 _Empowering Justice Through Technology_  

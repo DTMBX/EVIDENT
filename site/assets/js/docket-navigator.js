@@ -290,7 +290,7 @@
         .map(
           (item) => `
         <article class="docket-card" tabindex="0">
-          <span class="docket-card-type docket-card-type--${(item.type || "other").toLowerCase()}">${this.escapeHtml(item.type || "Document")}</span>
+          <span class="docket-card-type docket-card-type-${(item.type || "other").toLowerCase()}">${this.escapeHtml(item.type || "Document")}</span>
           <time class="docket-card-date" datetime="${this.escapeHtml(item.date)}">${this.formatDate(item.date)}</time>
           <h3 class="docket-card-title">${this.escapeHtml(item.title || "Untitled Document")}</h3>
           ${item.notes ? `<p class="docket-card-notes">${this.escapeHtml(item.notes)}</p>` : ""}
@@ -374,7 +374,7 @@
                 : "Docket entries will appear here once documents are filed."
             }
           </p>
-          ${hasFilters ? `<button class="btn btn--ghost btn--sm" onclick="this.closest('.docket-navigator').dispatchEvent(new CustomEvent('reset-filters'))">Clear Filters</button>` : ""}
+          ${hasFilters ? `<button class="btn btn-ghost btn-sm" onclick="this.closest('.docket-navigator').dispatchEvent(new CustomEvent('reset-filters'))">Clear Filters</button>` : ""}
         </div>
       `;
     }

@@ -43,6 +43,6 @@
 
 - Click **Analyze Another Video** to repeat the process for a new file.
 
----
+--
 
 **All processing is 100% local for privacy and security. No data leaves your device.**

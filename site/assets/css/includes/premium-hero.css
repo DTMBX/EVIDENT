@@ -79,7 +79,7 @@
    HERO CONTENT CONTAINER
    ============================================ */
 
-.premium-hero__container {
+.premium-hero-container {
   position: relative;
   z-index: 1;
   max-width: 1200px;
@@ -87,7 +87,7 @@
   width: 100%;
 }
 
-.premium-hero__inner {
+.premium-hero-inner {
   text-align: center;
   animation: premium-hero-fade-in 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   opacity: 0;
@@ -109,7 +109,7 @@
    HERO EYEBROW
    ============================================ */
 
-.premium-hero__eyebrow {
+.premium-hero-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -128,7 +128,7 @@
   opacity: 0;
 }
 
-.premium-hero__eyebrow-icon {
+.premium-hero-eyebrow-icon {
   width: 16px;
   height: 16px;
   opacity: 0.8;
@@ -138,7 +138,7 @@
    HERO TITLE
    ============================================ */
 
-.premium-hero__title {
+.premium-hero-title {
   font-size: clamp(1.7rem, 4vw, 2.7rem);
   font-weight: 800;
   line-height: 1.12;
@@ -160,7 +160,7 @@
    HERO LEAD
    ============================================ */
 
-.premium-hero__lead {
+.premium-hero-lead {
   font-size: clamp(1.125rem, 2vw, 1.5rem);
   line-height: 1.6;
   max-width: 700px;
@@ -175,7 +175,7 @@
    HERO ACTIONS
    ============================================ */
 
-.premium-hero__actions {
+.premium-hero-actions {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -185,7 +185,7 @@
   opacity: 0;
 }
 
-.premium-hero__button {
+.premium-hero-button {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -200,7 +200,7 @@
   overflow: hidden;
 }
 
-.premium-hero__button::before {
+.premium-hero-button::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -213,12 +213,12 @@
   transition: opacity 0.3s ease;
 }
 
-.premium-hero__button:hover::before {
+.premium-hero-button:hover::before {
   opacity: 1;
 }
 
 /* Primary button */
-.premium-hero__button--primary {
+.premium-hero-button-primary {
   background: linear-gradient(
     135deg,
     var(--accent-brass, #d4a574) 0%,
@@ -228,20 +228,20 @@
   box-shadow: 0 10px 30px rgb(212 165 116 / 30%);
 }
 
-.premium-hero__button--primary:hover {
+.premium-hero-button-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 15px 40px rgb(212 165 116 / 40%);
 }
 
 /* Secondary button */
-.premium-hero__button--secondary {
+.premium-hero-button-secondary {
   background: transparent;
   border-color: rgb(212 165 116 / 50%);
   color: var(--accent-brass, #d4a574);
   backdrop-filter: blur(10px);
 }
 
-.premium-hero__button--secondary:hover {
+.premium-hero-button-secondary:hover {
   background: rgb(212 165 116 / 10%);
   border-color: var(--accent-brass, #d4a574);
   transform: translateY(-2px);
@@ -251,7 +251,7 @@
    HERO HIGHLIGHTS (Feature Cards)
    ============================================ */
 
-.premium-hero__highlights {
+.premium-hero-highlights {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
@@ -263,7 +263,7 @@
   opacity: 0;
 }
 
-.premium-hero__card {
+.premium-hero-card {
   position: relative;
   padding: 2rem;
   background: rgb(42 40 38 / 60%);
@@ -274,7 +274,7 @@
   overflow: hidden;
 }
 
-.premium-hero__card::before {
+.premium-hero-card::before {
   content: "";
   position: absolute;
   top: 0;
@@ -291,18 +291,18 @@
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.premium-hero__card:hover {
+.premium-hero-card:hover {
   background: rgb(42 40 38 / 80%);
   border-color: var(--accent-brass, #d4a574);
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgb(0 0 0 / 40%);
 }
 
-.premium-hero__card:hover::before {
+.premium-hero-card:hover::before {
   transform: scaleX(1);
 }
 
-.premium-hero__card-label {
+.premium-hero-card-label {
   display: block;
   font-size: 0.875rem;
   font-weight: 700;
@@ -312,7 +312,7 @@
   margin-bottom: 0.75rem;
 }
 
-.premium-hero__card-text {
+.premium-hero-card-text {
   font-size: 1rem;
   line-height: 1.6;
   color: rgb(249 250 251 / 95%); /* Increased opacity for better contrast */
@@ -323,7 +323,7 @@
    SCROLL INDICATOR - HIDDEN BY DEFAULT
    ============================================ */
 
-.premium-hero__scroll {
+.premium-hero-scroll {
   display: none; /* Hidden - causes floating scroll under sections */
   position: absolute;
   bottom: 2rem;
@@ -350,7 +350,7 @@
   }
 }
 
-.premium-hero__scroll-icon {
+.premium-hero-scroll-icon {
   width: 24px;
   height: 36px;
   border: 2px solid rgb(212 165 116 / 40%);
@@ -358,7 +358,7 @@
   position: relative;
 }
 
-.premium-hero__scroll-icon::before {
+.premium-hero-scroll-icon::before {
   content: "";
   position: absolute;
   top: 6px;
@@ -394,42 +394,42 @@
     padding: 6rem 1.5rem 3rem;
   }
 
-  .premium-hero__title {
+  .premium-hero-title {
     font-size: clamp(2rem, 8vw, 3rem);
   }
 
-  .premium-hero__lead {
+  .premium-hero-lead {
     font-size: 1.125rem;
   }
 
-  .premium-hero__actions {
+  .premium-hero-actions {
     flex-direction: column;
     width: 100%;
   }
 
-  .premium-hero__button {
+  .premium-hero-button {
     width: 100%;
     justify-content: center;
   }
 
-  .premium-hero__highlights {
+  .premium-hero-highlights {
     grid-template-columns: 1fr;
     gap: 1.5rem;
     margin-top: 3rem;
   }
 
-  .premium-hero__scroll {
+  .premium-hero-scroll {
     display: none;
   }
 }
 
 /* Tablet breakpoint for 2-column grid */
 @media (width >= 769px) and (width <= 1024px) {
-  .premium-hero__highlights {
+  .premium-hero-highlights {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .premium-hero__card:last-child {
+  .premium-hero-card:last-child {
     grid-column: span 2;
     max-width: 50%;
     margin: 0 auto;
@@ -442,26 +442,26 @@
 
 @media (prefers-reduced-motion: reduce) {
   .premium-hero::before,
-  .premium-hero__inner,
-  .premium-hero__eyebrow,
-  .premium-hero__title,
-  .premium-hero__lead,
-  .premium-hero__actions,
-  .premium-hero__highlights,
-  .premium-hero__card,
-  .premium-hero__scroll {
+  .premium-hero-inner,
+  .premium-hero-eyebrow,
+  .premium-hero-title,
+  .premium-hero-lead,
+  .premium-hero-actions,
+  .premium-hero-highlights,
+  .premium-hero-card,
+  .premium-hero-scroll {
     animation: none;
     opacity: 1;
   }
 
-  .premium-hero__button,
-  .premium-hero__card {
+  .premium-hero-button,
+  .premium-hero-card {
     transition: none;
   }
 }
 
 /* Focus states */
-.premium-hero__button:focus {
+.premium-hero-button:focus {
   outline: 3px solid var(--accent-brass, #d4a574);
   outline-offset: 4px;
 }
@@ -483,13 +483,13 @@
     display: none;
   }
 
-  .premium-hero__title {
+  .premium-hero-title {
     color: black;
     -webkit-text-fill-color: unset;
   }
 
-  .premium-hero__scroll,
-  .premium-hero__actions {
+  .premium-hero-scroll,
+  .premium-hero-actions {
     display: none;
   }
 }

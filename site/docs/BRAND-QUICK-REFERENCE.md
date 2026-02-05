@@ -3,7 +3,7 @@
 **EST. 2024 | A CUT ABOVE**  
 _Like a fresh NYC fade — clean, rounded, crisp_
 
----
+--
 
 ## 🎨 Colors
 
@@ -13,7 +13,7 @@ _Like a fresh NYC fade — clean, rounded, crisp_
   /* Brass Accents */ --brass-gold: #ffd700 --brass-mid: #d4a574;
 ```
 
----
+--
 
 ## 📐 Spacing (4px Grid)
 
@@ -22,7 +22,7 @@ _Like a fresh NYC fade — clean, rounded, crisp_
   /* 24px */ --space-8: 2rem /* 32px */ --space-12: 3rem /* 48px */;
 ```
 
----
+--
 
 ## 🔘 Border Radius
 
@@ -31,7 +31,7 @@ _Like a fresh NYC fade — clean, rounded, crisp_
   /* Pills & circles */;
 ```
 
----
+--
 
 ## ⚡ Transitions
 
@@ -42,7 +42,7 @@ _Like a fresh NYC fade — clean, rounded, crisp_
 
 **Easing:** `cubic-bezier(0.4, 0, 0.2, 1)` (smooth)
 
----
+--
 
 ## 💈 Barber Pole Sizes
 
@@ -54,7 +54,7 @@ _Like a fresh NYC fade — clean, rounded, crisp_
 | `large`  | 56×180px   | Prominent sections |
 | `hero`   | 70×220px   | Homepage hero      |
 
----
+--
 
 ## 🔧 Usage
 
@@ -74,7 +74,7 @@ barber_pole_size: medium # Size variant
 barber_pole_position: fixed # fixed|absolute|static
 ```
 
----
+--
 
 ## 📝 Brand Copy
 
@@ -84,7 +84,7 @@ barber_pole_position: fixed # fixed|absolute|static
 **Location:** "Built with precision in NYC"  
 **Philosophy:** "Like a fresh fade — clean, rounded, crisp"
 
----
+--
 
 ## ✅ Checklist for New Pages
 
@@ -96,7 +96,7 @@ barber_pole_position: fixed # fixed|absolute|static
 - [ ] Test with reduced motion
 - [ ] Verify mobile responsive
 
----
+--
 
 ## 📚 Full Documentation
 
@@ -104,6 +104,6 @@ barber_pole_position: fixed # fixed|absolute|static
 - **Implementation Summary:** `docs/BRANDING-IMPLEMENTATION-SUMMARY.md`
 - **Visual Test:** Open `branding-test.html` in browser
 
----
+--
 
 **Remember:** Every pixel matters. Measure twice, code once. 💈✂️

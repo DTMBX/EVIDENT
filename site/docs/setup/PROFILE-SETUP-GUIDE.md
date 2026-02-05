@@ -36,7 +36,7 @@ Get-Content "C:\web-dev\github-repos\Evident.info\Evident-Profile.ps1" | Add-Con
 # 🚀 Evident Development Environment Loaded!
 ```
 
----
+--
 
 ## Available Commands
 
@@ -137,7 +137,7 @@ Reset-DB
 | `bmenu`            | Show command menu             |
 | `Show-EvidentMenu` | Show command menu (full name) |
 
----
+--
 
 ## Workflow Examples
 
@@ -208,7 +208,7 @@ Migrate-DB "migrate_add_chatgpt.py"
 python -c "from api.chatgpt import Project; print('✅ ChatGPT tables loaded')"
 ```
 
----
+--
 
 ## Customization
 
@@ -250,7 +250,7 @@ Uncomment the last line to auto-cd to Evident on PowerShell start:
 br  # Uncomment this line
 ```
 
----
+--
 
 ## Troubleshooting
 
@@ -284,7 +284,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 . $PROFILE
 ```
 
----
+--
 
 ## Tips & Tricks
 
@@ -332,7 +332,7 @@ $Script:Colors = @{
 }
 ```
 
----
+--
 
 **Installation Time:** 2 minutes  
 **Commands Added:** 20+  

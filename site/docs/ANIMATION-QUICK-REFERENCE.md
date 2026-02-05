@@ -21,7 +21,7 @@
 
 ### 3. Done! 🎉
 
----
+--
 
 ## 📋 Animation Classes Cheat Sheet
 
@@ -57,18 +57,18 @@
 | `.bounce`  | Bouncing motion    |
 | `.float`   | Floating up/down   |
 
----
+--
 
 ## 🔧 Data Attributes
 
 ### Animated Counters
 
 ```html
-<h3 data-counter="5000"           <!-- Target number -->
-    data-counter-start="0"        <!-- Start from (default: 0) -->
-    data-counter-suffix="+"       <!-- Add after (optional) -->
-    data-counter-prefix="$"       <!-- Add before (optional) -->
-    data-counter-duration="2000"> <!-- Duration in ms -->
+<h3 data-counter="5000"           <!-- Target number ->
+    data-counter-start="0"        <!-- Start from (default: 0) ->
+    data-counter-suffix="+"       <!-- Add after (optional) ->
+    data-counter-prefix="$"       <!-- Add before (optional) ->
+    data-counter-duration="2000"> <!-- Duration in ms ->
   0
 </h3>
 ```
@@ -76,8 +76,8 @@
 ### Parallax
 
 ```html
-<div data-parallax="0.5"              <!-- Speed (0-1) -->
-     data-parallax-direction="up">    <!-- up/down/left/right -->
+<div data-parallax="0.5"              <!-- Speed (0-1) ->
+     data-parallax-direction="up">    <!-- up/down/left/right ->
   Content
 </div>
 ```
@@ -86,7 +86,7 @@
 
 ```html
 <button data-magnetic="0.3">
-  <!-- Strength (0-1) -->
+  <!-- Strength (0-1) ->
   Hover me
 </button>
 ```
@@ -101,12 +101,12 @@
 
 ```html
 <div class="slide-up" data-delay="200">
-  <!-- Delay in ms -->
+  <!-- Delay in ms ->
   Delayed reveal
 </div>
 ```
 
----
+--
 
 ## 💡 Common Patterns
 
@@ -140,7 +140,7 @@
   <div class="feature">Feature 1</div>
   <div class="feature">Feature 2</div>
   <div class="feature">Feature 3</div>
-  <!-- Auto-staggers children -->
+  <!-- Auto-staggers children ->
 </div>
 ```
 
@@ -153,7 +153,7 @@
 </div>
 ```
 
----
+--
 
 ## 🎨 CSS Variables
 
@@ -175,7 +175,7 @@
 }
 ```
 
----
+--
 
 ## 🎭 JavaScript API
 
@@ -239,7 +239,7 @@ const theme = window.themeManager.getCurrentTheme();
 const colors = window.themeManager.getThemeColors();
 ```
 
----
+--
 
 ## ⌨️ Keyboard Shortcuts
 
@@ -247,7 +247,7 @@ const colors = window.themeManager.getThemeColors();
 | -------------- | ------------ |
 | `Ctrl+Shift+D` | Toggle theme |
 
----
+--
 
 ## ♿ Accessibility
 
@@ -267,7 +267,7 @@ Automatically disabled for users with `prefers-reduced-motion: reduce`
 - Focus indicators visible
 - Logical tab order
 
----
+--
 
 ## 🚀 Performance Tips
 
@@ -287,7 +287,7 @@ Automatically disabled for users with `prefers-reduced-motion: reduce`
 - Nest multiple parallax layers deep
 - Ignore `prefers-reduced-motion`
 
----
+--
 
 ## 📱 Mobile Optimization
 
@@ -306,7 +306,7 @@ Automatically disabled for users with `prefers-reduced-motion: reduce`
 }
 ```
 
----
+--
 
 ## 🐛 Debugging
 
@@ -331,7 +331,7 @@ document.querySelector(".my-element").classList.add("revealed");
 console.log(window.animationEngine.observers);
 ```
 
----
+--
 
 ## 📖 Full Documentation
 
@@ -339,7 +339,7 @@ console.log(window.animationEngine.observers);
 - [Demo Page](animation-demo.html)
 - [Completion Summary](ANIMATION-UPGRADE-COMPLETE.md)
 
----
+--
 
 ## 🎯 Most Common Use Cases
 
@@ -378,6 +378,6 @@ console.log(window.animationEngine.observers);
 </div>
 ```
 
----
+--
 
 **Print this card for quick reference!** 📄

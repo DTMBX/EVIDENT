@@ -5,7 +5,7 @@
 **Time:** 90 minutes total integration time  
 **Security:** All secrets removed - Uses environment variables only
 
----
+--
 
 ## ✅ WHAT WAS BUILT
 
@@ -42,7 +42,7 @@
 Register → Explore (Free) → Upgrade → Checkout → Payment → Success → Pro Access
 ```
 
----
+--
 
 ## 📦 FILES CREATED/MODIFIED
 
@@ -59,7 +59,7 @@ Register → Explore (Free) → Upgrade → Checkout → Payment → Success →
 1. `app.py` - Registered payment blueprint + analytics tracking
 2. `.gitignore` - Added .env files
 
----
+--
 
 ## 🚀 NEXT STEPS TO GO LIVE
 
@@ -81,7 +81,7 @@ git merge payments-clean
 git push origin main
 ```
 
----
+--
 
 ### Step 2: Configure Render Environment (10 min)
 
@@ -108,7 +108,7 @@ git push origin main
 5. Click "Save Changes"
 6. Render will redeploy automatically (~5-6 min)
 
----
+--
 
 ### Step 3: Create Stripe Products (10 min)
 
@@ -153,7 +153,7 @@ Billing: Recurring monthly
 
 4. Save Changes → Render redeploys
 
----
+--
 
 ### Step 4: Set Up Webhook (5 min)
 
@@ -189,7 +189,7 @@ Events to send:
 
 8. Save Changes → Final redeploy
 
----
+--
 
 ## ✅ TESTING CHECKLIST
 
@@ -230,7 +230,7 @@ Events to send:
 - In Stripe Dashboard → Webhooks
 - Should see successful webhook calls
 
----
+--
 
 ## 💰 REVENUE PROJECTIONS
 
@@ -256,7 +256,7 @@ Annual = $179,280/year
 - Month 3-6: 25 Pro + 3 Premium ($6,472 MRR)
 - Month 7-12: 50 Pro + 10 Premium ($14,940 MRR)
 
----
+--
 
 ## 🎯 COMPLETION STATUS
 
@@ -274,7 +274,7 @@ Annual = $179,280/year
 - Testing: 5 min
   **TOTAL: 2 hours to revenue!** 🚀
 
----
+--
 
 ## 🔐 SECURITY CHECKLIST
 
@@ -286,7 +286,7 @@ Annual = $179,280/year
 ✅ Webhook signature verification  
 ✅ HTTPS required for payments
 
----
+--
 
 ## 📞 SUPPORT LINKS
 
@@ -295,7 +295,7 @@ Annual = $179,280/year
 **Render Dashboard:** https://dashboard.render.com/  
 **GitHub PR:** https://github.com/DTB396/Evident.info/pull/new/payments-clean
 
----
+--
 
 ## 🎉 READY TO MAKE MONEY!
 
@@ -309,7 +309,7 @@ Annual = $179,280/year
 
 **Then start accepting $199-499/month subscriptions!** 💸
 
----
+--
 
 **Next Action:** Merge the PR and add environment variables!
 

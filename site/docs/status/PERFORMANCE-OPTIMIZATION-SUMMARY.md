@@ -163,7 +163,7 @@ pip install -r requirements.txt
 python performance_check.py optimize
 
 # Start with gunicorn
-gunicorn app:app --workers 4 --timeout 120
+gunicorn app:app -workers 4 -timeout 120
 ```
 
 ## ⚠️ Important Notes
@@ -215,7 +215,7 @@ gunicorn app:app --workers 4 --timeout 120
 
 All optimizations have been tested and are ready for immediate deployment. The platform will now handle production load efficiently with fast response times and minimal resource usage.
 
----
+--
 
 **Next Steps**:
 

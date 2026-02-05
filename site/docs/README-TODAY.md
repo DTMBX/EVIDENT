@@ -67,8 +67,8 @@ Use either:
 ### Via CLI
 
 ```bash
-python -m pipeline.cli retrieve "Fourth Amendment" --top 3
-python -m pipeline.cli retrieve "probable cause warrant" --top 3
+python -m pipeline.cli retrieve "Fourth Amendment" -top 3
+python -m pipeline.cli retrieve "probable cause warrant" -top 3
 ```
 
 > Note: The CLI currently supports `retrieve` only.
@@ -113,7 +113,7 @@ print(f"✓ Ingested: {doc_id}")
 
 2. **Test legal retrieval**
    - Already has 1 sample document ingested
-   - Try: `python -m pipeline.cli retrieve "search" --top 3`
+   - Try: `python -m pipeline.cli retrieve "search" -top 3`
 
 3. **Quick health check**
    - `curl.exe http://localhost:5000/health`
@@ -232,7 +232,7 @@ After you're comfortable:
 - Review `LOGIN-FIXES-COMPLETE.md` for login problems
 - See `UNIFIED-RETRIEVAL-COMPLETE.md` for retrieval details
 
----
+--
 
 ## 🎯 YOUR ACTION ITEMS NOW:
 
@@ -242,6 +242,6 @@ After you're comfortable:
 4. 🧪 Test system → Run .\TEST.ps1
 5. 🚀 **GO BUILD!** → Open browser and login now!
 
----
+--
 
 **EVERYTHING IS READY. LOGIN NOW AND START EXPLORING!** 🎉

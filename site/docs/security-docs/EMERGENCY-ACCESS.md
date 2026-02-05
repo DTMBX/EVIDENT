@@ -8,7 +8,7 @@
 - pro@Evident.test
 - admin@Evident.test
 
----
+--
 
 ## ✅ LET'S FIX THIS NOW
 
@@ -28,7 +28,7 @@
 - Cannot connect? ❌
 - Blank page? ❌
 
----
+--
 
 ### STEP 2: Create NEW real account
 
@@ -48,7 +48,7 @@
 
 4. **Try to login**
 
----
+--
 
 ### STEP 3: If registration fails
 
@@ -58,7 +58,7 @@
 2. **Register with real email**
 3. **Try to login**
 
----
+--
 
 ## 🔍 DIAGNOSTIC SCRIPT
 
@@ -78,7 +78,7 @@ This will:
 - ✅ Test login endpoint
 - ✅ Show any errors
 
----
+--
 
 ## 🆘 TELL ME WHAT YOU SEE
 

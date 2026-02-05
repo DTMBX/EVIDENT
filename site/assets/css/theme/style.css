@@ -106,7 +106,7 @@ a:hover {
   --muted: #6b7280;
   --bg: #fafafa;
   --alt: #f0f0f5;
-  --paper: #ffffff;
+  --paper: #fff;
 
   /* Evident accents */
   --accent: var(--evident-gold, #c9a13b);
@@ -227,7 +227,7 @@ a:hover {
 
 /* “Classical edge” variant */
 .case-card,
-.system-card--light {
+.system-card-light {
   border: 1.5px solid #e5e7eb;
   border-radius: 1.25rem;
   background: linear-gradient(135deg, #f8f5ef 90%, #e5e7eb 100%);
@@ -243,7 +243,7 @@ a:hover {
 }
 
 .case-card:hover,
-.system-card--light:hover {
+.system-card-light:hover {
   box-shadow:
     0 8px 32px rgb(212 175 55 / 30%),
     0 8px 32px rgb(0 0 0 / 18%);
@@ -252,7 +252,7 @@ a:hover {
 }
 
 .case-card h2,
-.system-card--light h3 {
+.system-card-light h3 {
   font-weight: 800;
   letter-spacing: 0.02em;
   color: #c41e3a;
@@ -260,7 +260,7 @@ a:hover {
 }
 
 .case-card li,
-.system-card--light li {
+.system-card-light li {
   border-left: 2px solid var(--accent);
   padding-left: 1em;
   margin-bottom: 0.5em;
@@ -392,6 +392,7 @@ select:focus {
     opacity: 0;
     transform: translateY(24px);
   }
+
   to {
     opacity: 1;
     transform: none;
@@ -445,7 +446,7 @@ select:focus {
   gap: 0.75rem;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .header-nav,
   .header-actions {
     display: flex;
@@ -482,7 +483,7 @@ select:focus {
   padding: 4px;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .mobile-menu-toggle {
     display: none;
   }
@@ -508,7 +509,7 @@ select:focus {
   display: flex;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .mobile-nav {
     display: none !important;
   }
@@ -624,7 +625,7 @@ select:focus {
 }
 
 /* ===== MOBILE ===== */
-@media (max-width: 700px) {
+@media (width <= 700px) {
   .container,
   .container-narrow {
     padding: 0 0.75rem;
@@ -641,7 +642,7 @@ select:focus {
   .panel,
   .premium-card,
   .case-card,
-  .system-card--light {
+  .system-card-light {
     padding: 1rem;
   }
 

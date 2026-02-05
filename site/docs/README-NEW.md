@@ -8,7 +8,7 @@
 [![Version: 2.0](https://img.shields.io/badge/Version-2.0-blue.svg)]()
 [![Status: Production Ready](https://img.shields.io/badge/Status-Production%20Ready-green.svg)]()
 
----
+--
 
 ## 🚨 COMMERCIAL SOFTWARE - LICENSE REQUIRED FOR PRODUCTION USE
 
@@ -22,7 +22,7 @@
 
 **See [LICENSE](LICENSE) for complete terms.**
 
----
+--
 
 ## ⚖️ CRITICAL: COPYRIGHT & DATA RIGHTS COMPLIANCE
 
@@ -36,7 +36,7 @@
 
 **⚠️ Non-compliance may result in copyright infringement claims up to $150,000 per work under 17 U.S.C. § 504(c).**
 
----
+--
 
 ## 🤖 Custom AI Development Agents
 
@@ -59,7 +59,7 @@ Then use in GitHub Copilot Chat:
 
 **📖 Full Guide:** [COPILOT-AGENTS-GUIDE.md](COPILOT-AGENTS-GUIDE.md)
 
----
+--
 
 ## 🎯 What is Evident Legal Tech?
 
@@ -75,7 +75,7 @@ Professional-grade AI forensic analysis platform for civil rights attorneys, leg
 - 🔗 **Chain of Custody** - SHA-256 checksums, tamper detection, audit trails
 - 📄 **Court-Ready Reports** - PDF, DOCX, JSON exports with metadata
 
----
+--
 
 ## 💼 SaaS Platform - No Downloads Required
 
@@ -132,7 +132,7 @@ Professional-grade AI forensic analysis platform for civil rights attorneys, leg
 📧 **sales@Evident.info**  
 Include: use case, # users, organization
 
----
+--
 
 ## 🛡️ Security & Privacy
 
@@ -159,7 +159,7 @@ Include: use case, # users, organization
 - Tamper-evident evidence packages
 - Court-defensible documentation
 
----
+--
 
 ## 📞 Contact
 
@@ -171,7 +171,7 @@ Include: use case, # users, organization
 
 **🌐 Start Free Trial:** https://app.Evident.info/signup
 
----
+--
 
 ## 📋 Legal Documents
 
@@ -181,6 +181,6 @@ Include: use case, # users, organization
 - [SECURITY.md](SECURITY.md) - Security disclosure
 - [TRADEMARKS.md](TRADEMARKS.md) - Trademark policy
 
----
+--
 
 **Copyright © 2024-2026 Faith Frontier Ecclesiastical Trust. All rights reserved worldwide.**

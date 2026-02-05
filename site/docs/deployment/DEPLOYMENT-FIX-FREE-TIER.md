@@ -14,7 +14,7 @@ ModuleNotFoundError: No module named 'free_tier_data_retention'
 - These files existed locally but were **not tracked in git**
 - Render couldn't find them during deployment
 
----
+--
 
 ## ✅ SOLUTION APPLIED:
 
@@ -34,7 +34,7 @@ git push origin main
 **Commit:** `8be1986`  
 **Files Added:** 5 files, 1,370 lines of code
 
----
+--
 
 ## 📦 MODULES ADDED:
 
@@ -73,7 +73,7 @@ git push origin main
 - PDF and image watermarking
 - Prevents FREE tier misuse
 
----
+--
 
 ## 🔍 HOW THIS HAPPENED:
 
@@ -96,7 +96,7 @@ Untracked files:
 - `.gitignore` doesn't exclude them
 - Simply overlooked during commits
 
----
+--
 
 ## ⏳ DEPLOYMENT STATUS:
 
@@ -110,7 +110,7 @@ Untracked files:
 
 **Expected:** Deployment succeeds in ~2-3 minutes
 
----
+--
 
 ## 🧪 VERIFICATION STEPS:
 
@@ -130,7 +130,7 @@ Once deployed, verify:
    - Pricing page shows $29-199 tiers
    - Footer has CourtListener attribution
 
----
+--
 
 ## 📋 COMPLETE FIX SEQUENCE:
 
@@ -157,7 +157,7 @@ If you see other import errors, likely culprits:
 git ls-files *.py | grep -E "(legal_library|citation|judge|optimizer)"
 ```
 
----
+--
 
 ## ✅ CURRENT STATUS:
 
@@ -169,7 +169,7 @@ git ls-files *.py | grep -E "(legal_library|citation|judge|optimizer)"
 **Monitor deployment:**
 https://dashboard.render.com
 
----
+--
 
 ## 📊 DEPLOY TIMELINE:
 
@@ -183,7 +183,7 @@ https://dashboard.render.com
 20:05 - ⏳ Redeploying now...
 ```
 
----
+--
 
 ## 🎯 LESSON LEARNED:
 
@@ -194,7 +194,7 @@ https://dashboard.render.com
 git status | grep "\.py$"
 
 # Or more comprehensively:
-git ls-files --others --exclude-standard | grep "\.py$"
+git ls-files -others -exclude-standard | grep "\.py$"
 ```
 
 **Better workflow:**
@@ -204,7 +204,7 @@ git ls-files --others --exclude-standard | grep "\.py$"
 3. Push to test on staging/development
 4. Only then deploy to production
 
----
+--
 
 ## 🚀 NEXT DEPLOYMENT WILL SUCCEED!
 

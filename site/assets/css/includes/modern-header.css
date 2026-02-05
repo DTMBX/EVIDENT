@@ -70,7 +70,7 @@
    HEADER CONTAINER
    ===================================================== */
 
-.Evident-header {
+.evident-header {
   position: sticky;
   top: 0;
   z-index: var(--z-header);
@@ -638,7 +638,7 @@
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
-  .Evident-header {
+  .evident-header {
     border-bottom-width: 2px;
   }
 
@@ -666,7 +666,7 @@
     --color-hover: #1e293b;
   }
 
-  .Evident-header {
+  .evident-header {
     background: rgb(15 23 42 / 95%);
   }
 }

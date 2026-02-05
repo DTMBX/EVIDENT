@@ -3,7 +3,7 @@
 **Date:** January 27, 2026  
 **Purpose:** Unified messaging across all platforms
 
----
+--
 
 ## Core Messaging
 
@@ -15,7 +15,7 @@
 
 Evident provides research-grade legal tools—10M+ opinions, Shepard's-equivalent citation analysis, judge intelligence, AI search—at 1/10th the cost of Westlaw and LexisNexis. We're democratizing legal research to close the justice gap.
 
----
+--
 
 ## The Numbers That Matter
 
@@ -50,7 +50,7 @@ Evident provides research-grade legal tools—10M+ opinions, Shepard's-equivalen
 - ✅ **Law school partnerships** (free for students)
 - ✅ **Transparent methodology** (open data sources)
 
----
+--
 
 ## Why We Exist (Website Language)
 
@@ -80,7 +80,7 @@ Evident provides the same primary sources, citation analysis, and research tools
 - Law students graduate practice-ready
 - Justice becomes accessible, not theoretical
 
----
+--
 
 ## How We Plan to Win
 
@@ -123,7 +123,7 @@ We believe legal research is infrastructure for justice—not a luxury good:
 
 **Result:** A sustainable business that prioritizes access over extraction.
 
----
+--
 
 ## The Path to Greatness
 
@@ -159,7 +159,7 @@ We believe legal research is infrastructure for justice—not a luxury good:
 - **Profitability** while maintaining affordability
 - **Westlaw/LexisNexis forced to cut prices** ✅ Mission accomplished
 
----
+--
 
 ## Leveraging Success for Impact
 
@@ -195,7 +195,7 @@ Public dashboards showing judge statistics and litigation trends.
 Expand to international law, helping attorneys worldwide.
 **Goal:** Democratize legal research globally
 
----
+--
 
 ## Website Copy Templates
 
@@ -270,7 +270,7 @@ Compare to Westlaw ($500-2,000/mo) and LexisNexis ($500-1,500/mo)
 Annual savings: $5,400-23,400
 ```
 
----
+--
 
 ## Social Media Templates
 
@@ -311,7 +311,7 @@ and legal aid organizations.
 Because justice shouldn't require a $24,000/year subscription.
 ```
 
----
+--
 
 ## Value Propositions by Audience
 
@@ -339,7 +339,7 @@ $20/month student pricing. Full platform access. Graduate practice-ready, not ju
 
 Free accounts for all students. Faculty research access. Legal clinic support. API access for legal tech courses. Data for academic research. Join us in democratizing legal access.
 
----
+--
 
 ## Call to Action Hierarchy
 
@@ -363,7 +363,7 @@ Free accounts for all students. Faculty research access. Legal clinic support. A
 3. See Sample Research
 4. Read Documentation
 
----
+--
 
 ## Brand Voice
 
@@ -383,7 +383,7 @@ Free accounts for all students. Faculty research access. Legal clinic support. A
 - Apologetic
 - Neutral (we have a justice POV)
 
----
+--
 
 ## The Ultimate Positioning
 
@@ -400,7 +400,7 @@ We're not just cheaper—we're better:
 
 **Because justice shouldn't require a trust fund.**
 
----
+--
 
 **Use across:** Website, social media, email, press releases, investor decks, customer support
 

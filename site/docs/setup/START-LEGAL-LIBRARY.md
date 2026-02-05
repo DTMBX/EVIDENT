@@ -2,7 +2,7 @@
 
 **Status:** ✅ Code ready | ⏳ Needs API key | 📚 27 cases ready to import
 
----
+--
 
 ## Quick Start (10 minutes)
 
@@ -36,12 +36,12 @@ Value: <your token>
 
 ```bash
 # SSH into Render or run locally:
-python overnight_library_builder.py --practice-area all
+python overnight_library_builder.py -practice-area all
 ```
 
 **Result:** 27 Supreme Court cases imported! 🎉
 
----
+--
 
 ## What You Get
 
@@ -70,7 +70,7 @@ POST /api/legal-library/annotate
 ... and 6 more
 ```
 
----
+--
 
 ## Files Changed Today
 
@@ -89,7 +89,7 @@ POST /api/legal-library/annotate
 - 📖 `LEGAL-LIBRARY-API-FIX.md` - Technical details
 - 📖 `OVERNIGHT-STATUS-REPORT.md` - Test run results
 
----
+--
 
 ## Need Help?
 
@@ -111,16 +111,16 @@ POST /api/legal-library/annotate
 
 ```powershell
 # Test 3 cases
-python overnight_library_builder.py --practice-area civil_rights --max-cases 3
+python overnight_library_builder.py -practice-area civil_rights -max-cases 3
 
 # Import all
-python overnight_library_builder.py --practice-area all
+python overnight_library_builder.py -practice-area all
 
 # Check database
 python -c "from legal_library import LegalDocument; print(LegalDocument.query.count())"
 ```
 
----
+--
 
 ## Troubleshooting
 
@@ -137,9 +137,9 @@ python -c "from legal_library import LegalDocument; print(LegalDocument.query.co
 ### ❌ "0 imported"
 
 → Check COURTLISTENER_API_KEY is set correctly  
-→ Try running with `--max-cases 1` first
+→ Try running with `-max-cases 1` first
 
----
+--
 
 ## What's Next?
 
@@ -157,7 +157,7 @@ python -c "from legal_library import LegalDocument; print(LegalDocument.query.co
 - [ ] Add citation network visualization
 - [ ] Implement advanced search filters
 
----
+--
 
 ## 🎯 Bottom Line
 
@@ -169,6 +169,6 @@ Just add the CourtListener API key to Render and you'll have a professional lega
 **Cost:** $0 (free tier)  
 **Value:** 🚀 Professional legal tech platform!
 
----
+--
 
 **NEXT STEP:** Open RENDER-API-KEY-GUIDE.md for visual instructions →

@@ -8,7 +8,7 @@ End-to-end payment flow:
 Login → Pricing Page → Checkout → Payment → Success → Verification
 ```
 
----
+--
 
 ## STEP 1: Make Sure Everything Is Ready
 
@@ -46,7 +46,7 @@ Visit: `https://YOUR-URL/payments/pricing`
 - Make sure deployment succeeded
 - Verify all environment variables set
 
----
+--
 
 ## STEP 2: Register Test Account (2 min)
 
@@ -64,7 +64,7 @@ Visit: `https://YOUR-URL/payments/pricing`
 
 **Note your user ID** - you'll need it to verify later
 
----
+--
 
 ## STEP 3: Navigate to Pricing (1 min)
 
@@ -85,7 +85,7 @@ Visit: `https://YOUR-URL/payments/pricing`
 - Should see no red errors
 - Might see Amplitude tracking events (good!)
 
----
+--
 
 ## STEP 4: Start Checkout (1 min)
 
@@ -111,7 +111,7 @@ Visit: `https://YOUR-URL/payments/pricing`
 - Verify you're logged in
 - Check Render logs for backend errors
 
----
+--
 
 ## STEP 5: Complete Payment (2 min)
 
@@ -141,7 +141,7 @@ ZIP: 12345 (any 5 digits)
 2. Webhook fires to your backend
 3. Redirect to success page
 
----
+--
 
 ## STEP 6: Success Page (30 sec)
 
@@ -160,7 +160,7 @@ Your subscription is now active.
 - ✅ Amplitude tracking fires
 - ✅ "Go to Dashboard" button works
 
----
+--
 
 ## STEP 7: Verify Everything Worked (5 min)
 
@@ -223,7 +223,7 @@ stripe_customer_id: cus_... (Stripe customer ID)
 - Or: Create admin endpoint to view user data
 - Or: Check via Render shell
 
----
+--
 
 ## STEP 8: Test Customer Portal (2 min)
 
@@ -252,7 +252,7 @@ stripe_customer_id: cus_... (Stripe customer ID)
 4. Webhook fires: `customer.subscription.deleted`
 5. Your app updates user status to "canceled"
 
----
+--
 
 ## 🎉 SUCCESS CHECKLIST
 
@@ -272,7 +272,7 @@ stripe_customer_id: cus_... (Stripe customer ID)
 
 **If all ✅, YOU'RE READY FOR PRODUCTION!** 🚀
 
----
+--
 
 ## 🚨 COMMON ISSUES & FIXES
 
@@ -329,7 +329,7 @@ stripe_customer_id: cus_... (Stripe customer ID)
 - Check browser console for tracking errors
 - Use Amplitude debugger: https://analytics.amplitude.com/debugger
 
----
+--
 
 ## 🧪 ADDITIONAL TEST SCENARIOS
 
@@ -367,7 +367,7 @@ stripe_customer_id: cus_... (Stripe customer ID)
 5. Verify upgrade works
 6. Webhook: `customer.subscription.updated`
 
----
+--
 
 ## 📊 WHAT TO MONITOR
 
@@ -396,7 +396,7 @@ stripe_customer_id: cus_... (Stripe customer ID)
 - Revenue per customer
 - Time to convert
 
----
+--
 
 ## ✅ READY FOR PRODUCTION
 
@@ -435,7 +435,7 @@ stripe_customer_id: cus_... (Stripe customer ID)
 - Product Hunt launch
 - Start marketing
 
----
+--
 
 ## 🎯 NEXT STEPS
 
@@ -459,7 +459,7 @@ stripe_customer_id: cus_... (Stripe customer ID)
 - [ ] Launch to public
 - [ ] Monitor first real payments
 
----
+--
 
 ## 💰 EXPECTED RESULTS
 
@@ -490,7 +490,7 @@ Total: $6,472 MRR
 Total: $14,940 MRR (~$180K ARR)
 ```
 
----
+--
 
 ## 🎉 YOU DID IT!
 
@@ -504,6 +504,6 @@ Total: $14,940 MRR (~$180K ARR)
 
 **TIME TO MAKE MONEY!** 💰🚀
 
----
+--
 
 _Test completed - Ready for launch!_

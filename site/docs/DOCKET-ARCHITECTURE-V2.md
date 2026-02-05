@@ -4,7 +4,7 @@
 **Status:** 🔴 Action Required  
 **Author:** Design & Architecture Agent
 
----
+--
 
 ## Executive Summary
 
@@ -15,7 +15,7 @@ Critical integrity issues identified in current docket system:
 - **Missing unified validation layer**
 - **No automated integrity verification**
 
----
+--
 
 ## 1. Current State Analysis
 
@@ -65,7 +65,7 @@ file: /cases/usdj-1-22-cv-06206/filings/20250827-motion.pdf
 
 This creates confusion about canonical file locations.
 
----
+--
 
 ## 2. Proposed Architecture
 
@@ -191,7 +191,7 @@ validation:
   duplicates_checked: true
 ```
 
----
+--
 
 ## 3. Integrity Verification System
 
@@ -232,7 +232,7 @@ def process_case(case_id: str, assets_path: Path, output_path: Path):
     with open(output_file, 'w') as f:
         yaml.dump(checksums, f, default_flow_style=False)
 
-if __name__ == '__main__':
+if -name- == '-main-':
     assets = Path('assets/cases')
     output = Path('_data/checksums')
     output.mkdir(exist_ok=True)
@@ -294,11 +294,11 @@ def main():
         print("✅ All docket entries valid")
         exit(0)
 
-if __name__ == '__main__':
+if -name- == '-main-':
     main()
 ```
 
----
+--
 
 ## 4. GitHub Actions Workflow
 
@@ -412,7 +412,7 @@ jobs:
           path: reports/integrity-*.md
 ```
 
----
+--
 
 ## 5. Migration Plan
 
@@ -461,7 +461,7 @@ jobs:
 2. Backfill audit entries for existing files
 3. Implement audit logging in intake scripts
 
----
+--
 
 ## 6. Implementation Priority Matrix
 
@@ -477,7 +477,7 @@ jobs:
 | 🟡 P3    | Audit trail system              | 4 hrs  | Medium   |
 | 🟡 P3    | Documentation updates           | 2 hrs  | Medium   |
 
----
+--
 
 ## 7. Immediate Action Items
 
@@ -505,7 +505,7 @@ jobs:
 3. Remove `_data/docket_index/` after verification
 4. Update any templates referencing old paths
 
----
+--
 
 ## Appendix A: Canonical Path Reference
 

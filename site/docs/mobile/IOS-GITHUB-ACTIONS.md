@@ -4,7 +4,7 @@
 **Location:** `.github/workflows/ios-build.yml`  
 **Cost:** 🆓 FREE (GitHub provides Mac runners)
 
----
+--
 
 ## 🚀 How It Works
 
@@ -14,7 +14,7 @@
 2. **GitHub Mac runner** → Builds iOS app in cloud
 3. **Download .ipa** → Install on iPhone
 
----
+--
 
 ## 📋 Setup Instructions
 
@@ -33,7 +33,7 @@ git commit -m "Add iOS build workflow"
 git push origin main
 ```
 
----
+--
 
 ### Step 2: Watch Build Execute
 
@@ -49,19 +49,19 @@ git push origin main
    ✅ Upload artifact
    ```
 
----
+--
 
 ### Step 3: Download IPA
 
 1. **After build completes:**
    - Actions → Latest workflow run
    - Scroll to "Artifacts" section
-   - Click "Evident-iOS-Development" to download
+   - Click "evident-ios-development" to download
 
 2. **Extract ZIP:**
    - Contains: `Evident.MatterDocket.MAUI.ipa`
 
----
+--
 
 ### Step 4: Install on iPhone
 
@@ -81,7 +81,7 @@ git push origin main
 4. Drag .ipa file to device
 5. App installs (expires in 7 days)
 
----
+--
 
 #### Option B: TestFlight (Paid $99/year)
 
@@ -98,7 +98,7 @@ git push origin main
 4. Testers install via TestFlight app
 5. Beta expires in 90 days
 
----
+--
 
 ## 🔧 Workflow Details
 
@@ -119,7 +119,7 @@ Output: .ipa file
 - ✅ Pull requests to `main`
 - ✅ Manual trigger (workflow_dispatch button)
 
----
+--
 
 ## 🎯 Manual Trigger
 
@@ -131,7 +131,7 @@ Don't want to push code? Run manually:
 4. **Select branch** (main/develop)
 5. **Click "Run workflow"**
 
----
+--
 
 ## 🐛 Troubleshooting
 
@@ -149,7 +149,7 @@ Don't want to push code? Run manually:
 
 **For now:** Use unsigned .ipa with Xcode installation
 
----
+--
 
 ### Build Fails: MAUI Workload
 
@@ -160,7 +160,7 @@ Don't want to push code? Run manually:
 - Workflow automatically installs MAUI
 - If fails, GitHub runner issue (retry)
 
----
+--
 
 ### Can't Install IPA on iPhone
 
@@ -172,7 +172,7 @@ Don't want to push code? Run manually:
 2. **Wrong architecture** → Built for arm64 (real devices), not simulator
 3. **iOS version too old** → Requires iOS 15.0+
 
----
+--
 
 ## 📊 Build Time Estimates
 
@@ -186,7 +186,7 @@ Don't want to push code? Run manually:
 | Upload artifact  | 10-20 seconds    |
 | **Total**        | **5-10 minutes** |
 
----
+--
 
 ## 💰 Cost Analysis
 
@@ -208,7 +208,7 @@ Don't want to push code? Run manually:
 - $0.08/minute for Mac runners
 - 100 extra minutes = $8.00
 
----
+--
 
 ## 🔐 Advanced: Code Signing Setup
 
@@ -231,7 +231,7 @@ Then update workflow:
     p12-password: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
 ```
 
----
+--
 
 ## 🎉 You're Set!
 
@@ -247,7 +247,7 @@ Then update workflow:
 2. **Push workflow to GitHub** (when ready for iOS)
 3. **Set up Apple Developer** account (for TestFlight)
 
----
+--
 
 ## 📚 Related Guides
 
@@ -256,6 +256,6 @@ Then update workflow:
 - `GET-ON-IPHONE-NOW.md` - All iOS options explained
 - `BUILD-SUCCESS.md` - Integration complete summary
 
----
+--
 
 **Questions?** Check the docs or view workflow logs in GitHub Actions.

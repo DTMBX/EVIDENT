@@ -50,7 +50,7 @@ In your IDE with GitHub Copilot, invoke agents with `@agent-name`:
 Check if this PDF export violates Westlaw copyright terms
 ```
 
----
+--
 
 ### 2. **@bwc-forensics** - BWC Forensic Analysis Specialist
 
@@ -73,7 +73,7 @@ Check if this PDF export violates Westlaw copyright terms
 Add SHA-256 hashing for video file integrity verification
 ```
 
----
+--
 
 ### 3. **@flask-backend** - Flask Backend Developer
 
@@ -96,7 +96,7 @@ Add SHA-256 hashing for video file integrity verification
 Create an API endpoint for bulk case export with attorney certification
 ```
 
----
+--
 
 ### 4. **@frontend-dev** - Frontend UI/UX Developer
 
@@ -119,7 +119,7 @@ Create an API endpoint for bulk case export with attorney certification
 Create a responsive evidence gallery component with keyboard navigation
 ```
 
----
+--
 
 ### 5. **@database-architect** - Database Schema Designer
 
@@ -142,7 +142,7 @@ Create a responsive evidence gallery component with keyboard navigation
 Design a schema for multi-file BWC case management with chain of custody
 ```
 
----
+--
 
 ### 6. **@security-devops** - Security & DevOps Engineer
 
@@ -165,7 +165,7 @@ Design a schema for multi-file BWC case management with chain of custody
 Configure SSL certificate and rotate SECRET_KEY for production deployment
 ```
 
----
+--
 
 ### 7. **@documentation** - Technical Documentation Specialist
 
@@ -188,7 +188,7 @@ Configure SSL certificate and rotate SECRET_KEY for production deployment
 Write a 5-minute quick start guide for attorneys using the BWC analyzer
 ```
 
----
+--
 
 ## 🎯 Best Practices
 
@@ -320,7 +320,7 @@ With custom agents, you should achieve:
 - support@Evident.info
 - support@Evident.info
 
----
+--
 
 **Created:** January 23, 2026  
 **Version:** 1.0  

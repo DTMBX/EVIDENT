@@ -92,10 +92,10 @@ function displayAnalysisResults(analysis) {
             ${violations
               .map(
                 (v) => `
-              <div class="violation-card violation-card--${getSeverity(v.severity)}">
+              <div class="violation-card violation-card-${getSeverity(v.severity)}">
                 <div class="violation-header">
                   <span class="violation-type">${formatViolationType(v.type)}</span>
-                  <span class="severity-badge severity-badge--${getSeverity(v.severity)}">${v.severity || "Medium"}</span>
+                  <span class="severity-badge severity-badge-${getSeverity(v.severity)}">${v.severity || "Medium"}</span>
                 </div>
                 <p class="violation-description">${v.description}</p>
                 ${v.amendment ? `<p class="violation-amendment">Amendment: ${v.amendment}</p>` : ""}

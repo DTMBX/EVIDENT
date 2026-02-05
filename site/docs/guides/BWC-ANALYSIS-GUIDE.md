@@ -4,7 +4,7 @@
 
 This system provides comprehensive, court-admissible analysis of police body-worn camera footage for civil rights litigation under Federal Rules of Evidence 901(b)(9).
 
----
+--
 
 ## Features
 
@@ -60,7 +60,7 @@ This system provides comprehensive, court-admissible analysis of police body-wor
   - Markdown (documentation, GitHub)
   - HTML (court exhibits - future)
 
----
+--
 
 ## Installation
 
@@ -68,7 +68,7 @@ This system provides comprehensive, court-admissible analysis of police body-wor
 
 ```powershell
 # 1. Python 3.8+ installed
-python --version
+python -version
 
 # 2. FFmpeg installed (for audio/video processing)
 # Download: https://ffmpeg.org/download.html
@@ -95,7 +95,7 @@ python -m spacy download en_core_web_md
 $env:HUGGINGFACE_TOKEN = "your_token_here"
 ```
 
----
+--
 
 ## Quick Start
 
@@ -175,7 +175,7 @@ for entity_type, values in report.entities.items():
     print(f"  {entity_type}: {', '.join(values)}")
 ```
 
----
+--
 
 ## Command-Line Usage
 
@@ -183,24 +183,24 @@ for entity_type, values in report.entities.items():
 # Basic analysis
 python bwc_forensic_analyzer.py `
     evidence/BWC_video.mp4 `
-    --acquired-by "Devon Tyler" `
-    --source "OPRA Request #2025-001" `
-    --case-number "ATL-L-002794-25" `
-    --output-dir "./analysis_reports"
+    -acquired-by "Devon Tyler" `
+    -source "OPRA Request #2025-001" `
+    -case-number "ATL-L-002794-25" `
+    -output-dir "./analysis_reports"
 
 # With custom Whisper model and HF token
 python bwc_forensic_analyzer.py `
     evidence/BWC_video.mp4 `
-    --acquired-by "Devon Tyler" `
-    --source "Discovery Production" `
-    --case-number "USDJ 1:25-cv-15641" `
-    --evidence-number "EX-001" `
-    --whisper-model small `
-    --hf-token "hf_your_token_here" `
-    --output-dir "./court_exhibits"
+    -acquired-by "Devon Tyler" `
+    -source "Discovery Production" `
+    -case-number "USDJ 1:25-cv-15641" `
+    -evidence-number "EX-001" `
+    -whisper-model small `
+    -hf-token "hf_your_token_here" `
+    -output-dir "./court_exhibits"
 ```
 
----
+--
 
 ## Output Reports
 
@@ -281,18 +281,18 @@ Duration: 0:20:34
 Case Number: ATL-L-002794-25
 Evidence Number: EX-BWC-001
 
---------------------------------------------------------------------------------
+----------------------------------------
 CHAIN OF CUSTODY
---------------------------------------------------------------------------------
+----------------------------------------
 Source: OPRA Request #2025-001
 Acquired By: Devon Tyler
 Acquired At: 2026-01-22 20:30:00
 File Size: 524,288,000 bytes
 Verification: SHA-256 cryptographic hash
 
---------------------------------------------------------------------------------
+----------------------------------------
 TRANSCRIPT
---------------------------------------------------------------------------------
+----------------------------------------
 
 [0.0s - 4.5s] Officer Smith: Unit 23 responding to 123 Main Street
 [4.5s - 8.2s] Dispatch: Copy that, Unit 23
@@ -300,7 +300,7 @@ TRANSCRIPT
 ...
 ```
 
----
+--
 
 ## Use Cases
 
@@ -353,7 +353,7 @@ TRANSCRIPT
 
 **Output:** Speaker attribution map with officer identifications
 
----
+--
 
 ## Performance & System Requirements
 
@@ -383,7 +383,7 @@ TRANSCRIPT
 - Storage: SSD with 100GB+ free
 - OS: Windows 11, macOS 14+, Ubuntu 22.04+
 
----
+--
 
 ## Legal & Court Admissibility
 
@@ -424,7 +424,7 @@ TRANSCRIPT
    - Error rates: <1% for Whisper transcription
    - Acceptance: Used by major news orgs, researchers
 
----
+--
 
 ## Troubleshooting
 
@@ -441,7 +441,7 @@ choco install ffmpeg
 **2. "Numba needs NumPy 2.3 or less" error**
 
 ```powershell
-pip install "numpy<2.4,>=2.0" --force-reinstall
+pip install "numpy<2.4,>=2.0" -force-reinstall
 ```
 
 **3. "Speaker diarization not available" warning**
@@ -472,7 +472,7 @@ analyzer = BWCForensicAnalyzer(device="cpu")
 # - Process overnight for long videos
 ```
 
----
+--
 
 ## Cost Savings vs Commercial Solutions
 
@@ -490,7 +490,7 @@ analyzer = BWCForensicAnalyzer(device="cpu")
 | Google NLP              | $0.50/1000 records    | $0            | $50 per 100,000 entities          |
 | **TOTAL SAVINGS**       |                       |               | **~$200 per hour of BWC footage** |
 
----
+--
 
 ## Example Workflow: Atlantic County Case
 
@@ -578,7 +578,7 @@ print("All BWC files processed successfully!")
 print(f"{'='*60}\n")
 ```
 
----
+--
 
 ## Next Steps
 
@@ -596,9 +596,9 @@ print(f"{'='*60}\n")
    ```powershell
    python bwc_forensic_analyzer.py `
        path/to/sample_bwc.mp4 `
-       --acquired-by "Your Name" `
-       --source "Test Analysis" `
-       --output-dir "./test_analysis"
+       -acquired-by "Your Name" `
+       -source "Test Analysis" `
+       -output-dir "./test_analysis"
    ```
 
 4. **Review Output Reports**
@@ -611,7 +611,7 @@ print(f"{'='*60}\n")
    - Create batch processing scripts
    - Set up automated analysis for incoming OPRA requests
 
----
+--
 
 ## Support & Documentation
 
@@ -620,7 +620,7 @@ print(f"{'='*60}\n")
 - **Issues:** Report bugs via GitHub Issues
 - **License:** MIT (open source, free to use)
 
----
+--
 
 **Generated by Evident Legal Tech Platform**  
 _Court-Defensible eDiscovery • 100% Local Processing • Zero Cloud Costs_

@@ -3,9 +3,9 @@
 
 const CACHE_VERSION = "3.0.0";
 const CACHE_NAME = `Evident-v${CACHE_VERSION}`;
-const RUNTIME_CACHE = "Evident-runtime";
-const DOCUMENT_CACHE = "Evident-documents";
-const AI_CACHE = "Evident-ai-responses";
+const RUNTIME_CACHE = "evident-runtime";
+const DOCUMENT_CACHE = "evident-documents";
+const AI_CACHE = "evident-ai-responses";
 
 // Files to cache immediately on install
 const PRECACHE_URLS = [
@@ -321,7 +321,7 @@ async function handleFileOpen(request) {
 // Store shared data in IndexedDB
 async function storeSharedData(metadata, files) {
   return new Promise((resolve, reject) => {
-    const request = indexedDB.open("Evident-shared", 1);
+    const request = indexedDB.open("evident-shared", 1);
 
     request.onupgradeneeded = (event) => {
       const db = event.target.result;
@@ -364,7 +364,7 @@ self.addEventListener("push", (event) => {
     body: "You have a new update",
     icon: "/assets/icons/icon-192x192.png",
     badge: "/assets/icons/badge-72x72.png",
-    tag: "Evident-notification",
+    tag: "evident-notification",
     requireInteraction: false,
   };
 

@@ -4,7 +4,7 @@
 **Platforms:** Mixpanel (Recommended) OR Amplitude  
 **Estimated Setup Time:** 30 minutes
 
----
+--
 
 ## 🎯 WHY ANALYTICS?
 
@@ -18,7 +18,7 @@ Track user behavior to optimize conversion, reduce churn, and improve product-ma
 - Conversion funnel (Free → Pro → Premium)
 - Churn signals (inactive users, failed payments)
 
----
+--
 
 ## 🏆 RECOMMENDED: Mixpanel
 
@@ -56,7 +56,7 @@ Track user behavior to optimize conversion, reduce churn, and improve product-ma
    ```
    (Already in requirements.txt)
 
----
+--
 
 ## 📊 ALTERNATIVE: Amplitude
 
@@ -89,7 +89,7 @@ Track user behavior to optimize conversion, reduce churn, and improve product-ma
    pip install amplitude-analytics
    ```
 
----
+--
 
 ## 🔧 INTEGRATION (Already Prepared!)
 
@@ -133,7 +133,7 @@ I've created a unified analytics service that works with both platforms.
    - `payment_failed`
    - `churn_risk` (no activity 7 days)
 
----
+--
 
 ## 📝 USAGE EXAMPLES
 
@@ -190,7 +190,7 @@ track_revenue(user.id, {
 })
 ```
 
----
+--
 
 ## 📊 CRITICAL FUNNELS TO MONITOR
 
@@ -218,7 +218,7 @@ Day 1 Active → Day 7 Active → Day 14 Active → Day 30 Active
 
 **Target Retention:** 40% D30 retention
 
----
+--
 
 ## 🎯 KEY METRICS DASHBOARD
 
@@ -253,7 +253,7 @@ Create these charts in Mixpanel/Amplitude:
    - Cohort: Users inactive >7 days
    - Action: Trigger re-engagement email
 
----
+--
 
 ## 🚀 IMPLEMENTATION CHECKLIST
 
@@ -282,7 +282,7 @@ Create these charts in Mixpanel/Amplitude:
 - [ ] Set up funnel drop-off alerts
 - [ ] Add custom user properties
 
----
+--
 
 ## 💰 COST BREAKDOWN
 
@@ -304,7 +304,7 @@ Create these charts in Mixpanel/Amplitude:
 - Switch to Mixpanel Growth if you need advanced features
 - Cost: $0/month for first 6 months
 
----
+--
 
 ## 🎨 EVENT NAMING CONVENTION
 
@@ -327,7 +327,7 @@ Follow this pattern for consistency:
 - ✅ `file_type`, `user_tier`, `generation_time`
 - ❌ `fileType`, `UserTier`, `generationTime`
 
----
+--
 
 ## ✅ TESTING
 
@@ -347,7 +347,7 @@ track_event('test_user_123', 'test_event', {
 # Event should appear within 10 seconds
 ```
 
----
+--
 
 ## 🔐 PRIVACY & COMPLIANCE
 
@@ -364,7 +364,7 @@ track_event('test_user_123', 'test_event', {
 - Avoid tracking sensitive case data
 - Use hashed IDs for cases/documents
 
----
+--
 
 ## 📚 RESOURCES
 
@@ -380,7 +380,7 @@ track_event('test_user_123', 'test_event', {
 - Python SDK: https://github.com/amplitude/Amplitude-Python
 - Behavioral Cohorts: https://help.amplitude.com/hc/en-us/articles/231881448
 
----
+--
 
 ## 🎯 SUCCESS CRITERIA
 
@@ -393,7 +393,7 @@ Analytics setup is complete when:
 - [ ] Team can view metrics
 - [ ] Alerts configured for critical events
 
----
+--
 
 ## 📞 NEXT STEPS
 
@@ -406,7 +406,7 @@ Analytics setup is complete when:
 
 **Recommendation:** Start with **Amplitude** (10M free events is generous!)
 
----
+--
 
 _Created for Evident Legal Technologies_  
 _Data-driven product development starts now_ 📊

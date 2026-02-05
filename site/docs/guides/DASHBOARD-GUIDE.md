@@ -253,6 +253,6 @@ Before going live:
 6. **Mobile App**: React Native mobile evidence collection
 7. **API Integration**: REST API for third-party integrations
 
----
+--
 
 **Everything is ready to use!** Just run `.\scripts\START-EVERYTHING.ps1` and start processing evidence! ??

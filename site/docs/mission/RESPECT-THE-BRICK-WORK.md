@@ -9,7 +9,7 @@
 - Quality over speed, but progress over perfection
 - Build for lawyers, judges, and people seeking justice
 
----
+--
 
 ## 🎯 CURRENT FOUNDATION (What We've Built):
 
@@ -53,7 +53,7 @@
 - Mobile apps (Q2 2026)
 - Advanced search (Q2 2026)
 
----
+--
 
 ## 🧱 THE BRICK WORK CHECKLIST:
 
@@ -89,7 +89,7 @@
 - ⏳ Mobile experience is excellent
 - ⏳ Accessibility standards met
 
----
+--
 
 ## 📐 SYSTEMATIC IMPROVEMENT PLAN:
 
@@ -106,7 +106,7 @@
 
 ```bash
 # On Render shell:
-python overnight_library_builder.py --practice-area all
+python overnight_library_builder.py -practice-area all
 ```
 
 Expected: 27 landmark cases imported
@@ -129,7 +129,7 @@ Expected: 27 landmark cases imported
 - Document known limitations
 - Track technical debt
 
----
+--
 
 ### **Phase 2: Polish User Experience (Week 2)**
 
@@ -176,7 +176,7 @@ Build:
 - Export chat to PDF
 ```
 
----
+--
 
 ### **Phase 3: Mobile Experience (Week 3-4)**
 
@@ -208,7 +208,7 @@ Build:
 - Offline sync
 ```
 
----
+--
 
 ### **Phase 4: Scale & Optimize (Week 5-6)**
 
@@ -239,7 +239,7 @@ Build:
 - Measure conversion rates
 ```
 
----
+--
 
 ## 🎓 PRINCIPLES OF EXCELLENT BRICK WORK:
 
@@ -279,7 +279,7 @@ Build:
 - Helpful error messages
 - Professional design
 
----
+--
 
 ## 📊 QUALITY METRICS (Track Weekly):
 
@@ -311,7 +311,7 @@ Build:
 - [ ] Judge data is current
 - [ ] Sources are verified
 
----
+--
 
 ## 🏆 DEFINITION OF "DONE":
 
@@ -325,7 +325,7 @@ A feature is NOT done until:
 6. ✅ **It's deployed** - Live in production, monitored
 7. ✅ **It's measured** - Analytics tracking, success criteria defined
 
----
+--
 
 ## 🚧 CURRENT WORK IN PROGRESS:
 
@@ -351,7 +351,7 @@ A feature is NOT done until:
 4. API marketplace
 5. Law school partnerships
 
----
+--
 
 ## 💬 RESPECTING THE BRICK WORK MEANS:
 
@@ -385,7 +385,7 @@ A feature is NOT done until:
 - We add AI, mobile, support (our value-add)
 - Transparency builds trust
 
----
+--
 
 ## 🎯 THIS WEEK'S GOALS:
 
@@ -410,7 +410,7 @@ A feature is NOT done until:
 - Create production status report
 - Plan next week's work
 
----
+--
 
 ## 🏗️ REMEMBER:
 
@@ -423,7 +423,7 @@ A feature is NOT done until:
 **Build with excellence.**  
 **Serve with integrity.**
 
----
+--
 
 ## ✅ NEXT IMMEDIATE ACTIONS:
 

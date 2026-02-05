@@ -12,7 +12,7 @@ Evident.info uses a **hybrid frontend architecture**:
 - **Custom CSS** - Token-based design system
 - **Vanilla JavaScript** - No framework dependencies
 
----
+--
 
 ## ?? **Frontend File Structure**
 
@@ -49,7 +49,7 @@ Evident.info/
     ??? default.html               # Base layout
 ```
 
----
+--
 
 ## ?? **Design System**
 
@@ -94,7 +94,7 @@ Evident.info/
 --space-16: 4rem; /* 64px */
 ```
 
----
+--
 
 ## ?? **Page Types**
 
@@ -114,16 +114,12 @@ Evident.info/
 **Example:**
 
 ```html
----
-layout: default
-title: "Evident Legal Technologies"
-description: "Professional AI-powered eDiscovery"
----
-
-{% include components/hero.html %} {% include components/features.html %}
+-- layout: default title: "Evident Legal Technologies" description:
+"Professional AI-powered eDiscovery" -- {% include components/hero.html %} {%
+include components/features.html %}
 ```
 
----
+--
 
 ### **2. Web App Pages (Flask/Jinja2)**
 
@@ -146,7 +142,7 @@ description: "Professional AI-powered eDiscovery"
 {% endblock %}
 ```
 
----
+--
 
 ### **3. Standalone Pages**
 
@@ -159,7 +155,7 @@ description: "Professional AI-powered eDiscovery"
 - Can be deployed anywhere
 - Fast loading
 
----
+--
 
 ## ?? **Navigation Structure**
 
@@ -191,7 +187,7 @@ Dashboard (/auth/dashboard)
 ??? Logout (/auth/logout)
 ```
 
----
+--
 
 ## ?? **Call-to-Action Buttons**
 
@@ -219,7 +215,7 @@ Dashboard (/auth/dashboard)
 | **Pricing**                   | `/pricing`       | ?? Create |
 | **Contact Us**                | `/contact`       | ?? Create |
 
----
+--
 
 ## ?? **Responsive Design**
 
@@ -243,7 +239,7 @@ Dashboard (/auth/dashboard)
 
 All components are designed mobile-first, then enhanced for larger screens.
 
----
+--
 
 ## ? **Performance**
 
@@ -268,23 +264,23 @@ All components are designed mobile-first, then enhanced for larger screens.
    - System fonts first (no external font loading)
    - Variable fonts for multiple weights
 
----
+--
 
 ## ?? **Component Library**
 
 ### **Buttons:**
 
 ```html
-<!-- Primary Button -->
+<!-- Primary Button ->
 <button class="btn btn-primary">Primary Action</button>
 
-<!-- Secondary Button -->
+<!-- Secondary Button ->
 <button class="btn btn-secondary">Secondary Action</button>
 
-<!-- Outline Button -->
+<!-- Outline Button ->
 <button class="btn btn-outline">Outline Button</button>
 
-<!-- Icon Button -->
+<!-- Icon Button ->
 <button class="btn btn-icon">
   <svg>...</svg>
   Icon Button
@@ -322,23 +318,23 @@ All components are designed mobile-first, then enhanced for larger screens.
 ### **Alerts:**
 
 ```html
-<!-- Success Alert -->
+<!-- Success Alert ->
 <div class="alert alert-success">
   <strong>Success!</strong> Your changes have been saved.
 </div>
 
-<!-- Error Alert -->
+<!-- Error Alert ->
 <div class="alert alert-error">
   <strong>Error!</strong> Something went wrong.
 </div>
 
-<!-- Warning Alert -->
+<!-- Warning Alert ->
 <div class="alert alert-warning">
   <strong>Warning!</strong> Please check your input.
 </div>
 ```
 
----
+--
 
 ## ?? **Development Workflow**
 
@@ -356,7 +352,7 @@ bundle exec jekyll serve
 python app.py
 
 # Terminal 2:
-bundle exec jekyll serve --port 4000
+bundle exec jekyll serve -port 4000
 ```
 
 ### **Testing:**
@@ -375,7 +371,7 @@ bundle exec jekyll serve --port 4000
 # https://pagespeed.web.dev/
 ```
 
----
+--
 
 ## ?? **Adding New Pages**
 
@@ -384,21 +380,21 @@ bundle exec jekyll serve --port 4000
 1. Create `new-page.html` in root:
 
 ```html
----
+--
 layout: default
 title: "Page Title"
 description: "Page description"
----
+--
 
 <section class="section">
   <h1>{{ page.title }}</h1>
-  <!-- Content here -->
+  <!-- Content here ->
 </section>
 ```
 
 2. Add to navigation in `_includes/header.html`
 
----
+--
 
 ### **Flask Web App Page:**
 
@@ -407,7 +403,7 @@ description: "Page description"
 ```html
 {% extends "base.html" %} {% block content %}
 <h1>New Feature</h1>
-<!-- Content here -->
+<!-- Content here ->
 {% endblock %}
 ```
 
@@ -420,7 +416,7 @@ def new_feature():
     return render_template('new-feature.html')
 ```
 
----
+--
 
 ## ?? **Link Audit & Fixes**
 
@@ -435,7 +431,7 @@ def new_feature():
 
 **Next:** I'll create all these missing pages!
 
----
+--
 
 ## ?? **SEO Optimization**
 
@@ -448,13 +444,13 @@ def new_feature():
   <title>Page Title | Evident Legal Tech</title>
   <meta name="description" content="150-160 character description" />
 
-  <!-- Open Graph (Social Media) -->
+  <!-- Open Graph (Social Media) ->
   <meta property="og:title" content="Page Title" />
   <meta property="og:description" content="Description" />
   <meta property="og:image" content="/assets/img/og-image.png" />
   <meta property="og:url" content="https://Evident.info/page" />
 
-  <!-- Twitter -->
+  <!-- Twitter ->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Page Title" />
   <meta name="twitter:description" content="Description" />
@@ -462,14 +458,14 @@ def new_feature():
 </head>
 ```
 
----
+--
 
 ## ?? **Analytics Integration**
 
 ### **Google Analytics:**
 
 ```html
-<!-- Add to _layouts/default.html -->
+<!-- Add to _layouts/default.html ->
 <script
   async
   src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
@@ -484,7 +480,7 @@ def new_feature():
 </script>
 ```
 
----
+--
 
 ## ? **Accessibility Checklist**
 
@@ -497,7 +493,7 @@ def new_feature():
 - [ ] Form labels properly associated
 - [ ] Skip to main content link
 
----
+--
 
 ## ?? **Deployment**
 
@@ -515,7 +511,7 @@ def new_feature():
 
 - URL: `https://app.Evident.info` (after DNS setup)
 
----
+--
 
 ## ?? **Support**
 
@@ -523,6 +519,6 @@ def new_feature():
 - **Design Questions:** Tag `design` in issue
 - **Accessibility:** Tag `a11y` in issue
 
----
+--
 
 **Next:** Let me create all the missing pages!

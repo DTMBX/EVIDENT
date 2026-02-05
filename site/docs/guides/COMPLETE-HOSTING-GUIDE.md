@@ -25,7 +25,7 @@ Your Evident.info needs BOTH services working together:
     ??????????????????????  ?????????????????????
 ```
 
----
+--
 
 ## ?? **Part 1: GitHub Pages Setup**
 
@@ -67,7 +67,7 @@ exclude:
   - requirements.txt
   - app.py
   - venv
-  - __pycache__
+  - -pycache-
   - instance
   - logs
   - uploads
@@ -85,7 +85,7 @@ GitHub Pages will serve:
 - ? `app.py` ? Excluded (Python files ignored)
 - ? `templates/` ? Excluded (Flask templates ignored)
 
----
+--
 
 ## ?? **Part 2: Render Setup**
 
@@ -107,7 +107,7 @@ services:
   - type: web
     name: Evident-legal-tech
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
+    startCommand: gunicorn app:app -bind 0.0.0.0:$PORT
     envVars:
       - key: DATABASE_URL
         fromDatabase:
@@ -136,7 +136,7 @@ Render deploys:
 - ? Database connection
 - ? File upload handling
 
----
+--
 
 ## ?? **Part 3: DNS Configuration (Custom Domain)**
 
@@ -151,7 +151,7 @@ app.Evident.info                ? Render (Flask application)
 api.Evident.info                ? Render API (optional)
 ```
 
----
+--
 
 ### **DNS Records You Need:**
 
@@ -188,7 +188,7 @@ TTL: 3600
 
 **These are GitHub's IP addresses for custom domains.**
 
----
+--
 
 #### **For Render (app.Evident.info):**
 
@@ -199,7 +199,7 @@ Value: Evident-legal-tech.onrender.com
 TTL: 3600
 ```
 
----
+--
 
 ### **Complete DNS Setup Example (GoDaddy):**
 
@@ -212,7 +212,7 @@ TTL: 3600
 | CNAME | www  | dtb396.github.io                | 1 Hour |
 | CNAME | app  | Evident-legal-tech.onrender.com | 1 Hour |
 
----
+--
 
 ### **After DNS is Set:**
 
@@ -231,7 +231,7 @@ TTL: 3600
 
 ```
 1. Go to: https://dashboard.render.com
-2. Click "Evident-legal-tech" service
+2. Click "evident-legal-tech" service
 3. Go to "Settings"
 4. Scroll to "Custom Domains"
 5. Click "Add Custom Domain"
@@ -241,7 +241,7 @@ TTL: 3600
 9. SSL auto-provisions
 ```
 
----
+--
 
 ## ?? **How It All Works Together:**
 
@@ -275,7 +275,7 @@ User clicks "Login"
     User sees login page
 ```
 
----
+--
 
 ## ?? **Complete User Journey:**
 
@@ -333,7 +333,7 @@ Redirects back to GitHub Pages
 User reads documentation
 ```
 
----
+--
 
 ## ?? **SSL/HTTPS (Automatic):**
 
@@ -351,7 +351,7 @@ User reads documentation
 
 **Both services handle SSL for you!**
 
----
+--
 
 ## ?? **Costs:**
 
@@ -365,7 +365,7 @@ User reads documentation
 
 **Total minimum cost: ~$10-15/year (just domain)**
 
----
+--
 
 ## ?? **Step-by-Step Setup (Complete):**
 
@@ -413,7 +413,7 @@ git push origin main
 - Add custom domain: app.Evident.info
 - Wait for SSL
 
----
+--
 
 ## ?? **Current Status Check:**
 
@@ -443,7 +443,7 @@ git push origin main
 - ? Custom domain: Evident.info
 - ? Custom app domain: app.Evident.info
 
----
+--
 
 ## ?? **Key Takeaways:**
 
@@ -454,7 +454,7 @@ git push origin main
 5. **SSL is automatic** on both
 6. **Everything is free** (except custom domain)
 
----
+--
 
 ## ?? **Troubleshooting:**
 
@@ -476,7 +476,7 @@ git push origin main
 - Check with: https://dnschecker.org
 - Verify DNS records are correct
 
----
+--
 
 ## ? **Quick Start Checklist:**
 
@@ -494,6 +494,6 @@ git push origin main
 - [ ] Add custom domain to Render
 - [ ] Enable HTTPS on both
 
----
+--
 
 **Both services work together perfectly! GitHub Pages for marketing, Render for the app! ??**

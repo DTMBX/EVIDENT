@@ -14,7 +14,7 @@ https://Evident-backend.onrender.com/payments/webhook
 https://Evident.info/payments/webhook
 ```
 
----
+--
 
 ## 📋 3-STEP SETUP (5 MINUTES TOTAL)
 
@@ -48,7 +48,7 @@ invoice.payment_failed
 
 **Click:** "Add endpoint"
 
----
+--
 
 ### STEP 2: Get Signing Secret (1 min)
 
@@ -58,7 +58,7 @@ After clicking "Add endpoint":
 2. Click **"Reveal"**
 3. **Copy the entire secret** (starts with `whsec_`)
 
----
+--
 
 ### STEP 3: Add to Render (2 min)
 
@@ -79,7 +79,7 @@ Value: [paste your whsec_... secret here]
 5. Click **"Save Changes"**
 6. Wait 5 minutes
 
----
+--
 
 ## ✅ DONE! THAT'S IT!
 
@@ -89,7 +89,7 @@ After 5 minutes, test with:
 https://Evident-backend.onrender.com/payments/pricing
 ```
 
----
+--
 
 ## 🧪 INSTANT TEST (1 MINUTE)
 
@@ -99,7 +99,7 @@ https://Evident-backend.onrender.com/payments/pricing
 4. **Use card:** 4242 4242 4242 4242
 5. **Done!** Should redirect to success page
 
----
+--
 
 ## 🆘 IF STUCK
 

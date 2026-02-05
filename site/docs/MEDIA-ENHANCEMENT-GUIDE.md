@@ -8,7 +8,7 @@ The Media Enhancement Service provides **court-defensible audio, video, and imag
 
 Every enhancement creates a new derivative file with complete processing documentation, SHA-256 hashes, and quality metrics.
 
----
+--
 
 ## 🔒 Non-Destructive Workflow
 
@@ -31,7 +31,7 @@ Enhanced File (output): Separate directory, marked as derivative
 
 **Original file is physically protected and cannot be overwritten**
 
----
+--
 
 ## 🎬 Audio Enhancement
 
@@ -106,7 +106,7 @@ curl -X POST http://localhost:8000/api/v1/ediscovery/enhancement/audio \
 
 **SNR Improvement: +12 dB** 🎯
 
----
+--
 
 ## 📹 Video Enhancement
 
@@ -178,7 +178,7 @@ curl -X POST http://localhost:8000/api/v1/ediscovery/enhancement/video \
 
 **Sharpness Improvement: +73%** 🎯
 
----
+--
 
 ## 🖼️ Image Enhancement
 
@@ -239,7 +239,7 @@ curl -X POST http://localhost:8000/api/v1/ediscovery/enhancement/image \
 }
 ```
 
----
+--
 
 ## 📊 Quality Comparison
 
@@ -275,7 +275,7 @@ curl http://localhost:8000/api/v1/ediscovery/enhancement/compare/ENH-AUD-EV-BWC-
 }
 ```
 
----
+--
 
 ## ⚖️ Court Admissibility Guidelines
 
@@ -314,7 +314,7 @@ curl http://localhost:8000/api/v1/ediscovery/enhancement/compare/ENH-AUD-EV-BWC-
 4. **Compare side-by-side** for jury/judge
 5. **Expert testimony** if challenged (Daubert hearing)
 
----
+--
 
 ## 🔬 Processing Pipeline (Production)
 
@@ -370,7 +370,7 @@ curl http://localhost:8000/api/v1/ediscovery/enhancement/compare/ENH-AUD-EV-BWC-
    → PIL: ImageEnhance.Contrast(img).enhance(1.2)
 ```
 
----
+--
 
 ## 📦 Installation
 
@@ -419,7 +419,7 @@ pip install pyannote.audio
 # macOS: brew install tesseract
 ```
 
----
+--
 
 ## 🎯 Real-World Use Cases
 
@@ -441,7 +441,7 @@ pip install pyannote.audio
 
 **Result**: Commands now clearly audible for court playback
 
----
+--
 
 ### Case 2: Video Upscaling
 
@@ -460,7 +460,7 @@ pip install pyannote.audio
 
 **Result**: Plate numbers readable after upscaling
 
----
+--
 
 ### Case 3: Image Super-Resolution
 
@@ -479,7 +479,7 @@ pip install pyannote.audio
 
 **Result**: Badge number identifiable
 
----
+--
 
 ## 📋 Chain-of-Custody Disclosure
 
@@ -504,7 +504,7 @@ Settings: {
 
 **This disclosure satisfies FRCP 26(a)(1) and Daubert requirements for court exhibits.**
 
----
+--
 
 ## ⚠️ Important Warnings
 
@@ -525,7 +525,7 @@ Settings: {
 ❌ **Never rely on AI upscaling** without expert validation
 ❌ **Never delete original** after enhancement
 
----
+--
 
 ## 🆘 Support
 

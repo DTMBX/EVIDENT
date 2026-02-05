@@ -15,7 +15,7 @@ The payment code is **NOT deployed yet!**
 
 **Why?** The Stripe payment code is still in branch `payments-clean` - not merged to `main` yet!
 
----
+--
 
 ## 🚀 SOLUTION: Merge to Main (2 minutes)
 
@@ -33,7 +33,7 @@ https://github.com/DTB396/Evident.info/compare/main...payments-clean
 
 **Step 4:** Wait 5-10 minutes for Render to auto-deploy
 
----
+--
 
 ### OPTION 2: Merge Locally (If you prefer)
 
@@ -48,7 +48,7 @@ git push origin main
 
 Then wait 5-10 minutes for Render deployment.
 
----
+--
 
 ## 🎯 FOR NOW - CREATE YOUR ACCOUNT
 
@@ -74,7 +74,7 @@ Then wait 5-10 minutes for Render deployment.
 - Test emails often filtered out
 - Use your REAL email instead
 
----
+--
 
 ## ✅ AFTER MERGE
 
@@ -85,7 +85,7 @@ Once payments-clean is merged to main:
 3. **Can set up webhook**
 4. **Can accept payments!**
 
----
+--
 
 ## 🎯 WHAT TO DO RIGHT NOW:
 
@@ -112,6 +112,6 @@ git push origin main
 - Explore current features
 - Payment features will work after merge
 
----
+--
 
 **Which option do you want to do? I'll help you through it!**

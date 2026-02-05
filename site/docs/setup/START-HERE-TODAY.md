@@ -39,9 +39,9 @@ Just open your browser and login!
 ## Test Retrieval
 
 ```bash
-python -m pipeline.cli retrieve "Fourth Amendment" --top 3
+python -m pipeline.cli retrieve "Fourth Amendment" -top 3
 ```
 
----
+--
 
 **GO NOW:** Open browser → http://localhost:5000/auth/login → Login and explore!

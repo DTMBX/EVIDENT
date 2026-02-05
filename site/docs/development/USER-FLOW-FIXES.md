@@ -41,12 +41,12 @@
 ### Fix 1: Update All Registration Links
 
 ```html
-<!-- BEFORE -->
+<!-- BEFORE ->
 <a href="/auth/register">...</a>
 
-<!-- AFTER -->
+<!-- AFTER ->
 <a href="/register">...</a>
-<!-- OR -->
+<!-- OR ->
 <a href="/auth/signup">...</a>
 ```
 

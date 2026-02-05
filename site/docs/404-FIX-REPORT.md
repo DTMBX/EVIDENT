@@ -4,7 +4,7 @@
 
 Scanned entire site for broken links and missing pages. Created comprehensive page structure with proper Jekyll layouts and branding.
 
----
+--
 
 ## Missing Pages Found & Fixed
 
@@ -58,7 +58,7 @@ Scanned entire site for broken links and missing pages. Created comprehensive pa
 **File:** `templates/auth/signup.html` (exists)
 **Status:** Template ready, needs auth_routes integration
 
----
+--
 
 ## Case Pages Status
 
@@ -76,7 +76,7 @@ Scanned entire site for broken links and missing pages. Created comprehensive pa
 
 **Note:** Case files exist as .md in `_cases/` collection. Jekyll should render them automatically. If 404s occur, check `_config.yml` collections setup.
 
----
+--
 
 ## Additional Missing Pages Detected
 
@@ -102,7 +102,7 @@ Scanned entire site for broken links and missing pages. Created comprehensive pa
 - `/privacy` — Privacy policy
 - `/terms` — Terms of service
 
----
+--
 
 ## Recommended Actions
 
@@ -181,7 +181,7 @@ def docket_search():
     return render_template('tools/docket-search.html')
 ```
 
----
+--
 
 ## Jekyll Configuration Check
 
@@ -209,7 +209,7 @@ defaults:
       layout: "case"
 ```
 
----
+--
 
 ## Link Audit Results
 
@@ -235,32 +235,32 @@ defaults:
    - `/dashboard`, `/auth/*`
    - **Fix:** Integrate auth_routes.py properly
 
----
+--
 
 ## Page Template Standards
 
 ### All new pages should include:
 
 ```yaml
----
+--
 layout: default
 title: "Page Title | Evident"
 permalink: /page-url/
 description: "SEO description"
----
+--
 <style>
 /* Page-specific styles using brand tokens */
 </style>
 
 <div class="page-hero">
-<!-- Gradient hero with barber pole -->
+<!-- Gradient hero with barber pole ->
 </div>
 
 <div class="page-content">
-<!-- Main content -->
+<!-- Main content ->
 </div>
 
-<!-- Fixed corner pole for branding -->
+<!-- Fixed corner pole for branding ->
 ```
 
 ### Layout Hierarchy
@@ -273,7 +273,7 @@ _layouts/
   └── dashboard.html # App dashboard layout
 ```
 
----
+--
 
 ## Next Steps Checklist
 
@@ -302,18 +302,18 @@ _layouts/
 - [ ] Implement 404.html custom page
 - [ ] Add robots.txt
 
----
+--
 
 ## Custom 404 Page
 
 Create `404.html` in root:
 
 ```html
----
+--
 layout: default
 permalink: /404.html
 title: "Page Not Found | Evident"
----
+--
 
 <div style="text-align: center; padding: 4rem 2rem;">
   <div style="font-size: 6rem; font-weight: 700; color: #c41e3a;">404</div>
@@ -328,7 +328,7 @@ title: "Page Not Found | Evident"
 </div>
 ```
 
----
+--
 
 ## Testing Commands
 
@@ -349,7 +349,7 @@ python app.py
 # Visit http://localhost:5000/pricing
 ```
 
----
+--
 
 ## Summary of Files Created
 
@@ -373,7 +373,7 @@ python app.py
 10. ⏳ `404.html`
 11. ⏳ `_pages/docs/index.md`
 
----
+--
 
 ## Status: Phase 1 Complete ✅
 
@@ -397,7 +397,7 @@ python app.py
 - Clean, modern aesthetics
 - Consistent layouts
 
----
+--
 
 **Document Created:** 2026-01-23  
 **Pages Fixed:** 2 major pages

@@ -217,7 +217,7 @@ sudo systemctl restart Evident
 **Deployed By**: **\*\***\_\_\_**\*\***
 **Post-Deployment Check**: **\*\***\_\_\_**\*\***
 
----
+--
 
 ## Quick Reference
 
@@ -250,6 +250,6 @@ python performance_check.py report
 - `PERFORMANCE-OPTIMIZATION-SUMMARY.md` - Executive summary
 - `PERFORMANCE-OPTIMIZATION-COMPLETE.md` - Full documentation
 
----
+--
 
 **Note**: All optimizations are backwards compatible and production-tested.

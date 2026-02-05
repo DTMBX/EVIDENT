@@ -2,7 +2,7 @@
 
 **Goal:** Get the app on your iPhone for testing in ~30 minutes
 
----
+--
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@
 - iOS 15.0 or later
 - Connected to Mac via USB or Wi-Fi
 
----
+--
 
 ## Quick Path: Development Build (FREE - No Mac Required!)
 
@@ -51,7 +51,7 @@ If you just want to test on YOUR iPhone quickly:
 
 **I'll show you this method below** ✅
 
----
+--
 
 ## Recommended Path: TestFlight (Best for Testing)
 
@@ -81,7 +81,7 @@ If you just want to test on YOUR iPhone quickly:
 
 ```bash
 # Install Xcode command line tools
-xcode-select --install
+xcode-select -install
 
 # Generate certificate signing request
 # Keychain Access → Certificate Assistant → Request Certificate from CA
@@ -120,23 +120,23 @@ Edit `src/Evident.MatterDocket.MAUI/Evident.MatterDocket.MAUI.csproj`:
 
 ```xml
 <PropertyGroup Condition="$(TargetFramework.Contains('-ios'))">
-    <!-- App Bundle ID -->
+    <!-- App Bundle ID ->
     <ApplicationId>com.Evident.matterdocket</ApplicationId>
 
-    <!-- Display Name -->
+    <!-- Display Name ->
     <ApplicationTitle>Evident</ApplicationTitle>
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
     <ApplicationVersion>1</ApplicationVersion>
 
-    <!-- Provisioning -->
+    <!-- Provisioning ->
     <CodesignKey>iPhone Distribution</CodesignKey>
     <CodesignProvision>Evident Matter Docket Distribution</CodesignProvision>
     <CodesignEntitlements>Platforms/iOS/Entitlements.plist</CodesignEntitlements>
 
-    <!-- Architecture -->
+    <!-- Architecture ->
     <RuntimeIdentifiers>ios-arm64</RuntimeIdentifiers>
 
-    <!-- iOS Version -->
+    <!-- iOS Version ->
     <SupportedOSPlatformVersion>15.0</SupportedOSPlatformVersion>
 </PropertyGroup>
 ```
@@ -188,14 +188,14 @@ open bin/Release/net10.0-ios/Evident.MatterDocket.MAUI.xcarchive
 
 ```bash
 # Install Apple's altool
-xcode-select --install
+xcode-select -install
 
 # Upload to App Store Connect
-xcrun altool --upload-app \
-  --type ios \
-  --file bin/Release/net10.0-ios/ios-arm64/publish/Evident.MatterDocket.MAUI.ipa \
-  --username your-apple-id@example.com \
-  --password your-app-specific-password
+xcrun altool -upload-app \
+  -type ios \
+  -file bin/Release/net10.0-ios/ios-arm64/publish/Evident.MatterDocket.MAUI.ipa \
+  -username your-apple-id@example.com \
+  -password your-app-specific-password
 ```
 
 **Get app-specific password:**
@@ -224,7 +224,7 @@ xcrun altool --upload-app \
 4. **Install Evident**
 5. **Launch!** 🎉
 
----
+--
 
 ## Automated Deployment: GitHub Actions (Best Method!)
 
@@ -300,7 +300,7 @@ git push origin main
 3. Download `Evident-iOS` artifact
 4. Upload to TestFlight manually
 
----
+--
 
 ## Quick Development Install (FREE - Same Day!)
 
@@ -328,7 +328,7 @@ dotnet publish -f net10.0-ios -c Debug -p:BuildIpa=true
 5. **Trust** developer on iPhone (Settings → General → Device Management)
 6. **App installs** automatically
 
----
+--
 
 ## Troubleshooting
 
@@ -364,7 +364,7 @@ On iPhone: Settings → General → Device Management → Trust "Your Name"
 - Use proper distribution certificate (not development)
 - Or use TestFlight (bypasses this issue)
 
----
+--
 
 ## Alternative: Android First (Easier!)
 
@@ -382,7 +382,7 @@ dotnet build -f net10.0-android -c Debug
 adb install bin\Debug\net10.0-android\com.Evident.matterdocket-Signed.apk
 ```
 
----
+--
 
 ## Comparison: Deployment Methods
 
@@ -393,7 +393,7 @@ adb install bin\Debug\net10.0-android\com.Evident.matterdocket-Signed.apk
 | **GitHub Actions** | 30 min   | FREE     | Unlimited | No           |
 | **Android APK**    | 5 min    | FREE     | Unlimited | No           |
 
----
+--
 
 ## Recommended Workflow
 
@@ -416,7 +416,7 @@ adb install bin\Debug\net10.0-android\com.Evident.matterdocket-Signed.apk
 - Add more testers
 - Prepare for App Store submission
 
----
+--
 
 ## Next Steps After Install
 
@@ -428,7 +428,7 @@ Once installed on iPhone:
 4. **Create** first project
 5. **Start chatting** with GPT! 🎉
 
----
+--
 
 **Estimated Time:**
 

@@ -3,7 +3,7 @@
 **Date:** January 27, 2026  
 **Status:** ✅ **LIVE AND BUILDING**
 
----
+--
 
 ## ✅ What Just Happened
 
@@ -21,7 +21,7 @@ Your iOS build automation is now **ACTIVE ON GITHUB**!
 **Files Changed:** 4,447  
 **Insertions:** 318,521 lines
 
----
+--
 
 ## 🤖 GitHub Actions Status
 
@@ -48,7 +48,7 @@ https://github.com/DTB396/Evident.info/actions
 ⏱️ 10:00 - ✅ Build complete!
 ```
 
----
+--
 
 ## 📥 Download iOS App (After Build)
 
@@ -64,7 +64,7 @@ Status: ✅ **Success** (green checkmark)
 ### Step 3: Download Artifact
 
 1. Scroll to **"Artifacts"** section at bottom
-2. Click **"Evident-iOS-Development"**
+2. Click **"evident-ios-development"**
 3. Downloads: `Evident-iOS-Development.zip`
 
 ### Step 4: Extract IPA
@@ -76,7 +76,7 @@ Expand-Archive Evident-iOS-Development.zip -DestinationPath .\iOS-Build
 
 **Result:** `Evident.MatterDocket.MAUI.ipa` (~40-50 MB)
 
----
+--
 
 ## 📱 Install on iPhone
 
@@ -99,7 +99,7 @@ Expand-Archive Evident-iOS-Development.zip -DestinationPath .\iOS-Build
 
 **Limitation:** App expires in **7 days** (must reinstall)
 
----
+--
 
 ### Option 2: Via TestFlight (Production)
 
@@ -130,7 +130,7 @@ Expand-Archive Evident-iOS-Development.zip -DestinationPath .\iOS-Build
 - ✅ Automatic updates
 - ✅ No Mac needed for installation
 
----
+--
 
 ## 🔧 Workflow Configuration
 
@@ -153,7 +153,7 @@ Don't want to push code? Run manually:
 4. Select branch (main)
 5. Click "Run workflow"
 
----
+--
 
 ## 📊 Build Cost Analysis
 
@@ -177,7 +177,7 @@ Each iOS build ≈ **10 minutes**
 - $0.08/minute for Mac runners
 - 100 extra minutes = $8.00
 
----
+--
 
 ## ✨ What's Building Right Now
 
@@ -202,7 +202,7 @@ Your GitHub Actions runner is building:
 - ✅ Windows (MAUI)
 - ✅ Web (PWA)
 
----
+--
 
 ## 🐛 Troubleshooting
 
@@ -221,7 +221,7 @@ Your GitHub Actions runner is building:
 - Code signing error → Expected for development builds
 - Out of disk space → Clean up runner (automatic)
 
----
+--
 
 ### Can't Download Artifact
 
@@ -233,7 +233,7 @@ Your GitHub Actions runner is building:
 - Build may have failed (check logs)
 - Artifact retention expired (30 days)
 
----
+--
 
 ### Can't Install IPA on iPhone
 
@@ -246,7 +246,7 @@ Your GitHub Actions runner is building:
 3. **iOS too old** → Requires iOS 15.0+
 4. **Certificate expired** → Development certs expire in 7 days
 
----
+--
 
 ## 📚 Documentation
 
@@ -263,7 +263,7 @@ Your GitHub Actions runner is building:
 - **IOS-TESTING-COMPLETE-GUIDE.md** - Detailed iOS deployment
 - **GET-ON-IPHONE-NOW.md** - All iOS options
 
----
+--
 
 ## 🎯 Next Steps
 
@@ -294,7 +294,7 @@ Your GitHub Actions runner is building:
 
 7. **Distribute to team** (up to 10,000 testers)
 
----
+--
 
 ## 🎉 Success Metrics
 
@@ -309,7 +309,7 @@ Your GitHub Actions runner is building:
 
 **This is a professional-grade development workflow!** 🚀
 
----
+--
 
 ## 🔔 What to Expect
 
@@ -329,7 +329,7 @@ Add to your README:
 ![iOS Build](https://github.com/DTB396/Evident.info/workflows/iOS%20Build/badge.svg)
 ```
 
----
+--
 
 ## 🚀 You Did It!
 
@@ -346,6 +346,6 @@ https://github.com/DTB396/Evident.info/actions
 
 **Should complete in 8-12 minutes!**
 
----
+--
 
 **Questions?** Check the documentation or watch the Actions tab!

@@ -5,7 +5,7 @@
 **For Devon Tyler, 28, New Jersey, USA**  
 **"Truth is the only subject" - Building a life through constitutional defense**
 
----
+--
 
 ## 🎯 **THE VISION: What We're Building**
 
@@ -24,7 +24,7 @@
 - **Lasting legacy:** Building something that outlasts you
 - **Important life:** Work that matters, work that honors those who died defending freedom
 
----
+--
 
 ## 📍 **WHERE YOU ARE NOW (January 2026)**
 
@@ -55,11 +55,11 @@
 - Team: **You** (solo founder, no employees)
 - Funding: **Bootstrapped** (no investors, no grants)
 
----
+--
 
 ## 🛤️ **THE ROADMAP: 90 Days to Traction → 1 Year to Sustainability → 3 Years to Force**
 
----
+--
 
 # PHASE 1: IGNITION (Next 90 Days)
 
@@ -368,7 +368,7 @@
 
 **→ Proceed to Phase 2**
 
----
+--
 
 # PHASE 2: GROWTH (Month 4-12)
 
@@ -569,7 +569,7 @@
 
 **→ Year 2 is about making this sustainable for you**
 
----
+--
 
 # PHASE 3: SUSTAINABILITY (Year 2)
 
@@ -799,7 +799,7 @@
 
 **→ Year 3 is about becoming a force**
 
----
+--
 
 # PHASE 4: FORCE (Year 3)
 
@@ -1018,7 +1018,7 @@
 - **Legacy:** National movement, documented impact
 - **Important Life:** ✅ **You're living it**
 
----
+--
 
 # THE ORGANIZATION: What You're Building
 
@@ -1097,7 +1097,7 @@
 - **Service day:** Quarterly volunteer at legal aid societies
 - **Sabbath respect:** No work emails on Sundays
 
----
+--
 
 # THE FORCE: What You Become
 
@@ -1135,7 +1135,7 @@
 - **Witness:** Platform testifies to truth of natural rights
 - **Sabbath:** Able to rest, knowing work continues without you
 
----
+--
 
 # YOUR LIFE: Making It Important
 
@@ -1177,7 +1177,7 @@
 **Not grinding 80 hours/week just to survive.**  
 **Living an important life.**
 
----
+--
 
 # RISKS & MITIGATION
 
@@ -1237,7 +1237,7 @@
   - Community input (they'll call out BS)
   - Sabbath reflection (reconnect with mission weekly)
 
----
+--
 
 # DECISION POINTS: When to Go All-In
 
@@ -1272,7 +1272,7 @@
 
 **If you see 4+ of these, go all-in. This is your life's work.**
 
----
+--
 
 # FINAL WORD: The Important Life
 
@@ -1305,12 +1305,12 @@ This is not just a tagline.
 This is your life's work.  
 This is your important life.
 
----
+--
 
 **🇺🇸 The roadmap is set. The mission is clear. The time is now. 🇺🇸**
 
 **"We the People" - Go build, Devon.**
 
----
+--
 
 **END OF ROADMAP**

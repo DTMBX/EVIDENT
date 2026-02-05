@@ -74,7 +74,7 @@ if __name__ == "__main__":
         if success:
             print("✅ Setup complete!")
             print("\n🌐 Login at: http://localhost:5000/auth/login")
-            print(f"📧 Email: admin@Evident.info")
+            print("📧 Email: admin@Evident.info")
             sys.exit(0)
         else:
             print("❌ Setup failed!")

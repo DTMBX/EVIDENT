@@ -1,8 +1,9 @@
 ---
+
 layout: default
 title: Development Status
 permalink: /docs/status/
----
+--
 
 <article class="md" role="article">
   <header class="md-header">
@@ -14,13 +15,13 @@ permalink: /docs/status/
 
 ## Current Phase: Validation and Framework Development
 
----
+--
 
 ## Overview
 
 This project combines precision tools with principled governance to preserve accurate records and reduce harm through responsible recording practices.
 
----
+--
 
 ## Features in Development
 
@@ -45,7 +46,7 @@ This project combines precision tools with principled governance to preserve acc
 - **Data Minimization** — Collect and retain as little as possible
 - **Secure Deletion** — Verified removal when retention is no longer necessary
 
----
+--
 
 ## Development Timeline
 
@@ -57,7 +58,7 @@ This project combines precision tools with principled governance to preserve acc
 | Phase 4 | ⏳ Pending     | Security audit and ethical review                         |
 | Phase 5 | ⏳ Pending     | Public beta release with full documentation               |
 
----
+--
 
 ## Governance Milestones
 
@@ -82,7 +83,7 @@ This project combines precision tools with principled governance to preserve acc
 - ⏳ Beta testing program
 - ⏳ Public documentation release
 
----
+--
 
 ## Release Criteria
 
@@ -97,7 +98,7 @@ Public release will occur **only after** all of the following are complete:
 | Privacy Verification  | ⏳ Pending     | Confirmation of data protection measures       |
 | Beta Testing          | ⏳ Pending     | Real-world validation with limited users       |
 
----
+--
 
 ## Transparency Commitments
 
@@ -108,7 +109,7 @@ This project maintains transparency through:
 - **Clear communication** about capabilities and limitations
 - **Honest acknowledgment** of what we don't know yet
 
----
+--
 
 ## What This Status Page Is
 
@@ -122,7 +123,7 @@ This project maintains transparency through:
 - Operational software documentation
 - A substitute for official announcements
 
----
+--
 
 ## Contact
 
@@ -131,7 +132,7 @@ For inquiries about Barber Cam development status:
 - **Email:** [support@Evident.info](mailto:support@Evident.info)
 - **GitHub:** Open an issue with "Status Inquiry" in the title
 
----
+--
 
   <footer class="md-footer">
     <p class="md-meta">Last updated: <time datetime="2026-01-04">Jan 4, 2026</time></p>
