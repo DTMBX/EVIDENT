@@ -1,0 +1,6 @@
+@Evident.Web_HostAddress = http://localhost:5237
+
+GET {{BarberX.Web_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

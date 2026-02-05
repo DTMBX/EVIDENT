@@ -1,26 +1,15 @@
 {
-  "type": "module",
-  "engines": {
-    "node": ">=22.19.0"
-  },
+  "name": "evident-repo-tools",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "setup:agents": "node scripts/setup-copilot-agents.mjs",
-    "test": "playwright test",
-    "lint:css": "stylelint '**/*.css'",
-    "deploy": "netlify deploy --prod",
-    "deploy:preview": "netlify deploy",
-    "deploy:init": "netlify init",
-    "deploy:login": "netlify login",
-    "deploy:status": "netlify status",
-    "build": "bundle exec jekyll build",
-    "serve": "bundle exec jekyll serve",
-    "clean": "bundle exec jekyll clean"
+    "lint:css": "stylelint \"site/components/*.css\" \"site/assets/css/**/*.css\"",
+    "format": "prettier --write \"**/*.{css,html,md,js,ts,tsx,jsx,json}\"",
+    "format:check": "prettier --check \"**/*.{css,html,md,js,ts,tsx,jsx,json}\""
   },
   "devDependencies": {
-    "@copilot-extensions/preview-sdk": "^5.0.1",
-    "@playwright/test": "^1.58.1",
-    "playwright": "^1.57.0",
-    "stylelint": "^16.26.1",
-    "stylelint-config-standard": "^40.0.0"
+    "prettier": "^3.0.0",
+    "stylelint": "^15.0.0",
+    "stylelint-config-standard": "^32.0.0"
   }
 }

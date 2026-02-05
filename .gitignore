@@ -38,6 +38,10 @@ secure/
 *.key
 *.pem
 
+# Ignore private backend and MAUI test folders
+Evident-Backend/
+Evident-MAUI-Test/
+
 # IDE
 .vscode/
 .idea/
@@ -56,6 +60,7 @@ bwc_videos/
 
 # Backups
 backups/
+site/backups/
 
 # Large files
 *.zip
@@ -309,3 +314,26 @@ google-services.json
 # Local Development
 launchSettings.json
 *.local.json
+
+# --- build/caches ---
+_site/
+.jekyll-cache/
+.venv/
+instance/
+test-results/
+stylelint-report.txt
+
+# --- OS/IDE ---
+.vs/
+# Jekyll build artifacts
+_site/
+.jekyll-cache/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# IDE
+.vs/
+.vscode/
