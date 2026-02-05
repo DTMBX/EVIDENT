@@ -178,7 +178,7 @@ code {
     <li><strong>Multi-user Authentication</strong> — Role-based access control for teams</li>
     <li><strong>Chain of Custody</strong> — SHA-256 hashing and audit logging</li>
     <li><strong>Advanced Analysis</strong> — Transcription, entity extraction, discrepancy detection</li>
-    <li><strong>Court-Ready Exports</strong> — PDF, DOCX, JSON formats with custody reports</li>
+    <li><strong>Exports Formatted For Court Submission</strong> — PDF, DOCX, JSON formats with custody reports</li>
   </ul>
 </div>
 
@@ -218,7 +218,7 @@ code {
   <p>Transcribe audio, extract text, and run entity recognition on uploaded files. All processing is local—no data leaves your machine.</p>
 
   <h3>Search & Export</h3>
-  <p>Use semantic search to find relevant evidence. Export court-ready exhibits as PDF, DOCX, or JSON.</p>
+  <p>Use semantic search to find relevant evidence. Export exhibits formatted for court submission as PDF, DOCX, or JSON.</p>
 </div>
 
 <div id="api-reference" class="docs-section">

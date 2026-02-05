@@ -20,7 +20,7 @@
 - ✓ Metadata extraction (ffmpeg/ffprobe)
 - ✓ Timeline synchronization
 - ✓ Discrepancy detection
-- ✓ Court-ready JSON/TXT/Markdown export
+- ✓ Exports formatted for court submission (attorney review required)
 
 **Infrastructure:**
 
@@ -395,7 +395,7 @@ from reportlab.pdfgen import canvas
 
 class EvidenceReportGenerator:
     """
-    Generates court-ready PDF with:
+    Generates PDFs formatted for court submission with:
     - Case summary
     - Chain of custody table
     - Evidence manifest (all hashes)
@@ -582,7 +582,7 @@ Replace "Evident Legal Technologies" messaging with:
 
 - ✓ PDF generates < 5 seconds
 - ✓ Includes all required chain-of-custody elements
-- ✓ Attorney feedback: "court-ready"
+- ✓ Attorney feedback: "formatted for court submission"
 
 --
 

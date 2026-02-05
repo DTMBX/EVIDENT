@@ -90,7 +90,7 @@ Evident.info is **production-ready** for processing court documents and BWC vide
 - ✅ Speaker diarization (officer vs civilian)
 - ✅ Timeline synchronization
 - ✅ Discrepancy detection
-- ✅ Court-ready reporting with citations
+- ✅ Reporting formatted for court submission with citations (attorney review required)
 
 **Upload Endpoint:** `/api/upload` (POST)
 
@@ -109,7 +109,7 @@ Evident.info is **production-ready** for processing court documents and BWC vide
 - Real-time analysis status
 - Transcript viewer with timestamps
 - Discrepancy highlighting
-- Export to court-ready formats
+- Export to formats suitable for court submission
 
 --
 
@@ -341,7 +341,7 @@ print(response.json())
 - Discrepancy report (vs police report)
 - Timeline visualization
 - Chain of custody documentation
-- Court-ready PDF report
+- PDF report formatted for court submission
 
 --
 

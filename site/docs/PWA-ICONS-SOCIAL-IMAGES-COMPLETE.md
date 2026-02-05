@@ -209,14 +209,14 @@ All PWA icons and social media images have been successfully generated using aut
 ### Add to `<head>` section of all pages:
 
 ```html
-<!-- PWA Manifest ->
+<!-- PWA Manifest -->
 <link rel="manifest" href="/manifest.json" />
 
-<!-- Theme Colors ->
+<!-- Theme Colors -->
 <meta name="theme-color" content="#c41e3a" />
 <meta name="msapplication-TileColor" content="#c41e3a" />
 
-<!-- Apple Touch Icons ->
+<!-- Apple Touch Icons -->
 <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
 <link
   rel="apple-touch-icon"
@@ -234,7 +234,7 @@ All PWA icons and social media images have been successfully generated using aut
   href="/assets/images/apple-touch-icon-180.png"
 />
 
-<!-- Favicons ->
+<!-- Favicons -->
 <link
   rel="icon"
   type="image/png"
@@ -249,7 +249,7 @@ All PWA icons and social media images have been successfully generated using aut
 />
 <link rel="shortcut icon" href="/favicon.ico" />
 
-<!-- Social Media Images (in structured-data.html component) ->
+<!-- Social Media Images (in structured-data.html component) -->
 <meta
   property="og:image"
   content="{{ url_for('static', filename='assets/images/og-image.jpg', _external=True) }}"

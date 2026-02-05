@@ -142,13 +142,13 @@ Toast.error("Critical error occurred", 0);
 **Usage:**
 
 ```html
-<!-- Skeleton loader ->
+<!-- Skeleton loader -->
 <div class="loading-skeleton" style="height: 20px; width: 200px;"></div>
 
-<!-- Spinner ->
+<!-- Spinner -->
 <span class="loading-spinner"></span>
 
-<!-- Loading button ->
+<!-- Loading button -->
 <button class="btn is-loading">Processing...</button>
 ```
 

@@ -167,14 +167,14 @@ window.EvidentPlatform = {
 
 **Structure:**
 
-- **Status Badge:** Pulsing green dot + "Local AI Processing • Court-Defensible"
+- **Status Badge:** Pulsing green dot + "Local AI Processing • Audit Trails for Legal Review"
 - **Headline:** "Citizen Accountability Through Record Access" (with gradient accent)
 - **Lead:** Value proposition (100% local, $0 costs)
 - **CTA Buttons:** "Start Processing Evidence" + "View Documentation"
 - **Features Grid:** 4 features with icons
   1. Video Enhancement (Whisper, super-resolution)
   2. Document Processing (OCR, entity recognition, semantic search)
-  3. Chain of Custody (SHA-256, audit logs, court-defensible)
+   3. Chain of Custody (SHA-256, audit logs, documented provenance to assist review)
   4. Zero Cloud Costs ($36 saved per 100hrs)
 
 **Stats Banner:**
@@ -230,7 +230,7 @@ window.EvidentPlatform = {
    - Original preservation (non-destructive)
    - Export packages (with chain of custody)
    - AES-256 encryption (optional)
-   - **Court-Ready:** Federal Rules of Evidence 901(b)(9)
+   - **Formatted For Court Submission:** Federal Rules of Evidence 901(b)(9) may be relevant; final admission depends on process and counsel
 
 5. **Forensic Media Enhancement**
    - Image super-resolution (Real-ESRGAN)
@@ -313,7 +313,7 @@ window.EvidentPlatform = {
    - Step 1: Upload Evidence (SHA-256 checksums)
    - Step 2: AI Processing (Whisper, pyannote, Tesseract, spaCy, YOLOv8)
    - Step 3: Search & Analyze (semantic search, timelines, cross-reference)
-   - Step 4: Export Court-Ready Exhibits (PDF, Word, JSON with checksums)
+   - Step 4: Export exhibits formatted for court submission (PDF, Word, JSON with checksums)
 
    **c. Real Cases Section**
    - Case 1: ATL-L-002794-25 (Atlantic County - BWC transcription)
@@ -686,7 +686,7 @@ const validator = new EvidentPlatform.FormValidator(formElement);
 - 100% local processing (privacy, control)
 - $0 cloud API costs (save $36 per 100hrs)
 - 7 open-source AI tools (enterprise-grade, free)
-- Court-defensible (SHA-256, audit logs, FRE 901(b)(9))
+- Designed with SHA-256 and audit logs to assist authentication; consult counsel regarding FRE 901 application
 
 **Level 3: Use Cases**
 
@@ -860,7 +860,7 @@ const validator = new EvidentPlatform.FormValidator(formElement);
 
 This frontend modernization transforms Evident.info from a personal accountability journal into a **professional legal tech platform**. The new design:
 
-1. **Clearly communicates value:** 100% local AI processing, zero costs, court-defensible
+1. **Clearly communicates value:** 100% local AI processing, zero costs, designed with audit trails to support legal review
 2. **Showcases capabilities:** 7 AI tools, 6 major features, real case examples
 3. **Guides users:** 4-step workflow, clear CTAs, detailed documentation
 4. **Builds trust:** Open-source licenses, technical specifications, performance metrics

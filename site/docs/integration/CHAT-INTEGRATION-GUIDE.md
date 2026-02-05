@@ -216,7 +216,7 @@ Frontend HTML template example:
         <input
           type="text"
           id="query-input"
-          placeholder="Ask a legal question..."
+          placeholder="Ask about evidence, formats, or system usage — not legal advice"
           aria-label="Enter your question"
           required
         />

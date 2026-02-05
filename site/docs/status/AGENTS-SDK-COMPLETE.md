@@ -26,7 +26,7 @@ The Evident SDK Agents system provides **7 specialized GitHub Copilot agents** t
 - **Role:** BWC Forensics Specialist
 - **Expertise:** Video analysis, AI transcription, chain of custody, timeline reconstruction
 - **Key Files:** `bwc_forensic_analyzer.py`, `bwc_web_app.py`, `BWC-ANALYSIS-GUIDE.md`
-- **Critical For:** Court-admissible evidence, forensic integrity
+- **Critical For:** Evidence preparation and forensic integrity; final admissibility is determined by courts and counsel.
 
 ### 3. @flask-backend
 

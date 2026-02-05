@@ -339,7 +339,7 @@
 - SSO/SAML
 - Custom workflows
 - Dedicated account manager
-- SLA guarantees
+- SLA (see terms)
 - On-premise option
 - White-label
 - Professional services

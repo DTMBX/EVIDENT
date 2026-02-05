@@ -42,7 +42,7 @@
 
 **Marketing Copy:**
 
-> "For solo practitioners handling BWC cases part-time. Process 10 videos and 5 PDFs monthly with AI-powered analysis and court-ready reports. Perfect for 1-3 cases per month."
+> "For solo practitioners handling BWC cases part-time. Process 10 videos and 5 PDFs monthly with AI-powered analysis and reports formatted for court submission (attorney review required). Perfect for 1-3 cases per month."
 
 **Perfect For:**
 
@@ -76,7 +76,7 @@
 
 **Marketing Copy:**
 
-> "For full-time solo practitioners and small firms. Handle 5-10 BWC cases monthly with advanced AI tools, timeline builder, and court-ready reports. Try risk-free for 3 days."
+> "For full-time solo practitioners and small firms. Handle 5-10 BWC cases monthly with advanced AI tools, timeline builder, and reports formatted for court submission (attorney review required). Try risk-free for 3 days."
 
 **Perfect For:**
 

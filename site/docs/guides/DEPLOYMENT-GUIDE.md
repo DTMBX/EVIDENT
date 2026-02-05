@@ -268,7 +268,7 @@ s3_client.upload_fileobj(
 - ✅ Kubernetes clusters
 - ✅ Multi-region database
 - ✅ Dedicated support
-- ✅ SLA guarantees
+- ✅ SLA (see terms)
 - **Capacity:** Unlimited
 
 --

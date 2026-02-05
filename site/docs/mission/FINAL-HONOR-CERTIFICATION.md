@@ -27,7 +27,7 @@ After thorough review and refinement, **Evident Day 1 work is hereby certified a
 
 - ❌ "AI finds _every_ Miranda warning" (overselling)
 - ❌ "4th Amendment violation detection" (implies AI makes legal judgment)
-- ❌ "Court-ready reports" (implies guaranteed admissibility)
+- ❌ "Reports formatted for court submission" (implies guaranteed admissibility)
 - ❌ "Use-of-force analysis" (implies AI applies Graham standard)
 - ⚠️ No hardware disclaimer on processing speed
 - ⚠️ No explicit promise to Founding Members

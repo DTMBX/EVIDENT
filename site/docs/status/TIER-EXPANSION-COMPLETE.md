@@ -16,7 +16,7 @@
 
 **After:**
 
-> "Fair, transparent pricing that scales with your practice. Start free with full demo access, upgrade when you're ready. All paid plans include professional court-ready reports and priority support."
+> "Fair, transparent pricing that scales with your practice. Start free with full demo access, upgrade when you're ready. All paid plans include reports formatted for court submission and priority support (attorney review required)."
 
 --
 

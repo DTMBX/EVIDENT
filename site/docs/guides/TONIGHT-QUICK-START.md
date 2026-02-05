@@ -80,7 +80,7 @@ Invoke-RestMethod -Uri "http://localhost:5000/api/analysis/$uploadId/status"
 - Speaker identification (officer vs civilian)
 - Discrepancy detection vs police reports
 - Chain of custody documentation
-- Court-ready PDF report
+- PDF report prepared for legal review
 
 --
 

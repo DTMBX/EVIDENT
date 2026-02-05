@@ -224,7 +224,7 @@ Render.com will auto-deploy in ~2 minutes.
 - Miranda warning analysis
 - Use-of-force analysis (Graham v. Connor)
 - Officer contradiction reports
-- Court-ready PDF exports
+- PDF exports formatted for court submission
 - Supreme Court case law library
 - Founding Members Discord (exclusive)
 - Lifetime priority support
