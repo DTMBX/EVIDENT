@@ -4,7 +4,7 @@
 
 Successfully created a professional tier-based authentication and authorization system for Evident with your admin account and 4 subscription tiers.
 
----
+--
 
 ## ✅ **Admin Account Created**
 
@@ -26,7 +26,7 @@ Successfully created a professional tier-based authentication and authorization 
 - ✅ User management
 - ✅ System configuration
 
----
+--
 
 ## 💰 **Tier Structure (Profitable & Scalable)**
 
@@ -87,7 +87,7 @@ Successfully created a professional tier-based authentication and authorization 
 - On-premise deployment option
 - Training & onboarding included
 
----
+--
 
 ## 📁 **Files Created**
 
@@ -135,7 +135,7 @@ Successfully created a professional tier-based authentication and authorization 
    - Flash message support
    - Remember me checkbox
 
----
+--
 
 ## 🔒 **Security Features Included**
 
@@ -165,7 +165,7 @@ Successfully created a professional tier-based authentication and authorization 
 - Parameterized queries
 - Proper foreign key relationships
 
----
+--
 
 ## 🎯 **Usage Limit Tracking**
 
@@ -180,7 +180,7 @@ The system automatically tracks:
 
 **Auto-resets monthly** — Usage counters reset on the 1st of each month.
 
----
+--
 
 ## 🚀 **How to Use**
 
@@ -208,7 +208,7 @@ db.init_app(app)
 bcrypt.init_app(app)
 init_auth(app)  # Registers auth routes
 
-if __name__ == '__main__':
+if -name- == '-main-':
     app.run(debug=True)
 ```
 
@@ -247,7 +247,7 @@ def process_bwc():
 4. Click "Login"
 5. You now have full admin access!
 
----
+--
 
 ## 📊 **Revenue Projections**
 
@@ -268,7 +268,7 @@ def process_bwc():
 - **Total MRR:** $10,375/month
 - **Year 2 ARR:** ~$124,500
 
----
+--
 
 ## 📝 **Sample Test Users Created**
 
@@ -281,7 +281,7 @@ For testing different tier experiences:
 | premium@example.com | test123   | Premium      |
 | admin@Evident.info  | (env var) | **Admin**    |
 
----
+--
 
 ## ✨ **Next Steps**
 
@@ -308,7 +308,7 @@ For testing different tier experiences:
 - [ ] Usage analytics dashboard
 - [ ] Automated billing
 
----
+--
 
 ## 🎨 **Branding Integration**
 
@@ -320,7 +320,7 @@ All authentication pages use Evident branding:
 - Smooth, rounded borders ("NYC fade" aesthetic)
 - Clean transitions
 
----
+--
 
 ## 🔐 **Database Location**
 
@@ -328,7 +328,7 @@ All authentication pages use Evident branding:
 
 **Backup regularly!** This contains all user accounts and subscription data.
 
----
+--
 
 ## ⚡ **Quick Commands**
 
@@ -349,7 +349,7 @@ rm instance/Evident_auth.db
 python init_auth.py
 ```
 
----
+--
 
 **System Status:** ✅ **READY FOR PRODUCTION**
 
@@ -357,7 +357,7 @@ Your admin account is active with unlimited access to all features and backend t
 
 **Like a fresh NYC fade — clean, professional, ready to scale.** 💈✂️
 
----
+--
 
 **Created:** 2026-01-23  
 **Admin:** admin@Evident.info  

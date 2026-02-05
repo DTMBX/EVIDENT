@@ -3,7 +3,7 @@
 **Date:** January 30, 2026  
 **Status:** Analysis Complete
 
----
+--
 
 ## ⚠️ Critical Understanding: Jekyll + GitHub Pages
 
@@ -13,7 +13,7 @@
 - ❌ **Cannot encrypt:** Jekyll source files (\_config.yml, \_layouts, \_includes, Markdown pages)
 - ❌ **Cannot encrypt:** Build configuration (Gemfile, package.json, netlify.toml)
 
----
+--
 
 ## 📋 File Classification
 
@@ -51,7 +51,7 @@
 | Any hardcoded credentials in code   | Replace with environment variables |
 | `instance/*.db`                     | Already gitignored                 |
 
----
+--
 
 ## 🛡️ Implemented Protection Strategy
 
@@ -71,7 +71,7 @@ Production secrets stored in GitHub repository secrets.
 
 Production credentials in Render/Netlify environment settings.
 
----
+--
 
 ## 🔑 Files Protected by git-crypt
 
@@ -86,7 +86,7 @@ scripts/security/*.key
 secure/**
 ```
 
----
+--
 
 ## ✅ Action Items Completed
 
@@ -97,7 +97,7 @@ secure/**
 5. [x] Encrypted eligible files
 6. [x] Documented protection strategy
 
----
+--
 
 ## 📝 How to Access Encrypted Files
 
@@ -116,7 +116,7 @@ git-crypt unlock /path/to/Evident-git-crypt.key
 
 Store the base64-encoded key in GitHub Secrets as `GIT_CRYPT_KEY`
 
----
+--
 
 ## 🚫 Files That Should NOT Be Encrypted
 

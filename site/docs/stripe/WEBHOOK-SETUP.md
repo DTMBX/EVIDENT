@@ -2,7 +2,7 @@
 
 > Complete guide for connecting Stripe webhooks to handle subscriptions, payments, and member management.
 
----
+--
 
 ## 🚀 QUICK START (5 Minutes)
 
@@ -60,7 +60,7 @@ After creating the endpoint:
 STRIPE_WEBHOOK_SECRET=whsec_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
----
+--
 
 ## 📋 EVENT SELECTION GUIDE
 
@@ -77,7 +77,7 @@ Click **"Checkout"** in the left sidebar, then check:
 
 **How to find:** Checkout → `session` → check `completed`
 
----
+--
 
 ### CATEGORY: Customer
 
@@ -91,7 +91,7 @@ Click **"Customer"** in the left sidebar, then check:
 
 **How to find:** Customer → check `created` and `updated`
 
----
+--
 
 ### CATEGORY: Customer > Subscription
 
@@ -108,7 +108,7 @@ This is the **MOST IMPORTANT** category. Click **"Customer"** → expand **"subs
 
 **How to find:** Customer → `subscription` → check all 6 events above
 
----
+--
 
 ### CATEGORY: Invoice
 
@@ -125,7 +125,7 @@ Click **"Invoice"** in the left sidebar:
 
 **How to find:** Invoice → check `paid`, `payment_failed`, `payment_action_required`, `upcoming`
 
----
+--
 
 ### CATEGORY: Payment Intent (Optional)
 
@@ -138,7 +138,7 @@ For one-time payments or add-ons. Click **"Payment Intent"**:
 
 **How to find:** Payment Intent → check `succeeded` and `payment_failed` if needed
 
----
+--
 
 ## 📊 VISUAL: Events to Select in New Stripe UI
 
@@ -179,7 +179,7 @@ Select events to listen to:
 └────────────────────────────────────────────────────────────────┘
 ```
 
----
+--
 
 ## 🎯 EVENT DETAILS: What Each One Does
 
@@ -199,7 +199,7 @@ User clicks "Subscribe" → Stripe Checkout → Payment success → This webhook
                                                          User tier = PROFESSIONAL
 ```
 
----
+--
 
 ### 🟢 customer.subscription.updated
 
@@ -215,7 +215,7 @@ User clicks "Subscribe" → Stripe Checkout → Payment success → This webhook
 Monthly renewal succeeds → This webhook fires → Extends billing period by 1 month
 ```
 
----
+--
 
 ### 🟢 customer.subscription.deleted
 
@@ -232,7 +232,7 @@ User cancels subscription → Billing period ends → This webhook fires
                                               User tier = FREE
 ```
 
----
+--
 
 ### 🟢 invoice.paid
 
@@ -247,7 +247,7 @@ User cancels subscription → Billing period ends → This webhook fires
 Card charged successfully → This webhook fires → subscription_status = "active"
 ```
 
----
+--
 
 ### 🟢 invoice.payment_failed
 
@@ -265,7 +265,7 @@ Card declined → This webhook fires → subscription_status = "past_due"
                               (usually 3 more attempts over 2 weeks)
 ```
 
----
+--
 
 ### 🟡 customer.subscription.trial_will_end
 
@@ -281,7 +281,7 @@ Trial started Jan 1 (14-day trial) → Jan 11: This webhook fires → Send remin
                                                               "Your trial ends in 3 days!"
 ```
 
----
+--
 
 ### 🟡 invoice.payment_action_required
 
@@ -295,7 +295,7 @@ Trial started Jan 1 (14-day trial) → Jan 11: This webhook fires → Send remin
 Bank requires verification → This webhook fires → Send "Complete your payment" email
 ```
 
----
+--
 
 ### 🟡 invoice.upcoming
 
@@ -309,7 +309,7 @@ Bank requires verification → This webhook fires → Send "Complete your paymen
 Next billing in 3 days → This webhook fires → Add any metered usage charges
 ```
 
----
+--
 
 ## 🔧 AFTER SETUP: Get Your Webhook Secret
 
@@ -343,7 +343,7 @@ heroku config:set STRIPE_WEBHOOK_SECRET=whsec_xxx
 railway variables set STRIPE_WEBHOOK_SECRET=whsec_xxx
 ```
 
----
+--
 
 ## 🧪 TESTING YOUR WEBHOOKS
 
@@ -361,7 +361,7 @@ brew install stripe/stripe-cli/stripe
 stripe login
 
 # 3. Forward webhooks to your local server
-stripe listen --forward-to localhost:5000/api/stripe/webhook
+stripe listen -forward-to localhost:5000/api/stripe/webhook
 
 # 4. In another terminal, trigger test events:
 stripe trigger checkout.session.completed
@@ -378,7 +378,7 @@ stripe trigger customer.subscription.deleted
 4. Click **"Send test webhook"**
 5. Check response (should be 200 OK)
 
----
+--
 
 ## ✅ FINAL CHECKLIST
 
@@ -407,7 +407,7 @@ stripe trigger customer.subscription.deleted
 □ Verified in server logs: "📥 Stripe webhook received: [event_type]"
 ```
 
----
+--
 
 ## 🔗 Useful Links
 
@@ -420,7 +420,7 @@ stripe trigger customer.subscription.deleted
 | Webhook Best Practices   | https://stripe.com/docs/webhooks/best-practices |
 | Testing Webhooks         | https://stripe.com/docs/webhooks/test           |
 
----
+--
 
 ## 🆘 Troubleshooting
 

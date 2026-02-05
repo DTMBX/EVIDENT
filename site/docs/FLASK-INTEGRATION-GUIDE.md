@@ -24,7 +24,7 @@
 - ✅ Password strength requirements
 - ✅ Tier-based feature gates
 
----
+--
 
 ## Integration Strategy
 
@@ -69,7 +69,7 @@
 
 - Less unified architecture
 
----
+--
 
 ## Recommended: Option A (Enhanced System)
 
@@ -197,7 +197,7 @@ This creates:
 - Admin account: admin@Evident.info / (set via ADMIN_PASSWORD env var)
 - 3 test users (free, pro, premium tiers)
 
----
+--
 
 ## Quick Integration (Just UI Swap)
 
@@ -241,7 +241,7 @@ Make sure to pass these to templates:
 - `usage` object with current counts
 - `limits` dict with tier limits
 
----
+--
 
 ## Testing After Integration
 
@@ -286,7 +286,7 @@ http://localhost:5000/dashboard
 2. Check dashboard shows updated counts
 3. Verify progress bars reflect usage
 
----
+--
 
 ## Route Migration Table
 
@@ -299,7 +299,7 @@ http://localhost:5000/dashboard
 | -            | `/auth/forgot-password` | ⏳ Future feature      |
 | -            | `/auth/reset-password`  | ⏳ Future feature      |
 
----
+--
 
 ## Template Files
 
@@ -315,7 +315,7 @@ http://localhost:5000/dashboard
 - ⚠️ `templates/register.html` (if exists)
 - ⚠️ `templates/dashboard.html` (if exists in root)
 
----
+--
 
 ## Environment Variables
 
@@ -341,7 +341,7 @@ MAIL_PASSWORD=your-app-password
 RATELIMIT_STORAGE_URL=redis://localhost:6379
 ```
 
----
+--
 
 ## Production Checklist
 
@@ -377,7 +377,7 @@ Before deploying:
 - [ ] Add uptime monitoring
 - [ ] Configure alerting
 
----
+--
 
 ## Rollback Plan
 
@@ -401,7 +401,7 @@ git checkout app.py
 python app.py
 ```
 
----
+--
 
 ## Summary
 
@@ -435,7 +435,7 @@ python app.py
 - Documentation: 10 minutes
 - **Total: 1 hour**
 
----
+--
 
 **Status:** Ready for integration  
 **Risk Level:** Low (can rollback easily)  

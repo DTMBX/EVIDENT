@@ -85,4 +85,3 @@ You can obtain icons from:
 
 - App icon configured in `Resources/AppIcon/appicon.svg`
 - Tile images generated automatically
-

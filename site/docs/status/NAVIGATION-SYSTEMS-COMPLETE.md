@@ -100,13 +100,13 @@ tillerstead-nav-demo.html
 ### 2. Add to Your Site
 
 ```html
-<!-- In <head> -->
+<!-- In <head> ->
 <link rel="stylesheet" href="/assets/css/components/tillerstead-header.css" />
 
-<!-- After <body> -->
+<!-- After <body> ->
 {% include components/navigation/tillerstead-header.html %}
 
-<!-- Before </body> -->
+<!-- Before </body> ->
 <script src="/assets/js/tillerstead-header.js"></script>
 ```
 
@@ -180,7 +180,7 @@ Both navigation systems are **production-ready** and fully functional:
 
 5. **Deploy to production!**
 
----
+--
 
 ## 📚 Documentation Index
 
@@ -190,7 +190,7 @@ Both navigation systems are **production-ready** and fully functional:
 - **`NAVIGATION-COMPARISON.md`** - Before/after comparison
 - **This file** - Comprehensive overview of both systems
 
----
+--
 
 **Two beautiful navigation systems, one development session.**  
 **Both production-ready. Both fully accessible. Both perfect.**

@@ -39,7 +39,7 @@
   .premium-nav-toggle,
   .theme-toggle,
   .page-transition-progress,
-  .premium-hero__scroll,
+  .premium-hero-scroll,
   header.site-header,
   nav,
   .nav-toggle,
@@ -68,7 +68,7 @@
     break-after: avoid;
   }
 
-  .premium-hero__container,
+  .premium-hero-container,
   .hero-inner,
   .container {
     max-width: 100% !important;
@@ -154,7 +154,7 @@
     break-inside: avoid;
   }
 
-  .premium-brand__mark,
+  .premium-brand-mark,
   .logo {
     max-width: 3cm !important;
     height: auto !important;
@@ -262,7 +262,7 @@
      PREMIUM COMPONENTS
      ============================================ */
 
-  .premium-hero__title {
+  .premium-hero-title {
     font-size: 24pt !important;
     color: var(--pure-black) !important;
     background: none !important;
@@ -270,13 +270,13 @@
     margin-bottom: 12pt;
   }
 
-  .premium-hero__lead {
+  .premium-hero-lead {
     font-size: 12pt !important;
     color: #333 !important;
     margin-bottom: 12pt;
   }
 
-  .premium-hero__card {
+  .premium-hero-card {
     border: 1pt solid var(--border-gray) !important;
     background: #f9f9f9 !important;
     padding: 8pt !important;
@@ -284,7 +284,7 @@
     break-inside: avoid;
   }
 
-  .premium-hero__card-label {
+  .premium-hero-card-label {
     font-weight: bold;
     color: var(--pure-black) !important;
     display: block;

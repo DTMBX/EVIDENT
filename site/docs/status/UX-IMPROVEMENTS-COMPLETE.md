@@ -297,17 +297,17 @@ flash('You\'ve reached your limit. <a href="/pricing">Upgrade</a>', 'warning')
 Add these includes to key pages:
 
 ```html
-<!-- Add to <head> in base template -->
+<!-- Add to <head> in base template ->
 <link rel="stylesheet" href="/assets/css/accessibility.css" />
 
-<!-- Add skip links at top of <body> -->
+<!-- Add skip links at top of <body> ->
 <a href="#main-content" class="skip-link">Skip to main content</a>
 <a href="#navigation" class="skip-link">Skip to navigation</a>
 
-<!-- Add onboarding tour to dashboard -->
+<!-- Add onboarding tour to dashboard ->
 {% include 'components/onboarding-tour.html' %}
 
-<!-- Use usage meters throughout -->
+<!-- Use usage meters throughout ->
 {% include 'components/usage-meter.html' with ... %}
 ```
 
@@ -358,7 +358,7 @@ All UX improvements use consistent design tokens:
 **Spacing:**
 
 - Uses 8px grid system
-- `--space-1` through `--space-8`
+- `-space-1` through `-space-8`
 
 **Typography:**
 

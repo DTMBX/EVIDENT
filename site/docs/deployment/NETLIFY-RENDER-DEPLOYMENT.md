@@ -33,7 +33,7 @@ git push origin main
    - **Name:** `Evident-backend`
    - **Environment:** `Python 3`
    - **Build Command:** `pip install -r requirements.txt`
-   - **Start Command:** `gunicorn app:app --workers 2 --timeout 120`
+   - **Start Command:** `gunicorn app:app -workers 2 -timeout 120`
    - **Plan:** `Free`
 
 4. Add Environment Variables:
@@ -50,7 +50,7 @@ MAX_CONTENT_LENGTH=5368709120
 
 **Your backend will be at:** `https://Evident-backend.onrender.com`
 
----
+--
 
 ### Part 2: Deploy Frontend to Netlify (Your Paid Account)
 
@@ -84,7 +84,7 @@ npm install -g netlify-cli
 netlify login
 
 # Deploy
-netlify deploy --prod --dir=static_site
+netlify deploy -prod --dir=static_site
 ```
 
 **Option B: Netlify Dashboard**
@@ -99,7 +99,7 @@ netlify deploy --prod --dir=static_site
 
 **Your frontend will be at:** `https://Evident.netlify.app`
 
----
+--
 
 ## ?? How It Works
 
@@ -117,7 +117,7 @@ Returns data to: Netlify frontend
 User sees: Results!
 ```
 
----
+--
 
 ## ?? Cost Breakdown
 
@@ -127,7 +127,7 @@ User sees: Results!
 
 **Total additional cost: $0/month**
 
----
+--
 
 ## ?? Quick Start (5 Minutes)
 
@@ -137,14 +137,14 @@ User sees: Results!
 
 # 2. Deploy frontend to Netlify
 netlify login
-netlify deploy --prod --dir=.
+netlify deploy -prod --dir=.
 
 # 3. Done! Your URLs:
 # Frontend: https://Evident.netlify.app
 # Backend: https://Evident-backend.onrender.com
 ```
 
----
+--
 
 ## ?? Environment Variables
 
@@ -166,7 +166,7 @@ HUGGINGFACE_TOKEN=hf_... (optional)
 REACT_APP_API_URL=https://Evident-backend.onrender.com
 ```
 
----
+--
 
 ## ?? Custom Domain (Optional)
 
@@ -181,7 +181,7 @@ Then update CORS:
 CORS_ORIGINS=https://www.Evident.info,https://api.Evident.info
 ```
 
----
+--
 
 ## ?? Troubleshooting
 
@@ -200,7 +200,7 @@ CORS_ORIGINS=https://www.Evident.info,https://api.Evident.info
 - Check Render disk space (limited on free tier)
 - Consider using AWS S3 for uploads
 
----
+--
 
 ## ?? Ready to Deploy?
 
@@ -208,7 +208,7 @@ CORS_ORIGINS=https://www.Evident.info,https://api.Evident.info
 
 ```powershell
 # Just deploy everything to Netlify (static pages only)
-netlify deploy --prod
+netlify deploy -prod
 ```
 
 **Option 2: Full Hybrid (Recommended)**

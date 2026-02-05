@@ -138,7 +138,7 @@ body {
   }
 
   /* Disable barber pole animation */
-  .barber-pole-spinner__helix {
+  .barber-pole-spinner-helix {
     animation: none !important;
   }
 }

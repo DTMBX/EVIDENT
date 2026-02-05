@@ -37,7 +37,7 @@ customer.updated
 payment_intent.succeeded
 ```
 
----
+--
 
 ## 🔑 Environment Variable
 
@@ -45,7 +45,7 @@ payment_intent.succeeded
 STRIPE_WEBHOOK_SECRET=whsec_your_secret_here
 ```
 
----
+--
 
 ## 📍 Where to Find Events in Stripe UI
 
@@ -76,7 +76,7 @@ Stripe Dashboard
                                             └── upcoming ✓
 ```
 
----
+--
 
 ## 🧪 Test Commands (Stripe CLI)
 
@@ -87,7 +87,7 @@ brew install stripe           # Mac
 
 # Login & Listen
 stripe login
-stripe listen --forward-to localhost:5000/api/stripe/webhook
+stripe listen -forward-to localhost:5000/api/stripe/webhook
 
 # Trigger Events
 stripe trigger checkout.session.completed
@@ -96,7 +96,7 @@ stripe trigger invoice.payment_failed
 stripe trigger customer.subscription.deleted
 ```
 
----
+--
 
 ## 📊 What Each Event Does
 
@@ -108,7 +108,7 @@ stripe trigger customer.subscription.deleted
 | `subscription.deleted`        | Sub expires     | Tier → FREE       |
 | `subscription.trial_will_end` | 3 days left     | Send email        |
 
----
+--
 
 ## 🔗 Quick Links
 

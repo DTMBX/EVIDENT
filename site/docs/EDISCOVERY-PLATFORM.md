@@ -6,7 +6,7 @@ The Evident eDiscovery Platform is a **complete court-defensible evidence manage
 
 **Built to withstand Daubert challenges and meet Federal Rule of Civil Procedure 26(a)(1) compliance.**
 
----
+--
 
 ## 🎯 Core Capabilities
 
@@ -193,7 +193,7 @@ Every clip includes:
 - ✅ Retention risk tracking: systems likely to auto-delete soon
 - ✅ Audit trail export (printable access logs for court)
 
----
+--
 
 ## 📊 Database Structure
 
@@ -222,7 +222,7 @@ Every clip includes:
 - **Negative_Evidence**: All "no responsive records" claims
 - Critical for proving spoliation/destruction
 
----
+--
 
 ## 🔧 API Endpoints
 
@@ -475,7 +475,7 @@ Every clip includes:
 - Get system statistics
 - Returns: Total evidence, litigation holds, chain events, alerts
 
----
+--
 
 ## 🎓 Court Credibility Features
 
@@ -565,7 +565,7 @@ When agency claims "no responsive records," the system:
 
 > "Defendant claims to have 'no responsive records' for CAD dispatch logs (Exhibit A, ACPO OPRA Response dated 12/15/2024, SHA-256: abc123...). However, discovery of radio logs (Exhibit B) references 'CAD Incident #25-001234' at 14:30:22 on the same date. This discrepancy suggests either incomplete search or spoliation."
 
----
+--
 
 ## 📖 Setup Instructions
 
@@ -622,7 +622,7 @@ GOOGLE_APPLICATION_CREDENTIALS=/path/to/credentials.json
 ### 3. Start Backend Server
 
 ```bash
-python -m uvicorn app.main:app --reload
+python -m uvicorn app.main:app -reload
 ```
 
 Access API docs: http://localhost:8000/docs
@@ -637,7 +637,7 @@ from app.api.ediscovery import router as ediscovery_router
 app.include_router(ediscovery_router)
 ```
 
----
+--
 
 ## 🎯 Usage Workflows
 
@@ -797,7 +797,7 @@ curl -X POST http://localhost:8000/api/v1/ediscovery/production/exhibit-pack \
 - Excel index with descriptions and citations
 - Authenticated clips with source hashes
 
----
+--
 
 ## ⚖️ Legal Compliance
 
@@ -835,7 +835,7 @@ curl -X POST http://localhost:8000/api/v1/ediscovery/production/exhibit-pack \
 - R. 4:18-2: ESI production → Native format support
 - OPRA compliance → Negative evidence preservation
 
----
+--
 
 ## 🔒 Security & Access Control
 
@@ -860,7 +860,7 @@ evidence.allowed_users = ["attorney1@firm.com", "attorney2@firm.com"]
 **Audit of AEO Access:**
 Every access logged in chain of custody.
 
----
+--
 
 ## 📈 Scalability
 
@@ -879,7 +879,7 @@ Every access logged in chain of custody.
 - GPU acceleration for video processing (CUDA)
 - Cloud storage for vault (AWS S3 with immutability)
 
----
+--
 
 ## 🎓 Training & Best Practices
 
@@ -905,7 +905,7 @@ Every access logged in chain of custody.
 3. **Request native exports** (not screenshots)
 4. **Obtain custodian attestations** for authenticity
 
----
+--
 
 ## ✅ System Status
 
@@ -923,7 +923,7 @@ All core components complete:
 - ✅ Complete API with 25+ endpoints
 - ✅ Court-defensible audit trails
 
----
+--
 
 **Last Updated:** January 22, 2026  
 **Version:** 1.0.0  

@@ -29,12 +29,13 @@ with app.app_context():
     print("[OK] Database tables created/verified")
 
     # Check if admin exists
-    admin = User.query.filter_by(email="admin@Evident.info").first()
+    ADMIN_EMAIL = "admin@Evident.info"
+    admin = User.query.filter_by(email=ADMIN_EMAIL).first()
 
     if not admin:
         print("Admin not found, creating...")
         admin = User(
-            email="admin@Evident.info",
+            email=ADMIN_EMAIL,
             full_name="Evident System Administrator",
             tier=TierLevel.ADMIN,
             is_admin=True,

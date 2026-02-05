@@ -2,7 +2,7 @@
 
 **You're 3 steps away from going live!**
 
----
+--
 
 ## ✅ Files Created
 
@@ -15,7 +15,7 @@ I've set up everything you need:
 5. ✅ **deploy-netlify.ps1** - Windows deployment script
 6. ✅ **NETLIFY-DEPLOYMENT-GUIDE.md** - Complete documentation
 
----
+--
 
 ## 🎯 Option 1: Deploy via Netlify Dashboard (EASIEST)
 
@@ -46,7 +46,7 @@ git push origin main
 
 **Done! Your site will be live at https://Evident.info in 24-48 hours (DNS propagation time)**
 
----
+--
 
 ## 🎯 Option 2: Deploy via Netlify CLI (FASTER)
 
@@ -81,12 +81,12 @@ Follow the prompts:
 ### Step 4: Deploy!
 
 ```powershell
-netlify deploy --prod
+netlify deploy -prod
 ```
 
 **Done! Your site is live!**
 
----
+--
 
 ## 🎯 Option 3: Use My PowerShell Script (AUTOMATED)
 
@@ -107,7 +107,7 @@ This script:
 
 **Choose option 1 for production deployment!**
 
----
+--
 
 ## 📊 What Happens During Deployment?
 
@@ -124,7 +124,7 @@ This script:
 **Deploy time:** ~30 seconds  
 **Total:** ~5 minutes to live site
 
----
+--
 
 ## 🌐 DNS Configuration (For Custom Domain)
 
@@ -146,7 +146,7 @@ Add these records at your registrar:
 
 **HTTPS:** Netlify provides free SSL automatically!
 
----
+--
 
 ## 🐛 Troubleshooting
 
@@ -170,7 +170,7 @@ baseurl: "" # Must be empty for root domain
 
 **Fix:** Wait 24-48 hours for DNS propagation. Check status at [whatsmydns.net](https://whatsmydns.net)
 
----
+--
 
 ## 📈 After Deployment
 
@@ -195,10 +195,10 @@ netlify status
 ### Redeploy
 
 ```powershell
-netlify deploy --prod
+netlify deploy -prod
 ```
 
----
+--
 
 ## 💰 Netlify Pricing
 
@@ -213,7 +213,7 @@ netlify deploy --prod
 
 **Perfect for Evident.info!** Your traffic will easily fit in the free tier.
 
----
+--
 
 ## 🔄 Continuous Deployment (Auto-Deploy)
 
@@ -225,7 +225,7 @@ Once connected to GitHub:
 
 **No manual deploys needed!**
 
----
+--
 
 ## 📞 Need Help?
 
@@ -233,7 +233,7 @@ Once connected to GitHub:
 2. **Netlify Docs:** [docs.netlify.com](https://docs.netlify.com)
 3. **Netlify Support:** [answers.netlify.com](https://answers.netlify.com)
 
----
+--
 
 ## 🎉 YOU'RE READY!
 

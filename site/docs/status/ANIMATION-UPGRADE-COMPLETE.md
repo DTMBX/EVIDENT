@@ -156,7 +156,7 @@ Successfully upgraded all repository JavaScript to modern ES6+ and implemented a
   <link rel="stylesheet" href="/assets/css/enhanced-animations.css" />
 </head>
 <body>
-  <!-- Your content with animation classes -->
+  <!-- Your content with animation classes ->
 
   <script src="/assets/js/enhanced-animations.js" defer></script>
   <script src="/assets/js/theme-toggle-upgraded.js" defer></script>
@@ -326,7 +326,7 @@ Visit `/animation-demo.html` to see all animations in action:
 - Comprehensive documentation
 - Copy-paste examples
 
----
+--
 
 **Upgrade Date:** January 22, 2026  
 **Total Files:** 6 new files created  

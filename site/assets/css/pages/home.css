@@ -168,19 +168,19 @@
   margin-top: 0.35rem;
 }
 
-.ff-home .hero-panel__stat {
+.ff-home .hero-panel-stat {
   width: 100%;
   display: grid;
   gap: 0.2rem;
   padding-top: 0.2rem;
 }
 
-.ff-home .hero-panel__number {
+.ff-home .hero-panel-number {
   font-weight: var(--fw-black);
   color: var(--ink-900);
 }
 
-.ff-home .hero-panel__label {
+.ff-home .hero-panel-label {
   color: var(--ink-700);
 }
 
@@ -209,7 +209,7 @@
   box-shadow: 0 12px 32px rgb(120 116 108 / 25%);
 }
 
-.ff-home .hero-highlight__label {
+.ff-home .hero-highlight-label {
   color: var(--emerald-600);
   font-size: 0.82rem;
   font-weight: var(--fw-black);
@@ -330,27 +330,27 @@
   opacity: 0.85;
 }
 
-.ff-home .section--band {
+.ff-home .section-band {
   padding-block: clamp(2.25rem, 5vw, 4rem);
 }
 
-.ff-home .section--emerald {
+.ff-home .section-emerald {
   background: var(--emerald-600);
   color: var(--text-on-emerald);
 }
 
-.ff-home .section--emerald h2,
-.ff-home .section--emerald h3,
-.ff-home .section--emerald p,
-.ff-home .section--emerald li {
+.ff-home .section-emerald h2,
+.ff-home .section-emerald h3,
+.ff-home .section-emerald p,
+.ff-home .section-emerald li {
   color: var(--text-on-emerald);
 }
 
-.ff-home .section--emerald .section-eyebrow {
+.ff-home .section-emerald .section-eyebrow {
   color: var(--ink-900, 0.92);
 }
 
-.ff-home .container--narrow {
+.ff-home .container-narrow {
   max-width: 900px;
   margin-inline: auto;
   padding-inline: 1.5rem;
@@ -387,13 +387,13 @@
   margin-bottom: 1.5rem;
 }
 
-.ff-home .cta-row--split {
+.ff-home .cta-row-split {
   justify-content: space-between;
   max-width: 720px;
   margin-inline: auto;
 }
 
-.ff-home .cta-row--split .btn {
+.ff-home .cta-row-split .btn {
   flex: 1 1 320px;
   max-width: 340px;
 }
@@ -526,7 +526,7 @@
   box-shadow: 0 2px 8px rgb(16 92 74 / 25%);
 }
 
-.ff-home .section--emerald .bullets li::before {
+.ff-home .section-emerald .bullets li::before {
   background: rgb(255 255 255 / 92%);
   box-shadow: none;
 }
@@ -554,12 +554,12 @@
     gap: 0.85rem;
   }
 
-  .ff-home .cta-row--split {
+  .ff-home .cta-row-split {
     flex-direction: column;
     justify-content: center;
   }
 
-  .ff-home .cta-row--split .btn {
+  .ff-home .cta-row-split .btn {
     flex: 1 1 auto;
     width: 100%;
     max-width: 400px;
@@ -627,11 +627,11 @@
     min-height: 220px;
   }
 
-  .ff-home .section--band {
+  .ff-home .section-band {
     padding-block: clamp(3rem, 6vw, 5rem);
   }
 
-  .ff-home .container--narrow {
+  .ff-home .container-narrow {
     max-width: 1000px;
   }
 }

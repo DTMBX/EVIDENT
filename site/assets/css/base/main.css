@@ -158,7 +158,7 @@
 
 /* Hero (home / page hero) */
 
-.hero--home {
+.hero-home {
   padding: var(--space-3xl, 4rem) 1.25rem var(--space-2xl, 3rem);
   min-height: 70vh;
   display: flex;
@@ -169,7 +169,7 @@
     radial-gradient(ellipse at bottom, rgb(15 118 110 / 5%) 0%, transparent 60%);
 }
 
-.hero--home::before {
+.hero-home::before {
   content: "";
   position: absolute;
   top: 0;
@@ -185,13 +185,13 @@
   opacity: 0.3;
 }
 
-.hero-home--revival {
+.hero-home-revival {
   border-top: 1px solid rgb(212 165 116 / 35%);
   border-bottom: 1px solid rgb(15 118 110 / 25%);
   overflow: hidden;
 }
 
-.hero-home--revival::after {
+.hero-home-revival::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -202,7 +202,7 @@
   opacity: 0.9;
 }
 
-.hero-home--revival .container {
+.hero-home-revival .container {
   position: relative;
   z-index: 1;
 }
@@ -273,7 +273,7 @@
   line-height: 1.6;
 }
 
-.hero-highlight__label {
+.hero-highlight-label {
   display: block;
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -302,14 +302,14 @@
   color: var(--ff-vintage-gold);
 }
 
-.hero-panel__stat {
+.hero-panel-stat {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.25rem;
 }
 
-.hero-panel__number {
+.hero-panel-number {
   font-size: 1.15rem;
   font-weight: 700;
   color: var(--ff-cream);
@@ -318,7 +318,7 @@
   text-transform: uppercase;
 }
 
-.hero-panel__label {
+.hero-panel-label {
   font-size: 0.85rem;
   color: var(--ff-muted);
   text-transform: uppercase;
@@ -368,13 +368,13 @@
   border-bottom: 1px solid rgb(212 165 116 / 35%);
 }
 
-.preamble__inner {
+.preamble-inner {
   max-width: 72rem; /* Increased from 62rem for better desktop display */
   margin: 0 auto;
   text-align: center;
 }
 
-.preamble__eyebrow {
+.preamble-eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-size: 0.8rem;
@@ -383,13 +383,13 @@
   font-weight: 700;
 }
 
-.preamble__title {
+.preamble-title {
   margin: 0 0 1rem;
   font-size: clamp(2rem, 4vw, 2.8rem);
   color: var(--color-highlight);
 }
 
-.preamble__body {
+.preamble-body {
   margin: 0 auto 2rem;
   max-width: 80rem; /* Increased for better desktop reading width */
   line-height: 1.8;
@@ -398,14 +398,14 @@
   font-family: var(--ff-serif);
 }
 
-.preamble__principles {
+.preamble-principles {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1rem;
   text-align: left;
 }
 
-.preamble__principle {
+.preamble-principle {
   background: rgb(15 23 42 / 55%);
   border: 1px solid rgb(212 165 116 / 30%);
   border-radius: 10px;
@@ -421,13 +421,13 @@
     padding: 3rem 1rem 2.5rem;
   }
 
-  .preamble__principle {
+  .preamble-principle {
     text-align: center;
   }
 }
 
 @media (width >= 768px) {
-  .hero--home {
+  .hero-home {
     padding: 6rem 1.25rem 5rem;
   }
 }
@@ -451,7 +451,7 @@
     order: -1;
   }
 
-  .hero-actions--centered {
+  .hero-actions-centered {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
@@ -678,11 +678,11 @@
   box-shadow: 0 12px 36px rgb(212 165 116 / 20%);
 }
 
-.cta-panel__body h2 {
+.cta-panel-body h2 {
   margin-top: 0;
 }
 
-.cta-panel__disclaimer {
+.cta-panel-disclaimer {
   margin-top: 1rem;
   font-size: 0.95rem;
   color: var(--ff-ink);
@@ -692,7 +692,7 @@
   border: 1px solid rgb(212 165 116 / 25%);
 }
 
-.cta-panel__actions {
+.cta-panel-actions {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -705,7 +705,7 @@
     grid-template-columns: 1fr;
   }
 
-  .cta-panel__actions {
+  .cta-panel-actions {
     flex-flow: row wrap;
     justify-content: flex-start;
   }
@@ -1336,7 +1336,7 @@
   border: 1px solid rgb(212 165 116 / 40%);
 }
 
-.trust-chip--inner {
+.trust-chip-inner {
   background: rgb(255 255 255 / 6%);
   color: var(--ff-cream);
   border-color: rgb(255 255 255 / 14%);
@@ -1373,7 +1373,7 @@
   line-height: 1.6;
 }
 
-.trust-note--muted {
+.trust-note-muted {
   background: rgb(15 23 42 / 65%);
   border-color: rgb(212 165 116 / 22%);
 }
@@ -1721,4 +1721,3 @@
 .badge-status {
   background: rgb(0 0 0 / 3%);
 }
-

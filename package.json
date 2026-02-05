@@ -1,0 +1,15 @@
+{
+  "name": "evident-repo-tools",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "lint:css": "stylelint \"site/components/*.css\" \"site/assets/css/**/*.css\"",
+    "format": "prettier --write \"**/*.{css,html,md,js,ts,tsx,jsx,json}\"",
+    "format:check": "prettier --check \"**/*.{css,html,md,js,ts,tsx,jsx,json}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.0.0",
+    "stylelint": "^15.0.0",
+    "stylelint-config-standard": "^32.0.0"
+  }
+}

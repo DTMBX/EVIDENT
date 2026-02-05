@@ -5,7 +5,7 @@
 **Compliance:** US Title 4 Flag Code (USC Title 4 §§ 1-10)  
 **Location:** `/honor` route on Evident.info
 
----
+--
 
 ## 🎖️ Installation Overview
 
@@ -19,7 +19,7 @@ Evident Legal Technologies has established a **permanent military honor installa
 
 This installation connects our legal mission to the sacrifices that made constitutional rights possible.
 
----
+--
 
 ## 🏛️ Flag Display Protocol (Title 4 USC Compliant)
 
@@ -85,7 +85,7 @@ This installation connects our legal mission to the sacrifices that made constit
 **Significance:** 13 original colonies in circle formation  
 **Design:** 13 stripes with 13 stars in circle
 
----
+--
 
 ## 📜 US Flag Code Compliance Checklist
 
@@ -117,7 +117,7 @@ This installation connects our legal mission to the sacrifices that made constit
 - [x] 50 stars, 13 stripes accurately depicted
 - [x] Respectful animation (gentle wave, not flapping)
 
----
+--
 
 ## 🎯 Installation Purpose & Mission Alignment
 
@@ -167,7 +167,7 @@ This installation connects our legal mission to the sacrifices that made constit
 - Connection to Constitutional history
 - Inspiration for public service
 
----
+--
 
 ## 📊 Memorial Statistics (In Memoriam Section)
 
@@ -188,7 +188,7 @@ This installation connects our legal mission to the sacrifices that made constit
 
 Source: US Department of Defense, Congressional Research Service
 
----
+--
 
 ## 🎨 Technical Implementation
 
@@ -244,7 +244,7 @@ Added to footer navigation:
 - Fast load times
 - No external dependencies beyond Bootstrap
 
----
+--
 
 ## 📖 Key Quotes & Language
 
@@ -264,7 +264,7 @@ Added to footer navigation:
 
 "Their sacrifice enables our work. Their Constitution guides our mission. Their memory inspires our service. By the Grace of Almighty God, we honor their legacy through accessible justice."
 
----
+--
 
 ## 🚀 Marketing & Messaging Integration
 
@@ -304,7 +304,7 @@ Honoring the service & sacrifice that made justice possible
 - Highlight veteran discounts (if implemented)
 - Share mission alignment with military families
 
----
+--
 
 ## 🎖️ Future Enhancements (Optional)
 
@@ -329,7 +329,7 @@ Honoring the service & sacrifice that made justice possible
 - [ ] Veteran discount code integration with Stripe
 - [ ] Military Legal Assistance Program (MLAP) integration
 
----
+--
 
 ## 🧱 "Respecting the Brick Work" - Why This Matters
 
@@ -354,7 +354,7 @@ Every legal right we defend was built brick by brick:
 - **Serve their families** - Accessible justice
 - **Continue their mission** - Rule of law
 
----
+--
 
 ## 📊 Success Metrics
 
@@ -372,7 +372,7 @@ Every legal right we defend was built brick by brick:
 - Monitor veteran user signups (if tracked)
 - Test veteran-focused marketing campaigns
 
----
+--
 
 ## 🙏 Dedication Statement
 
@@ -380,7 +380,7 @@ Every legal right we defend was built brick by brick:
 
 > "We build Evident upon the foundation laid by millions who served. Every line of code, every legal brief, every case we help win - all made possible by those who defended the Constitution with their lives. This honor installation is permanent. Their memory is eternal. By the Grace of Almighty God, we dedicate this platform to accessible justice in their honor."
 
----
+--
 
 ## 🔗 Quick Links
 
@@ -389,7 +389,7 @@ Every legal right we defend was built brick by brick:
 - **Route Handler:** `app.py` line ~XXX
 - **Navigation Link:** `templates/components/footer.html`
 
----
+--
 
 **Status:** ✅ **COMPLETE - Ready for deployment**
 
@@ -400,12 +400,12 @@ Every legal right we defend was built brick by brick:
 3. Verify live at /honor route
 4. Share with veteran communities
 
----
+--
 
 **🇺🇸 "We the People" - By the Grace of Almighty God 🇺🇸**
 
 _In honor of the 1.3 million Americans who gave their last full measure of devotion to defend the Constitution we now protect through legal advocacy._
 
----
+--
 
 **Built with respect. Deployed with honor. Serving with integrity.**

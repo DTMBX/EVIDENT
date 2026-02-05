@@ -4,7 +4,7 @@
 
 Your `_config.yml` is set up perfectly for GitHub Pages.
 
----
+--
 
 ## 🚀 Enable GitHub Pages (2 Clicks)
 
@@ -29,7 +29,7 @@ Then:
 https://dtb396.github.io/Evident.info
 ```
 
----
+--
 
 ## 🌐 Custom Domain (Evident.info)
 
@@ -51,7 +51,7 @@ Then update your DNS:
 - **Value:** 185.199.108.153
 - Add 3 more A records: 185.199.109.153, 185.199.110.153, 185.199.111.153
 
----
+--
 
 ## 💰 Cost Comparison
 
@@ -63,7 +63,7 @@ Then update your DNS:
 
 **Winner:** GitHub Pages (completely free, no credit card needed)
 
----
+--
 
 ## ⚡ GitHub Actions (Auto-Deploy)
 
@@ -77,7 +77,7 @@ No configuration needed - GitHub detects Jekyll automatically.
 https://github.com/DTB396/Evident.info/actions
 ```
 
----
+--
 
 ## 🔧 What About Netlify Forms?
 
@@ -103,7 +103,7 @@ Embed Google Forms (100% free, unlimited)
 
 Use your Flask backend for form submissions (what we already set up!)
 
----
+--
 
 ## 🎯 Recommended Architecture (All FREE)
 
@@ -129,7 +129,7 @@ Use your Flask backend for form submissions (what we already set up!)
 
 **Total Cost: $0/month** (until you exceed Railway's $5 credit)
 
----
+--
 
 ## 🚀 Deploy Backend to Railway NOW
 
@@ -150,7 +150,7 @@ railway up
 
 Then update forms to use Railway API instead of Netlify Forms.
 
----
+--
 
 ## ✅ Your New Deployment is Live!
 
@@ -174,7 +174,7 @@ https://Evident.info
 https://github.com/DTB396/Evident.info/actions
 ```
 
----
+--
 
 ## 💡 Next Steps
 

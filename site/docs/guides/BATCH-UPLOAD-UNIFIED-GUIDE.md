@@ -8,7 +8,7 @@ Evident now supports **unified batch uploads** - upload PDFs, BWC videos, and im
 2. ? **Processes in parallel** using ThreadPoolExecutor
 3. ? **Returns detailed results** for each file type
 
----
+--
 
 ## ?? **Features**
 
@@ -33,7 +33,7 @@ Evident now supports **unified batch uploads** - upload PDFs, BWC videos, and im
 - User attribution
 - Source tracking
 
----
+--
 
 ## ?? **How to Use**
 
@@ -96,7 +96,7 @@ files: [file1.pdf, file2.mp4, file3.jpg, ...]
 }
 ```
 
----
+--
 
 ## ?? **Testing with Your Discovery Files**
 
@@ -131,7 +131,7 @@ Processing:
 ? Analysis queued
 ```
 
----
+--
 
 ## ?? **Processing Flow**
 
@@ -189,7 +189,7 @@ results = {
 }
 ```
 
----
+--
 
 ## ?? **Use Cases**
 
@@ -204,7 +204,7 @@ You receive discovery with:
 **Before:** Upload PDFs separately, then videos separately
 **Now:** Drag all 31 files at once ? automatic sorting + parallel processing
 
----
+--
 
 ### **Case 2: Multi-Officer Incident**
 
@@ -228,7 +228,7 @@ You receive discovery with:
 - Timeline synchronized
 - Ready for analysis
 
----
+--
 
 ## ?? **Technical Details**
 
@@ -273,7 +273,7 @@ def process_video_file(file, user_id):
 - **Image processing:** Light
 - **Result:** Videos + PDFs process simultaneously
 
----
+--
 
 ## ?? **Security & Compliance**
 
@@ -299,7 +299,7 @@ def process_video_file(file, user_id):
 ? Filename sanitization
 ? Duplicate detection (by hash)
 
----
+--
 
 ## ?? **Performance**
 
@@ -313,7 +313,7 @@ def process_video_file(file, user_id):
 
 **Parallel processing is 3x faster!**
 
----
+--
 
 ## ?? **Error Handling**
 
@@ -331,7 +331,7 @@ def process_video_file(file, user_id):
 - Failed files listed with error message
 - Successful files already in database
 
----
+--
 
 ## ?? **Example Test Script**
 
@@ -370,7 +370,7 @@ print(f"  Videos: {result['summary']['breakdown']['videos']['successful']}")
 print(f"  PDFs: {result['summary']['breakdown']['pdfs']['successful']}")
 ```
 
----
+--
 
 ## ? **Checklist**
 
@@ -385,7 +385,7 @@ print(f"  PDFs: {result['summary']['breakdown']['pdfs']['successful']}")
 - [x] Results display
 - [x] Audit logging
 
----
+--
 
 ## ?? **Summary**
 

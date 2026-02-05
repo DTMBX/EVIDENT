@@ -45,7 +45,7 @@ Password: Password123!
 ### Login Page
 
 ```html
-<!-- Password field with toggle button -->
+<!-- Password field with toggle button ->
 <input type="password" id="password" />
 <button type="button" id="togglePassword">
   <svg id="eyeIcon">👁️</svg>
@@ -171,7 +171,7 @@ The password is still:
 **Admin Fix:** Credentials verified  
 **Server:** Running at http://localhost:5000
 
----
+--
 
 ## Quick Reference
 

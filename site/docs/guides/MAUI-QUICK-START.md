@@ -22,7 +22,7 @@ dotnet clean
 dotnet build -f net10.0-windows10.0.19041.0 -c Debug
 ```
 
----
+--
 
 ## 📱 Testing Workflow
 
@@ -76,7 +76,7 @@ dotnet run -f net10.0-windows10.0.19041.0
 2. Test back navigation
 3. Verify routes work: Login, Dashboard, Upload
 
----
+--
 
 ## 🔧 Development Tips
 
@@ -108,7 +108,7 @@ dotnet build -v detailed
 dotnet build -v minimal
 ```
 
----
+--
 
 ## 🌐 API Endpoints (for testing)
 
@@ -137,7 +137,7 @@ dotnet build -v minimal
 - `GET /api/v1/analysis/{id}` - Get analysis result
 - `GET /api/v1/analysis/list` - List all analyses
 
----
+--
 
 ## 🐛 Common Issues & Fixes
 
@@ -168,7 +168,7 @@ dotnet restore
 dotnet build
 ```
 
----
+--
 
 ## 📦 Publishing for Production
 
@@ -194,7 +194,7 @@ Output: `bin\Release\net10.0-android\publish\`
 dotnet publish -f net10.0-ios -c Release
 ```
 
----
+--
 
 ## 🔑 Environment Variables
 
@@ -212,7 +212,7 @@ API_BASE_URL = https://Evident.info/api/v1
 
 Configured in: `src/Evident.MatterDocket.MAUI/Helpers/Constants.cs`
 
----
+--
 
 ## 📊 Performance Optimization
 
@@ -235,7 +235,7 @@ dotnet publish -c Release -p:PublishTrimmed=true -p:EnableCompressionInSingleFil
 - Clear large collections when not needed
 - Use weak references for cached data
 
----
+--
 
 ## 🧪 Testing Commands
 
@@ -257,7 +257,7 @@ dotnet test --collect:"XPlat Code Coverage"
 dotnet format
 ```
 
----
+--
 
 ## 📚 Additional Resources
 
@@ -278,7 +278,7 @@ dotnet format
 - GitHub Issues: [Create an issue](https://github.com/YOUR_ORG/Evident.info/issues)
 - Email: support@Evident.info
 
----
+--
 
 **Last Updated:** January 27, 2026  
 **Build Status:** ✅ PASSING (0 errors)  

@@ -32,7 +32,7 @@
 - **Features:** Custom 404 with popular page links, Evident branding
 - **Status:** Complete
 
----
+--
 
 ## 📋 Existing Pages (Verified)
 
@@ -55,7 +55,7 @@
 - ✅ Should auto-render via Jekyll collections
 - ⚠️ If 404s occur, check `_config.yml` collections setup
 
----
+--
 
 ## 🔧 Flask Integration Required
 
@@ -89,7 +89,7 @@ def dashboard():
                          usage=usage,
                          limits=limits)
 
-if __name__ == '__main__':
+if -name- == '-main-':
     with app.app_context():
         db.create_all()  # Ensure tables exist
     app.run(debug=True, port=5000)
@@ -102,7 +102,7 @@ if __name__ == '__main__':
 - ✅ `/auth/logout` — Logout handler
 - ✅ `/dashboard` — User dashboard with usage stats
 
----
+--
 
 ## 📊 Link Audit Results
 
@@ -142,7 +142,7 @@ if __name__ == '__main__':
 - `/tools/` — Future feature
 - `/search` — Future feature
 
----
+--
 
 ## 🎨 All Pages Follow Brand Standards
 
@@ -163,7 +163,7 @@ if __name__ == '__main__':
 - Body text: 1.125rem, line-height: 1.8
 - Links: #c41e3a with underline on hover
 
----
+--
 
 ## 🚀 Deployment Checklist
 
@@ -192,14 +192,14 @@ if __name__ == '__main__':
 - [ ] Set up monitoring (Sentry/logging)
 - [ ] Configure backups
 
----
+--
 
 ## 📈 Page Statistics
 
 ### Created This Session:
 
 | Page         | File                     | Size        | Lines           |
-| ------------ | ------------------------ | ----------- | --------------- |
+| ------ | ------------ | ------ | -------- |
 | Pricing      | `_pages/pricing.md`      | 13.5 KB     | 399             |
 | Installation | `_pages/installation.md` | 8.7 KB      | 332             |
 | Docs Hub     | `_pages/docs-index.md`   | 6.1 KB      | 183             |
@@ -209,14 +209,14 @@ if __name__ == '__main__':
 ### Authentication System:
 
 | Component | File                            | Size    | Status               |
-| --------- | ------------------------------- | ------- | -------------------- |
+| ----- | ---------------- | ---- | ---------- |
 | Login     | `templates/auth/login.html`     | 6.2 KB  | ✅ Ready             |
 | Signup    | `templates/auth/signup.html`    | 16.5 KB | ✅ Ready             |
 | Dashboard | `templates/auth/dashboard.html` | 13.1 KB | ✅ Ready             |
 | Routes    | `auth_routes.py`                | 10.3 KB | ⚠️ Needs integration |
 | Models    | `models_auth.py`                | 9.2 KB  | ✅ Complete          |
 
----
+--
 
 ## 🎯 Next Priority Actions
 
@@ -241,7 +241,7 @@ if __name__ == '__main__':
 11. **Video tutorials** — Record screen demos
 12. **Case study expansion** — Add more real examples
 
----
+--
 
 ## 💡 Recommendations
 
@@ -277,7 +277,7 @@ All new pages include:
 - ⚠️ Could add Open Graph tags
 - ⚠️ Could add structured data (JSON-LD)
 
----
+--
 
 ## ✨ Success Metrics
 
@@ -298,7 +298,7 @@ All new pages include:
 - ✅ Documentation hub structure
 - ✅ Auth UI polished and ready
 
----
+--
 
 ## 📞 Support & Maintenance
 
@@ -319,7 +319,7 @@ All new pages follow these conventions:
 - Mobile-first breakpoints
 - Accessibility-compliant HTML
 
----
+--
 
 ## 🏁 Final Status
 
@@ -351,7 +351,7 @@ All new pages follow these conventions:
 - Check mobile responsive
 - Run link checker
 
----
+--
 
 **Total Time:** ~2 hours  
 **Pages Created:** 4 complete pages  
@@ -360,6 +360,6 @@ All new pages follow these conventions:
 
 **Status:** Ready for Flask integration and testing 🚀
 
----
+--
 
 _"Like a fresh NYC fade — rounded, clean transitions, crisp."_ 💈✂️

@@ -1,4 +1,5 @@
-# Evident Technologies  
+# Evident Technologies
+
 ## Contributor Policy (No CLA Required)
 
 **Last Updated:** 2026-02-03
@@ -16,6 +17,7 @@ This policy governs contributions to Evident Technologies repositories that cont
 This policy applies only to repositories or directories explicitly designated as open-source or public-facing.
 
 It does **not** apply to:
+
 - Proprietary core systems
 - Trade-secret logic
 - Internal governance materials

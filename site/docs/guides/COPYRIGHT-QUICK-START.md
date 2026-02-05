@@ -36,7 +36,7 @@ case = {
 
 **Consequences:** Up to $150,000 per violation + attorney fees + license termination
 
----
+--
 
 ### 🔒 RULE 2: KEEP PROPRIETARY LAYERS SEPARATE
 
@@ -62,7 +62,7 @@ proprietary_source_data:
 ❌ **DANGEROUS:**
 Mixing proprietary and public data in same table → Risk of accidental export
 
----
+--
 
 ### 📋 RULE 3: RIGHTS-AWARE EXPORTS
 
@@ -99,7 +99,7 @@ Mixing proprietary and public data in same table → Risk of accidental export
 }
 ```
 
----
+--
 
 ## 📊 DATA SOURCE CLASSIFICATION
 
@@ -113,7 +113,7 @@ Mixing proprietary and public data in same table → Risk of accidental export
 | **Lexis Shepard's**    | Proprietary      | ❌ NO            | Internal use only |
 | **Police reports**     | Copyrighted      | ⚠️ Excerpts only | 200 words max     |
 
----
+--
 
 ## 🛠️ IMPLEMENTATION CHECKLIST
 
@@ -165,7 +165,7 @@ export.finalize_export(
 python models_data_rights.py
 ```
 
----
+--
 
 ## ⚠️ RED FLAGS - IMMEDIATE LEGAL RISK
 
@@ -180,7 +180,7 @@ python models_data_rights.py
 
 **Each violation = Potential $150,000 lawsuit**
 
----
+--
 
 ## 📧 GET HELP
 
@@ -194,7 +194,7 @@ Report immediately: compliance@Evident.info
 **Full Documentation:**  
 See [DATA-RIGHTS-COMPLIANCE.md](DATA-RIGHTS-COMPLIANCE.md) for complete framework
 
----
+--
 
 ## ✅ SAFE HARBOR CHECKLIST
 
@@ -209,7 +209,7 @@ Before ANY court filing or discovery production:
 - [ ] **Rights manifest** generated and signed by attorney
 - [ ] **No proprietary database content** in export
 
----
+--
 
 **REMEMBER:** When in doubt, **EXCLUDE IT**. Better to be over-cautious than face a $150,000 copyright lawsuit.
 

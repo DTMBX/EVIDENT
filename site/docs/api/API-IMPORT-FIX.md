@@ -29,7 +29,7 @@ Updated `templates/components/footer.html` with:
 - Explanation of value-add vs free data
 - Professional styling with blue accent
 
----
+--
 
 ## 🚀 To Test Locally (2 Options)
 
@@ -39,7 +39,7 @@ Updated `templates/components/footer.html` with:
 # Windows PowerShell
 $env:COURTLISTENER_API_KEY = "YOUR_API_KEY_HERE"
 cd C:\web-dev\github-repos\Evident.info
-python overnight_library_builder.py --practice-area all
+python overnight_library_builder.py -practice-area all
 ```
 
 ### Option 2: Wait for Render Deploy
@@ -58,10 +58,10 @@ Then on Render, run:
 
 ```bash
 # Via Render shell
-python overnight_library_builder.py --practice-area all
+python overnight_library_builder.py -practice-area all
 ```
 
----
+--
 
 ## 📋 What Was Fixed
 
@@ -76,7 +76,7 @@ python overnight_library_builder.py --practice-area all
 - Explains value-add (AI, mobile, support)
 - Professional styling with blue accent
 
----
+--
 
 ## ✅ Next Steps
 
@@ -99,7 +99,7 @@ git push
 - Once deployed, test foundation case import
 - Should successfully import 27 cases
 
----
+--
 
 ## 🧪 Test Single Case Import (Locally)
 
@@ -116,7 +116,7 @@ python -c "from legal_library import LegalLibrary; ll = LegalLibrary(); print(ll
 
 Should return Roe v. Wade case data.
 
----
+--
 
 ## 📊 What You'll Have After Import
 
@@ -126,6 +126,6 @@ Should return Roe v. Wade case data.
 - **Full Opinions** (searchable text)
 - **Metadata** (dates, courts, citations)
 
----
+--
 
 **The fixes are ready. Commit and push to deploy!** ✅

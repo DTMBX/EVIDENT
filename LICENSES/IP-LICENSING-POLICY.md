@@ -1,4 +1,5 @@
-# Evident Technologies  
+# Evident Technologies
+
 ## Intellectual Property & Licensing Policy
 
 **Last Updated:** 2026-02-03
@@ -17,11 +18,11 @@ This document is interpretive and explanatory. It does not replace or modify any
 
 Evident Technologies retains exclusive ownership of its proprietary systems, including but not limited to:
 
-- Evidence integrity and verification logic  
-- Chain-of-custody workflows and audit mechanisms  
-- Hashing, manifest generation, and tamper-evident controls  
-- Evidence export orchestration and verification reporting  
-- Internal orchestration, sequencing, and control logic  
+- Evidence integrity and verification logic
+- Chain-of-custody workflows and audit mechanisms
+- Hashing, manifest generation, and tamper-evident controls
+- Evidence export orchestration and verification reporting
+- Internal orchestration, sequencing, and control logic
 
 These components are **not open source**, are **not licensed for redistribution**, and are protected as **copyrighted works and trade secrets**.
 
@@ -33,9 +34,9 @@ All rights not expressly granted are reserved.
 
 Evident incorporates third-party open-source software under permissive and compatible licenses, including but not limited to:
 
-- MIT License  
-- BSD 3-Clause License  
-- Apache License 2.0  
+- MIT License
+- BSD 3-Clause License
+- Apache License 2.0
 - LGPL 2.1 (dynamic linking only)
 
 Each third-party dependency retains its original license and attribution. Full license texts and attributions are maintained in the repository under `LICENSES/` and `THIRD-PARTY-LICENSES.md`.
@@ -68,14 +69,14 @@ Model-assisted analysis does not constitute legal advice or factual adjudication
 
 Users retain ownership of:
 
-- Uploaded source evidence  
-- Derived exhibits and exports generated from their data  
+- Uploaded source evidence
+- Derived exhibits and exports generated from their data
 
 Evident retains ownership of:
 
-- The software platform  
-- The processing systems  
-- The integrity and verification mechanisms  
+- The software platform
+- The processing systems
+- The integrity and verification mechanisms
 
 Evident does not claim ownership over user data or evidence content.
 

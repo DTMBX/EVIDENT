@@ -63,15 +63,15 @@
     nav.setAttribute("aria-label", "Jump to section");
 
     const navInner = document.createElement("div");
-    navInner.className = "case-quick-nav__inner";
+    navInner.className = "case-quick-nav-inner";
 
     const label = document.createElement("span");
-    label.className = "case-quick-nav__label";
+    label.className = "case-quick-nav-label";
     label.textContent = "Jump to:";
     navInner.appendChild(label);
 
     const list = document.createElement("ul");
-    list.className = "case-quick-nav__list";
+    list.className = "case-quick-nav-list";
 
     sections.forEach((section) => {
       const heading = section.querySelector("h2, h3");
@@ -80,7 +80,7 @@
       const item = document.createElement("li");
       const link = document.createElement("a");
       link.href = "#" + section.id;
-      link.className = "case-quick-nav__link";
+      link.className = "case-quick-nav-link";
       link.textContent = heading.textContent.trim();
 
       item.appendChild(link);

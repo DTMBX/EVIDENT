@@ -19,18 +19,18 @@ layout: record-notes # OPRA commentary & notes
 layout: trust_document # Ecclesiastical/spiritual documents
 ```
 
----
+--
 
 ## ⚡ Common Front Matter
 
 ### Every Page Should Have:
 
 ```yaml
----
+--
 layout: [type]
 title: "Page Title"
 description: "SEO description (160 chars max)"
----
+--
 ```
 
 ### Optional Enhancements:
@@ -58,7 +58,7 @@ twitter_card: "summary_large_image"
 robots: "index, follow"
 ```
 
----
+--
 
 ## 🎨 Layout-Specific Options
 
@@ -146,7 +146,7 @@ signature_date: 2024-01-01
 witness: "Witness Name"
 ```
 
----
+--
 
 ## 🔧 Feature Flags Quick Reference
 
@@ -161,7 +161,7 @@ witness: "Witness Name"
 | `comments`          | `true`  | Comments section            |
 | `track_analytics`   | `true`  | Analytics tracking          |
 
----
+--
 
 ## 📱 Component Includes
 
@@ -195,24 +195,24 @@ witness: "Witness Name"
 {% include components/reading-progress.html %}
 ```
 
----
+--
 
 ## 🎯 Content Examples
 
 ### Minimal Page
 
 ```yaml
----
+--
 layout: page
 title: "Simple Page"
----
+--
 Your content here...
 ```
 
 ### Full-Featured Article
 
 ```yaml
----
+--
 layout: article
 title: "My Constitutional Journey"
 description: "A story of faith and advocacy"
@@ -224,14 +224,14 @@ tags: [faith, constitution, advocacy]
 show_breadcrumbs: true
 show_newsletter: true
 og_image: "/assets/images/journey-og.jpg"
----
+--
 Content...
 ```
 
 ### Legal Case
 
 ```yaml
----
+--
 layout: case
 title: "Barber v. State"
 court: "Superior Court of New Jersey"
@@ -242,11 +242,11 @@ filed_date: 2024-01-10
 role: "Pro Se Plaintiff"
 tags: [constitutional, religious-freedom]
 overview: "Challenge to state regulation..."
----
+--
 Case details...
 ```
 
----
+--
 
 ## 🚀 Performance Checklist
 
@@ -261,7 +261,7 @@ Case details...
 - [ ] Verify accessibility
 - [ ] Check social sharing preview
 
----
+--
 
 ## 📞 Need Help?
 
@@ -269,6 +269,6 @@ Case details...
 2. **Components Guide**: `PROFESSIONAL-COMPONENTS-GUIDE.md`
 3. **Full Docs**: `_layouts/README.md`
 
----
+--
 
 **Pro Tip**: Start with minimal front matter and add features as needed. Every layout works great out of the box!

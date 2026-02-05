@@ -13,7 +13,7 @@
 9. [Performance](#performance)
 10. [Troubleshooting](#troubleshooting)
 
----
+--
 
 ## Platform Overview
 
@@ -59,7 +59,7 @@
 - Database connection pooling (30 concurrent users)
 - Intelligent caching (99% faster on cache hits)
 
----
+--
 
 ## Architecture
 
@@ -134,7 +134,7 @@
 └─────────────────────────────────────────────────────────────┘
 ```
 
----
+--
 
 ## Backend Services
 
@@ -276,7 +276,7 @@ def protected_endpoint():
 - Event-driven architecture
 - Background task processing
 
----
+--
 
 ## Frontend Components
 
@@ -332,7 +332,7 @@ def protected_endpoint():
 - Pre-generated results
 - Conversion funnel
 
----
+--
 
 ## API Reference
 
@@ -511,7 +511,7 @@ System health check
 }
 ```
 
----
+--
 
 ## Database Schema
 
@@ -523,13 +523,13 @@ CREATE TABLE users (
     username VARCHAR(80) UNIQUE NOT NULL,
     email VARCHAR(120) UNIQUE NOT NULL,
     password_hash VARCHAR(255) NOT NULL,
-    tier VARCHAR(20) DEFAULT 'free',  -- free, professional, enterprise
-    role VARCHAR(20) DEFAULT 'user',  -- user, admin
+    tier VARCHAR(20) DEFAULT 'free',  - free, professional, enterprise
+    role VARCHAR(20) DEFAULT 'user',  - user, admin
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     last_login TIMESTAMP
 );
 
--- Indexes
+- Indexes
 CREATE INDEX idx_users_email ON users(email);
 CREATE INDEX idx_users_username ON users(username);
 CREATE INDEX idx_users_tier ON users(tier);
@@ -542,18 +542,18 @@ CREATE TABLE analyses (
     id INTEGER PRIMARY KEY,
     user_id INTEGER NOT NULL,
     case_number VARCHAR(100),
-    evidence_type VARCHAR(20),  -- video, audio, document, image
-    status VARCHAR(20),  -- pending, processing, completed, failed
+    evidence_type VARCHAR(20),  - video, audio, document, image
+    status VARCHAR(20),  - pending, processing, completed, failed
     transcript TEXT,
-    violations_json TEXT,  -- JSON blob
-    compliance_json TEXT,  -- JSON blob
+    violations_json TEXT,  - JSON blob
+    compliance_json TEXT,  - JSON blob
     report_url VARCHAR(255),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     completed_at TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
--- Indexes
+- Indexes
 CREATE INDEX idx_analyses_user_id ON analyses(user_id);
 CREATE INDEX idx_analyses_created_at ON analyses(created_at);
 CREATE INDEX idx_analyses_status ON analyses(status);
@@ -566,7 +566,7 @@ CREATE INDEX idx_analyses_case_number ON analyses(case_number);
 CREATE TABLE api_keys (
     id INTEGER PRIMARY KEY,
     user_id INTEGER NOT NULL,
-    key_hash VARCHAR(64) UNIQUE NOT NULL,  -- SHA-256 hash
+    key_hash VARCHAR(64) UNIQUE NOT NULL,  - SHA-256 hash
     name VARCHAR(100),
     is_active BOOLEAN DEFAULT TRUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -576,7 +576,7 @@ CREATE TABLE api_keys (
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
--- Indexes
+- Indexes
 CREATE INDEX idx_api_keys_user_id ON api_keys(user_id);
 CREATE INDEX idx_api_keys_key ON api_keys(key_hash);
 ```
@@ -587,18 +587,18 @@ CREATE INDEX idx_api_keys_key ON api_keys(key_hash);
 CREATE TABLE usage_tracking (
     id INTEGER PRIMARY KEY,
     user_id INTEGER NOT NULL,
-    action VARCHAR(50),  -- upload, analyze, chat, generate
+    action VARCHAR(50),  - upload, analyze, chat, generate
     date DATE NOT NULL,
     count INTEGER DEFAULT 1,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
--- Indexes
+- Indexes
 CREATE INDEX idx_usage_user_id ON usage_tracking(user_id);
 CREATE INDEX idx_usage_date ON usage_tracking(date);
 ```
 
----
+--
 
 ## Deployment
 
@@ -656,13 +656,13 @@ gunicorn -w 4 -b 0.0.0.0:5000 app:app
 FROM python:3.11-slim
 WORKDIR /app
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -no-cache-dir -r requirements.txt
 COPY . .
 EXPOSE 5000
 CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
 ```
 
----
+--
 
 ## Security
 
@@ -699,7 +699,7 @@ CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
 - HTTPS required in production
 - Secure session cookies
 
----
+--
 
 ## Performance
 
@@ -736,7 +736,7 @@ CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
 | OCR (cached)           | 10-30s   | 0.1s         | 99% faster  |
 | API response           | Variable | <100ms (p95) | Consistent  |
 
----
+--
 
 ## Troubleshooting
 
@@ -790,7 +790,7 @@ View performance metrics:
 http://localhost:5000/admin/system/performance
 ```
 
----
+--
 
 _Evident Platform Technical Documentation_  
 _Version 1.0_  

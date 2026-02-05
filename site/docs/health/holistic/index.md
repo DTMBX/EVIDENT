@@ -1,4 +1,5 @@
 ---
+
 layout: default
 title: "Holistic Independence Guide"
 permalink: /health/holistic/
@@ -6,7 +7,7 @@ description: "Filter plants by USDA growing zone and health goals. Food-first, f
 hero_panel: false
 hide_hero: true
 show_breadcrumbs: true
----
+--
 
 <section class="section-block">
   <div class="container">
@@ -40,7 +41,7 @@ show_breadcrumbs: true
         <select id="stateSelect">
           <option value="">(optional) pick state…</option>
           <option value="FL" data-zone="9">Florida (example)</option>
-          <!-- Add more states progressively OR wire to an SVG map (recommended). -->
+          <!-- Add more states progressively OR wire to an SVG map (recommended). ->
         </select>
       </label>
 
@@ -60,7 +61,7 @@ show_breadcrumbs: true
           Until then, the state selector above works.
         </p>
         <div class="map-shell" id="usMapShell">
-          <!-- If you add /assets/svg/us-states.svg, this becomes clickable -->
+          <!-- If you add /assets/svg/us-states.svg, this becomes clickable ->
           <object id="usMapObj" type="image/svg+xml" data="{{ '/assets/svg/us-states.svg' | relative_url }}">
           </object>
         </div>

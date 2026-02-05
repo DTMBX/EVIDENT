@@ -3,7 +3,7 @@
 **Industry Best Practices for High-Volume Legal Tech Platform**  
 **Date:** January 26, 2026
 
----
+--
 
 ## 🎯 TL;DR - What Goes Where
 
@@ -28,7 +28,7 @@
 └─────────────────────────────────────────────────────────────┘
 ```
 
----
+--
 
 ## 📚 FUNDAMENTAL CONCEPT: Separation of Concerns
 
@@ -50,7 +50,7 @@
 - **Analogy:** Express window for quick pickup
 - **NOT for:** Complex operations or dynamic content
 
----
+--
 
 ## ✅ CORRECT ARCHITECTURE (Industry Standard)
 
@@ -146,7 +146,7 @@ Access: Public HTTPS URLs
 Cost: FREE (Cloudflare) or $1-20/month
 ```
 
----
+--
 
 ## 🏗️ Evident OPTIMAL ARCHITECTURE
 
@@ -197,7 +197,7 @@ Cost: FREE (Cloudflare) or $1-20/month
                     └──────────────┘
 ```
 
----
+--
 
 ## 💰 COST COMPARISON
 
@@ -243,7 +243,7 @@ Performance: Best (dedicated resources)
 Best For: 10,000+ users, high traffic
 ```
 
----
+--
 
 ## 🚀 DEPLOYMENT WORKFLOW (Best Practice)
 
@@ -294,7 +294,7 @@ Best For: 10,000+ users, high traffic
 
 **KEY POINT:** GitHub stores code, Render runs code. They work together but serve different purposes!
 
----
+--
 
 ## 📊 WHAT GOES WHERE - Evident Specific
 
@@ -376,28 +376,28 @@ Benefits:
 ### PostgreSQL Database (on Render)
 
 ```sql
--- What's stored in database:
+- What's stored in database:
 users (
   id, email, password_hash, tier, created_at
 )
 analyses (
   id, user_id, filename,
-  file_path,  -- S3 URL: s3://bucket/uploads/videos/file.mp4
+  file_path,  - S3 URL: s3://bucket/uploads/videos/file.mp4
   status, created_at
 )
 reports (
   id, analysis_id,
-  report_path,  -- S3 URL: s3://bucket/reports/report.pdf
+  report_path,  - S3 URL: s3://bucket/reports/report.pdf
   generated_at
 )
 
--- NOT in database:
+- NOT in database:
 ✗ Actual video files
 ✗ Actual PDF files
 ✗ Report content (just path to S3)
 ```
 
----
+--
 
 ## 🔧 IMPLEMENTATION GUIDE
 
@@ -427,14 +427,14 @@ pip install boto3
 # 4. Update app.py to upload to S3
 import boto3
 s3 = boto3.client('s3')
-s3.upload_file('local_file.pdf', 'Evident-legal-files', 'uploads/file.pdf')
+s3.upload_file('local_file.pdf', 'evident-legal-files', 'uploads/file.pdf')
 
 # 5. Store S3 path in database (not actual file)
 analysis.file_path = 's3://Evident-legal-files/uploads/file.pdf'
 
 # 6. Generate pre-signed URLs for downloads
 url = s3.generate_presigned_url('get_object',
-    Params={'Bucket': 'Evident-legal-files', 'Key': 'uploads/file.pdf'},
+    Params={'Bucket': 'evident-legal-files', 'Key': 'uploads/file.pdf'},
     ExpiresIn=3600)  # URL valid for 1 hour
 ```
 
@@ -453,7 +453,7 @@ url = s3.generate_presigned_url('get_object',
 <link rel="stylesheet" href="https://cdn.Evident.info/css/style.css">
 ```
 
----
+--
 
 ## 📈 SCALABILITY ROADMAP
 
@@ -541,7 +541,7 @@ Cost: $500-2,000/month
 Perfect for: Major legal tech platform
 ```
 
----
+--
 
 ## ✅ ACTION PLAN - Migrate to Best Practices
 
@@ -568,7 +568,7 @@ Perfect for: Major legal tech platform
    # Create cloud_storage.py:
    class S3Storage:
        def upload(file, key):
-           s3.upload_fileobj(file, 'Evident-files', key)
+           s3.upload_fileobj(file, 'evident-files', key)
 
        def download_url(key):
            return s3.generate_presigned_url('get_object', ...)
@@ -598,7 +598,7 @@ Perfect for: Major legal tech platform
 3. **Implement background jobs** (Celery + RabbitMQ)
 4. **Set up monitoring** (DataDog, New Relic)
 
----
+--
 
 ## 📊 DECISION MATRIX
 
@@ -612,7 +612,7 @@ Perfect for: Major legal tech platform
 | **Netlify/Vercel** | Static sites, JAMstack              | Backend APIs, databases, file processing              |
 | **Heroku**         | Rapid prototyping                   | Cost-effective production (expensive)                 |
 
----
+--
 
 ## 🎯 RECOMMENDED ARCHITECTURE FOR Evident
 
@@ -642,7 +642,7 @@ Perfect for: Major legal tech platform
 └─────────────────────────────────────────────────────────┘
 ```
 
----
+--
 
 ## 💡 KEY TAKEAWAYS
 
@@ -672,12 +672,12 @@ Perfect for: Major legal tech platform
    - Add CDN second (speed boost)
    - Consider AWS much later (if needed)
 
----
+--
 
 **BOTTOM LINE:**  
 Your current setup (GitHub + Render) is correct and industry-standard. Just add AWS S3 for file storage when you're ready to scale. Don't overthink it!
 
----
+--
 
 _Last Updated: January 26, 2026_  
 _Architecture: Production-Ready_  

@@ -2,7 +2,7 @@
 
 **3 ways to test on iPhone | Fastest path: Start with Android (30 min)**
 
----
+--
 
 ## 🚀 Path 1: Android APK (RECOMMENDED FIRST)
 
@@ -53,7 +53,7 @@ bin\Release\net10.0-android34.0\com.Evident.matterdocket-Signed.apk
 
 **Result: Full working app on Android while iOS setup processes!**
 
----
+--
 
 ## 📲 Path 2: TestFlight (Best for Teams)
 
@@ -89,7 +89,7 @@ Distribute to 10,000 testers (law firms, civic orgs).
      - [x] Sign in with Apple (optional)
 6. Click **Register**
 
----
+--
 
 ### Week 2: Certificates & Provisioning (REQUIRES MAC)
 
@@ -125,7 +125,7 @@ https://www.macincloud.com
 2. Remote desktop into Mac
 3. Follow "Option A" steps above
 
----
+--
 
 ### Week 2-3: Create Distribution Certificate
 
@@ -153,7 +153,7 @@ https://www.macincloud.com
 5. Download certificate (`.cer` file)
 6. **Double-click to install in Keychain**
 
----
+--
 
 ### Week 3: Build iOS App
 
@@ -175,7 +175,7 @@ dotnet publish -f net10.0-ios -c Release
 bin/Release/net10.0-ios/ios-arm64/publish/Evident.MatterDocket.MAUI.ipa
 ```
 
----
+--
 
 ### Week 4: Upload to TestFlight
 
@@ -208,14 +208,14 @@ bin/Release/net10.0-ios/ios-arm64/publish/Evident.MatterDocket.MAUI.ipa
 # Install xcrun tools (included with Xcode)
 
 # Upload
-xcrun altool --upload-app \
-  --type ios \
-  --file bin/Release/net10.0-ios/ios-arm64/publish/*.ipa \
-  --username YOUR-APPLE-ID@email.com \
-  --password YOUR-APP-SPECIFIC-PASSWORD
+xcrun altool -upload-app \
+  -type ios \
+  -file bin/Release/net10.0-ios/ios-arm64/publish/*.ipa \
+  -username YOUR-APPLE-ID@email.com \
+  -password YOUR-APP-SPECIFIC-PASSWORD
 ```
 
----
+--
 
 ### Configure TestFlight
 
@@ -243,7 +243,7 @@ xcrun altool --upload-app \
 3. Add testers (up to 10,000)
 4. Submit for **App Review** (~24-48 hours)
 
----
+--
 
 ### Install on Your iPhone
 
@@ -269,7 +269,7 @@ xcrun altool --upload-app \
 
 **🎉 Evident is now on your iPhone!**
 
----
+--
 
 ## 🔧 Path 3: Development Deployment (Fastest for Testing)
 
@@ -289,14 +289,14 @@ Deploy directly to YOUR iPhone without App Store or TestFlight.
 
 ```xml
 <PropertyGroup Condition="'$(TargetFramework)' == 'net10.0-ios'">
-    <!-- Automatic signing (free Apple ID) -->
+    <!-- Automatic signing (free Apple ID) ->
     <CodesignKey>Apple Development</CodesignKey>
     <CodesignProvision>Automatic</CodesignProvision>
 
-    <!-- Unique bundle ID with your Apple ID -->
+    <!-- Unique bundle ID with your Apple ID ->
     <ApplicationId>com.YOUR-NAME.Evident</ApplicationId>
 
-    <!-- Development settings -->
+    <!-- Development settings ->
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
 </PropertyGroup>
@@ -325,7 +325,7 @@ dotnet build -f net10.0-ios -c Debug \
 
 **Limitation:** Certificate expires in **7 days** (free account) or **1 year** (paid account).
 
----
+--
 
 ## ⚡ GitHub Actions: Automated iOS Builds
 
@@ -386,11 +386,11 @@ jobs:
           APPLE_ID: ${{ secrets.APPLE_ID }}
           APP_PASSWORD: ${{ secrets.APPLE_APP_PASSWORD }}
         run: |
-          xcrun altool --upload-app \
-            --type ios \
-            --file src/Evident.MatterDocket.MAUI/bin/Release/net10.0-ios/**/*.ipa \
-            --username "$APPLE_ID" \
-            --password "$APP_PASSWORD"
+          xcrun altool -upload-app \
+            -type ios \
+            -file src/Evident.MatterDocket.MAUI/bin/Release/net10.0-ios/**/*.ipa \
+            -username "$APPLE_ID" \
+            -password "$APP_PASSWORD"
 ```
 
 ### Add GitHub Secrets
@@ -402,7 +402,7 @@ jobs:
 
 **Now:** Every push to `main` automatically builds iOS app and uploads to TestFlight!
 
----
+--
 
 ## 🐛 Troubleshooting
 
@@ -418,7 +418,7 @@ security find-identity -v -p codesigning
 # Double-click .cer file to install
 ```
 
----
+--
 
 ### "Provisioning profile has expired"
 
@@ -429,7 +429,7 @@ security find-identity -v -p codesigning
 3. Create new profile
 4. Download and double-click to install
 
----
+--
 
 ### Build succeeds but app crashes on iPhone
 
@@ -446,7 +446,7 @@ security find-identity -v -p codesigning
 # 3. Missing frameworks
 ```
 
----
+--
 
 ### App shows white screen on launch
 
@@ -462,7 +462,7 @@ security find-identity -v -p codesigning
 </dict>
 ```
 
----
+--
 
 ## Path Comparison
 
@@ -473,7 +473,7 @@ security find-identity -v -p codesigning
 | **Development**    | 2-3 hours    | FREE     | 1 (you)   | 7 days  | Quick personal testing |
 | **GitHub Actions** | 1 hour setup | FREE     | Auto      | Never   | CI/CD automation       |
 
----
+--
 
 ## 📅 Recommended Timeline
 
@@ -496,7 +496,7 @@ security find-identity -v -p codesigning
 - ⏳ **Day 21:** Gather feedback, iterate
 - ⏳ **Day 28:** Prepare for App Store submission
 
----
+--
 
 ## 🎯 Next Steps
 
@@ -520,7 +520,7 @@ dotnet build -f net10.0-android34.0 -c Release
 2. Build iOS app
 3. Upload to TestFlight
 
----
+--
 
 **Support:** See `PROFILE-SETUP-GUIDE.md` for PowerShell shortcuts!  
 **Legal Tools:** See `LEGAL-AI-TOOLS.md` for AI features!

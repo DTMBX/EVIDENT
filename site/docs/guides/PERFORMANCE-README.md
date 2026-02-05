@@ -86,6 +86,6 @@ python performance_check.py report
 
 All optimizations tested and verified. Ready for immediate deployment.
 
----
+--
 
 For complete details, see: **PERFORMANCE-OPTIMIZATION-COMPLETE.md**

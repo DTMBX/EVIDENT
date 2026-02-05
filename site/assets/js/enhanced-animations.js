@@ -383,7 +383,7 @@ class FloatingAnimation {
       const animDelay = delay + index * 200;
 
       el.style.animation = `float ${duration}ms ease-in-out ${animDelay}ms infinite`;
-      el.style.setProperty("--float-distance", `${distance}px`);
+      el.style.setProperty("-float-distance", `${distance}px`);
     });
   }
 }

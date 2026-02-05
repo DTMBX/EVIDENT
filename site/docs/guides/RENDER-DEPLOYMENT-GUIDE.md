@@ -5,7 +5,7 @@
 - ? GitHub account with Evident.info repo
 - ? All code pushed to GitHub (DONE!)
 
----
+--
 
 ## ?? STEP-BY-STEP DEPLOYMENT
 
@@ -19,7 +19,7 @@
 
 3. You'll see the Render dashboard
 
----
+--
 
 ### **Step 2: Create Web Service (3 minutes)**
 
@@ -51,14 +51,14 @@
    **Start Command:**
 
    ```bash
-   gunicorn app:app --bind 0.0.0.0:$PORT --workers 2 --timeout 300
+   gunicorn app:app -bind 0.0.0.0:$PORT -workers 2 -timeout 300
    ```
 
    **Instance Type:** `Free`
 
 5. **Click:** `Create Web Service`
 
----
+--
 
 ### **Step 3: Add Environment Variables (2 minutes)**
 
@@ -118,7 +118,7 @@ While the service is deploying, click **"Environment"** in left sidebar:
 
 **Click:** `Save Changes`
 
----
+--
 
 ### **Step 4: Wait for Deployment (5-10 minutes)**
 
@@ -134,7 +134,7 @@ While the service is deploying, click **"Environment"** in left sidebar:
 
 3. **First deployment takes 5-10 minutes** (subsequent deploys are faster)
 
----
+--
 
 ### **Step 5: Your App is LIVE! ??**
 
@@ -155,13 +155,13 @@ https://Evident-legal-tech.onrender.com
    - Email: `admin@Evident.info`
    - Password: `Evident2026!`
 
----
+--
 
 ## ?? IMPORTANT: Update Admin Password
 
 After first login, change the default password!
 
----
+--
 
 ## ?? What's Deployed:
 
@@ -187,7 +187,7 @@ After first login, change the default password!
 - Requires API keys (optional)
 - Add keys in Environment Variables
 
----
+--
 
 ## ?? Render Dashboard Features:
 
@@ -211,7 +211,7 @@ After first login, change the default password!
 - Every `git push` to `main` auto-deploys!
 - Takes 2-3 minutes
 
----
+--
 
 ## ?? Custom Domain (Optional)
 
@@ -235,7 +235,7 @@ If you own `Evident.info`:
    https://app.Evident.info,https://Evident.info
    ```
 
----
+--
 
 ## ?? Troubleshooting
 
@@ -267,7 +267,7 @@ If you own `Evident.info`:
 - Free PostgreSQL: 256MB limit
 - Solution: Upgrade database or clean old data
 
----
+--
 
 ## ?? Pricing
 
@@ -283,7 +283,7 @@ If you own `Evident.info`:
 - Starter PostgreSQL: $7/month (1GB storage)
 - Pro: $25/month (more resources)
 
----
+--
 
 ## ?? Next Steps After Deployment:
 
@@ -294,7 +294,7 @@ If you own `Evident.info`:
 5. ? Monitor logs for errors
 6. ? Share with users!
 
----
+--
 
 ## ?? Support
 
@@ -302,7 +302,7 @@ If you own `Evident.info`:
 - **Render Community:** https://community.render.com
 - **Your App Logs:** https://dashboard.render.com ? Your Service ? Logs
 
----
+--
 
 ## ? READY TO DEPLOY?
 
@@ -310,6 +310,6 @@ If you own `Evident.info`:
 
 **Your app will be live in 15 minutes!** ??
 
----
+--
 
 **Need help?** Screenshot any errors and I'll help debug!

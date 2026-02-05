@@ -10,7 +10,7 @@ Render auto-selected **Python 3.13.4**, but SQLAlchemy 2.0.23 is **NOT compatibl
 AssertionError: Class <class 'sqlalchemy.sql.elements.SQLCoreOperations'> directly inherits TypingOnly but has additional attributes
 ```
 
----
+--
 
 ## ? Solution Applied:
 
@@ -40,11 +40,11 @@ Proper Render build script for Flask:
 ```bash
 #!/usr/bin/env bash
 set -o errexit
-pip install --upgrade pip
+pip install -upgrade pip
 pip install -r requirements.txt
 ```
 
----
+--
 
 ## ?? What Happens Now:
 
@@ -53,7 +53,7 @@ pip install -r requirements.txt
 3. ? **SQLAlchemy works perfectly**
 4. ? **Deployment succeeds!**
 
----
+--
 
 ## ?? Timeline:
 
@@ -63,7 +63,7 @@ pip install -r requirements.txt
 - **Build completes:** ~5 minutes
 - **Deploy completes:** ~7 minutes total
 
----
+--
 
 ## ?? Monitor Deployment:
 
@@ -76,7 +76,7 @@ You'll see:
 2. Build logs in real-time
 3. **"Live"** status (green) when done
 
----
+--
 
 ## ? Once Live:
 
@@ -90,7 +90,7 @@ Your app will be at:
 3. Email: `admin@Evident.info`
 4. Password: `Evident2026!`
 
----
+--
 
 ## ?? Should Work Now!
 

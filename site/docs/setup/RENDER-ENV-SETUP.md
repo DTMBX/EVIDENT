@@ -157,7 +157,7 @@ After setup, your Environment tab should show:
 - **Stripe Docs**: https://stripe.com/docs/keys
 - **Evident Issues**: https://github.com/DTB396/Evident.info/issues
 
----
+--
 
 **Status:**
 

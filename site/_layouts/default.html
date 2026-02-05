@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <!-- SEO Meta -->
+    <!-- SEO Meta ->
     <title>{{ page.title | default: site.title }}</title>
     <meta
       name="description"
@@ -13,7 +13,7 @@
     />
     <meta name="author" content="Evident Technologies" />
 
-    <!-- Open Graph -->
+    <!-- Open Graph ->
     <meta
       property="og:title"
       content="{{ page.title | default: site.title }}"
@@ -29,7 +29,7 @@
     <meta property="og:url" content="{{ page.url | absolute_url }}" />
     <meta property="og:type" content="website" />
 
-    <!-- Twitter Card -->
+    <!-- Twitter Card ->
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
@@ -40,7 +40,7 @@
       content="{{ page.description | default: site.description }}"
     />
 
-    <!-- Favicon -->
+    <!-- Favicon ->
     <link
       rel="icon"
       href="{{ '/favicon.ico' | relative_url }}"
@@ -51,7 +51,7 @@
       href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}"
     />
 
-    <!-- Fonts -->
+    <!-- Fonts ->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -59,41 +59,45 @@
       rel="stylesheet"
     />
 
-    <!-- Core Styles -->
+    <!-- Core Styles ->
     <link
       rel="stylesheet"
       href="{{ '/assets/css/tokens.css' | relative_url }}"
     />
     <link
       rel="stylesheet"
+      href="{{ '/assets/css/core.css' | relative_url }}"
+    />
+    <link
+      rel="stylesheet"
       href="{{ '/assets/css/style.css' | relative_url }}"
     />
 
-    <!-- Page-specific styles -->
+    <!-- Page-specific styles ->
     {% if page.extra_css %} {% for css in page.extra_css %}
     <link rel="stylesheet" href="{{ css | relative_url }}" />
     {% endfor %} {% endif %}
   </head>
   <body class="evident-app">
-    <!-- Skip Link for Accessibility -->
+    <!-- Skip Link for Accessibility ->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Site Header -->
+    <!-- Site Header ->
     {% include header.html %}
 
-    <!-- Main Content -->
+    <!-- Main Content ->
     <main id="main-content" class="main-content">{{ content }}</main>
 
-    <!-- Site Footer -->
+    <!-- Site Footer ->
     {% include footer.html %}
 
-    <!-- Core Scripts -->
+    <!-- Core Scripts ->
     <script
       src="{{ '/assets/js/evident-core.js' | relative_url }}"
       defer
     ></script>
 
-    <!-- Page-specific scripts -->
+    <!-- Page-specific scripts ->
     {% if page.extra_js %} {% for js in page.extra_js %}
     <script src="{{ js | relative_url }}" defer></script>
     {% endfor %} {% endif %}

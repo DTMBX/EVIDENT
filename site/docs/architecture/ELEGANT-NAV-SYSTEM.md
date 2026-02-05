@@ -80,16 +80,16 @@ Copy these three files to your project:
 Add to your layout file (e.g., `_layouts/default.html`):
 
 ```html
-<!-- In <head> section -->
+<!-- In <head> section ->
 <link
   rel="stylesheet"
   href="{{ '/assets/css/components/elegant-header.css' | relative_url }}"
 />
 
-<!-- After <body> tag -->
+<!-- After <body> tag ->
 {% include components/navigation/elegant-header.html %}
 
-<!-- Before </body> tag -->
+<!-- Before </body> tag ->
 <script src="{{ '/assets/js/elegant-header.js' | relative_url }}"></script>
 ```
 
@@ -121,9 +121,9 @@ Edit CSS variables in `elegant-header.css`:
 Edit `elegant-header.html` to add, remove, or modify menu items:
 
 ```html
-<!-- Add a new menu item -->
-<li class="elegant-nav__item">
-  <a href="/your-page/" class="elegant-nav__link">
+<!-- Add a new menu item ->
+<li class="elegant-nav-item">
+  <a href="/your-page/" class="elegant-nav-link">
     <svg
       class="nav-icon"
       width="18"
@@ -133,7 +133,7 @@ Edit `elegant-header.html` to add, remove, or modify menu items:
       stroke="currentColor"
       stroke-width="2"
     >
-      <!-- Your icon SVG path -->
+      <!-- Your icon SVG path ->
     </svg>
     <span>Your Page</span>
   </a>
@@ -145,22 +145,22 @@ Edit `elegant-header.html` to add, remove, or modify menu items:
 Add a dropdown menu:
 
 ```html
-<li class="elegant-nav__item elegant-nav__item--dropdown">
-  <button class="elegant-nav__link" aria-expanded="false" aria-haspopup="true">
-    <svg class="nav-icon"><!-- Icon --></svg>
+<li class="elegant-nav-item elegant-nav-item-dropdown">
+  <button class="elegant-nav-link" aria-expanded="false" aria-haspopup="true">
+    <svg class="nav-icon"><!-- Icon -></svg>
     <span>Menu Name</span>
-    <svg class="chevron-icon"><!-- Chevron --></svg>
+    <svg class="chevron-icon"><!-- Chevron -></svg>
   </button>
   <div class="elegant-dropdown">
-    <div class="elegant-dropdown__inner">
-      <a href="/link1/" class="elegant-dropdown__link">
+    <div class="elegant-dropdown-inner">
+      <a href="/link1/" class="elegant-dropdown-link">
         <span class="dropdown-icon">🎯</span>
         <div>
           <div class="dropdown-title">Title</div>
           <div class="dropdown-desc">Description</div>
         </div>
       </a>
-      <!-- More links... -->
+      <!-- More links... ->
     </div>
   </div>
 </li>
@@ -253,7 +253,7 @@ The navigation automatically switches between desktop and mobile modes at 1024px
 
 ### Dropdown menus not appearing
 
-- Check that the dropdown has the class `elegant-nav__item--dropdown`
+- Check that the dropdown has the class `elegant-nav-item-dropdown`
 - Ensure JavaScript is loaded after the HTML
 
 ### Mobile drawer not opening
@@ -289,6 +289,6 @@ Try it out:
 4. Try the shortcuts: Ctrl+K for search
 5. Scroll down to see the header change
 
----
+--
 
 **Created with ❤️ for Evident Legal Technologies**

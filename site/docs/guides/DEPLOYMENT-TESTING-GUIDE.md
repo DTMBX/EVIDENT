@@ -6,7 +6,7 @@
 **Render:** Auto-deploying from GitHub  
 **Features:** Unified batch upload ready
 
----
+--
 
 ## ?? **Your Live URLs**
 
@@ -24,7 +24,7 @@ https://Evident-legal-tech.onrender.com
 - **Docs:** https://Evident-legal-tech.onrender.com/docs
 - **Pricing:** https://Evident-legal-tech.onrender.com/pricing
 
----
+--
 
 ## ?? **Login Credentials**
 
@@ -38,7 +38,7 @@ https://Evident-legal-tech.onrender.com
 - Free User: `free@Evident.test` / `test123`
 - Enterprise User: `enterprise@Evident.test` / `test123`
 
----
+--
 
 ## ?? **Deployment Steps (Auto-Running)**
 
@@ -60,7 +60,7 @@ https://dashboard.render.com
 2. Watch **"Events"** tab for real-time logs
 3. Look for **"Live"** status (green)
 
----
+--
 
 ## ?? **Testing Plan**
 
@@ -111,7 +111,7 @@ https://dashboard.render.com
 }
 ```
 
----
+--
 
 ### **Test 2: Frontend Pages**
 
@@ -135,7 +135,7 @@ https://dashboard.render.com
 - Email addresses
 - Support hours
 
----
+--
 
 ### **Test 3: BWC Analysis (If AI Enabled)**
 
@@ -155,7 +155,7 @@ https://dashboard.render.com
 
 Set these in Render ? Environment variables
 
----
+--
 
 ## ?? **Troubleshooting**
 
@@ -187,7 +187,7 @@ Set these in Render ? Environment variables
 **Cause:** Flask route not registered  
 **Check:** app.py has `@app.route('/batch-upload')` and `@app.route('/docs')`
 
----
+--
 
 ## ?? **Mobile Testing**
 
@@ -197,7 +197,7 @@ Set these in Render ? Environment variables
 2. Check responsive design
 3. Test batch upload from phone camera/files
 
----
+--
 
 ## ? **Performance Testing**
 
@@ -212,7 +212,7 @@ Set these in Render ? Environment variables
 
 **Note:** Free tier has slower disk I/O. Upgrade to paid tier for faster uploads.
 
----
+--
 
 ## ?? **Security Verification**
 
@@ -236,7 +236,7 @@ Set these in Render ? Environment variables
 
 - Upload same file twice ? Different upload IDs, same hash
 
----
+--
 
 ## ?? **Expected Metrics**
 
@@ -260,7 +260,7 @@ After testing, verify:
 - ? Parallel processing (check timestamps)
 - ? All 26 files uploaded in <30 min
 
----
+--
 
 ## ? **Deployment Checklist**
 
@@ -288,7 +288,7 @@ After deployment:
 - [ ] Test responsive design
 - [ ] Test API endpoints
 
----
+--
 
 ## ?? **Success Criteria**
 
@@ -302,7 +302,7 @@ After deployment:
 6. Results show correct categorization
 7. New pages load (docs, pricing, contact)
 
----
+--
 
 ## ?? **Next Steps After Testing**
 
@@ -325,7 +325,7 @@ After deployment:
    - Set up CDN for static files
    - Configure monitoring (Sentry)
 
----
+--
 
 ## ?? **Support**
 
@@ -343,7 +343,7 @@ After deployment:
 3. Note browser/device
 4. Open GitHub issue with `bug` label
 
----
+--
 
 ## ?? **You're Ready!**
 

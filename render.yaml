@@ -97,4 +97,3 @@ databases:
     region: oregon
     ipAllowList: [] # Allow all IPs (required for Render free tier)
 
-

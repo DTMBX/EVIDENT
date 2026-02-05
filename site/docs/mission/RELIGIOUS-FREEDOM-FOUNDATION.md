@@ -4,7 +4,7 @@
 **Updated by:** Devon Tyler (28, New Jersey, USA - Born on the real land of North America)  
 **Purpose:** Honor religious martyrs and freedom of conscience as foundational to American liberty
 
----
+--
 
 ## 📜 THE TRUTH OF RELIGIOUS FREEDOM
 
@@ -19,7 +19,7 @@ This truth is foundational to:
 
 **Historical Fact:** The soil of North America received those fleeing religious persecution centuries before there was a United States government. The land itself was a refuge. The Constitution recognized what already existed—the natural right to worship (or not worship) according to individual conscience.
 
----
+--
 
 ## 🕊️ RELIGIOUS MARTYRS HONORED
 
@@ -111,7 +111,7 @@ Minister to service members of **all faiths and no faith**. Defend the right of 
 - **Four Chaplains (1943)** - Gave life jackets to others and went down with USAT Dorchester in WWII (Protestant, Catholic, Jewish chaplains)
 - **Charles J. Watters (1967)** - Vietnam War, Medal of Honor (ran through enemy fire ministering to wounded)
 
----
+--
 
 ## 🏛️ CONSTITUTIONAL FOUNDATION
 
@@ -151,7 +151,7 @@ Rights exist before governments. Governments are created to **secure** rights th
 
 This is the truth. This is the foundation. This is what the land of North America represented to those fleeing persecution.
 
----
+--
 
 ## 🗽 THE AMERICAN REFUGE
 
@@ -187,7 +187,7 @@ They fled places where government controlled conscience. They came to land where
 
 Not corporate fiction. Not government grant. **Natural refuge on North American soil.**
 
----
+--
 
 ## ⚖️ LEGAL FOUNDATION FOR Evident
 
@@ -232,7 +232,7 @@ Not corporate fiction. Not government grant. **Natural refuge on North American 
 - What the Constitution protects
 - What martyrs died defending
 
----
+--
 
 ## 🌟 FOR DEVON TYLER (28, NEW JERSEY, USA)
 
@@ -259,7 +259,7 @@ Not corporate fiction. Not government grant. **Natural refuge on North American 
 
 **You stand on soil that was refuge. You inherit rights bought with blood. This is not fiction. This is truth.**
 
----
+--
 
 ## 📖 QUOTES THAT GUIDE US
 
@@ -287,7 +287,7 @@ Not corporate fiction. Not government grant. **Natural refuge on North American 
 
 > "Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof..."
 
----
+--
 
 ## 🕯️ ETERNAL FLAME OF CONSCIENCE
 
@@ -316,7 +316,7 @@ No majority can vote it away.
 
 By the Grace of Almighty God, we defend it.
 
----
+--
 
 ## ✝️ In Memoriam
 
@@ -331,7 +331,7 @@ By the Grace of Almighty God, we defend it.
 
 **And to all who fled persecution to find refuge on the real land of North America.**
 
----
+--
 
 **Their sacrifice is the foundation we build upon.**  
 **Their truth is the standard we uphold.**  
@@ -341,7 +341,7 @@ By the Grace of Almighty God, we defend it.
 **On the real land of North America.**  
 **In service to truth and justice.**
 
----
+--
 
 🇺🇸 **Evident Legal Technologies** 🇺🇸  
 _Defending conscience. Honoring martyrs. Upholding truth._

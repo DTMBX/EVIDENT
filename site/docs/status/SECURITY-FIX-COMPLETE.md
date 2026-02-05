@@ -7,7 +7,7 @@
 **Dependencies Updated:** 16 packages  
 **Testing:** ✅ App starts successfully with all updates
 
----
+--
 
 ## 📊 Vulnerability Summary
 
@@ -25,7 +25,7 @@
 - ✅ **0 known high vulnerabilities**
 - ✅ **All packages updated to latest secure versions**
 
----
+--
 
 ## 🔒 Critical Security Fixes
 
@@ -41,7 +41,7 @@
 
 **Impact:** Used in PDF processing and image uploads - potential remote code execution if exploited
 
----
+--
 
 ### 2. cryptography (Encryption Library) ⚠️ CRITICAL
 
@@ -55,7 +55,7 @@
 
 **Impact:** Used for password hashing, API keys, session tokens - core security component
 
----
+--
 
 ### 3. PyPDF2 → pypdf (PDF Processing) ⚠️ HIGH
 
@@ -85,7 +85,7 @@ reader = PdfReader(file)
 - `app.py` (line 4152, 4169)
 - `tools/build_cases_index.py` (already using pypdf)
 
----
+--
 
 ## 🛡️ High-Priority Security Updates
 
@@ -99,7 +99,7 @@ reader = PdfReader(file)
 - Session management enhancements
 - CSRF protection updates
 
----
+--
 
 ### 5. Werkzeug (WSGI Utility)
 
@@ -111,7 +111,7 @@ reader = PdfReader(file)
 - Request parsing security improvements
 - Debug mode security enhancements
 
----
+--
 
 ### 6. gunicorn (Production Server)
 
@@ -123,7 +123,7 @@ reader = PdfReader(file)
 - Request smuggling prevention
 - Signal handling vulnerabilities
 
----
+--
 
 ### 7. SQLAlchemy (Database ORM)
 
@@ -135,7 +135,7 @@ reader = PdfReader(file)
 - Query parameter validation
 - Connection handling security
 
----
+--
 
 ### 8. Stripe (Payment Processing)
 
@@ -147,7 +147,7 @@ reader = PdfReader(file)
 - Webhook signature validation improvements
 - Deprecation of insecure payment methods
 
----
+--
 
 ### 9. OpenAI API Client
 
@@ -159,7 +159,7 @@ reader = PdfReader(file)
 - Rate limiting improvements
 - Response validation
 
----
+--
 
 ### 10. requests (HTTP Library)
 
@@ -171,7 +171,7 @@ reader = PdfReader(file)
 - Connection pooling security
 - Redirect handling fixes
 
----
+--
 
 ## 🔧 Additional Security Improvements
 
@@ -211,14 +211,14 @@ reader = PdfReader(file)
 **After:** 5.0.0  
 **Fixes:** Origin validation improvements
 
----
+--
 
 ## ✅ Verification & Testing
 
 ### 1. Dependency Installation
 
 ```bash
-pip install -r requirements.txt --upgrade
+pip install -r requirements.txt -upgrade
 ```
 
 **Result:** ✅ All packages installed successfully
@@ -254,7 +254,7 @@ python app.py
 - Updated requests: 2.32.3 → 2.32.5
 - ✅ All conflicts resolved
 
----
+--
 
 ## 📋 Updated requirements.txt
 
@@ -286,7 +286,7 @@ qrcode[pil]==8.0          # QR code generation for 2FA
 stripe==11.4.0            # Payment processing
 ```
 
----
+--
 
 ## 🚀 Deployment Readiness
 
@@ -306,7 +306,7 @@ stripe==11.4.0            # Payment processing
 - ✅ All dev dependencies at latest secure versions
 - ✅ npm audit: 0 vulnerabilities
 
----
+--
 
 ## 🔄 Migration Notes
 
@@ -336,7 +336,7 @@ Stripe v11.x has updated webhook signatures and some API changes. Review:
 - Payment intent creation
 - Customer management
 
----
+--
 
 ## 📊 Security Impact Analysis
 
@@ -362,7 +362,7 @@ Stripe v11.x has updated webhook signatures and some API changes. Review:
 - ✅ Certificate authorities updated
 - ✅ Encryption libraries current
 
----
+--
 
 ## 🎯 Next Steps
 
@@ -388,7 +388,7 @@ Stripe v11.x has updated webhook signatures and some API changes. Review:
 3. Penetration testing
 4. Security training for development team
 
----
+--
 
 ## 📝 Summary
 
@@ -411,7 +411,7 @@ Stripe v11.x has updated webhook signatures and some API changes. Review:
 **Risk Eliminated:** Critical/High security vulnerabilities  
 **Status:** ✅ **COMPLETE - READY FOR DEPLOYMENT**
 
----
+--
 
 _Last Updated: January 26, 2026_  
 _Next Security Audit: February 26, 2026 (monthly recommended)_

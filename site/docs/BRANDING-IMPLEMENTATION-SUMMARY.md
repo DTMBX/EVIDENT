@@ -25,7 +25,7 @@ Successfully unified the classic 1920s barber pole branding across the entire Ev
    - Updated to use brand tokens
    - Added new "nav" size variant (18px × 48px)
    - Added smooth transitions and hover effects
-   - Improved rounded corners using `--radius-full`
+   - Improved rounded corners using `-radius-full`
 
 ### Documentation
 
@@ -128,13 +128,13 @@ All using smooth easing: `cubic-bezier(0.4, 0, 0.2, 1)`
 The branding is automatically included on all pages via `default.html` layout. To customize:
 
 ```yaml
----
+--
 layout: default
 hide_barber_pole: true # Hide fixed corner pole
 barber_pole_position: fixed # fixed, absolute, or static
 barber_pole_size: medium # nav, small, medium, large, hero
 barber_pole_show_on: all # all, desktop, or mobile
----
+--
 ```
 
 ### Manual Pole Integration

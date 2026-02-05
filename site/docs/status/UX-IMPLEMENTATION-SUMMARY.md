@@ -154,14 +154,14 @@ Total: 6/6 core tests passed ✅
 ### 1. Include Components in Templates
 
 ```html
-<!-- Add accessibility styles -->
+<!-- Add accessibility styles ->
 <link rel="stylesheet" href="/assets/css/accessibility.css" />
 
-<!-- Add usage meter -->
+<!-- Add usage meter ->
 {% include 'components/usage-meter.html' with title='BWC Videos',
 current=usage.bwc_videos_processed, limit=limits.bwc_videos_per_month %}
 
-<!-- Add onboarding tour -->
+<!-- Add onboarding tour ->
 {% include 'components/onboarding-tour.html' %}
 ```
 
@@ -180,8 +180,8 @@ def premium_feature():
 ### 3. Access in Templates
 
 ```jinja2
-{{ 15000 | format_number }}  <!-- 15,000 -->
-{{ current_user.tier_name | tier_pricing }}  <!-- 49 -->
+{{ 15000 | format_number }}  <!-- 15,000 ->
+{{ current_user.tier_name | tier_pricing }}  <!-- 49 ->
 {{ usage.bwc_videos_processed | usage_percentage(limits.bwc_videos_per_month) }}
 ```
 
@@ -291,7 +291,7 @@ For implementation help:
 3. Run `test_ux_integration.py` to verify setup
 4. Examine component files for usage examples
 
----
+--
 
 ## 🎉 Conclusion
 
@@ -314,7 +314,7 @@ For implementation help:
 
 **The Evident platform now provides an exceptional user experience that rivals industry leaders like Stripe, Notion, and Linear!** 🚀
 
----
+--
 
 _Built with ❤️ for Evident Legal Technologies_
 _January 2026_

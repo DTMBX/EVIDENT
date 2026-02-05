@@ -2,7 +2,7 @@
 
 **You're close! You're at the API root, but you need a different page to get your key.**
 
----
+--
 
 ## 📍 STEP-BY-STEP: Get Your API Token
 
@@ -16,7 +16,7 @@ If not:
 2. Enter your email and password
 3. Click "Sign In"
 
----
+--
 
 ### **Step 2: Go to the API Info Page (NOT the API Root)**
 
@@ -29,7 +29,7 @@ If not:
 3. Click **"REST API"**
 4. Scroll down to **"Authentication"** section
 
----
+--
 
 ### **Step 3: Find Your API Token**
 
@@ -43,7 +43,7 @@ Your API token is: a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6
 
 **This is your API key!** Copy it.
 
----
+--
 
 ## 🚨 ALTERNATIVE METHOD: Direct Token Page
 
@@ -65,7 +65,7 @@ If neither works, email: **info@free.law**
 Subject: "Need my API token"
 They respond within 24 hours.
 
----
+--
 
 ## ✅ WHAT YOUR API TOKEN LOOKS LIKE
 
@@ -78,7 +78,7 @@ They respond within 24 hours.
 **NOT your password**
 **NOT the API root URL**
 
----
+--
 
 ## 📝 ONCE YOU HAVE YOUR TOKEN
 
@@ -103,7 +103,7 @@ https://www.courtlistener.com/api/rest/v4/courts/?format=json
    - Value: `Token YOUR_API_KEY_HERE` (note the word "Token" before your key)
 3. Refresh the API page
 
----
+--
 
 ### **Test with curl (command line):**
 
@@ -116,7 +116,7 @@ Replace `YOUR_API_KEY_HERE` with your actual token.
 
 **Expected result:** JSON data with list of courts
 
----
+--
 
 ## 🔧 ADD TO RENDER (After You Have Token)
 
@@ -149,7 +149,7 @@ Replace `YOUR_API_KEY_HERE` with your actual token.
 - You'll see a progress indicator
 - When it says "Live", you're ready to test
 
----
+--
 
 ## 🧪 TEST YOUR INTEGRATION
 
@@ -157,7 +157,7 @@ Replace `YOUR_API_KEY_HERE` with your actual token.
 
 ```bash
 cd C:\web-dev\github-repos\Evident.info
-python overnight_library_builder.py --practice-area all
+python overnight_library_builder.py -practice-area all
 ```
 
 **Expected output:**
@@ -192,7 +192,7 @@ Look for:
 - ❌ `403 Forbidden` = API key not working
 - ❌ `Invalid token` = Wrong API key format
 
----
+--
 
 ## 🚨 TROUBLESHOOTING
 
@@ -226,7 +226,7 @@ Look for:
 4. Try importing one case manually (Method 2 above)
 5. If still fails, check rate limit (100 requests/minute - wait 1 minute and retry)
 
----
+--
 
 ## 📞 COURTLISTENER SUPPORT
 
@@ -251,7 +251,7 @@ Thank you!
 
 **Response time:** Usually within 24 hours (they're very helpful!)
 
----
+--
 
 ## 🎯 QUICK REFERENCE
 
@@ -282,10 +282,10 @@ curl "https://www.courtlistener.com/api/rest/v4/courts/" \
   -H "Authorization: Token YOUR_API_KEY"
 
 # Full test
-python overnight_library_builder.py --practice-area all
+python overnight_library_builder.py -practice-area all
 ```
 
----
+--
 
 ## 🚀 NEXT STEPS (After You Have Token)
 
@@ -293,7 +293,7 @@ python overnight_library_builder.py --practice-area all
 
 1. ✅ Get token from https://www.courtlistener.com/help/api/rest/
 2. ✅ Add to Render as SECRET
-3. ✅ Test: `python overnight_library_builder.py --practice-area all`
+3. ✅ Test: `python overnight_library_builder.py -practice-area all`
 4. ✅ Verify: 27 foundation cases imported
 
 **This week:**
@@ -309,7 +309,7 @@ python overnight_library_builder.py --practice-area all
 2. 1,000 active users
 3. $25K MRR
 
----
+--
 
 **TL;DR:**
 

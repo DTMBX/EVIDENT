@@ -123,7 +123,7 @@ pip install -r requirements.txt
 python performance_check.py optimize
 
 # Start with gunicorn (handles compression automatically)
-gunicorn app:app --workers 4 --timeout 120
+gunicorn app:app -workers 4 -timeout 120
 ```
 
 ## Monitoring

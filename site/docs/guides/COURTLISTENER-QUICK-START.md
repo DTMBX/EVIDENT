@@ -2,7 +2,7 @@
 
 **✅ API Key Added to Render - You're Ready to Go!**
 
----
+--
 
 ## 🎯 IMMEDIATE ACTIONS (Next 30 Minutes)
 
@@ -12,7 +12,7 @@
 cd C:\web-dev\github-repos\Evident.info
 
 # Import 27 landmark cases
-python overnight_library_builder.py --practice-area all
+python overnight_library_builder.py -practice-area all
 ```
 
 **What this does:**
@@ -33,7 +33,7 @@ python overnight_library_builder.py --practice-area all
 [OK] Successfully imported 27 cases
 ```
 
----
+--
 
 ### **Step 2: Add Attribution to Website** (5 min)
 
@@ -65,7 +65,7 @@ Find `templates/components/footer.html` (or equivalent) and add:
 - ✅ Supports mission alignment
 - ✅ Differentiates on value-add
 
----
+--
 
 ### **Step 3: Deploy Updated Site** (5 min)
 
@@ -77,7 +77,7 @@ git push
 
 Wait 2-3 minutes for Render to deploy.
 
----
+--
 
 ### **Step 4: Test Your Integration** (10 min)
 
@@ -112,7 +112,7 @@ print(f"Chief Justice: {profile['name']}")
 print(f"Education: {profile['education']}")
 ```
 
----
+--
 
 ## 📊 WHAT YOU NOW HAVE
 
@@ -138,7 +138,7 @@ print(f"Education: {profile['education']}")
 10. **Plessy v. Ferguson** (163 U.S. 537) - Separate but Equal
     ...and 17 more
 
----
+--
 
 ## 🎯 THIS WEEK'S GOALS
 
@@ -182,7 +182,7 @@ for citation in top_1000:
 - [ ] Create demo video
 - [ ] Get first 10 users
 
----
+--
 
 ## 💰 SUPPORT FREE LAW PROJECT
 
@@ -199,7 +199,7 @@ for citation in top_1000:
 - Tax-deductible (501c3)
 - Builds relationship
 
----
+--
 
 ### **Option 2: Monthly Recurring**
 
@@ -213,7 +213,7 @@ for citation in top_1000:
 - Month 3: $127K revenue → $2,500/month donation
 - Year 1: $16M revenue → $32K/month donation
 
----
+--
 
 ### **Option 3: API Subscription** (For Heavy Use)
 
@@ -231,7 +231,7 @@ for citation in top_1000:
 - Real-time updates needed
 - Heavy import workload
 
----
+--
 
 ## 🤝 PARTNERSHIP OPPORTUNITIES
 
@@ -277,7 +277,7 @@ Evident Legal Technologies
 https://Evident.info
 ```
 
----
+--
 
 ## 📚 RESOURCES TO LEVERAGE
 
@@ -305,7 +305,7 @@ GET /api/rest/v4/opinions/{opinion_id}/
 GET /api/rest/v4/search/?q=miranda+rights&type=o
 ```
 
----
+--
 
 ### **2. Citation Network**
 
@@ -347,7 +347,7 @@ def shepardize(citation):
         return 'GREEN_PLUS'  # Good law
 ```
 
----
+--
 
 ### **3. Judge Intelligence**
 
@@ -378,7 +378,7 @@ GET /api/rest/v4/positions/?person={person_id}
 GET /api/rest/v4/financial-disclosures/?person={person_id}
 ```
 
----
+--
 
 ### **4. RECAP/PACER Dockets**
 
@@ -411,7 +411,7 @@ GET /api/rest/v4/recap-documents/{document_id}/
 - Display results (free vs PACER's $0.10/page)
 - **Value-add:** AI summary, key document extraction
 
----
+--
 
 ### **5. Oral Arguments**
 
@@ -441,7 +441,7 @@ GET {audio_file_url}
 - Link to opinions
 - **Differentiation:** Only platform with searchable oral argument transcripts
 
----
+--
 
 ### **6. Webhooks (Real-time Updates)**
 
@@ -468,7 +468,7 @@ GET {audio_file_url}
 - You notify user instantly
 - **Value-add:** Same-day case law updates
 
----
+--
 
 ## 🎯 COMPETITIVE ADVANTAGES YOU NOW HAVE
 
@@ -499,7 +499,7 @@ Professional tier: Evident ($50/month) (AI, mobile, support)
 Enterprise tier: Custom pricing (teams, integrations)
 ```
 
----
+--
 
 ## ✅ SUCCESS CHECKLIST
 
@@ -524,14 +524,14 @@ Enterprise tier: Custom pricing (teams, integrations)
 - [ ] First 100 users
 - [ ] $2,500 MRR
 
----
+--
 
 ## 🚀 START NOW
 
 ```bash
 # Import foundation cases
 cd C:\web-dev\github-repos\Evident.info
-python overnight_library_builder.py --practice-area all
+python overnight_library_builder.py -practice-area all
 
 # Verify success
 cat logs/overnight_import_*.log | tail -n 20
@@ -545,6 +545,6 @@ git push
 # Visit: https://donate.free.law/
 ```
 
----
+--
 
 **YOU NOW HAVE THE TOOLS TO BECOME THE GREATEST. EXECUTE! 🏆⚖️**

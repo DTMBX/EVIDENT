@@ -42,7 +42,7 @@ Render automatically provisions free SSL certificate (5-15 min)
 Your app will be live at:
 **https://app.Evident.info** ??
 
----
+--
 
 ## Alternative: Root Domain Setup
 
@@ -70,7 +70,7 @@ Value: [Render IP from dashboard]
 TTL: Automatic
 ```
 
----
+--
 
 ## Troubleshooting:
 

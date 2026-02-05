@@ -34,7 +34,7 @@ https://via.placeholder.com/800x600/764ba2/ffffff?text=Wellness+Check
 https://via.placeholder.com/800x600/10b981/ffffff?text=Search+Warrant
 ```
 
----
+--
 
 ### Template Files (static/templates/)
 
@@ -82,7 +82,7 @@ For the foregoing reasons, Defendant respectfully requests this Court grant this
 
 Respectfully submitted,
 
-_______________________
+-----------_
 [Attorney Name]
 [Bar Number]
 Attorney for Defendant
@@ -184,7 +184,7 @@ Create PDF form with fields:
 **Quick Creation:**
 Use Google Docs or Microsoft Word, then export to PDF/DOCX.
 
----
+--
 
 ### Educational Content (static/education/)
 
@@ -245,7 +245,7 @@ Create similar pages for:
 - case_law_search.html
 - constitutional_issues.html
 
----
+--
 
 ## 🚀 Quick Setup (5 minutes)
 
@@ -273,7 +273,7 @@ echo "Discovery Request Template - Coming Soon" > discovery_request.txt
 
 Templates are optional for initial testing. You can add real files later when you have them ready.
 
----
+--
 
 ## ✅ Checklist
 
@@ -283,7 +283,7 @@ Templates are optional for initial testing. You can add real files later when yo
 - [ ] Test FREE tier dashboard to verify assets load
 - [ ] Update download links to point to real files
 
----
+--
 
 ## 📝 Notes
 

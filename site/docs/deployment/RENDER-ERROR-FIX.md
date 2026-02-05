@@ -33,7 +33,7 @@ def process_video_file(file, user_id=None):
 - App loads first, then batch_upload_handler
 - No crash!
 
----
+--
 
 ## ?? **Deployment Steps:**
 
@@ -57,14 +57,14 @@ git push origin main
 - Rebuilds app in 3-5 minutes
 - Deploys automatically
 
----
+--
 
 ## ?? **Monitoring:**
 
 ### **Check Deployment:**
 
 1. Go to: https://dashboard.render.com
-2. Click "Evident-legal-tech"
+2. Click "evident-legal-tech"
 3. Watch "Events" tab
 
 ### **Look For:**
@@ -77,7 +77,7 @@ git push origin main
 ? Live ?
 ```
 
----
+--
 
 ## ?? **Testing Once Live:**
 
@@ -106,7 +106,7 @@ https://Evident-legal-tech.onrender.com/batch-upload
 
 Should show upload interface
 
----
+--
 
 ## ?? **GitHub Pages vs Render:**
 
@@ -135,7 +135,7 @@ Should show upload interface
 - GitHub Pages: Marketing site
 - Render: Actual app
 
----
+--
 
 ## ?? **Expected Timeline:**
 
@@ -147,7 +147,7 @@ Should show upload interface
 | **+5 min**  | Deploy complete       |
 | **+6 min**  | **LIVE!** ?           |
 
----
+--
 
 ## ?? **If Still Error After Deploy:**
 
@@ -183,7 +183,7 @@ KeyError: 'SECRET_KEY'
 - SECRET_KEY = (random string)
 - FLASK_ENV = production
 
----
+--
 
 ## ? **Summary:**
 
@@ -194,7 +194,7 @@ KeyError: 'SECRET_KEY'
 
 **Your app should be live in 5-7 minutes!** ??
 
----
+--
 
 ## ?? **Still Getting Error?**
 

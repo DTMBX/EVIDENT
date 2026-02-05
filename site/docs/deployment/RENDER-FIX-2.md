@@ -6,7 +6,7 @@ Render ignored `runtime.txt` with format `python-3.11.9` and used Python 3.13 an
 
 Pillow 10.1.0 failed to build from source on Python 3.13.
 
----
+--
 
 ## ? Fixes Applied:
 
@@ -53,7 +53,7 @@ Flask-Bcrypt==1.0.1
 
 (Required for password hashing in models_auth.py)
 
----
+--
 
 ## ?? What This Does:
 
@@ -68,7 +68,7 @@ Flask-Bcrypt==1.0.1
 - ? Pillow uses pre-built wheel (no compilation)
 - ? All dependencies have wheels for Python 3.11
 
----
+--
 
 ## ?? Render Will Now:
 
@@ -77,7 +77,7 @@ Flask-Bcrypt==1.0.1
 3. Skip source compilation
 4. Deploy successfully!
 
----
+--
 
 ## ?? Timeline:
 
@@ -86,7 +86,7 @@ Flask-Bcrypt==1.0.1
 - **Build time:** ~3-5 minutes (faster with wheels!)
 - **Total:** ~5-7 minutes
 
----
+--
 
 ## ?? Monitor:
 
@@ -102,7 +102,7 @@ Flask-Bcrypt==1.0.1
 ? Live!
 ```
 
----
+--
 
 ## ? This Should Work!
 

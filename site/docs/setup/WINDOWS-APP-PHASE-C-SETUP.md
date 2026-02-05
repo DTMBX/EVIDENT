@@ -3,7 +3,7 @@
 **Date:** January 27, 2026  
 **Status:** Starting Phase C - Installing Development Tools
 
----
+--
 
 ## 🎯 Phase C Overview
 
@@ -11,7 +11,7 @@
 **Duration:** 1-2 hours  
 **Prerequisites:** Windows 11, Administrator access
 
----
+--
 
 ## 📦 Required Software
 
@@ -33,7 +33,7 @@
 - Azure development (for cloud integration)
 - Mobile development with .NET (for cross-platform)
 
----
+--
 
 ### 2. .NET 8.0 SDK
 
@@ -45,11 +45,11 @@
 **Verification:**
 
 ```powershell
-dotnet --version
+dotnet -version
 # Expected: 8.0.xxx
 ```
 
----
+--
 
 ### 3. Windows SDK
 
@@ -63,7 +63,7 @@ dotnet --version
 - MSIX Packaging Tools
 - Code signing tools (SignTool.exe)
 
----
+--
 
 ### 4. Git for Windows
 
@@ -75,11 +75,11 @@ dotnet --version
 **Configuration:**
 
 ```powershell
-git config --global user.name "Your Name"
-git config --global user.email "your.email@example.com"
+git config -global user.name "Your Name"
+git config -global user.email "your.email@example.com"
 ```
 
----
+--
 
 ### 5. Additional Tools (Optional)
 
@@ -101,10 +101,10 @@ git config --global user.email "your.email@example.com"
 **Install:**
 
 ```powershell
-wsl --install
+wsl -install
 ```
 
----
+--
 
 ## 🛠️ Installation Steps
 
@@ -139,7 +139,7 @@ wsl --install
    - Click "Install"
    - Wait 30-60 minutes (depending on internet speed)
 
----
+--
 
 ### Step 2: Install .NET 8 SDK
 
@@ -157,14 +157,14 @@ wsl --install
 3. **Verify Installation**
 
    ```powershell
-   dotnet --version
+   dotnet -version
    # Should show: 8.0.xxx
 
-   dotnet --list-sdks
+   dotnet -list-sdks
    # Should include: 8.0.xxx [C:\Program Files\dotnet\sdk]
    ```
 
----
+--
 
 ### Step 3: Configure MAUI Workload
 
@@ -191,14 +191,14 @@ wsl --install
    dotnet workload install ios
    ```
 
----
+--
 
 ### Step 4: Install Git (if not already installed)
 
 1. **Check if Git exists**
 
    ```powershell
-   git --version
+   git -version
    ```
 
 2. **Install if missing**
@@ -208,11 +208,11 @@ wsl --install
 
 3. **Configure Git**
    ```powershell
-   git config --global user.name "Developer"
-   git config --global user.email "dev@Evident.info"
+   git config -global user.name "Developer"
+   git config -global user.email "dev@Evident.info"
    ```
 
----
+--
 
 ### Step 5: Install Windows Terminal (Optional but Recommended)
 
@@ -226,7 +226,7 @@ wsl --install
 2. **Set as Default Terminal**
    - Settings → Default terminal application → Windows Terminal
 
----
+--
 
 ## 🔧 Environment Configuration
 
@@ -249,7 +249,7 @@ wsl --install
    - Tools → Options → Performance
    - Disable unnecessary features for faster startup
 
----
+--
 
 ### Code Signing Setup (For Package Distribution)
 
@@ -277,7 +277,7 @@ Import-Certificate -FilePath $certPath `
 - Cost: ~$400-800/year
 - Provides trusted signing for distribution
 
----
+--
 
 ## 📁 Project Setup
 
@@ -325,7 +325,7 @@ dotnet add package sqlite-net-pcl
 dotnet add package Microsoft.WindowsAppSDK
 ```
 
----
+--
 
 ## ✅ Verification Checklist
 
@@ -339,7 +339,7 @@ dotnet add package Microsoft.WindowsAppSDK
 ### .NET SDK
 
 - [ ] .NET 8.0 SDK installed
-- [ ] `dotnet --version` shows 8.0.x
+- [ ] `dotnet -version` shows 8.0.x
 - [ ] MAUI workload installed
 - [ ] Can build MAUI project
 
@@ -355,7 +355,7 @@ dotnet add package Microsoft.WindowsAppSDK
 - [ ] Windows Terminal installed (optional)
 - [ ] PowerShell 7 installed (optional)
 
----
+--
 
 ## 🧪 Test Development Environment
 
@@ -381,7 +381,7 @@ dotnet run
 - Should see "Hello, World!" button
 - Clicking button should increment counter
 
----
+--
 
 ## 🐛 Troubleshooting
 
@@ -419,7 +419,7 @@ dotnet workload update
 2. Enable all options
 3. Restart Visual Studio
 
----
+--
 
 ## 📊 System Requirements
 
@@ -438,7 +438,7 @@ dotnet workload update
 - **CPU:** Multi-core processor, 2.5 GHz or faster
 - **GPU:** DirectX 12 compatible (for UI acceleration)
 
----
+--
 
 ## 🚀 Next Steps After Setup
 
@@ -458,7 +458,7 @@ dotnet workload update
    - Build API client
    - Create dashboard
 
----
+--
 
 ## 📝 Installation Script
 
@@ -498,10 +498,10 @@ Write-Host "`n✅ Basic tools installed!" -ForegroundColor Green
 Write-Host "Next steps:"
 Write-Host "1. Install Visual Studio 2022 (see link above)"
 Write-Host "2. Run: dotnet workload install maui"
-Write-Host "3. Verify: dotnet --version"
+Write-Host "3. Verify: dotnet -version"
 ```
 
----
+--
 
 _Status: Phase C Ready for Execution_  
 _Estimated Time: 1-2 hours_  

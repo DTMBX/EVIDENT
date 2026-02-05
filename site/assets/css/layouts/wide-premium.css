@@ -77,7 +77,7 @@
     max-width: 1400px;
   }
 
-  .container--wide {
+  .container-wide {
     max-width: var(--container-ultra);
   }
 
@@ -95,11 +95,11 @@
   }
 
   /* Grid enhancements */
-  .grid--4 {
+  .grid-4 {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  .grid--auto {
+  .grid-auto {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   }
 
@@ -152,7 +152,7 @@
     max-width: var(--container-ultra);
   }
 
-  .container--wide {
+  .container-wide {
     max-width: var(--container-4k);
   }
 
@@ -176,7 +176,7 @@
   }
 
   /* Grid maximizes columns */
-  .grid--auto {
+  .grid-auto {
     grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   }
 
@@ -226,7 +226,7 @@
     max-width: var(--container-4k);
   }
 
-  .container--wide {
+  .container-wide {
     max-width: 2600px;
   }
 
@@ -253,8 +253,8 @@
    ============================================================================ */
 
 /* Fancy gradient borders */
-.card--premium,
-.panel--premium {
+.card-premium,
+.panel-premium {
   position: relative;
   background: var(--gradient-card);
   border: none;
@@ -262,8 +262,8 @@
   overflow: hidden;
 }
 
-.card--premium::before,
-.panel--premium::before {
+.card-premium::before,
+.panel-premium::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -278,12 +278,12 @@
 }
 
 /* Glowing hover effects */
-.card--glow:hover {
+.card-glow:hover {
   box-shadow: var(--shadow-glow-brass);
   transform: translateY(-4px);
 }
 
-.btn--glow:hover {
+.btn-glow:hover {
   box-shadow: var(--shadow-glow-emerald);
 }
 
@@ -373,14 +373,14 @@
    ============================================================================ */
 
 /* Glass morphism card */
-.card--glass {
+.card-glass {
   background: rgb(15 23 42 / 60%);
   backdrop-filter: blur(20px);
   border: 1px solid rgb(255 255 255 / 10%);
 }
 
 /* Elevated card with depth */
-.card--elevated {
+.card-elevated {
   background: var(--ff-surface-alt);
   box-shadow: var(--shadow-premium);
   transition:
@@ -388,7 +388,7 @@
     box-shadow 0.4s var(--ease-premium);
 }
 
-.card--elevated:hover {
+.card-elevated:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow:
     0 20px 40px rgb(0 0 0 / 25%),
@@ -396,7 +396,7 @@
 }
 
 /* Interactive card with tilt */
-.card--interactive {
+.card-interactive {
   transition: transform 0.3s var(--ease-premium);
   transform-style: preserve-3d;
   perspective: 1000px;
@@ -407,7 +407,7 @@
    ============================================================================ */
 
 /* Full-bleed hero with gradient overlay */
-.hero--full {
+.hero-full {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -416,7 +416,7 @@
   background: var(--gradient-hero);
 }
 
-.hero--full::before {
+.hero-full::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -425,12 +425,12 @@
 }
 
 /* Hero with animated background */
-.hero--animated {
+.hero-animated {
   position: relative;
   overflow: hidden;
 }
 
-.hero--animated::after {
+.hero-animated::after {
   content: "";
   position: absolute;
   top: -50%;
@@ -460,14 +460,14 @@
    ============================================================================ */
 
 /* Fancy section divider */
-.divider--fancy {
+.divider-fancy {
   position: relative;
   height: 2px;
   background: transparent;
   margin: var(--space-3xl) 0;
 }
 
-.divider--fancy::before {
+.divider-fancy::before {
   content: "";
   position: absolute;
   left: 50%;
@@ -479,7 +479,7 @@
   border-radius: var(--radius-full);
 }
 
-.divider--fancy::after {
+.divider-fancy::after {
   content: "◆";
   position: absolute;
   left: 50%;
@@ -492,7 +492,7 @@
 }
 
 /* Wave divider */
-.divider--wave {
+.divider-wave {
   height: 80px;
   background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M321.39 56.44c58-10.79 114.16-30.13 172-41.86 82.39-16.72 168.19-17.73 250.45-.39C823.78 31 906.67 72 985.66 92.83c70.05 18.48 146.53 26.09 214.34 3V0H0v27.35a600.21 600.21 0 00321.39 29.09z' fill='%23105c4a' fill-opacity='0.1'/%3E%3C/svg%3E");
   background-size: cover;
@@ -504,7 +504,7 @@
    ============================================================================ */
 
 /* Premium button with gradient */
-.btn--premium {
+.btn-premium {
   background: var(--gradient-accent);
   background-size: 200% auto;
   color: var(--text-on-emerald);
@@ -518,14 +518,14 @@
     box-shadow 0.3s ease;
 }
 
-.btn--premium:hover {
+.btn-premium:hover {
   background-position: right center;
   transform: translateY(-2px);
   box-shadow: var(--shadow-glow-emerald);
 }
 
 /* Outline button with fill on hover */
-.btn--outline-fill {
+.btn-outline-fill {
   background: transparent;
   border: 2px solid var(--ff-secondary);
   color: var(--ff-secondary);
@@ -534,7 +534,7 @@
   z-index: 1;
 }
 
-.btn--outline-fill::before {
+.btn-outline-fill::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -545,11 +545,11 @@
   z-index: -1;
 }
 
-.btn--outline-fill:hover {
+.btn-outline-fill:hover {
   color: var(--text-on-brass);
 }
 
-.btn--outline-fill:hover::before {
+.btn-outline-fill:hover::before {
   transform: scaleX(1);
 }
 
@@ -664,7 +664,7 @@
 }
 
 /* Case status badges */
-.case-card__status {
+.case-card-status {
   display: inline-flex;
   align-items: center;
   gap: var(--space-xs);
@@ -676,13 +676,13 @@
   letter-spacing: var(--ls-wide);
 }
 
-.case-card__status--active {
+.case-card-status-active {
   background: rgb(16 185 129 / 20%);
   color: var(--emerald-400);
   border: 1px solid rgb(16 185 129 / 30%);
 }
 
-.case-card__status--active::before {
+.case-card-status-active::before {
   content: "";
   width: 6px;
   height: 6px;
@@ -691,13 +691,13 @@
   animation: pulse 2s ease-in-out infinite;
 }
 
-.case-card__status--pending {
+.case-card-status-pending {
   background: rgb(251 191 36 / 20%);
   color: rgb(251 191 36);
   border: 1px solid rgb(251 191 36 / 30%);
 }
 
-.case-card__status--closed {
+.case-card-status-closed {
   background: rgb(148 163 184 / 20%);
   color: var(--muted-300);
   border: 1px solid rgb(148 163 184 / 30%);

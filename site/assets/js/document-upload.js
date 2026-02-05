@@ -26,16 +26,16 @@ function initializeUploadHandlers() {
   // Drag and drop handlers
   uploadZone.addEventListener("dragover", (e) => {
     e.preventDefault();
-    uploadZone.classList.add("upload-zone--active");
+    uploadZone.classList.add("upload-zone-active");
   });
 
   uploadZone.addEventListener("dragleave", () => {
-    uploadZone.classList.remove("upload-zone--active");
+    uploadZone.classList.remove("upload-zone-active");
   });
 
   uploadZone.addEventListener("drop", (e) => {
     e.preventDefault();
-    uploadZone.classList.remove("upload-zone--active");
+    uploadZone.classList.remove("upload-zone-active");
     const files = Array.from(e.dataTransfer.files);
     handleFiles(files);
   });
@@ -173,7 +173,7 @@ function showUploadProgress(files) {
 
   const progressHTML = `
     <div class="upload-progress">
-      <svg class="upload-progress__spinner" viewBox="0 0 24 24" width="48" height="48">
+      <svg class="upload-progress-spinner" viewBox="0 0 24 24" width="48" height="48">
         <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" opacity="0.3"/>
         <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" 
           stroke-dasharray="63" stroke-dashoffset="16" 
@@ -208,17 +208,17 @@ function displayUploadResults(result) {
 
   const html = `
     <div class="upload-results">
-      <div class="upload-results__summary">
+      <div class="upload-results-summary">
         <h3>Upload Complete</h3>
         <p>${result.uploaded} file(s) uploaded successfully</p>
         ${result.failed > 0 ? `<p class="error">${result.failed} file(s) failed</p>` : ""}
       </div>
       
-      <div class="upload-results__files">
+      <div class="upload-results-files">
         ${(result.results || [])
           .map(
             (file) => `
-          <div class="result-file ${file.status === "error" ? "result-file--error" : "result-file--success"}">
+          <div class="result-file ${file.status === "error" ? "result-file-error" : "result-file-success"}">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
               ${
                 file.status === "error"

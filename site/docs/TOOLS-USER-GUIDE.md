@@ -35,7 +35,7 @@ Search and track court dockets, case filings, and party information across all E
 - **Wildcards:** Use \* for partial matches
 - **Date Ranges:** Use the date filters to narrow results
 
----
+--
 
 ### 2. Document Analysis
 
@@ -80,7 +80,7 @@ Upload legal documents for processing, classification, and storage.
 - Documents: `.pdf`, `.doc`, `.docx`, `.txt`
 - Images: `.jpg`, `.jpeg`, `.png`
 
----
+--
 
 ### 3. Deadline Calculator
 
@@ -116,7 +116,7 @@ Calculate court deadlines with automatic exclusion of weekends and holidays.
 - Business days only (Monday-Friday)
 - For NJ-specific court holidays, consult local court rules
 
----
+--
 
 ## 🚀 Backend API Setup (Optional)
 
@@ -136,7 +136,7 @@ Requires running the FastAPI backend server.
 
 ```powershell
 cd tillerstead-toolkit/backend
-python -m uvicorn app.main:app --reload
+python -m uvicorn app.main:app -reload
 ```
 
 **Backend URL:** `http://localhost:8000`
@@ -155,7 +155,7 @@ python -m uvicorn app.main:app --reload
 curl http://localhost:8000/health
 ```
 
----
+--
 
 ## 📁 File Upload Workflows
 
@@ -226,7 +226,7 @@ curl -X POST http://localhost:8000/api/v1/bwc/upload \
 - Thumbnail generation
 - Metadata extraction
 
----
+--
 
 ## 🎯 Quick Start Checklist
 
@@ -253,7 +253,7 @@ curl -X POST http://localhost:8000/api/v1/bwc/upload \
 - [ ] Click "Calculate Deadline"
 - [ ] Review result with excluded dates
 
----
+--
 
 ## ⚙️ Configuration
 
@@ -279,7 +279,7 @@ Docket data loaded from:
 - `/_data/docket/*.yml` - Individual case dockets
 - `/_data/cases-map.yml` - Docket-to-slug mapping
 
----
+--
 
 ## 🐛 Troubleshooting
 
@@ -288,7 +288,7 @@ Docket data loaded from:
 **Solution:**
 
 1. Check if backend server is running: `curl http://localhost:8000/health`
-2. Start server: `cd tillerstead-toolkit/backend && python -m uvicorn app.main:app --reload`
+2. Start server: `cd tillerstead-toolkit/backend && python -m uvicorn app.main:app -reload`
 3. Or use Git inbox workflow instead
 
 ### No search results found
@@ -318,7 +318,7 @@ Docket data loaded from:
 - Number of days is accurate
 - Review excluded dates list
 
----
+--
 
 ## 📚 Related Documentation
 
@@ -327,7 +327,7 @@ Docket data loaded from:
 - **Backend API Docs:** `tillerstead-toolkit/backend/README.md`
 - **Case Management:** `/cases/` directory
 
----
+--
 
 ## 🎓 Support
 
@@ -338,7 +338,7 @@ Docket data loaded from:
 - Examine docket data in `/_data/docket/`
 - Submit issues via GitHub
 
----
+--
 
 **Last Updated:** January 22, 2026
 **Version:** 1.0.0

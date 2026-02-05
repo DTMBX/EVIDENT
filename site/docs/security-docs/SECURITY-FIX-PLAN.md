@@ -4,7 +4,7 @@
 **Created**: 2026-01-27  
 **GitHub Alerts**: https://github.com/DTB396/Evident.info/security/dependabot
 
----
+--
 
 ## 🚨 CRITICAL PRIORITIES (Fix Within 24 Hours)
 
@@ -26,7 +26,7 @@
 - **Action**: Update to latest patched version
 
 ```bash
-pip install --upgrade pypdf
+pip install -upgrade pypdf
 ```
 
 - **Expected version**: 5.2.0+ (check PyPI for latest)
@@ -57,13 +57,13 @@ pip install --upgrade pypdf
 - **Action**: Update to latest patched version
 
 ```bash
-pip install --upgrade Werkzeug
+pip install -upgrade Werkzeug
 ```
 
 - **Impact**: Low (we're not using safe_join() in user-facing code)
 - **Test**: File upload paths still work
 
----
+--
 
 ## ⚠️ HIGH PRIORITY (Fix Within 1 Week)
 
@@ -93,10 +93,10 @@ pip install --upgrade Werkzeug
 
    ```bash
    # Check outdated packages
-   pip list --outdated
+   pip list -outdated
 
    # Update specific package
-   pip install --upgrade <package-name>
+   pip install -upgrade <package-name>
 
    # Update requirements.txt
    pip freeze > requirements-new.txt
@@ -115,7 +115,7 @@ pip install --upgrade Werkzeug
    # - Stripe checkout
    ```
 
----
+--
 
 ## 📊 MODERATE PRIORITY (Fix Within 1 Month)
 
@@ -133,8 +133,8 @@ pip install --upgrade Werkzeug
 
 ```bash
 # Update all non-breaking
-pip install --upgrade pip
-pip list --outdated | awk '{print $1}' | tail -n +3 | xargs -n1 pip install --upgrade
+pip install -upgrade pip
+pip list -outdated | awk '{print $1}' | tail -n +3 | xargs -n1 pip install -upgrade
 
 # Test after each major update
 python app.py
@@ -167,7 +167,7 @@ bundle update
 bundle exec jekyll build
 ```
 
----
+--
 
 ## 🔍 LOW PRIORITY (Fix Within 3 Months)
 
@@ -179,7 +179,7 @@ bundle exec jekyll build
 - Merge auto-generated updates
 - Update during routine maintenance
 
----
+--
 
 ## 📋 STEP-BY-STEP EXECUTION PLAN
 
@@ -231,7 +231,7 @@ git push origin security/critical-fixes
 # 8. Merge to main if tests pass
 ```
 
----
+--
 
 ### **THIS WEEK (Within 7 days)**
 
@@ -239,7 +239,7 @@ git push origin security/critical-fixes
 
 ```powershell
 # Day 2-3: Update high-priority Python packages
-pip list --outdated
+pip list -outdated
 # Review each outdated package in requirements.txt
 # Update high-severity packages first
 
@@ -254,7 +254,7 @@ npm audit fix
 # Deploy to production
 ```
 
----
+--
 
 ### **THIS MONTH (Within 30 days)**
 
@@ -266,7 +266,7 @@ npm audit fix
 - Wednesday: Manual dependency updates
 - Friday: Test and deploy
 
----
+--
 
 ## 🛡️ PREVENTION STRATEGY
 
@@ -314,7 +314,7 @@ npm audit fix
 - **Monthly**: Full dependency update cycle
 - **Quarterly**: Security audit of all dependencies
 
----
+--
 
 ## ✅ SUCCESS CRITERIA
 
@@ -342,7 +342,7 @@ npm audit fix
 - [ ] Prevention strategy in place
 - [ ] Regular maintenance schedule
 
----
+--
 
 ## 🚧 RISKS & MITIGATION
 
@@ -366,7 +366,7 @@ npm audit fix
 - **Mitigation**: Some alerts may not apply to our use case
 - **Action**: Review each alert, dismiss if not applicable
 
----
+--
 
 ## 📚 RESOURCES
 
@@ -391,7 +391,7 @@ npm audit fix
 - Use lock files: `pip freeze > requirements-lock.txt`
 - Regular updates: Don't let dependencies get too old
 
----
+--
 
 ## 🎯 IMMEDIATE NEXT STEP
 

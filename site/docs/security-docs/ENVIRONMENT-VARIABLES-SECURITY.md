@@ -26,7 +26,7 @@
 | **MAX_CONTENT_LENGTH**     | 🟢 CONFIG   | Upload limits - may differ by tier/environment                 | ✅ Already in .env   |
 | **DATABASE_URL**           | 🟡 MEDIUM   | Connection string (contains password if remote DB)             | ⚠️ Commented out     |
 
----
+--
 
 ## 🚨 Current Security Issues
 
@@ -71,7 +71,7 @@ The code expects these variables but they're not in .env:
 
 - `AMPLITUDE_API_KEY` - Analytics tracking won't work
 
----
+--
 
 ## ✅ Recommended .env Structure
 
@@ -99,7 +99,7 @@ cat .gitignore | grep .env
 - ✅ All Stripe variables included
 - ✅ Production deployment checklist
 
----
+--
 
 ## 🔒 Security Best Practices
 
@@ -110,7 +110,7 @@ cat .gitignore | grep .env
 git status
 
 # If .env is tracked, remove it:
-git rm --cached .env
+git rm -cached .env
 git commit -m "Remove .env from tracking"
 
 # Verify .gitignore includes:
@@ -150,7 +150,7 @@ Consider using:
 - Development secrets: Only developers
 - Use separate Stripe accounts for test vs live
 
----
+--
 
 ## 🎯 Immediate Action Items
 
@@ -175,13 +175,13 @@ Consider using:
 - [ ] Add pre-commit hook to prevent .env commits
 - [ ] Document secret recovery procedures
 
----
+--
 
 ## 🛡️ Validation Script
 
 ```bash
 # Check for exposed secrets in Git history
-git log --all --full-history --source --oneline -- .env
+git log -all -full-history -source -oneline - .env
 
 # Search for potential secrets in codebase
 grep -r "sk_live_\|sk_test_\|whsec_\|SECRET_KEY=" --exclude-dir=.git .
@@ -190,7 +190,7 @@ grep -r "sk_live_\|sk_test_\|whsec_\|SECRET_KEY=" --exclude-dir=.git .
 git check-ignore -v .env
 ```
 
----
+--
 
 ## 📋 Pre-Deployment Checklist
 
@@ -207,7 +207,7 @@ Before deploying to production:
 - [ ] Database uses PostgreSQL (not SQLite)
 - [ ] Backup of all secrets stored securely offline
 
----
+--
 
 ## 🔗 Related Documentation
 
@@ -216,7 +216,7 @@ Before deploying to production:
 - `STRIPE-BUSINESS-SETUP.md` - Stripe configuration guide
 - `DEPLOYMENT-GUIDE.md` - Production deployment steps
 
----
+--
 
 ## 🆘 If Secrets Are Exposed
 
@@ -231,11 +231,11 @@ Before deploying to production:
 2. **Remove from Git history**
 
    ```bash
-   git filter-branch --force --index-filter \
-     "git rm --cached --ignore-unmatch .env" \
-     --prune-empty --tag-name-filter cat -- --all
+   git filter-branch -force -index-filter \
+     "git rm -cached -ignore-unmatch .env" \
+     -prune-empty -tag-name-filter cat - -all
 
-   git push origin --force --all
+   git push origin -force -all
    ```
 
 3. **Notify affected parties**
@@ -250,7 +250,7 @@ Before deploying to production:
 - Rotate everything immediately
 - Consider secrets burned - generate new ones
 
----
+--
 
 ## ✅ Current Status Summary
 
@@ -263,7 +263,7 @@ Before deploying to production:
 | .env.example   | ✅ Created   | Commit to repo        |
 | Documentation  | ✅ Complete  | This file             |
 
----
+--
 
 **Last Updated:** January 26, 2026  
 **Severity:** 🔴 HIGH - Immediate action required for SECRET_KEY and Stripe secrets

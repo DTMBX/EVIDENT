@@ -2,7 +2,7 @@
 
 ## ✅ BEST APPROACH: 20 Minutes to Confident Launch
 
----
+--
 
 ## PHASE 1: TEST MODE (10 min)
 
@@ -38,7 +38,7 @@ Check: Webhook fired successfully
 
 **Result:** You know it works! ✅
 
----
+--
 
 ## PHASE 2: GO LIVE (10 min)
 
@@ -75,7 +75,7 @@ Go to Stripe → Refund yourself
 You're now accepting real payments! 🎉
 ```
 
----
+--
 
 ## ⏰ TIMELINE:
 
@@ -91,7 +91,7 @@ You're now accepting real payments! 🎉
 00:20 - LIVE! 🚀
 ```
 
----
+--
 
 ## 💰 TOTAL COST:
 
@@ -102,7 +102,7 @@ You're now accepting real payments! 🎉
 
 **Worth it for confidence!**
 
----
+--
 
 ## 🎯 READY TO START?
 

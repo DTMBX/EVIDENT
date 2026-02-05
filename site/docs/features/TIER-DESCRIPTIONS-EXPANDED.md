@@ -25,7 +25,7 @@
 - Legal aid evaluating for organizational use
 - Anyone wanting to test before committing
 
----
+--
 
 ### STARTER Tier - $29/month
 
@@ -59,7 +59,7 @@
 - 1-2 PDF police reports per case
 - Total: 8-10 videos, 4-6 PDFs monthly
 
----
+--
 
 ### PROFESSIONAL Tier - $79/month ⭐ MOST POPULAR
 
@@ -93,7 +93,7 @@
 - 1-2 PDF reports per case
 - Total: 20-25 videos, 12-15 PDFs monthly
 
----
+--
 
 ### PREMIUM Tier - $199/month
 
@@ -136,7 +136,7 @@
 - Busy month: 90 videos (+15 × $2 = $30), 55 PDFs (+5 × $1 = $5), 42 cases (+2 × $5 = $10)
 - Total bill: $244 (still cheaper than ENTERPRISE base rate)
 
----
+--
 
 ### ENTERPRISE Tier - $599/month
 
@@ -181,7 +181,7 @@
 - Heavy month: 350 videos (+50 × $1 = $50), 220 PDFs (+20 × $0.50 = $10), 30 users (+5 × $15 = $75)
 - Total bill: $734 (reasonable for 30-person team)
 
----
+--
 
 ## 📊 Tier Comparison Matrix
 
@@ -207,7 +207,7 @@
 | **Trial Period**      | N/A             | None         | 3 days         | None                  | Custom                   |
 | **Overage Billing**   | ❌              | ❌           | ❌             | ✅ (High rates)       | ✅ (50% discount)        |
 
----
+--
 
 ## 💡 Upgrade Paths
 
@@ -223,7 +223,7 @@
 - Professional watermark-free exports
 - Only $0.97/day
 
----
+--
 
 ### STARTER → PROFESSIONAL ($79/mo, +$50)
 
@@ -239,7 +239,7 @@
 - Try free for 3 days
 - Only $1.67 more per day
 
----
+--
 
 ### PROFESSIONAL → PREMIUM ($199/mo, +$120)
 
@@ -257,7 +257,7 @@
 - Full AI assistant with context
 - Only $4 more per day
 
----
+--
 
 ### PREMIUM → ENTERPRISE ($599/mo, +$400)
 
@@ -275,7 +275,7 @@
 - Dedicated PM + SLA
 - Cost: $24/user/month (with 25 users)
 
----
+--
 
 ## 🎨 Marketing Messaging
 
@@ -293,7 +293,7 @@
 
 **Call-to-Action:** "Start Free Today" → `/signup`
 
----
+--
 
 ### STARTER Tier Messaging
 
@@ -309,7 +309,7 @@
 
 **Call-to-Action:** "Start Now - $29/mo" → `/subscribe/starter`
 
----
+--
 
 ### PROFESSIONAL Tier Messaging ⭐
 
@@ -325,7 +325,7 @@
 
 **Call-to-Action:** "Start 3-Day Free Trial" → `/subscribe/professional`
 
----
+--
 
 ### PREMIUM Tier Messaging
 
@@ -341,7 +341,7 @@
 
 **Call-to-Action:** "Upgrade to Premium" → `/subscribe/premium`
 
----
+--
 
 ### ENTERPRISE Tier Messaging
 
@@ -357,7 +357,7 @@
 
 **Call-to-Action:** "Contact Sales" → `/contact?plan=enterprise`
 
----
+--
 
 ## 📈 Economic Validation
 
@@ -395,7 +395,7 @@
 3. ENTERPRISE (36+ months): Office-wide deployment, 15 attorneys
    **LTV:** $22,161 over 40 months
 
----
+--
 
 ## ✅ Quality Assurance Checklist
 
@@ -426,7 +426,7 @@
 - [x] Storage scales with usage: 0.1GB → 10GB → 50GB → 250GB → 1TB
 - [x] Support response times improve: community → 24hr → 4hr → 2hr → 1hr SLA
 
----
+--
 
 **Last Updated:** 2026-01-27  
 **Version:** 5-Tier Final  

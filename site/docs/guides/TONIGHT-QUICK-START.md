@@ -5,7 +5,7 @@
 **Admin Login:** admin@Evident.info  
 **Password:** BxAdm!n#2026$Secur3\*P@ssw0rd%33^
 
----
+--
 
 ## 📄 Upload Court Documents (3 Methods)
 
@@ -51,7 +51,7 @@ response = requests.post('http://localhost:5000/api/upload/pdf',
 print(response.json())
 ```
 
----
+--
 
 ## 🎥 Process BWC Video
 
@@ -82,7 +82,7 @@ Invoke-RestMethod -Uri "http://localhost:5000/api/analysis/$uploadId/status"
 - Chain of custody documentation
 - Court-ready PDF report
 
----
+--
 
 ## 📊 Check Database
 
@@ -105,7 +105,7 @@ sqlite3 instance/Evident_auth.db "
 "
 ```
 
----
+--
 
 ## 🔐 Admin Access
 
@@ -121,7 +121,7 @@ sqlite3 instance/Evident_auth.db "
 - Download reports
 - Review audit logs
 
----
+--
 
 ## ⚠️ If Flask App Stopped
 
@@ -137,7 +137,7 @@ Wait for this message:
 Ready for production deployment!
 ```
 
----
+--
 
 ## 📁 File Locations
 
@@ -147,7 +147,7 @@ Ready for production deployment!
 **Database:** `./instance/Evident_auth.db`  
 **Logs:** `./logs/Evident.log`
 
----
+--
 
 ## 🆘 Quick Troubleshooting
 
@@ -172,7 +172,7 @@ python create_admin.py
 python init_database.py
 ```
 
----
+--
 
 ## ✅ Pre-Flight Check
 
@@ -184,7 +184,7 @@ Before processing documents:
 - [ ] Sufficient disk space (check for video files)
 - [ ] Database file exists (`./instance/Evident_auth.db`)
 
----
+--
 
 ## 📋 Document Types Supported
 
@@ -201,7 +201,7 @@ Use these for `document_type` field:
 - `correspondence` - Letters, emails
 - `other` - Anything else
 
----
+--
 
 ## 🎯 Tonight's Workflow
 
@@ -240,7 +240,7 @@ Use these for `document_type` field:
    http://localhost:5000/admin
    ```
 
----
+--
 
 **That's it! You're ready to process court documents. 📄⚖️**
 

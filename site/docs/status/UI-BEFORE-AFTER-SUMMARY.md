@@ -4,7 +4,7 @@
 
 This document summarizes the changes made during the rebrand and UI modernization of the Evident platform (formerly Evident). All legacy branding, design tokens, and UI systems have been replaced with the new Evident system, focused on forensic clarity, accessibility, and modern design.
 
----
+--
 
 ## Before (Evident)
 
@@ -27,7 +27,7 @@ This document summarizes the changes made during the rebrand and UI modernizatio
 - All interactive elements have visible focus, sufficient contrast, and semantic markup
 - Forensic, accessible, and trustworthy tone throughout
 
----
+--
 
 ## Checklist
 
@@ -40,4 +40,3 @@ This document summarizes the changes made during the rebrand and UI modernizatio
 - [x] BRAND.md created with system documentation
 
 _Last updated: 2026-02-02_
-

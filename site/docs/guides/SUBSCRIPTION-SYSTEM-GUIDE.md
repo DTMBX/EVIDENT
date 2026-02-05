@@ -4,7 +4,7 @@
 
 This guide covers the complete implementation of the **tiered subscription system** with Stripe integration, usage tracking, and access gating for Evident.
 
----
+--
 
 ## 📦 What's Included
 
@@ -53,7 +53,7 @@ This guide covers the complete implementation of the **tiered subscription syste
    - Added Stripe subscription fields
    - Added usage tracking fields
 
----
+--
 
 ## 🏗️ Architecture
 
@@ -90,7 +90,7 @@ Limits are enforced via middleware decorators on routes.
 7. **Renewal:** Stripe auto-charges monthly
 8. **Cancel:** User can cancel via Stripe Portal
 
----
+--
 
 ## 🚀 Installation & Setup
 
@@ -209,7 +209,7 @@ python create_test_subscription_accounts.py
 python app.py
 ```
 
----
+--
 
 ## 🧪 Testing
 
@@ -290,7 +290,7 @@ def premium_feature():
 2. Login as PREMIUM user → Access `/api/premium-feature`
    - Should work ✅
 
----
+--
 
 ## 🎨 Frontend Integration
 
@@ -299,12 +299,12 @@ def premium_feature():
 Add Stripe checkout buttons to `pricing.html`:
 
 ```html
-<!-- PRO Tier -->
+<!-- PRO Tier ->
 <button onclick="subscribeToPlan('PROFESSIONAL')" class="btn btn-primary">
   Start 3-Day Free Trial
 </button>
 
-<!-- PREMIUM Tier -->
+<!-- PREMIUM Tier ->
 <button onclick="subscribeToPlan('PREMIUM')" class="btn btn-success">
   Upgrade to Premium
 </button>
@@ -365,7 +365,7 @@ When users hit limits, show upgrade prompts:
 {% endif %}
 ```
 
----
+--
 
 ## 🔒 Security Best Practices
 
@@ -402,7 +402,7 @@ if not user:
     return  # Ignore duplicate events
 ```
 
----
+--
 
 ## 📊 Admin Tools
 
@@ -452,7 +452,7 @@ total_videos = db.session.query(
 ).scalar()
 ```
 
----
+--
 
 ## 🐛 Troubleshooting
 
@@ -483,7 +483,7 @@ total_videos = db.session.query(
 2. Check `STRIPE_SECRET_KEY` is set
 3. Check return URL is valid
 
----
+--
 
 ## ✅ Deployment Checklist
 
@@ -500,7 +500,7 @@ total_videos = db.session.query(
 - [ ] Upgrade CTAs added
 - [ ] Production Stripe keys obtained (when ready to launch)
 
----
+--
 
 ## 🚀 Next Phase: Windows Desktop App
 
@@ -515,7 +515,7 @@ total_videos = db.session.query(
 
 **Timeline:** 2-3 weeks after subscription system is live
 
----
+--
 
 ## 📞 Support
 

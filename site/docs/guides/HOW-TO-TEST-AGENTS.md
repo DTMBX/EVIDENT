@@ -2,7 +2,7 @@
 
 **Quick Start Guide for Testing Enhanced Agents**
 
----
+--
 
 ## ✅ Validation Checklist
 
@@ -46,7 +46,7 @@ python scripts/simulate-agents.py
 - Simulations Run: 7
 - Improvements Identified: 2 (down from 5 in v1.0)
 
----
+--
 
 ## 🤖 Using Agents in GitHub Copilot Chat
 
@@ -63,7 +63,7 @@ python scripts/simulate-agents.py
 3. Select an agent from the dropdown
 4. Type your question or request
 
----
+--
 
 ## 📚 Practical Examples
 
@@ -112,7 +112,7 @@ python scripts/simulate-agents.py
 For API implementation, collaborate with @flask-backend
 ```
 
----
+--
 
 ### Example 2: BWC Forensics - Chain of Custody
 
@@ -159,7 +159,7 @@ def upload_video(file, user_id):
     )
 ```
 
----
+--
 
 ### Example 3: Flask Backend - Secure API
 
@@ -202,7 +202,7 @@ def get_case(case_id):
 # - Test SQL injection prevention
 ```
 
----
+--
 
 ### Example 4: Frontend - Accessible Form
 
@@ -250,16 +250,16 @@ def get_case(case_id):
 - Keyboard navigation (Tab, Enter, Escape)
 - Color contrast 4.5:1 (WCAG AA)
 - Help text with aria-describedby
--->
+->
 
 <!-- Suggested Tests:
 - Test keyboard navigation
 - Test screen reader compatibility
 - Test color contrast ratios
--->
+->
 ```
 
----
+--
 
 ### Example 5: Database - Schema Design
 
@@ -286,7 +286,7 @@ def get_case(case_id):
 
 ```python
 class Case(db.Model):
-    __tablename__ = 'cases'
+    -tablename- = 'cases'
 
     id = Column(Integer, primary_key=True)
     case_number = Column(String(50), unique=True, nullable=False, index=True)
@@ -294,7 +294,7 @@ class Case(db.Model):
     created_at = Column(DateTime, nullable=False, index=True)
 
     # GOOD: Composite index for common queries
-    __table_args__ = (
+    -table_args- = (
         Index('ix_case_attorney_date', 'attorney_id', 'created_at'),
     )
 
@@ -304,7 +304,7 @@ class Case(db.Model):
 # - Test foreign key relationships
 ```
 
----
+--
 
 ### Example 6: Security - Environment Secrets
 
@@ -352,7 +352,7 @@ class Config:
 # - Test dependency vulnerability scanning
 ```
 
----
+--
 
 ### Example 7: Documentation - API Docs
 
@@ -415,7 +415,7 @@ curl -X POST \
 - `409` - Case number already exists
 ````
 
----
+--
 
 ## 🔄 Multi-Agent Workflows
 
@@ -457,7 +457,7 @@ The enhanced agents now suggest collaboration with other agents for complex task
 
 **Result:** Complete feature with compliance, API, database, and documentation all working together!
 
----
+--
 
 ## 🧪 Testing Your Changes
 
@@ -474,7 +474,7 @@ python scripts/validate-agents.py
 python scripts/simulate-agents.py
 ```
 
----
+--
 
 ## 📊 Metrics to Track
 
@@ -485,7 +485,7 @@ Monitor agent effectiveness:
 3. **Testing** - Are test suggestions comprehensive?
 4. **Error Handling** - Are edge cases covered?
 
----
+--
 
 ## 🐛 Troubleshooting
 
@@ -513,7 +513,7 @@ Monitor agent effectiveness:
 2. Mention you're working on a complex feature
 3. Use v2.0 enhanced agents (check `copilot-agents.yml` has ~3,000 char instruction sets)
 
----
+--
 
 ## 📚 Additional Resources
 
@@ -522,7 +522,7 @@ Monitor agent effectiveness:
 - **Example Library:** [scripts/agent-examples.json](scripts/agent-examples.json)
 - **Enhancement Summary:** [AGENTS-V2-ENHANCEMENTS.md](AGENTS-V2-ENHANCEMENTS.md)
 
----
+--
 
 ## 🎯 Next Steps
 
@@ -531,7 +531,7 @@ Monitor agent effectiveness:
 3. ✅ **Monitor usage** and collect feedback
 4. 🔄 **Iterate** based on real-world attorney usage
 
----
+--
 
 **Version:** 2.0  
 **Last Updated:** January 23, 2026  

@@ -5,7 +5,7 @@
 **Date:** January 28, 2026  
 **Mission:** Build trust, promote accountability, expand transparency through citizen-led evidence documentation
 
----
+--
 
 ## Current State Analysis
 
@@ -80,7 +80,7 @@
 - ❌ No offline-safe capture mode
 - ❌ No one-tap recording interface
 
----
+--
 
 ## Recommended Integration Strategy
 
@@ -124,7 +124,7 @@ CREATE TABLE original_evidence (
     mime_type TEXT,
     acquired_at TIMESTAMP NOT NULL,
     acquired_by TEXT NOT NULL,
-    source TEXT NOT NULL, -- "OPRA #123", "User upload"
+    source TEXT NOT NULL, - "OPRA #123", "User upload"
     storage_path TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT NOW()
 );
@@ -133,7 +133,7 @@ CREATE TABLE derivative_evidence (
     id SERIAL PRIMARY KEY,
     sha256 TEXT UNIQUE NOT NULL,
     original_sha256 TEXT REFERENCES original_evidence(sha256),
-    transformation JSON NOT NULL, -- {"type": "proxy", "codec": "h264"}
+    transformation JSON NOT NULL, - {"type": "proxy", "codec": "h264"}
     storage_path TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT NOW()
 );
@@ -142,7 +142,7 @@ CREATE TABLE evidence_access_log (
     id SERIAL PRIMARY KEY,
     evidence_sha256 TEXT NOT NULL,
     user_id INTEGER NOT NULL,
-    action TEXT NOT NULL, -- "view", "download", "export"
+    action TEXT NOT NULL, - "view", "download", "export"
     ip_address TEXT,
     user_agent TEXT,
     accessed_at TIMESTAMP DEFAULT NOW()
@@ -193,7 +193,7 @@ class EvidenceExportPackage:
         # Bundle into timestamped ZIP
 ```
 
----
+--
 
 ### Phase 2: Barber Cam Mobile App (2-3 weeks)
 
@@ -265,7 +265,7 @@ def get_case_timeline(case_id):
     """
 ```
 
----
+--
 
 ### Phase 3: Timeline Viewer & Case Management (2 weeks)
 
@@ -306,7 +306,7 @@ CREATE TABLE case_bookmarks (
     id SERIAL PRIMARY KEY,
     case_id INTEGER REFERENCES cases(id),
     evidence_id INTEGER REFERENCES original_evidence(id),
-    timestamp FLOAT NOT NULL, -- seconds into video
+    timestamp FLOAT NOT NULL, - seconds into video
     note TEXT,
     created_by INTEGER REFERENCES users(id),
     created_at TIMESTAMP DEFAULT NOW()
@@ -321,7 +321,7 @@ CREATE TABLE case_notes (
 );
 ```
 
----
+--
 
 ### Phase 4: Attorney Sharing & Collaboration (1 week)
 
@@ -384,7 +384,7 @@ class UserRole(enum.Enum):
 # - Request additional evidence
 ```
 
----
+--
 
 ### Phase 5: Evidence Report PDF (1 week)
 
@@ -419,7 +419,7 @@ class EvidenceReportGenerator:
         pdf.save()
 ```
 
----
+--
 
 ## File Structure Alignment
 
@@ -469,7 +469,7 @@ Evident.info/
 │   ├── safety-guidelines.md   # NEW
 ```
 
----
+--
 
 ## Quick Wins (Next 48 Hours)
 
@@ -528,7 +528,7 @@ Replace "Evident Legal Technologies" messaging with:
 </div>
 ```
 
----
+--
 
 ## Migration Strategy (Flask → FastAPI Discussion)
 
@@ -550,7 +550,7 @@ Replace "Evident Legal Technologies" messaging with:
 
 **Verdict:** Focus on features, not framework swaps.
 
----
+--
 
 ## Success Metrics
 
@@ -584,7 +584,7 @@ Replace "Evident Legal Technologies" messaging with:
 - ✓ Includes all required chain-of-custody elements
 - ✓ Attorney feedback: "court-ready"
 
----
+--
 
 ## Next Steps (Action Plan)
 
@@ -624,7 +624,7 @@ Replace "Evident Legal Technologies" messaging with:
 3. Launch FaithFrontier.org/barbercam landing page
 4. Announce on social media
 
----
+--
 
 **Status:** Ready to implement ✅  
 **Blocker:** None  

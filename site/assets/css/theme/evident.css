@@ -96,9 +96,11 @@
 .nav-toggle.is-open .nav-toggle-bar:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
+
 .nav-toggle.is-open .nav-toggle-bar:nth-child(2) {
   opacity: 0;
 }
+
 .nav-toggle.is-open .nav-toggle-bar:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
 }
@@ -195,6 +197,7 @@
     opacity: 0;
     transform: translateX(14px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -206,6 +209,7 @@
   .nav-toggle {
     display: none;
   }
+
   .nav-backdrop {
     display: none !important;
   }

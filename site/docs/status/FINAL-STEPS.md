@@ -23,7 +23,7 @@
 - ✅ Amplitude API key ready
 - ✅ Price IDs ready
 
----
+--
 
 ## 🎯 ONLY 2 THINGS LEFT TO DO
 
@@ -61,7 +61,7 @@
    - Add: `STRIPE_WEBHOOK_SECRET` = (paste secret)
    - Click "Save Changes"
 
----
+--
 
 ### 2️⃣ TEST IT (2 minutes)
 
@@ -84,7 +84,7 @@
 
 5. **Should see:** Success page! ✅
 
----
+--
 
 ## 🤖 AUTOMATIC VERIFICATION
 
@@ -103,7 +103,7 @@ python verify_integration.py
 - ✅ Amplitude connected
 - ✅ Webhook endpoint accessible
 
----
+--
 
 ## 📊 CURRENT STATUS
 
@@ -116,7 +116,7 @@ Testing:      ⏳ Pending webhook
 Live:         ⏳ 5 minutes away!
 ```
 
----
+--
 
 ## 🎯 YOUR EXACT NEXT STEPS
 
@@ -142,7 +142,7 @@ Live:         ⏳ 5 minutes away!
 4. Complete payment
 5. Success! 🎉
 
----
+--
 
 ## 💡 SIMPLIFIED FLOW
 
@@ -158,7 +158,7 @@ Test payment (2 min)
 SUCCESS! Accept real money! 💰
 ```
 
----
+--
 
 ## 🆘 IF YOU GET STUCK
 
@@ -169,7 +169,7 @@ SUCCESS! Accept real money! 💰
 - "Render won't deploy" → I'll check the logs
 - "Test payment fails" → I'll troubleshoot
 
----
+--
 
 ## 📞 INSTANT HELP LINKS
 
@@ -177,7 +177,7 @@ SUCCESS! Accept real money! 💰
 **Render Dashboard:** https://dashboard.render.com/
 **Pricing Page:** https://Evident-backend.onrender.com/payments/pricing
 
----
+--
 
 ## ✅ THAT'S IT!
 
@@ -189,6 +189,6 @@ SUCCESS! Accept real money! 💰
 
 **Then you're LIVE and accepting payments!** 🚀💰
 
----
+--
 
 _Just do Step 1 (add webhook), then tell me when done!_

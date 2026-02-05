@@ -35,7 +35,7 @@
 }
 
 /* Centered header brand */
-.ff-brand--center {
+.ff-brand-center {
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -43,7 +43,7 @@
   transition: opacity 0.2s ease;
 }
 
-.ff-brand--center:hover {
+.ff-brand-center:hover {
   opacity: 0.85;
   text-decoration: none;
 }
@@ -100,8 +100,8 @@
   text-decoration: none;
 }
 
-.ff-brand--desktop,
-.evident-brand--desktop {
+.ff-brand-desktop,
+.evident-brand-desktop {
   flex-shrink: 0;
 }
 
@@ -112,20 +112,20 @@
 }
 
 /* Header logo – desktop */
-.ff-logo--header,
-.evident-logo--header {
+.ff-logo-header,
+.evident-logo-header {
   max-height: 36px;
   width: auto;
 }
 
 /* Header icon – mobile / nav */
-.ff-logo--icon,
-.evident-logo--icon {
+.ff-logo-icon,
+.evident-logo-icon {
   max-height: 32px;
 }
 
 /* Footer logo */
-.ff-logo--footer {
+.ff-logo-footer {
   max-height: 36px;
   opacity: 0.95;
 }
@@ -204,36 +204,36 @@
   }
 }
 
-.ff-logo--responsive {
+.ff-logo-responsive {
   height: auto;
   max-width: 100%;
 }
 
-.ff-logo--dark {
+.ff-logo-dark {
   transition: filter 0.3s ease;
 }
 
 /* Mobile brand visibility */
 
 /* . Mobile brand handling */
-.ff-brand--mobile {
+.ff-brand-mobile {
   display: none;
 }
 
 @media (width <= 767px) {
-  .ff-brand--desktop {
+  .ff-brand-desktop {
     display: none;
   }
 
-  .ff-brand--mobile {
+  .ff-brand-mobile {
     display: inline-flex;
   }
 }
 
 /* Dark mode tweaks (non-destructive) */
-[data-theme="dark"] .ff-logo--header,
-[data-theme="dark"] .ff-logo--footer,
-[data-theme="dark"] .ff-logo--dark {
+[data-theme="dark"] .ff-logo-header,
+[data-theme="dark"] .ff-logo-footer,
+[data-theme="dark"] .ff-logo-dark {
   filter: brightness(1.15) contrast(1.1);
 }
 
@@ -552,7 +552,7 @@
   }
 
   /* Highlight link styling */
-  .nav-link--highlight {
+  .nav-link-highlight {
     color: var(--accent-brass) !important;
     font-weight: 600;
   }
@@ -844,7 +844,6 @@
   :root {
     --bg: #0a0a0f;
     --fg: #f8f6f0;
-
     --border: rgb(248 246 240 / 14%);
     --muted: rgb(248 246 240 / 60%);
   }

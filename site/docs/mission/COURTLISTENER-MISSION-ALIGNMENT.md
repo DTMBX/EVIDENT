@@ -4,7 +4,7 @@
 **Evident's Mission:** Democratize legal research at 1/10th the cost  
 **Shared Goal:** Close the justice gap
 
----
+--
 
 ## 🎯 UNDERSTANDING COURTLISTENER & FREE LAW PROJECT
 
@@ -28,7 +28,7 @@
 4. **Enable innovation** (open API for developers like you)
 5. **Increase transparency** (judge data, financial disclosures)
 
----
+--
 
 ## 🎯 Evident'S ROLE IN THEIR MISSION
 
@@ -65,7 +65,7 @@
 - Add citations to their database
 - Expand their impact
 
----
+--
 
 ## 🚀 PROPER USE OF COURTLISTENER API
 
@@ -100,7 +100,7 @@
 - Create derived works (summaries, analytics)
 - Just keep data updated
 
----
+--
 
 ### **❌ WHAT'S NOT ALLOWED:**
 
@@ -130,7 +130,7 @@
 - Allow data export
 - Support open standards
 
----
+--
 
 ## 🤝 HOW TO BE A GOOD API PARTNER
 
@@ -166,7 +166,7 @@ legal data is freely available at CourtListener.com. We charge for
 our value-added features, not for access to the law.
 ```
 
----
+--
 
 ### **2. Contribute Back (Regularly)**
 
@@ -198,7 +198,7 @@ our value-added features, not for access to the law.
 - [ ] Speak at conferences about open legal data
 - [ ] Train law students on their tools
 
----
+--
 
 ### **3. Respect Their Infrastructure**
 
@@ -241,7 +241,7 @@ def get_case(citation):
 - Download entire database once
 - Update incrementally via API
 
----
+--
 
 ### **4. Be Transparent with Users**
 
@@ -265,7 +265,7 @@ Want professional tools? Use Evident ($50/month)
 - Show users they have free alternatives
 - **Why?** Builds trust, supports mission, differentiates on value
 
----
+--
 
 ## 💡 STRATEGIC PARTNERSHIP OPPORTUNITIES
 
@@ -328,7 +328,7 @@ https://Evident.info
 - ✅ Priority API support
 - ✅ Joint press releases
 
----
+--
 
 ### **2. Academic Collaboration**
 
@@ -344,7 +344,7 @@ https://Evident.info
 - "Professional tier for students learning on free tools"
 - Train students on both platforms
 
----
+--
 
 ### **3. Legal Aid Network**
 
@@ -360,7 +360,7 @@ https://Evident.info
 - Evident ($25/month) for AI analysis, mobile, support
 - Seamless upgrade path
 
----
+--
 
 ## 📊 REVENUE SHARING MODEL
 
@@ -382,7 +382,7 @@ https://Evident.info
 - Shows commitment to mission
 - Tax-deductible (they're 501(c)(3))
 
----
+--
 
 ### **Option 2: API Subscription**
 
@@ -403,7 +403,7 @@ https://Evident.info
 - Need faster imports
 - Real-time updates critical
 
----
+--
 
 ### **Option 3: Hybrid Model** (Recommended)
 
@@ -417,7 +417,7 @@ https://Evident.info
 - Supports their infrastructure
 - Shows long-term commitment
 
----
+--
 
 ## 🛠️ TECHNICAL INTEGRATION ROADMAP
 
@@ -438,7 +438,7 @@ python -c "from legal_library import LegalLibrary; ll = LegalLibrary(); print(ll
 
 ```bash
 # Import all 27 foundation cases
-python overnight_library_builder.py --practice-area all
+python overnight_library_builder.py -practice-area all
 
 # Check results
 cat logs/import_report_*.json
@@ -468,7 +468,7 @@ print(report['signal'])  # Should show RED_FLAG (overruled)
 print(report['authority_score'])  # Historical significance
 ```
 
----
+--
 
 ### **WEEK 2: Scale Up (1,000 Top Cases)**
 
@@ -502,7 +502,7 @@ python top_cases_import.py
 # Takes ~2 hours (respects rate limits)
 ```
 
----
+--
 
 ### **WEEK 3: Judge Intelligence**
 
@@ -524,7 +524,7 @@ for justice in justices:
     print(f"{justice['name']}: {ideology} (ideology score)")
 ```
 
----
+--
 
 ### **WEEK 4: Deploy Features**
 
@@ -547,7 +547,7 @@ for justice in justices:
 6. Ask AI: "Summarize this case" → Get summary
 ```
 
----
+--
 
 ## 🎓 EDUCATIONAL MISSION ALIGNMENT
 
@@ -584,7 +584,7 @@ for justice in justices:
 - Videos: "Free legal research skills"
 - Guides: "CourtListener + Evident workflows"
 
----
+--
 
 ## 💬 MESSAGING FRAMEWORK
 
@@ -612,7 +612,7 @@ to Evident for professional tools at 1/10th Westlaw's price."
 "Only Evident has this data" (Untrue)
 ```
 
----
+--
 
 ## 🎯 MISSION METRICS (Track Impact)
 
@@ -639,14 +639,14 @@ to Evident for professional tools at 1/10th Westlaw's price."
 - Open access reach: **\_** organizations
 - Legal education improved: **\_** students
 
----
+--
 
 ## ✅ IMMEDIATE ACTION ITEMS
 
 **Today:**
 
 - [x] API key added to Render ✅
-- [ ] Run: `python overnight_library_builder.py --practice-area all`
+- [ ] Run: `python overnight_library_builder.py -practice-area all`
 - [ ] Add CourtListener attribution to website footer
 - [ ] Set up monthly $50 donation to Free Law Project
 
@@ -671,7 +671,7 @@ to Evident for professional tools at 1/10th Westlaw's price."
 - [ ] $5,000+ donated to Free Law Project
 - [ ] Joint press release on democratizing legal research
 
----
+--
 
 ## 🚀 START NOW
 
@@ -679,7 +679,7 @@ to Evident for professional tools at 1/10th Westlaw's price."
 
 ```bash
 cd C:\web-dev\github-repos\Evident.info
-python overnight_library_builder.py --practice-area all
+python overnight_library_builder.py -practice-area all
 ```
 
 **2. Add attribution:**
@@ -704,6 +704,6 @@ To: info@free.law
 Subject: "Partnership Proposal - Evident"
 Use template above
 
----
+--
 
 **TOGETHER, WE'RE MAKING THE LAW FREE AND ACCESSIBLE TO ALL** 🤝⚖️

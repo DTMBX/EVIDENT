@@ -2,7 +2,7 @@
 
 **Reality:** iOS apps require a Mac to build. Here are your **real options** with timelines.
 
----
+--
 
 ## 🚀 FASTEST: Test on Android RIGHT NOW (30 min)
 
@@ -41,7 +41,7 @@ dotnet build -f net10.0-android34.0 -c Release
 
 **Same app, same features, available TODAY.**
 
----
+--
 
 ## ⚡ Option 2: Cloud Mac (2-3 hours, $30-79)
 
@@ -90,7 +90,7 @@ Same steps as MacinCloud but:
 - ✅ Better performance
 - ✅ Easier iPhone deployment
 
----
+--
 
 ## 🎯 Option 3: GitHub Actions (FREE, 1 day setup)
 
@@ -156,7 +156,7 @@ jobs:
 
 **Limitation:** Certificate expires in **7 days** (free account) - need to reinstall weekly.
 
----
+--
 
 ## 🏆 Option 4: Official TestFlight (2-4 weeks, $99/year)
 
@@ -233,7 +233,7 @@ dotnet publish -f net10.0-ios -c Release
 - ✅ Professional distribution
 - ✅ Automatic updates
 
----
+--
 
 ## 🎯 RECOMMENDED PATH
 
@@ -260,7 +260,7 @@ Week 4: Test on iPhone → Distribute to beta testers
 - ✅ **Official distribution** via TestFlight in 2-3 weeks
 - ✅ **Free CI/CD** with GitHub Actions
 
----
+--
 
 ## 📋 Comparison
 
@@ -271,7 +271,7 @@ Week 4: Test on iPhone → Distribute to beta testers
 | **GitHub Actions** | 1 day setup | FREE      | Via Xcode      | 7 days (free) / 1 year (paid) |
 | **TestFlight**     | 2-4 weeks   | $99/year  | TestFlight app | 90 days (auto-renews)         |
 
----
+--
 
 ## 💡 What to Do RIGHT NOW
 
@@ -310,7 +310,7 @@ dotnet build -f net10.0-android34.0 -c Release
 - Install on iPhone
 - Ship! 🚀
 
----
+--
 
 ## ❓ FAQ
 
@@ -329,7 +329,7 @@ A: No. $99 Apple Developer unlocks TestFlight. Cloud Mac is only if you don't ow
 **Q: Can GitHub build iOS for free?**  
 A: Yes! GitHub Actions includes free Mac runners. Perfect for testing builds.
 
----
+--
 
 ## 🚀 Start Now
 

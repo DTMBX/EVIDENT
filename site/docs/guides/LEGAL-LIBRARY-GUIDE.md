@@ -2,7 +2,7 @@
 
 **Build your own searchable case law and statute database**
 
----
+--
 
 ## 🎯 Overview
 
@@ -14,7 +14,7 @@ The Legal Reference Library is a comprehensive system for storing, searching, an
 - **Legal Articles** - Law review, practice guides
 - **User Documents** - Your own legal research
 
----
+--
 
 ## ✨ Key Features
 
@@ -80,7 +80,7 @@ Add notes to any document:
 ✓ Private to your account
 ```
 
----
+--
 
 ## 🚀 Getting Started
 
@@ -113,7 +113,7 @@ Result: Miranda v. Arizona imported with full text
 Result: Document parsed and searchable
 ```
 
----
+--
 
 ### Step 2: Build Your Library
 
@@ -144,7 +144,7 @@ Employment:
 ✓ Burlington Industries v. Ellerth, 524 U.S. 742 (1998)
 ```
 
----
+--
 
 ### Step 3: Search Your Library
 
@@ -172,7 +172,7 @@ Filters:
 Results: Recent qualified immunity cases
 ```
 
----
+--
 
 ### Step 4: Use with AI Tools
 
@@ -203,7 +203,7 @@ Optimizer suggests:
 Would you like to add these citations?"
 ```
 
----
+--
 
 ## 📖 Database Schema
 
@@ -256,7 +256,7 @@ document_annotations:
   - created_at
 ```
 
----
+--
 
 ## 🔧 API Endpoints
 
@@ -395,7 +395,7 @@ Response:
 }
 ```
 
----
+--
 
 ## 💡 Advanced Features
 
@@ -444,7 +444,7 @@ AI suggests from your library:
 These cases support your § 1983 excessive force claim."
 ```
 
----
+--
 
 ## 📚 Pre-Built Case Collections
 
@@ -477,7 +477,7 @@ These cases support your § 1983 excessive force claim."
 
 **Import all with one click!**
 
----
+--
 
 ## 🔒 Privacy & Access Control
 
@@ -517,7 +517,7 @@ Case: Smith v. City PD (2024-CV-1234)
 All linked materials accessible from case dashboard.
 ```
 
----
+--
 
 ## 🎓 Best Practices
 
@@ -559,7 +559,7 @@ Library will flag:
 ⚠ Missing metadata
 ```
 
----
+--
 
 ## 🚀 Future Enhancements
 
@@ -573,7 +573,7 @@ Library will flag:
 - [ ] **Share Libraries** - Collaborate with colleagues
 - [ ] **Practice Area Templates** - Pre-loaded case sets
 
----
+--
 
 ## 📊 Statistics
 
@@ -595,7 +595,7 @@ Citation linking: Automatic
 Related cases: Real-time
 ```
 
----
+--
 
 ## 🆘 Support
 
@@ -616,7 +616,7 @@ A: Upload the PDF directly - system will parse and index it
 **Q: Can I delete cases?**
 A: Yes, your uploaded cases can be deleted. Public cases remain.
 
----
+--
 
 ## 📚 Documentation Files
 
@@ -625,11 +625,11 @@ A: Yes, your uploaded cases can be deleted. Public cases remain.
 - **`migrate_add_legal_library.py`** - Database migration
 - **This file** - Complete user guide
 
----
+--
 
 **Build your searchable legal reference library today!** 📚⚖️
 
----
+--
 
 **Related Tools:**
 

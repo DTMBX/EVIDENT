@@ -10,7 +10,7 @@
 
 **🖥️ WINDOWS APP:** Planned 4-week project (starts after web version goes live)
 
----
+--
 
 ## What Was Built
 
@@ -222,7 +222,7 @@ Complete cost breakdown:
 - Break-even analysis
 - Recommended pricing rationale
 
----
+--
 
 ## Implementation Roadmap
 
@@ -284,7 +284,7 @@ Complete cost breakdown:
 2. Separate "Desktop Edition" at $99/month
 3. One-time purchase: $499 (includes 1 year updates)
 
----
+--
 
 ## Revenue Projections
 
@@ -311,7 +311,7 @@ Complete cost breakdown:
 
 **Break-Even:** 50 PRO subscribers OR 20 PREMIUM subscribers
 
----
+--
 
 ## Deployment Instructions
 
@@ -402,7 +402,7 @@ Test checkout flow:
 
 Switch to live Stripe keys and you're live!
 
----
+--
 
 ## Testing Checklist
 
@@ -439,7 +439,7 @@ Switch to live Stripe keys and you're live!
 - [ ] Usage tracking can't be manipulated
 - [ ] Payment data not stored locally
 
----
+--
 
 ## Success Metrics
 
@@ -470,7 +470,7 @@ Switch to live Stripe keys and you're live!
    - Formula: (Revenue - churn + expansion) / previous revenue
    - Target: >100%
 
----
+--
 
 ## Support & Resources
 
@@ -501,7 +501,7 @@ Switch to live Stripe keys and you're live!
 - Stripe Testing: https://stripe.com/docs/testing
 - Stripe Webhooks: https://stripe.com/docs/webhooks
 
----
+--
 
 ## Troubleshooting
 
@@ -515,7 +515,7 @@ Switch to live Stripe keys and you're live!
 - Check browser console for JavaScript errors
 - Verify `STRIPE_PRICE_PRO` matches Stripe Dashboard
 
----
+--
 
 **Problem:** Webhook not receiving events
 
@@ -525,7 +525,7 @@ Switch to live Stripe keys and you're live!
 - Update Stripe webhook URL to ngrok URL
 - Check `STRIPE_WEBHOOK_SECRET` matches webhook settings
 
----
+--
 
 **Problem:** User tier not upgrading after payment
 
@@ -536,7 +536,7 @@ Switch to live Stripe keys and you're live!
 - Verify webhook signature secret is correct
 - Check app logs for errors
 
----
+--
 
 **Problem:** Usage limits not enforcing
 
@@ -546,7 +546,7 @@ Switch to live Stripe keys and you're live!
 - Check user tier: `print(current_user.tier)`
 - Check usage tracking exists: `UsageTracking.get_or_create_current(user.id)`
 
----
+--
 
 ## Next Steps: Windows Desktop App
 
@@ -633,7 +633,7 @@ Switch to live Stripe keys and you're live!
 
 **Rationale:** Validate web subscription market fit before investing in desktop version
 
----
+--
 
 ## Final Checklist
 
@@ -669,7 +669,7 @@ Switch to live Stripe keys and you're live!
 - [ ] Iterate on pricing/features
 - [ ] Plan Windows desktop app
 
----
+--
 
 ## 🎊 Congratulations!
 
@@ -690,11 +690,11 @@ Switch to live Stripe keys and you're live!
 
 **Time to first dollar:** As soon as first customer subscribes! 💵
 
----
+--
 
 **🚀 Ready to make money? Let's launch!**
 
----
+--
 
 _Last Updated: January 27, 2026_  
 _Version: 1.0_  

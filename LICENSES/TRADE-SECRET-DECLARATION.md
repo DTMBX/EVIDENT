@@ -1,4 +1,5 @@
-# Evident Technologies  
+# Evident Technologies
+
 ## Trade Secret & Proprietary Systems Declaration
 
 **Effective Date:** 2026-02-03  
@@ -18,12 +19,12 @@ This declaration establishes Evident’s intent to preserve confidentiality and 
 
 Trade-secret protected elements include, without limitation:
 
-- Evidence custody enforcement logic  
-- Integrity verification sequences and thresholds  
-- Audit log construction and validation methodology  
-- Export reproducibility and verification design  
-- Internal orchestration logic governing evidence lifecycle  
-- Security-sensitive implementation details not disclosed publicly  
+- Evidence custody enforcement logic
+- Integrity verification sequences and thresholds
+- Audit log construction and validation methodology
+- Export reproducibility and verification design
+- Internal orchestration logic governing evidence lifecycle
+- Security-sensitive implementation details not disclosed publicly
 
 These elements are not publicly documented in full and are not necessary for external use of the software.
 
@@ -33,11 +34,11 @@ These elements are not publicly documented in full and are not necessary for ext
 
 Evident takes reasonable measures to maintain secrecy, including:
 
-- Separation of proprietary and open-source codebases  
-- Restricted access to core systems  
-- Explicit copyright notices  
-- Licensing controls and access boundaries  
-- Documentation distinguishing public vs. non-public logic  
+- Separation of proprietary and open-source codebases
+- Restricted access to core systems
+- Explicit copyright notices
+- Licensing controls and access boundaries
+- Documentation distinguishing public vs. non-public logic
 
 Disclosure of high-level functionality does not constitute disclosure of protected implementation details.
 
@@ -47,9 +48,9 @@ Disclosure of high-level functionality does not constitute disclosure of protect
 
 Disclosure of trade-secret information is permitted only:
 
-- Under written agreement  
-- For legitimate business, legal, or security purposes  
-- With confidentiality protections in place  
+- Under written agreement
+- For legitimate business, legal, or security purposes
+- With confidentiality protections in place
 
 Unauthorized use, disclosure, or misappropriation is prohibited.
 

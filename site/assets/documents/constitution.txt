@@ -84,24 +84,24 @@
     
       <div class="content">
       
-            <div class="field field--name-body field--type-text-with-summary field--label-hidden field__item"><div id="searchheaderId" data-role="header">
+            <div class="field field-name-body field-type-text-with-summary field-label-hidden field-item"><div id="searchheaderId" data-role="header">
   <nav class="navbar navbar-fdsys navbar-fixed-top">
       <div class="container">
             <div class="navbar-header">
-            <div class="mainMenu-toggle__container">
+            <div class="mainMenu-toggle-container">
               <a class="mainMenu-toggle visible-xs" type="button" href="#mainMenu">
                 <span class="menuBar-1"></span>
                 <span class="menuBar-2"></span>
                 <span class="menuBar-3"></span>
               </a>
-              <div id="mainMenu-toggle__text" class="visible-xs">Menu</div>
+              <div id="mainMenu-toggle-text" class="visible-xs">Menu</div>
             </div>
                 <a href="/" class="navbar-brand" id="headerLogoId1">
                 <img alt="GovInfo logo" class="img-responsive" src="/media/GovInfo_logo_gray.png" border="0"></a>
                 <a id="search-toggler" href="#searchHolder" data-toggle="collapse" type="button" class="navbar-right visible-xs" aria-controls="searchHolder">
                 <i class="fa fa-search"></i> Search</a>
             </div>
-      <div id="mainMenu" class="navbar-nav__outer">
+      <div id="mainMenu" class="navbar-nav-outer">
         <ul class="nav navbar-nav">
             <li aria-haspopup="true" aria-labelledby="openDiscoverMenu" class="dropdown">
                 <a id="openDiscoverMenu" data-toggle="dropdown" class="dropdown-toggle" href="#">Browse</a>
@@ -117,7 +117,7 @@
                 <a id="openAboutMenu" data-toggle="dropdown" class="dropdown-toggle" href="#">About</a>
                 <ul class="dropdown-menu" aria-haspopup="true">
                   <li><a href="/about">About</a></li>
-                  <!--<li><a href="/about/metrics">Metrics</a></li>-->
+                  <!--<li><a href="/about/metrics">Metrics</a></li>->
                   <li><a href="/about/policies">Policies</a></li>
                   <li role="menuitem"><a href="/about/authentication">Authentication</a></li>
                   <li><a href="/about/digital-preservation">Digital Preservation</a></li>
@@ -131,7 +131,7 @@
                 <a id="openDevelopersMenu" data-toggle="dropdown" class="dropdown-toggle" href="#">Developers</a>
                 <ul class="dropdown-menu">
                   <li><a href="/developers">Developer Hub</a></li>
-                  <li><a class="api_url--header" href="https://api.govinfo.gov/docs">API</a></li>
+                  <li><a class="api_url-header" href="https://api.govinfo.gov/docs">API</a></li>
                   <li><a href=" /bulkdata">Bulk Data Repository</a></li>
                   <li><a href="/link-docs">Link Service</a></li>
                   <li><a href="/feeds">Feeds</a></li> 
@@ -166,7 +166,7 @@
                     <li><a href="/contact">Contact Us</a></li>
                 </ul>
             </li>
-        </ul><!--/nav navbar-nav-->
+        </ul><!--/nav navbar-nav->
         <ul class="nav navbar-nav navbar-right hidden-xs"><li>
             <a id="togglesearch-btn" href="#searchHolder" class="btn btn-orange collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="searchHolder">
                 <span class="fa fa-search"></span>
@@ -177,12 +177,12 @@
             </a>
         </li>
       </ul>
-    </div><!-- /.nav-collapse -->
+    </div><!-- /.nav-collapse ->
 </div>
 <!--/container-->
   </nav></div>
 
-	<!--SEARCH WIDGET -->
+	<!--SEARCH WIDGET ->
 <div class="container-fluid">
 	<div id="searchHolder" class="row collapse">
 		<div id="close-search" class="hidden-xs">
@@ -511,7 +511,7 @@ var help_url_map = {
 
 					</div>
 	</header>
-	<!--/#header-top -->
+	<!--/#header-top ->
 
 
 
@@ -536,7 +536,7 @@ var help_url_map = {
 						<h1 class="masthead-page-title">Page Not Found</h1>
 					</div>
 					<div id="HeaderShareMenu" class="col-xs-12 col-sm-3 text-right">
-						<div class="header__share-icons">
+						<div class="header-share-icons">
 							<p>
 								<a href="javascript:;" id="facebook-share" target="_blank" rel="noopener noreferrer"><img alt="Icon: Share using Facebook" src="/sites/default/files/fb-icon-white.png"/></a>
 																<a href="javascript:;" id="email-share" target="_blank" rel="noopener noreferrer"><img alt="Icon: Share using Email" src="/sites/default/files/email-icon-white.png"/></a>
@@ -570,7 +570,7 @@ var help_url_map = {
 				<div id="main" class="clearfix">
 										<div id="content-wrapper">
 						
-												<!-- /#action links -->
+												<!-- /#action links ->
 													  <div>
     <div data-drupal-messages-fallback class="hidden"></div><div id="block-bootstrap-fdsys-content" class="block block-system block-system-main-block">
   
@@ -584,7 +584,7 @@ var help_url_map = {
 		  			  <span property="dc:title" content="Page Not Found" class="hidden"></span>
 
 
-		  			<section class="feature__summary">
+		  			<section class="feature-summary">
 				
 				
 			</section>
@@ -594,7 +594,7 @@ var help_url_map = {
 
 	<div class="content">
          
-            <div property="content:encoded" class="field field--name-body field--type-text-with-summary field--label-hidden field__item"><p><strong>Error occurred. The page you requested cannot be found.</strong></p>
+            <div property="content:encoded" class="field field-name-body field-type-text-with-summary field-label-hidden field-item"><p><strong>Error occurred. The page you requested cannot be found.</strong></p>
 
 <p>Please report this error to <a class="underlined-link" href="https://www.gpo.gov/error-pages/askgpo" target="_blank">askGPO.</a></p>
 
@@ -621,9 +621,9 @@ var help_url_map = {
 												<!--/content-->
 						
 					</div>
-					<!-- /#content-wrapper -->
+					<!-- /#content-wrapper ->
 				</div>
-				<!--/#main -->
+				<!--/#main ->
 			</section>
 
 					</div>
@@ -631,8 +631,8 @@ var help_url_map = {
 	</div>
 	<!--/container-->
 </div>
-<!-- /#bottom-content -->
-<!-- /#bottom-content --></div><!-- #footer --><div id="footer" class="clearfix">
+<!-- /#bottom-content ->
+<!-- /#bottom-content -></div><!-- #footer -><div id="footer" class="clearfix">
 <a href="#maincontent" class="skip-main">Skip back to top</a>
 	  <div>
     <div id="block-footer" class="block block-block-content block-block-contentd2cbbb1f-b9ba-47a9-afad-44c1d32bdebe">
@@ -640,7 +640,7 @@ var help_url_map = {
     
       <div class="content">
       
-            <div class="field field--name-body field--type-text-with-summary field--label-hidden field__item"><footer>
+            <div class="field field-name-body field-type-text-with-summary field-label-hidden field-item"><footer>
   <a href="#maincontent" class="skip-main">Skip back to top</a>
    <div class="container">
       <div class="row hidden-xs">
@@ -667,7 +667,7 @@ var help_url_map = {
             <ul class="nav nav-stacked" role="menu">
               <li role="menuitem"><a href="/about">About</a></li>
 
-              <!-- <li role="menuitem"><a href="/about/metrics">Metrics</a></li> -->
+              <!-- <li role="menuitem"><a href="/about/metrics">Metrics</a></li> ->
               <li role="menuitem"><a href="/about/policies">Policies</a></li>
               <li role="menuitem"><a href="/about/authentication">Authentication</a></li>
               <li role="menuitem"><a href="/about/digital-preservation">Digital Preservation</a></li>
@@ -686,7 +686,7 @@ var help_url_map = {
             </div>
             <ul class="nav nav-stacked" role="menu">
                <li role="menuitem"><a href="/developers">Developer Hub</a></li>
-               <li role="menuitem"><a class="api_url--footer" href="https://api.govinfo.gov/docs">API</a></li>
+               <li role="menuitem"><a class="api_url-footer" href="https://api.govinfo.gov/docs">API</a></li>
                <li role="menuitem"><a href="/bulkdata">Bulk Data Repository</a></li>
                <li role="menuitem"><a href="/link-docs">Link Service</a></li>
                <li role="menuitem"><a href="/feeds">Feeds</a></li>
@@ -705,7 +705,7 @@ var help_url_map = {
                <li role="menuitem"><a href="/features">All Features</a></li>
                <li role="menuitem"><a href="/features/featured-content">Featured Content</a></li>
                <li role="menuitem"><a href="/features/news">News</a></li>
-              <!-- <li><a href="/news">News</a></li>-->
+              <!-- <li><a href="/news">News</a></li>->
                <li role="menuitem"><a href="/features/release-notes">Release Notes</a></li>
                <li role="menuitem"><a href="/features/finding-publications">Finding Publications</a></li>
             </ul>
@@ -779,26 +779,26 @@ jQuery(document).ready(function($) {
   </div>
 
 </div>
-<!-- EOF #footer -->
+<!-- EOF #footer ->
 <footer id="subfooter" class="clearfix">
 <div class="container">
-	<!-- #subfooter-inside -->
+	<!-- #subfooter-inside ->
 	<div id="subfooter-inside" class="clearfix">
 		<div class="row">
 			<div class="col-xs-12">
-				<!-- #subfooter-left -->
+				<!-- #subfooter-left ->
 				<div class="subfooter-area">
 
 											
 									</div>
-				<!-- EOF: #subfooter-left -->
+				<!-- EOF: #subfooter-left ->
 			</div>
 		</div>
 	</div>
-	<!-- EOF: #subfooter-inside -->
+	<!-- EOF: #subfooter-inside ->
 </div>
 </footer>
-<!-- EOF:#subfooter -->
+<!-- EOF:#subfooter ->
 
 
 
@@ -817,11 +817,11 @@ jQuery(document).ready(function($) {
       var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
       g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
     })();
-  </script -->
+  </script ->
 
-  <!-- Piwik -->
+  <!-- Piwik ->
  <noscript>  <img src="https://analytics.govinfo.gov/track?idsite=1&rec=1" style="border:0" alt="" /> </noscript>
-  <!-- End Piwik Code -->
+  <!-- End Piwik Code ->
     
   </body>
 </html>

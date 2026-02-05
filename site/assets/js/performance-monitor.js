@@ -17,9 +17,9 @@
 (function () {
   "use strict";
 
-  // -------------------------
+  // -------------
   // Enable gate (default OFF)
-  // -------------------------
+  // -------------
   function isEnabled() {
     try {
       const params = new URLSearchParams(window.location.search);

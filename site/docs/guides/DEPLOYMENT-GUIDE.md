@@ -34,7 +34,7 @@
 └─────────────────────────────────────────────────────────┘
 ```
 
----
+--
 
 ## Option 1: Deploy to Render (Recommended)
 
@@ -96,7 +96,7 @@ Custom domain:
 https://api.Evident.info
 ```
 
----
+--
 
 ## Option 2: Deploy to Railway (Fastest)
 
@@ -135,7 +135,7 @@ railway open
 
 **Your API will be live in ~2 minutes!**
 
----
+--
 
 ## Option 3: Deploy to Fly.io (Most Control)
 
@@ -163,7 +163,7 @@ fly launch
 fly deploy
 ```
 
----
+--
 
 ## Database Migration (Local to Production)
 
@@ -191,7 +191,7 @@ with app.app_context():
 Just let Render/Railway create the database fresh.
 Run `create_admin.py` on production.
 
----
+--
 
 ## File Storage Strategy (Scale-Ready)
 
@@ -236,7 +236,7 @@ s3_client.upload_fileobj(
 - $0.023/GB
 - Auto-backups
 
----
+--
 
 ## Scaling Roadmap
 
@@ -271,7 +271,7 @@ s3_client.upload_fileobj(
 - ✅ SLA guarantees
 - **Capacity:** Unlimited
 
----
+--
 
 ## Performance Optimizations
 
@@ -326,7 +326,7 @@ def analyze_bwc_video(video_path):
 # For API responses, use CloudFlare
 ```
 
----
+--
 
 ## Monitoring & Analytics
 
@@ -372,7 +372,7 @@ metrics = PrometheusMetrics(app)
 # - HTTP status codes
 ```
 
----
+--
 
 ## Security Hardening
 
@@ -427,7 +427,7 @@ def upload_pdf():
     pass
 ```
 
----
+--
 
 ## Cost Estimates
 
@@ -455,7 +455,7 @@ def upload_pdf():
 - Redis: **$50/month**
 - **Total: ~$1,500/month**
 
----
+--
 
 ## Next Steps - Deploy NOW
 
@@ -488,7 +488,7 @@ def upload_pdf():
 
 4. **Done!** ✅
 
----
+--
 
 ## Long-Term Architecture (Next 6 Months)
 

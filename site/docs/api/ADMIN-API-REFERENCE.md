@@ -2,7 +2,7 @@
 
 Complete reference for all admin backend management endpoints.
 
----
+--
 
 ## Authentication
 
@@ -13,7 +13,7 @@ All admin endpoints require:
 
 Returns `403 Forbidden` if not admin.
 
----
+--
 
 ## User Management
 
@@ -44,7 +44,7 @@ GET /admin/users
 }
 ```
 
----
+--
 
 ### Get User Details
 
@@ -67,7 +67,7 @@ GET /admin/users/<id>
 }
 ```
 
----
+--
 
 ### Update User
 
@@ -105,7 +105,7 @@ Content-Type: application/json
 }
 ```
 
----
+--
 
 ### Toggle User Status (Enable/Disable)
 
@@ -124,7 +124,7 @@ POST /admin/users/<id>/toggle-status
 
 **Safety:** Returns `403` if trying to disable yourself.
 
----
+--
 
 ### Reset User Password
 
@@ -151,7 +151,7 @@ Content-Type: application/json
 
 **Note:** User must use new password on next login.
 
----
+--
 
 ### Delete User
 
@@ -169,7 +169,7 @@ DELETE /admin/users/<id>
 
 **Safety:** Returns `403` if trying to delete yourself.
 
----
+--
 
 ## Analysis Management
 
@@ -201,7 +201,7 @@ GET /admin/analyses?status=completed&limit=100
 }
 ```
 
----
+--
 
 ### Delete Analysis
 
@@ -219,7 +219,7 @@ DELETE /admin/analyses/<id>
 
 **Action:** Deletes analysis record AND uploaded file from disk.
 
----
+--
 
 ## Statistics & Monitoring
 
@@ -255,7 +255,7 @@ GET /admin/stats
 - 7-day activity trend
 - Storage usage
 
----
+--
 
 ### System Info
 
@@ -283,7 +283,7 @@ GET /admin/system-info
 
 **Requires:** `psutil` package
 
----
+--
 
 ### Audit Logs
 
@@ -321,7 +321,7 @@ GET /admin/audit-logs?action=user_edit&limit=200
 - `analysis_delete`
 - `password_reset`
 
----
+--
 
 ## Error Responses
 
@@ -369,7 +369,7 @@ GET /admin/audit-logs?action=user_edit&limit=200
 }
 ```
 
----
+--
 
 ## Safety Features
 
@@ -392,7 +392,7 @@ GET /admin/audit-logs?action=user_edit&limit=200
 - ✅ All deletions logged
 - ✅ Includes user_id, resource, IP, timestamp
 
----
+--
 
 ## Usage Examples
 
@@ -444,7 +444,7 @@ for (const analysis of analyses.analyses) {
 // Frees up storage space
 ```
 
----
+--
 
 ## Performance Notes
 
@@ -466,7 +466,7 @@ for (const analysis of analyses.analyses) {
 - `status` indexed for filtering
 - `created_at` indexed for sorting
 
----
+--
 
 ## Testing Checklist
 
@@ -481,7 +481,7 @@ for (const analysis of analyses.analyses) {
 - [ ] Audit logs populate correctly
 - [ ] All safety checks enforced
 
----
+--
 
 **Related Docs:**
 
@@ -489,7 +489,7 @@ for (const analysis of analyses.analyses) {
 - [DASHBOARD-QUICK-REF.md](./DASHBOARD-QUICK-REF.md) - User dashboard API
 - [WEB-APP-GUIDE.md](./WEB-APP-GUIDE.md) - Platform overview
 
----
+--
 
 **Last Updated:** January 2025  
 **Version:** 2.0.0

@@ -16,7 +16,7 @@
 - Audio transcription (UNLIMITED)
 - Max file size: 10 GB
 
----
+--
 
 ## ?? Complete Tier Comparison
 
@@ -34,7 +34,7 @@
 | **Forensic Analysis**  | Basic   | Advanced     | Full      | **Full**          |
 | **Constitutional AI**  | Limited | Advanced     | Full      | **Full + Custom** |
 
----
+--
 
 ## ?? How to Test
 
@@ -86,7 +86,7 @@ with app.app_context():
 
 Then login and test unlimited uploads!
 
----
+--
 
 ## ?? What Each Tier Can Process
 
@@ -164,7 +164,7 @@ Then login and test unlimited uploads!
    - Constitutional AI + Case law matching
 ```
 
----
+--
 
 ## ?? Live Testing URLs
 
@@ -181,7 +181,7 @@ Then login and test unlimited uploads!
 - Login: https://Evident-legal-tech.onrender.com/auth/login
 - Dashboard: https://Evident-legal-tech.onrender.com/auth/dashboard
 
----
+--
 
 ## ?? Enforcement
 
@@ -210,7 +210,7 @@ Tier limits are enforced at:
    usage.increment('document_pages_used', pages)
    ```
 
----
+--
 
 ## ? Bottom Line
 
@@ -221,7 +221,7 @@ The difference is in **quantity** and **features**, not capability:
 - **FREE**: Limited processing (2 videos, 50 PDF pages)
 - **ENTERPRISE**: Unlimited processing + advanced features
 
----
+--
 
 ## ?? Run the Test Now!
 

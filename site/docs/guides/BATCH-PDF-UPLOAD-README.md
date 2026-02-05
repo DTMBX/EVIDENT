@@ -52,24 +52,24 @@ The Batch PDF Upload feature allows users to upload multiple PDF files simultane
 ```sql
 CREATE TABLE pdf_uploads (
     id INTEGER PRIMARY KEY,
-    user_id INTEGER,  -- Foreign key to users table
-    filename VARCHAR(255),  -- Stored filename
-    original_filename VARCHAR(255),  -- Original upload name
-    file_path VARCHAR(500),  -- Path on server
-    file_size INTEGER,  -- Size in bytes
-    file_hash VARCHAR(64),  -- SHA-256 hash (unique)
-    mime_type VARCHAR(100),  -- Default: application/pdf
-    case_number VARCHAR(100),  -- Optional case reference
-    document_type VARCHAR(100),  -- brief, motion, order, etc.
-    tags JSON,  -- Array of tags
-    description TEXT,  -- Optional description
-    status VARCHAR(20),  -- uploaded, processing, processed, error
-    page_count INTEGER,  -- PDF page count
-    extracted_text TEXT,  -- Extracted text content
+    user_id INTEGER,  - Foreign key to users table
+    filename VARCHAR(255),  - Stored filename
+    original_filename VARCHAR(255),  - Original upload name
+    file_path VARCHAR(500),  - Path on server
+    file_size INTEGER,  - Size in bytes
+    file_hash VARCHAR(64),  - SHA-256 hash (unique)
+    mime_type VARCHAR(100),  - Default: application/pdf
+    case_number VARCHAR(100),  - Optional case reference
+    document_type VARCHAR(100),  - brief, motion, order, etc.
+    tags JSON,  - Array of tags
+    description TEXT,  - Optional description
+    status VARCHAR(20),  - uploaded, processing, processed, error
+    page_count INTEGER,  - PDF page count
+    extracted_text TEXT,  - Extracted text content
     created_at DATETIME,
     processed_at DATETIME,
-    is_public BOOLEAN,  -- Public access flag
-    share_token VARCHAR(64),  -- Sharing token
+    is_public BOOLEAN,  - Public access flag
+    share_token VARCHAR(64),  - Sharing token
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 ```
@@ -273,7 +273,7 @@ For issues or questions:
 3. Verify database schema
 4. Check file permissions on upload directory
 
----
+--
 
 **Created**: January 23, 2026
 **Version**: 1.0

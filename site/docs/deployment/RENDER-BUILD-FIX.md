@@ -4,7 +4,7 @@
 **Issue:** Render.com build failing with timeout/dependency errors  
 **Status:** ✅ FIXED
 
----
+--
 
 ## 🔴 Problem Identified
 
@@ -24,7 +24,7 @@ The Render build was failing because `openai-whisper==20231117` in requirements.
 - Missing system dependencies (ffmpeg)
 - Large dependency downloads failing
 
----
+--
 
 ## ✅ Solution Implemented
 
@@ -42,7 +42,7 @@ The Render build was failing because `openai-whisper==20231117` in requirements.
 **Key Points:**
 
 - Uses `apt-get` to install system packages
-- Uses `pip install --no-cache-dir` to avoid cache buildup
+- Uses `pip install -no-cache-dir` to avoid cache buildup
 - Explicit package versions for reproducibility
 - Total build time: ~3-5 minutes (well under limit)
 
@@ -53,7 +53,7 @@ The Render build was failing because `openai-whisper==20231117` in requirements.
 **Changes:**
 
 - Changed `buildCommand` from `pip install -r requirements.txt` to `bash build.sh`
-- Added `--log-level info` to gunicorn for better debugging
+- Added `-log-level info` to gunicorn for better debugging
 - Kept all environment variables intact
 
 ### 3. Created requirements-production.txt
@@ -70,7 +70,7 @@ The Render build was failing because `openai-whisper==20231117` in requirements.
 
 **Note:** Can be used for future reference or alternative deployments
 
----
+--
 
 ## 🔧 How It Works
 
@@ -109,7 +109,7 @@ except ImportError as e:
 - ✅ Can use OpenAI API for transcription instead
 - ✅ No code changes needed
 
----
+--
 
 ## 📊 Transcription Options
 
@@ -173,7 +173,7 @@ def transcribe_with_openai(audio_file_path):
 - 💰 Similar pricing
 - 🌐 Requires internet
 
----
+--
 
 ## 🚀 Deployment Instructions
 
@@ -213,7 +213,7 @@ If you want transcription:
    - Value: `sk-...` (your API key)
 3. Redeploy (Render will restart automatically)
 
----
+--
 
 ## 📋 Files Changed
 
@@ -241,7 +241,7 @@ If you want transcription:
 - **app.py** - Already handles missing whisper
 - **runtime.txt** - Still Python 3.11.9
 
----
+--
 
 ## 🧪 Testing
 
@@ -272,7 +272,7 @@ bash build.sh
 
 **Expected:** Completes in 3-5 minutes, all packages installed
 
----
+--
 
 ## ⚡ Performance Comparison
 
@@ -298,7 +298,7 @@ bash build.sh
 | With Whisper | +2-4 GB |
 | Total (new)  | ~200 MB |
 
----
+--
 
 ## 🎯 Recommendations
 
@@ -324,7 +324,7 @@ Consider:
 - Azure with Cognitive Services
 - Self-hosted with Docker (includes ffmpeg)
 
----
+--
 
 ## 📈 Expected Results
 
@@ -346,7 +346,7 @@ Consider:
 ✅ AI chat → Works  
 ⚠️ Audio transcription → Requires OpenAI API key
 
----
+--
 
 ## 🔍 Troubleshooting
 
@@ -392,7 +392,7 @@ buildCommand: bash build.sh
 
 ```bash
 # Gunicorn should bind to $PORT (Render sets this)
-gunicorn app:app --bind 0.0.0.0:$PORT
+gunicorn app:app -bind 0.0.0.0:$PORT
 ```
 
 **Check 3: Import Errors**
@@ -401,7 +401,7 @@ gunicorn app:app --bind 0.0.0.0:$PORT
 # Check runtime logs for missing dependencies
 ```
 
----
+--
 
 ## 📝 Summary
 
@@ -417,7 +417,7 @@ gunicorn app:app --bind 0.0.0.0:$PORT
 3. Verify app works ✅
 4. (Optional) Add OPENAI_API_KEY for transcription
 
----
+--
 
 _Last Updated: January 26, 2026_  
 _Build Status: ✅ FIXED_  

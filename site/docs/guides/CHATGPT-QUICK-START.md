@@ -2,7 +2,7 @@
 
 **Goal:** Get ChatGPT integration running in 15 minutes
 
----
+--
 
 ## Prerequisites
 
@@ -10,7 +10,7 @@
 ✅ Flask backend running (`python app.py`)  
 ✅ OpenAI API key (from https://platform.openai.com/api-keys)
 
----
+--
 
 ## Step 1: Install Dependencies (2 minutes)
 
@@ -25,7 +25,7 @@ python -c "import openai; print('✅ OpenAI installed')"
 python -c "from cryptography.fernet import Fernet; print('✅ Cryptography installed')"
 ```
 
----
+--
 
 ## Step 2: Generate Encryption Key (1 minute)
 
@@ -37,7 +37,7 @@ python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().d
 # Save it for next step
 ```
 
----
+--
 
 ## Step 3: Set Environment Variable (1 minute)
 
@@ -58,7 +58,7 @@ API_KEY_ENCRYPTION_KEY=gAAAAABh...your-key-here
 OPENAI_API_KEY=sk-optional-default-key
 ```
 
----
+--
 
 ## Step 4: Run Database Migration (2 minutes)
 
@@ -85,7 +85,7 @@ Creating ChatGPT integration tables...
 python -c "from models_auth import db; from api.chatgpt import Project, Conversation, Message, UserApiKey; print('✅ All models loaded')"
 ```
 
----
+--
 
 ## Step 5: Register Blueprint (2 minutes)
 
@@ -112,7 +112,7 @@ from api.chatgpt import chatgpt_bp
 app.register_blueprint(chatgpt_bp)
 ```
 
----
+--
 
 ## Step 6: Restart Flask App (1 minute)
 
@@ -129,7 +129,7 @@ python app.py
  * Running on http://localhost:5000
 ```
 
----
+--
 
 ## Step 7: Test API with Postman (3 minutes)
 
@@ -219,7 +219,7 @@ Content-Type: application/json
 }
 ```
 
----
+--
 
 ## Step 8: Register MAUI Services (2 minutes)
 
@@ -248,7 +248,7 @@ builder.Services.AddSingleton<IChatGptService, ChatGptService>();  // ← NEW
 builder.Services.AddSingleton<IProjectService, ProjectService>();  // ← NEW
 ```
 
----
+--
 
 ## Step 9: Build MAUI App (1 minute)
 
@@ -265,7 +265,7 @@ Build succeeded.
     49 Warning(s)
 ```
 
----
+--
 
 ## ✅ Verification Checklist
 
@@ -285,20 +285,20 @@ Run through this checklist to confirm everything works:
 ✅ MAUI app builds successfully (0 errors)
 ```
 
----
+--
 
 ## 🐛 Troubleshooting
 
 ### Error: "No module named 'openai'"
 
 ```powershell
-pip install --upgrade openai
+pip install -upgrade openai
 ```
 
 ### Error: "No module named 'cryptography'"
 
 ```powershell
-pip install --upgrade cryptography
+pip install -upgrade cryptography
 ```
 
 ### Error: "API_KEY_ENCRYPTION_KEY not set"
@@ -326,7 +326,7 @@ cat .env
 - Create a project first using POST /api/v1/projects
 - Use the returned `id` in chat requests
 
----
+--
 
 ## 📋 What's Next?
 
@@ -339,7 +339,7 @@ Now that the backend is working, you can:
 5. **Add Streaming** - Real-time response display
 6. **Add PDF Context** - Inject case documents into prompts
 
----
+--
 
 ## 🎯 Quick Test Flow
 
@@ -351,7 +351,7 @@ Now that the backend is working, you can:
 6. Send message: POST `/api/v1/chat/completions`
 7. See GPT response! 🎉
 
----
+--
 
 ## 📚 Documentation
 
@@ -359,7 +359,7 @@ Now that the backend is working, you can:
 - **Phase 1 Complete:** `CHATGPT-PHASE-1-COMPLETE.md`
 - **API Reference:** `API-REFERENCE.md`
 
----
+--
 
 **Setup Time:** ~15 minutes  
 **Status:** Backend Ready ✅  

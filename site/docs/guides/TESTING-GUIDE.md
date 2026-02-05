@@ -130,7 +130,7 @@ Test error scenarios:
 - [ ] Modal opens quickly (<500ms)
 - [ ] Export completes in <5 seconds
 
----
+--
 
 ## Common Issues & Solutions
 
@@ -179,7 +179,7 @@ pip install reportlab python-docx
 - Check if analysis has duration data
 - Check if total_speakers > 0
 
----
+--
 
 ## Expected Behavior
 
@@ -214,7 +214,7 @@ pip install reportlab python-docx
 4. All export buttons enabled
 5. "View Full Analysis" button works
 
----
+--
 
 ## Sample Test Data
 
@@ -230,7 +230,7 @@ If you need test data, create a sample analysis:
 4. Click "Start Analysis"
 5. Return to dashboard to see it appear
 
----
+--
 
 ## Success Criteria
 
@@ -247,7 +247,7 @@ All features pass if:
 ✅ No JavaScript errors in console
 ✅ Performance meets targets (<2s load, instant filters)
 
----
+--
 
 ## Reporting Issues
 
@@ -259,6 +259,6 @@ If you encounter bugs:
 4. Note which browser and version
 5. Take screenshots if visual issue
 
----
+--
 
 _Last Updated: January 23, 2026_

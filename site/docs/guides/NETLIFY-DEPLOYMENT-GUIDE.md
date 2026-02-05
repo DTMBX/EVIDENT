@@ -5,7 +5,7 @@
 **Site Type:** Jekyll Static Site + Serverless Functions  
 **Custom Domain:** Evident.info
 
----
+--
 
 ## 📋 Quick Start Deployment
 
@@ -22,7 +22,7 @@ netlify login
 netlify init
 
 # 4. Deploy to production
-netlify deploy --prod
+netlify deploy -prod
 ```
 
 ### Option 2: Deploy via Git (GitHub Integration)
@@ -48,7 +48,7 @@ netlify deploy --prod
    - Enter: `Evident.info`
    - Follow DNS configuration instructions
 
----
+--
 
 ## 🔧 Configuration Files Created
 
@@ -76,7 +76,7 @@ netlify deploy --prod
 
 ✅ Specifies Node 18 for build environment
 
----
+--
 
 ## 🌐 Custom Domain Setup
 
@@ -110,7 +110,7 @@ Add these DNS records at your domain registrar:
 - ✅ Auto-renews every 90 days
 - ✅ Force HTTPS redirect enabled in `netlify.toml`
 
----
+--
 
 ## 🏗️ Build Process
 
@@ -129,7 +129,7 @@ Add these DNS records at your domain registrar:
 
 **Typical Build Time:** 2-4 minutes
 
----
+--
 
 ## 📦 What Gets Deployed
 
@@ -151,7 +151,7 @@ Add these DNS records at your domain registrar:
 ❌ `.git/`  
 ❌ Development files (README.md, etc.)
 
----
+--
 
 ## ⚡ Flask Backend Integration (Optional)
 
@@ -195,7 +195,7 @@ Deploy `app.py` to a separate platform:
 2. **Simple forms** → Netlify Forms (included)
 3. **Complex backend** → Deploy Flask separately when needed
 
----
+--
 
 ## 🔒 Environment Variables
 
@@ -222,7 +222,7 @@ API_KEY=your-api-key
 {{ site.env.SITE_URL }}
 ```
 
----
+--
 
 ## 🎨 Pre-Deployment Checklist
 
@@ -250,7 +250,7 @@ API_KEY=your-api-key
 - [ ] Check 404 page
 - [ ] Verify redirects work
 
----
+--
 
 ## 📊 Performance Optimization
 
@@ -282,7 +282,7 @@ API_KEY=your-api-key
 - Auto-scaling
 - DDoS protection
 
----
+--
 
 ## 🐛 Troubleshooting
 
@@ -334,7 +334,7 @@ baseurl: "" # Must be empty for root domain
 3. **Verify Netlify domain config:** Must match exactly
 4. **Force HTTPS:** Enable in Netlify dashboard
 
----
+--
 
 ## 💰 Netlify Pricing
 
@@ -358,7 +358,7 @@ baseurl: "" # Must be empty for root domain
 
 **Current Estimate:** Free tier is sufficient for your traffic level
 
----
+--
 
 ## 🔄 Continuous Deployment
 
@@ -376,7 +376,7 @@ Once connected to GitHub, every push triggers:
 - Test changes before merging
 - Share with team for review
 
----
+--
 
 ## 📈 Monitoring & Analytics
 
@@ -398,7 +398,7 @@ Enable in dashboard for:
 2. **Cloudflare Analytics** - If using Cloudflare DNS
 3. **Plausible** - Privacy-friendly alternative
 
----
+--
 
 ## 🎯 Quick Commands Reference
 
@@ -410,7 +410,7 @@ bundle exec jekyll serve
 bundle exec jekyll build
 
 # Deploy to Netlify (production)
-netlify deploy --prod
+netlify deploy -prod
 
 # Deploy preview
 netlify deploy
@@ -428,7 +428,7 @@ netlify open:admin
 netlify status
 ```
 
----
+--
 
 ## 📞 Support Resources
 
@@ -450,7 +450,7 @@ netlify status
 - Git Repo: `github.com/your-username/Evident.info`
 - Netlify Dashboard: `app.netlify.com/sites/your-site-name`
 
----
+--
 
 ## 🚀 Ready to Deploy!
 
@@ -475,7 +475,7 @@ netlify status
 
 3. **Deploy to Netlify:**
    - Option A: Connect GitHub repo in Netlify dashboard
-   - Option B: Run `netlify init` and `netlify deploy --prod`
+   - Option B: Run `netlify init` and `netlify deploy -prod`
 
 4. **Configure custom domain:**
    - Add `Evident.info` in Netlify dashboard
@@ -487,7 +487,7 @@ netlify status
 - DNS propagation: 24-48 hours
 - SSL certificate: Automatic after DNS
 
----
+--
 
 **Happy deploying! 🎉**
 

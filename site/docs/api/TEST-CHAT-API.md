@@ -16,7 +16,7 @@ curl -X POST http://localhost:5000/login \
 
 All subsequent requests must include the session cookie: `-b cookies.txt`
 
----
+--
 
 ## Endpoint 1: POST /api/chat/ask
 
@@ -91,7 +91,7 @@ curl -X POST http://localhost:5000/api/chat/ask \
 }
 ```
 
----
+--
 
 ## Endpoint 2: GET /api/chat/conversations
 
@@ -140,7 +140,7 @@ curl "http://localhost:5000/api/chat/conversations?project_id=proj-123" \
 }
 ```
 
----
+--
 
 ## Endpoint 3: GET /api/chat/conversation/:id
 
@@ -193,7 +193,7 @@ curl http://localhost:5000/api/chat/conversation/conv-abc123 \
 }
 ```
 
----
+--
 
 ## Endpoint 4: GET /api/chat/conversation/:id/export
 
@@ -230,7 +230,7 @@ curl "http://localhost:5000/api/chat/conversation/conv-abc123/export?format=html
 
 **Created:** 2024-01-15 10:30:00
 
----
+--
 
 ## User (10:30:00)
 
@@ -245,7 +245,7 @@ Miranda v. Arizona established the requirement...
 - [384 U.S. 436] Document doc-123, Page 5: "...the person must be warned..."
 ```
 
----
+--
 
 ## Endpoint 5: POST /api/chat/references/suggest
 
@@ -287,7 +287,7 @@ curl -X POST http://localhost:5000/api/chat/references/suggest \
 }
 ```
 
----
+--
 
 ## Endpoint 6: GET /api/chat/analytics
 
@@ -359,7 +359,7 @@ curl "http://localhost:5000/api/chat/analytics?project_id=proj-123&days=30" \
 }
 ```
 
----
+--
 
 ## Endpoint 7: GET /api/chat/reference/:id/context
 
@@ -406,7 +406,7 @@ curl "http://localhost:5000/api/chat/reference/ref-abc123/context?window=1000" \
 }
 ```
 
----
+--
 
 ## Python Test Script
 
@@ -477,7 +477,7 @@ print(f"Total tokens: {analytics['usage']['total_tokens']}")
 print("\n✓ All tests complete!")
 ```
 
----
+--
 
 ## Common Issues
 
@@ -503,7 +503,7 @@ print("\n✓ All tests complete!")
 - Check that `enable_citation_tracking=True` in pipeline config
 - Verify document IDs in context_documents array are valid
 
----
+--
 
 ## Next Steps
 
@@ -513,7 +513,7 @@ print("\n✓ All tests complete!")
 4. **Access UI**: Navigate to http://localhost:5000/chat
 5. **Monitor logs**: Check console for pipeline initialization messages
 
----
+--
 
 ## API Rate Limits
 

@@ -45,7 +45,7 @@ python scripts/validate-agents.py
 **Use for:** User guides, API docs, tutorials  
 **Example:** `@documentation Write 5-min quick start for attorneys`
 
----
+--
 
 ## 📋 Common Workflows
 
@@ -77,7 +77,7 @@ python scripts/validate-agents.py
 2. `@security-devops` - Find vulnerabilities
 3. `@frontend-dev` - Verify accessibility
 
----
+--
 
 ## 💡 Pro Tips
 
@@ -87,7 +87,7 @@ python scripts/validate-agents.py
 - **Ask follow-ups** (agents maintain context in conversation)
 - **Request examples** ("show curl example for this endpoint")
 
----
+--
 
 ## 📖 Documentation
 
@@ -97,6 +97,6 @@ python scripts/validate-agents.py
 - **Validation:** `python scripts/validate-agents.py`
 - **Demo Workflows:** `python scripts/demo-agent-workflows.py`
 
----
+--
 
 **Quick Start:** Open GitHub Copilot Chat → Type `@` → Select agent → Ask question!

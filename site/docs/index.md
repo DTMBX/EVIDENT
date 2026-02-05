@@ -1,8 +1,9 @@
 ---
+
 title: "Evident Legal Technologies Documentation"
 layout: default
 permalink: /docs/
----
+--
 
 <style>
 .docs-hero {
@@ -253,14 +254,14 @@ code {
 - [Contact](mailto:support@Evident.info)
 - [Changelog](../CHANGELOG.md)
 
----
+--
 
 Evident Legal Technologies © 2026. All rights reserved.
 
 <section class="system-cards-section">
   <div class="container">
     <div class="system-cards-grid">
-      <!-- Minimum Requirements Card -->
+      <!-- Minimum Requirements Card ->
       <div class="system-card">
         <h3>Minimum Requirements</h3>
         <ul>
@@ -271,7 +272,7 @@ Evident Legal Technologies © 2026. All rights reserved.
           <li>CPU processing (slower)</li>
         </ul>
       </div>
-      <!-- Recommended Requirements Card -->
+      <!-- Recommended Requirements Card ->
       <div class="system-card">
         <h3>Recommended</h3>
         <ul>
@@ -282,7 +283,7 @@ Evident Legal Technologies © 2026. All rights reserved.
           <li>10x faster processing</li>
         </ul>
       </div>
-      <!-- Processing Speed Card -->
+      <!-- Processing Speed Card ->
       <div class="system-card">
         <h3>Processing Speed</h3>
         <ul>
@@ -293,7 +294,7 @@ Evident Legal Technologies © 2026. All rights reserved.
           <li>YOLOv8: 30+ fps video</li>
         </ul>
       </div>
-      <!-- Open-Source Licenses Card -->
+      <!-- Open-Source Licenses Card ->
       <div class="system-card">
         <h3>Open-Source Licenses</h3>
         <ul>

@@ -4,7 +4,7 @@
 **Target Audience:** Criminal defense attorneys  
 **Goal:** Show upload → analyze → generate workflow in action
 
----
+--
 
 ## Video Structure
 
@@ -21,7 +21,7 @@
 - Quick login
 - Dashboard appears
 
----
+--
 
 ### Scene 1: Upload Evidence (0:15 - 0:45) - 30 seconds
 
@@ -44,7 +44,7 @@
 - "Automatic transcription"
 - "256-bit encryption"
 
----
+--
 
 ### Scene 2: AI Analysis (0:45 - 1:15) - 30 seconds
 
@@ -68,7 +68,7 @@
 - "Timestamped events"
 - "Evidence cross-referencing"
 
----
+--
 
 ### Scene 3: Generate Documents (1:15 - 1:45) - 30 seconds
 
@@ -96,7 +96,7 @@
 - "Automatic citations"
 - "Customizable templates"
 
----
+--
 
 ### Closing (1:45 - 2:00) - 15 seconds
 
@@ -120,7 +120,7 @@
 - **"Start Free Trial"**
 - **"No Credit Card Required"**
 
----
+--
 
 ## Recording Setup
 
@@ -145,7 +145,7 @@
 3. **ScreenFlow** (Mac) - All-in-one solution
 4. **DaVinci Resolve** (Free) - Professional editing
 
----
+--
 
 ## Visual Elements
 
@@ -181,7 +181,7 @@ Use animated callouts to highlight:
   - "The Elevator Bossa Nova" (Bensound)
   - "Acoustic Breeze" (Bensound)
 
----
+--
 
 ## Test Data Needed
 
@@ -207,7 +207,7 @@ Run the files through Evident beforehand to ensure:
 - Document generation works perfectly
 - No errors or loading issues
 
----
+--
 
 ## Shooting Script Checklist
 
@@ -243,7 +243,7 @@ Run the files through Evident beforehand to ensure:
   - Landing page: 1280x720, compressed
   - Social media: 1080x1080 (square)
 
----
+--
 
 ## Distribution Checklist
 
@@ -278,7 +278,7 @@ Run the files through Evident beforehand to ensure:
 - [ ] Include in welcome email
 - [ ] Add to newsletter
 
----
+--
 
 ## Voiceover Tips
 
@@ -305,7 +305,7 @@ Run the files through Evident beforehand to ensure:
 - Choose best take for each segment
 - Edit together smoothly
 
----
+--
 
 ## Success Metrics
 
@@ -325,7 +325,7 @@ Create 2 versions:
 
 Test which converts better.
 
----
+--
 
 ## Timeline
 
@@ -339,7 +339,7 @@ Test which converts better.
 | Upload & distribute   | 1 hour        | Day 3      |
 | **Total**             | **8.5 hours** | **3 days** |
 
----
+--
 
 ## Alternative: Quick Version (30 seconds)
 
@@ -354,7 +354,7 @@ For social media ads:
 **Music:** Upbeat, energetic  
 **CTA:** Bold "Start Free Trial" button
 
----
+--
 
 **Ready to record!** 🎬
 

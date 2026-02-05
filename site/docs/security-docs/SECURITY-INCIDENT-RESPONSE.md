@@ -99,16 +99,16 @@ Sensitive credentials were committed to the public GitHub repository:
 .\scrub-credentials.ps1
 
 # Verify credentials removed
-git log --all --grep="dTb33"  # Should return nothing
-git log --all --grep="LoveAll33"  # Should return nothing
+git log -all --grep="dTb33"  # Should return nothing
+git log -all --grep="LoveAll33"  # Should return nothing
 ```
 
 ### 2. Force Push to Remote
 
 ```powershell
 # WARNING: Rewrites history permanently
-git push origin --force --all
-git push origin --force --tags
+git push origin -force -all
+git push origin -force -tags
 ```
 
 ### 3. Create Secure Environment File
@@ -213,7 +213,7 @@ python -c "import secrets; print(secrets.token_urlsafe(48))"
 **Status:** Awaiting manual credential rotation and history cleanup  
 **Next Review:** After force push completion
 
----
+--
 
 ## CRITICAL: Manual Steps Required
 

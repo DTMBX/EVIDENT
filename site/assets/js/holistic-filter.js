@@ -28,9 +28,9 @@
     state: "",
   };
 
-  // ------------------------------------------------------------
+  // ------------------------------
   // Helpers
-  // ------------------------------------------------------------
+  // ------------------------------
   function escapeHtml(s) {
     return String(s).replace(
       /[&<>"']/g,
@@ -70,9 +70,9 @@
     highlightSelectedState();
   }
 
-  // ------------------------------------------------------------
+  // ------------------------------
   // Filter logic
-  // ------------------------------------------------------------
+  // ------------------------------
   function matchesZone(plant, zone) {
     if (!zone) return true;
     const z = Number(zone);
@@ -117,9 +117,9 @@
     );
   }
 
-  // ------------------------------------------------------------
+  // ------------------------------
   // UI: Chips
-  // ------------------------------------------------------------
+  // ------------------------------
   function buildChips() {
     chipsWrap.innerHTML = "";
     (data.conditions || []).forEach((c) => {
@@ -132,10 +132,10 @@
       btn.addEventListener("click", () => {
         if (selected.conditions.has(c.id)) {
           selected.conditions.delete(c.id);
-          btn.classList.remove("chip--on");
+          btn.classList.remove("chip-on");
         } else {
           selected.conditions.add(c.id);
-          btn.classList.add("chip--on");
+          btn.classList.add("chip-on");
         }
         render();
       });
@@ -144,9 +144,9 @@
     });
   }
 
-  // ------------------------------------------------------------
+  // ------------------------------
   // Render: Cards + Meta
-  // ------------------------------------------------------------
+  // ------------------------------
   function plantCard(p) {
     const tags = (p.tags || [])
       .map((t) => {
@@ -206,9 +206,9 @@
     colorizeMapByZone();
   }
 
-  // ------------------------------------------------------------
+  // ------------------------------
   // MAP: Support both <object> SVG and inline SVG
-  // ------------------------------------------------------------
+  // ------------------------------
   function getMapRoot() {
     // Inline SVG case:
     const inline = document.getElementById("usMapSvg");
@@ -274,14 +274,14 @@
     // Remove old selection
     mapRoot
       .querySelectorAll(".state--selected")
-      .forEach((n) => n.classList.remove("state--selected"));
+      .forEach((n) => n.classList.remove("state-selected"));
 
     if (!selected.state) return;
 
     const sel = mapRoot.querySelector(
       `[data-state="${selected.state}"], #${CSS.escape(selected.state)}`,
     );
-    if (sel) sel.classList.add("state--selected");
+    if (sel) sel.classList.add("state-selected");
   }
 
   function wireMap() {
@@ -341,9 +341,9 @@
     });
   }
 
-  // ------------------------------------------------------------
+  // ------------------------------
   // Events
-  // ------------------------------------------------------------
+  // ------------------------------
   zoneSelect.addEventListener("change", () => {
     setSelectedZone(zoneSelect.value, { stateAbbr: selected.state });
   });
@@ -365,9 +365,9 @@
     render();
   });
 
-  // ------------------------------------------------------------
+  // ------------------------------
   // Init
-  // ------------------------------------------------------------
+  // ------------------------------
   buildChips();
   wireMap();
   render();

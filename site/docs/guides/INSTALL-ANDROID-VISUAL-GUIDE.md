@@ -3,7 +3,7 @@
 **Time Required:** 2 minutes  
 **Difficulty:** ⭐ Easy
 
----
+--
 
 ## 🎯 Quick Start (3 Steps)
 
@@ -15,7 +15,7 @@ Step 2: Download on Android phone
 Step 3: Install and launch!
 ```
 
----
+--
 
 ## 📧 Step 1: Email the APK
 
@@ -41,7 +41,7 @@ Step 3: Install and launch!
    - Or attach to new email in Gmail/Outlook
    - Send to your email address
 
----
+--
 
 ## 📱 Step 2: Download on Phone
 
@@ -61,7 +61,7 @@ Step 3: Install and launch!
    "com.companyname.Evident.matterdocket.maui-Signed.apk downloaded"
    ```
 
----
+--
 
 ## 🔓 Step 3: Enable Installation
 
@@ -76,7 +76,7 @@ When you tap the APK, Android shows:
 
 **Don't worry! This is normal.** Here's how to fix:
 
----
+--
 
 ### Option A: Allow This One App
 
@@ -88,7 +88,7 @@ When you tap the APK, Android shows:
 
 4. **Tap APK again** to install
 
----
+--
 
 ### Option B: Manual Settings
 
@@ -106,7 +106,7 @@ When you tap the APK, Android shows:
 
 3. **Return to Downloads** and tap APK
 
----
+--
 
 ## ✅ Step 4: Install & Launch
 
@@ -128,7 +128,7 @@ When you tap the APK, Android shows:
 
 5. **Tap "Open"** when installation completes
 
----
+--
 
 ## 🎉 Success! App is Running
 
@@ -150,7 +150,7 @@ You should see:
 └─────────────────────────┘
 ```
 
----
+--
 
 ## 🧪 First Test
 
@@ -165,7 +165,7 @@ You should see:
    - Enter email/password
    - Tap "Login"
 
----
+--
 
 ### Navigate to AI Assistant
 
@@ -192,7 +192,7 @@ You should see:
    - Tap send
    - Watch AI respond!
 
----
+--
 
 ## 🔧 Troubleshooting
 
@@ -213,7 +213,7 @@ You should see:
    - Need at least 100 MB free
    - Settings → Storage → Free up space
 
----
+--
 
 ### "Installation blocked by Play Protect"
 
@@ -229,7 +229,7 @@ You should see:
 
 This is safe - Play Protect warns about apps from outside the Play Store.
 
----
+--
 
 ### "Can't open file"
 
@@ -247,7 +247,7 @@ This is safe - Play Protect warns about apps from outside the Play Store.
    - Menu (⋮) → Downloads
    - Tap APK
 
----
+--
 
 ### App crashes on startup
 
@@ -267,7 +267,7 @@ This is safe - Play Protect warns about apps from outside the Play Store.
    - Uninstall app
    - Install again from APK
 
----
+--
 
 ## 📸 Alternative: USB Transfer
 
@@ -293,7 +293,7 @@ Don't want to email? Use USB:
    - Navigate to Downloads
    - Tap APK to install
 
----
+--
 
 ## ☁️ Alternative: Cloud Storage
 
@@ -311,7 +311,7 @@ Use Google Drive or Dropbox:
    - Tap to download
    - Install from Downloads
 
----
+--
 
 ## 🎯 What to Test
 
@@ -338,7 +338,7 @@ After installation, try these features:
 - [ ] Share evidence
 - [ ] Offline mode
 
----
+--
 
 ## 📊 App Info
 
@@ -357,7 +357,7 @@ Permissions:
   ✅ Network state
 ```
 
----
+--
 
 ## 🚀 You're All Set!
 
@@ -372,7 +372,7 @@ Your Evident app is now installed with:
 
 **Start testing and provide feedback!**
 
----
+--
 
 ## 📚 Need Help?
 
@@ -381,6 +381,6 @@ Your Evident app is now installed with:
 - **Feature questions?** → See `ANDROID-APK-READY.md`
 - **API help?** → See `CHATGPT-QUICK-START.md`
 
----
+--
 
 **Happy testing!** 🎉

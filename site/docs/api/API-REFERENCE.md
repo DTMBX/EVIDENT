@@ -57,7 +57,7 @@ Register a new user account.
 - `400`: Email and password required / Invalid email format
 - `409`: Email already registered
 
----
+--
 
 #### POST /auth/login
 
@@ -95,7 +95,7 @@ Authenticate existing user.
 - `401`: Invalid email or password
 - `403`: Account is disabled
 
----
+--
 
 #### POST /auth/refresh
 
@@ -116,7 +116,7 @@ Authorization: Bearer <current_token>
 }
 ```
 
----
+--
 
 #### GET /auth/me
 
@@ -145,7 +145,7 @@ Authorization: Bearer <token>
 }
 ```
 
----
+--
 
 #### POST /auth/logout
 
@@ -165,7 +165,7 @@ Authorization: Bearer <token>
 }
 ```
 
----
+--
 
 ## Upload Endpoints
 
@@ -212,7 +212,7 @@ file: <PDF file>
 - `403`: PDF upload not available on your tier
 - `413`: File size exceeds limit
 
----
+--
 
 #### POST /upload/video
 
@@ -258,7 +258,7 @@ file: <Video file (mp4, mov, avi, mkv, webm)>
 - `403`: Video upload requires PRO tier or higher
 - `413`: Video size exceeds limit
 
----
+--
 
 #### GET /upload/status/{file_id}
 
@@ -288,7 +288,7 @@ Authorization: Bearer <token>
 - `completed`: Processing complete
 - `failed`: Processing failed
 
----
+--
 
 ## Analysis Endpoints
 
@@ -334,7 +334,7 @@ Authorization: Bearer <token>
 - `400`: file_id required
 - `403`: AI analysis requires PRO tier or higher
 
----
+--
 
 #### GET /analysis/{analysis_id}
 
@@ -368,7 +368,7 @@ Authorization: Bearer <token>
 }
 ```
 
----
+--
 
 #### GET /analysis/{analysis_id}/status
 
@@ -391,7 +391,7 @@ Authorization: Bearer <token>
 }
 ```
 
----
+--
 
 #### GET /analysis/{analysis_id}/report
 
@@ -439,7 +439,7 @@ Content-Disposition: attachment; filename="analysis_report.pdf"
 - `403`: Report export requires PRO tier or higher
 - `501`: PDF export not yet implemented
 
----
+--
 
 #### GET /analysis/list
 
@@ -474,7 +474,7 @@ Authorization: Bearer <token>
 }
 ```
 
----
+--
 
 ## User Endpoints
 
@@ -505,7 +505,7 @@ Authorization: Bearer <token>
 }
 ```
 
----
+--
 
 #### PUT /user/profile
 
@@ -538,7 +538,7 @@ Authorization: Bearer <token>
 }
 ```
 
----
+--
 
 #### POST /user/change-password
 
@@ -572,7 +572,7 @@ Authorization: Bearer <token>
 - `400`: Current and new password required
 - `401`: Current password is incorrect
 
----
+--
 
 #### GET /user/subscription
 
@@ -598,7 +598,7 @@ Authorization: Bearer <token>
 }
 ```
 
----
+--
 
 #### GET /user/usage
 
@@ -631,7 +631,7 @@ Authorization: Bearer <token>
 
 **Note:** `-1` indicates unlimited.
 
----
+--
 
 ## Billing Endpoints
 
@@ -671,7 +671,7 @@ Authorization: Bearer <token>
 4. Stripe webhook updates user tier
 5. User redirected back to success page
 
----
+--
 
 #### POST /billing/webhook
 
@@ -691,7 +691,7 @@ Stripe-Signature: <stripe_signature>
 
 **Note:** This endpoint is called by Stripe servers, not client applications.
 
----
+--
 
 #### POST /billing/portal
 
@@ -722,7 +722,7 @@ Authorization: Bearer <token>
 
 - `400`: No active subscription
 
----
+--
 
 ## Evidence Endpoints
 
@@ -761,7 +761,7 @@ Authorization: Bearer <token>
 }
 ```
 
----
+--
 
 #### GET /evidence/{evidence_id}
 
@@ -788,7 +788,7 @@ Authorization: Bearer <token>
 }
 ```
 
----
+--
 
 #### POST /evidence/{evidence_id}/transcribe
 
@@ -815,7 +815,7 @@ Authorization: Bearer <token>
 
 - `403`: Transcription requires PRO tier or higher
 
----
+--
 
 #### POST /evidence/{evidence_id}/ocr
 
@@ -842,7 +842,7 @@ Authorization: Bearer <token>
 
 - `403`: OCR requires PRO tier or higher
 
----
+--
 
 #### DELETE /evidence/{evidence_id}
 
@@ -862,7 +862,7 @@ Authorization: Bearer <token>
 }
 ```
 
----
+--
 
 ## Admin Endpoints
 
@@ -908,7 +908,7 @@ Authorization: Bearer <admin_token>
 
 - `403`: Admin access required
 
----
+--
 
 #### GET /admin/users/{user_id}
 
@@ -941,7 +941,7 @@ Authorization: Bearer <admin_token>
 - `403`: Admin access required
 - `404`: User not found
 
----
+--
 
 #### GET /admin/stats
 
@@ -982,7 +982,7 @@ Authorization: Bearer <admin_token>
 
 - `403`: Admin access required
 
----
+--
 
 ## Error Responses
 
@@ -1008,7 +1008,7 @@ All error responses follow this format:
 - `500 Internal Server Error`: Server error
 - `501 Not Implemented`: Feature not yet available
 
----
+--
 
 ## Rate Limiting
 
@@ -1034,7 +1034,7 @@ X-RateLimit-Remaining: 95
 X-RateLimit-Reset: 1643276400
 ```
 
----
+--
 
 ## Example Client Code
 
@@ -1102,7 +1102,7 @@ content.Add(new StreamContent(fileStream), "file", "document.pdf");
 var uploadResponse = await client.PostAsync("https://Evident.info/api/v1/upload/pdf", content);
 ```
 
----
+--
 
 ## Changelog
 
@@ -1117,7 +1117,7 @@ var uploadResponse = await client.PostAsync("https://Evident.info/api/v1/upload/
 - Admin endpoints
 - Tier-based access control
 
----
+--
 
 ## Support
 

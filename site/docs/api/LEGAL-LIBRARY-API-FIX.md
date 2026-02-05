@@ -3,7 +3,7 @@
 **Date:** January 27, 2026  
 **Status:** Core API Integration Complete, Import Blocked by CourtListener Auth
 
----
+--
 
 ## ✅ What Was Successfully Completed
 
@@ -27,7 +27,7 @@
 - ✅ Added better logging for verification steps
 - ✅ System now tries direct import with warning instead of rejecting immediately
 
----
+--
 
 ## ❌ Blocking Issue Discovered
 
@@ -50,7 +50,7 @@ The CourtListener REST API requires an API key or authentication token. Anonymou
 - All 27 foundation cases fail verification
 - 0% success rate on imports
 
----
+--
 
 ## 🔧 Solutions Available
 
@@ -77,7 +77,7 @@ response = requests.get(url, params=params, headers=headers)
 **Time:** 10 minutes  
 **Success Rate:** ~90% (API is reliable with auth)
 
----
+--
 
 ### Option 2: Use Alternative Free Sources
 
@@ -89,7 +89,7 @@ response = requests.get(url, params=params, headers=headers)
 
 **Trade-off:** More complex, less reliable, might violate TOS
 
----
+--
 
 ### Option 3: Manual Case Entry
 
@@ -102,17 +102,17 @@ response = requests.get(url, params=params, headers=headers)
 **Time:** 5-10 minutes per case  
 **Success Rate:** 100% (manual verification)
 
----
+--
 
 ### Option 4: Use Existing Local Sources
 
 If you already have case PDFs:
 
 ```python
-python batch_upload_handler.py --folder ./cases
+python batch_upload_handler.py -folder ./cases
 ```
 
----
+--
 
 ## 📊 Current System Status
 
@@ -143,7 +143,7 @@ python batch_upload_handler.py --folder ./cases
 - ✅ Deployment guides
 - ✅ Quick start guides
 
----
+--
 
 ## 🚀 Next Steps
 
@@ -152,7 +152,7 @@ python batch_upload_handler.py --folder ./cases
 1. Get CourtListener API key from https://www.courtlistener.com/
 2. Add to `.env` file
 3. Update `legal_library.py` line 202 to include auth header
-4. Run: `python overnight_library_builder.py --practice-area all`
+4. Run: `python overnight_library_builder.py -practice-area all`
 5. Watch 27 cases import successfully
 
 ### Short-term (1 hour)
@@ -169,7 +169,7 @@ python batch_upload_handler.py --folder ./cases
 3. Enable user annotations
 4. Add citation network visualization
 
----
+--
 
 ## 📁 Files Modified Today
 
@@ -186,7 +186,7 @@ python batch_upload_handler.py --folder ./cases
 6. `OVERNIGHT-STATUS-REPORT.md` - Previous status
 7. `LEGAL-LIBRARY-API-FIX.md` - This file
 
----
+--
 
 ## 💡 Key Learnings
 
@@ -211,7 +211,7 @@ python batch_upload_handler.py --folder ./cases
 - Hook up integrations
 - Launch to production
 
----
+--
 
 ## 🎯 Bottom Line
 
@@ -225,7 +225,7 @@ python batch_upload_handler.py --folder ./cases
 
 **Result:** 27 verified Supreme Court cases in your legal library, ready to power ChatGPT integration, document optimization, and violation finding.
 
----
+--
 
 **Estimated Time to Full Operation:** 15 minutes  
 **Confidence Level:** HIGH (architecture proven, just needs auth)

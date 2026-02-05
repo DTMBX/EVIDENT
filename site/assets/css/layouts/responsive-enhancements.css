@@ -202,7 +202,7 @@
 
   /* Button groups stack vertically */
   .btn-group,
-  .cta-panel__actions {
+  .cta-panel-actions {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -210,7 +210,7 @@
   }
 
   .btn-group .btn,
-  .cta-panel__actions .btn {
+  .cta-panel-actions .btn {
     width: 100%;
   }
 
@@ -390,11 +390,11 @@
   }
 
   /* Premium header mobile */
-  .premium-header__inner {
+  .premium-header-inner {
     padding: 1rem 1.25rem;
   }
 
-  .premium-brand__mark {
+  .premium-brand-mark {
     width: 36px;
     height: 36px;
   }

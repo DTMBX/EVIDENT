@@ -8,7 +8,7 @@
     <h2>🌿 Symptom & Plant Selector (Prototype)</h2>
     <label for="symptomSelect"><strong>Select a symptom or condition:</strong></label>
     <select id="symptomSelect">
-      <option value="">-- Choose --</option>
+      <option value="">- Choose -</option>
       ${data.map((d, i) => `<option value="${i}">${d.symptom}</option>`).join("")}
     </select>
     <div id="symptomPlantResults" class="symptom-plant-results"></div>

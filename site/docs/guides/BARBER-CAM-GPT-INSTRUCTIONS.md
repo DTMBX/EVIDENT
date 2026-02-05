@@ -82,7 +82,7 @@ docs/ (NJ-RECORDING-LAWS.md, EVIDENCE-INTEGRITY.md)
 ## Database Schemas (Key Tables)
 
 ```sql
--- Immutable originals
+- Immutable originals
 CREATE TABLE original_evidence (
     id SERIAL PRIMARY KEY,
     sha256 TEXT UNIQUE NOT NULL,
@@ -92,7 +92,7 @@ CREATE TABLE original_evidence (
     created_at TIMESTAMP DEFAULT NOW()
 );
 
--- Derivatives link to originals
+- Derivatives link to originals
 CREATE TABLE derivative_evidence (
     id SERIAL PRIMARY KEY,
     sha256 TEXT UNIQUE,
@@ -101,16 +101,16 @@ CREATE TABLE derivative_evidence (
     created_at TIMESTAMP DEFAULT NOW()
 );
 
--- Append-only audit log
+- Append-only audit log
 CREATE TABLE evidence_access_log (
     id SERIAL PRIMARY KEY,
     evidence_sha256 TEXT,
     user_id INTEGER,
-    action TEXT, -- "view", "download", "export"
+    action TEXT, - "view", "download", "export"
     accessed_at TIMESTAMP DEFAULT NOW()
 );
 
--- Attorney sharing
+- Attorney sharing
 CREATE TABLE share_links (
     id SERIAL PRIMARY KEY,
     case_id INTEGER,
@@ -167,6 +167,6 @@ def analyze_bwc_video(evidence_id):
 **Risk:** Low (incremental, no breaking changes)  
 **Status:** ✅ Ready to implement
 
----
+--
 
 **Character Count:** ~5,800 (fits GPT 8000 limit)

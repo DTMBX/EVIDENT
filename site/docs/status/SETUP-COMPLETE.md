@@ -38,7 +38,7 @@
 - ? **pdfplumber** - Advanced PDF parsing
 - ? **python-docx** - Word document processing
 
----
+--
 
 ## ?? HOW TO START THE APPLICATION:
 
@@ -61,7 +61,7 @@ This will:
 python app.py
 ```
 
----
+--
 
 ## ?? ACCESS THE APPLICATION:
 
@@ -78,7 +78,7 @@ python app.py
 - **Email:** admin@Evident.info
 - **Password:** Evident2026!
 
----
+--
 
 ## ?? WHAT YOU CAN DO:
 
@@ -125,7 +125,7 @@ python app.py
 - ? Multi-speaker separation
 - ? Background noise filtering
 
----
+--
 
 ## ?? OPTIONAL: AI FEATURES (Requires API Keys)
 
@@ -148,7 +148,7 @@ HUGGINGFACE_TOKEN=hf_...
 2. **Anthropic:** https://console.anthropic.com/
 3. **HuggingFace:** https://huggingface.co/settings/tokens
 
----
+--
 
 ## ?? PROJECT STRUCTURE:
 
@@ -182,7 +182,7 @@ Evident.info/
     ??? FIX-AND-START.ps1         # Quick fix & start
 ```
 
----
+--
 
 ## ?? TROUBLESHOOTING:
 
@@ -220,7 +220,7 @@ Get-Process python | Stop-Process -Force
 python app.py
 ```
 
----
+--
 
 ## ?? DEPLOYMENT CHECKLIST:
 
@@ -239,7 +239,7 @@ Before deploying to production:
 - [ ] Set up Redis for caching
 - [ ] Configure rate limiting
 
----
+--
 
 ## ?? DOCUMENTATION:
 
@@ -248,7 +248,7 @@ Before deploying to production:
 - **BWC Analysis:** See `BWC-ANALYSIS-GUIDE.md`
 - **Deployment:** See `DEPLOYMENT-GUIDE.md`
 
----
+--
 
 ## ?? SUPPORT:
 
@@ -256,7 +256,7 @@ Before deploying to production:
 - **Email:** support@Evident.info
 - **Documentation:** Check the docs/ folder
 
----
+--
 
 ## ?? LICENSE:
 
@@ -264,7 +264,7 @@ Evident Legal Technologies� Proprietary License
 Copyright � 2024-2026 Faith Frontier Ecclesiastical Trust
 All Rights Reserved
 
----
+--
 
 ## ? YOU'RE READY TO GO!
 

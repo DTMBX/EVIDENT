@@ -4,7 +4,7 @@
 
 **EST. 2024 | A CUT ABOVE**
 
----
+--
 
 ## Brand Identity
 
@@ -19,7 +19,7 @@
 - **Virtue**: Built on integrity and ethical principles
 - **Honor**: Respecting dignity and due process
 
----
+--
 
 ## Visual Identity
 
@@ -39,7 +39,7 @@ The classic 1920s spinning barber pole is our primary brand symbol:
 - Decorative: Medium (36px × 100px) - default for page corners
 - Hero: Large/Hero (56-70px × 180-220px)
 
----
+--
 
 ## Color Palette
 
@@ -67,7 +67,7 @@ The classic 1920s spinning barber pole is our primary brand symbol:
   /* Pure white */;
 ```
 
----
+--
 
 ## Typography
 
@@ -86,7 +86,7 @@ The classic 1920s spinning barber pole is our primary brand symbol:
 - Semibold: 600
 - Bold: 700
 
----
+--
 
 ## Spacing & Layout
 
@@ -108,7 +108,7 @@ All spacing follows a 4px base unit:
 - 2XL: 32px — Hero sections
 - Full: 9999px — Pills, circular elements
 
----
+--
 
 ## Transitions
 
@@ -128,7 +128,7 @@ All spacing follows a 4px base unit:
 
 **Rule**: Every interactive element should have a smooth transition.
 
----
+--
 
 ## Shadows & Depth
 
@@ -148,7 +148,7 @@ All spacing follows a 4px base unit:
   rgba(30, 64, 175, 0.2) --shadow-glow-gold: 0 0 24px rgba(212, 165, 116, 0.2);
 ```
 
----
+--
 
 ## Brand Messages
 
@@ -166,7 +166,7 @@ All spacing follows a 4px base unit:
 - Detail-oriented but not pedantic
 - Respectful of the craft
 
----
+--
 
 ## Accessibility
 
@@ -190,7 +190,7 @@ Always respect `prefers-reduced-motion`:
 - Clear focus indicators
 - Logical tab order
 
----
+--
 
 ## File Structure
 
@@ -210,7 +210,7 @@ assets/
         └── barbercam-footer-min.svg
 ```
 
----
+--
 
 ## Implementation Checklist
 
@@ -227,9 +227,8 @@ When adding the barber pole to a new page:
 - [ ] Verify mobile responsive behavior
 - [ ] Check print styles hide decorative poles
 
----
+--
 
 **Remember**: Like a barber perfecting a fade, attention to detail makes the difference between good and great. Every pixel, every transition, every shadow should be intentional.
 
 **A CUT ABOVE** ✂️
-

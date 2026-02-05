@@ -268,7 +268,7 @@
 
     // Remove old selection
     mapRoot.querySelectorAll(".state--selected").forEach((n) => {
-      n.classList.remove("state--selected");
+      n.classList.remove("state-selected");
       n.style.stroke = "#1f2937";
       n.style.strokeWidth = "0.5";
     });
@@ -279,7 +279,7 @@
       `[data-state="${selected.state}"], #${CSS.escape(selected.state)}`,
     );
     if (sel) {
-      sel.classList.add("state--selected");
+      sel.classList.add("state-selected");
       sel.style.stroke = "#000";
       sel.style.strokeWidth = "3";
     }

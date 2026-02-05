@@ -92,16 +92,16 @@ Open `elegant-nav-demo.html` in your browser to see the navigation in action.
 Add to your layout file:
 
 ```html
-<!-- In <head> -->
+<!-- In <head> ->
 <link
   rel="stylesheet"
   href="{{ '/assets/css/components/elegant-header.css' | relative_url }}"
 />
 
-<!-- After <body> -->
+<!-- After <body> ->
 {% include components/navigation/elegant-header.html %}
 
-<!-- Before </body> -->
+<!-- Before </body> ->
 <script src="{{ '/assets/js/elegant-header.js' | relative_url }}"></script>
 ```
 
@@ -232,7 +232,7 @@ The elegant navigation system is complete and ready for production use. It provi
 
 **To get started**: Open `elegant-nav-demo.html` in your browser!
 
----
+--
 
 **Created with ❤️ for Evident Legal Technologies**  
 January 2026

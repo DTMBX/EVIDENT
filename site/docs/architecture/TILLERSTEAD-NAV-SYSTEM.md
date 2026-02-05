@@ -84,16 +84,16 @@ The files are already in place:
 Add to your layout file (e.g., `_layouts/default.html`):
 
 ```html
-<!-- In <head> section -->
+<!-- In <head> section ->
 <link
   rel="stylesheet"
   href="{{ '/assets/css/components/tillerstead-header.css' | relative_url }}"
 />
 
-<!-- After <body> tag -->
+<!-- After <body> tag ->
 {% include components/navigation/tillerstead-header.html %}
 
-<!-- Before </body> tag -->
+<!-- Before </body> tag ->
 <script src="{{ '/assets/js/tillerstead-header.js' | relative_url }}"></script>
 ```
 
@@ -220,7 +220,7 @@ This navigation system embodies that mission through:
 - Recovery and help-focused CTAs
 - Accessible, welcoming design
 
----
+--
 
 **Created with care for Tillerstead Sanctuary**  
 _Faith Frontier Ecclesiastical Trust_  

@@ -218,12 +218,12 @@ results = service.search(
 
 ```bash
 # Retrieve passages
-python -m pipeline.cli retrieve "search seizure warrant" --top 5
-python -m pipeline.cli retrieve "qualified immunity" --source legal_library --json
+python -m pipeline.cli retrieve "search seizure warrant" -top 5
+python -m pipeline.cli retrieve "qualified immunity" -source legal_library -json
 
 # List documents
 python -m pipeline.cli list
-python -m pipeline.cli list --source legal_library --limit 10
+python -m pipeline.cli list -source legal_library -limit 10
 
 # Get citations
 python -m pipeline.cli citations analysis_abc123
@@ -328,7 +328,7 @@ This allows unified retrieval across legal library + BWC without changing BWC in
 1. **Ingest legal library documents:**
 
    ```bash
-   python -m pipeline.cli ingest cases/*.pdf --source legal_library --doc-type case_law
+   python -m pipeline.cli ingest cases/*.pdf -source legal_library -doc-type case_law
    ```
 
 2. **Seed municipal codes:**

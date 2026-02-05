@@ -6,7 +6,7 @@ The Evident admin panel now provides complete CRUD (Create, Read, Update, Delete
 
 **Access:** `https://app.Evident.info/admin` (requires admin role)
 
----
+--
 
 ## ✅ What's New
 
@@ -40,7 +40,7 @@ The Evident admin panel now provides complete CRUD (Create, Read, Update, Delete
 - Real-time system metrics
 - Audit log viewing with filters
 
----
+--
 
 ## 🔐 Security Features
 
@@ -62,7 +62,7 @@ def admin_panel():
 - ✅ User-scoped security on all operations
 - ✅ Confirmation dialogs for destructive actions
 
----
+--
 
 ## 📊 Admin Panel Sections
 
@@ -101,7 +101,7 @@ def admin_panel():
 }
 ```
 
----
+--
 
 ### 2. Users Tab
 
@@ -179,7 +179,7 @@ def admin_panel():
 
 **Safety:** Returns 403 if attempting to delete yourself
 
----
+--
 
 ### 3. Analyses Tab
 
@@ -225,7 +225,7 @@ def admin_panel():
 }
 ```
 
----
+--
 
 ### 4. System Tab
 
@@ -267,7 +267,7 @@ def admin_panel():
 
 **Dependencies:** Requires `psutil` package
 
----
+--
 
 ### 4. Settings Tab ⭐ NEW
 
@@ -389,7 +389,7 @@ def admin_panel():
 
 **Note:** Some core settings may be marked as read-only and cannot be deleted.
 
----
+--
 
 ### 5. System Tab
 
@@ -402,7 +402,7 @@ def admin_panel():
 - **CPU Usage:** Current CPU utilization percentage
 - **Memory Usage:** RAM usage percentage
 
----
+--
 
 ### 6. Audit Logs Tab
 
@@ -434,7 +434,7 @@ def admin_panel():
 }
 ```
 
----
+--
 
 ## 🛠 Technical Implementation
 
@@ -446,26 +446,26 @@ def admin_panel():
 <div class="tabs">
   <button class="tab active" data-tab="overview">Overview</button>
   <button class="tab" data-tab="users">Users</button>
-  <!-- ... -->
+  <!-- ... ->
 </div>
 
 <div id="overview" class="tab-content active">
-  <!-- Stats cards and charts -->
+  <!-- Stats cards and charts ->
 </div>
 
-<!-- Edit User Modal -->
+<!-- Edit User Modal ->
 <div id="editUserModal" class="modal">
   <div class="modal-content">
     <form id="editUserForm">
-      <!-- Form fields -->
+      <!-- Form fields ->
     </form>
   </div>
 </div>
 
-<!-- Toast Notifications -->
+<!-- Toast Notifications ->
 <div id="toast" class="toast"></div>
 
-<!-- Loading Overlay -->
+<!-- Loading Overlay ->
 <div id="loadingOverlay" class="loading-overlay"></div>
 ```
 
@@ -532,7 +532,7 @@ GET    /admin/system-info     # System health metrics
 GET    /admin/audit-logs      # Audit trail
 ```
 
----
+--
 
 ## 📝 Usage Examples
 
@@ -570,7 +570,7 @@ GET    /admin/audit-logs      # Audit trail
 4. Click **Delete** on outdated failures
 5. Frees up storage space
 
----
+--
 
 ## 🔧 Installation & Setup
 
@@ -631,7 +631,7 @@ db.session.commit()
 2. Navigate to: `https://app.Evident.info/admin`
 3. Start managing users and analyses
 
----
+--
 
 ## 🎨 UI/UX Features
 
@@ -662,7 +662,7 @@ db.session.commit()
 - Horizontal scroll on small screens
 - Touch-friendly action buttons
 
----
+--
 
 ## 🐛 Troubleshooting
 
@@ -686,7 +686,7 @@ db.session.commit()
 **Cause:** Not logged in as admin  
 **Solution:** Ensure user has `role='admin'` in database
 
----
+--
 
 ## 📊 Performance
 
@@ -708,7 +708,7 @@ db.session.commit()
 - Indexed on user_id, status, created_at
 - Efficient JOIN operations
 
----
+--
 
 ## 🚀 Future Enhancements
 
@@ -723,7 +723,7 @@ db.session.commit()
 - [ ] IP-based access restrictions
 - [ ] Scheduled reports (daily/weekly analytics)
 
----
+--
 
 ## 📖 Related Documentation
 
@@ -732,7 +732,7 @@ db.session.commit()
 - [START-HERE.md](./START-HERE.md) - Quick start guide
 - [WEB-APP-GUIDE.md](./WEB-APP-GUIDE.md) - Full platform guide
 
----
+--
 
 ## ✅ Checklist: Is Admin Panel Working?
 
@@ -755,7 +755,7 @@ db.session.commit()
 - [x] Loading overlay shows during operations
 - [x] All safety checks enforced (cannot delete self)
 
----
+--
 
 ## 📞 Support
 
@@ -763,7 +763,7 @@ db.session.commit()
 **Email:** support@Evident.info  
 **Documentation:** https://docs.Evident.info
 
----
+--
 
 **Last Updated:** January 2025  
 **Version:** 2.0.0  

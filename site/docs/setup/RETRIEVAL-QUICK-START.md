@@ -187,12 +187,12 @@ python -m pytest tests/test_unified_retrieval.py -v
 
 ```bash
 # Retrieve passages
-python -m pipeline.cli retrieve "search seizure" --top 5
-python -m pipeline.cli retrieve "qualified immunity" --json
+python -m pipeline.cli retrieve "search seizure" -top 5
+python -m pipeline.cli retrieve "qualified immunity" -json
 
 # List documents
 python -m pipeline.cli list
-python -m pipeline.cli list --source legal_library
+python -m pipeline.cli list -source legal_library
 
 # Get citations
 python -m pipeline.cli citations analysis_abc123

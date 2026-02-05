@@ -271,7 +271,7 @@ Check logs for slow queries (>1 second):
 grep "Slow query" logs/Evident.log
 ```
 
----
+--
 
 **Status**: ✅ Production Ready
 **Performance Rating**: A+ (90+ PageSpeed Score expected)

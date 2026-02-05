@@ -6,7 +6,7 @@
 **Integrations:** 100% created, 0% hooked up 🔧  
 **Docs:** 100% ✅
 
----
+--
 
 ## 🚀 Quick Start
 
@@ -63,7 +63,7 @@ self.library_integration = EvidenceAnalyzerLibraryIntegration()
 enhanced = self.library_integration.enhance_evidence_report(items)
 ```
 
----
+--
 
 ## 📁 Files
 
@@ -98,7 +98,7 @@ enhanced = self.library_integration.enhance_evidence_report(items)
 
 **Total: 18 files**
 
----
+--
 
 ## 🔗 API Endpoints (11)
 
@@ -114,7 +114,7 @@ POST /api/legal-library/annotate
 POST /api/legal-library/parse-citation
 ```
 
----
+--
 
 ## 📊 Pre-Loaded Data
 
@@ -138,7 +138,7 @@ POST /api/legal-library/parse-citation
 - Employment: 5 cases
 - Constitutional: 4+ cases
 
----
+--
 
 ## ⚡ Quick Commands
 
@@ -160,7 +160,7 @@ curl "http://localhost:5000/api/legal-library/search?q=miranda"
 python -m unittest tests/test_legal_library_integration.py
 ```
 
----
+--
 
 ## 📈 Value
 
@@ -169,7 +169,7 @@ python -m unittest tests/test_legal_library_integration.py
 **Competitive Edge:** Only BWC platform with this  
 **Premium Feature:** PRO/PREMIUM tier
 
----
+--
 
 ## ✅ Checklist
 
@@ -186,7 +186,7 @@ python -m unittest tests/test_legal_library_integration.py
 **Current: 4/9 complete (44%)**  
 **Next: Hook up integrations (5 min)**
 
----
+--
 
 ## 🎯 Priority Actions
 
@@ -200,7 +200,7 @@ python -m unittest tests/test_legal_library_integration.py
 8. 📱 Build MAUI UI
 9. ✅ Write tests
 
----
+--
 
 **See LEGAL-LIBRARY-INTEGRATION-COMPLETE.md for full details**
 

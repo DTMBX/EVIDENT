@@ -144,7 +144,7 @@ function displayResults(results, query) {
 
   if (results.length === 0) {
     resultsContainer.innerHTML = `
-      <div class="search-results__placeholder">
+      <div class="search-results-placeholder">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="64" height="64">
           <circle cx="11" cy="11" r="8"/>
           <path d="M21 21l-4.35-4.35"/>
@@ -179,10 +179,10 @@ function displayResults(results, query) {
 
   // Render results
   const html = `
-    <div class="search-results__header">
+    <div class="search-results-header">
       <h3>Found ${results.length} docket entries in ${Object.keys(resultsByCase).length} case(s)</h3>
-      <div class="search-results__actions">
-        <button class="btn-secondary btn-secondary--small" onclick="exportResults('csv')">
+      <div class="search-results-actions">
+        <button class="btn-secondary btn-secondary-small" onclick="exportResults('csv')">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
             <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
           </svg>
@@ -191,33 +191,33 @@ function displayResults(results, query) {
       </div>
     </div>
     
-    <div class="search-results__list">
+    <div class="search-results-list">
       ${Object.values(resultsByCase)
         .map(
           (caseData) => `
         <div class="result-card">
-          <div class="result-card__header">
+          <div class="result-card-header">
             <h4>
               <a href="/cases/${caseData.slug}/">${caseData.docket}</a>
             </h4>
-            <span class="badge badge--${getStatusColor(caseData.status)}">${caseData.status || "Active"}</span>
+            <span class="badge badge-${getStatusColor(caseData.status)}">${caseData.status || "Active"}</span>
           </div>
-          <p class="result-card__title">${caseData.title || "Untitled Case"}</p>
-          <div class="result-card__meta">
+          <p class="result-card-title">${caseData.title || "Untitled Case"}</p>
+          <div class="result-card-meta">
             <span>${caseData.court || "Court Unspecified"}</span>
             <span>•</span>
             <span>${caseData.entries.length} filing(s)</span>
           </div>
           
-          <div class="result-card__entries">
+          <div class="result-card-entries">
             ${caseData.entries
               .slice(0, 5)
               .map(
                 (entry) => `
               <div class="docket-entry">
-                <span class="docket-entry__date">${formatDate(entry.date)}</span>
-                <span class="docket-entry__type">${entry.type || "Document"}</span>
-                <a href="${entry.file}" class="docket-entry__title" target="_blank">
+                <span class="docket-entry-date">${formatDate(entry.date)}</span>
+                <span class="docket-entry-type">${entry.type || "Document"}</span>
+                <a href="${entry.file}" class="docket-entry-title" target="_blank">
                   ${entry.title || "Untitled Document"}
                 </a>
               </div>
@@ -247,7 +247,7 @@ function displayResults(results, query) {
 function clearResults() {
   const resultsContainer = document.getElementById("searchResults");
   resultsContainer.innerHTML = `
-    <div class="search-results__placeholder">
+    <div class="search-results-placeholder">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="64" height="64">
         <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
       </svg>

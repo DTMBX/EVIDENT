@@ -7,7 +7,7 @@
    DESKTOP NAVIGATION IMPROVEMENTS
    =========================================== */
 
-.premium-header__inner {
+.premium-header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -16,22 +16,22 @@
 }
 
 @media (width >= 1024px) {
-  .premium-header__inner {
+  .premium-header-inner {
     padding: 1.25rem 0;
   }
 }
 
-.premium-nav--desktop {
+.premium-nav-desktop {
   display: none;
 }
 
 @media (width >= 1024px) {
-  .premium-nav--desktop {
+  .premium-nav-desktop {
     display: block;
   }
 }
 
-.premium-nav__list {
+.premium-nav-list {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -41,12 +41,12 @@
 }
 
 @media (width >= 1200px) {
-  .premium-nav__list {
+  .premium-nav-list {
     gap: 1rem;
   }
 }
 
-.premium-nav__link {
+.premium-nav-link {
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
@@ -58,23 +58,23 @@
 }
 
 @media (width >= 1200px) {
-  .premium-nav__link {
+  .premium-nav-link {
     padding: 0.625rem 1rem;
   }
 }
 
-.premium-nav__link:hover {
+.premium-nav-link:hover {
   background: rgb(255 255 255 / 5%);
-  color: var(--Evident-gold);
+  color: var(--evident-gold);
 }
 
-.premium-nav__link:focus-visible {
-  outline: 2px solid var(--Evident-gold);
+.premium-nav-link:focus-visible {
+  outline: 2px solid var(--evident-gold);
   outline-offset: 2px;
 }
 
 /* Enhanced CTA Button */
-.premium-nav__link--cta {
+.premium-nav-link-cta {
   background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
   color: #1a1a2e !important;
   font-weight: 600;
@@ -83,20 +83,20 @@
   padding: 0.625rem 1.25rem;
 }
 
-.premium-nav__link--cta:hover {
+.premium-nav-link-cta:hover {
   background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
   transform: translateY(-1px);
   box-shadow: 0 4px 20px rgb(212 175 55 / 50%);
   color: #1a1a2e !important;
 }
 
-.premium-nav__link--cta:active {
+.premium-nav-link-cta:active {
   transform: translateY(0);
   box-shadow: 0 2px 8px rgb(212 175 55 / 40%);
 }
 
 /* Icon Button Improvements */
-.premium-nav__link--icon {
+.premium-nav-link-icon {
   padding: 0.625rem;
   display: flex;
   align-items: center;
@@ -129,33 +129,30 @@
   }
 }
 
-.premium-nav-toggle__bar {
+.premium-nav-toggle-bar {
   width: 24px;
   height: 2px;
-  background: var(--Evident-gold);
+  background: var(--evident-gold);
   border-radius: 2px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transform-origin: center;
 }
 
-.premium-nav-toggle[aria-expanded="true"]
-  .premium-nav-toggle__bar:nth-child(1) {
+.premium-nav-toggle[aria-expanded="true"] .premium-nav-toggle-bar:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
 
-.premium-nav-toggle[aria-expanded="true"]
-  .premium-nav-toggle__bar:nth-child(2) {
+.premium-nav-toggle[aria-expanded="true"] .premium-nav-toggle-bar:nth-child(2) {
   opacity: 0;
   transform: scaleX(0);
 }
 
-.premium-nav-toggle[aria-expanded="true"]
-  .premium-nav-toggle__bar:nth-child(3) {
+.premium-nav-toggle[aria-expanded="true"] .premium-nav-toggle-bar:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
 }
 
 /* Mobile Menu Drawer */
-.premium-nav--mobile {
+.premium-nav-mobile {
   position: fixed;
   top: 0;
   right: 0;
@@ -168,21 +165,21 @@
   z-index: 1000;
   overflow-y: auto;
   overscroll-behavior: contain;
-  border-left: 2px solid var(--Evident-gold);
+  border-left: 2px solid var(--evident-gold);
 }
 
 @media (width >= 1024px) {
-  .premium-nav--mobile {
+  .premium-nav-mobile {
     display: none;
   }
 }
 
-.premium-nav--mobile[aria-hidden="false"] {
+.premium-nav-mobile[aria-hidden="false"] {
   transform: translateX(0);
 }
 
 /* Mobile Nav Header */
-.premium-nav__header {
+.premium-nav-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -191,16 +188,16 @@
   background: rgb(0 0 0 / 20%);
 }
 
-.premium-nav__mobile-brand {
-  font-family: var(--Evident-font-sans);
+.premium-nav-mobile-brand {
+  font-family: var(--evident-font-sans);
   font-weight: 600;
   font-size: 1.125rem;
-  color: var(--Evident-gold);
+  color: var(--evident-gold);
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-.premium-nav__close {
+.premium-nav-close {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -209,33 +206,33 @@
   padding: 0;
   background: transparent;
   border: none;
-  color: var(--Evident-gold);
+  color: var(--evident-gold);
   cursor: pointer;
   border-radius: 6px;
   transition: all 0.2s ease;
 }
 
-.premium-nav__close:hover {
+.premium-nav-close:hover {
   background: rgb(212 175 55 / 15%);
 }
 
-.premium-nav__close:active {
+.premium-nav-close:active {
   transform: scale(0.95);
 }
 
 /* Mobile Nav List */
-.premium-nav--mobile .premium-nav__list {
+.premium-nav-mobile .premium-nav-list {
   flex-direction: column;
   align-items: stretch;
   gap: 0;
   padding: 1rem 0;
 }
 
-.premium-nav--mobile .premium-nav__item {
+.premium-nav-mobile .premium-nav-item {
   width: 100%;
 }
 
-.premium-nav--mobile .premium-nav__link {
+.premium-nav-mobile .premium-nav-link {
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -247,14 +244,14 @@
   transition: all 0.2s ease;
 }
 
-.premium-nav--mobile .premium-nav__link:hover,
-.premium-nav--mobile .premium-nav__link:focus {
+.premium-nav-mobile .premium-nav-link:hover,
+.premium-nav-mobile .premium-nav-link:focus {
   background: rgb(212 175 55 / 10%);
-  border-left-color: var(--Evident-gold);
+  border-left-color: var(--evident-gold);
   padding-left: 1.75rem;
 }
 
-.premium-nav--mobile .premium-nav__link--cta {
+.premium-nav-mobile .premium-nav-link-cta {
   margin: 1rem 1.5rem;
   justify-content: center;
   border-left: none;
@@ -262,24 +259,24 @@
   padding: 1rem 1.5rem;
 }
 
-.premium-nav--mobile .premium-nav__link--cta:hover {
+.premium-nav-mobile .premium-nav-link-cta:hover {
   padding-left: 1.5rem;
 }
 
 /* Mobile Submenu */
-.premium-nav__item--has-children > .premium-nav__link {
+.premium-nav-item-has-children > .premium-nav-link {
   justify-content: space-between;
 }
 
-.premium-nav__chevron {
+.premium-nav-chevron {
   transition: transform 0.3s ease;
 }
 
-.premium-nav__submenu-toggle[aria-expanded="true"] .premium-nav__chevron {
+.premium-nav-submenu-toggle[aria-expanded="true"] .premium-nav-chevron {
   transform: rotate(180deg);
 }
 
-.premium-nav__submenu {
+.premium-nav-submenu {
   display: none;
   list-style: none;
   margin: 0;
@@ -287,11 +284,11 @@
   background: rgb(0 0 0 / 20%);
 }
 
-.premium-nav__submenu-toggle[aria-expanded="true"] + .premium-nav__submenu {
+.premium-nav-submenu-toggle[aria-expanded="true"] + .premium-nav-submenu {
   display: block;
 }
 
-.premium-nav__sublink {
+.premium-nav-sublink {
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -303,23 +300,23 @@
   border-left: 3px solid transparent;
 }
 
-.premium-nav__sublink:hover,
-.premium-nav__sublink:focus {
+.premium-nav-sublink:hover,
+.premium-nav-sublink:focus {
   background: rgb(212 175 55 / 8%);
-  border-left-color: var(--Evident-brass);
+  border-left-color: var(--evident-brass);
   color: #fff;
   padding-left: 3.25rem;
 }
 
 /* Mobile Nav Footer */
-.premium-nav__footer {
+.premium-nav-footer {
   padding: 1.5rem;
   border-top: 1px solid rgb(212 175 55 / 20%);
   margin-top: auto;
 }
 
-.premium-nav__tagline {
-  font-family: var(--Evident-font-sans);
+.premium-nav-tagline {
+  font-family: var(--evident-font-sans);
   font-size: 0.75rem;
   color: rgb(212 175 55 / 60%);
   letter-spacing: 0.1em;
@@ -346,7 +343,7 @@
 }
 
 /* Icon Styles */
-.premium-nav__icon {
+.premium-nav-icon {
   flex-shrink: 0;
   opacity: 0.9;
 }
@@ -363,7 +360,7 @@
   padding: 0.875rem 1.75rem;
   background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
   color: #1a1a2e;
-  font-family: var(--Evident-font-sans);
+  font-family: var(--evident-font-sans);
   font-weight: 600;
   font-size: 1rem;
   letter-spacing: 0.025em;
@@ -387,7 +384,7 @@
 }
 
 .btn-primary:focus-visible {
-  outline: 2px solid var(--Evident-gold);
+  outline: 2px solid var(--evident-gold);
   outline-offset: 3px;
 }
 
@@ -419,16 +416,16 @@
 
 /* Focus visible styles */
 *:focus-visible {
-  outline: 2px solid var(--Evident-gold);
+  outline: 2px solid var(--evident-gold);
   outline-offset: 2px;
 }
 
 /* Reduce motion for users who prefer it */
 @media (prefers-reduced-motion: reduce) {
-  .premium-nav-toggle__bar,
-  .premium-nav--mobile,
+  .premium-nav-toggle-bar,
+  .premium-nav-mobile,
   .premium-nav-overlay,
-  .premium-nav__link,
+  .premium-nav-link,
   .btn-primary {
     transition: none;
   }

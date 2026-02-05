@@ -2,7 +2,7 @@
 
 **Specialized AI assistants for defense law firms and civic organizations**
 
----
+--
 
 ## Tool Categories
 
@@ -18,7 +18,7 @@
 
 ### 6. Timeline & Organization Tools
 
----
+--
 
 ## 1. Constitutional Analysis Tools
 
@@ -163,7 +163,7 @@ Analyze interrogation for Miranda violations:
 Flag suppressible statements and provide case citations.
 ```
 
----
+--
 
 ## 2. Discovery & Evidence Tools
 
@@ -269,7 +269,7 @@ Audit chain of custody for:
 Flag any breaks in chain with severity assessment.
 ```
 
----
+--
 
 ## 3. Witness & Statement Tools
 
@@ -354,7 +354,7 @@ STYLE:
 Format as numbered outline with exhibit references.
 ```
 
----
+--
 
 ## 4. Case Research Tools
 
@@ -434,7 +434,7 @@ Break down statute into elements:
 Create element checklist for trial prep.
 ```
 
----
+--
 
 ## 5. Document Generation Tools
 
@@ -516,7 +516,7 @@ Generate discovery requests for:
 Format as numbered requests with definitions and time periods.
 ```
 
----
+--
 
 ## 6. Timeline & Organization Tools
 
@@ -570,14 +570,14 @@ VI. TRIAL STRATEGY
    D. Closing Argument Outline
 ```
 
----
+--
 
 ## Implementation in Evident
 
 ### Add to Project Settings UI
 
 ```xml
-<!-- ProjectSettingsPage.xaml -->
+<!-- ProjectSettingsPage.xaml ->
 <Picker x:Name="LegalToolPicker"
         Title="Legal Analysis Tool"
         ItemsSource="{Binding AvailableTools}">
@@ -619,7 +619,7 @@ async Task RunLegalTool(LegalTool tool)
 }
 ```
 
----
+--
 
 ## Usage Examples
 
@@ -688,6 +688,6 @@ Output:
 - No warrant shown on BWC
 ```
 
----
+--
 
 **Next:** Implement these tools in ChatPage UI with quick access buttons!

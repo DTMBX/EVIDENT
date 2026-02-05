@@ -59,25 +59,25 @@
 **Usage Examples:**
 
 ```html
-<!-- Scroll Reveals -->
+<!-- Scroll Reveals ->
 <div class="slide-up" data-delay="0">Fades and slides up</div>
 <div class="zoom-in" data-delay="100">Zooms in smoothly</div>
 <div class="blur-in" data-delay="200">Blurs into focus</div>
 
-<!-- Parallax -->
+<!-- Parallax ->
 <div data-parallax="0.5" data-parallax-direction="up">
   Moves slower than scroll
 </div>
 
-<!-- Animated Counter -->
+<!-- Animated Counter ->
 <span data-counter="1500" data-counter-suffix="+" data-counter-duration="2000"
   >0</span
 >
 
-<!-- Magnetic Hover -->
+<!-- Magnetic Hover ->
 <button data-magnetic="0.3">Follows your cursor</button>
 
-<!-- Ripple Effect -->
+<!-- Ripple Effect ->
 <button data-ripple>Click me for ripples</button>
 ```
 
@@ -194,7 +194,7 @@ const colors = window.themeManager.getThemeColors();
 
 ```html
 <head>
-  <!-- Enhanced animations -->
+  <!-- Enhanced animations ->
   <link rel="stylesheet" href="/assets/css/enhanced-animations.css" />
 </head>
 ```
@@ -203,7 +203,7 @@ const colors = window.themeManager.getThemeColors();
 
 ```html
 <body>
-  <!-- Load before closing </body> -->
+  <!-- Load before closing </body> ->
   <script src="/assets/js/enhanced-animations.js" defer></script>
   <script src="/assets/js/theme-toggle-upgraded.js" defer></script>
   <script src="/assets/js/main-upgraded.js" defer></script>
@@ -213,7 +213,7 @@ const colors = window.themeManager.getThemeColors();
 #### **Step 3: Use Animation Classes**
 
 ```html
-<!-- Hero Section with Animations -->
+<!-- Hero Section with Animations ->
 <section class="hero">
   <h1 class="slide-down" data-delay="0">Welcome to Evident</h1>
   <p class="fade-in" data-delay="200">Legal Technology Platform</p>
@@ -222,7 +222,7 @@ const colors = window.themeManager.getThemeColors();
   </button>
 </section>
 
-<!-- Stats with Counters -->
+<!-- Stats with Counters ->
 <div class="stats">
   <div class="stat">
     <h3 data-counter="5000" data-counter-suffix="+" class="slide-up">0</h3>
@@ -230,7 +230,7 @@ const colors = window.themeManager.getThemeColors();
   </div>
 </div>
 
-<!-- Parallax Background -->
+<!-- Parallax Background ->
 <div class="parallax-container">
   <div class="parallax-bg" data-parallax="0.3"></div>
 </div>
@@ -360,7 +360,7 @@ For issues or questions:
 - Test with reduced motion disabled
 - Review accessibility settings
 
----
+--
 
 **Upgrade Date:** January 22, 2026  
 **Version:** 2.0  

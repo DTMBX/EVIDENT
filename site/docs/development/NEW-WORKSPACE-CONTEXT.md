@@ -2,7 +2,7 @@
 
 **Copy and paste this entire prompt into your new VS Code workspace chat to continue development:**
 
----
+--
 
 ## 🎯 PROJECT OVERVIEW
 
@@ -428,7 +428,7 @@ Common commands:
 - "show me the architecture"
 - "commit and push changes"
 
----
+--
 
 **Last Session Date:** January 27, 2026  
 **Time:** 3:49 AM UTC  

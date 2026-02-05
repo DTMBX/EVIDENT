@@ -2,7 +2,7 @@
 
 **Print this page and check off as you complete each step**
 
----
+--
 
 ## 📋 TODAY - CRITICAL BLOCKERS (2-4 hours)
 
@@ -28,7 +28,7 @@ python models_data_rights.py
 - [ ] `export_manifests` table exists
 - [ ] `material_inventory` table exists
 
----
+--
 
 ### ☐ Step 2: Test Compliance Module (5 minutes)
 
@@ -44,7 +44,7 @@ python integration_example.py
 - [ ] ❌ Police report full text blocked
 - [ ] Manifest file created in `exports/` directory
 
----
+--
 
 ### ☐ Step 3: Integrate into app.py (1-2 hours)
 
@@ -109,7 +109,7 @@ def export_pdf(analysis_id):
 - [ ] Test export route works
 - [ ] Verify manifest generated
 
----
+--
 
 ### ☐ Step 4: Update bwc_forensic_analyzer.py (30 minutes)
 
@@ -145,7 +145,7 @@ def generate_transcript(self, bwc_video_path):
 - [ ] Transcript tracking added
 - [ ] Test analysis generates MaterialInventory records
 
----
+--
 
 ## 📋 THIS WEEK - SECURITY (4-8 hours)
 
@@ -184,7 +184,7 @@ python -c "import secrets; print(secrets.token_hex(32))"
 - [ ] app.py reads from environment
 - [ ] Add `.env` to `.gitignore`
 
----
+--
 
 ### ☐ Step 6: Migrate to PostgreSQL (2-3 hours)
 
@@ -228,7 +228,7 @@ python migrate_to_postgres.py  # You'll need to create this script
 - [ ] Data migrated
 - [ ] Verify app connects to PostgreSQL
 
----
+--
 
 ### ☐ Step 7: Configure HTTPS/SSL (2 hours)
 
@@ -239,7 +239,7 @@ python migrate_to_postgres.py  # You'll need to create this script
 sudo apt-get install certbot python3-certbot-nginx
 
 # Generate certificate
-sudo certbot --nginx -d Evident.info -d www.Evident.info
+sudo certbot -nginx -d Evident.info -d www.Evident.info
 ```
 
 **For local development:**
@@ -253,7 +253,7 @@ openssl req -x509 -newkey rsa:4096 -nodes \
 **Update app.py for HTTPS:**
 
 ```python
-if __name__ == '__main__':
+if -name- == '-main-':
     app.run(
         host='0.0.0.0',
         port=443,
@@ -269,7 +269,7 @@ if __name__ == '__main__':
 - [ ] Test HTTPS works
 - [ ] Verify certificate valid
 
----
+--
 
 ## 📋 BEFORE LAUNCH - TESTING (4-6 hours)
 
@@ -290,7 +290,7 @@ if __name__ == '__main__':
 - [ ] Manifest file generated correctly
 - [ ] Attribution file readable
 
----
+--
 
 ### ☐ Step 9: Copyright Compliance Testing (1 hour)
 
@@ -333,7 +333,7 @@ bwc_test = Material(
 - [ ] OPRA BWC footage allowed
 - [ ] Our transcripts allowed
 
----
+--
 
 ### ☐ Step 10: Security Audit (1-2 hours)
 
@@ -362,7 +362,7 @@ psql -U Evident -c "SHOW ssl;"
 - [ ] Session cookies marked secure
 - [ ] CORS configured properly
 
----
+--
 
 ## 📋 LAUNCH DAY - FINAL CHECKS (1 hour)
 
@@ -381,7 +381,7 @@ psql -U Evident -c "SHOW ssl;"
 - [ ] User registration tested
 - [ ] Payment processing tested (if applicable)
 
----
+--
 
 ### ☐ Step 12: Go Live (30 minutes)
 
@@ -403,7 +403,7 @@ psql -U Evident -c "SHOW ssl;"
 - [ ] Week 1: Daily log review
 - [ ] Month 1: Weekly security audit
 
----
+--
 
 ## ✅ SUCCESS CRITERIA
 
@@ -424,7 +424,7 @@ psql -U Evident -c "SHOW ssl;"
 
 **Launched Successfully:** ☐ YES ☐ NO
 
----
+--
 
 ## 📞 EMERGENCY CONTACTS
 
@@ -441,14 +441,14 @@ support@Evident.info (24-hour support)
 legal@Evident.info  
 support@Evident.info
 
----
+--
 
 **Print Date:** **\*\***\_\_\_\_**\*\***  
 **Completed By:** **\*\***\_\_\_\_**\*\***  
 **Completion Date:** **\*\***\_\_\_\_**\*\***  
 **Signature:** **\*\***\_\_\_\_**\*\***
 
----
+--
 
 **REMEMBER:** When in doubt about copyright, EXCLUDE IT.  
 Better safe than a $150,000 lawsuit.

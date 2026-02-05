@@ -4,7 +4,7 @@
 
 Get your Render app live at **app.Evident.info** (or **Evident.info**)
 
----
+--
 
 ## ?? **Quick Start (5 Minutes):**
 
@@ -20,7 +20,7 @@ Get your Render app live at **app.Evident.info** (or **Evident.info**)
 
 Render will show you DNS instructions.
 
----
+--
 
 ### **Step 2: Update DNS (Choose Your Registrar)**
 
@@ -31,7 +31,7 @@ Render will show you DNS instructions.
 - [**Cloudflare**](#cloudflare) ? See CUSTOM-DOMAIN-CLOUDFLARE.md
 - [**Other**](#other-registrars) ? See below
 
----
+--
 
 ### **Step 3: Update Render Environment**
 
@@ -46,7 +46,7 @@ In Render dashboard:
 4. Click **"Save Changes"**
 5. Render will auto-redeploy
 
----
+--
 
 ### **Step 4: Wait for Verification**
 
@@ -56,7 +56,7 @@ In Render dashboard:
 
 When status shows **"Verified"** ? with ??, you're live!
 
----
+--
 
 ## ?? **Detailed Instructions by Registrar:**
 
@@ -75,7 +75,7 @@ When status shows **"Verified"** ? with ??, you're live!
 
 ?? **Full guide:** `CUSTOM-DOMAIN-GODADDY.md`
 
----
+--
 
 ### **Namecheap:**
 
@@ -92,7 +92,7 @@ When status shows **"Verified"** ? with ??, you're live!
 
 ?? **Full guide:** `CUSTOM-DOMAIN-NAMECHEAP.md`
 
----
+--
 
 ### **Cloudflare:**
 
@@ -112,7 +112,7 @@ When status shows **"Verified"** ? with ??, you're live!
 
 ?? **Full guide:** `CUSTOM-DOMAIN-CLOUDFLARE.md`
 
----
+--
 
 ### **Other Registrars:**
 
@@ -127,7 +127,7 @@ Value/Target: Evident-legal-tech.onrender.com
 TTL: 3600 (or Auto)
 ```
 
----
+--
 
 ## ? **Verification Checklist:**
 
@@ -162,7 +162,7 @@ https://app.Evident.info
 
 Should load your Evident app!
 
----
+--
 
 ## ?? **Recommended Domain Structure:**
 
@@ -173,7 +173,7 @@ api.Evident.info                ? API endpoints (future)
 docs.Evident.info               ? Documentation (future)
 ```
 
----
+--
 
 ## ?? **SSL/HTTPS Certificate:**
 
@@ -189,7 +189,7 @@ Once DNS is verified:
 
 **No configuration needed - it's automatic!** ??
 
----
+--
 
 ## ?? **Timeline:**
 
@@ -202,7 +202,7 @@ Once DNS is verified:
 | SSL provisioning     | 5-15 minutes                  |
 | **Total**            | **15 mins - 3 hours**         |
 
----
+--
 
 ## ?? **Troubleshooting:**
 
@@ -235,7 +235,7 @@ Once DNS is verified:
 - CORS issue - update CORS_ORIGINS environment variable
 - Check app.py has correct CORS configuration
 
----
+--
 
 ## ?? **Support:**
 
@@ -243,7 +243,7 @@ Once DNS is verified:
 - **DNS Checker:** https://dnschecker.org
 - **SSL Checker:** https://www.sslshopper.com/ssl-checker.html
 
----
+--
 
 ## ? **Once Live:**
 
@@ -258,7 +258,7 @@ Your Evident app will be accessible at:
 - Email: admin@Evident.info
 - Password: Evident2026!
 
----
+--
 
 ## ?? **Next Steps After Domain is Live:**
 
@@ -271,6 +271,6 @@ Your Evident app will be accessible at:
    - More resources
    - Better performance
 
----
+--
 
 **Ready to set up? Tell me which domain registrar you use and I'll help you through it!** ??
