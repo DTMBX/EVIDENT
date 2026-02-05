@@ -69,4 +69,4 @@ Evident Technologies reserves the right to review, modify, reject, or remove any
 
 Questions regarding contributions may be directed to:
 
-**legal@evident.icu**
+**legal@evident.info**
