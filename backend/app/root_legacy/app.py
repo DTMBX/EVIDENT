@@ -164,7 +164,14 @@ except ImportError as e:
 
 
 # Initialize Flask app
+
 app = Flask(__name__)
+# Register blueprints
+try:
+    from backend.routes.main import main_bp
+    app.register_blueprint(main_bp)
+except ImportError as e:
+    print(f"[!] Could not register main blueprint: {e}")
 
 # Initialize logger for the application
 logger = logging.getLogger(__name__)

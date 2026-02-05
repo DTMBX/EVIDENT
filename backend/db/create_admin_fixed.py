@@ -13,13 +13,13 @@ from app import app
 from models_auth import TierLevel, User, db
 
 # SECURE ADMIN CREDENTIALS
-ADMIN_EMAIL = os.environ.get("Evident_ADMIN_PASSWORD", "admin@Evident.info")
+
+# Securely load admin credentials from environment
+ADMIN_EMAIL = os.environ.get("Evident_ADMIN_EMAIL", "admin@Evident.info")
 ADMIN_PASSWORD = os.environ.get("Evident_ADMIN_PASSWORD")
 
 if not ADMIN_PASSWORD:
     print("❌ ERROR: Evident_ADMIN_PASSWORD environment variable must be set")
-    print("\nSet it with:")
-    print("  $env:Evident_ADMIN_PASSWORD = 'pQWN6CUNH04Gx6Ud73dfybu6jiV_DM4s'")
     sys.exit(1)
 
 
@@ -32,76 +32,39 @@ def create_admin_fixed():
 
     with app.app_context():
         # Check if admin exists
-        admin = User.query.filter_by(email="admin@Evident.info").first()
+        admin = User.query.filter_by(email=ADMIN_EMAIL).first()
 
         if admin:
-            print(f"⚠️  Admin account already exists: {admin.email}")
-            print(f"   Current tier: {admin.tier.name}")
-            print(f"   Is admin: {admin.is_admin}")
-            print("\n   Updating password...")
-
-            # Update password
+            print(f"Admin account already exists: {admin.email}")
+            # Update password and admin status
             admin.set_password(ADMIN_PASSWORD)
             admin.tier = TierLevel.ADMIN
             admin.is_admin = True
             admin.is_active = True
             admin.is_verified = True
-
             db.session.commit()
-            print("✅ Admin account updated")
+            print("Admin account updated.")
         else:
             print("Creating new admin account...")
-
-            # Create new admin
             admin = User(
-                email="admin@Evident.info",
+                email=ADMIN_EMAIL,
                 full_name="Evident System Administrator",
                 tier=TierLevel.ADMIN,
                 is_admin=True,
                 is_active=True,
                 is_verified=True,
             )
-
             admin.set_password(ADMIN_PASSWORD)
-
             db.session.add(admin)
             db.session.commit()
+            print("Admin account created.")
 
-            print("✅ Admin account created")
-
-        # Verify
-        admin = User.query.filter_by(email="admin@Evident.info").first()
-
-        print("\n" + "=" * 70)
-        print("ADMIN CREDENTIALS")
-        print("=" * 70)
-        print(f"Email:    {admin.email}")
-        print(f"Password: {ADMIN_PASSWORD}")
-        print(f"Tier:     {admin.tier.name} (${admin.tier.value}/mo)")
-        print(f"Is Admin: {admin.is_admin}")
-        print(f"Active:   {admin.is_active}")
-        print(f"Verified: {admin.is_verified}")
-        print("=" * 70 + "\n")
-
-        # Test password
-        if admin.check_password(ADMIN_PASSWORD):
-            print("✅ Password verification: SUCCESS\n")
-        else:
-            print("❌ Password verification: FAILED\n")
-            return False
-
-        # Count all users
-        total_users = User.query.count()
+        # Only print non-sensitive status
         admin_count = User.query.filter_by(is_admin=True).count()
-
-        print(f"Total users: {total_users}")
-        print(f"Admin users: {admin_count}")
-
         if admin_count == 1:
-            print("✅ Security check: Exactly ONE admin exists\n")
+            print("Security check: Exactly ONE admin exists.")
         else:
-            print(f"⚠️  WARNING: {admin_count} admins found (should be 1)\n")
-
+            print(f"WARNING: {admin_count} admins found (should be 1)")
         return True
 
 

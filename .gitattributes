@@ -1,7 +1,8 @@
 # Evident Git Attributes
 # =======================
 
-# Git-Crypt Encryption for Sensitive Files
+
+# Git-Crypt Encryption for Sensitive/Proprietary Files
 # These files will be encrypted at rest in the repository
 # but decrypted automatically for authorized users
 
@@ -35,6 +36,12 @@ barber-cam/** filter=git-crypt diff=git-crypt
 # Database credentials file (if exists)
 database.ini filter=git-crypt diff=git-crypt
 credentials.json filter=git-crypt diff=git-crypt
+
+# Encrypt all backend and shared code (proprietary)
+backend/** filter=git-crypt diff=git-crypt
+shared/** filter=git-crypt diff=git-crypt
+config.* filter=git-crypt diff=git-crypt
+*.enc filter=git-crypt diff=git-crypt
 
 # =======================
 # Standard Git Attributes
