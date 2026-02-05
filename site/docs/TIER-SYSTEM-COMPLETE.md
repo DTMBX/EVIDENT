@@ -64,7 +64,7 @@ Successfully created a professional tier-based authentication and authorization 
 - 50 hours AI transcription/month
 - Unlimited search + analytics
 - 250GB storage
-- Court-ready certified exports
+- Exports formatted for court submission
 - Multi-BWC sync (10 cameras)
 - Forensic analysis suite
 - API access (rate-limited)

@@ -228,7 +228,7 @@ While you test Android, here's the iOS path:
 - `BUILD-SUCCESS.md` - MAUI integration complete
 - `IOS-TESTING-COMPLETE-GUIDE.md` - Full iOS deployment guide
 - `GET-ON-IPHONE-NOW.md` - iOS options and workarounds
-- `LEGAL-AI-TOOLS.md` - 15 legal AI assistants documented
+- `LEGAL-AI-TOOLS.md` - 15 legal-assistant tools documented (informational; not a substitute for counsel)
 - `CHATGPT-QUICK-START.md` - How to use ChatGPT features
 - `PROFILE-SETUP-GUIDE.md` - PowerShell developer tools
 

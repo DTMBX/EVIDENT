@@ -75,7 +75,7 @@
 **Screen:** Document generation  
 **Voiceover:**
 
-> "Now for the magic. With one click, generate a motion to suppress based on the evidence. Evident automatically cites relevant case law, includes timestamps, and formats everything court-ready."
+> "Now for the magic. With one click, generate a draft motion to assist attorney preparation. Evident can format citations and include timestamps, but attorney review is required and final legal arguments should be drafted by counsel."
 
 **Actions:**
 
@@ -92,7 +92,7 @@
 
 **Visual Callouts:**
 
-- "Court-ready formatting"
+- "Formatting for court submission"
 - "Automatic citations"
 - "Customizable templates"
 
@@ -347,7 +347,7 @@ For social media ads:
 
 **Script:**
 
-> "Criminal defense attorneys: Stop spending 10 hours reviewing body camera footage. Evident's AI analyzes evidence in minutes, detects violations automatically, and generates court-ready motions. Start your free trial at Evident.info."
+-> "Criminal defense attorneys: Stop spending 10 hours reviewing body camera footage. Evident's AI analyzes evidence in minutes, detects violations automatically, and generates draft motions to assist attorney preparation. Start your free trial at Evident.info."
 
 **Duration:** 30 seconds  
 **Style:** Fast-paced, direct  

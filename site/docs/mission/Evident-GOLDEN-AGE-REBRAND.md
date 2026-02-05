@@ -32,7 +32,7 @@
 The 1920s represented America's transition into modernity while maintaining traditional values of craftsmanship, precision, and honor. Our platform embodies this spirit:
 
 - **Craftsmanship:** Hand-crafted code, attention to detail
-- **Precision:** Accurate AI processing, court-defensible evidence
+- **Precision:** Accurate AI processing with detailed audit trails to support legal review
 - **Excellence:** Professional-grade tools, no compromises
 - **Honor:** Integrity in civil rights work
 - **Innovation:** Cutting-edge AI with timeless values
@@ -376,7 +376,7 @@ built with the craftsmanship and integrity of the 1920s.
 
 ### Messaging Tone
 
-- **Professional:** Court-defensible, precision, excellence
+- **Professional:** Documentation designed to support legal review, precision, excellence
 - **Historical:** 1920's golden age, American tradition
 - **Innovative:** AI-powered, cutting-edge technology
 - **Ethical:** Honor, justice, civil rights

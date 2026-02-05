@@ -73,7 +73,7 @@ Professional-grade AI forensic analysis platform for civil rights attorneys, leg
 - ⚠️ **Discrepancy Detection** - Compare BWC vs. reports vs. CAD logs
 - ⏱️ **Timeline Builder** - Synchronized multi-source timelines
 - 🔗 **Chain of Custody** - SHA-256 checksums, tamper detection, audit trails
-- 📄 **Court-Ready Reports** - PDF, DOCX, JSON exports with metadata
+- 📄 **Reports Prepared for Legal Review** - PDF, DOCX, JSON exports with metadata (attorney review required for admissibility)
 
 --
 
@@ -157,7 +157,7 @@ Include: use case, # users, organization
 - SHA-256 checksums for integrity verification
 - Cryptographic audit trails
 - Tamper-evident evidence packages
-- Court-defensible documentation
+- Documentation to assist legal review
 
 --
 

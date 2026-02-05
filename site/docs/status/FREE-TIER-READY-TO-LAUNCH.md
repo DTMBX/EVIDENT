@@ -67,7 +67,7 @@ You now have a **fully implemented, production-ready FREE tier** that costs $0.5
 ❌ Only ONE upload ever  
 ❌ Data deleted after 7 days  
 ❌ No AI assistant  
-❌ No court-ready reports
+❌ No reports formatted for court submission
 
 --
 

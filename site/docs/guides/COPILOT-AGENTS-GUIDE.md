@@ -62,7 +62,7 @@ Check if this PDF export violates Westlaw copyright terms
 - Integrate Whisper AI for transcription
 - Build timeline reconstruction features
 - Design evidence integrity verification
-- Create court-admissible forensic reports
+  - Prepare forensic reports intended to assist court submissions; final admissibility is determined by courts and counsel
 
 **Key Files:** `bwc_forensic_analyzer.py`, `bwc_web_app.py`, `BWC-ANALYSIS-GUIDE.md`
 

@@ -4,7 +4,7 @@
 
 ## 🏢 Company Overview
 
-**Evident Legal Technologies** is a professional-grade software platform specializing in court-defensible forensic analysis of body-worn camera (BWC) footage for civil rights litigation, law enforcement accountability, and legal research.
+**Evident Legal Technologies** is a professional-grade software platform specializing in forensic analysis of body-worn camera (BWC) footage with audit trails and provenance to support legal review, law enforcement accountability, and legal research.
 
 --
 
@@ -61,7 +61,7 @@
   - Compliance trail for legal cases
 - **Chain of Custody:**
   - SHA-256 hash verification
-  - FRE 901(b)(9) compliant documentation
+   - Exported verification details to assist authentication (consult counsel regarding FRE 901 application)
   - Tamper-evident evidence handling
 - **Data Privacy:**
   - 100% local processing (no cloud)
@@ -414,4 +414,4 @@ MIT License - Free and open source
 
 **Evident Legal Technologies**  
 _Empowering Justice Through Technology_  
-🇺🇸 Made in the USA • 100% Open Source • Court-Defensible
+🇺🇸 Made in the USA • 100% Open Source • Designed with audit trails to support legal review

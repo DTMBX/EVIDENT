@@ -1,10 +1,10 @@
-# Court-Defensible eDiscovery Platform - Complete Documentation
+# Court-Process-Focused eDiscovery Platform - Complete Documentation
 
 ## 📋 Overview
 
-The Evident eDiscovery Platform is a **complete court-defensible evidence management system** designed specifically for civil rights litigation against law enforcement agencies.
+The Evident eDiscovery Platform is a comprehensive evidence management system with detailed provenance and audit trails designed to support legal review in civil rights litigation against law enforcement agencies.
 
-**Built to withstand Daubert challenges and meet Federal Rule of Civil Procedure 26(a)(1) compliance.**
+**Provides documentation and provenance to assist counsel and experts in addressing evidentiary standards and discovery requirements.**
 
 --
 
@@ -156,9 +156,9 @@ Every clip includes:
 
 **Quality Levels:**
 
-- **Minimal**: Subtle enhancement, maximum authenticity (always court-admissible)
-- **Moderate**: Balanced enhancement/authenticity (court-admissible with disclosure)
-- **Aggressive**: Maximum enhancement (may affect admissibility, use caution)
+- **Minimal**: Subtle enhancement, maximum authenticity (may be admissible; final determination depends on jurisdiction and counsel review)
+- **Moderate**: Balanced enhancement/authenticity (may be admissible with disclosure; final determination depends on jurisdiction and counsel review)
+- **Aggressive**: Maximum enhancement (may affect admissibility; use caution and consult counsel)
 
 **Quality Metrics Tracked:**
 
@@ -174,7 +174,7 @@ Every clip includes:
 - Before/after quality metrics computed
 - SHA-256 hash of both original and enhanced versions
 - Enhancement logged in chain-of-custody
-- Court admissibility flag set based on quality level
+- Notes on admissibility considerations set based on quality level; final determination by courts and counsel
 - Side-by-side comparison reports available
 
 ### 8. Automation & Monitoring
@@ -921,7 +921,7 @@ All core components complete:
 - ✅ Production service (clips, exhibits, load files)
 - ✅ Monitoring and alerts
 - ✅ Complete API with 25+ endpoints
-- ✅ Court-defensible audit trails
+- ✅ Audit trails to support legal review
 
 --
 

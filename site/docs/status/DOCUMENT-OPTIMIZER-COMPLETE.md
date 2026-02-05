@@ -7,7 +7,7 @@
 
 ## 🎯 What We Built
 
-A **professional-grade legal document optimization system** that transforms rough legal drafts into court-ready filings.
+A **professional-grade legal document optimization system** that transforms rough legal drafts into filings formatted for court submission (attorney review required).
 
 --
 
@@ -96,7 +96,7 @@ Multiple Legal Documents:
 3. AI Analysis → Identify Gaps & Opportunities
 4. Optimization → Apply GPT-4 with Legal Prompt
 5. Validation → Check Consistency & Compliance
-6. Output → Court-Ready Documents + Report
+6. Output → Documents Formatted For Court Submission + Report (attorney review required)
 ```
 
 ### Output:
@@ -197,7 +197,7 @@ Checks:
 - ✅ Cites medical records for damages support
 - ✅ Ensures proper verification language
 
-**Result:** Court-ready filing in 45 minutes (vs. 6-8 hours manual)
+**Result:** Draft filing formatted for court submission in 45 minutes (vs. 6-8 hours manual); attorney review required.
 
 --
 
@@ -443,7 +443,7 @@ guarantees about outcomes."
 3. Upload legal documents
 4. Link to case evidence
 5. Set optimization goals
-6. Get court-ready documents!
+6. Get documents formatted for court submission (attorney review required)!
 ```
 
 ### For Developers:

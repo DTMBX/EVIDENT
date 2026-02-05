@@ -2,13 +2,13 @@
 
 ## 🎯 Overview
 
-Process all evidence **locally on your machine** using 100% open-source AI tools. No cloud APIs, no subscriptions, completely free and court-defensible.
+Process all evidence **locally on your machine** using 100% open-source AI tools. No cloud APIs, no subscriptions; features include full audit logs to support legal review.
 
 **Benefits:**
 
 - ✅ **No costs** - All tools are free and open-source
 - ✅ **Privacy** - Data never leaves your system
-- ✅ **Court-defensible** - Fully auditable open-source algorithms
+- ✅ **Supports legal review** - Fully auditable open-source algorithms (final admissibility depends on counsel and jurisdiction)
 - ✅ **Offline** - Works without internet connection
 - ✅ **Control** - You own the models and processing pipeline
 
@@ -548,4 +548,4 @@ For issues with local AI tools:
 3. Review troubleshooting section above
 4. Check model documentation (links above)
 
-**Remember: Local AI = Free + Private + Court-Defensible**
+**Remember: Local AI = Free + Private + Designed for Legal Review**

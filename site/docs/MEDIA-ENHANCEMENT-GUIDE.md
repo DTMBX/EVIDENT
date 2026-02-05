@@ -2,7 +2,7 @@
 
 ## 🎯 Overview
 
-The Media Enhancement Service provides **court-defensible audio, video, and image enhancement** while **ALWAYS preserving original evidence** in the immutable vault.
+The Media Enhancement Service provides enhanced audio, video, and image processing with detailed audit trails to support legal review, while **ALWAYS preserving original evidence** in the immutable vault.
 
 **Key Principle: ORIGINALS ARE NEVER MODIFIED**
 
@@ -56,11 +56,11 @@ Enhanced File (output): Separate directory, marked as derivative
 
 ### Quality Levels
 
-| Level          | Noise Reduction | Court Admissibility                       |
+| Level          | Noise Reduction | Notes on Admissibility                    |
 | -------------- | --------------- | ----------------------------------------- |
-| **Minimal**    | 6 dB            | ✅ Always admissible (subtle enhancement) |
-| **Moderate**   | 12 dB           | ✅ Admissible with disclosure (balanced)  |
-| **Aggressive** | 20 dB           | ⚠️ Caution (may affect admissibility)     |
+| **Minimal**    | 6 dB            | May be admissible; final determination depends on jurisdiction and counsel review. |
+| **Moderate**   | 12 dB           | Typically suitable when disclosed and reviewed by counsel. |
+| **Aggressive** | 20 dB           | ⚠️ Caution (may affect admissibility); attorney review recommended. |
 
 ### API Request
 
@@ -122,8 +122,8 @@ curl -X POST http://localhost:8000/api/v1/ediscovery/enhancement/audio \
 
 | Algorithm     | Quality                  | Court Admissibility  |
 | ------------- | ------------------------ | -------------------- |
-| **Lanczos**   | High-quality traditional | ✅ Always admissible |
-| **Bicubic**   | Good traditional         | ✅ Always admissible |
+| **Lanczos**   | High-quality traditional | May be admissible; final determination depends on jurisdiction and counsel review. |
+| **Bicubic**   | Good traditional         | May be admissible; final determination depends on jurisdiction and counsel review. |
 | **AI-ESRGAN** | AI super-resolution      | ⚠️ Disclose AI usage |
 
 ### Common Resolutions
@@ -279,7 +279,7 @@ curl http://localhost:8000/api/v1/ediscovery/enhancement/compare/ENH-AUD-EV-BWC-
 
 ## ⚖️ Court Admissibility Guidelines
 
-### Always Admissible (Minimal/Moderate)
+### May Be Admissible (Minimal/Moderate)
 
 ✅ **Minimal Enhancement**
 

@@ -49,7 +49,7 @@
 - [x] Unlimited resource indicators
 - [x] Custom integration options
 - [x] Dedicated support badge
-- [x] SLA guarantee display
+- [x] SLA (see terms) display
 - [x] Custom branding options
 - [x] Enterprise-specific features
 

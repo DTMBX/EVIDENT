@@ -73,7 +73,7 @@ Fair-scaled pricing structure with consistent 52-84% margins across all tiers, o
 | Multi-BWC Sync        | ❌     | ❌      | ❌           | ❌      | ✅ 20 videos          |
 | White Label           | ❌     | ❌      | ❌           | ❌      | ✅                    |
 | Dedicated PM          | ❌     | ❌      | ❌           | ❌      | ✅                    |
-| SLA Guarantee         | ❌     | ❌      | ❌           | ❌      | ✅                    |
+| SLA (see terms)       | ❌     | ❌      | ❌           | ❌      | ✅                    |
 | On-Premises Data      | ❌     | ❌      | ❌           | ❌      | ✅ Option             |
 | Team Members          | 1      | 1       | 1            | 1       | 25 ($15/user overage) |
 
@@ -155,7 +155,7 @@ Fair-scaled pricing structure with consistent 52-84% margins across all tiers, o
 **Triggers:**
 
 - Hitting 10 video limit
-- Needing court-ready reports
+- Needing reports prepared for legal review
 - Wanting AI assistant
 - Processing time-sensitive cases
 

@@ -1,6 +1,6 @@
 # 📝 Legal Document Optimizer - User Guide
 
-**Transform rough legal drafts into court-ready filings**
+**Transform rough legal drafts into filings formatted for court submission (attorney review required)**
 
 --
 
@@ -15,7 +15,7 @@ The Legal Document Optimizer is an AI-powered tool that analyzes and improves yo
 3. **Consistency Checking** - Ensures all documents align
 4. **Procedural Compliance** - Verifies jurisdiction-specific requirements
 5. **AI Optimization** - Improves clarity, persuasiveness, and structure
-6. **Court-Ready Output** - Produces polished, professional documents
+6. **Court-Formatted Output** - Produces polished, professional documents intended to assist filing preparation; attorney review required
 
 --
 
@@ -37,7 +37,7 @@ The Legal Document Optimizer is an AI-powered tool that analyzes and improves yo
 2. Link to case evidence
 3. Run optimization
 4. Review suggestions
-5. Download court-ready documents
+5. Download documents formatted for court submission (attorney review required)
 
 **Output:**
 
@@ -545,7 +545,7 @@ Each template includes:
 - Proper certificates and verifications
 - 47 improvements identified
 - 12 evidence gaps flagged
-- Court-ready documents
+- Documents prepared to support attorney drafting and review
 
 **Compared to Manual:**
 

@@ -16,7 +16,7 @@ Build trust, promote accountability, expand transparency through NJ citizen-led 
 
 ## Current State
 
-**✅ Working:** `bwc_forensic_analyzer.py` (920 lines), SHA-256 hashing, transcription, chain of custody, court-ready exports, Stripe tiers, user auth, PostgreSQL, Flask web app
+**✅ Working:** `bwc_forensic_analyzer.py` (920 lines), SHA-256 hashing, transcription, chain of custody, exports formatted for court submission, Stripe tiers, user auth, PostgreSQL, Flask web app
 
 **❌ Missing:** Immutable storage layer, Celery workers, audit logs, mobile app, timeline viewer, attorney sharing, expiring links, PDF reports, drag-drop folder ingest, redaction tools
 
@@ -153,7 +153,7 @@ def analyze_bwc_video(evidence_id):
 - Phase 2: One-tap recording works offline, 95%+ consent completion, <30s upload
 - Phase 3: Timeline loads <2s, bookmark support, export <10s
 - Phase 4: Auto-expiring links, 100% attorney access logged
-- Phase 5: PDF generates <5s, court-ready formatting
+- Phase 5: PDF generates <5s, formatting for court submission
 
 ## Next Actions
 

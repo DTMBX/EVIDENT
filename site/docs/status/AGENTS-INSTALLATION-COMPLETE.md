@@ -24,7 +24,7 @@ Built with GitHub Copilot SDK to accelerate Evident development:
 2. **@bwc-forensics** - BWC video analysis specialist
    - Video processing & AI transcription
    - Evidence integrity verification
-   - Court-admissible forensic reports
+   - Forensic reports prepared to assist court submissions; final admissibility determined by courts and counsel
 
 3. **@flask-backend** - Flask API & backend developer
    - REST API design

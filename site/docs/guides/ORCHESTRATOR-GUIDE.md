@@ -87,7 +87,7 @@ The orchestrator always follows this order:
 @orchestrator: Implement the following:
 1. Secure batch PDF upload
 2. Automatic copyright validation
-3. Export with attorney certification
+3. Export for attorney review
 4. Audit trail for all downloads
 ```
 
@@ -106,10 +106,10 @@ The orchestrator always follows this order:
 
 ```
 @orchestrator: Build BWC evidence timeline that:
-- Syncs multiple video sources
-- Validates SHA-256 checksums
-- Exports to court-ready PDF
-- Includes full chain of custody
+-- Syncs multiple video sources
+-- Validates SHA-256 checksums
+-- Exports to PDF prepared for legal review
+-- Includes full chain of custody
 ```
 
 ## 📊 Agent Specialties
