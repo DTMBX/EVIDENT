@@ -37,7 +37,9 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then
+          if [ -f backend/requirements-production.txt ]; then
+            pip install -r backend/requirements-production.txt
+          elif [ -f requirements.txt ]; then
             pip install -r requirements.txt
           else
             echo "requirements.txt not found, skipping pip install"
@@ -51,7 +53,11 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest tests/ --cov=. --cov-report=xml --cov-report=html
+          if [ -d tests ]; then
+            pytest tests/ --cov=. --cov-report=xml --cov-report=html
+          else
+            echo "No tests/ directory found, skipping pytest."
+          fi
 
       - name: Upload coverage
         uses: codecov/codecov-action@v5

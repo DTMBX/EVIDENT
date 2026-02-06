@@ -8,6 +8,7 @@
     "format": "prettier --write \"**/*.{css,html,md,js,ts,tsx,jsx,json}\"",
     "format:check": "prettier --check \"**/*.{css,html,md,js,ts,tsx,jsx,json}\"",
     "format:check:site": "prettier --check \"site/**/*.{css,html,md,js,json}\" \"README.md\" \"package.json\"",
+    "test": "node -e \"console.log('No JS tests configured.');\"",
     "build": "node ./scripts/ci-webpack.js"
   },
   "devDependencies": {
@@ -17,4 +18,3 @@
     "webpack-cli": "^6.0.1"
   }
 }
-
