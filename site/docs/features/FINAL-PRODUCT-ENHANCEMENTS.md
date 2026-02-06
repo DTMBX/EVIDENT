@@ -445,11 +445,13 @@ FINAL-PRODUCT-ENHANCEMENTS.md  # This file
 
 1. Click completed analysis card
 2. Choose export format:
-  - **PDF** - Professional report formatted for court submission
-   - **DOCX** - Editable Microsoft Word
-   - **JSON** - Machine-readable data
-   - **TXT** - Universal plain text
-   - **MD** - Markdown for documentation
+
+- **PDF** - Professional report formatted for court submission
+- **DOCX** - Editable Microsoft Word
+- **JSON** - Machine-readable data
+- **TXT** - Universal plain text
+- **MD** - Markdown for documentation
+
 3. File downloads automatically
 4. Open in appropriate application
 

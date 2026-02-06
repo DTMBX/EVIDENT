@@ -174,7 +174,7 @@ window.EvidentPlatform = {
 - **Features Grid:** 4 features with icons
   1. Video Enhancement (Whisper, super-resolution)
   2. Document Processing (OCR, entity recognition, semantic search)
-   3. Chain of Custody (SHA-256, audit logs, documented provenance to assist review)
+  3. Chain of Custody (SHA-256, audit logs, documented provenance to assist review)
   4. Zero Cloud Costs ($36 saved per 100hrs)
 
 **Stats Banner:**

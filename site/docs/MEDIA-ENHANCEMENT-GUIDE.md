@@ -56,11 +56,11 @@ Enhanced File (output): Separate directory, marked as derivative
 
 ### Quality Levels
 
-| Level          | Noise Reduction | Notes on Admissibility                    |
-| -------------- | --------------- | ----------------------------------------- |
+| Level          | Noise Reduction | Notes on Admissibility                                                             |
+| -------------- | --------------- | ---------------------------------------------------------------------------------- |
 | **Minimal**    | 6 dB            | May be admissible; final determination depends on jurisdiction and counsel review. |
-| **Moderate**   | 12 dB           | Typically suitable when disclosed and reviewed by counsel. |
-| **Aggressive** | 20 dB           | ⚠️ Caution (may affect admissibility); attorney review recommended. |
+| **Moderate**   | 12 dB           | Typically suitable when disclosed and reviewed by counsel.                         |
+| **Aggressive** | 20 dB           | ⚠️ Caution (may affect admissibility); attorney review recommended.                |
 
 ### API Request
 
@@ -120,11 +120,11 @@ curl -X POST http://localhost:8000/api/v1/ediscovery/enhancement/audio \
 
 ### Upscaling Algorithms
 
-| Algorithm     | Quality                  | Court Admissibility  |
-| ------------- | ------------------------ | -------------------- |
+| Algorithm     | Quality                  | Court Admissibility                                                                |
+| ------------- | ------------------------ | ---------------------------------------------------------------------------------- |
 | **Lanczos**   | High-quality traditional | May be admissible; final determination depends on jurisdiction and counsel review. |
 | **Bicubic**   | Good traditional         | May be admissible; final determination depends on jurisdiction and counsel review. |
-| **AI-ESRGAN** | AI super-resolution      | ⚠️ Disclose AI usage |
+| **AI-ESRGAN** | AI super-resolution      | ⚠️ Disclose AI usage                                                               |
 
 ### Common Resolutions
 

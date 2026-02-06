@@ -107,7 +107,7 @@
   margin: 0 0 var(--spacing-md) 0;
   font-size: var(--font-size-lg);
   line-height: var(--line-height-relaxed);
-  color: rgb(var(--hero-text-dark-rgb, 0, 0, 0), 0.7);
+  color: rgb(var(--hero-text-dark-rgb, 0, 0, 0) 0.7);
 }
 
 /* ===== Hero Title & Tagline ===== */
@@ -123,7 +123,7 @@
   margin: 0 0 var(--spacing-lg) 0;
   font-size: var(--font-size-sm);
   line-height: var(--line-height-normal);
-  color: rgb(var(--hero-text-dark-rgb, 0, 0, 0), 0.6);
+  color: rgb(var(--hero-text-dark-rgb, 0, 0, 0) 0.6);
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
