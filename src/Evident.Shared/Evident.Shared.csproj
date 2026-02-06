@@ -11,5 +11,4 @@
     <!-- No dependencies - this is the core domain layer -->
     <PackageReference Include="System.ComponentModel.Annotations" Version="10.0.0" />
   </ItemGroup>
-
-</Project>
+    <!-- No dependencies - this is the core domain layer -->
