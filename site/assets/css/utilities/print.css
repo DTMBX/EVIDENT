@@ -371,7 +371,10 @@
     }
 
     @bottom-right {
-      content: "Printed: " string(date);
+      /* `string(date)` is not a standard CSS function. Use a static label
+         for now; consider rendering the print date server-side or via
+         an injected `data-print-date` attribute if a date is required. */
+      content: "Printed:";
       font-size: 9pt;
       color: var(--gray-dark);
     }

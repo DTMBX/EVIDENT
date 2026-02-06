@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 #!/usr/bin/env node
 // Validate case folder integrity and docket YAML consistency
 // Usage: node scripts/validate-case-integrity.js [case-slug]

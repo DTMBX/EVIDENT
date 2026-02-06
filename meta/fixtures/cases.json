@@ -1,7 +1,3 @@
----
-layout: null
-permalink: /cases.json
----
 [
 {% assign items = site.cases %}
 {% for c in items %}{{ c | jsonify }}{% unless forloop.last %},{% endunless %}

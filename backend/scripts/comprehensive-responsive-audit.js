@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 /**
  * Comprehensive Responsive Audit for Faith Frontier
  * Scans ALL files for responsive issues and generates fix recommendations

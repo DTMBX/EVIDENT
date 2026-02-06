@@ -61,7 +61,7 @@
   - Compliance trail for legal cases
 - **Chain of Custody:**
   - SHA-256 hash verification
-   - Exported verification details to assist authentication (consult counsel regarding FRE 901 application)
+  - Exported verification details to assist authentication (consult counsel regarding FRE 901 application)
   - Tamper-evident evidence handling
 - **Data Privacy:**
   - 100% local processing (no cloud)

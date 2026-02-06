@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 """
 Database migration: Add Stripe subscription fields
 Adds Stripe tracking fields to User model and updates UsageTracking

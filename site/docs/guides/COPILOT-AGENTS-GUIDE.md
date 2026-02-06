@@ -231,16 +231,16 @@ Chain agents for complex tasks:
 
 ### Agent Selection Guide
 
-| Task Type         | Recommended Agent       |
-| ----------------- | ----------------------- |
-| Export validation | `@legal-compliance`     |
-| Video processing  | `@bwc-forensics`        |
-| API endpoints     | `@flask-backend`        |
-| UI components     | `@frontend-dev`         |
-| Schema changes    | `@database-architect`   |
-| Cloud integration | `@cloud-integration`    |
-| Deployment        | `@security-devops`      |
-| User guides       | `@documentation`        |
+| Task Type         | Recommended Agent     |
+| ----------------- | --------------------- |
+| Export validation | `@legal-compliance`   |
+| Video processing  | `@bwc-forensics`      |
+| API endpoints     | `@flask-backend`      |
+| UI components     | `@frontend-dev`       |
+| Schema changes    | `@database-architect` |
+| Cloud integration | `@cloud-integration`  |
+| Deployment        | `@security-devops`    |
+| User guides       | `@documentation`      |
 
 ### Code Review Workflow
 
@@ -252,16 +252,16 @@ Chain agents for complex tasks:
 
 ## 📊 Agent Comparison
 
-| Agent              | Model             | Primary Focus        | Audience         |
-| ------------------ | ----------------- | -------------------- | ---------------- |
-| Legal Compliance   | Claude Sonnet 4.5 | Copyright law        | Attorneys        |
-| BWC Forensics      | Claude Sonnet 4.5 | Video analysis       | Forensic experts |
-| Cloud Integration  | Claude Sonnet 4.5 | Cloud APIs & sync    | Cloud engineers  |
-| Flask Backend      | Claude Sonnet 4.5 | API development      | Backend devs     |
-| Frontend Dev       | Claude Sonnet 4.5 | UI/UX design         | Frontend devs    |
-| Database Architect | Claude Sonnet 4.5 | Schema design        | Database admins  |
-| Security DevOps    | Claude Sonnet 4.5 | Infrastructure       | DevOps engineers |
-| Documentation      | Claude Sonnet 4.5 | Technical writing    | End users        |
+| Agent              | Model             | Primary Focus     | Audience         |
+| ------------------ | ----------------- | ----------------- | ---------------- |
+| Legal Compliance   | Claude Sonnet 4.5 | Copyright law     | Attorneys        |
+| BWC Forensics      | Claude Sonnet 4.5 | Video analysis    | Forensic experts |
+| Cloud Integration  | Claude Sonnet 4.5 | Cloud APIs & sync | Cloud engineers  |
+| Flask Backend      | Claude Sonnet 4.5 | API development   | Backend devs     |
+| Frontend Dev       | Claude Sonnet 4.5 | UI/UX design      | Frontend devs    |
+| Database Architect | Claude Sonnet 4.5 | Schema design     | Database admins  |
+| Security DevOps    | Claude Sonnet 4.5 | Infrastructure    | DevOps engineers |
+| Documentation      | Claude Sonnet 4.5 | Technical writing | End users        |
 
 ## 🔧 Configuration
 

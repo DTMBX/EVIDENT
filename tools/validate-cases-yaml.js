@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 // Script to validate YAML front matter in all _cases/*.md files
 const fs = require("fs");
 const path = require("path");

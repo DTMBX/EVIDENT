@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 #!/usr/bin/env python3
 """
 normalize-docket-ids.py - Fix docket entry ID format to YYYYMMDD-slug standard

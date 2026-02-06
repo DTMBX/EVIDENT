@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 """
 AI-Powered Security Module for Evident
 Anomaly detection, fraud prevention, and intelligent session management

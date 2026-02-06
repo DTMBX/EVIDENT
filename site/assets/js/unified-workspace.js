@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 /**
  * EVIDENT UNIFIED WORKSPACE
  * Multi-tool AI-powered legal intelligence platform

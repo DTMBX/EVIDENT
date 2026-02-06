@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 #!/usr/bin/env node
 // Fix docket YAML file paths to use absolute /cases/<slug>/filings/ format
 // Usage: node scripts/fix-docket-paths.js [case-slug]

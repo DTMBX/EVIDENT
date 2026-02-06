@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 # Python script: Extract court stamp from PDF using OCR (pytesseract)
 import sys
 

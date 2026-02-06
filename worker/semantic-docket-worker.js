@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 // Cloudflare Worker: Semantic Docket URL Routing
 // This worker maps /cases/<slug>/docket/<entry-id> to the correct PDF in /cases/<slug>/filings/...
 // Place this logic in your worker.js (or merge with existing logic)

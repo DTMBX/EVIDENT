@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 // repair-docket.js
 // Audits and repairs case folders: ensures all PDFs in cases/<slug>/filings/ are registered in _data/docket/<slug>.yml
 // Usage: node scripts/repair-docket.js

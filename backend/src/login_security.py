@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 """
 AI-Powered Login Security System
 Anomaly detection, device fingerprinting, and threat analysis

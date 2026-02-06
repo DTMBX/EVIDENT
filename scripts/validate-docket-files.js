@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 #!/usr/bin/env node
 // Pre-commit validation hook for docket intake
 // Checks PDFs and YAML files before commit

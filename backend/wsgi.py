@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 """wsgi.py for production WSGI servers (e.g., gunicorn)
 
 Keep a simple WSGI entry that imports the Flask `app` object defined

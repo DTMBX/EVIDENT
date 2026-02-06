@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 """
 Cloud Storage Integration Service
 Integrates with Dropbox, Google Drive, and OneDrive for seamless evidence management

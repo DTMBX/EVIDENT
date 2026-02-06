@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 // FaithFrontier Batch PDF Upload & Case Initiative Dashboard (legacy)
 // Note: The canonical intake is scripts/docket-intake.js. This script is kept for compatibility.
 

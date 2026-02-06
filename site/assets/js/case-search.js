@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 // Status filter values must match normalized case status fields: active, pending, closed
 (async () => {
   const list = document.getElementById("case-list");

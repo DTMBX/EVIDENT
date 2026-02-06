@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 """
 Whisper Audio Transcription Service
 Uses OpenAI Whisper for high-accuracy audio transcription with speaker diarization

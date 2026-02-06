@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 // Service Worker for PWA - Offline Support & Caching
 const CACHE_NAME = "evident-premium-v3.0.0";
 const STATIC_CACHE = "evident-static-v3";

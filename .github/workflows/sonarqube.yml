@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
 # separate terms of service, privacy policy, and support
@@ -39,6 +42,8 @@ permissions:
 jobs:
   Analysis:
     runs-on: ubuntu-latest
+    # Only run SonarQube analysis when required secrets and project key are configured
+    if: ${{ secrets.SONAR_TOKEN != '' && secrets.SONAR_HOST_URL != '' && secrets.SONAR_PROJECT_KEY != '' }}
 
     steps:
       - name: Analyze with SonarQube

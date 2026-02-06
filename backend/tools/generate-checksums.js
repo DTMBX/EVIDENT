@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 // Checksum and Provenance Tracking for FaithFrontier
 // Auto-generates SHA256 checksums for all filings
 // Stores checksums in _data/checksums/<slug>.yml

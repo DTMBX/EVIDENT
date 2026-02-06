@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 """
 Dashboard Enhancements - User Analytics & Churn Monitoring
 Add retention metrics, risk scores, and engagement tracking

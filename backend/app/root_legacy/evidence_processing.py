@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 """
 Professional Evidence Processing System
 Chain of Custody, Evidence Management, Court-Ready Workflows

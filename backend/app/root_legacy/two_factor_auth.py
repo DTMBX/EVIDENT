@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 """
 Two-Factor Authentication (2FA) Service
 Implements TOTP-based 2FA with QR codes for enhanced security

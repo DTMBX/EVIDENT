@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 # Deployment Verification Script
 # This script checks if your GitHub Pages and Render deployments are live.
 

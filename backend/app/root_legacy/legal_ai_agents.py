@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 # Legal AI Agent Framework
 # Custom agents for discovery processing, evidence organization, and legal workflow automation
 

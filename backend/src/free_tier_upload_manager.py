@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 """
 FREE Tier One-Time Upload Handler
 Manages the single file upload allowance for FREE tier users

@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 """
 Stripe Payment Service for Evident Legal Technologies
 Handles subscriptions, checkouts, and customer management

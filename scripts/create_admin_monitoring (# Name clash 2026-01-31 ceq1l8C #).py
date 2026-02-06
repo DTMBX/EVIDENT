@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 """
 Create admin monitoring dashboard route for tracking all users' usage and profitability.
 Add this to app.py after deployment.

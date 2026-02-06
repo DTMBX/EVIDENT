@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 // Automated Link Checking for FaithFrontier
 // Scans case pages and dockets for broken file links
 // Reports missing or invalid references
