@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 """
 ChatGPT Integration Service for Evident
 Handles OpenAI API interactions with user-provided API keys

@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 # Legal Research Integration & Resources
 # Connects AI agents to legal databases, statutes, case law, and drafting tools
 

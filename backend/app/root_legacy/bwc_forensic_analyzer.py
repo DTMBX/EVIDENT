@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 """
 Body-Worn Camera (BWC) Forensic Analysis Service
 Court-Defensible Video Evidence Processing for Civil Rights Litigation

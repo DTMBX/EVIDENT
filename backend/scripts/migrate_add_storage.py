@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 """
 Migration: Add storage_used_mb column to users table
 Run this once after deploying security fixes

@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 // Minimal, Pages-safe intake: rename/move PDFs, update docket YAML, stage changes
 import fs from "fs";
 import path from "path";

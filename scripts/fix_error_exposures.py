@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 """
 Batch fix error exposure vulnerabilities in app.py
 Replaces all instances of exposed error messages with sanitized versions

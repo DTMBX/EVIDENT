@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 """
 License Client - For Self-Hosted Deployments
 Include this in the self-hosted version to validate licenses

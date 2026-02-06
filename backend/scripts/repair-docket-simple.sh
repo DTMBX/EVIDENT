@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 #!/bin/bash
 # Simple bash script to reorganize docket files and update YAML paths
 # No dependencies required - uses only standard Unix tools

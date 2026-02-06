@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 #!/usr/bin/env node
 const fs = require("fs");
 const path = require("path");

@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 """
 Similar Case Finder - Vector Search for Legal Precedents
 Uses embeddings and vector similarity to find related cases

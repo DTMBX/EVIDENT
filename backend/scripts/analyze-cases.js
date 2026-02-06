@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 #!/usr/bin/env node
 // OpenAI Case Analysis Script
 // Analyzes case records and dockets from judicial oversight and journalistic perspectives

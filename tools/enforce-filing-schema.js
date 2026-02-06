@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 // Enforce standardized file naming and structure for filings
 // Auto-rename files and move misplaced filings
 

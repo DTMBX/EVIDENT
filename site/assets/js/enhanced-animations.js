@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 /**
  * ENHANCED ANIMATIONS SYSTEM v2.0
  * Modern ES6+ Animation Engine with GPU-accelerated effects

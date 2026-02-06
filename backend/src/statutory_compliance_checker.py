@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 """
 Statutory Compliance & Legal Standards Checker
 Analyzes evidence against federal and state legal standards

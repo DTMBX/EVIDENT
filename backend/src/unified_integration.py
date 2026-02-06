@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 # Unified Integration Layer
 # Connects all Evident features: evidence analysis, AI agents, chat, scanning, and processing
 

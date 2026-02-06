@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 // Automated File Validation for FaithFrontier
 // Scans for missing, duplicate, or zero-byte PDFs
 // Validates YAML front matter in case/docket files

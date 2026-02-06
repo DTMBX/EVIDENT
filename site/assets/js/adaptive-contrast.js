@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 /**
  * Faith Frontier Adaptive Contrast Initializer
  * Automatically applies accessible text colors based on background

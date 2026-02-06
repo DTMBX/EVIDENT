@@ -1,6 +1,3 @@
----
-layout: null
----
 [
   {% for page in site.pages %}
     {% unless page.exclude_from_search %}

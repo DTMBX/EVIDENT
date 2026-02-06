@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 import { createHash } from "crypto";
 import { readFile, writeFile } from "fs/promises";
 import path from "path";

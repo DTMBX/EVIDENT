@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 const $q = document.getElementById("q");
 const $results = document.getElementById("results");
 const $meta = document.getElementById("meta");

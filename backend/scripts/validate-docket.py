@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 #!/usr/bin/env python3
 """
 validate-docket.py - Validate docket entries against schema and verify file integrity

@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 // FaithFrontier Express Web Interface for PDF Upload & Admin Review (legacy)
 
 import fs from "node:fs";

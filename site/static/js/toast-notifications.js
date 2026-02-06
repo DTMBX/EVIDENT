@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 /**
  * Professional Toast Notification System
  * Replaces alert() popups with elegant, accessible notifications

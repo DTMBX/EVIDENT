@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 """
 Enhanced PDF Discovery Analyzer
 Extracts specific legal information: arrest details, tow records, citations, charges, timeline, etc.

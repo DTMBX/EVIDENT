@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 """
 Stripe/Billing API Endpoints
 Handles checkout sessions, webhooks, and subscription management

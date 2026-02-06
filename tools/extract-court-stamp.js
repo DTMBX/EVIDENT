@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 // Node.js script: Extract court stamp from PDF using pdf-parse
 import fs from "fs";
 import pdf from "pdf-parse";

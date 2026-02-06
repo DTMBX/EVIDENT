@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 """
 BWC Indexer Adapter - Wraps existing barber-cam/py/bwc_index.py system
 

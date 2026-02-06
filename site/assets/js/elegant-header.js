@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 /**
  * ELEGANT HEADER NAVIGATION SYSTEM
  * Interactive JavaScript for desktop dropdowns and mobile drawer

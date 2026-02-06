@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 // Symptom-to-Plant Selector Prototype for Holistic Independence Page
 (function () {
   if (!window.SYMPTOM_PLANT_MAP) return;

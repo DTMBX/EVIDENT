@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 /**
  * Consolidate Hardcoded Colors to CSS Variables
  * Replaces common hex colors with their CSS variable equivalents

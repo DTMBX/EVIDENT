@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 /**
  * THEME TOGGLE v2.0 - Modern ES6+ Rewrite
  * Advanced dark/light mode with smooth transitions

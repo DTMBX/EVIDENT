@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 // Evident Admin Panel - Full Management System
 // Handles all CRUD operations for users, analyses, and system management
 

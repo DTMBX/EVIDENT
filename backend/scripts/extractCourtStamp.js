@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 // Helper for docket-intake.js: Extract court stamp using Node.js and fallback to Python OCR
 import { spawnSync } from "node:child_process";
 import path from "path";

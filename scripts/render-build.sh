@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 #!/bin/bash
 # Evident Platform - Render Build Script
 # Handles both Python Flask app and optional Jekyll static site

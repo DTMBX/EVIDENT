@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 """
 FREE Tier Data Retention Manager
 Automatically deletes FREE tier user data after 7 days

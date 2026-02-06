@@ -1,3 +1,6 @@
+// Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+// PROPRIETARY — See LICENSE.
+
 // Service Worker for Evident Progressive Web App (PWA)
 // Enables offline mode, caching, and push notifications
 

@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 """
 Quick Deploy Script for BWC Chunk-Level Routing
 Automates integration into existing Evident app

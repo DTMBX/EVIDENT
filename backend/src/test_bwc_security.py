@@ -1,3 +1,6 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
 """
 BWC Chunk Analysis - Security Test Suite
 Comprehensive security testing for all endpoints and features
