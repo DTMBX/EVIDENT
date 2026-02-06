@@ -7,9 +7,18 @@
 <body>
   <h1>Login (Test Template)</h1>
   <form method="post">
-    <label>Email: <input type="email" name="email" /></label>
-    <label>Password: <input type="password" name="password" /></label>
-    <input type="hidden" name="csrf_token" value="{{ csrf_token() if csrf_token is defined else '' }}" />
+    <label>
+      Email:
+      <input type="email" name="email">
+    </label>
+    <label>
+      Password:
+      <input type="password" name="password">
+    </label>
+    <input
+      type="hidden"
+      name="csrf_token"
+      value="{{ csrf_token() if csrf_token is defined else '' }}">
     <button type="submit">Log in</button>
   </form>
 </body>
