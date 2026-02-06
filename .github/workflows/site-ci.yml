@@ -29,6 +29,7 @@ jobs:
         with:
           name: site-build
           path: _site/**
+          retention-days: 7
 
   lighthouse:
     runs-on: ubuntu-latest
@@ -52,3 +53,4 @@ jobs:
         with:
           name: lhci-results
           path: lhci/**
+          retention-days: 30
