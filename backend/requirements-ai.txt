@@ -16,7 +16,7 @@
 # Core AI/ML
 openai-whisper==20231117
 torch==2.1.2
-torchaudio==2.1.2
+torchaudio==2.10.0
 transformers==4.36.2
 sentence-transformers==2.2.2
 
