@@ -661,6 +661,7 @@ class Analysis(db.Model):
 
     __tablename__ = "analyses"
     __table_args__ = {"extend_existing": True}
+    __table_args__ = {"extend_existing": True}
 
     id = db.Column(db.String(32), primary_key=True)  # UUID
     user_id = db.Column(db.Integer, db.ForeignKey(USERS_ID_FK), nullable=False, index=True)
@@ -746,6 +747,7 @@ class AppSettings(db.Model):
     """Application settings and configuration"""
 
     __tablename__ = "app_settings"
+    __table_args__ = {"extend_existing": True}
     __table_args__ = {"extend_existing": True}
 
     id = db.Column(db.Integer, primary_key=True)
@@ -891,6 +893,7 @@ class PDFUpload(db.Model):
     """Model for tracking uploaded PDF files"""
 
     __tablename__ = "pdf_uploads"
+    __table_args__ = {"extend_existing": True}
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(USERS_ID_FK), nullable=True, index=True)
@@ -952,6 +955,7 @@ class AuditLog(db.Model):
     """Audit log for compliance and security"""
 
     __tablename__ = "audit_logs"
+    __table_args__ = {"extend_existing": True}
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(USERS_ID_FK), index=True)
