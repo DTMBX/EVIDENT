@@ -9,6 +9,12 @@ Repository Settings (recommended):
 - In GitHub > Settings > Pages, ensure the site is configured to be served from GitHub Pages (the Actions deployment will manage this automatically). If you use a custom domain, add it in the Pages settings and add the DNS records as instructed.
 - Enable `Enforce HTTPS` after DNS propagation.
 
+Recommended for a monorepo
+- Use the modern Pages Actions workflow (`deploy-eleventy-pages.yml`) as the primary deployment because it provides atomic, permission-scoped deploys and integrates with Pages preview and branch protection.
+- Keep the classic `gh-pages` branch workflow available only as `workflow_dispatch` (manual) for legacy needs; avoid running both automatically to prevent conflicting updates.
+- Add branch protection on `main` requiring the Site CI checks (lint/build/LHCI) before merges.
+- Use `workflow_dispatch` or tag-based deployments for release staging if you need reproducible releases.
+
 Best practices:
 - Use the Pages Actions (`configure-pages`, `upload-pages-artifact`, `deploy-pages`) as implemented; they run under the repository's `GITHUB_TOKEN` and are robust for atomic updates.
 - Keep builds idempotent: avoid writing secrets into built files. Use runtime environment variables for client-side feature flags only when safe.
