@@ -55,7 +55,7 @@ cohere==5.20.4
 
 # Data Processing
 numpy==1.24.3
-pandas==2.1.4
+pandas==3.0.0
 scikit-learn==1.3.2
 
 # Visualization
