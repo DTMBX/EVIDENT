@@ -12,7 +12,7 @@ from ..storage import get_conn
 
 
 class Ingestor:
-Optional[def __init__(self, db_path: Path] = None):
+    def __init__(self, db_path: Optional[Path] = None):
         self.conn = get_conn(db_path)
 
     def ingest_opinion(
@@ -21,7 +21,7 @@ Optional[def __init__(self, db_path: Path] = None):
         source_key: str,
         opinion_json: dict,
         tool_versions_json: str = "{}",
-Optional[idempotency_key: str] = None,
+        idempotency_key: Optional[str] = None,
     ):
         # fetch content bytes and content_type via minimal client shape
         client = CourtListenerClient()

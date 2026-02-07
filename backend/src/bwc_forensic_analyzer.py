@@ -1,4 +1,4 @@
-from typing import Optional
+
 # Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
@@ -25,19 +25,28 @@ License: MIT
 """
 
 import hashlib
+import importlib
 import json
 import logging
 import os
+import shutil
 import subprocess
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 from pathlib import Path
 
-import spacy
-import torch
-import whisper
-from pyannote.audio import Pipeline
-from sentence_transformers import SentenceTransformer
+
+# Lazy-import helper for optional heavy ML dependencies
+def _try_import(name: str):
+    try:
+        return importlib.import_module(name)
+    except Exception:
+        return None
+
+
+def _which(cmd: str) -> str | None:
+    return shutil.which(cmd)
+
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -78,8 +87,8 @@ class TranscriptSegment:
     start_time: float
     end_time: float
     text: str
-Optional[speaker: str] = None  # "SPEAKER_00", "SPEAKER_01", etc.
-Optional[speaker_label: str] = None  # "Officer Smith", "Civilian", etc.
+    speaker: str | None = None  # "SPEAKER_00", "SPEAKER_01", etc.
+    speaker_label: str | None = None  # "Officer Smith", "Civilian", etc.
     confidence: float = 1.0
     words: list[dict] = field(default_factory=list)
 
@@ -108,7 +117,7 @@ class DiscrepancyReport:
     bwc_evidence: str
     conflicting_evidence: str
     conflicting_source: str  # "CAD log", "Police report", "Officer statement"
-Optional[timestamp: float] = None
+    timestamp: float | None = None
     description: str = ""
     legal_significance: str = ""
 
@@ -156,8 +165,8 @@ class BWCAnalysisReport:
     entities: dict[str, list[str]] = field(default_factory=dict)
 
     # Court documentation
-Optional[evidence_number: str] = None
-Optional[case_number: str] = None
+    evidence_number: str | None = None
+    case_number: str | None = None
 
     def to_dict(self) -> dict:
         return {
@@ -205,8 +214,8 @@ class BWCForensicAnalyzer:
     def __init__(
         self,
         whisper_model_size: str = "base",
-Optional[hf_token: str] = None,
-Optional[device: str] = None,
+        hf_token: str | None = None,
+        device: str | None = None,
     ):
         """
         Initialize BWC analyzer with AI models
@@ -216,41 +225,70 @@ Optional[device: str] = None,
             hf_token: Hugging Face token for pyannote.audio
             device: Device to use (cuda, cpu, mps)
         """
-        self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
+        # Lazy-probe torch to determine device if not specified
+        self._torch = _try_import("torch")
+        if device:
+            self.device = device
+        else:
+            try:
+                self.device = (
+                    "cuda"
+                    if (self._torch is not None and self._torch.cuda.is_available())
+                    else "cpu"
+                )
+            except Exception:
+                self.device = "cpu"
+
         logger.info(f"Initializing BWC Analyzer on device: {self.device}")
 
-        # Load Whisper for transcription
-        logger.info(f"Loading Whisper model: {whisper_model_size}")
-        self.whisper_model = whisper.load_model(whisper_model_size, device=self.device)
+        # Lazy-load Whisper
+        logger.info(f"Probing Whisper model availability: {whisper_model_size}")
+        self.whisper = _try_import("whisper")
+        self.whisper_model = None
+        if self.whisper is not None:
+            try:
+                self.whisper_model = self.whisper.load_model(whisper_model_size, device=self.device)
+            except Exception as e:
+                logger.warning(f"Could not load Whisper model: {e}")
 
-        # Load pyannote for speaker diarization
+        # Load pyannote for speaker diarization if available
         self.hf_token = hf_token or os.getenv("HUGGINGFACE_TOKEN")
         self.diarization_pipeline = None
-        if self.hf_token:
+        self._pyannote = _try_import("pyannote.audio")
+        if self._pyannote is not None and self.hf_token:
             try:
-                logger.info("Loading pyannote speaker diarization pipeline")
-                self.diarization_pipeline = Pipeline.from_pretrained(
-                    "pyannote/speaker-diarization-3.1", use_auth_token=self.hf_token
-                )
-                if self.device != "cpu":
-                    self.diarization_pipeline.to(torch.device(self.device))
+                Pipeline = getattr(self._pyannote, "Pipeline", None)
+                if Pipeline is not None:
+                    logger.info("Loading pyannote speaker diarization pipeline")
+                    self.diarization_pipeline = Pipeline.from_pretrained(
+                        "pyannote/speaker-diarization-3.1", use_auth_token=self.hf_token
+                    )
             except Exception as e:
                 logger.warning(f"Could not load diarization pipeline: {e}")
 
-        # Load spaCy for entity extraction
-        logger.info("Loading spaCy NLP model")
-        try:
-            self.nlp = spacy.load("en_core_web_md")
-        except OSError:
-            logger.warning("spaCy model not found, downloading...")
-            os.system("python -m spacy download en_core_web_md")
-            self.nlp = spacy.load("en_core_web_md")
+        # Probe spaCy availability
+        self.spacy = _try_import("spacy")
+        self.nlp = None
+        if self.spacy is not None:
+            try:
+                self.nlp = self.spacy.load("en_core_web_md")
+            except Exception:
+                logger.warning("spaCy model 'en_core_web_md' not available; NLP features disabled")
 
-        # Load sentence transformer for semantic search
-        logger.info("Loading sentence transformer for semantic search")
-        self.sentence_model = SentenceTransformer("all-MiniLM-L6-v2")
+        # Probe sentence-transformers availability
+        self._sentence_transformers = _try_import("sentence_transformers")
+        self.sentence_model = None
+        if self._sentence_transformers is not None:
+            try:
+                SentenceTransformer = getattr(
+                    self._sentence_transformers, "SentenceTransformer", None
+                )
+                if SentenceTransformer is not None:
+                    self.sentence_model = SentenceTransformer("all-MiniLM-L6-v2")
+            except Exception:
+                logger.warning("SentenceTransformer not available; semantic search disabled")
 
-        logger.info("✅ BWC Forensic Analyzer initialized successfully")
+        logger.info("✅ BWC Forensic Analyzer initialized (models probed lazily)")
 
     def calculate_file_hash(self, file_path: str) -> str:
         """Calculate SHA-256 hash of file for chain of custody"""
@@ -288,7 +326,7 @@ Optional[device: str] = None,
             source=source,
         )
 
-Optional[def extract_audio(self, video_path: str, output_path: str] = None) -> str:
+    def extract_audio(self, video_path: str, output_path: str | None = None) -> str:
         """
         Extract audio from video file using ffmpeg
 
@@ -317,6 +355,9 @@ Optional[def extract_audio(self, video_path: str, output_path: str] = None) -> s
             output_path,
         ]
 
+        if not _which("ffmpeg"):
+            raise RuntimeError("ffmpeg not found in PATH; cannot extract audio")
+
         try:
             subprocess.run(cmd, check=True, capture_output=True)
             logger.info(f"✅ Audio extracted to: {output_path}")
@@ -340,13 +381,16 @@ Optional[def extract_audio(self, video_path: str, output_path: str] = None) -> s
             Transcription result with segments and word timestamps
         """
         logger.info(f"Transcribing audio: {audio_path}")
+        if self.whisper_model is None:
+            raise RuntimeError("Whisper model not loaded; cannot transcribe audio")
+
         result = self.whisper_model.transcribe(
             audio_path, language=language, word_timestamps=word_timestamps, verbose=False
         )
-        logger.info(f"✅ Transcription complete: {len(result['segments'])} segments")
+        logger.info(f"✅ Transcription complete: {len(result.get('segments', []))} segments")
         return result
 
-Optional[def diarize_speakers(self, audio_path: str) -> list[dict]]:
+    def diarize_speakers(self, audio_path: str) -> list[dict]:
         """
         Identify and separate speakers in audio
 
@@ -357,8 +401,8 @@ Optional[def diarize_speakers(self, audio_path: str) -> list[dict]]:
             List of speaker segments with timing and speaker IDs
         """
         if not self.diarization_pipeline:
-            logger.warning("Speaker diarization not available (missing HF token)")
-            return None
+            logger.warning("Speaker diarization not available (pipeline not loaded)")
+            return []
 
         logger.info(f"Performing speaker diarization: {audio_path}")
         diarization = self.diarization_pipeline(audio_path)
@@ -371,7 +415,7 @@ Optional[def diarize_speakers(self, audio_path: str) -> list[dict]]:
         return segments
 
     def merge_transcription_with_speakers(
-Optional[self, transcription: dict, diarization: list[dict]]
+        self, transcription: dict, diarization: list[dict] | None = None
     ) -> list[TranscriptSegment]:
         """
         Merge Whisper transcription with pyannote speaker diarization
@@ -431,6 +475,10 @@ Optional[self, transcription: dict, diarization: list[dict]]
         Returns:
             Dictionary of entity types to entity values
         """
+        if not self.nlp:
+            logger.warning("spaCy NLP model not loaded; entity extraction disabled")
+            return {}
+
         doc = self.nlp(text)
         entities = {}
 
@@ -443,7 +491,7 @@ Optional[self, transcription: dict, diarization: list[dict]]
         return entities
 
     def label_speakers(
-Optional[self, segments: list[TranscriptSegment], known_officers: list[str]] = None
+        self, segments: list[TranscriptSegment], known_officers: list[str] | None = None
     ) -> dict[str, str]:
         """
         Attempt to label speakers based on context and known information
@@ -486,8 +534,8 @@ Optional[self, segments: list[TranscriptSegment], known_officers: list[str]] = N
     def detect_discrepancies(
         self,
         transcript: list[TranscriptSegment],
-Optional[cad_log: dict] = None,
-Optional[police_report: str] = None,
+        cad_log: dict | None = None,
+        police_report: str | None = None,
     ) -> list[DiscrepancyReport]:
         """
         Detect discrepancies between BWC footage and other evidence
@@ -567,11 +615,11 @@ Optional[police_report: str] = None,
         video_path: str,
         acquired_by: str,
         source: str,
-Optional[case_number: str] = None,
-Optional[evidence_number: str] = None,
-Optional[known_officers: list[str]] = None,
-Optional[cad_log: dict] = None,
-Optional[police_report: str] = None,
+        case_number: str | None = None,
+        evidence_number: str | None = None,
+        known_officers: list[str] | None = None,
+        cad_log: dict | None = None,
+        police_report: str | None = None,
     ) -> BWCAnalysisReport:
         """
         Perform comprehensive forensic analysis of BWC file

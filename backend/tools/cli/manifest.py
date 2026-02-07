@@ -26,7 +26,9 @@ def _detect_ffmpeg_version() -> str:
 
 
 def create_manifest(
-Optional[case_dir: Path, originals_subdir: str = "originals", tool_versions: dict[str, str]] = None
+    case_dir: Path,
+    originals_subdir: str = "originals",
+    tool_versions: Optional[dict[str, str]] = None,
 ) -> dict[str, Any]:
     """Create canonical manifest and meta manifest.
 

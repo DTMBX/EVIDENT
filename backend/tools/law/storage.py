@@ -62,7 +62,7 @@ def init_db(db_path: Path) -> sqlite3.Connection:
     return conn
 
 
-Optional[def get_conn(db_path: Path] = None) -> sqlite3.Connection:
+def get_conn(db_path: Optional[Path] = None) -> sqlite3.Connection:
     if db_path is None:
         db_path = Path.cwd() / "backend" / "tools" / "law" / "law.db"
     return init_db(db_path)

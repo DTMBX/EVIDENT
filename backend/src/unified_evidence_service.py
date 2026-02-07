@@ -232,7 +232,7 @@ class UnifiedEvidenceProcessor:
             return results
 
     @cached(ttl=3600, key_prefix="transcription")
-Optional[def _transcribe_evidence(self, file_path: Path, context: dict) -> str]:
+    def _transcribe_evidence(self, file_path: Path, context: dict) -> str:
         """Transcribe audio/video evidence"""
         transcription_service = service_registry.get("transcription")
 
@@ -252,7 +252,7 @@ Optional[def _transcribe_evidence(self, file_path: Path, context: dict) -> str]:
             return None
 
     @cached(ttl=3600, key_prefix="ocr")
-Optional[def _extract_text(self, file_path: Path, context: dict) -> str]:
+    def _extract_text(self, file_path: Path, context: dict) -> str:
         """Extract text from document/image"""
         ocr_service = service_registry.get("ocr")
 
@@ -268,7 +268,7 @@ Optional[def _extract_text(self, file_path: Path, context: dict) -> str]:
             self.logger.error(f"OCR failed: {str(e)}")
             return None
 
-Optional[def _analyze_violations(self, text: str, context: dict) -> dict]:
+    def _analyze_violations(self, text: str, context: dict) -> dict:
         """Analyze text for legal violations"""
         scanner = service_registry.get("violation_scanner")
 
@@ -283,7 +283,7 @@ Optional[def _analyze_violations(self, text: str, context: dict) -> dict]:
             self.logger.error(f"Violation analysis failed: {str(e)}")
             return None
 
-Optional[def _check_compliance(self, file_path: Path, evidence_type: str, context: dict) -> dict]:
+    def _check_compliance(self, file_path: Path, evidence_type: str, context: dict) -> dict:
         """Check evidence compliance"""
         checker = service_registry.get("compliance_checker")
 
