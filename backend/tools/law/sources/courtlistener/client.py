@@ -8,14 +8,14 @@ from ...blobs import write_blob
 
 
 class CourtListenerClient:
-Optional[def __init__(self, base_url: str] = None):
+    def __init__(self, base_url: Optional[str] = None):
         self.base_url = base_url or "https://www.courtlistener.com/api/rest/v3"
 
     def search_opinions(
         self,
-Optional[court: str] = None,
-Optional[date_min: str] = None,
-Optional[date_max: str] = None,
+        court: Optional[str] = None,
+        date_min: Optional[str] = None,
+        date_max: Optional[str] = None,
         page: int = 1,
     ) -> dict[str, Any]:
         # In tests this method will be mocked. Provide a minimal shape when called directly.

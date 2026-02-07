@@ -17,7 +17,7 @@ class _TextStripper(HTMLParser):
         return "".join(self.parts)
 
 
-Optional[def canonicalize_bytes(raw: bytes, content_type: str] = None) -> tuple[bytes, str]:
+def canonicalize_bytes(raw: bytes, content_type: Optional[str] = None) -> tuple[bytes, str]:
     """Return (canonical_bytes, canonical_text).
 
     Deterministic rules: normalize newlines to LF, collapse spaces, strip leading/trailing whitespace per line,

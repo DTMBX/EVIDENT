@@ -700,6 +700,37 @@ def register_bwc_routes(app):
     logger.info("✅ BWC chunk analysis routes registered (SECURED)")
 
 
+@bwc_routes.route("/jobs/<job_id>", methods=["GET"])
+@login_required
+def get_job(job_id: str):
+    """Return job status persisted in instance/jobs/<job_id>.json"""
+    try:
+        from .bwc_jobs import get_job_status
+
+        status = get_job_status(job_id)
+        if status.get("error"):
+            return jsonify({"error": "not_found"}), 404
+        return jsonify(status)
+    except Exception as e:
+        logger.error(f"get_job error: {e}")
+        return jsonify({"error": "internal"}), 500
+
+
+@bwc_routes.route("/jobs/<job_id>/artifacts", methods=["GET"])
+@login_required
+def get_job_artifacts(job_id: str):
+    try:
+        from .bwc_jobs import get_job_status
+
+        status = get_job_status(job_id)
+        if status.get("error"):
+            return jsonify({"error": "not_found"}), 404
+        return jsonify({"artifacts": status.get("artifacts", {})})
+    except Exception as e:
+        logger.error(f"get_job_artifacts error: {e}")
+        return jsonify({"error": "internal"}), 500
+
+
 # Security check on module load
 if __name__ == "__main__":
     print("⚠️  This module should be imported, not run directly")

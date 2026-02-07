@@ -19,8 +19,9 @@ Examples:
 
 from __future__ import annotations
 
+from typing import TYPE_CHECKING
+
 import requests
-from typing import Optional, TYPE_CHECKING
 
 if TYPE_CHECKING:
     # imports only for type checking to avoid import-time side effects
@@ -34,7 +35,6 @@ try:
     db = _models_auth.db
 except Exception:
     db = None
-
 
 
 class VerifiedLegalSources:
@@ -94,7 +94,9 @@ class VerifiedLegalSources:
         },
     }
 
-Optional[def __init__(self, library: Optional['LegalLibraryService'] = None, db_module: object] = None):
+    def __init__(
+        self, library: LegalLibraryService | None = None, db_module: object | None = None
+    ):
         """
         Initialize VerifiedLegalSources.
 
@@ -131,7 +133,7 @@ Optional[def __init__(self, library: Optional['LegalLibraryService'] = None, db_
         info = self.get_source_info(source_name)
         return info.get("verified", False)
 
-    def import_from_courtlistener(self, citation: str) -> Optional[LegalDocument]:
+    def import_from_courtlistener(self, citation: str) -> LegalDocument | None:
         """
         Import from CourtListener (verified source)
 
@@ -161,7 +163,7 @@ Optional[def __init__(self, library: Optional['LegalLibraryService'] = None, db_
 
         return doc
 
-    def import_from_cornell_lii(self, citation: str) -> Optional[LegalDocument]:
+    def import_from_cornell_lii(self, citation: str) -> LegalDocument | None:
         """
         Import from Cornell Legal Information Institute
 
@@ -177,7 +179,7 @@ Optional[def __init__(self, library: Optional['LegalLibraryService'] = None, db_
 
         return None
 
-    def import_from_govinfo(self, citation: str) -> Optional[LegalDocument]:
+    def import_from_govinfo(self, citation: str) -> LegalDocument | None:
         """
         Import from GovInfo.gov (official U.S. government source)
 
@@ -193,7 +195,7 @@ Optional[def __init__(self, library: Optional['LegalLibraryService'] = None, db_
 
         return None
 
-    def import_from_supreme_court_official(self, year: int, docket: str) -> Optional[LegalDocument]:
+    def import_from_supreme_court_official(self, year: int, docket: str) -> LegalDocument | None:
         """
         Import directly from Supreme Court official website
 
