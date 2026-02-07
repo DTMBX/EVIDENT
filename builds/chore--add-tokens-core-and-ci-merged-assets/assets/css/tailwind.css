@@ -1,5 +1,5 @@
 /* stylelint-disable at-rule-no-unknown, at-rule-empty-line-before, declaration-block-single-line-max-declarations */
-@import url('tokens.css');
+@import url("tokens.css");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -13,16 +13,15 @@ Features:
 6. Date/Time Calculations
 """
 
-import hashlib
 import json
 import logging
 import math
 import re
 import urllib.parse
 import urllib.request
-from dataclasses import dataclass, field
-from datetime import datetime, timedelta
-from typing import Any, Dict, List, Optional, Tuple
+from dataclasses import dataclass
+from datetime import datetime
+from typing import Any
 
 logger = logging.getLogger(__name__)
 
@@ -36,7 +35,7 @@ class ToolResult:
     data: Any
     source: str = ""
     confidence: float = 1.0
-    error: Optional[str] = None
+    error: str | None = None
 
 
 class SmartTools:
@@ -397,10 +396,10 @@ class SmartTools:
 
     def __init__(self):
         """Initialize smart tools"""
-        self.cache: Dict[str, ToolResult] = {}
+        self.cache: dict[str, ToolResult] = {}
         logger.info("SmartTools initialized with web search, math, and knowledge base")
 
-    def detect_intent(self, query: str) -> List[str]:
+    def detect_intent(self, query: str) -> list[str]:
         """
         Detect what tools might be useful for this query
 
@@ -455,7 +454,7 @@ class SmartTools:
 
         return tools or ["web_search"]  # Default to web search
 
-    def process_query(self, query: str) -> List[ToolResult]:
+    def process_query(self, query: str) -> list[ToolResult]:
         """
         Process a query using appropriate tools
 
@@ -534,7 +533,7 @@ class SmartTools:
         except Exception as e:
             return ToolResult(tool="math", success=False, data=None, error=str(e))
 
-    def _extract_math_expression(self, query: str) -> Optional[str]:
+    def _extract_math_expression(self, query: str) -> str | None:
         """Extract mathematical expression from natural language"""
         # Remove common question words
         cleaned = re.sub(r"^(what is|calculate|compute|solve|evaluate|find)\s*", "", query.lower())
@@ -823,7 +822,7 @@ class SmartTools:
         except Exception as e:
             return ToolResult(tool="datetime", success=False, data=None, error=str(e))
 
-    def format_response(self, results: List[ToolResult], query: str) -> str:
+    def format_response(self, results: list[ToolResult], query: str) -> str:
         """
         Format tool results into a coherent response
         """
@@ -855,7 +854,7 @@ class SmartTools:
 
             elif result.tool == "math":
                 data = result.data
-                response_parts.append(f"**Calculation Result:**\n")
+                response_parts.append("**Calculation Result:**\n")
                 response_parts.append(f"`{data['formatted']}`")
 
             elif result.tool == "web_search":
@@ -877,16 +876,15 @@ class SmartTools:
                 response_parts.append(f"{data['extract']}\n")
                 if data.get("url"):
                     response_parts.append(f"\n[Read more on Wikipedia]({data['url']})")
-                response_parts.append(f"\n*Source: Wikipedia*")
+                response_parts.append("\n*Source: Wikipedia*")
 
             elif result.tool == "datetime":
                 data = result.data
                 if "result" in data:
                     response_parts.append(f"**{data['calculation']}:** {data['formatted']}")
                 else:
-                    response_parts.append(f"**Current Date/Time:**")
+                    response_parts.append("**Current Date/Time:**")
                     response_parts.append(f"• Date: {data['date']}")
                     response_parts.append(f"• Time: {data['time']}")
 
         return "\n".join(response_parts)
-

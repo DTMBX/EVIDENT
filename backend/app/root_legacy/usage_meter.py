@@ -9,13 +9,11 @@ Comprehensive tracking of every user action and resource consumption
 from datetime import datetime, timedelta
 from decimal import Decimal
 from functools import wraps
-from typing import Dict, Optional
 
-from flask import current_app, g, request
+from flask import g, request
 from flask_login import current_user
-from sqlalchemy import func
 
-from .models_auth import UsageTracking, User, db
+from .models_auth import User, db
 
 
 class SmartMeterEvent(db.Model):
@@ -156,7 +154,7 @@ class UsageQuota(db.Model):
 
             db.session.commit()
 
-    def check_quota(self, quota_type: str, amount: float = 1) -> tuple[bool, Optional[str]]:
+    def check_quota(self, quota_type: str, amount: float = 1) -> tuple[bool, str | None]:
         """
         Check if user has quota available for a specific resource
 
@@ -291,8 +289,8 @@ class SmartMeter:
     def track_event(
         event_type: str,
         event_category: str,
-        user_id: Optional[int] = None,
-        resource_name: Optional[str] = None,
+        user_id: int | None = None,
+        resource_name: str | None = None,
         quantity: float = 1.0,
         tokens_input: int = 0,
         tokens_output: int = 0,
@@ -300,7 +298,7 @@ class SmartMeter:
         file_size_bytes: int = 0,
         cost_usd: float = 0.0,
         status: str = "success",
-        error_message: Optional[str] = None,
+        error_message: str | None = None,
     ) -> SmartMeterEvent:
         """
         Track a usage event
@@ -358,7 +356,7 @@ class SmartMeter:
         return event
 
     @staticmethod
-    def get_user_stats(user_id: int, days: int = 30) -> Dict:
+    def get_user_stats(user_id: int, days: int = 30) -> dict:
         """Get comprehensive usage statistics for a user"""
         since = datetime.utcnow() - timedelta(days=days)
 
@@ -459,7 +457,7 @@ class SmartMeter:
         }
 
 
-def track_usage(event_type: str, event_category: str = "feature", quota_type: Optional[str] = None):
+def track_usage(event_type: str, event_category: str = "feature", quota_type: str | None = None):
     """
     Decorator to automatically track usage of functions
 
@@ -533,5 +531,3 @@ def track_usage(event_type: str, event_category: str = "feature", quota_type: Op
         return wrapper
 
     return decorator
-
-

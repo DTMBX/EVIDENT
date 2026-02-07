@@ -16,23 +16,21 @@ Features:
 
 import base64
 import hashlib
-import hmac
 import json
 import logging
 import os
-import secrets
 from dataclasses import dataclass
 from datetime import datetime, timedelta
 from decimal import Decimal
 from enum import Enum
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 
 from cryptography.fernet import Fernet, InvalidToken
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
-from flask import current_app, g
-from sqlalchemy import desc, func
+from flask import g
+from sqlalchemy import func
 
 from models_auth import UsageTracking, User, db
 
@@ -183,7 +181,7 @@ class UsageRecord:
     request_hash: str  # SHA-256 of request for verification
     response_hash: str  # SHA-256 of response for verification
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> dict:
         return {
             "user_id": self.user_id,
             "provider": self.provider,
@@ -501,8 +499,8 @@ class APIUsageMeteringService:
         user_id: int,
         provider: str,
         api_key: str,
-        key_name: Optional[str] = None,
-    ) -> Dict[str, Any]:
+        key_name: str | None = None,
+    ) -> dict[str, Any]:
         """
         Securely store an API key
 
@@ -574,7 +572,7 @@ class APIUsageMeteringService:
             db.session.rollback()
             return {"success": False, "error": str(e)}
 
-    def get_api_key(self, user_id: int, provider: str = "openai") -> Optional[str]:
+    def get_api_key(self, user_id: int, provider: str = "openai") -> str | None:
         """
         Retrieve decrypted API key for user
 
@@ -605,7 +603,7 @@ class APIUsageMeteringService:
             db.session.commit()
             return None
 
-    def validate_api_key(self, user_id: int, provider: str = "openai") -> Dict[str, Any]:
+    def validate_api_key(self, user_id: int, provider: str = "openai") -> dict[str, Any]:
         """Validate stored API key by making a test request"""
         api_key = self.get_api_key(user_id, provider)
 
@@ -654,7 +652,7 @@ class APIUsageMeteringService:
 
             return {"valid": False, "error": str(e)}
 
-    def delete_api_key(self, user_id: int, key_id: int) -> Dict[str, Any]:
+    def delete_api_key(self, user_id: int, key_id: int) -> dict[str, Any]:
         """Delete an API key"""
         key_record = EncryptedAPIKey.query.filter_by(
             id=key_id,
@@ -680,11 +678,11 @@ class APIUsageMeteringService:
         model: str,
         prompt_tokens: int,
         completion_tokens: int,
-        request_data: Optional[Dict] = None,
-        response_data: Optional[Dict] = None,
+        request_data: dict | None = None,
+        response_data: dict | None = None,
         endpoint: str = "/chat/completions",
         success: bool = True,
-        error_type: Optional[str] = None,
+        error_type: str | None = None,
     ) -> APIUsageLog:
         """
         Record API usage with verification hashes
@@ -824,7 +822,7 @@ class APIUsageMeteringService:
     # Rate Limiting
     # -------------------------------------------------------------------------
 
-    def check_rate_limit(self, user_id: int) -> Tuple[bool, Optional[str]]:
+    def check_rate_limit(self, user_id: int) -> tuple[bool, str | None]:
         """
         Check if user is within rate limits
 
@@ -866,7 +864,7 @@ class APIUsageMeteringService:
         self,
         user_id: int,
         days: int = 30,
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """
         Get usage summary for user
 
@@ -964,7 +962,7 @@ class APIUsageMeteringService:
             },
         }
 
-    def verify_usage_log(self, log_id: int) -> Dict[str, Any]:
+    def verify_usage_log(self, log_id: int) -> dict[str, Any]:
         """
         Verify integrity of a usage log entry
 
@@ -992,9 +990,9 @@ class APIUsageMeteringService:
     def export_usage_audit(
         self,
         user_id: int,
-        start_date: Optional[datetime] = None,
-        end_date: Optional[datetime] = None,
-    ) -> List[Dict]:
+        start_date: datetime | None = None,
+        end_date: datetime | None = None,
+    ) -> list[dict]:
         """
         Export verifiable usage audit trail
 
@@ -1118,7 +1116,7 @@ if __name__ == "__main__":
 
     decrypted = km.decrypt(encrypted)
     assert decrypted == test_key, "Decryption failed!"
-    print(f"✓ Encryption/decryption works correctly")
+    print("✓ Encryption/decryption works correctly")
 
     # Test pricing calculator
     print("\nTesting APIPricingCalculator...")
@@ -1129,4 +1127,3 @@ if __name__ == "__main__":
     print(f"GPT-4o-mini (10000 prompt + 5000 completion tokens): ${cost:.6f}")
 
     print("\n✓ API Usage Metering Service ready!")
-

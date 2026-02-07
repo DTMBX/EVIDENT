@@ -23,12 +23,12 @@ import os
 from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Optional
 
 import requests
 
 from code360_client import Code360Client, Municipality
-from legal_library import LegalDocument, LegalLibraryService
+from legal_library import LegalLibraryService
 from municipal_code_service import MunicipalCodeService
 from statutory_compliance_checker import StatutoryComplianceChecker
 from verified_legal_sources import VerifiedLegalSources
@@ -76,7 +76,7 @@ class Jurisdiction:
 class LegalAuthority:
     """A legal authority (statute, ordinance, regulation, etc.)"""
 
-    id: Optional[int] = None
+    id: int | None = None
     level: JurisdictionLevel = JurisdictionLevel.FEDERAL
     law_type: LawType = LawType.STATUTE
     jurisdiction: str = ""  # "US", "NJ", "Atlantic City, NJ"
@@ -89,14 +89,14 @@ class LegalAuthority:
     # Source
     source_url: str = ""
     source_name: str = ""
-    effective_date: Optional[datetime] = None
+    effective_date: datetime | None = None
 
     # Hierarchy
-    superseded_by: Optional[str] = None  # Higher authority that preempts
+    superseded_by: str | None = None  # Higher authority that preempts
 
     # Relevance (set during search)
     relevance_score: float = 0.0
-    matched_terms: List[str] = field(default_factory=list)
+    matched_terms: list[str] = field(default_factory=list)
 
     def __post_init__(self):
         # Normalize citation
@@ -109,15 +109,15 @@ class TrinitySearchResult:
     """Combined results from LOCAL, STATE, and FEDERAL search"""
 
     query: str
-    jurisdiction_filter: Optional[str] = None
+    jurisdiction_filter: str | None = None
 
-    federal_results: List[LegalAuthority] = field(default_factory=list)
-    state_results: List[LegalAuthority] = field(default_factory=list)
-    local_results: List[LegalAuthority] = field(default_factory=list)
+    federal_results: list[LegalAuthority] = field(default_factory=list)
+    state_results: list[LegalAuthority] = field(default_factory=list)
+    local_results: list[LegalAuthority] = field(default_factory=list)
 
     # Analysis
-    hierarchy_notes: List[str] = field(default_factory=list)  # Preemption issues, conflicts
-    applicable_authorities: List[LegalAuthority] = field(
+    hierarchy_notes: list[str] = field(default_factory=list)  # Preemption issues, conflicts
+    applicable_authorities: list[LegalAuthority] = field(
         default_factory=list
     )  # Ranked by relevance
 
@@ -127,7 +127,7 @@ class TrinitySearchResult:
     def total_results(self) -> int:
         return len(self.federal_results) + len(self.state_results) + len(self.local_results)
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> dict:
         return {
             "query": self.query,
             "jurisdiction_filter": self.jurisdiction_filter,
@@ -151,7 +151,7 @@ class TrinitySearchResult:
             "searched_at": self.searched_at.isoformat(),
         }
 
-    def _authority_to_dict(self, auth: LegalAuthority) -> Dict:
+    def _authority_to_dict(self, auth: LegalAuthority) -> dict:
         return {
             "level": auth.level.value,
             "type": auth.law_type.value,
@@ -237,11 +237,11 @@ class LegalTrinityService:
     def search(
         self,
         query: str,
-        state: Optional[str] = None,
-        municipality: Optional[str] = None,
-        county: Optional[str] = None,
-        levels: Optional[List[JurisdictionLevel]] = None,
-        law_types: Optional[List[LawType]] = None,
+        state: str | None = None,
+        municipality: str | None = None,
+        county: str | None = None,
+        levels: list[JurisdictionLevel] | None = None,
+        law_types: list[LawType] | None = None,
         limit_per_level: int = 15,
     ) -> TrinitySearchResult:
         """
@@ -291,8 +291,8 @@ class LegalTrinityService:
         return result
 
     def _search_federal(
-        self, query: str, law_types: Optional[List[LawType]], limit: int
-    ) -> List[LegalAuthority]:
+        self, query: str, law_types: list[LawType] | None, limit: int
+    ) -> list[LegalAuthority]:
         """Search federal law sources"""
         results = []
 
@@ -335,7 +335,7 @@ class LegalTrinityService:
 
         return results[:limit]
 
-    def _search_govinfo_usc(self, query: str, limit: int) -> List[LegalAuthority]:
+    def _search_govinfo_usc(self, query: str, limit: int) -> list[LegalAuthority]:
         """Search U.S. Code via GovInfo API"""
         results = []
 
@@ -374,7 +374,7 @@ class LegalTrinityService:
 
         return results
 
-    def _search_ecfr(self, query: str, limit: int) -> List[LegalAuthority]:
+    def _search_ecfr(self, query: str, limit: int) -> list[LegalAuthority]:
         """Search Code of Federal Regulations via eCFR API"""
         results = []
 
@@ -406,8 +406,8 @@ class LegalTrinityService:
         return results
 
     def _search_state(
-        self, query: str, state: str, law_types: Optional[List[LawType]], limit: int
-    ) -> List[LegalAuthority]:
+        self, query: str, state: str, law_types: list[LawType] | None, limit: int
+    ) -> list[LegalAuthority]:
         """Search state law sources"""
         results = []
         state = state.upper()
@@ -443,11 +443,11 @@ class LegalTrinityService:
     def _search_local(
         self,
         query: str,
-        state: Optional[str],
-        municipality: Optional[str],
-        county: Optional[str],
+        state: str | None,
+        municipality: str | None,
+        county: str | None,
         limit: int,
-    ) -> List[LegalAuthority]:
+    ) -> list[LegalAuthority]:
         """Search local/municipal law sources"""
         results = []
 
@@ -496,7 +496,7 @@ class LegalTrinityService:
         return results[:limit]
 
     def _build_jurisdiction_string(
-        self, state: Optional[str], municipality: Optional[str], county: Optional[str]
+        self, state: str | None, municipality: str | None, county: str | None
     ) -> str:
         """Build jurisdiction description string"""
         parts = []
@@ -508,7 +508,7 @@ class LegalTrinityService:
             parts.append(state.upper())
         return ", ".join(parts) if parts else "All Jurisdictions"
 
-    def _analyze_hierarchy(self, result: TrinitySearchResult) -> List[str]:
+    def _analyze_hierarchy(self, result: TrinitySearchResult) -> list[str]:
         """Analyze jurisdictional hierarchy and note conflicts/preemptions"""
         notes = []
 
@@ -544,7 +544,7 @@ class LegalTrinityService:
 
         return notes
 
-    def _rank_authorities(self, result: TrinitySearchResult) -> List[LegalAuthority]:
+    def _rank_authorities(self, result: TrinitySearchResult) -> list[LegalAuthority]:
         """Rank all authorities by relevance and hierarchy"""
         all_authorities = result.federal_results + result.state_results + result.local_results
 
@@ -587,11 +587,11 @@ class LegalTrinityService:
 
     def analyze_evidence_against_law(
         self,
-        evidence: Dict,
+        evidence: dict,
         state: str,
-        municipality: Optional[str] = None,
-        county: Optional[str] = None,
-    ) -> Dict[str, Any]:
+        municipality: str | None = None,
+        county: str | None = None,
+    ) -> dict[str, Any]:
         """
         Analyze evidence against applicable law at all levels
 
@@ -639,7 +639,7 @@ class LegalTrinityService:
             "analyzed_at": datetime.utcnow().isoformat(),
         }
 
-    def _extract_keywords(self, evidence: Dict) -> List[str]:
+    def _extract_keywords(self, evidence: dict) -> list[str]:
         """Extract search keywords from evidence"""
         keywords = []
 
@@ -690,8 +690,8 @@ class LegalTrinityService:
         return keywords[:10]  # Limit to top 10
 
     def _match_violation_to_law(
-        self, violation: Dict, results: TrinitySearchResult
-    ) -> List[LegalAuthority]:
+        self, violation: dict, results: TrinitySearchResult
+    ) -> list[LegalAuthority]:
         """Match a violation to applicable legal authorities"""
         matches = []
 
@@ -724,7 +724,7 @@ class LegalTrinityService:
         matches.sort(key=lambda x: x.relevance_score, reverse=True)
         return matches[:5]  # Top 5 matches
 
-    def _get_jurisdiction_notes(self, authorities: List[LegalAuthority]) -> List[str]:
+    def _get_jurisdiction_notes(self, authorities: list[LegalAuthority]) -> list[str]:
         """Get notes about jurisdiction for matched authorities"""
         notes = []
 
@@ -742,8 +742,8 @@ class LegalTrinityService:
         return notes
 
     def _generate_filing_recommendations(
-        self, violation_matches: List[Dict], state: str, municipality: Optional[str]
-    ) -> List[Dict]:
+        self, violation_matches: list[dict], state: str, municipality: str | None
+    ) -> list[dict]:
         """Generate filing recommendations based on violations and applicable law"""
         recommendations = []
 
@@ -805,7 +805,7 @@ class LegalTrinityService:
     # MUNICIPALITY MANAGEMENT
     # ═══════════════════════════════════════════════════════════════════════════
 
-    def add_municipality(self, state: str, name: str, county: str = "") -> Optional[Municipality]:
+    def add_municipality(self, state: str, name: str, county: str = "") -> Municipality | None:
         """
         Add a new municipality for local code integration
 
@@ -815,11 +815,11 @@ class LegalTrinityService:
         """
         return self.code360.discover_municipality(state, name, county)
 
-    def list_municipalities(self, state: Optional[str] = None) -> List[Municipality]:
+    def list_municipalities(self, state: str | None = None) -> list[Municipality]:
         """List all integrated municipalities"""
         return self.code360.list_municipalities(state=state)
 
-    def sync_municipality(self, municipality_id: int) -> Dict:
+    def sync_municipality(self, municipality_id: int) -> dict:
         """Sync/update municipal code from source"""
         municipality = self.code360.get_municipality(municipality_id)
         if municipality:
@@ -832,9 +832,7 @@ class LegalTrinityService:
 # ═══════════════════════════════════════════════════════════════════════════
 
 
-def trinity_search(
-    query: str, state: Optional[str] = None, municipality: Optional[str] = None
-) -> Dict:
+def trinity_search(query: str, state: str | None = None, municipality: str | None = None) -> dict:
     """
     Quick search across all levels of law
 
@@ -846,7 +844,7 @@ def trinity_search(
     return result.to_dict()
 
 
-def analyze_evidence(evidence: Dict, state: str, municipality: Optional[str] = None) -> Dict:
+def analyze_evidence(evidence: dict, state: str, municipality: str | None = None) -> dict:
     """
     Analyze evidence against applicable law at all levels
 
@@ -859,4 +857,3 @@ def analyze_evidence(evidence: Dict, state: str, municipality: Optional[str] = N
     """
     service = LegalTrinityService()
     return service.analyze_evidence_against_law(evidence, state, municipality)
-

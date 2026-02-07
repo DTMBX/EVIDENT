@@ -14,16 +14,19 @@ Features:
 - Report generation
 """
 
-import json
 import logging
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
-from .backend_integration import (Event, ValidationError, cache, cached,
-                                 error_response, event_bus,
-                                 handle_service_errors, monitored,
-                                 service_registry, success_response)
+from .backend_integration import (
+    Event,
+    cached,
+    event_bus,
+    handle_service_errors,
+    monitored,
+    service_registry,
+)
 
 
 class EvidenceType:
@@ -113,8 +116,8 @@ class UnifiedEvidenceProcessor:
     @monitored("evidence.process_full")
     @handle_service_errors("evidence_processor")
     def process_evidence(
-        self, evidence_file: Path, evidence_type: str, context: Dict
-    ) -> Dict[str, Any]:
+        self, evidence_file: Path, evidence_type: str, context: dict
+    ) -> dict[str, Any]:
         """
         Process evidence through complete pipeline
 
@@ -228,7 +231,7 @@ class UnifiedEvidenceProcessor:
             return results
 
     @cached(ttl=3600, key_prefix="transcription")
-    def _transcribe_evidence(self, file_path: Path, context: Dict) -> Optional[str]:
+    def _transcribe_evidence(self, file_path: Path, context: dict) -> str | None:
         """Transcribe audio/video evidence"""
         transcription_service = service_registry.get("transcription")
 
@@ -248,7 +251,7 @@ class UnifiedEvidenceProcessor:
             return None
 
     @cached(ttl=3600, key_prefix="ocr")
-    def _extract_text(self, file_path: Path, context: Dict) -> Optional[str]:
+    def _extract_text(self, file_path: Path, context: dict) -> str | None:
         """Extract text from document/image"""
         ocr_service = service_registry.get("ocr")
 
@@ -264,7 +267,7 @@ class UnifiedEvidenceProcessor:
             self.logger.error(f"OCR failed: {str(e)}")
             return None
 
-    def _analyze_violations(self, text: str, context: Dict) -> Optional[Dict]:
+    def _analyze_violations(self, text: str, context: dict) -> dict | None:
         """Analyze text for legal violations"""
         scanner = service_registry.get("violation_scanner")
 
@@ -279,9 +282,7 @@ class UnifiedEvidenceProcessor:
             self.logger.error(f"Violation analysis failed: {str(e)}")
             return None
 
-    def _check_compliance(
-        self, file_path: Path, evidence_type: str, context: Dict
-    ) -> Optional[Dict]:
+    def _check_compliance(self, file_path: Path, evidence_type: str, context: dict) -> dict | None:
         """Check evidence compliance"""
         checker = service_registry.get("compliance_checker")
 
@@ -304,7 +305,7 @@ class UnifiedEvidenceProcessor:
             self.logger.error(f"Compliance check failed: {str(e)}")
             return None
 
-    def _generate_summary(self, results: Dict) -> str:
+    def _generate_summary(self, results: dict) -> str:
         """Generate executive summary of analysis"""
         violations = results.get("violations", {})
         compliance = results.get("compliance", {})
@@ -349,7 +350,7 @@ class EvidenceReportGenerator:
         self.logger = logging.getLogger(__name__)
 
     @monitored("report.generate")
-    def generate_report(self, analysis_results: Dict, format: str = "markdown") -> str:
+    def generate_report(self, analysis_results: dict, format: str = "markdown") -> str:
         """
         Generate comprehensive report
 
@@ -367,20 +368,20 @@ class EvidenceReportGenerator:
         else:
             return self._generate_text_report(analysis_results)
 
-    def _generate_markdown_report(self, results: Dict) -> str:
+    def _generate_markdown_report(self, results: dict) -> str:
         """Generate Markdown report"""
         report = f"""# Evidence Analysis Report
 
-**Evidence ID:** {results.get('evidence_id')}  
-**Evidence Type:** {results.get('evidence_type')}  
-**Analysis Date:** {results.get('started_at')}  
-**Status:** {results.get('status')}
+**Evidence ID:** {results.get("evidence_id")}  
+**Evidence Type:** {results.get("evidence_type")}  
+**Analysis Date:** {results.get("started_at")}  
+**Status:** {results.get("status")}
 
 ---
 
 ## Executive Summary
 
-{results.get('summary', 'No summary available')}
+{results.get("summary", "No summary available")}
 
 ---
 
@@ -393,7 +394,7 @@ class EvidenceReportGenerator:
         if violations:
             report += f"""### Constitutional Violations
 
-**Total Violations:** {violations.get('total_violations', 0)}
+**Total Violations:** {violations.get("total_violations", 0)}
 
 """
 
@@ -401,11 +402,11 @@ class EvidenceReportGenerator:
             if critical_violations:
                 report += "#### Critical Violations\n\n"
                 for v in critical_violations:
-                    report += f"""**{v.get('title')}**
-- **Type:** {v.get('type')}
-- **Description:** {v.get('description')}
-- **Legal Basis:** {v.get('legal_basis')}
-- **Action:** {v.get('recommended_action')}
+                    report += f"""**{v.get("title")}**
+- **Type:** {v.get("type")}
+- **Description:** {v.get("description")}
+- **Legal Basis:** {v.get("legal_basis")}
+- **Action:** {v.get("recommended_action")}
 
 """
 
@@ -414,8 +415,8 @@ class EvidenceReportGenerator:
         if compliance:
             report += f"""### Statutory Compliance
 
-**Overall Status:** {compliance.get('overall_status')}  
-**Total Issues:** {compliance.get('total_issues', 0)}
+**Overall Status:** {compliance.get("overall_status")}  
+**Total Issues:** {compliance.get("total_issues", 0)}
 
 """
 
@@ -441,7 +442,7 @@ class EvidenceReportGenerator:
 
         return report
 
-    def _generate_html_report(self, results: Dict) -> str:
+    def _generate_html_report(self, results: dict) -> str:
         """Generate HTML report"""
         # Convert markdown to HTML (simplified)
         markdown = self._generate_markdown_report(results)
@@ -449,7 +450,7 @@ class EvidenceReportGenerator:
         html = f"""<!DOCTYPE html>
 <html>
 <head>
-    <title>Evidence Analysis Report - {results.get('evidence_id')}</title>
+    <title>Evidence Analysis Report - {results.get("evidence_id")}</title>
     <style>
         body {{ font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }}
         h1 {{ color: #1a1a1a; border-bottom: 3px solid #d4af37; }}
@@ -465,7 +466,7 @@ class EvidenceReportGenerator:
 
         return html
 
-    def _generate_text_report(self, results: Dict) -> str:
+    def _generate_text_report(self, results: dict) -> str:
         """Generate plain text report"""
         return self._generate_markdown_report(results)
 
@@ -507,5 +508,3 @@ if __name__ == "__main__":
 
     # Clean up
     test_file.unlink()
-
-

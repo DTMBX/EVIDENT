@@ -21,9 +21,9 @@ import logging
 import os
 import time
 import uuid
-from datetime import datetime, timedelta
+from collections.abc import Generator
+from datetime import datetime
 from functools import wraps
-from typing import Any, Dict, Generator, List, Optional
 
 from flask import Blueprint, Response, jsonify, request, stream_with_context
 from flask_login import current_user, login_required
@@ -66,7 +66,7 @@ class ChatbotCache:
         """Create consistent hash for cache key."""
         return hashlib.sha256(key.encode()).hexdigest()[:32]
 
-    def get(self, key: str) -> Optional[Dict]:
+    def get(self, key: str) -> dict | None:
         """Get cached value."""
         hashed = self._hash_key(key)
         try:
@@ -78,7 +78,7 @@ class ChatbotCache:
             logger.error(f"Cache get error: {e}")
             return None
 
-    def set(self, key: str, value: Dict, ttl: int = 3600) -> bool:
+    def set(self, key: str, value: dict, ttl: int = 3600) -> bool:
         """Set cached value with TTL."""
         hashed = self._hash_key(key)
         try:
@@ -103,7 +103,7 @@ class ChatbotCache:
             logger.error(f"Cache invalidate error: {e}")
             return 0
 
-    def get_embedding(self, text: str) -> Optional[List[float]]:
+    def get_embedding(self, text: str) -> list[float] | None:
         """Get cached embedding for text."""
         key = f"emb:{self._hash_key(text)}"
         try:
@@ -114,7 +114,7 @@ class ChatbotCache:
         except Exception:
             return None
 
-    def set_embedding(self, text: str, embedding: List[float], ttl: int = 86400) -> bool:
+    def set_embedding(self, text: str, embedding: list[float], ttl: int = 86400) -> bool:
         """Cache embedding with 24h TTL."""
         key = f"emb:{self._hash_key(text)}"
         try:
@@ -159,7 +159,7 @@ class BackgroundJobQueue:
             logger.warning(f"Job queue unavailable: {e}")
             self._pending_jobs = []
 
-    def enqueue(self, job_type: str, payload: Dict, priority: int = 0) -> str:
+    def enqueue(self, job_type: str, payload: dict, priority: int = 0) -> str:
         """Add job to queue, return job ID."""
         job_id = str(uuid.uuid4())
         job = {
@@ -188,7 +188,7 @@ class BackgroundJobQueue:
             logger.error(f"Failed to enqueue job: {e}")
             raise
 
-    def get_job_status(self, job_id: str) -> Optional[Dict]:
+    def get_job_status(self, job_id: str) -> dict | None:
         """Get status of a job."""
         try:
             if self.enabled and self.redis:
@@ -198,7 +198,7 @@ class BackgroundJobQueue:
         except Exception:
             return None
 
-    def update_job_status(self, job_id: str, status: str, result: Optional[Dict] = None) -> bool:
+    def update_job_status(self, job_id: str, status: str, result: dict | None = None) -> bool:
         """Update job status and optionally set result."""
         try:
             if self.enabled and self.redis:
@@ -429,8 +429,7 @@ def chat_stream():
                 yield f"data: {json.dumps({'type': 'init', 'conversation_id': conversation_id})}\n\n"
 
                 # Process query
-                from services.chatbot_intelligence import \
-                    LegalChatbotIntelligence
+                from services.chatbot_intelligence import LegalChatbotIntelligence
 
                 chatbot = LegalChatbotIntelligence()
 
@@ -965,8 +964,7 @@ def summarize_document():
     }
     """
     try:
-        from services.document_intelligence import (SummaryLength,
-                                                    get_document_intelligence)
+        from services.document_intelligence import SummaryLength, get_document_intelligence
 
         data = request.get_json()
         if not data or "text" not in data:

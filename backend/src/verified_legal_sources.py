@@ -1,27 +1,24 @@
-# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# Copyright © 2024–2026 Evident Technologies, LLC. All rights reserved.
 # PROPRIETARY — See LICENSE.
 
 """
 Verified Legal Sources Integration
 
-Only imports from legitimate, verified, and respected legal sources:
+Integrations with curated, reputable legal sources. Some sources are "official"
+(government or court sites) while others are reputable aggregators used for
+research and verification.
+
+Examples:
 - CourtListener (free legal database with 10M+ opinions)
-- Justia (verified case law)
+- Justia (case law aggregator)
 - Google Scholar (legal opinions)
 - Cornell LII (Legal Information Institute)
 - GovInfo.gov (official U.S. government legal documents)
 - Supreme Court official website
-
-All sources are verified and credible.
 """
 
-import json
-import time
-from datetime import datetime
-from typing import Dict, List, Optional
-
 import requests
-from bs4 import BeautifulSoup
+from typing import Optional
 
 from legal_library import LegalDocument, LegalLibraryService
 from models_auth import db
@@ -87,7 +84,7 @@ class VerifiedLegalSources:
     def __init__(self):
         self.library = LegalLibraryService()
 
-    def get_source_info(self, source_name: str) -> Dict:
+    def get_source_info(self, source_name: str) -> dict:
         """Get verification info for a source"""
         return self.VERIFIED_SOURCES.get(source_name, {"verified": False, "credibility": "UNKNOWN"})
 
@@ -164,7 +161,7 @@ class VerifiedLegalSources:
 
         return None
 
-    def verify_citation_authenticity(self, citation: str, source: str) -> Dict:
+    def verify_citation_authenticity(self, citation: str, source: str) -> dict:
         """
         Verify a citation is authentic from multiple sources
 
@@ -179,8 +176,6 @@ class VerifiedLegalSources:
         Requires COURTLISTENER_API_KEY environment variable for API access
         """
         import os
-
-        import requests
 
         verified_sources = []
         warnings = []
@@ -215,8 +210,8 @@ class VerifiedLegalSources:
             local_docs = self.library.search_library(query=citation, limit=1)
             if local_docs and local_docs[0].citation == citation:
                 verified_sources.append("local_db")
-        except:
-            pass
+        except Exception as e:
+            warnings.append(f"Local DB check error: {e}")
 
         # Remove duplicates
         verified_sources = list(set(verified_sources))
@@ -224,7 +219,9 @@ class VerifiedLegalSources:
         confidence = (
             "HIGH"
             if len(verified_sources) >= 2
-            else "MEDIUM" if len(verified_sources) == 1 else "LOW"
+            else "MEDIUM"
+            if len(verified_sources) == 1
+            else "LOW"
         )
 
         if confidence == "LOW":
@@ -238,8 +235,8 @@ class VerifiedLegalSources:
         }
 
     def batch_import_verified_only(
-        self, citations: List[str], min_confidence: str = "MEDIUM"
-    ) -> Dict:
+        self, citations: list[str], min_confidence: str = "MEDIUM"
+    ) -> dict:
         """
         Batch import only citations that can be verified
 
@@ -261,7 +258,6 @@ class VerifiedLegalSources:
             if verification["confidence"] in ["HIGH", "MEDIUM"] or (
                 min_confidence == "LOW" and verification["authentic"]
             ):
-
                 # Import from verified source
                 doc = self.import_from_courtlistener(citation)
 
@@ -300,7 +296,7 @@ class SourceCredibilityTracker:
     def __init__(self):
         self.source_ratings = {}
 
-    def rate_source(self, source_name: str) -> Dict:
+    def rate_source(self, source_name: str) -> dict:
         """
         Rate a source's credibility
 
@@ -395,7 +391,7 @@ class SourceCredibilityTracker:
             },
         )
 
-    def get_highest_credibility_sources(self) -> List[str]:
+    def get_highest_credibility_sources(self) -> list[str]:
         """Get list of highest credibility sources (rating >= 9.0)"""
 
         high_credibility = []

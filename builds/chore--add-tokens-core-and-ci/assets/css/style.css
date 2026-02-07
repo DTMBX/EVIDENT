@@ -1,5 +1,5 @@
 /*! tailwindcss v4.1.18 | MIT License | https://tailwindcss.com */
-@import url('tokens.css');
+@import url("tokens.css");
 @layer properties;
 .pointer-events-none {
   pointer-events: none;
@@ -43,7 +43,7 @@
   position: sticky;
 }
 .top-1\/2 {
-  top: calc(1/2 * 100%);
+  top: calc(1 / 2 * 100%);
 }
 .z-0 {
   z-index: 0;
@@ -146,7 +146,8 @@
   translate: var(--tw-translate-x) var(--tw-translate-y);
 }
 .transform {
-  transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+  transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,)
+    var(--tw-skew-y,);
 }
 .resize {
   resize: both;
@@ -219,7 +220,7 @@
   background-image: linear-gradient(var(--tw-gradient-stops));
 }
 .bg-\[linear-gradient\(0deg\,_rgba\(0\,0\,0\,0\.30\)_0\%\,_rgba\(0\,0\,0\,0\.30\)_100\%\)\] {
-  background-image: linear-gradient(0deg, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.30) 100%);
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%);
 }
 .bg-cover {
   background-size: cover;
@@ -229,7 +230,7 @@
 }
 .object-cover {
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .text-center {
   text-align: center;
@@ -271,21 +272,34 @@
   outline-width: 1px;
 }
 .\!filter {
-  filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,) !important;
+  filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,)
+    var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,)
+    var(--tw-drop-shadow,) !important;
 }
 .filter {
-  filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,)
+    var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,)
+    var(--tw-drop-shadow,);
 }
 .backdrop-filter {
-  backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+  backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,)
+    var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,)
+    var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,)
+    var(--tw-backdrop-sepia,);
 }
 .transition {
-  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
+  transition-property:
+    color, background-color, border-color, outline-color, text-decoration-color, fill, stroke,
+    --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform,
+    translate, scale, rotate, filter, backdrop-filter, display, content-visibility, overlay,
+    pointer-events;
   transition-timing-function: var(--tw-ease, ease);
   transition-duration: var(--tw-duration, 0s);
 }
 .transition-colors {
-  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+  transition-property:
+    color, background-color, border-color, outline-color, text-decoration-color, fill, stroke,
+    --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
   transition-timing-function: var(--tw-ease, ease);
   transition-duration: var(--tw-duration, 0s);
 }
@@ -298,8 +312,11 @@
 }
 .focus\:ring-2 {
   &:focus {
-    --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
-    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width))
+      var(--tw-ring-color, currentcolor);
+    box-shadow:
+      var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow),
+      var(--tw-ring-shadow), var(--tw-shadow);
   }
 }
 .focus\:outline-none {
@@ -324,7 +341,8 @@
   --ad-red: #b22234;
   --ad-accent: #e07a5f;
   --ad-neutral: #f6f7f9;
-  --ad-font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica', Arial, sans-serif;
+  --ad-font-sans:
+    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica", Arial, sans-serif;
 }
 .btn {
   display: inline-flex;
@@ -349,7 +367,10 @@
   color: var(--ad-navy);
   border: 1px solid rgba(11, 95, 115, 0.08);
 }
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--ad-font-sans);
   color: var(--ad-navy);
 }
@@ -590,8 +611,12 @@ h1, h2, h3, h4 {
   initial-value: 0 0 #0000;
 }
 @layer properties {
-  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
-    *, ::before, ::after, ::backdrop {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+    ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+    *,
+    ::before,
+    ::after,
+    ::backdrop {
       --tw-translate-x: 0;
       --tw-translate-y: 0;
       --tw-translate-z: 0;

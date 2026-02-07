@@ -26,14 +26,12 @@ import json
 import os
 import re
 from datetime import datetime
-from typing import Dict, List, Optional
 
 import docx
 import pypdf as PyPDF2  # Migrated from PyPDF2 (deprecated), aliased for compatibility
 import requests
 from bs4 import BeautifulSoup
-from sqlalchemy import (Boolean, Column, DateTime, Enum, ForeignKey, Integer,
-                        String, Text)
+from sqlalchemy import Boolean, Column, DateTime, ForeignKey, Integer, String, Text
 from sqlalchemy.orm import relationship
 
 # Database Models
@@ -157,13 +155,13 @@ class LegalLibraryService:
     def search_library(
         self,
         query: str,
-        doc_type: Optional[str] = None,
-        court: Optional[str] = None,
-        jurisdiction: Optional[str] = None,
-        date_from: Optional[datetime] = None,
-        date_to: Optional[datetime] = None,
+        doc_type: str | None = None,
+        court: str | None = None,
+        jurisdiction: str | None = None,
+        date_from: datetime | None = None,
+        date_to: datetime | None = None,
         limit: int = 50,
-    ) -> List[LegalDocument]:
+    ) -> list[LegalDocument]:
         """
         Full-text search across legal library
 
@@ -202,7 +200,7 @@ class LegalLibraryService:
 
         return results
 
-    def ingest_from_courtlistener(self, citation: str) -> Optional[LegalDocument]:
+    def ingest_from_courtlistener(self, citation: str) -> LegalDocument | None:
         """
         Fetch case from CourtListener API by citation
 
@@ -274,10 +272,10 @@ class LegalLibraryService:
         file_path: str,
         title: str,
         doc_type: str = "user_upload",
-        user_id: Optional[int] = None,
-        case_id: Optional[int] = None,
-        metadata: Optional[Dict] = None,
-    ) -> Optional[LegalDocument]:
+        user_id: int | None = None,
+        case_id: int | None = None,
+        metadata: dict | None = None,
+    ) -> LegalDocument | None:
         """
         Ingest legal document from uploaded file (PDF, TXT, DOCX)
 
@@ -336,7 +334,7 @@ class LegalLibraryService:
 
         return doc
 
-    def search_web_for_case(self, query: str, source: str = "justia") -> List[Dict]:
+    def search_web_for_case(self, query: str, source: str = "justia") -> list[dict]:
         """
         Search web for legal cases (Justia, Google Scholar, etc.)
 
@@ -350,7 +348,7 @@ class LegalLibraryService:
         else:
             return []
 
-    def get_related_cases(self, doc_id: int, limit: int = 10) -> List[LegalDocument]:
+    def get_related_cases(self, doc_id: int, limit: int = 10) -> list[LegalDocument]:
         """
         Find related cases based on:
         - Similar topics
@@ -384,7 +382,7 @@ class LegalLibraryService:
         user_id: int,
         text_selection: str,
         annotation: str,
-        tags: Optional[List[str]] = None,
+        tags: list[str] | None = None,
     ) -> DocumentAnnotation:
         """Add user annotation to document"""
 
@@ -422,7 +420,7 @@ class LegalLibraryService:
                 return "\n".join([para.text for para in doc.paragraphs])
 
             elif ext == "txt":
-                with open(file_path, "r", encoding="utf-8") as f:
+                with open(file_path, encoding="utf-8") as f:
                     return f.read()
 
             else:
@@ -432,7 +430,7 @@ class LegalLibraryService:
             print(f"Error extracting text: {e}")
             return None
 
-    def _parse_citation(self, text: str) -> Optional[str]:
+    def _parse_citation(self, text: str) -> str | None:
         """Extract legal citation from text"""
 
         # Common citation patterns
@@ -450,7 +448,7 @@ class LegalLibraryService:
 
         return None
 
-    def _extract_topics(self, text: str) -> List[str]:
+    def _extract_topics(self, text: str) -> list[str]:
         """Extract legal topics from text (simplified)"""
 
         topics = []
@@ -477,7 +475,7 @@ class LegalLibraryService:
 
         return topics[:5]  # Limit to top 5
 
-    def _extract_legal_issues(self, text: str) -> List[str]:
+    def _extract_legal_issues(self, text: str) -> list[str]:
         """Extract specific legal issues (simplified)"""
 
         issues = []
@@ -520,7 +518,7 @@ class LegalLibraryService:
 
         db.session.commit()
 
-    def _search_justia(self, query: str) -> List[Dict]:
+    def _search_justia(self, query: str) -> list[dict]:
         """Search Justia for cases"""
 
         # Justia search URL (web scraping since API is limited)
@@ -549,7 +547,7 @@ class LegalLibraryService:
             print(f"Error searching Justia: {e}")
             return []
 
-    def _search_google_scholar(self, query: str) -> List[Dict]:
+    def _search_google_scholar(self, query: str) -> list[dict]:
         """Search Google Scholar for legal cases"""
         # Implementation would use Google Scholar API or web scraping
         # Placeholder for now
@@ -560,7 +558,7 @@ class CitationParser:
     """Parse and validate legal citations"""
 
     @staticmethod
-    def parse(citation_text: str) -> Optional[Dict]:
+    def parse(citation_text: str) -> dict | None:
         """
         Parse citation into components
 
@@ -603,5 +601,3 @@ class CitationParser:
     def is_valid(citation: str) -> bool:
         """Validate citation format"""
         return CitationParser.parse(citation) is not None
-
-

@@ -10,7 +10,6 @@ import hashlib
 import json
 import os
 from datetime import datetime
-from typing import Dict, List, Optional, Tuple
 
 
 class WhisperTranscriptionService:
@@ -52,10 +51,10 @@ class WhisperTranscriptionService:
     def transcribe_audio(
         self,
         audio_path: str,
-        language: Optional[str] = None,
+        language: str | None = None,
         task: str = "transcribe",
         enable_timestamps: bool = True,
-    ) -> Dict:
+    ) -> dict:
         """
         Transcribe audio file to text
 
@@ -91,8 +90,7 @@ class WhisperTranscriptionService:
         file_ext = os.path.splitext(audio_path)[1].lower()
         if file_ext not in self.supported_formats:
             raise ValueError(
-                f"Unsupported format: {file_ext}. "
-                f"Supported: {', '.join(self.supported_formats)}"
+                f"Unsupported format: {file_ext}. Supported: {', '.join(self.supported_formats)}"
             )
 
         print(f"Transcribing: {os.path.basename(audio_path)}")
@@ -134,7 +132,7 @@ class WhisperTranscriptionService:
 
         return transcription
 
-    def _format_segments(self, segments: List[Dict]) -> List[Dict]:
+    def _format_segments(self, segments: list[dict]) -> list[dict]:
         """Format Whisper segments for better readability"""
         formatted = []
         for seg in segments:
@@ -161,7 +159,7 @@ class WhisperTranscriptionService:
             )
         return formatted
 
-    def _detect_speakers(self, segments: List[Dict]) -> List[Dict]:
+    def _detect_speakers(self, segments: list[dict]) -> list[dict]:
         """
         Simple speaker diarization based on pause detection
         (For production, integrate with pyannote.audio)
@@ -189,7 +187,7 @@ class WhisperTranscriptionService:
 
         return speakers
 
-    def _calculate_confidence(self, result: Dict) -> float:
+    def _calculate_confidence(self, result: dict) -> float:
         """Calculate overall transcription confidence"""
         if "segments" not in result:
             return 0.90  # Default confidence
@@ -216,7 +214,7 @@ class WhisperTranscriptionService:
                 sha256.update(chunk)
         return sha256.hexdigest()
 
-    def transcribe_batch(self, audio_files: List[str], **kwargs) -> List[Dict]:
+    def transcribe_batch(self, audio_files: list[str], **kwargs) -> list[dict]:
         """Transcribe multiple audio files"""
         results = []
         for i, audio_path in enumerate(audio_files, 1):
@@ -230,7 +228,7 @@ class WhisperTranscriptionService:
 
         return results
 
-    def export_transcript(self, transcription: Dict, output_format: str = "txt") -> str:
+    def export_transcript(self, transcription: dict, output_format: str = "txt") -> str:
         """
         Export transcription to various formats
 
@@ -251,7 +249,7 @@ class WhisperTranscriptionService:
         else:
             raise ValueError(f"Unsupported format: {output_format}")
 
-    def _export_txt(self, transcription: Dict) -> str:
+    def _export_txt(self, transcription: dict) -> str:
         """Export as plain text with timestamps"""
         lines = [
             "=" * 80,
@@ -259,7 +257,7 @@ class WhisperTranscriptionService:
             "=" * 80,
             f"Language: {transcription['language'].upper()}",
             f"Duration: {transcription['duration']:.2f}s",
-            f"Confidence: {transcription['confidence']*100:.1f}%",
+            f"Confidence: {transcription['confidence'] * 100:.1f}%",
             f"Transcribed: {transcription['metadata']['transcribed_at']}",
             "=" * 80,
             "",
@@ -297,7 +295,7 @@ class WhisperTranscriptionService:
 
         return "\n".join(lines)
 
-    def _export_srt(self, transcription: Dict) -> str:
+    def _export_srt(self, transcription: dict) -> str:
         """Export as SRT subtitle format"""
         lines = []
         for i, seg in enumerate(transcription["segments"], 1):
@@ -306,7 +304,7 @@ class WhisperTranscriptionService:
             lines.extend([str(i), f"{start} --> {end}", seg["text"], ""])
         return "\n".join(lines)
 
-    def _export_vtt(self, transcription: Dict) -> str:
+    def _export_vtt(self, transcription: dict) -> str:
         """Export as WebVTT format"""
         lines = ["WEBVTT", ""]
         for seg in transcription["segments"]:
@@ -383,5 +381,3 @@ if __name__ == "__main__":
     print("\n✓ Whisper Transcription Service ready!")
     print("  Install: pip install openai-whisper")
     print("  Usage: service.transcribe_audio('file.mp4')")
-
-

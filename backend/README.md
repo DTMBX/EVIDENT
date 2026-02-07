@@ -2,6 +2,8 @@
 
 Privacy-first legal AI platform backend API.
 
+**Requires:** Python >= 3.12
+
 ## Structure
 
 ```

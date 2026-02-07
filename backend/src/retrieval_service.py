@@ -11,7 +11,7 @@ import re
 import sqlite3
 from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Union
+from typing import Any
 
 DB_PATH = Path(__file__).parent / "instance" / "Evident_legal.db"
 
@@ -30,8 +30,8 @@ class Passage:
     snippet: str
     score: float
     source_system: str  # 'legal_library', 'muni_code', 'bwc'
-    document_type: Optional[str] = None
-    metadata: Optional[Dict[str, Any]] = None
+    document_type: str | None = None
+    metadata: dict[str, Any] | None = None
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -40,7 +40,7 @@ class Passage:
 class RetrievalService:
     """Unified retrieval service using FTS5"""
 
-    def __init__(self, db_path: Union[str, Path] = DB_PATH):
+    def __init__(self, db_path: str | Path = DB_PATH):
         self.db_path = Path(db_path)
 
     def _conn(self) -> sqlite3.Connection:
@@ -49,8 +49,8 @@ class RetrievalService:
         return conn
 
     def retrieve(
-        self, query: str, filters: Optional[Dict[str, Any]] = None, top_k: int = 5
-    ) -> List[Passage]:
+        self, query: str, filters: dict[str, Any] | None = None, top_k: int = 5
+    ) -> list[Passage]:
         """
         Retrieve passages using FTS5 BM25 ranking
 
@@ -188,7 +188,7 @@ class RetrievalService:
 
         return snippet, start, end
 
-    def get_document_info(self, document_id: str) -> Optional[Dict[str, Any]]:
+    def get_document_info(self, document_id: str) -> dict[str, Any] | None:
         """Get full document metadata"""
         with self._conn() as conn:
             row = conn.execute(
@@ -217,7 +217,7 @@ class RetrievalService:
                 "created_at": row["created_at"],
             }
 
-    def get_page_content(self, document_id: str, page_number: int) -> Optional[str]:
+    def get_page_content(self, document_id: str, page_number: int) -> str | None:
         """Get full text of a specific page"""
         with self._conn() as conn:
             row = conn.execute(
@@ -226,4 +226,3 @@ class RetrievalService:
             ).fetchone()
 
             return row["text_content"] if row else None
-

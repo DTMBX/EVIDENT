@@ -2,7 +2,11 @@
   <div class="header-container">
     <!-- Brand -->
     <a href="{{ '/' | relative_url }}" class="header-brand" aria-label="Evident Home">
-      <img src="/assets/img/logo/light-variant-logo.svg" alt="Evident Technologies" class="brand-logo" />
+      <img
+        src="/assets/img/logo/light-variant-logo.svg"
+        alt="Evident Technologies"
+        class="brand-logo"
+      />
     </a>
 
     <!-- Mobile Toggle -->
@@ -14,7 +18,9 @@
 
     <!-- Navigation -->
     <nav class="header-nav" aria-label="Main navigation">
-      <a href="{{ '/' | relative_url }}" class="nav-link{% if page.url == '/' %} active{% endif %}"> Home </a>
+      <a href="{{ '/' | relative_url }}" class="nav-link{% if page.url == '/' %} active{% endif %}">
+        Home
+      </a>
       <a href="/pricing.html" class="nav-link">Pricing</a>
       <a href="/docs.html" class="nav-link">Documentation</a>
       <a href="/contact.html" class="nav-link">Contact</a>

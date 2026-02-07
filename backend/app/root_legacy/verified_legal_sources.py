@@ -15,13 +15,7 @@ Only imports from legitimate, verified, and respected legal sources:
 All sources are verified and credible.
 """
 
-import json
-import time
-from datetime import datetime
-from typing import Dict, List, Optional
-
 import requests
-from bs4 import BeautifulSoup
 
 from .legal_library import LegalDocument, LegalLibraryService
 from .models_auth import db
@@ -87,7 +81,7 @@ class VerifiedLegalSources:
     def __init__(self):
         self.library = LegalLibraryService()
 
-    def get_source_info(self, source_name: str) -> Dict:
+    def get_source_info(self, source_name: str) -> dict:
         """Get verification info for a source"""
         return self.VERIFIED_SOURCES.get(source_name, {"verified": False, "credibility": "UNKNOWN"})
 
@@ -96,7 +90,7 @@ class VerifiedLegalSources:
         info = self.get_source_info(source_name)
         return info.get("verified", False)
 
-    def import_from_courtlistener(self, citation: str) -> Optional[LegalDocument]:
+    def import_from_courtlistener(self, citation: str) -> LegalDocument | None:
         """
         Import from CourtListener (verified source)
 
@@ -121,7 +115,7 @@ class VerifiedLegalSources:
 
         return doc
 
-    def import_from_cornell_lii(self, citation: str) -> Optional[LegalDocument]:
+    def import_from_cornell_lii(self, citation: str) -> LegalDocument | None:
         """
         Import from Cornell Legal Information Institute
 
@@ -137,7 +131,7 @@ class VerifiedLegalSources:
 
         return None
 
-    def import_from_govinfo(self, citation: str) -> Optional[LegalDocument]:
+    def import_from_govinfo(self, citation: str) -> LegalDocument | None:
         """
         Import from GovInfo.gov (official U.S. government source)
 
@@ -153,7 +147,7 @@ class VerifiedLegalSources:
 
         return None
 
-    def import_from_supreme_court_official(self, year: int, docket: str) -> Optional[LegalDocument]:
+    def import_from_supreme_court_official(self, year: int, docket: str) -> LegalDocument | None:
         """
         Import directly from Supreme Court official website
 
@@ -164,7 +158,7 @@ class VerifiedLegalSources:
 
         return None
 
-    def verify_citation_authenticity(self, citation: str, source: str) -> Dict:
+    def verify_citation_authenticity(self, citation: str, source: str) -> dict:
         """
         Verify a citation is authentic from multiple sources
 
@@ -179,8 +173,6 @@ class VerifiedLegalSources:
         Requires COURTLISTENER_API_KEY environment variable for API access
         """
         import os
-
-        import requests
 
         verified_sources = []
         warnings = []
@@ -224,7 +216,9 @@ class VerifiedLegalSources:
         confidence = (
             "HIGH"
             if len(verified_sources) >= 2
-            else "MEDIUM" if len(verified_sources) == 1 else "LOW"
+            else "MEDIUM"
+            if len(verified_sources) == 1
+            else "LOW"
         )
 
         if confidence == "LOW":
@@ -238,8 +232,8 @@ class VerifiedLegalSources:
         }
 
     def batch_import_verified_only(
-        self, citations: List[str], min_confidence: str = "MEDIUM"
-    ) -> Dict:
+        self, citations: list[str], min_confidence: str = "MEDIUM"
+    ) -> dict:
         """
         Batch import only citations that can be verified
 
@@ -261,7 +255,6 @@ class VerifiedLegalSources:
             if verification["confidence"] in ["HIGH", "MEDIUM"] or (
                 min_confidence == "LOW" and verification["authentic"]
             ):
-
                 # Import from verified source
                 doc = self.import_from_courtlistener(citation)
 
@@ -300,7 +293,7 @@ class SourceCredibilityTracker:
     def __init__(self):
         self.source_ratings = {}
 
-    def rate_source(self, source_name: str) -> Dict:
+    def rate_source(self, source_name: str) -> dict:
         """
         Rate a source's credibility
 
@@ -395,7 +388,7 @@ class SourceCredibilityTracker:
             },
         )
 
-    def get_highest_credibility_sources(self) -> List[str]:
+    def get_highest_credibility_sources(self) -> list[str]:
         """Get list of highest credibility sources (rating >= 9.0)"""
 
         high_credibility = []
@@ -433,5 +426,3 @@ class LegalLibraryService:
         # Only import from verified sources
         return self.verified_sources.import_from_courtlistener(citation)
 """
-
-
