@@ -15,22 +15,27 @@ async function optimizeFile(file) {
   const infile = path.join(srcDir, file);
   const outBase = path.join(outDir, path.basename(file, ext));
   await ensureDir(outDir);
-  if (ext === '.svg') {
-    // copy svg as-is
-    await fs.copyFile(infile, outBase + '.svg');
+  try {
+    if (ext === '.svg') {
+      // copy svg as-is
+      await fs.copyFile(infile, outBase + '.svg');
+      return;
+    }
+    const image = sharp(infile);
+    // create multiple sizes and webp
+    const sizes = [320, 640, 1024];
+    for (const w of sizes) {
+      await image
+        .resize({ width: w })
+        .toFile(`${outBase}-${w}.jpg`);
+      await image
+        .resize({ width: w })
+        .webp()
+        .toFile(`${outBase}-${w}.webp`);
+    }
+  } catch (err) {
+    console.warn('Skipping image due to error:', infile, err.message);
     return;
-  }
-  const image = sharp(infile);
-  // create multiple sizes and webp
-  const sizes = [320, 640, 1024];
-  for (const w of sizes) {
-    await image
-      .resize({ width: w })
-      .toFile(`${outBase}-${w}.jpg`);
-    await image
-      .resize({ width: w })
-      .webp()
-      .toFile(`${outBase}-${w}.webp`);
   }
 }
 
