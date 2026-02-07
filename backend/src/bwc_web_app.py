@@ -25,6 +25,26 @@ from bwc_forensic_analyzer import BWCForensicAnalyzer
 app = Flask(__name__)
 CORS(app)
 
+def _safe_report_path(upload_id: str) -> Path:
+    """
+    Resolve the path to report.json for a given upload_id, ensuring it stays
+    within the ANALYSIS_FOLDER directory to prevent path traversal.
+    """
+    base_dir = ANALYSIS_FOLDER.resolve()
+    candidate = base_dir / upload_id / "report.json"
+    try:
+        resolved = candidate.resolve()
+    except (OSError, RuntimeError):
+        # Any resolution error is treated as an invalid upload ID/path.
+        raise FileNotFoundError("Invalid report path")
+
+    # Ensure the resolved path is within the analysis base directory.
+    if base_dir not in resolved.parents:
+        raise FileNotFoundError("Report outside analysis directory")
+
+    return resolved
+
+
 # Configuration
 UPLOAD_FOLDER = Path("./uploads/bwc_videos")
 ANALYSIS_FOLDER = Path("./bwc_analysis")
@@ -293,7 +313,10 @@ def get_transcript(upload_id):
     if status["status"] != "completed":
         return jsonify({"error": "Analysis not completed"}), 400
 
-    # Load JSON report
+    try:
+        report_file = _safe_report_path(upload_id)
+    except FileNotFoundError:
+        return jsonify({"error": "Report not found"}), 404
     report_file = ANALYSIS_FOLDER / upload_id / "report.json"
 
     # Ensure the resolved path stays within the analysis folder to prevent directory traversal
@@ -322,7 +345,10 @@ def get_transcript(upload_id):
         }
     )
 
-
+    try:
+        report_file = _safe_report_path(upload_id)
+    except FileNotFoundError:
+        return jsonify({"error": "Report not found"}), 404
 @app.route("/api/discrepancies/<upload_id>", methods=["GET"])
 def get_discrepancies(upload_id):
     """Get all discrepancies found"""
@@ -364,7 +390,10 @@ def get_discrepancies(upload_id):
         }
     )
 
-
+    try:
+        report_file = _safe_report_path(upload_id)
+    except FileNotFoundError:
+        return jsonify({"error": "Report not found"}), 404
 @app.route("/api/entities/<upload_id>", methods=["GET"])
 def get_entities(upload_id):
     """Get all extracted entities"""
