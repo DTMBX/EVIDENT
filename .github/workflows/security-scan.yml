@@ -1,0 +1,59 @@
+name: Security Scan
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  sbom-generation:
+    name: Generate SBOM
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install CycloneDX
+        run: |
+          pip install cyclonedx-bom
+      - name: Generate SBOM
+        run: |
+          cyclonedx-bom -o sbom-backend.xml -r backend/requirements.txt
+
+  license-check:
+    name: License Compliance Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pip-licenses
+        run: |
+          pip install pip-licenses
+      - name: Generate license report
+        run: |
+          pip-licenses --format=json --output-file=licenses-backend.json
+
+  python-dependency-scan:
+    name: Python Dependency Scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pip-audit
+        run: |
+          pip install pip-audit
+      - name: Scan backend dependencies
+        run: |
+          pip-audit -r backend/requirements.txt --format json --output governance/vulnerabilities-backend.json
+      - name: Check vulnerabilities JSON
+        run: |
+          cat governance/vulnerabilities-backend.json | jq '.'
