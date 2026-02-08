@@ -292,8 +292,16 @@ def get_transcript(upload_id):
     if status["status"] != "completed":
         return jsonify({"error": "Analysis not completed"}), 400
 
-    # Load JSON report
-    report_file = ANALYSIS_FOLDER / upload_id / "report.json"
+    # Load JSON report from a path safely constrained to ANALYSIS_FOLDER
+    base_path = ANALYSIS_FOLDER / upload_id
+    try:
+        safe_dir = base_path.resolve()
+        # Ensure the resolved path is within the analysis root
+        safe_dir.relative_to(ANALYSIS_FOLDER.resolve())
+    except Exception:
+        return jsonify({"error": "Invalid upload ID"}), 400
+
+    report_file = safe_dir / "report.json"
 
     if not report_file.exists():
         return jsonify({"error": "Report not found"}), 404
