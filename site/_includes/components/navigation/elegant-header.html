@@ -1,0 +1,41 @@
+<!-- Stub: elegant-header include
+     Restores a minimal navigation header to satisfy Jekyll build while
+     the full component is reviewed/merged. Replace with the original
+     implementation when available.
+-->
+<nav class="elegant-header" aria-label="Main navigation">
+  <div class="container">
+    <a href="{{ '/' | relative_url }}" class="brand" aria-label="Evident Home">Evident</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <ul id="main-nav" class="nav-list">
+      <li><a href="{{ '/pricing' | relative_url }}">Pricing</a></li>
+      <li><a href="{{ '/docs' | relative_url }}">Docs</a></li>
+      <li><a href="{{ '/contact' | relative_url }}">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+<!doctype html>
+<!-- Elegant Header Navigation for Evident Technologies -->
+<header class="elegant-header">
+  <nav class="elegant-nav">
+    <a href="{{ '/' | relative_url }}" class="nav-logo">Evident</a>
+    <ul class="nav-menu">
+      <li><a href="{{ '/docs.html' | relative_url }}">Docs</a></li>
+      <li><a href="{{ '/pricing.html' | relative_url }}">Pricing</a></li>
+      <li><a href="{{ '/contact.html' | relative_url }}">Contact</a></li>
+      <li><a href="{{ '/about.html' | relative_url }}">About</a></li>
+    </ul>
+    <button class="nav-mobile-toggle" aria-label="Open menu">
+      <span class="icon-menu"></span>
+    </button>
+  </nav>
+  <div class="nav-mobile-drawer" aria-hidden="true">
+    <ul class="nav-mobile-menu">
+      <li><a href="{{ '/docs.html' | relative_url }}">Docs</a></li>
+      <li><a href="{{ '/pricing.html' | relative_url }}">Pricing</a></li>
+      <li><a href="{{ '/contact.html' | relative_url }}">Contact</a></li>
+      <li><a href="{{ '/about.html' | relative_url }}">About</a></li>
+    </ul>
+  </div>
+</header>
+<!-- End Elegant Header Navigation -->

@@ -1,0 +1,39 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
+name: Security Encryption Check
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  enforce-encryption:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify encryption tooling (non-fatal)
+        run: |
+          missing=0
+          for f in security/encryption_config.json scripts/security/encrypt_files.py scripts/security/decrypt_files.py .githooks/pre-commit .githooks/pre-push; do
+            if [ ! -f "$f" ]; then
+              echo "Warning: missing $f"
+              missing=1
+            fi
+          done
+          if [ $missing -eq 1 ]; then
+            echo "Encryption tooling not present; skipping enforcement step. To enable, add the required files or update the workflow."
+            exit 0
+          fi
+
+      - name: Enforce no sensitive plaintext tracked
+        run: |
+          if git ls-files -m | grep -E "^(instance/|uploads/|logs/|\.env)"; then
+            echo "Sensitive files are tracked. Remove from git and rely on encrypted artifacts."
+            exit 1
+          fi

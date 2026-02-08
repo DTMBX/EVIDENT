@@ -1,0 +1,6 @@
+namespace Evident.Shared;
+
+public class Class1
+{
+
+}

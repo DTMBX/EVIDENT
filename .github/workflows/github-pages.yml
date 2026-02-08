@@ -1,0 +1,35 @@
+# Copyright © 2024–2026 Faith Frontier Ecclesiastical Trust. All rights reserved.
+# PROPRIETARY — See LICENSE.
+
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2"
+      - name: Install dependencies (robust)
+        run: |
+          cd site
+          gem install bundler
+          # install into vendor/bundle for isolation, retry on transient failures
+          bundle config set path 'vendor/bundle'
+          bundle install --jobs 4 --retry 3
+      - name: Build site
+        run: |
+          cd site
+          bundle exec jekyll build
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: site/_site

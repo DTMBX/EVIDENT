@@ -1,0 +1,7 @@
+The Fourth Amendment to the United States Constitution protects citizens from unreasonable searches and seizures. It requires that warrants be supported by probable cause and describe with particularity the place to be searched and the persons or things to be seized.
+
+The exclusionary rule, established in Mapp v. Ohio, prevents the use of evidence obtained in violation of the Fourth Amendment in criminal proceedings.
+
+In Terry v. Ohio, the Supreme Court held that a police officer may conduct a brief, investigatory stop when the officer has reasonable suspicion that criminal activity is afoot. This is known as a "Terry stop."
+
+Search warrants must be issued by a neutral magistrate and must be based on probable cause. The probable cause standard requires more than mere suspicion but less than the evidence required for conviction.

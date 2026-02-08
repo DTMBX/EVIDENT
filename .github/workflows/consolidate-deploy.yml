@@ -1,0 +1,69 @@
+name: Consolidate, Build and Deploy
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * 1' # weekly on Mondays at 06:00 UTC
+
+permissions:
+  contents: write
+  pages: write
+
+jobs:
+  consolidate-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Git user
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Make scripts executable
+        run: |
+          chmod +x .github/scripts/*.sh || true
+
+      - name: Fetch CI runs and logs
+        run: .github/scripts/fetch_ci_logs.sh
+
+      - name: Dry-run merges and open conflict PRs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: .github/scripts/dry_run_merge.sh
+
+      - name: Setup Ruby for Jekyll
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+
+      - name: Install Ruby dependencies
+        run: |
+          if [ -f Gemfile ]; then
+            gem install bundler --no-document
+            bundle install --jobs 4 --retry 3
+          else
+            echo "No Gemfile; skipping bundle install"
+          fi
+
+      - name: Build site (Jekyll fallback)
+        run: |
+          if [ -f _config.yml ] && [ -f Gemfile ]; then
+            bundle exec jekyll build --destination build_output/_site
+          else
+            echo "No Jekyll site detected; skipping build"
+          fi
+
+      - name: Deploy to g8-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: ./build_output/_site
+          publish_branch: g8-pages
+          keep_files: false
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate consolidation report
+        run: .github/scripts/generate_report.sh
