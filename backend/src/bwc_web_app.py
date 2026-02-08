@@ -10,6 +10,7 @@ Drag-and-drop interface for body-worn camera analysis
 import hashlib
 import json
 import os
+import re
 import threading
 from datetime import datetime
 from pathlib import Path
@@ -20,6 +21,14 @@ from werkzeug.utils import secure_filename
 
 # Import our BWC analyzer
 from bwc_forensic_analyzer import BWCForensicAnalyzer
+
+_UPLOAD_ID_PATTERN = re.compile(r"^[A-Za-z0-9_-]+$")
+
+
+def _is_safe_upload_id(upload_id: str) -> bool:
+    """Validate upload_id to prevent path traversal and invalid characters."""
+    return isinstance(upload_id, str) and bool(_UPLOAD_ID_PATTERN.fullmatch(upload_id))
+
 
 app = Flask(__name__)
 CORS(app)
@@ -284,6 +293,9 @@ def download_report(upload_id, format):
 @app.route("/api/transcript/<upload_id>", methods=["GET"])
 def get_transcript(upload_id):
     """Get full transcript with timestamps"""
+    if not _is_safe_upload_id(upload_id):
+        return jsonify({"error": "Invalid upload ID"}), 400
+
     if upload_id not in analysis_status:
         return jsonify({"error": "Invalid upload ID"}), 404
 
