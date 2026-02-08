@@ -10,6 +10,7 @@ import json
 
 # Import our enhanced analyzer
 import sys
+import logging
 from datetime import datetime
 from pathlib import Path
 
@@ -274,7 +275,8 @@ def mark_critical_section():
         )
 
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        logging.exception("Error while marking critical section")
+        return jsonify({"error": "An internal error occurred while marking the critical section."}), 500
 
 
 # Register blueprint in main app
