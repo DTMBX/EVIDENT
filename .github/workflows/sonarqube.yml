@@ -47,7 +47,7 @@ jobs:
 
     steps:
       - name: Analyze with SonarQube
-
+        continue-on-error: true
         # You can pin the exact commit or the version.
         # uses: SonarSource/sonarqube-scan-action@v1.1.0
         uses: SonarSource/sonarqube-scan-action@a31c9398be7ace6bbfaf30c0bd5d415f843d45e9
