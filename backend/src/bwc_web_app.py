@@ -13,6 +13,7 @@ import os
 import threading
 from datetime import datetime
 from pathlib import Path
+import re
 
 from flask import Flask, jsonify, request, send_file
 from flask_cors import CORS
@@ -357,6 +358,10 @@ def get_entities(upload_id):
     """Get all extracted entities"""
     if upload_id not in analysis_status:
         return jsonify({"error": "Invalid upload ID"}), 404
+
+    # Ensure upload_id has a safe format to prevent path traversal
+    if not re.fullmatch(r"[A-Za-z0-9_-]+", upload_id):
+        return jsonify({"error": "Invalid upload ID format"}), 400
 
     status = analysis_status[upload_id]
 
