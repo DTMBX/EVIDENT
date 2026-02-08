@@ -12,6 +12,7 @@ import json
 import sys
 from datetime import datetime
 from pathlib import Path
+import logging
 
 from flask import Blueprint, Response, jsonify, request, stream_with_context
 from werkzeug.utils import secure_filename
@@ -24,6 +25,9 @@ bwc_routes = Blueprint("bwc", __name__, url_prefix="/api/bwc")
 
 # Initialize analyzer (should be singleton in production)
 analyzer = None
+
+# Module-level logger
+logger = logging.getLogger(__name__)
 
 
 def get_analyzer():
@@ -273,8 +277,10 @@ def mark_critical_section():
             }
         )
 
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+    except Exception:
+        # Log full exception details server-side without exposing them to the client
+        logger.exception("Error while marking critical section")
+        return jsonify({"error": "An internal error occurred while marking the critical section."}), 500
 
 
 # Register blueprint in main app
