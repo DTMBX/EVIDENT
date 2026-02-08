@@ -12,6 +12,8 @@ import json
 import sys
 from datetime import datetime
 from pathlib import Path
+import logging
+import traceback
 
 from flask import Blueprint, Response, jsonify, request, stream_with_context
 from werkzeug.utils import secure_filename
@@ -274,7 +276,9 @@ def mark_critical_section():
         )
 
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        logging.error("Error in mark_critical_section: %s", e)
+        logging.debug("Full traceback for mark_critical_section error:\n%s", traceback.format_exc())
+        return jsonify({"error": "An internal error has occurred."}), 500
 
 
 # Register blueprint in main app
