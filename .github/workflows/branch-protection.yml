@@ -7,18 +7,21 @@ on:
         description: 'Branch to protect'
         required: true
         default: 'main'
+  push:
+    branches: [ main ]
 
 jobs:
   set-protection:
+    if: ${{ github.event_name != 'pull_request' }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - name: Require admin token
-        if: ${{ !secrets.ADMIN_GITHUB_TOKEN }}
+      - name: Skip if ADMIN_GITHUB_TOKEN missing
+        if: ${{ secrets.ADMIN_GITHUB_TOKEN == '' }}
         run: |
-          echo 'This workflow requires a repository secret named ADMIN_GITHUB_TOKEN with a personal access token that has admin:repo scope.'
-          exit 1
+          echo "ADMIN_GITHUB_TOKEN is not configured; skipping branch protection."
+          exit 0
 
       - name: Configure branch protection
         uses: actions/github-script@v6
