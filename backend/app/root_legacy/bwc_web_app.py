@@ -366,16 +366,26 @@ def get_entities(upload_id):
     # Load JSON report
     report_file = ANALYSIS_FOLDER / upload_id / "report.json"
 
-    if not report_file.exists():
+    # Ensure the report file path stays within the analysis folder
+    analysis_root = Path(ANALYSIS_FOLDER).resolve()
+    resolved_report_file = report_file.resolve()
+    try:
+        resolved_report_file.relative_to(analysis_root)
+    except ValueError:
         return jsonify({"error": "Report not found"}), 404
 
-    with open(report_file, encoding="utf-8") as f:
+    if not resolved_report_file.exists():
+        return jsonify({"error": "Report not found"}), 404
+
+    with open(resolved_report_file, encoding="utf-8") as f:
         report_data = json.load(f)
 
     return jsonify(
         {
             "entities": report_data.get("entities", {}),
-            "total_entities": sum(len(v) for v in report_data.get("entities", {}).values()),
+            "total_entities": sum(
+                len(v) for v in report_data.get("entities", {}).values()
+            ),
         }
     )
 
