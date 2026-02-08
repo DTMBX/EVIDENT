@@ -340,3 +340,21 @@ __pycache__/
 # IDE
 .vs/
 .vscode/
+
+# Runtime artifacts / logs - managed by chore/repo-root-cleanup
+.venv/
+node_modules/
+
+# Logs (root + anywhere)
+*.log
+run_*.log
+
+# Generated runtime dirs (local)
+uploads/
+logs/
+
+# CI log outputs (generated)
+ci-logs/
+
+# Security scan outputs (do not commit)
+security/secret-scan-results.txt
