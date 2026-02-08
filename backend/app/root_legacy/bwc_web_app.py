@@ -293,7 +293,19 @@ def get_transcript(upload_id):
         return jsonify({"error": "Analysis not completed"}), 400
 
     # Load JSON report
-    report_file = ANALYSIS_FOLDER / upload_id / "report.json"
+    # Build and validate path to prevent directory traversal
+    base_dir = (ANALYSIS_FOLDER / upload_id).resolve()
+    analysis_root = ANALYSIS_FOLDER.resolve()
+
+    # Ensure the resolved base_dir is within the analysis root
+    if not str(base_dir).startswith(str(analysis_root) + os.sep):
+        return jsonify({"error": "Invalid upload ID"}), 400
+
+    report_file = (base_dir / "report.json").resolve()
+
+    # Ensure the report file is inside the expected base_dir
+    if report_file.parent != base_dir:
+        return jsonify({"error": "Report not found"}), 404
 
     if not report_file.exists():
         return jsonify({"error": "Report not found"}), 404
