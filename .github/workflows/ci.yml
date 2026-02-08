@@ -84,7 +84,8 @@ jobs:
     name: Notify (on failure)
     needs: build
     runs-on: ubuntu-latest
-    if: ${{ always() && needs.build.result != 'success' }}
+    # Only attempt to post comments when the PR is from the same repository (not a fork).
+    if: ${{ always() && needs.build.result != 'success' && github.event.pull_request.head.repo.owner == github.repository_owner }}
     steps:
       - uses: actions/checkout@v4
       - name: Post failure comment
