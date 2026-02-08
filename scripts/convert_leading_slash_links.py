@@ -21,7 +21,8 @@ modified_files = []
 for path in root.rglob("*"):
     if not path.is_file():
         continue
-    if path.match("*/_site/*") or path.match("*/builds/*") or path.match("*/dist/*"):
+    # Skip files under excluded directories (robust to OS path separators)
+    if any(part in exclude_dirs for part in path.parts):
         continue
     if path.suffix.lower() not in {".html", ".md"}:
         continue
