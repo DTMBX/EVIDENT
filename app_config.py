@@ -113,11 +113,19 @@ def create_app():
     from auth.admin_routes import admin_bp
     from routes.upload_routes import upload_bp
     from routes.legal_routes import legal_bp
+    from api.legal_library_routes import legal_library_bp
+    from routes.legal_admin import legal_admin_bp
+    from routes.chat_routes import chat_bp
+    from routes.chat_admin import chat_admin_bp
     
     app.register_blueprint(auth_bp)
     app.register_blueprint(admin_bp)
     app.register_blueprint(upload_bp)
     app.register_blueprint(legal_bp)
+    app.register_blueprint(legal_library_bp)
+    app.register_blueprint(legal_admin_bp)
+    app.register_blueprint(chat_bp)
+    app.register_blueprint(chat_admin_bp)
     
     # Create tables
     with app.app_context():
@@ -178,7 +186,7 @@ def create_app():
                 return redirect(url_for('admin.dashboard'))
             else:
                 from flask import redirect, url_for
-                return redirect(url_for('dashboard'))
+                return redirect(url_for('chat'))  # Chat is main feature
         
         return render_template_string('''
         <!DOCTYPE html>
@@ -257,6 +265,18 @@ def create_app():
         
         return _dashboard()
     
+    @app.route('/chat')
+    def chat():
+        """Render chat interface (main feature of Evident)"""
+        from flask import render_template
+        from flask_login import login_required
+        
+        @login_required
+        def _chat():
+            return render_template('chat/chat_interface.html')
+        
+        return _chat()
+    
     # CLI Commands
     @app.cli.command('init-db')
     def init_db():
@@ -309,6 +329,15 @@ def create_app():
             for user in users:
                 print(f'{user.email:<30} {user.full_name:<20} {user.role.value:<15} {user.tier.value:<12}')
             print(f'\nTotal users: {len(users)}\n')
+    
+    @app.cli.command('init-legal-library')
+    def init_legal_library():
+        """Initialize legal library with founding documents and landmark cases"""
+        from auth.legal_library_importer import init_legal_library
+        
+        with app.app_context():
+            init_legal_library()
+            print('✅ Legal library initialized with founding documents and landmark cases')
     
     return app
 

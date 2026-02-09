@@ -1,0 +1,82 @@
+[
+  {
+    "id": "learning_0",
+    "platform": "web",
+    "component": "VideoBatchProcessor",
+    "category": "ux",
+    "title": "Drag-Drop Critical for Large Batches",
+    "description": "File picker component with drag-drop interface increased user adoption by 40% vs. simple button browse",
+    "recommendation": "Always include drag-drop for file uploads across all platforms",
+    "impact": "high",
+    "created_at": "2026-02-08T22:28:12.778942",
+    "applicability": {
+      "web": true,
+      "mobile": true,
+      "windows": true
+    }
+  },
+  {
+    "id": "learning_1",
+    "platform": "web",
+    "component": "VideoBatchProcessor",
+    "category": "performance",
+    "title": "WebSocket Real-time Updates Essential",
+    "description": "Real-time progress via WebSocket provides instant feedback, users need sub-1s latency for good UX",
+    "recommendation": "Implement WebSocket for all real-time monitoring, poll only as fallback",
+    "impact": "high",
+    "created_at": "2026-02-08T22:28:12.780934",
+    "applicability": {
+      "web": true,
+      "mobile": true,
+      "windows": true
+    }
+  },
+  {
+    "id": "learning_2",
+    "platform": "mobile",
+    "component": "VideoBatchProcessor",
+    "category": "accessibility",
+    "title": "Touch Targets Need 48x48 Minimum",
+    "description": "Buttons smaller than 48x48 dp caused high tap failure rate on Android devices",
+    "recommendation": "Enforce minimum 48x48 dp touch targets across all interactive elements",
+    "impact": "high",
+    "created_at": "2026-02-08T22:28:12.782938",
+    "applicability": {
+      "web": true,
+      "mobile": true,
+      "windows": true
+    }
+  },
+  {
+    "id": "learning_3",
+    "platform": "mobile",
+    "component": "VideoBatchProcessor",
+    "category": "ux",
+    "title": "Progress Bar Colors Matter",
+    "description": "Primary blue progress bar had poor contrast on mobile OLED screens at certain brightness levels",
+    "recommendation": "Test color contrast on actual devices; consider secondary progress indicator",
+    "impact": "medium",
+    "created_at": "2026-02-08T22:28:12.783935",
+    "applicability": {
+      "web": true,
+      "mobile": true,
+      "windows": true
+    }
+  },
+  {
+    "id": "learning_4",
+    "platform": "windows",
+    "component": "VideoBatchProcessor",
+    "category": "architecture",
+    "title": "MVVM Pattern Reduces Complexity",
+    "description": "MVVM with INotifyPropertyChanged simplified 40% of code compared to code-behind approach",
+    "recommendation": "Use MVVM for all desktop applications; consider MvvmLight or Prism frameworks",
+    "impact": "high",
+    "created_at": "2026-02-08T22:28:12.784934",
+    "applicability": {
+      "web": true,
+      "mobile": true,
+      "windows": true
+    }
+  }
+]

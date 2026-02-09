@@ -1,0 +1,56 @@
+[
+  {
+    "id": "pattern_0",
+    "name": "ProgressMonitor",
+    "platforms": [
+      "web",
+      "mobile",
+      "windows"
+    ],
+    "description": "Consistent pattern for displaying batch processing progress with real-time updates",
+    "component_examples": [
+      "web:BatchProgressMonitor",
+      "mobile:BatchProgressMonitorWidget",
+      "windows:BatchProgressUserControl"
+    ],
+    "code_pattern": "\n        Component receives:\n        - batchId: identifier for batch\n        - status: current processing status\n        - progress: 0-100 percentage\n        - files: array of processed files\n        \n        Displays:\n        - Overall progress bar\n        - File-by-file status\n        - Sync status (if applicable)\n        - Real-time updates via WebSocket/Socket.io\n        ",
+    "reuse_score": 0.95,
+    "discovered_at": "2026-02-08T22:28:12.786937"
+  },
+  {
+    "id": "pattern_1",
+    "name": "FileUploadForm",
+    "platforms": [
+      "web",
+      "mobile",
+      "windows"
+    ],
+    "description": "Unified pattern for video file upload with quality/option selection",
+    "component_examples": [
+      "web:FileUploadArea+BatchUploadForm",
+      "mobile:FileUploadWidget+BatchUploadFormWidget",
+      "windows:FileUploadUserControl"
+    ],
+    "code_pattern": "\n        Form inputs:\n        - files: multi-select video files\n        - caseId: case identifier\n        - quality: preset (ultra_low, low, medium, high, ultra_high)\n        - options: boolean flags for sync, transcription\n        \n        Features:\n        - Drag & drop support\n        - File size display\n        - Input validation\n        - Progress feedback\n        ",
+    "reuse_score": 0.92,
+    "discovered_at": "2026-02-08T22:28:12.788448"
+  },
+  {
+    "id": "pattern_2",
+    "name": "DesignTokenizedUI",
+    "platforms": [
+      "web",
+      "mobile",
+      "windows"
+    ],
+    "description": "Consistent design system using centralized color, spacing, typography tokens",
+    "component_examples": [
+      "web:COLORS/SPACING/FONTS",
+      "mobile:DesignTokens",
+      "windows:DesignTokens"
+    ],
+    "code_pattern": "\n        Define tokens:\n        - Colors: primary (#0b73d2), accent (#e07a5f), neutral (#f6f7f9), etc.\n        - Spacing: xs(4px), sm(8px), md(16px), lg(24px), xl(32px)\n        - Typography: body(14px), heading(20px), large(24px)\n        \n        Usage:\n        - All colors sourced from COLORS constant\n        - All spacing from SPACING constant\n        - Consistent font family across platforms\n        ",
+    "reuse_score": 0.98,
+    "discovered_at": "2026-02-08T22:28:12.789459"
+  }
+]
