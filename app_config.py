@@ -38,8 +38,15 @@ class Config:
     WTF_CSRF_ENABLED = True
     WTF_CSRF_TIME_LIMIT = None
     
-    # Limits
-    MAX_CONTENT_LENGTH = 16 * 1024 * 1024  # 16MB max upload
+    # Media Upload Configuration
+    MAX_CONTENT_LENGTH = 500 * 1024 * 1024  # 500MB max upload for large video files
+    UPLOAD_FOLDER = 'uploads'
+    ALLOWED_EXTENSIONS = {
+        'mp4', 'avi', 'mov', 'mkv', 'webm', 'flv',  # Video
+        'mp3', 'wav', 'flac', 'aac', 'wma', 'm4a',  # Audio
+        'jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp', 'tiff',  # Images
+        'pdf',  # PDF
+        'docx', 'doc', 'xlsx', 'xls', 'pptx', 'ppt', 'txt', 'rtf'  # Documents
 
 
 class DevelopmentConfig(Config):
@@ -104,9 +111,13 @@ def create_app():
     # Register blueprints
     from auth.routes import auth_bp
     from auth.admin_routes import admin_bp
+    from routes.upload_routes import upload_bp
+    from routes.legal_routes import legal_bp
     
     app.register_blueprint(auth_bp)
     app.register_blueprint(admin_bp)
+    app.register_blueprint(upload_bp)
+    app.register_blueprint(legal_bp)
     
     # Create tables
     with app.app_context():
