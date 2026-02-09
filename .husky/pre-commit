@@ -1,4 +1,8 @@
-#!/usr/bin/env sh
+#!/bin/sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx lint-staged
+# Run lint-staged to validate and format staged files
+npx lint-staged --concurrent false
+
+# Exit with status from lint-staged
+exit $?

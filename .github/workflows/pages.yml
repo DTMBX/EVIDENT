@@ -8,6 +8,10 @@ on:
     branches: [main]
   workflow_dispatch: {}
 
+env:
+  NODE_VERSION: '18'
+  NODE_OPTIONS: '--max_old_space_size=4096'
+
 permissions:
   contents: read
   pages: write
@@ -15,36 +19,51 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: 'package-lock.json'
 
-      - name: Install dependencies (robust)
-        run: |
-          # Prefer `npm ci` when lockfile matches, but fall back to `npm install` on mismatch
-          if [ -f package-lock.json ]; then
-            npm ci --no-audit --no-fund || npm install --no-audit --no-fund
-          else
-            npm install --no-audit --no-fund
-          fi
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund --prefer-offline
+
+      - name: Run lint
+        run: npm run lint --if-present
 
       - name: Build site (Eleventy)
-        run: npm run build
+        run: npm run build --if-present
+        env:
+          ELEVENTY_ENV: production
+
+      - name: Verify build output
+        run: |
+          if [ ! -f _site/index.html ]; then
+            echo "ERROR: Build failed - _site/index.html not found"
+            exit 1
+          fi
+          echo "✓ Build verification passed"
+          du -sh _site 2>/dev/null || true
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
           path: _site
+          retention-days: 1
 
   deploy:
     environment:
@@ -52,7 +71,11 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     steps:
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

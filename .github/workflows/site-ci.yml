@@ -2,34 +2,57 @@ name: Site CI
 
 on:
   push:
-    branches: [ main, chore/repo-layout ]
+    branches: [ main ]
   pull_request:
     branches: [ main ]
+
+env:
+  NODE_VERSION: '18'
 
 jobs:
   build-and-lint:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: 'package-lock.json'
+
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --no-audit --no-fund --prefer-offline
+
       - name: Run lint
-        run: npm run lint
+        run: npm run lint --if-present
+
       - name: Build site
-        run: npm run build
+        run: npm run build --if-present
+        env:
+          ELEVENTY_ENV: staging
+
       - name: Verify build output
         run: |
-          if [ -f _site/index.html ]; then echo "_site/index.html exists"; else echo "Build missing _site/index.html"; exit 1; fi
+          if [ ! -f _site/index.html ]; then
+            echo "ERROR: Build failed - _site/index.html not found"
+            exit 1
+          fi
+          echo "✓ Build verification passed"
+
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: site-build
-          path: _site/**
-          retention-days: 7
+          name: site-build-artifacts
+          path: _site/
+          retention-days: 3
+          compression-level: 9
 
   lighthouse:
     runs-on: ubuntu-latest

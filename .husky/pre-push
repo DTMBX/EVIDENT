@@ -1,0 +1,16 @@
+#!/bin/sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Prevent accidental pushes to protected branches
+PROTECTED_BRANCHES="main gh-pages"
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+for protected in $PROTECTED_BRANCHES; do
+  if [ "$CURRENT_BRANCH" = "$protected" ]; then
+    echo "ERROR: Cannot push directly to protected branch '$CURRENT_BRANCH'"
+    echo "Please create a feature branch and submit a Pull Request"
+    exit 1
+  fi
+done
+
+exit 0

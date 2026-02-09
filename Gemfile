@@ -1,34 +1,37 @@
 source "https://rubygems.org"
 
-# Jekyll for Netlify deployment
+# Ruby version specification
+ruby ">= 3.3.0"
+
+# Jekyll for static site generation
 gem "jekyll", "~> 4.4.1"
 
-# Required for Ruby 3.4+
+# Required for Ruby 3.0+
 gem "csv"
 gem "base64"
 gem "bigdecimal"
 
-# Required plugins
+# Core Jekyll plugins for SEO and feeds
 gem "jekyll-feed", "~> 0.17"
 gem "jekyll-sitemap", "~> 1.4"
 gem "jekyll-seo-tag", "~> 2.8"
 
-# GitHub Pages gem (optional - comment out for Netlify)
-# gem "github-pages", group: :jekyll_plugins
+# Web server for local development (Ruby 3.0+)
+gem "webrick", "~> 1.8"
 
-# Optional but recommended
-gem "webrick", "~> 1.8" # For local development on Ruby 3.0+
+# HTTP parser (performance)
+gem "http_parser.rb", "~> 0.8.1"
 
-# Windows and JRuby does not include zoneinfo files
+group :development do
+  gem "bundler", ">= 2.4.0"
+end
+
+# Platform-specific dependencies
 platforms :mingw, :x64_mingw, :mswin, :jruby do
   gem "tzinfo", ">= 1", "< 3"
   gem "tzinfo-data"
 end
 
-# Performance-booster for watching directories on Windows
-gem "wdm", "~> 0.1", :platforms => [:mingw, :x64_mingw, :mswin]
+# Windows performance optimization
+gem "wdm", "~> 0.1", platforms: [:mingw, :x64_mingw, :mswin]
 
-gem "http_parser.rb", "~> 0.8.1"
-
-# Minimal Gemfile for Jekyll and Webrick to enable local build and serve
-# (duplicate jekyll entry removed; keep the ~> 4.4.1 declaration above)
