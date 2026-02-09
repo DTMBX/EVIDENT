@@ -1,0 +1,37 @@
+[
+  {
+    "id": "adr_0",
+    "title": "Choose Component Framework per Platform",
+    "context": "Need to build video processing UI across Web, Mobile, and Windows with code reuse where possible",
+    "options": [
+      {
+        "name": "Web",
+        "description": "React vs Vue vs Svelte",
+        "chosen": true,
+        "rationale": "React has largest ecosystem, best performance, most developer experience at Evident"
+      },
+      {
+        "name": "Mobile",
+        "description": "Flutter vs Native vs React Native",
+        "chosen": true,
+        "rationale": "Flutter provides single codebase for iOS/Android, better performance than RN, hot reload"
+      },
+      {
+        "name": "Windows",
+        "description": "WPF/.NET vs Electron vs Native C++",
+        "chosen": true,
+        "rationale": "WPF native app provides best Windows integration, performance, and security for enterprise use"
+      }
+    ],
+    "chosen_option": "React for Web, Flutter for Mobile, WPF for Windows",
+    "rationale": "Optimizes for each platform's strengths while maintaining consistent UX through design tokens",
+    "consequences": [
+      "Requires expertise in 3 different frameworks",
+      "Code patterns not directly reusable but conceptually consistent",
+      "Design tokens and architecture patterns shared across platforms",
+      "High development velocity possible with team specialization"
+    ],
+    "created_at": "2026-02-08T22:28:12.791462",
+    "status": "accepted"
+  }
+]
