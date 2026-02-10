@@ -16,6 +16,7 @@ from werkzeug.utils import secure_filename
 
 from api import upload_api
 from api.auth import jwt_required
+from services.hashing_service import compute_sha256_stream
 
 # Allowed file extensions
 ALLOWED_PDF_EXTENSIONS = {"pdf"}
@@ -75,10 +76,22 @@ def upload_pdf():
             413,
         )
 
+    # --- EVIDENCE INTEGRITY: Compute SHA-256 hash ---
+    file.seek(0)  # Ensure at start
+    file_hash = compute_sha256_stream(file)
+    file.seek(0)  # Reset for save operation
+
+    # TODO: Check database for duplicate evidence (deduplication by hash)
+    # from models.evidence import EvidenceItem
+    # existing = EvidenceItem.query.filter_by(hash_sha256=file_hash).first()
+    # if existing:
+    #     return jsonify({"error": "Duplicate evidence", "existing_id": existing.id}), 409
+
     # Secure filename and save
     filename = secure_filename(file.filename)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    unique_filename = f"{user.id}_{timestamp}_{filename}"
+    # Evidence-grade naming: hash prefix + timestamp + original name
+    unique_filename = f"{file_hash[:16]}_{user.id}_{timestamp}_{filename}"
 
     upload_folder = Path(current_app.config["UPLOAD_FOLDER"]) / "pdfs"
     upload_folder.mkdir(parents=True, exist_ok=True)
@@ -86,7 +99,19 @@ def upload_pdf():
     file_path = upload_folder / unique_filename
     file.save(str(file_path))
 
-    # TODO: Save file metadata to database
+    # TODO: Persist to database (next PR)
+    # from models.evidence import EvidenceItem
+    # evidence = EvidenceItem(
+    #     case_id=request.json.get("case_id"),
+    #     original_filename=file.filename,
+    #     stored_filename=unique_filename,
+    #     hash_sha256=file_hash,
+    #     file_size_bytes=file_size,
+    #     uploaded_by_id=user.id,
+    # )
+    # db.session.add(evidence)
+    # db.session.commit()
+
     # For now, return mock response
     return (
         jsonify(
@@ -94,6 +119,7 @@ def upload_pdf():
                 "file_id": 123,  # Replace with actual DB ID
                 "filename": filename,
                 "original_filename": file.filename,
+                "hash_sha256": file_hash,
                 "size": file_size,
                 "uploaded_at": datetime.utcnow().isoformat(),
                 "path": str(file_path),
