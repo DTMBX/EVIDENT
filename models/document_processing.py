@@ -46,8 +46,8 @@ class DocumentProcessingTask(db.Model):
     actual_cost = db.Column(db.Float)
     
     # Metadata
-    requested_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    completed_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    requested_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    completed_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     created_at = db.Column(db.DateTime, default=datetime.utcnow, index=True)
     
@@ -139,7 +139,7 @@ class TranscriptionResult(db.Model):
     # Accuracy & Corrections
     requires_review = db.Column(db.Boolean, default=False)
     review_notes = db.Column(db.Text)
-    reviewed_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    reviewed_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     reviewed_at = db.Column(db.DateTime)
     
     # Final Transcript
@@ -187,7 +187,7 @@ class RedactionRule(db.Model):
     
     # Audit
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
-    created_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    created_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     # Relationships
     created_by = db.relationship('User', foreign_keys=[created_by_id])
@@ -221,7 +221,7 @@ class RedactionInstance(db.Model):
     confidence_score = db.Column(db.Float)  # Confidence if AI-derived
     
     # Approval
-    approved_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    approved_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     approved_at = db.Column(db.DateTime)
     is_approved = db.Column(db.Boolean, default=False)
     
@@ -229,7 +229,7 @@ class RedactionInstance(db.Model):
     justification = db.Column(db.Text)  # Why this was redacted
     
     # Metadata
-    created_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    created_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
@@ -274,7 +274,7 @@ class ComplianceReview(db.Model):
     has_privilege_issues = db.Column(db.Boolean, default=False)
     
     # Reviewer Information
-    reviewed_by_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    reviewed_by_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     
     # Required Actions
     requires_reprocessing = db.Column(db.Boolean, default=False)
@@ -375,7 +375,7 @@ class BatchProcessingQueue(db.Model):
     priority = db.Column(db.String(20), default='normal')
     
     # Metadata
-    created_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    created_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)

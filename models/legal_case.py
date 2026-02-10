@@ -35,13 +35,13 @@ class LegalCase(db.Model):
     legal_hold_date = db.Column(db.DateTime)
     
     # Access Control
-    lead_attorney_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    lead_attorney_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     organization_id = db.Column(db.Integer, db.ForeignKey('organization.id'))
     
     # Audit
     created_at = db.Column(db.DateTime, default=datetime.utcnow, index=True)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
-    created_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    created_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     # Relationships
     lead_attorney = db.relationship('User', foreign_keys=[lead_attorney_id])

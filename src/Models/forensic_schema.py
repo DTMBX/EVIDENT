@@ -123,7 +123,7 @@ class ChainOfCustodyAuditLog(Base):
     evidence_id = Column(String(255), ForeignKey('evidence.id'), index=True, nullable=False)
     
     # Actor information
-    user_id = Column(String(255), ForeignKey('user.id'), index=True, nullable=False)
+    user_id = Column(String(255), ForeignKey('users.id'), index=True, nullable=False)
     user_name = Column(String(255), nullable=False)  # Cached for audit trail
     user_email = Column(String(255), nullable=False)  # Cached for audit trail
     user_role = Column(String(50), nullable=False)  # "attorney", "paralegal", "admin"
@@ -204,7 +204,7 @@ class PrivilegeDetection(Base):
     tone_analysis = Column(JSONB)   # {"formality": 0.8, "legal_terminology": 0.9}
     
     # Manual review
-    reviewed_by = Column(String(255), ForeignKey('user.id'))
+    reviewed_by = Column(String(255), ForeignKey('users.id'))
     review_status = Column(String(50))  # "pending", "approved", "disputed"
     review_notes = Column(Text)
     reviewed_at = Column(DateTime)
@@ -286,7 +286,7 @@ class BatchJob(Base):
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     case_id = Column(String(255), ForeignKey('cases.id'), index=True, nullable=False)
-    user_id = Column(String(255), ForeignKey('user.id'), nullable=False)
+    user_id = Column(String(255), ForeignKey('users.id'), nullable=False)
     
     # Job definition
     job_name = Column(String(255), nullable=False)

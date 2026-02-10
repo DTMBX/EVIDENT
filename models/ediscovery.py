@@ -40,13 +40,13 @@ class DiscoveryRequest(db.Model):
     partial_response_notes = db.Column(db.Text)
     
     # Metadata
-    assigned_to_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    assigned_to_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     priority = db.Column(db.String(20), default='normal')  # low, normal, high
     
     # Audit
     created_at = db.Column(db.DateTime, default=datetime.utcnow, index=True)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
-    created_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    created_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     # Relationships
     assigned_to = db.relationship('User', foreign_keys=[assigned_to_id])
@@ -135,7 +135,7 @@ class ProductionSet(db.Model):
     status = db.Column(db.String(50), default='pending')  # pending, produced, supplemental, modified
     
     # Metadata
-    created_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    created_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     # Audit
     created_at = db.Column(db.DateTime, default=datetime.utcnow, index=True)
@@ -229,7 +229,7 @@ class PrivilegeLog(db.Model):
     status = db.Column(db.String(50), default='withheld')  # withheld, produced, supplemental
     
     # Metadata
-    created_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    created_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     # Audit
     created_at = db.Column(db.DateTime, default=datetime.utcnow, index=True)
@@ -328,7 +328,7 @@ class LitigationHold(db.Model):
     status = db.Column(db.String(50), default='active')  # active, suspended, lifted
     
     # Metadata
-    issued_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    issued_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     # Audit
     created_at = db.Column(db.DateTime, default=datetime.utcnow, index=True)
@@ -442,7 +442,7 @@ class DocumentSearchQuery(db.Model):
     
     # Metadata
     is_saved = db.Column(db.Boolean, default=True)
-    created_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    created_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
@@ -492,7 +492,7 @@ class ESIProtocol(db.Model):
     # Technical Requirements
     technical_specifications = db.Column(db.Text)  # Load file formats, etc.
     
-    created_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    created_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)

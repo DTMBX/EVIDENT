@@ -59,7 +59,7 @@ class EvidenceItem(db.Model):
     # Audit Trail
     created_at = db.Column(db.DateTime, default=datetime.utcnow, index=True)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
-    uploaded_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    uploaded_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     notes = db.Column(db.Text)
     
@@ -86,7 +86,7 @@ class ChainOfCustody(db.Model):
     # Action Information
     action = db.Column(db.String(100), nullable=False)  # uploaded, accessed, analyzed, redacted, exported, etc.
     actor_name = db.Column(db.String(300))  # User who performed action
-    actor_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    actor_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     # Timestamp (immutable)
     action_timestamp = db.Column(db.DateTime, default=datetime.utcnow, nullable=False, index=True)
@@ -150,7 +150,7 @@ class EvidenceTag(db.Model):
     tag_color = db.Column(db.String(7))  # Hex color
     description = db.Column(db.Text)
     
-    created_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    created_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     
     created_by = db.relationship('User', foreign_keys=[created_by_id])
@@ -191,7 +191,7 @@ class PrivilegeLog(db.Model):
     exempt_from_disclosure = db.Column(db.Boolean, default=True)
     
     # Assertion
-    asserted_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    asserted_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     asserted_date = db.Column(db.DateTime, default=datetime.utcnow)
     
     # Dispute Resolution
@@ -229,8 +229,8 @@ class ProductionSet(db.Model):
     item_count = db.Column(db.Integer)
     total_size_bytes = db.Column(db.Integer)
     
-    produced_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    reviewed_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    produced_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    reviewed_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     status = db.Column(db.String(50), default='draft')  # draft, ready, produced, received
     
