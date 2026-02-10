@@ -380,6 +380,10 @@ run_*.log
 uploads/
 logs/
 
+# Evidence data directories (contain actual evidence, not source code)
+evidence_store/
+exports/
+
 # CI log outputs (generated)
 ci-logs/
 

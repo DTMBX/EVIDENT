@@ -39,7 +39,7 @@ class Config:
     WTF_CSRF_TIME_LIMIT = None
     
     # Media Upload Configuration
-    MAX_CONTENT_LENGTH = 500 * 1024 * 1024  # 500MB max upload for large video files
+    MAX_CONTENT_LENGTH = 3 * 1024 * 1024 * 1024  # 3 GB for large BWC video files
     UPLOAD_FOLDER = 'uploads'
     ALLOWED_EXTENSIONS = {
         'mp4', 'avi', 'mov', 'mkv', 'webm', 'flv',  # Video
