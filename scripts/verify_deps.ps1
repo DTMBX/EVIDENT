@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Verify Evident Technologies Python dependency stack.
 .DESCRIPTION
@@ -14,8 +14,8 @@ $failed = 0
 
 Write-Host "`n=== Evident dep-verify (Windows) ===" -ForegroundColor Cyan
 
-# ── pip check ──────────────────────────────────────────────────────────────
-Write-Host "`n» pip check" -ForegroundColor Yellow
+# -- pip check --------------------------------------------------------------
+Write-Host "`n> pip check" -ForegroundColor Yellow
 try {
     Invoke-Expression "$Python -m pip check" | Out-String | Write-Host
 } catch {
@@ -23,8 +23,8 @@ try {
     $failed++
 }
 
-# ── ruff version ───────────────────────────────────────────────────────────
-Write-Host "`n» ruff version" -ForegroundColor Yellow
+# -- ruff version -----------------------------------------------------------
+Write-Host "`n> ruff version" -ForegroundColor Yellow
 try {
     Invoke-Expression "$Python -m ruff version" | Out-String | Write-Host
 } catch {
@@ -32,8 +32,8 @@ try {
     $failed++
 }
 
-# ── pytest collect ─────────────────────────────────────────────────────────
-Write-Host "`n» pytest --collect-only (quick)" -ForegroundColor Yellow
+# -- pytest collect ---------------------------------------------------------
+Write-Host "`n> pytest --collect-only (quick)" -ForegroundColor Yellow
 try {
     Invoke-Expression "$Python -m pytest --collect-only -q 2>&1" | Select-Object -First 5 | Write-Host
 } catch {
@@ -41,8 +41,8 @@ try {
     $failed++
 }
 
-# ── Python version ─────────────────────────────────────────────────────────
-Write-Host "`n» Python version" -ForegroundColor Yellow
+# -- Python version ---------------------------------------------------------
+Write-Host "`n> Python version" -ForegroundColor Yellow
 try {
     Invoke-Expression "$Python -c `"import sys; print(sys.version)`""
 } catch {
@@ -50,8 +50,8 @@ try {
     $failed++
 }
 
-# ── smoke import: framework-agnostic (Flask or FastAPI) ────────────────────
-Write-Host "`n» smoke import: web framework" -ForegroundColor Yellow
+# -- smoke import: framework-agnostic (Flask or FastAPI) --------------------
+Write-Host "`n> smoke import: web framework" -ForegroundColor Yellow
 try {
     $smokeScript = @'
 import importlib
@@ -84,10 +84,10 @@ if not (flask_ok or fastapi_ok):
     $failed++
 }
 
-# ── summary ────────────────────────────────────────────────────────────────
+# -- summary ----------------------------------------------------------------
 Write-Host ""
 if ($failed -gt 0) {
-    Write-Host "FAIL — $failed check(s) failed." -ForegroundColor Red
+    Write-Host "FAIL -- $failed check(s) failed." -ForegroundColor Red
     exit 1
 } else {
     Write-Host "ALL CHECKS PASSED" -ForegroundColor Green

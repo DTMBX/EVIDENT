@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Evident Technologies — dependency verification (Linux / CI)
+# Evident Technologies -- dependency verification (Linux / CI)
 set -euo pipefail
 
 PY="${1:-python3.12}"
@@ -8,29 +8,29 @@ FAIL=0
 echo ""
 echo "=== Evident dep-verify (Linux / CI) ==="
 
-# ── pip check ──────────────────────────────────────────────────────────────
+# -- pip check --------------------------------------------------------------
 echo ""
-echo "» pip check"
+echo "> pip check"
 $PY -m pip check || { echo "WARN: pip check failed"; FAIL=$((FAIL+1)); }
 
-# ── ruff version ───────────────────────────────────────────────────────────
+# -- ruff version -----------------------------------------------------------
 echo ""
-echo "» ruff version"
+echo "> ruff version"
 $PY -m ruff version || { echo "WARN: ruff not installed"; FAIL=$((FAIL+1)); }
 
-# ── pytest collect ─────────────────────────────────────────────────────────
+# -- pytest collect ---------------------------------------------------------
 echo ""
-echo "» pytest --collect-only (quick)"
+echo "> pytest --collect-only (quick)"
 $PY -m pytest --collect-only -q 2>&1 | head -5 || { echo "WARN: pytest collect failed"; FAIL=$((FAIL+1)); }
 
-# ── Python version ─────────────────────────────────────────────────────────
+# -- Python version ---------------------------------------------------------
 echo ""
-echo "» Python version"
+echo "> Python version"
 $PY -c "import sys; print(sys.version)" || { echo "WARN: Python version check failed"; FAIL=$((FAIL+1)); }
 
-# ── smoke import: framework-agnostic (Flask or FastAPI) ────────────────────
+# -- smoke import: framework-agnostic (Flask or FastAPI) --------------------
 echo ""
-echo "» smoke import: web framework"
+echo "> smoke import: web framework"
 $PY - <<'PY' || { echo "WARN: framework smoke import failed"; FAIL=$((FAIL+1)); }
 import importlib
 
@@ -50,10 +50,10 @@ if not (flask_ok or fastapi_ok):
     raise SystemExit("Neither flask nor fastapi is importable. Base requirements are not coherent.")
 PY
 
-# ── summary ────────────────────────────────────────────────────────────────
+# -- summary ----------------------------------------------------------------
 echo ""
 if [ "$FAIL" -gt 0 ]; then
-    echo "FAIL — $FAIL check(s) failed."
+    echo "FAIL -- $FAIL check(s) failed."
     exit 1
 else
     echo "ALL CHECKS PASSED"
