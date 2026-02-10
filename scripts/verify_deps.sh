@@ -23,10 +23,32 @@ echo ""
 echo "» pytest --collect-only (quick)"
 $PY -m pytest --collect-only -q 2>&1 | head -5 || { echo "WARN: pytest collect failed"; FAIL=$((FAIL+1)); }
 
-# ── smoke import: fastapi ──────────────────────────────────────────────────
+# ── Python version ─────────────────────────────────────────────────────────
 echo ""
-echo "» smoke import: fastapi"
-$PY -c "import fastapi; print(f'fastapi {fastapi.__version__}')" || { echo "WARN: smoke import failed"; FAIL=$((FAIL+1)); }
+echo "» Python version"
+$PY -c "import sys; print(sys.version)" || { echo "WARN: Python version check failed"; FAIL=$((FAIL+1)); }
+
+# ── smoke import: framework-agnostic (Flask or FastAPI) ────────────────────
+echo ""
+echo "» smoke import: web framework"
+$PY - <<'PY' || { echo "WARN: framework smoke import failed"; FAIL=$((FAIL+1)); }
+import importlib
+
+def ok(name: str) -> bool:
+    try:
+        importlib.import_module(name)
+        print(f"{name}: ok")
+        return True
+    except Exception as e:
+        print(f"{name}: not available ({e.__class__.__name__})")
+        return False
+
+flask_ok = ok("flask")
+fastapi_ok = ok("fastapi")
+
+if not (flask_ok or fastapi_ok):
+    raise SystemExit("Neither flask nor fastapi is importable. Base requirements are not coherent.")
+PY
 
 # ── summary ────────────────────────────────────────────────────────────────
 echo ""

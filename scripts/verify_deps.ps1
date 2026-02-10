@@ -41,12 +41,46 @@ try {
     $failed++
 }
 
-# ── smoke import: fastapi ──────────────────────────────────────────────────
-Write-Host "`n» smoke import: fastapi" -ForegroundColor Yellow
+# ── Python version ─────────────────────────────────────────────────────────
+Write-Host "`n» Python version" -ForegroundColor Yellow
 try {
-    Invoke-Expression "$Python -c `"import fastapi; print(f'fastapi {fastapi.__version__}')`""
+    Invoke-Expression "$Python -c `"import sys; print(sys.version)`""
 } catch {
-    Write-Warning "smoke import failed"
+    Write-Warning "Python version check failed"
+    $failed++
+}
+
+# ── smoke import: framework-agnostic (Flask or FastAPI) ────────────────────
+Write-Host "`n» smoke import: web framework" -ForegroundColor Yellow
+try {
+    $smokeScript = @'
+import importlib
+
+def ok(name: str) -> bool:
+    try:
+        importlib.import_module(name)
+        print(f"{name}: ok")
+        return True
+    except Exception as e:
+        print(f"{name}: not available ({e.__class__.__name__})")
+        return False
+
+flask_ok = ok("flask")
+fastapi_ok = ok("fastapi")
+
+if not (flask_ok or fastapi_ok):
+    raise SystemExit("Neither flask nor fastapi is importable. Base requirements are not coherent.")
+'@
+    $tmpFile = [System.IO.Path]::GetTempFileName() -replace '\.tmp$', '.py'
+    $smokeScript | Set-Content -Path $tmpFile -Encoding UTF8
+    try {
+        Invoke-Expression "$Python `"$tmpFile`"" 2>&1 | Write-Host
+        if ($LASTEXITCODE -ne 0) { throw "smoke import failed" }
+    } finally {
+        Remove-Item $tmpFile -ErrorAction SilentlyContinue
+    }
+} catch {
+    Write-Warning "framework smoke import failed: $_"
     $failed++
 }
 
