@@ -142,6 +142,8 @@ lighthouse-*.html
 # Archive and temporary documentation
 archive/
 docs/archive/
+docs/pypi_check.json
+_pypi_versions.txt
 
 # Build artifacts
 lighthouse-*.html
@@ -352,6 +354,15 @@ _site/
 .venv/
 __pycache__/
 *.pyc
+# Python virtual environments (all common patterns)
+env/
+env-*/
+venv/
+venv-*/
+ENV/
+env.bak/
+venv.bak/
+pyvenv.cfg
 
 # IDE
 .vs/
