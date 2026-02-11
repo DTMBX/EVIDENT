@@ -113,7 +113,8 @@
       return;
     }
 
-    // Start at zero volume for fade-in
+    // Start muted with volume at 0 to satisfy browser autoplay policies
+    audio.muted = true;
     audio.volume = 0;
     
     // Attempt to play
@@ -122,8 +123,10 @@
     if (playPromise !== undefined) {
       playPromise
         .then(function () {
-          console.log('[Anthem] Autoplay started, fading in...');
+          console.log('[Anthem] Autoplay started, unmuting and fading in...');
           player.classList.add('is-fading-in');
+          // Unmute immediately, then fade in from 0
+          audio.muted = false;
           fadeIn();
         })
         .catch(function (error) {
