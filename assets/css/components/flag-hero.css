@@ -1,7 +1,26 @@
 /* ============================================================================
-   FLAG VIDEO HERO — Evident Technologies
-   Full-width video background with mission statement overlay.
-   Accessible, performant, reduced-motion aware.
+   FLAG VIDEO HERO — Evident Technologies (CANONICAL VERSION 1.0.0)
+   ============================================================================
+   
+   DO NOT MODIFY WITHOUT ARCHITECTURAL REVIEW
+   
+   This is the finalized, court-defensible flag hero component for Evident.
+   
+   Features:
+   - Full-width video background with American flag
+   - Mission statement overlay with patriotic messaging
+   - Smooth video fade-in on load
+   - Gradient overlay for text contrast
+   - Full WCAG 2.1 AA compliance
+   - Reduced-motion fallback (static flag image)
+   - Mobile-responsive layout
+   
+   Dependencies:
+   - HTML: /src/_includes/components/flag-hero.njk
+   - Video: /assets/media/flag.mp4, /assets/media/renditions/flag-1080p.mp4
+   - Fallback: /assets/img/flags/us-flag-50.svg
+   
+   Last locked: 2026-02-11
    ============================================================================ */
 
 .flag-hero {

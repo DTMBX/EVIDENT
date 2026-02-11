@@ -13,6 +13,7 @@
 
     {% include "footer.njk" %}
       <script src="/assets/js/menu.js" defer></script>
+      <script src="/assets/js/anthem-player.js" defer></script>
       {% if page.extra_js %}{% for js in page.extra_js %}
         <script src="{{ js }}" defer></script>
       {% endfor %}{% endif %}
