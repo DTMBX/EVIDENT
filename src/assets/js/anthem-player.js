@@ -99,8 +99,37 @@
    * Handle audio load error
    */
   function handleAudioError(e) {
-    console.log('[Anthem] Audio unavailable:', e);
+    const errorDetails = {
+      type: e.type,
+      target: e.target,
+      error: audio.error,
+      networkState: audio.networkState,
+      readyState: audio.readyState,
+      currentSrc: audio.currentSrc
+    };
+    
+    console.error('[Anthem] Audio error:', errorDetails);
+    
+    if (audio.error) {
+      console.error('[Anthem] MediaError code:', audio.error.code);
+      console.error('[Anthem] MediaError message:', audio.error.message);
+      
+      const errorMessages = {
+        1: 'MEDIA_ERR_ABORTED - User aborted download',
+        2: 'MEDIA_ERR_NETWORK - Network error occurred',
+        3: 'MEDIA_ERR_DECODE - Audio decoding failed',
+        4: 'MEDIA_ERR_SRC_NOT_SUPPORTED - Audio format not supported'
+      };
+      
+      console.error('[Anthem] Error type:', errorMessages[audio.error.code] || 'Unknown error');
+    }
+    
     player.classList.add('is-unavailable');
+    
+    // Show user-friendly message
+    if (status) {
+      status.innerHTML = '<span class="anthem-player__text" style="color: rgba(255,255,255,0.7);">Audio unavailable</span>';
+    }
   }
 
   /**
@@ -228,19 +257,44 @@
    * Toggle play/pause
    */
   function togglePlayPause() {
+    console.log('[Anthem] togglePlayPause called', {
+      paused: audio.paused,
+      currentTime: audio.currentTime,
+      volume: audio.volume,
+      muted: audio.muted,
+      readyState: audio.readyState,
+      networkState: audio.networkState,
+      src: audio.src,
+      error: audio.error ? audio.error.message : 'none'
+    });
+
     if (audio.paused) {
       // If starting from beginning, fade in
       if (audio.currentTime === 0 || audio.currentTime < 0.5) {
+        console.log('[Anthem] Starting playback with fade-in');
+        audio.muted = false;
         audio.volume = 0;
-        audio.play().then(function () {
-          fadeIn();
-        }).catch(function (e) {
-          console.log('[Anthem] Play failed:', e);
-        });
+        
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          playPromise
+            .then(function () {
+              console.log('[Anthem] Playback started, fading in...');
+              fadeIn();
+            })
+            .catch(function (e) {
+              console.error('[Anthem] Play failed:', e.name, '-', e.message);
+              alert('Cannot play audio: ' + e.message + '\n\nCheck browser console for details.');
+            });
+        }
       } else {
-        audio.play();
+        console.log('[Anthem] Resuming playback');
+        audio.play().catch(function (e) {
+          console.error('[Anthem] Resume failed:', e);
+        });
       }
     } else {
+      console.log('[Anthem] Pausing playback');
       audio.pause();
     }
   }
