@@ -148,6 +148,10 @@ def create_app():
     
     # Phase 9 — document processing engine
     from routes.processing_routes import processing_bp
+
+    # Phase 10 — search & review platform
+    from routes.review_api import review_api_bp
+    from routes.review_routes import review_bp
     
     app.register_blueprint(auth_bp)
     app.register_blueprint(admin_bp)
@@ -165,6 +169,8 @@ def create_app():
     app.register_blueprint(transparency_bp)
     app.register_blueprint(api_v1_bp)
     app.register_blueprint(processing_bp)
+    app.register_blueprint(review_api_bp)
+    app.register_blueprint(review_bp)
     
     # Create tables
     with app.app_context():

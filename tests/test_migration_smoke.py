@@ -39,13 +39,15 @@ def migration_app(tmp_path):
 
     with app.app_context():
         from auth.models import db
-        # Drop everything so the DB is truly blank
-        db.drop_all()
-        # Remove alembic_version if lingering
-        db.session.execute(sa.text(
-            "DROP TABLE IF EXISTS alembic_version"
-        ))
+        # create_app() calls db.create_all(), so we must nuke every table
+        # including non-Alembic tables so upgrade() starts from blank.
+        inspector = sa.inspect(db.engine)
+        # Disable FK checks so drops don't fail on references
+        db.session.execute(sa.text("PRAGMA foreign_keys = OFF"))
+        for table_name in inspector.get_table_names():
+            db.session.execute(sa.text(f'DROP TABLE IF EXISTS "{table_name}"'))
         db.session.commit()
+        db.session.execute(sa.text("PRAGMA foreign_keys = ON"))
 
     yield app
 
@@ -106,7 +108,7 @@ class TestUpgradeHead:
             row = db.session.execute(
                 sa.text("SELECT version_num FROM alembic_version")
             ).scalar()
-            assert row == "0004", f"Expected head=0004, got {row}"
+            assert row == "0005", f"Expected head=0005, got {row}"
 
 
 # ---------------------------------------------------------------------------
@@ -142,7 +144,7 @@ class TestDowngradeChain:
 
             upgrade()
 
-            expected_chain = ["0003", "0002", "0001", None]
+            expected_chain = ["0004", "0003", "0002", "0001", None]
             for expected_rev in expected_chain:
                 downgrade(revision="-1")
                 row = db.session.execute(
@@ -177,7 +179,7 @@ class TestRoundTrip:
             row = db.session.execute(
                 sa.text("SELECT version_num FROM alembic_version")
             ).scalar()
-            assert row == "0004"
+            assert row == "0005"
 
 
 # ---------------------------------------------------------------------------
@@ -199,7 +201,7 @@ class TestRevisionChain:
             revisions = list(script.walk_revisions())
             ids = [r.revision for r in revisions]
             # walk_revisions returns newest-first
-            assert ids == ["0004", "0003", "0002", "0001"], (
+            assert ids == ["0005", "0004", "0003", "0002", "0001"], (
                 f"Unexpected revision order: {ids}"
             )
 
