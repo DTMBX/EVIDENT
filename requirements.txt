@@ -1,1 +1,5 @@
--r backend/requirements.txt
+# Evident Technologies — Python dependencies
+# Thin pointer: pulls in the core production stack only.
+# For the full forensic pipeline, install requirements/dev.txt
+# or individual slices (extraction, ml, crypto, media).
+-r requirements/base.txt

@@ -80,7 +80,7 @@
       const item = document.createElement('li');
       const link = document.createElement('a');
       link.href = '#' + section.id;
-      link.className = 'case-quick-nav-link';
+      link.className = 'case-quick-nav__link';
       link.textContent = heading.textContent.trim();
 
       item.appendChild(link);
@@ -122,7 +122,7 @@
       }
     });
 
-    nav.querySelectorAll('.case-quick-nav__link').forEach((link) => {
+    nav.querySelectorAll('.case-quick-nav-link').forEach((link) => {
       link.classList.remove('is-active');
       if (current && link.getAttribute('href') === '#' + current.id) {
         link.classList.add('is-active');
