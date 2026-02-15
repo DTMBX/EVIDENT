@@ -6,6 +6,11 @@ name: Build and Deploy Pages (Eleventy)
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - 'maui/**'
+      - 'windows-package/**'
+      - '*.md'
+      - '.vscode/**'
   workflow_dispatch: {}
 
 env:
@@ -18,8 +23,8 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
-  cancel-in-progress: false
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -39,6 +44,16 @@ jobs:
           cache: 'npm'
           cache-dependency-path: 'package-lock.json'
 
+      - name: Cache Eleventy
+        uses: actions/cache@v4
+        with:
+          path: |
+            .cache
+            _site/.cache
+          key: eleventy-${{ runner.os }}-${{ hashFiles('src/**', '.eleventy.js') }}
+          restore-keys: |
+            eleventy-${{ runner.os }}-
+
       - name: Install dependencies
         run: npm ci --no-audit --no-fund --prefer-offline
 
@@ -51,14 +66,7 @@ jobs:
           ELEVENTY_ENV: production
 
       - name: Verify build output
-        run: |
-          if [ ! -f _site/index.html ]; then
-            echo "ERROR: Build failed - _site/index.html not found"
-            exit 1
-          fi
-          page_count=$(find _site -name '*.html' | wc -l)
-          echo "Build verification passed: ${page_count} HTML pages"
-          du -sh _site 2>/dev/null || true
+        run: node scripts/pages-verify.js
 
       - name: Check for broken internal links
         continue-on-error: true

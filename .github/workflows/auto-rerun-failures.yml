@@ -12,8 +12,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Re-run failed workflow jobs (up to 3 attempts)
-        uses: peter-evans/re-run-workflow@v3
+        uses: actions/github-script@v7
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          run_id: ${{ github.event.workflow_run.id }}
-          rerun_mode: "failed_jobs"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const runId = ${{ github.event.workflow_run.id }};
+            const attempt = ${{ github.event.workflow_run.run_attempt }};
+            console.log(`Rerunning failed jobs for run ${runId} (attempt ${attempt + 1})`);
+            await github.rest.actions.reRunWorkflowFailedJobs({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              run_id: runId
+            });
+            console.log('Rerun triggered successfully');

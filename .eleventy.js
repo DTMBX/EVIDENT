@@ -1,6 +1,9 @@
 const fs = require('fs');
 
 module.exports = function (eleventyConfig) {
+  // GitHub Pages custom domain
+  eleventyConfig.addPassthroughCopy('CNAME');
+
   // Assets passthrough with key static files
   // 1. Specific root assets needed by templates but not in src/assets/
   eleventyConfig.addPassthroughCopy({ 'assets/css/style.css': 'assets/css/style.css' });
