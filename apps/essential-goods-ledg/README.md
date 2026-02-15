@@ -77,17 +77,17 @@ Navigate to `/#icons` to see the complete icon system showcase with usage exampl
 
 ## 🚀 Getting Started
 
-This is a Spark application built with:
+This is a web application built with:
 - **React 19** + **TypeScript**
 - **Tailwind CSS v4** with custom theme
 - **Shadcn UI v4** components
 - **Framer Motion** for animations
 - **D3.js** for data visualization
-- **Spark KV** for persistent storage
+- **localStorage KV** for persistent storage
 
 ### Development
 
-The app runs automatically in your Spark environment. Simply navigate between views:
+Install dependencies and start the dev server:
 
 - **Home** - Dashboard overview with basket snapshot
 - **Explore** - Browse original 8-item catalog
@@ -236,7 +236,7 @@ See [API Integration Guide](./API_INTEGRATION_GUIDE.md) for:
 - **Transparent Calculations** - Deterministic and reproducible
 - **Audit Logs** - Complete provenance tracking
 - **No Financial Advice** - Educational tool with clear disclaimers
-- **Client-Side Storage** - User preferences via Spark KV
+- **Client-Side Storage** - User preferences via localStorage KV
 
 ---
 
@@ -256,7 +256,7 @@ All icons available in three weights (thin, regular, bold) and fully scalable.
 
 ## 📝 License
 
-The Spark Template files and resources from GitHub are licensed under the terms of the MIT license, Copyright GitHub, Inc.
+Proprietary - Evident Technologies. All rights reserved.
 
 ---
 

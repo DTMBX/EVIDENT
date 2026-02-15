@@ -1,23 +1,23 @@
-# ✨ Welcome to Your Spark Template!
-You've just launched your brand-new Spark Template Codespace — everything’s fired up and ready for you to explore, build, and create with Spark!
+# Epstein Library
 
-This template is your blank canvas. It comes with a minimal setup to help you get started quickly with Spark development.
+DOJ evidence analysis platform with multi-engine document processing, source verification scoring, and chronological timeline reconstruction.
 
-🚀 What's Inside?
-- A clean, minimal Spark environment
-- Pre-configured for local development
-- Ready to scale with your ideas
-  
-🧠 What Can You Do?
+Part of the [Evident Technologies](https://evident.icu) ecosystem.
 
-Right now, this is just a starting point — the perfect place to begin building and testing your Spark applications.
+## Tech Stack
 
-🧹 Just Exploring?
-No problem! If you were just checking things out and don’t need to keep this code:
+- TypeScript, React 18, Vite
+- Tailwind CSS, Radix UI, Phosphor Icons
+- localStorage-based KV persistence
+- Multi-engine analysis (forensic, intelligence, academic)
 
-- Simply delete your Spark.
-- Everything will be cleaned up — no traces left behind.
+## Development
 
-📄 License For Spark Template Resources 
+```bash
+npm install
+npm run dev
+```
 
-The Spark Template files and resources from GitHub are licensed under the terms of the MIT license, Copyright GitHub, Inc.
+## License
+
+Proprietary - Evident Technologies. All rights reserved.

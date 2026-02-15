@@ -60,7 +60,7 @@ This platform demonstrates comprehensive capabilities for processing and analyzi
 - Tailwind CSS v4 with custom dark theme
 - shadcn/ui component library (v4)
 - Phosphor Icons for visual consistency
-- Browser-based persistence via Spark KV
+- Browser-based persistence via localStorage KV
 - Sample data demonstrating 3M+ document-scale concepts
 
 ## 🧠 Architecture
@@ -92,6 +92,6 @@ This is a **UI prototype** demonstrating patterns for a full-stack implementatio
 - **Evidence-first UX**: Provenance panels, confidence bars, citation links throughout
 - **Accessibility**: WCAG AA contrast ratios, keyboard navigation, clear status indicators
 
-## 📄 License
+## License
 
-The Spark Template files and resources from GitHub are licensed under the terms of the MIT license, Copyright GitHub, Inc.
+Proprietary - Evident Technologies. All rights reserved.
