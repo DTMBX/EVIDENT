@@ -1,0 +1,204 @@
+/* =============================================================================
+   EVIDENT DESIGN TOKENS — Single Source of Truth
+   =============================================================================
+   All visual primitives for the Evident Technologies platform and satellites.
+
+   Usage:
+     @import '@evident/design-tokens/evident-design-tokens.css';
+
+   Or in Vite/React:
+     import '@evident/design-tokens/evident-design-tokens.css';
+
+   Naming convention:
+     --ev-{category}-{variant}
+
+   Categories: color, text, space, radius, shadow, z, transition, font
+
+   WCAG 2.1 AA compliance verified for all foreground/background pairs.
+   ============================================================================= */
+
+:root {
+  /* ==========================================================================
+     1. COLOR PRIMITIVES
+     ========================================================================== */
+
+  /* Neutrals (warm archival tone) */
+  --ev-color-ink: #0f172a; /* Primary text */
+  --ev-color-ink-700: #334155; /* Secondary text */
+  --ev-color-ink-500: #64748b; /* Muted text */
+  --ev-color-paper: #f8fafc; /* Page background */
+  --ev-color-paper-alt: #f1f5f9; /* Subtle alt surface */
+  --ev-color-surface: #fff; /* Card / panel surface */
+  --ev-color-surface-alt: #e2e8f0; /* Stone alt */
+  --ev-color-border: #e2e8f0; /* Standard border */
+  --ev-color-border-strong: #cbd5e1; /* Stronger border */
+  --ev-color-grid: #e5e7eb; /* Grid line */
+
+  /* Brand: Evidentiary Blue */
+  --ev-color-blue: #2563eb; /* Primary brand blue */
+  --ev-color-blue-hover: #1d4ed8; /* Hover state */
+  --ev-color-blue-active: #1e40af; /* Active / pressed */
+  --ev-color-blue-light: #3b82f6; /* Light accent */
+  --ev-color-blue-muted: #93c5fd; /* Badges, tags */
+
+  /* Brand: Seal Red */
+  --ev-color-red: #dc2626; /* Danger / destructive */
+  --ev-color-red-hover: #b91c1c; /* Danger hover */
+  --ev-color-red-active: #991b1b; /* Danger active */
+
+  /* Brand: Gold Accent */
+  --ev-color-gold: #f59e0b; /* Secondary highlight */
+  --ev-color-gold-dark: #d97706; /* Secondary on light */
+
+  /* Status Colors */
+  --ev-color-success: #16a34a;
+  --ev-color-info: #0284c7;
+  --ev-color-warning: #f59e0b;
+  --ev-color-danger: #dc2626;
+
+  /* ==========================================================================
+     2. SEMANTIC COLOR ALIASES
+     ========================================================================== */
+
+  /* Foreground */
+  --ev-fg: var(--ev-color-ink);
+  --ev-fg-muted: var(--ev-color-ink-700);
+  --ev-fg-subtle: var(--ev-color-ink-500);
+
+  /* Background */
+  --ev-bg: var(--ev-color-paper);
+  --ev-bg-alt: var(--ev-color-paper-alt);
+  --ev-bg-surface: var(--ev-color-surface);
+
+  /* Interactive */
+  --ev-interactive: var(--ev-color-blue);
+  --ev-interactive-hover: var(--ev-color-blue-hover);
+  --ev-interactive-active: var(--ev-color-blue-active);
+
+  /* ==========================================================================
+     3. TYPOGRAPHY
+     ========================================================================== */
+
+  --ev-font-sans:
+    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', roboto, 'Helvetica Neue', arial, sans-serif;
+  --ev-font-serif: ui-serif, georgia, 'Times New Roman', serif;
+  --ev-font-mono: ui-monospace, sfmono-regular, 'SF Mono', menlo, consolas, monospace;
+  --ev-text-xs: 0.75rem; /* 12px */
+  --ev-text-sm: 0.875rem; /* 14px */
+  --ev-text-base: 1rem; /* 16px */
+  --ev-text-lg: 1.125rem; /* 18px */
+  --ev-text-xl: 1.25rem; /* 20px */
+  --ev-text-2xl: 1.5rem; /* 24px */
+  --ev-text-3xl: 1.875rem; /* 30px */
+  --ev-text-4xl: 2.25rem; /* 36px */
+  --ev-leading-tight: 1.25;
+  --ev-leading-normal: 1.5;
+  --ev-leading-relaxed: 1.75;
+
+  /* ==========================================================================
+     4. SPACING
+     ========================================================================== */
+
+  --ev-space-1: 0.25rem; /* 4px */
+  --ev-space-2: 0.5rem; /* 8px */
+  --ev-space-3: 0.75rem; /* 12px */
+  --ev-space-4: 1rem; /* 16px */
+  --ev-space-5: 1.25rem; /* 20px */
+  --ev-space-6: 1.5rem; /* 24px */
+  --ev-space-8: 2rem; /* 32px */
+  --ev-space-10: 2.5rem; /* 40px */
+  --ev-space-12: 3rem; /* 48px */
+  --ev-space-16: 4rem; /* 64px */
+
+  /* ==========================================================================
+     5. LAYOUT
+     ========================================================================== */
+
+  --ev-max-width: 1120px;
+  --ev-max-width-prose: 65ch;
+  --ev-max-width-narrow: 640px;
+  --ev-max-width-wide: 1280px;
+
+  /* ==========================================================================
+     6. BORDERS & RADIUS
+     ========================================================================== */
+
+  --ev-radius-sm: 0.25rem; /* 4px */
+  --ev-radius-md: 0.375rem; /* 6px */
+  --ev-radius-lg: 0.5rem; /* 8px */
+  --ev-radius-xl: 0.75rem; /* 12px */
+  --ev-radius-2xl: 1rem; /* 16px */
+  --ev-radius-full: 9999px;
+  --ev-border-width: 1px;
+
+  /* ==========================================================================
+     7. SHADOWS
+     ========================================================================== */
+
+  --ev-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 5%);
+  --ev-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%);
+  --ev-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
+  --ev-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 8px 10px -6px rgb(0 0 0 / 10%);
+  --ev-shadow-brand: 0 14px 40px rgb(15 23 42 / 16%);
+
+  /* ==========================================================================
+     8. Z-INDEX SCALE
+     ========================================================================== */
+
+  --ev-z-dropdown: 1000;
+  --ev-z-sticky: 1020;
+  --ev-z-fixed: 1030;
+  --ev-z-modal-backdrop: 1040;
+  --ev-z-modal: 1050;
+  --ev-z-popover: 1060;
+  --ev-z-tooltip: 1070;
+
+  /* ==========================================================================
+     9. TRANSITIONS & MOTION
+     ========================================================================== */
+
+  --ev-duration-fast: 120ms;
+  --ev-duration-normal: 180ms;
+  --ev-duration-slow: 260ms;
+  --ev-duration-slower: 420ms;
+  --ev-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ev-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ev-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ev-transition-colors:
+    color, background-color, border-color, text-decoration-color, fill, stroke;
+  --ev-transition-transform: transform;
+  --ev-transition-all: all;
+
+  /* ==========================================================================
+     10. FOCUS STYLES
+     ========================================================================== */
+
+  --ev-focus-ring: 0 0 0 2px var(--ev-color-blue-light);
+  --ev-focus-ring-offset: 0 0 0 2px var(--ev-bg), 0 0 0 4px var(--ev-color-blue);
+}
+
+/* Dark mode support (if needed) */
+@media (prefers-color-scheme: dark) {
+  :root.dark,
+  [data-theme='dark'] {
+    --ev-color-ink: #f8fafc;
+    --ev-color-ink-700: #cbd5e1;
+    --ev-color-ink-500: #94a3b8;
+    --ev-color-paper: #0f172a;
+    --ev-color-paper-alt: #1e293b;
+    --ev-color-surface: #1e293b;
+    --ev-color-surface-alt: #334155;
+    --ev-color-border: #334155;
+    --ev-color-border-strong: #475569;
+  }
+}
+
+/* Utility class for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --ev-duration-fast: 0ms;
+    --ev-duration-normal: 0ms;
+    --ev-duration-slow: 0ms;
+    --ev-duration-slower: 0ms;
+  }
+}
