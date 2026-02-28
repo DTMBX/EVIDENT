@@ -1,0 +1,1062 @@
+---
+layout: default
+title: Pricing - Evident Technologies
+description: >-
+  Transparent pricing for legal professionals, pro se individuals, and firms.
+  Choose the plan that fits your practice.
+---
+
+<!-- Hero Section -->
+<section class="section-dark hero-section" style="padding-block: var(--space-16)">
+  <div class="container text-center">
+    <h1>Transparent Pricing</h1>
+    <p class="hero-subtitle" style="max-width: 680px; margin-inline: auto; margin-top: var(--space-4)">
+      From pro se individuals to enterprise firms. Every plan includes core
+      evidence integrity features: SHA-256 hashing, immutable storage, and
+      full audit trails.
+    </p>
+    <div
+      class="billing-toggle"
+      role="radiogroup"
+      aria-label="Billing frequency"
+    >
+      <button
+        class="billing-toggle__btn billing-toggle__btn--active"
+        data-billing="monthly"
+        role="radio"
+        aria-checked="true"
+        type="button"
+      >
+        Monthly
+      </button>
+      <button
+        class="billing-toggle__btn"
+        data-billing="annual"
+        role="radio"
+        aria-checked="false"
+        type="button"
+      >
+        Annual <span class="billing-toggle__save">Save 20%</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Founding Member Banner -->
+<section class="ev-section-accent" style="padding-block: var(--space-8)">
+  <div class="container text-center">
+    <h2 style="font-size: var(--text-2xl)">Founding Member Rates</h2>
+    <p style="max-width: 640px; margin-inline: auto; margin-top: var(--space-3)">
+      Limited founding-member spots available. Early supporters lock in a
+      permanently discounted rate. Institutional discounts available for
+      public defenders and legal aid organizations.
+    </p>
+  </div>
+</section>
+
+<!-- Pricing Cards -->
+<section style="padding-block: var(--space-16); background: var(--bg-primary)">
+  <div class="container">
+
+    <!-- Primary row: Free / Weekly / Pro -->
+    <div class="ev-pricing-grid ev-pricing-grid--3">
+
+      <!-- Free Tier -->
+      <div class="ev-pricing-card">
+        <div class="ev-pricing-card__header">
+          <h3>Free</h3>
+          <div class="ev-pricing-card__price">
+            <span class="ev-pricing-card__amount">$0</span>
+            <span class="ev-pricing-card__period">/month</span>
+          </div>
+          <p class="ev-pricing-card__desc">
+            Evaluate the platform. No credit card required.
+          </p>
+        </div>
+        <ul class="ev-pricing-card__features" role="list">
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> 3 case analyses per month</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> PDF upload (20 pages max)</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Basic OCR</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> 10 MB document storage</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Basic search</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> SHA-256 evidence hashing</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Community support</li>
+          <li class="ev-pricing-card__unavailable"><span aria-hidden="true">&mdash;</span> No video processing</li>
+          <li class="ev-pricing-card__unavailable"><span aria-hidden="true">&mdash;</span> No cross-analysis</li>
+          <li class="ev-pricing-card__unavailable"><span aria-hidden="true">&mdash;</span> No export</li>
+        </ul>
+        <a href="{{ '/signup' | relative_url }}" class="btn btn-secondary btn-block">
+          Get Started Free
+        </a>
+      </div>
+
+      <!-- Weekly Access -->
+      <div class="ev-pricing-card">
+        <div class="ev-pricing-card__header">
+          <h3>Weekly Access</h3>
+          <div class="ev-pricing-card__price">
+            <span class="ev-pricing-card__amount">$9<sup>.99</sup></span>
+            <span class="ev-pricing-card__period">/week</span>
+          </div>
+          <p class="ev-pricing-card__founding">
+            Founding: <strong>$7.99/week</strong>
+          </p>
+          <p class="ev-pricing-card__desc">
+            For pro se individuals. Short-term access for your case.
+          </p>
+        </div>
+        <ul class="ev-pricing-card__features" role="list">
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> 5 cases per week</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> PDF upload (100 pages max)</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Full OCR processing</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> 500 MB document storage</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> 30 min video processing</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> 3 cross-analyses per week</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Timeline &amp; witness generation</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Full search</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Export to PDF/Word</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Credit add-on eligible</li>
+        </ul>
+        <a href="{{ '/signup?plan=weekly' | relative_url }}" class="btn btn-primary btn-block">
+          Start Weekly Access
+        </a>
+      </div>
+
+      <!-- Professional -->
+      <div class="ev-pricing-card ev-pricing-card--featured">
+        <span class="ev-pricing-card__badge">Most Popular</span>
+        <div class="ev-pricing-card__header">
+          <h3>Professional</h3>
+          <div class="ev-pricing-card__price" data-monthly="79" data-annual="63">
+            <span class="ev-pricing-card__amount">$79</span>
+            <span class="ev-pricing-card__period">/month</span>
+          </div>
+          <p class="ev-pricing-card__founding">
+            Founding: <strong>$49/month</strong> (limited spots)
+          </p>
+          <p class="ev-pricing-card__desc">
+            Solo attorneys and paralegals. Full processing power.
+          </p>
+        </div>
+        <ul class="ev-pricing-card__features" role="list">
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> 50 cases per month</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> PDF upload (400 pages max)</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Full OCR + batch processing</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> 5 GB document storage</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> 5 hours video/month</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> 25 cross-analyses per month</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Case law integration</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Citation validation</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Export to PDF/Word</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Email support</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Credit add-on eligible</li>
+        </ul>
+        <a href="{{ '/signup?plan=pro' | relative_url }}" class="btn btn-primary btn-block">
+          Start 14-Day Free Trial
+        </a>
+      </div>
+    </div>
+
+    <!-- Secondary row: Premium / Enterprise Windows -->
+    <div class="ev-pricing-grid ev-pricing-grid--2 mt-12">
+
+      <!-- Premium -->
+      <div class="ev-pricing-card">
+        <div class="ev-pricing-card__header">
+          <h3>Premium</h3>
+          <div class="ev-pricing-card__price" data-monthly="199" data-annual="159">
+            <span class="ev-pricing-card__amount">$199</span>
+            <span class="ev-pricing-card__period">/month</span>
+          </div>
+          <p class="ev-pricing-card__founding">
+            Founding: <strong>$149/month</strong> (limited spots)
+          </p>
+          <p class="ev-pricing-card__desc">
+            Small firms (2&ndash;10 attorneys). Team features included.
+          </p>
+        </div>
+        <ul class="ev-pricing-card__features" role="list">
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Unlimited cases</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> PDF upload (400 pages max)</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Full OCR + batch processing</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> 25 GB document storage</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> 20 hours video/month</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Unlimited cross-analyses</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Unlimited timelines &amp; witness lists</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Case law integration</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Citation validation</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Team collaboration</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> API access</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Priority support</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Credit add-on eligible</li>
+        </ul>
+        <a href="{{ '/signup?plan=premium' | relative_url }}" class="btn btn-primary btn-block">
+          Start 14-Day Free Trial
+        </a>
+      </div>
+
+      <!-- Enterprise Windows -->
+      <div class="ev-pricing-card ev-pricing-card--enterprise">
+        <span class="ev-pricing-card__badge ev-pricing-card__badge--enterprise">Air-Gap Ready</span>
+        <div class="ev-pricing-card__header">
+          <h3>Enterprise Windows</h3>
+          <div class="ev-pricing-card__price">
+            <span class="ev-pricing-card__amount">$2,499</span>
+            <span class="ev-pricing-card__period">one-time</span>
+          </div>
+          <p class="ev-pricing-card__founding">
+            Founding: <strong>$1,999</strong> &mdash; perpetual license
+          </p>
+          <p class="ev-pricing-card__desc">
+            Fully local. Your machine. Your API keys. No data leaves your premises.
+          </p>
+        </div>
+        <ul class="ev-pricing-card__features" role="list">
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Everything in Premium</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> 100% local processing</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Zero network dependency</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Use your own API keys</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Unlimited everything</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Local encrypted storage</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Exportable audit logs for court</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Custom integrations</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Additional seats: $999/each</li>
+          <li><span class="ev-check" aria-hidden="true">&#10003;</span> Optional updates (not forced)</li>
+        </ul>
+        <a
+          href="{{ '/contact?subject=enterprise-windows' | relative_url }}"
+          class="btn btn-secondary btn-block"
+        >
+          Request License
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Credit Add-Ons -->
+<section class="section-dark" style="padding-block: var(--space-16)">
+  <div class="container">
+    <h2 class="text-center" style="font-size: var(--text-3xl)">Credit Add-Ons</h2>
+    <p class="text-center ev-section-subtitle">
+      Exceed your tier limits without upgrading. Available for Weekly, Pro, and Premium plans.
+    </p>
+    <div class="ev-credit-grid">
+      <div class="ev-credit-card">
+        <h4>Starter Pack</h4>
+        <p class="ev-credit-card__price">$4.99</p>
+        <ul>
+          <li>50 PDF pages (OCR)</li>
+          <li>15 minutes video</li>
+        </ul>
+      </div>
+      <div class="ev-credit-card">
+        <h4>Standard Pack</h4>
+        <p class="ev-credit-card__price">$14.99</p>
+        <ul>
+          <li>200 PDF pages (OCR)</li>
+          <li>60 minutes video</li>
+        </ul>
+      </div>
+      <div class="ev-credit-card">
+        <h4>Bulk Pack</h4>
+        <p class="ev-credit-card__price">$39.99</p>
+        <ul>
+          <li>750 PDF pages (OCR)</li>
+          <li>300 minutes video</li>
+        </ul>
+      </div>
+      <div class="ev-credit-card">
+        <h4>Storage Add-On</h4>
+        <p class="ev-credit-card__price">$2.99<span class="ev-credit-card__unit">/GB/mo</span></p>
+        <ul>
+          <li>Additional evidence storage</li>
+          <li>Same encryption &amp; integrity</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Security Summary -->
+<section style="padding-block: var(--space-16); background: var(--bg-primary)">
+  <div class="container">
+    <h2 class="text-center" style="font-size: var(--text-3xl)">Security Across All Plans</h2>
+    <div class="ev-security-grid">
+      <div class="ev-security-item">
+        <h4>Encrypted in Transit</h4>
+        <p>TLS 1.3 enforced on every connection. HSTS with one-year duration.</p>
+      </div>
+      <div class="ev-security-item">
+        <h4>Encrypted at Rest</h4>
+        <p>AES-256 server-side encryption on all stored evidence.</p>
+      </div>
+      <div class="ev-security-item">
+        <h4>Evidence Integrity</h4>
+        <p>SHA-256 hashing at ingest. Originals are immutable. Append-only audit logs.</p>
+      </div>
+      <div class="ev-security-item">
+        <h4>Access Control</h4>
+        <p>
+          Role-based permissions. API token authentication. Optional
+          two-factor authentication.
+        </p>
+      </div>
+    </div>
+    <p class="text-center ev-security-note">
+      Enterprise Windows users benefit from fully local, air-gapped processing.
+      No data leaves the machine. Consult your firm's IT policy to determine
+      which deployment model is appropriate.
+    </p>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="section-dark" style="padding-block: var(--space-16)">
+  <div class="container">
+    <h2 class="text-center" style="font-size: var(--text-3xl); margin-bottom: var(--space-8)">
+      Frequently Asked Questions
+    </h2>
+    <div class="ev-faq-list">
+      <details class="ev-faq-item">
+        <summary class="ev-faq-item__question">Can I change plans later?</summary>
+        <p class="ev-faq-item__answer">
+          Yes. Upgrade or downgrade at any time. Changes take effect on your
+          next billing cycle. Unused credits carry over once.
+        </p>
+      </details>
+      <details class="ev-faq-item">
+        <summary class="ev-faq-item__question">Is there a free trial?</summary>
+        <p class="ev-faq-item__answer">
+          Professional and Premium plans include a 14-day free trial. No credit
+          card required to start. Weekly Access does not include a trial period.
+        </p>
+      </details>
+      <details class="ev-faq-item">
+        <summary class="ev-faq-item__question">
+          Is my data safe for attorney-client privileged material?
+        </summary>
+        <p class="ev-faq-item__answer">
+          The web platform encrypts data in transit (TLS 1.3) and at rest
+          (AES-256). For firms requiring full data sovereignty, the Enterprise
+          Windows program processes everything locally with zero network
+          dependency.
+        </p>
+      </details>
+      <details class="ev-faq-item">
+        <summary class="ev-faq-item__question">What are credit add-ons?</summary>
+        <p class="ev-faq-item__answer">
+          Credits let you exceed your plan's included limits without upgrading.
+          Purchase additional PDF processing pages, video minutes, or storage as
+          needed. Credits roll over once (one billing cycle) then expire.
+        </p>
+      </details>
+      <details class="ev-faq-item">
+        <summary class="ev-faq-item__question">What payment methods do you accept?</summary>
+        <p class="ev-faq-item__answer">
+          All major credit cards for web plans. Enterprise Windows accepts
+          credit card, wire transfer, or purchase order.
+        </p>
+      </details>
+      <details class="ev-faq-item">
+        <summary class="ev-faq-item__question">Do you offer discounts?</summary>
+        <p class="ev-faq-item__answer">
+          Annual billing saves 20%. Founding member rates lock in permanently.
+          Special rates available for public defenders and legal aid organizations.
+        </p>
+      </details>
+      <details class="ev-faq-item">
+        <summary class="ev-faq-item__question">
+          What does the Enterprise Windows license include?
+        </summary>
+        <p class="ev-faq-item__answer">
+          A perpetual license to run Evident locally on one machine. You supply
+          your own API keys (e.g., OpenAI). No ongoing subscription. Additional
+          seats at $999 each. Optional major version upgrades at 40% of license
+          price.
+        </p>
+      </details>
+      <details class="ev-faq-item">
+        <summary class="ev-faq-item__question">
+          I'm representing myself (pro se). Which plan?
+        </summary>
+        <p class="ev-faq-item__answer">
+          Weekly Access at $9.99/week is designed for pro se individuals. Pay
+          only for the weeks you need. Add credit packs if you need more
+          processing capacity.
+        </p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="ev-section-accent" style="padding-block: var(--space-12)">
+  <div class="container text-center">
+    <h2 style="font-size: var(--text-3xl)">Preserve the Record. Present the Truth.</h2>
+    <p style="margin-top: var(--space-3); margin-bottom: var(--space-6)">
+      Evidence integrity starts with the right tools. Try Evident risk-free.
+    </p>
+    <a href="{{ '/signup' | relative_url }}" class="btn btn-primary btn-lg">
+      Start 14-Day Free Trial
+    </a>
+  </div>
+</section>
+
+<!-- Structured Data: Pricing offers -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Evident Technologies Pricing",
+  "description": "Transparent pricing for legal professionals.",
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Product",
+          "name": "Evident Free",
+          "description": "Evaluate the platform. Core evidence hashing and basic OCR.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "Product",
+          "name": "Evident Weekly Access",
+          "description": "Short-term access for pro se individuals.",
+          "offers": {
+            "@type": "Offer",
+            "price": "9.99",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "billingDuration": "P1W"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "Product",
+          "name": "Evident Professional",
+          "description": "Full processing for solo attorneys and paralegals.",
+          "offers": {
+            "@type": "Offer",
+            "price": "79",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "billingDuration": "P1M"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": "Product",
+          "name": "Evident Premium",
+          "description": "Team collaboration for small firms.",
+          "offers": {
+            "@type": "Offer",
+            "price": "199",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "billingDuration": "P1M"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "item": {
+          "@type": "Product",
+          "name": "Evident Enterprise Windows",
+          "description": "Air-gapped, fully local perpetual license.",
+          "offers": {
+            "@type": "Offer",
+            "price": "2499",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      }
+    ]
+  }
+}
+</script>
+
+<style>
+  /* ===========================================================================
+     PRICING PAGE — Component Styles
+     Scoped to pricing page. Uses design-system tokens from evident-core.css.
+     =========================================================================== */
+
+  /* ---- Accent section (founding banner, CTA) ---- */
+  .ev-section-accent {
+    background: linear-gradient(135deg, var(--evident-blue) 0%, var(--evident-blue-dark) 100%);
+    color: white;
+  }
+
+  .ev-section-accent h2 { color: white; }
+  .ev-section-accent p  { color: rgb(255 255 255 / 90%); }
+
+  /* ---- Billing toggle ---- */
+  .billing-toggle {
+    display: inline-flex;
+    margin-top: var(--space-6);
+    background: rgb(255 255 255 / 10%);
+    border-radius: var(--radius-full);
+    padding: var(--space-1);
+  }
+
+  .billing-toggle__btn {
+    padding: var(--space-2) var(--space-5);
+    border: none;
+    background: transparent;
+    color: rgb(255 255 255 / 70%);
+    cursor: pointer;
+    border-radius: var(--radius-full);
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    transition: background var(--transition-fast), color var(--transition-fast);
+  }
+
+  .billing-toggle__btn:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+  }
+
+  .billing-toggle__btn--active {
+    background: white;
+    color: var(--evident-blue-dark);
+  }
+
+  .billing-toggle__save {
+    display: inline-block;
+    font-size: var(--text-xs);
+    background: var(--success);
+    color: white;
+    padding: 0.1em 0.5em;
+    border-radius: var(--radius-full);
+    margin-inline-start: var(--space-1);
+    vertical-align: middle;
+    line-height: 1.6;
+  }
+
+  /* ---- Pricing grids ---- */
+  .ev-pricing-grid {
+    display: grid;
+    gap: var(--space-6);
+    max-width: 1100px;
+    margin-inline: auto;
+    align-items: stretch;
+  }
+
+  .ev-pricing-grid--3 {
+    grid-template-columns: 1fr;
+  }
+
+  .ev-pricing-grid--2 {
+    grid-template-columns: 1fr;
+    max-width: 780px;
+  }
+
+  @media (width >= 640px) {
+    .ev-pricing-grid--2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (width >= 768px) {
+    .ev-pricing-grid--3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* ---- Pricing card ---- */
+  .ev-pricing-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition:
+      transform var(--transition-base),
+      box-shadow var(--transition-base);
+  }
+
+  .ev-pricing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+  }
+
+  /* Featured (Pro) */
+  .ev-pricing-card--featured {
+    border: 2px solid var(--accent);
+    box-shadow: var(--shadow-lg);
+  }
+
+  @media (width >= 768px) {
+    .ev-pricing-card--featured {
+      transform: scale(1.03);
+      z-index: 1;
+    }
+
+    .ev-pricing-card--featured:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  /* Enterprise */
+  .ev-pricing-card--enterprise {
+    background: linear-gradient(135deg, var(--slate-900) 0%, var(--slate-800) 100%);
+    border-color: rgb(212 175 55 / 30%);
+    color: white;
+  }
+
+  .ev-pricing-card--enterprise h3,
+  .ev-pricing-card--enterprise h4 {
+    color: white;
+  }
+
+  .ev-pricing-card--enterprise p,
+  .ev-pricing-card--enterprise .ev-pricing-card__features li {
+    color: rgb(255 255 255 / 80%);
+  }
+
+  .ev-pricing-card--enterprise .ev-pricing-card__features li {
+    border-bottom-color: rgb(255 255 255 / 10%);
+  }
+
+  .ev-pricing-card--enterprise .ev-check {
+    color: #d4af37;
+  }
+
+  /* Badges */
+  .ev-pricing-card__badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+    color: white;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+
+  .ev-pricing-card__badge--enterprise {
+    background: linear-gradient(135deg, #d4af37, #b8962e);
+    color: var(--slate-900);
+  }
+
+  /* Card header */
+  .ev-pricing-card__header {
+    text-align: center;
+    padding-bottom: var(--space-5);
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: var(--space-5);
+  }
+
+  .ev-pricing-card--enterprise .ev-pricing-card__header {
+    border-bottom-color: rgb(255 255 255 / 10%);
+  }
+
+  .ev-pricing-card__header h3 {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-2);
+  }
+
+  /* Price display */
+  .ev-pricing-card__price {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: var(--space-1);
+  }
+
+  .ev-pricing-card__amount {
+    font-size: var(--text-5xl);
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .ev-pricing-card__amount sup {
+    font-size: 0.45em;
+    font-weight: 700;
+    vertical-align: super;
+  }
+
+  .ev-pricing-card--enterprise .ev-pricing-card__amount {
+    color: #d4af37;
+  }
+
+  .ev-pricing-card__period {
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+  }
+
+  .ev-pricing-card__founding {
+    margin-top: var(--space-2);
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+  }
+
+  .ev-pricing-card--enterprise .ev-pricing-card__founding {
+    color: rgb(255 255 255 / 60%);
+  }
+
+  .ev-pricing-card__desc {
+    margin-top: var(--space-2);
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+    line-height: 1.4;
+  }
+
+  .ev-pricing-card--enterprise .ev-pricing-card__desc {
+    color: rgb(255 255 255 / 60%);
+  }
+
+  /* Feature list */
+  .ev-pricing-card__features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-6) 0;
+    flex: 1;
+  }
+
+  .ev-pricing-card__features li {
+    padding: var(--space-3) 0;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--text-sm);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .ev-pricing-card__features li:last-child {
+    border-bottom: none;
+  }
+
+  .ev-check {
+    color: var(--success);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .ev-pricing-card__unavailable {
+    color: var(--text-muted) !important;
+  }
+
+  .ev-pricing-card__unavailable span {
+    flex-shrink: 0;
+  }
+
+  /* ---- Credit add-on cards ---- */
+  .ev-credit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-8);
+  }
+
+  .ev-credit-card {
+    background: rgb(255 255 255 / 5%);
+    border: 1px solid rgb(255 255 255 / 10%);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    text-align: center;
+    transition:
+      border-color var(--transition-fast),
+      background var(--transition-fast);
+  }
+
+  .ev-credit-card:hover {
+    border-color: rgb(255 255 255 / 25%);
+    background: rgb(255 255 255 / 8%);
+  }
+
+  .ev-credit-card h4 {
+    color: white;
+    margin-bottom: var(--space-2);
+  }
+
+  .ev-credit-card__price {
+    font-size: var(--text-3xl);
+    font-weight: 800;
+    color: var(--evident-amber);
+    margin-bottom: var(--space-4);
+  }
+
+  .ev-credit-card__unit {
+    font-size: var(--text-sm);
+    font-weight: 400;
+    color: rgb(255 255 255 / 50%);
+  }
+
+  .ev-credit-card ul {
+    list-style: none;
+    padding: 0;
+    text-align: start;
+  }
+
+  .ev-credit-card ul li {
+    padding: var(--space-1) 0;
+    color: rgb(255 255 255 / 70%);
+    font-size: var(--text-sm);
+  }
+
+  .ev-section-subtitle {
+    color: rgb(255 255 255 / 70%);
+    max-width: 560px;
+    margin-inline: auto;
+    margin-top: var(--space-3);
+    margin-bottom: 0;
+    font-size: var(--text-base);
+  }
+
+  /* ---- Security grid ---- */
+  .ev-security-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-8);
+  }
+
+  .ev-security-item {
+    text-align: center;
+    padding: var(--space-4);
+  }
+
+  .ev-security-item h4 {
+    color: var(--accent);
+    margin-bottom: var(--space-2);
+    font-size: var(--text-base);
+  }
+
+  .ev-security-item p {
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.6;
+  }
+
+  .ev-security-note {
+    margin-top: var(--space-8);
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+    max-width: 680px;
+    margin-inline: auto;
+  }
+
+  /* ---- FAQ ---- */
+  .ev-faq-list {
+    max-width: 800px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .ev-faq-item {
+    background: rgb(255 255 255 / 5%);
+    border: 1px solid rgb(255 255 255 / 10%);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: border-color var(--transition-fast);
+  }
+
+  .ev-faq-item[open] {
+    border-color: rgb(255 255 255 / 20%);
+  }
+
+  .ev-faq-item__question {
+    padding: var(--space-4) var(--space-5);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: var(--text-base);
+    color: white;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+
+  /* Custom marker */
+  .ev-faq-item__question::-webkit-details-marker {
+    display: none;
+  }
+
+  .ev-faq-item__question::marker {
+    content: '';
+  }
+
+  .ev-faq-item__question::after {
+    content: '+';
+    font-size: var(--text-xl);
+    font-weight: 300;
+    color: rgb(255 255 255 / 50%);
+    flex-shrink: 0;
+    transition: transform var(--transition-fast);
+  }
+
+  .ev-faq-item[open] .ev-faq-item__question::after {
+    content: '\2212'; /* minus sign */
+    transform: rotate(180deg);
+  }
+
+  .ev-faq-item__question:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+    border-radius: var(--radius-md);
+  }
+
+  .ev-faq-item__answer {
+    padding: 0 var(--space-5) var(--space-5);
+    color: rgb(255 255 255 / 75%);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+  }
+
+  /* ---- Reduced motion ---- */
+  @media (prefers-reduced-motion: reduce) {
+    .ev-pricing-card,
+    .ev-credit-card,
+    .billing-toggle__btn,
+    .ev-faq-item,
+    .ev-faq-item__question::after {
+      transition: none;
+    }
+
+    .ev-pricing-card:hover,
+    .ev-pricing-card--featured:hover {
+      transform: none;
+    }
+  }
+
+  /* ---- Dark mode overrides (for light-bg sections) ---- */
+  [data-theme='dark'] .ev-pricing-card:not(.ev-pricing-card--enterprise) {
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+  }
+
+  [data-theme='dark'] .ev-pricing-card__features li {
+    border-bottom-color: var(--border-color);
+  }
+
+  [data-theme='dark'] .ev-pricing-card__header {
+    border-bottom-color: var(--border-color);
+  }
+
+  [data-theme='dark'] .ev-security-item h4 {
+    color: var(--evident-blue-light);
+  }
+
+  /* ---- Print ---- */
+  @media print {
+    .billing-toggle,
+    .ev-section-accent,
+    .ev-faq-list {
+      display: none;
+    }
+
+    .ev-pricing-card {
+      break-inside: avoid;
+      page-break-inside: avoid;
+      box-shadow: none;
+      border: 1px solid #ccc;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    'use strict';
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // --- Billing toggle ---
+      var toggle = document.querySelector('.billing-toggle');
+      if (!toggle) return;
+
+      var buttons = toggle.querySelectorAll('.billing-toggle__btn');
+
+      function setActive(target) {
+        buttons.forEach(function (b) {
+          var isTarget = b === target;
+          b.classList.toggle('billing-toggle__btn--active', isTarget);
+          b.setAttribute('aria-checked', isTarget ? 'true' : 'false');
+          b.setAttribute('tabindex', isTarget ? '0' : '-1');
+        });
+        updatePrices(target.getAttribute('data-billing'));
+      }
+
+      function updatePrices(billing) {
+        var cards = document.querySelectorAll('.ev-pricing-card__price[data-monthly]');
+        cards.forEach(function (el) {
+          var amount = el.querySelector('.ev-pricing-card__amount');
+          var period = el.querySelector('.ev-pricing-card__period');
+          if (billing === 'annual') {
+            amount.textContent = '$' + el.getAttribute('data-annual');
+            period.textContent = '/month (billed annually)';
+          } else {
+            amount.textContent = '$' + el.getAttribute('data-monthly');
+            period.textContent = '/month';
+          }
+        });
+      }
+
+      // Click handling
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          setActive(btn);
+        });
+      });
+
+      // Keyboard: Arrow keys navigate within radiogroup
+      toggle.addEventListener('keydown', function (e) {
+        var idx = Array.prototype.indexOf.call(buttons, document.activeElement);
+        if (idx === -1) return;
+
+        var next = -1;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+          next = (idx + 1) % buttons.length;
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+          next = (idx - 1 + buttons.length) % buttons.length;
+        }
+
+        if (next !== -1) {
+          e.preventDefault();
+          buttons[next].focus();
+          setActive(buttons[next]);
+        }
+      });
+
+      // Initialize tabindex: active gets 0, others get -1
+      buttons.forEach(function (btn) {
+        btn.setAttribute(
+          'tabindex',
+          btn.classList.contains('billing-toggle__btn--active') ? '0' : '-1'
+        );
+      });
+    });
+  })();
+</script>
